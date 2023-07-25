@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package brokers.private.v1;
+
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/brokers/private/v1;brokerspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+message Message {
+    string name = 1;
+    bytes  data = 2;
+}
+
+message BroadcastArgument {
+    brokers.private.v1.Message message  = 1;
+    repeated string            subjects = 2;
+}
+
+message BroadcastRequest {
+    repeated brokers.private.v1.BroadcastArgument arguments = 1;
+}
+
+message BroadcastResponse {}

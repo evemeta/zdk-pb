@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package transponders.private.v1;
+
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/transponders/private/v1;transponderspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+enum Direction {
+    Direction_Unknown = 0;
+    Direction_Up      = 1;
+    Direction_Down    = 2;
+}

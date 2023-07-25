@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package websockets.private.v1;
+
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/websockets/private/v1;websocketspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+enum Zone {
+    Zone_Unknown      = 0;
+    Zone_Asia         = 1;
+    Zone_Africa       = 2;
+    Zone_Europe       = 3;
+    Zone_Oceania      = 4;
+    Zone_NorthAmerica = 5;
+    Zone_SouthAmerica = 6;
+}
+
+enum Status {
+    Status_Unknown     = 0;
+    Status_Initiating  = 1;
+    Status_Initiated   = 2;
+    Status_Terminating = 3;
+}

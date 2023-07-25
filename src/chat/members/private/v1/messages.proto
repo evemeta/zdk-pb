@@ -1,0 +1,142 @@
+syntax = "proto3";
+
+package members.private.v1;
+
+import "gateway/transponders/private/v1/messages.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/members/private/v1;memberspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+message Query {
+    int64                                 limit      = 1;
+    int64                                 offset     = 2;
+    repeated members.private.v1.Condition conditions = 3;
+}
+
+message Condition {
+    repeated string ids      = 1;
+    repeated string user_ids = 2;
+    repeated string chat_ids = 3;
+}
+
+message Transient {
+    members.private.v1.Member future   = 1;
+    members.private.v1.Member current  = 2;
+    members.private.v1.Member previous = 3;
+}
+
+message Member {
+    string id          = 1;
+    string user_id     = 2;
+    string chat_id     = 3;
+    int64  enter_time  = 4;
+    int64  leave_time  = 5;
+    int64  access_time = 6;
+    int64  create_time = 7;
+    int64  update_time = 8;
+}
+
+message CountArgument {
+    members.private.v1.Query query = 1;
+}
+
+message CountRequest {
+    repeated members.private.v1.CountArgument arguments = 1;
+}
+
+message CountResponse {
+    int64 total = 1;
+}
+
+message SelectArgument {
+    members.private.v1.Query query = 1;
+}
+
+message SelectRequest {
+    repeated members.private.v1.SelectArgument arguments = 1;
+}
+
+message SelectResponse {
+    repeated members.private.v1.Member members = 1;
+}
+
+message CreateArgument {
+    string id      = 1;
+    string user_id = 2;
+    string chat_id = 3;
+}
+
+message CreateRequest {
+    repeated members.private.v1.CreateArgument arguments = 1;
+}
+
+message CreateResponse {
+    repeated members.private.v1.Member members = 1;
+}
+
+message CreateMutation {
+    bool                                  closed     = 1;
+    members.private.v1.CreateArgument     foundation = 2;
+    members.private.v1.CreateCondition    condition  = 3;
+    repeated members.private.v1.Transient transient  = 4;
+}
+
+message CreateCondition {
+    repeated transponders.private.v1.CreateMutation create_transponder_mutations = 1;
+}
+
+message CreateMutationsTransaction {
+    repeated members.private.v1.CreateMutation mutations = 1;
+}
+
+message UpdateArgument {
+    members.private.v1.Query query   = 1;
+    optional string          user_id = 2;
+    optional string          chat_id = 3;
+}
+
+message UpdateRequest {
+    repeated members.private.v1.UpdateArgument arguments = 1;
+}
+
+message UpdateResponse {
+    repeated members.private.v1.Member members = 1;
+}
+
+message UpdateMutation {
+    bool                                  closed     = 1;
+    members.private.v1.UpdateArgument     foundation = 2;
+    repeated members.private.v1.Transient transient  = 3;
+}
+
+message UpdateMutationsTransaction {
+    repeated members.private.v1.UpdateMutation mutations = 1;
+}
+
+message DeleteArgument {
+    members.private.v1.Query query = 1;
+}
+
+message DeleteRequest {
+    repeated members.private.v1.DeleteArgument arguments = 1;
+}
+
+message DeleteResponse {
+    repeated members.private.v1.Member members = 1;
+}
+
+message DeleteMutation {
+    bool                                  closed     = 1;
+    members.private.v1.DeleteArgument     foundation = 2;
+    members.private.v1.DeleteCondition    condition  = 3;
+    repeated members.private.v1.Transient transient  = 4;
+}
+
+message DeleteCondition {
+    repeated transponders.private.v1.DeleteMutation delete_transponder_mutations = 1;
+}
+
+message DeleteMutationsTransaction {
+    repeated members.private.v1.DeleteMutation mutations = 1;
+}

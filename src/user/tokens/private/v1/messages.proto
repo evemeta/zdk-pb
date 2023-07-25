@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package tokens.private.v1;
+
+import "user/users/private/v1/enums.proto";
+import "user/users/private/v1/messages.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/user/tokens/private/v1;tokenspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+message CreateArgument {
+    string                               id          = 1;
+    string                               avatar      = 2;
+    string                               fullname    = 3;
+    string                               nickname    = 4;
+    repeated users.private.v1.Permission permissions = 5;
+}
+
+message CreateRequest {
+    repeated tokens.private.v1.CreateArgument arguments = 1;
+}
+
+message CreateResponse {
+    repeated string tokens = 1;
+}
+
+message ExtractArgument {
+    string token = 1;
+}
+
+message ExtractRequest {
+    repeated tokens.private.v1.ExtractArgument arguments = 1;
+}
+
+message ExtractResponse {
+    repeated users.private.v1.User users = 1;
+}
+
+message RefreshArgument {
+    string token = 1;
+}
+
+message RefreshRequest {
+    repeated tokens.private.v1.RefreshArgument arguments = 1;
+}
+
+message RefreshResponse {
+    repeated string tokens = 1;
+}

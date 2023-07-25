@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package tokens.public.v1;
+
+import "user/tokens/public/v1/messages.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/user/tokens/public/v1;tokenspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+service Service {
+
+    rpc Extract(ExtractRequest) returns (ExtractResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: Extract";
+            summary: "Extract";
+            operation_id: "Extract";
+        };
+    }
+
+    rpc Refresh(RefreshRequest) returns (RefreshResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: Refresh";
+            summary: "Refresh";
+            operation_id: "Refresh";
+        };
+    }
+}

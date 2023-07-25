@@ -1,0 +1,132 @@
+syntax = "proto3";
+
+package transponders.private.v1;
+
+import "gateway/transponders/private/v1/enums.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/transponders/private/v1;transponderspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+message Query {
+    int64                                      depth      = 1;
+    int64                                      limit      = 2;
+    int64                                      offset     = 3;
+    transponders.private.v1.Direction          direction  = 4;
+    repeated transponders.private.v1.Condition conditions = 5;
+}
+
+message Condition {
+    repeated string ids     = 1;
+    repeated string origins = 2;
+    repeated string targets = 3;
+}
+
+message Transient {
+    transponders.private.v1.Transponder future   = 1;
+    transponders.private.v1.Transponder current  = 2;
+    transponders.private.v1.Transponder previous = 3;
+}
+
+message Transponder {
+    string id          = 1;
+    string origin      = 2;
+    string target      = 3;
+    int64  access_time = 4;
+    int64  create_time = 5;
+    int64  update_time = 6;
+}
+
+message CountArgument {
+    transponders.private.v1.Query query = 1;
+}
+
+message CountRequest {
+    repeated transponders.private.v1.CountArgument arguments = 1;
+}
+
+message CountResponse {
+    int64 total = 1;
+}
+
+message SelectArgument {
+    transponders.private.v1.Query query = 1;
+}
+
+message SelectRequest {
+    repeated transponders.private.v1.SelectArgument arguments = 1;
+}
+
+message SelectResponse {
+    repeated transponders.private.v1.Transponder transponders = 1;
+}
+
+message CreateArgument {
+    string id     = 1;
+    string origin = 2;
+    string target = 3;
+}
+
+message CreateRequest {
+    repeated transponders.private.v1.CreateArgument arguments = 1;
+}
+
+message CreateResponse {
+    repeated transponders.private.v1.Transponder transponders = 1;
+}
+
+message CreateMutation {
+    bool                                       closed     = 1;
+    transponders.private.v1.CreateArgument     foundation = 2;
+    repeated transponders.private.v1.Transient transient  = 3;
+}
+
+message CreateMutationsTransaction {
+    repeated transponders.private.v1.CreateMutation mutations = 1;
+}
+
+message UpdateArgument {
+    transponders.private.v1.Query query  = 1;
+    optional string               origin = 2;
+    optional string               target = 3;
+}
+
+message UpdateRequest {
+    repeated transponders.private.v1.UpdateArgument arguments = 1;
+}
+
+message UpdateResponse {
+    repeated transponders.private.v1.Transponder transponders = 1;
+}
+
+message UpdateMutation {
+    bool                                       closed     = 1;
+    transponders.private.v1.UpdateArgument     foundation = 2;
+    repeated transponders.private.v1.Transient transient  = 3;
+}
+
+message UpdateMutationsTransaction {
+    repeated transponders.private.v1.UpdateMutation mutations = 1;
+}
+
+message DeleteArgument {
+    transponders.private.v1.Query query = 1;
+}
+
+message DeleteRequest {
+    repeated transponders.private.v1.DeleteArgument arguments = 1;
+}
+
+message DeleteResponse {
+    repeated transponders.private.v1.Transponder transponders = 1;
+}
+
+message DeleteMutation {
+    bool                                       closed     = 1;
+    transponders.private.v1.DeleteArgument     foundation = 2;
+    repeated transponders.private.v1.Transient transient  = 3;
+}
+
+message DeleteMutationsTransaction {
+    repeated transponders.private.v1.DeleteMutation mutations = 1;
+}

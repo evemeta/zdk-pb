@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package messages.public.server.v1;
+
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/messages/public/server/v1;messagespb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+message Message {
+    string id           = 1;
+    string user_id      = 2;
+    string chat_id      = 3;
+    string content      = 4;
+    int64  create_time  = 5;
+    int64  update_time  = 6;
+}
+
+message CreateMessagePacket {
+    messages.public.server.v1.Message message   = 1;
+    int64                             timestamp = 2;
+}
+
+message UpdateMessagePacket {
+    string          id        = 1;
+    optional string content   = 2;
+    int64           timestamp = 3;
+}
+
+message DeleteMessagePacket {
+    string id        = 1;
+    int64  timestamp = 2;
+}

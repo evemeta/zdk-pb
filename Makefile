@@ -1,0 +1,46 @@
+OS=
+ifeq ($(shell uname -s),Linux)
+	export OS=LINUX
+endif
+ifeq ($(shell uname -s),Darwin)
+	export OS=MACOS
+endif
+ifeq ($(findstring microsoft,$(shell uname -a)),microsoft)
+	export OS=WINDOWS
+endif
+
+export PROTOC_GEN_GO_VER=1.30.0
+export PROTOC_GEN_WEB_VER=1.3.1
+
+ifeq ($(OS),MACOS)
+init::
+	mkdir -p doc && \
+	mkdir -p bin && \
+	cd bin && \
+	rm -f protoc-gen-go && \
+	wget https://github.com/protocolbuffers/protobuf-go/releases/download/v${PROTOC_GEN_GO_VER}/protoc-gen-go.v${PROTOC_GEN_GO_VER}.darwin.amd64.tar.gz && \
+	tar -xf protoc-gen-go.v${PROTOC_GEN_GO_VER}.darwin.amd64.tar.gz && \
+	rm protoc-gen-go.v${PROTOC_GEN_GO_VER}.darwin.amd64.tar.gz && \
+	chmod +x protoc-gen-go && \
+	npm i
+else
+init::
+	mkdir -p doc && \
+	mkdir -p bin && \
+	cd bin && \
+	rm -f protoc-gen-go && \
+	wget https://github.com/protocolbuffers/protobuf-go/releases/download/v${PROTOC_GEN_GO_VER}/protoc-gen-go.v${PROTOC_GEN_GO_VER}.linux.amd64.tar.gz && \
+	tar -xf protoc-gen-go.v${PROTOC_GEN_GO_VER}.linux.amd64.tar.gz && \
+	rm protoc-gen-go.v${PROTOC_GEN_GO_VER}.linux.amd64.tar.gz && \
+	chmod +x protoc-gen-go && \
+    npm i
+endif
+
+ifeq ($(OS),WINDOWS)
+gen::
+	@dos2unix --quiet generate.sh
+	@./generate.sh
+else
+gen::
+	@./generate.sh
+endif

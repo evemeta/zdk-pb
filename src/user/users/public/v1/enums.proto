@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package users.public.v1;
+
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/user/users/public/v1;userspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+enum Permission {
+    Permission_Unknown            = 0;
+    Permission_Chat               = 1;
+    Permission_ChatSelect         = 2;
+    Permission_ChatCreate         = 3;
+    Permission_ChatUpdate         = 4;
+    Permission_ChatUpdateCooldown = 5;
+    Permission_ChatBypass         = 6;
+    Permission_ChatBypassCooldown = 7;
+}
