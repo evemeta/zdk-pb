@@ -27,30 +27,7 @@ message UpdateMemberPacket {
 }
 
 message DeleteMemberPacket {
-    string id        = 1;
-    int64  timestamp = 2;
+    string user_id   = 1;
+    string chat_id   = 2;
+    int64  timestamp = 3;
 }
-
-//
-
-message MuteMemberPacket {
-    string id = 1;
-    int64 timestamp = 2;
-}
-
-message UnmuteMemberPacket {
-    int64 timestamp = 1;
-}
-
-message BlockMemberPacket {
-    string id = 1;
-    string reason = 2;
-    int64 expire_time = 3;
-    int64 timestamp = 4;
-}
-
-// OnBlockMember(callback)
-// OnBlockMember(x => {
-// x.chat_id
-// x.user_id
-// })

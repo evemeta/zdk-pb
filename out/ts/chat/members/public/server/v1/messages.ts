@@ -71,56 +71,15 @@ export interface UpdateMemberPacket {
  */
 export interface DeleteMemberPacket {
     /**
-     * @generated from protobuf field: string id = 1;
+     * @generated from protobuf field: string user_id = 1;
      */
-    id: string;
+    userId: string;
     /**
-     * @generated from protobuf field: int64 timestamp = 2;
+     * @generated from protobuf field: string chat_id = 2;
      */
-    timestamp: bigint;
-}
-// 
-
-/**
- * @generated from protobuf message members.public.server.v1.MuteMemberPacket
- */
-export interface MuteMemberPacket {
+    chatId: string;
     /**
-     * @generated from protobuf field: string id = 1;
-     */
-    id: string;
-    /**
-     * @generated from protobuf field: int64 timestamp = 2;
-     */
-    timestamp: bigint;
-}
-/**
- * @generated from protobuf message members.public.server.v1.UnmuteMemberPacket
- */
-export interface UnmuteMemberPacket {
-    /**
-     * @generated from protobuf field: int64 timestamp = 1;
-     */
-    timestamp: bigint;
-}
-/**
- * @generated from protobuf message members.public.server.v1.BlockMemberPacket
- */
-export interface BlockMemberPacket {
-    /**
-     * @generated from protobuf field: string id = 1;
-     */
-    id: string;
-    /**
-     * @generated from protobuf field: string reason = 2;
-     */
-    reason: string;
-    /**
-     * @generated from protobuf field: int64 expire_time = 3;
-     */
-    expireTime: bigint;
-    /**
-     * @generated from protobuf field: int64 timestamp = 4;
+     * @generated from protobuf field: int64 timestamp = 3;
      */
     timestamp: bigint;
 }
@@ -318,12 +277,13 @@ export const UpdateMemberPacket = new UpdateMemberPacket$Type();
 class DeleteMemberPacket$Type extends MessageType<DeleteMemberPacket> {
     constructor() {
         super("members.public.server.v1.DeleteMemberPacket", [
-            { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 2, name: "timestamp", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 1, name: "user_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "chat_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 3, name: "timestamp", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value?: PartialMessage<DeleteMemberPacket>): DeleteMemberPacket {
-        const message = { id: "", timestamp: 0n };
+        const message = { userId: "", chatId: "", timestamp: 0n };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<DeleteMemberPacket>(this, message, value);
@@ -334,10 +294,13 @@ class DeleteMemberPacket$Type extends MessageType<DeleteMemberPacket> {
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* string id */ 1:
-                    message.id = reader.string();
+                case /* string user_id */ 1:
+                    message.userId = reader.string();
                     break;
-                case /* int64 timestamp */ 2:
+                case /* string chat_id */ 2:
+                    message.chatId = reader.string();
+                    break;
+                case /* int64 timestamp */ 3:
                     message.timestamp = reader.int64().toBigInt();
                     break;
                 default:
@@ -352,12 +315,15 @@ class DeleteMemberPacket$Type extends MessageType<DeleteMemberPacket> {
         return message;
     }
     internalBinaryWrite(message: DeleteMemberPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* string id = 1; */
-        if (message.id !== "")
-            writer.tag(1, WireType.LengthDelimited).string(message.id);
-        /* int64 timestamp = 2; */
+        /* string user_id = 1; */
+        if (message.userId !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.userId);
+        /* string chat_id = 2; */
+        if (message.chatId !== "")
+            writer.tag(2, WireType.LengthDelimited).string(message.chatId);
+        /* int64 timestamp = 3; */
         if (message.timestamp !== 0n)
-            writer.tag(2, WireType.Varint).int64(message.timestamp);
+            writer.tag(3, WireType.Varint).int64(message.timestamp);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -368,172 +334,3 @@ class DeleteMemberPacket$Type extends MessageType<DeleteMemberPacket> {
  * @generated MessageType for protobuf message members.public.server.v1.DeleteMemberPacket
  */
 export const DeleteMemberPacket = new DeleteMemberPacket$Type();
-// @generated message type with reflection information, may provide speed optimized methods
-class MuteMemberPacket$Type extends MessageType<MuteMemberPacket> {
-    constructor() {
-        super("members.public.server.v1.MuteMemberPacket", [
-            { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 2, name: "timestamp", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
-        ]);
-    }
-    create(value?: PartialMessage<MuteMemberPacket>): MuteMemberPacket {
-        const message = { id: "", timestamp: 0n };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<MuteMemberPacket>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: MuteMemberPacket): MuteMemberPacket {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* string id */ 1:
-                    message.id = reader.string();
-                    break;
-                case /* int64 timestamp */ 2:
-                    message.timestamp = reader.int64().toBigInt();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: MuteMemberPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* string id = 1; */
-        if (message.id !== "")
-            writer.tag(1, WireType.LengthDelimited).string(message.id);
-        /* int64 timestamp = 2; */
-        if (message.timestamp !== 0n)
-            writer.tag(2, WireType.Varint).int64(message.timestamp);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
-}
-/**
- * @generated MessageType for protobuf message members.public.server.v1.MuteMemberPacket
- */
-export const MuteMemberPacket = new MuteMemberPacket$Type();
-// @generated message type with reflection information, may provide speed optimized methods
-class UnmuteMemberPacket$Type extends MessageType<UnmuteMemberPacket> {
-    constructor() {
-        super("members.public.server.v1.UnmuteMemberPacket", [
-            { no: 1, name: "timestamp", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
-        ]);
-    }
-    create(value?: PartialMessage<UnmuteMemberPacket>): UnmuteMemberPacket {
-        const message = { timestamp: 0n };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<UnmuteMemberPacket>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: UnmuteMemberPacket): UnmuteMemberPacket {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* int64 timestamp */ 1:
-                    message.timestamp = reader.int64().toBigInt();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: UnmuteMemberPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* int64 timestamp = 1; */
-        if (message.timestamp !== 0n)
-            writer.tag(1, WireType.Varint).int64(message.timestamp);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
-}
-/**
- * @generated MessageType for protobuf message members.public.server.v1.UnmuteMemberPacket
- */
-export const UnmuteMemberPacket = new UnmuteMemberPacket$Type();
-// @generated message type with reflection information, may provide speed optimized methods
-class BlockMemberPacket$Type extends MessageType<BlockMemberPacket> {
-    constructor() {
-        super("members.public.server.v1.BlockMemberPacket", [
-            { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 2, name: "reason", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 3, name: "expire_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 4, name: "timestamp", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
-        ]);
-    }
-    create(value?: PartialMessage<BlockMemberPacket>): BlockMemberPacket {
-        const message = { id: "", reason: "", expireTime: 0n, timestamp: 0n };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<BlockMemberPacket>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: BlockMemberPacket): BlockMemberPacket {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* string id */ 1:
-                    message.id = reader.string();
-                    break;
-                case /* string reason */ 2:
-                    message.reason = reader.string();
-                    break;
-                case /* int64 expire_time */ 3:
-                    message.expireTime = reader.int64().toBigInt();
-                    break;
-                case /* int64 timestamp */ 4:
-                    message.timestamp = reader.int64().toBigInt();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: BlockMemberPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* string id = 1; */
-        if (message.id !== "")
-            writer.tag(1, WireType.LengthDelimited).string(message.id);
-        /* string reason = 2; */
-        if (message.reason !== "")
-            writer.tag(2, WireType.LengthDelimited).string(message.reason);
-        /* int64 expire_time = 3; */
-        if (message.expireTime !== 0n)
-            writer.tag(3, WireType.Varint).int64(message.expireTime);
-        /* int64 timestamp = 4; */
-        if (message.timestamp !== 0n)
-            writer.tag(4, WireType.Varint).int64(message.timestamp);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
-}
-/**
- * @generated MessageType for protobuf message members.public.server.v1.BlockMemberPacket
- */
-export const BlockMemberPacket = new BlockMemberPacket$Type();

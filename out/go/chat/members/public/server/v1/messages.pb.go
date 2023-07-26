@@ -223,8 +223,9 @@ type DeleteMemberPacket struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id        string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Timestamp int64  `protobuf:"varint,2,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	UserId    string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	ChatId    string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
+	Timestamp int64  `protobuf:"varint,3,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
 }
 
 func (x *DeleteMemberPacket) Reset() {
@@ -259,187 +260,21 @@ func (*DeleteMemberPacket) Descriptor() ([]byte, []int) {
 	return file_chat_members_public_server_v1_messages_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *DeleteMemberPacket) GetId() string {
+func (x *DeleteMemberPacket) GetUserId() string {
 	if x != nil {
-		return x.Id
+		return x.UserId
+	}
+	return ""
+}
+
+func (x *DeleteMemberPacket) GetChatId() string {
+	if x != nil {
+		return x.ChatId
 	}
 	return ""
 }
 
 func (x *DeleteMemberPacket) GetTimestamp() int64 {
-	if x != nil {
-		return x.Timestamp
-	}
-	return 0
-}
-
-type MuteMemberPacket struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Id        string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Timestamp int64  `protobuf:"varint,2,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
-}
-
-func (x *MuteMemberPacket) Reset() {
-	*x = MuteMemberPacket{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_chat_members_public_server_v1_messages_proto_msgTypes[4]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *MuteMemberPacket) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*MuteMemberPacket) ProtoMessage() {}
-
-func (x *MuteMemberPacket) ProtoReflect() protoreflect.Message {
-	mi := &file_chat_members_public_server_v1_messages_proto_msgTypes[4]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use MuteMemberPacket.ProtoReflect.Descriptor instead.
-func (*MuteMemberPacket) Descriptor() ([]byte, []int) {
-	return file_chat_members_public_server_v1_messages_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *MuteMemberPacket) GetId() string {
-	if x != nil {
-		return x.Id
-	}
-	return ""
-}
-
-func (x *MuteMemberPacket) GetTimestamp() int64 {
-	if x != nil {
-		return x.Timestamp
-	}
-	return 0
-}
-
-type UnmuteMemberPacket struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Timestamp int64 `protobuf:"varint,1,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
-}
-
-func (x *UnmuteMemberPacket) Reset() {
-	*x = UnmuteMemberPacket{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_chat_members_public_server_v1_messages_proto_msgTypes[5]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UnmuteMemberPacket) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UnmuteMemberPacket) ProtoMessage() {}
-
-func (x *UnmuteMemberPacket) ProtoReflect() protoreflect.Message {
-	mi := &file_chat_members_public_server_v1_messages_proto_msgTypes[5]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UnmuteMemberPacket.ProtoReflect.Descriptor instead.
-func (*UnmuteMemberPacket) Descriptor() ([]byte, []int) {
-	return file_chat_members_public_server_v1_messages_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *UnmuteMemberPacket) GetTimestamp() int64 {
-	if x != nil {
-		return x.Timestamp
-	}
-	return 0
-}
-
-type BlockMemberPacket struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Id         string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Reason     string `protobuf:"bytes,2,opt,name=reason,proto3" json:"reason,omitempty"`
-	ExpireTime int64  `protobuf:"varint,3,opt,name=expire_time,json=expireTime,proto3" json:"expire_time,omitempty"`
-	Timestamp  int64  `protobuf:"varint,4,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
-}
-
-func (x *BlockMemberPacket) Reset() {
-	*x = BlockMemberPacket{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_chat_members_public_server_v1_messages_proto_msgTypes[6]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *BlockMemberPacket) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BlockMemberPacket) ProtoMessage() {}
-
-func (x *BlockMemberPacket) ProtoReflect() protoreflect.Message {
-	mi := &file_chat_members_public_server_v1_messages_proto_msgTypes[6]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BlockMemberPacket.ProtoReflect.Descriptor instead.
-func (*BlockMemberPacket) Descriptor() ([]byte, []int) {
-	return file_chat_members_public_server_v1_messages_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *BlockMemberPacket) GetId() string {
-	if x != nil {
-		return x.Id
-	}
-	return ""
-}
-
-func (x *BlockMemberPacket) GetReason() string {
-	if x != nil {
-		return x.Reason
-	}
-	return ""
-}
-
-func (x *BlockMemberPacket) GetExpireTime() int64 {
-	if x != nil {
-		return x.ExpireTime
-	}
-	return 0
-}
-
-func (x *BlockMemberPacket) GetTimestamp() int64 {
 	if x != nil {
 		return x.Timestamp
 	}
@@ -478,26 +313,13 @@ var file_chat_members_public_server_v1_messages_proto_rawDesc = []byte{
 	0x65, 0x72, 0x49, 0x64, 0x12, 0x17, 0x0a, 0x07, 0x63, 0x68, 0x61, 0x74, 0x5f, 0x69, 0x64, 0x18,
 	0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x63, 0x68, 0x61, 0x74, 0x49, 0x64, 0x12, 0x1c, 0x0a,
 	0x09, 0x74, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x18, 0x03, 0x20, 0x01, 0x28, 0x03,
-	0x52, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x22, 0x42, 0x0a, 0x12, 0x44,
+	0x52, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x22, 0x64, 0x0a, 0x12, 0x44,
 	0x65, 0x6c, 0x65, 0x74, 0x65, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x50, 0x61, 0x63, 0x6b, 0x65,
-	0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69,
-	0x64, 0x12, 0x1c, 0x0a, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x18, 0x02,
-	0x20, 0x01, 0x28, 0x03, 0x52, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x22,
-	0x40, 0x0a, 0x10, 0x4d, 0x75, 0x74, 0x65, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x50, 0x61, 0x63,
-	0x6b, 0x65, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x02, 0x69, 0x64, 0x12, 0x1c, 0x0a, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70,
-	0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d,
-	0x70, 0x22, 0x32, 0x0a, 0x12, 0x55, 0x6e, 0x6d, 0x75, 0x74, 0x65, 0x4d, 0x65, 0x6d, 0x62, 0x65,
-	0x72, 0x50, 0x61, 0x63, 0x6b, 0x65, 0x74, 0x12, 0x1c, 0x0a, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x73,
-	0x74, 0x61, 0x6d, 0x70, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x09, 0x74, 0x69, 0x6d, 0x65,
-	0x73, 0x74, 0x61, 0x6d, 0x70, 0x22, 0x7a, 0x0a, 0x11, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x4d, 0x65,
-	0x6d, 0x62, 0x65, 0x72, 0x50, 0x61, 0x63, 0x6b, 0x65, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x12, 0x16, 0x0a, 0x06, 0x72, 0x65,
-	0x61, 0x73, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x72, 0x65, 0x61, 0x73,
-	0x6f, 0x6e, 0x12, 0x1f, 0x0a, 0x0b, 0x65, 0x78, 0x70, 0x69, 0x72, 0x65, 0x5f, 0x74, 0x69, 0x6d,
-	0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0a, 0x65, 0x78, 0x70, 0x69, 0x72, 0x65, 0x54,
-	0x69, 0x6d, 0x65, 0x12, 0x1c, 0x0a, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70,
-	0x18, 0x04, 0x20, 0x01, 0x28, 0x03, 0x52, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d,
+	0x74, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x17, 0x0a, 0x07, 0x63, 0x68,
+	0x61, 0x74, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x63, 0x68, 0x61,
+	0x74, 0x49, 0x64, 0x12, 0x1c, 0x0a, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70,
+	0x18, 0x03, 0x20, 0x01, 0x28, 0x03, 0x52, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d,
 	0x70, 0x42, 0x4d, 0x5a, 0x48, 0x67, 0x69, 0x74, 0x6c, 0x61, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f,
 	0x65, 0x76, 0x65, 0x6d, 0x65, 0x74, 0x61, 0x2f, 0x7a, 0x64, 0x6b, 0x2f, 0x70, 0x62, 0x2f, 0x6f,
 	0x75, 0x74, 0x2f, 0x67, 0x6f, 0x2f, 0x63, 0x68, 0x61, 0x74, 0x2f, 0x6d, 0x65, 0x6d, 0x62, 0x65,
@@ -518,15 +340,12 @@ func file_chat_members_public_server_v1_messages_proto_rawDescGZIP() []byte {
 	return file_chat_members_public_server_v1_messages_proto_rawDescData
 }
 
-var file_chat_members_public_server_v1_messages_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_chat_members_public_server_v1_messages_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_chat_members_public_server_v1_messages_proto_goTypes = []interface{}{
 	(*Member)(nil),             // 0: members.public.server.v1.Member
 	(*CreateMemberPacket)(nil), // 1: members.public.server.v1.CreateMemberPacket
 	(*UpdateMemberPacket)(nil), // 2: members.public.server.v1.UpdateMemberPacket
 	(*DeleteMemberPacket)(nil), // 3: members.public.server.v1.DeleteMemberPacket
-	(*MuteMemberPacket)(nil),   // 4: members.public.server.v1.MuteMemberPacket
-	(*UnmuteMemberPacket)(nil), // 5: members.public.server.v1.UnmuteMemberPacket
-	(*BlockMemberPacket)(nil),  // 6: members.public.server.v1.BlockMemberPacket
 }
 var file_chat_members_public_server_v1_messages_proto_depIdxs = []int32{
 	0, // 0: members.public.server.v1.CreateMemberPacket.member:type_name -> members.public.server.v1.Member
@@ -591,42 +410,6 @@ func file_chat_members_public_server_v1_messages_proto_init() {
 				return nil
 			}
 		}
-		file_chat_members_public_server_v1_messages_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MuteMemberPacket); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_chat_members_public_server_v1_messages_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UnmuteMemberPacket); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_chat_members_public_server_v1_messages_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*BlockMemberPacket); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -634,7 +417,7 @@ func file_chat_members_public_server_v1_messages_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_chat_members_public_server_v1_messages_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
