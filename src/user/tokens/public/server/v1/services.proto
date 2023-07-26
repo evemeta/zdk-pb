@@ -1,11 +1,11 @@
 syntax = "proto3";
 
-package tokens.public.v1;
+package tokens.public.server.v1;
 
-import "user/tokens/public/v1/messages.proto";
+import "user/tokens/public/server/v1/messages.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/user/tokens/public/v1;tokenspb";
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/user/tokens/public/server/v1;tokenspb";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 service Service {

@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.3.0
 // - protoc             v3.12.4
-// source: user/tokens/public/v1/services.proto
+// source: user/tokens/public/server/v1/services.proto
 
 package tokenspb
 
@@ -19,8 +19,8 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Service_Extract_FullMethodName = "/tokens.public.v1.Service/Extract"
-	Service_Refresh_FullMethodName = "/tokens.public.v1.Service/Refresh"
+	Service_Extract_FullMethodName = "/tokens.public.server.v1.Service/Extract"
+	Service_Refresh_FullMethodName = "/tokens.public.server.v1.Service/Refresh"
 )
 
 // ServiceClient is the client API for Service service.
@@ -129,7 +129,7 @@ func _Service_Refresh_Handler(srv interface{}, ctx context.Context, dec func(int
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Service_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "tokens.public.v1.Service",
+	ServiceName: "tokens.public.server.v1.Service",
 	HandlerType: (*ServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -142,5 +142,5 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "user/tokens/public/v1/services.proto",
+	Metadata: "user/tokens/public/server/v1/services.proto",
 }
