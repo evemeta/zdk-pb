@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package websocket.private.v1;
+
+import "websocket/private/v1/entities.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/websocket/private/v1;websocketpb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+message BroadcastArgument {
+    websocket.private.v1.Message message     = 1;
+    repeated string              session_ids = 2;
+}
+
+message BroadcastRequest {
+    repeated websocket.private.v1.BroadcastArgument arguments = 1;
+}
+
+message BroadcastResponse {}
+
+message DisconnectArgument {
+    repeated string session_ids = 1;
+}
+
+message DisconnectRequest {
+    repeated websocket.private.v1.DisconnectArgument arguments = 1;
+}
+
+message DisconnectResponse {}
+
+message ReintegrateArgument {
+    repeated string session_ids = 1;
+}
+
+message ReintegrateRequest {
+    repeated websocket.private.v1.ReintegrateArgument arguments = 1;
+}
+
+message ReintegrateResponse {}

@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package messages.private.v1;
+
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/messages/private/v1;messagespb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+message Query {
+    int64                                  limit      = 1;
+    int64                                  offset     = 2;
+    repeated messages.private.v1.Condition conditions = 3;
+}
+
+message Message {
+    string id          = 1;
+    string user_id     = 2;
+    string chat_id     = 3;
+    string content     = 4;
+    int64  access_time = 5;
+    int64  create_time = 6;
+    int64  update_time = 7;
+}
+
+message Condition {
+    repeated string ids      = 1;
+    repeated string user_ids = 2;
+    repeated string chat_ids = 3;
+}
+
+message Transient {
+    messages.private.v1.Message future   = 1;
+    messages.private.v1.Message current  = 2;
+    messages.private.v1.Message previous = 3;
+}

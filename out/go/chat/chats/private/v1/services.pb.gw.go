@@ -134,7 +134,7 @@ func local_request_Service_Create_0(ctx context.Context, marshaler runtime.Marsh
 }
 
 func request_Service_InitiateCreateMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CreateMutationsTransaction
+	var protoReq CreateTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -151,7 +151,7 @@ func request_Service_InitiateCreateMutations_0(ctx context.Context, marshaler ru
 }
 
 func local_request_Service_InitiateCreateMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CreateMutationsTransaction
+	var protoReq CreateTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -168,7 +168,7 @@ func local_request_Service_InitiateCreateMutations_0(ctx context.Context, marsha
 }
 
 func request_Service_ValidateCreateMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CreateMutationsTransaction
+	var protoReq CreateTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -185,7 +185,7 @@ func request_Service_ValidateCreateMutations_0(ctx context.Context, marshaler ru
 }
 
 func local_request_Service_ValidateCreateMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CreateMutationsTransaction
+	var protoReq CreateTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -202,7 +202,7 @@ func local_request_Service_ValidateCreateMutations_0(ctx context.Context, marsha
 }
 
 func request_Service_FinalizeCreateMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CreateMutationsTransaction
+	var protoReq CreateTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -219,7 +219,7 @@ func request_Service_FinalizeCreateMutations_0(ctx context.Context, marshaler ru
 }
 
 func local_request_Service_FinalizeCreateMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CreateMutationsTransaction
+	var protoReq CreateTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -236,7 +236,7 @@ func local_request_Service_FinalizeCreateMutations_0(ctx context.Context, marsha
 }
 
 func request_Service_AnnounceCreateMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CreateMutationsTransaction
+	var protoReq CreateTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -253,7 +253,7 @@ func request_Service_AnnounceCreateMutations_0(ctx context.Context, marshaler ru
 }
 
 func local_request_Service_AnnounceCreateMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CreateMutationsTransaction
+	var protoReq CreateTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -270,7 +270,7 @@ func local_request_Service_AnnounceCreateMutations_0(ctx context.Context, marsha
 }
 
 func request_Service_RollbackCreateMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CreateMutationsTransaction
+	var protoReq CreateTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -287,7 +287,7 @@ func request_Service_RollbackCreateMutations_0(ctx context.Context, marshaler ru
 }
 
 func local_request_Service_RollbackCreateMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CreateMutationsTransaction
+	var protoReq CreateTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -338,7 +338,7 @@ func local_request_Service_Update_0(ctx context.Context, marshaler runtime.Marsh
 }
 
 func request_Service_InitiateUpdateMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UpdateMutationsTransaction
+	var protoReq UpdateTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -355,7 +355,7 @@ func request_Service_InitiateUpdateMutations_0(ctx context.Context, marshaler ru
 }
 
 func local_request_Service_InitiateUpdateMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UpdateMutationsTransaction
+	var protoReq UpdateTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -372,7 +372,7 @@ func local_request_Service_InitiateUpdateMutations_0(ctx context.Context, marsha
 }
 
 func request_Service_ValidateUpdateMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UpdateMutationsTransaction
+	var protoReq UpdateTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -389,7 +389,7 @@ func request_Service_ValidateUpdateMutations_0(ctx context.Context, marshaler ru
 }
 
 func local_request_Service_ValidateUpdateMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UpdateMutationsTransaction
+	var protoReq UpdateTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -406,7 +406,7 @@ func local_request_Service_ValidateUpdateMutations_0(ctx context.Context, marsha
 }
 
 func request_Service_FinalizeUpdateMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UpdateMutationsTransaction
+	var protoReq UpdateTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -423,7 +423,7 @@ func request_Service_FinalizeUpdateMutations_0(ctx context.Context, marshaler ru
 }
 
 func local_request_Service_FinalizeUpdateMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UpdateMutationsTransaction
+	var protoReq UpdateTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -440,7 +440,7 @@ func local_request_Service_FinalizeUpdateMutations_0(ctx context.Context, marsha
 }
 
 func request_Service_AnnounceUpdateMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UpdateMutationsTransaction
+	var protoReq UpdateTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -457,7 +457,7 @@ func request_Service_AnnounceUpdateMutations_0(ctx context.Context, marshaler ru
 }
 
 func local_request_Service_AnnounceUpdateMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UpdateMutationsTransaction
+	var protoReq UpdateTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -474,7 +474,7 @@ func local_request_Service_AnnounceUpdateMutations_0(ctx context.Context, marsha
 }
 
 func request_Service_RollbackUpdateMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UpdateMutationsTransaction
+	var protoReq UpdateTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -491,7 +491,7 @@ func request_Service_RollbackUpdateMutations_0(ctx context.Context, marshaler ru
 }
 
 func local_request_Service_RollbackUpdateMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UpdateMutationsTransaction
+	var protoReq UpdateTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -542,7 +542,7 @@ func local_request_Service_Delete_0(ctx context.Context, marshaler runtime.Marsh
 }
 
 func request_Service_InitiateDeleteMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq DeleteMutationsTransaction
+	var protoReq DeleteTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -559,7 +559,7 @@ func request_Service_InitiateDeleteMutations_0(ctx context.Context, marshaler ru
 }
 
 func local_request_Service_InitiateDeleteMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq DeleteMutationsTransaction
+	var protoReq DeleteTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -576,7 +576,7 @@ func local_request_Service_InitiateDeleteMutations_0(ctx context.Context, marsha
 }
 
 func request_Service_FinalizeDeleteMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq DeleteMutationsTransaction
+	var protoReq DeleteTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -593,7 +593,7 @@ func request_Service_FinalizeDeleteMutations_0(ctx context.Context, marshaler ru
 }
 
 func local_request_Service_FinalizeDeleteMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq DeleteMutationsTransaction
+	var protoReq DeleteTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -610,7 +610,7 @@ func local_request_Service_FinalizeDeleteMutations_0(ctx context.Context, marsha
 }
 
 func request_Service_AnnounceDeleteMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq DeleteMutationsTransaction
+	var protoReq DeleteTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -627,7 +627,7 @@ func request_Service_AnnounceDeleteMutations_0(ctx context.Context, marshaler ru
 }
 
 func local_request_Service_AnnounceDeleteMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq DeleteMutationsTransaction
+	var protoReq DeleteTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -644,7 +644,7 @@ func local_request_Service_AnnounceDeleteMutations_0(ctx context.Context, marsha
 }
 
 func request_Service_RollbackDeleteMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq DeleteMutationsTransaction
+	var protoReq DeleteTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -661,7 +661,7 @@ func request_Service_RollbackDeleteMutations_0(ctx context.Context, marshaler ru
 }
 
 func local_request_Service_RollbackDeleteMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq DeleteMutationsTransaction
+	var protoReq DeleteTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -712,7 +712,7 @@ func local_request_Service_Enter_0(ctx context.Context, marshaler runtime.Marsha
 }
 
 func request_Service_InitiateEnterMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq EnterMutationsTransaction
+	var protoReq EnterTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -729,7 +729,7 @@ func request_Service_InitiateEnterMutations_0(ctx context.Context, marshaler run
 }
 
 func local_request_Service_InitiateEnterMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq EnterMutationsTransaction
+	var protoReq EnterTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -746,7 +746,7 @@ func local_request_Service_InitiateEnterMutations_0(ctx context.Context, marshal
 }
 
 func request_Service_ValidateEnterMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq EnterMutationsTransaction
+	var protoReq EnterTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -763,7 +763,7 @@ func request_Service_ValidateEnterMutations_0(ctx context.Context, marshaler run
 }
 
 func local_request_Service_ValidateEnterMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq EnterMutationsTransaction
+	var protoReq EnterTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -780,7 +780,7 @@ func local_request_Service_ValidateEnterMutations_0(ctx context.Context, marshal
 }
 
 func request_Service_FinalizeEnterMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq EnterMutationsTransaction
+	var protoReq EnterTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -797,7 +797,7 @@ func request_Service_FinalizeEnterMutations_0(ctx context.Context, marshaler run
 }
 
 func local_request_Service_FinalizeEnterMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq EnterMutationsTransaction
+	var protoReq EnterTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -814,7 +814,7 @@ func local_request_Service_FinalizeEnterMutations_0(ctx context.Context, marshal
 }
 
 func request_Service_AnnounceEnterMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq EnterMutationsTransaction
+	var protoReq EnterTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -831,7 +831,7 @@ func request_Service_AnnounceEnterMutations_0(ctx context.Context, marshaler run
 }
 
 func local_request_Service_AnnounceEnterMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq EnterMutationsTransaction
+	var protoReq EnterTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -848,7 +848,7 @@ func local_request_Service_AnnounceEnterMutations_0(ctx context.Context, marshal
 }
 
 func request_Service_RollbackEnterMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq EnterMutationsTransaction
+	var protoReq EnterTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -865,7 +865,7 @@ func request_Service_RollbackEnterMutations_0(ctx context.Context, marshaler run
 }
 
 func local_request_Service_RollbackEnterMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq EnterMutationsTransaction
+	var protoReq EnterTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -916,7 +916,7 @@ func local_request_Service_Leave_0(ctx context.Context, marshaler runtime.Marsha
 }
 
 func request_Service_InitiateLeaveMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq LeaveMutationsTransaction
+	var protoReq LeaveTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -933,7 +933,7 @@ func request_Service_InitiateLeaveMutations_0(ctx context.Context, marshaler run
 }
 
 func local_request_Service_InitiateLeaveMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq LeaveMutationsTransaction
+	var protoReq LeaveTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -950,7 +950,7 @@ func local_request_Service_InitiateLeaveMutations_0(ctx context.Context, marshal
 }
 
 func request_Service_ValidateLeaveMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq LeaveMutationsTransaction
+	var protoReq LeaveTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -967,7 +967,7 @@ func request_Service_ValidateLeaveMutations_0(ctx context.Context, marshaler run
 }
 
 func local_request_Service_ValidateLeaveMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq LeaveMutationsTransaction
+	var protoReq LeaveTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -984,7 +984,7 @@ func local_request_Service_ValidateLeaveMutations_0(ctx context.Context, marshal
 }
 
 func request_Service_FinalizeLeaveMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq LeaveMutationsTransaction
+	var protoReq LeaveTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -1001,7 +1001,7 @@ func request_Service_FinalizeLeaveMutations_0(ctx context.Context, marshaler run
 }
 
 func local_request_Service_FinalizeLeaveMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq LeaveMutationsTransaction
+	var protoReq LeaveTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -1018,7 +1018,7 @@ func local_request_Service_FinalizeLeaveMutations_0(ctx context.Context, marshal
 }
 
 func request_Service_AnnounceLeaveMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq LeaveMutationsTransaction
+	var protoReq LeaveTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -1035,7 +1035,7 @@ func request_Service_AnnounceLeaveMutations_0(ctx context.Context, marshaler run
 }
 
 func local_request_Service_AnnounceLeaveMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq LeaveMutationsTransaction
+	var protoReq LeaveTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -1052,7 +1052,7 @@ func local_request_Service_AnnounceLeaveMutations_0(ctx context.Context, marshal
 }
 
 func request_Service_RollbackLeaveMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq LeaveMutationsTransaction
+	var protoReq LeaveTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -1069,7 +1069,7 @@ func request_Service_RollbackLeaveMutations_0(ctx context.Context, marshaler run
 }
 
 func local_request_Service_RollbackLeaveMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq LeaveMutationsTransaction
+	var protoReq LeaveTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)

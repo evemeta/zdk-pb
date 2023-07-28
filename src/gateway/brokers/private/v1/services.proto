@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package brokers.private.v1;
 
-import "gateway/brokers/private/v1/messages.proto";
+import "gateway/brokers/private/v1/procedures.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/brokers/private/v1;brokerspb";

@@ -1,0 +1,116 @@
+syntax = "proto3";
+
+package messages.private.v1;
+
+import "chat/messages/private/v1/entities.proto";
+import "gateway/transponders/private/v1/procedures.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/messages/private/v1;messagespb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+message CountArgument {
+    messages.private.v1.Query query = 1;
+}
+
+message CountRequest {
+    repeated messages.private.v1.CountArgument arguments = 1;
+}
+
+message CountResponse {
+    int64 total = 1;
+}
+
+message SelectArgument {
+    messages.private.v1.Query query = 1;
+}
+
+message SelectRequest {
+    repeated messages.private.v1.SelectArgument arguments = 1;
+}
+
+message SelectResponse {
+    repeated messages.private.v1.Message messages = 1;
+}
+
+message CreateArgument {
+    string id      = 1;
+    string user_id = 2;
+    string chat_id = 3;
+    string content = 4;
+}
+
+message CreateRequest {
+    repeated messages.private.v1.CreateArgument arguments = 1;
+}
+
+message CreateResponse {
+    repeated messages.private.v1.Message messages = 1;
+}
+
+message CreateMutation {
+    bool                                   closed     = 1;
+    messages.private.v1.CreateArgument     foundation = 2;
+    messages.private.v1.CreateCondition    condition  = 3;
+    repeated messages.private.v1.Transient transient  = 4;
+}
+
+message CreateCondition {
+    repeated transponders.private.v1.CreateMutation create_transponder_mutations = 1;
+}
+
+message CreateTransaction {
+    repeated messages.private.v1.CreateMutation mutations = 1;
+}
+
+message UpdateArgument {
+    messages.private.v1.Query query   = 1;
+    optional string           user_id = 2;
+    optional string           chat_id = 3;
+    optional string           content = 4;
+}
+
+message UpdateRequest {
+    repeated messages.private.v1.UpdateArgument arguments = 1;
+}
+
+message UpdateResponse {
+    repeated messages.private.v1.Message messages = 1;
+}
+
+message UpdateMutation {
+    bool                                   closed     = 1;
+    messages.private.v1.UpdateArgument     foundation = 2;
+    repeated messages.private.v1.Transient transient  = 3;
+}
+
+message UpdateTransaction {
+    repeated messages.private.v1.UpdateMutation mutations = 1;
+}
+
+message DeleteArgument {
+    messages.private.v1.Query query = 1;
+}
+
+message DeleteRequest {
+    repeated messages.private.v1.DeleteArgument arguments = 1;
+}
+
+message DeleteResponse {
+    repeated messages.private.v1.Message messages = 1;
+}
+
+message DeleteMutation {
+    bool                                   closed     = 1;
+    messages.private.v1.DeleteArgument     foundation = 2;
+    messages.private.v1.DeleteCondition    condition  = 3;
+    repeated messages.private.v1.Transient transient  = 4;
+}
+
+message DeleteCondition {
+    repeated transponders.private.v1.DeleteMutation delete_transponder_mutations = 1;
+}
+
+message DeleteTransaction {
+    repeated messages.private.v1.DeleteMutation mutations = 1;
+}

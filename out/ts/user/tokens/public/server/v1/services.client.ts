@@ -4,11 +4,11 @@
 import type { RpcTransport } from "@protobuf-ts/runtime-rpc";
 import type { ServiceInfo } from "@protobuf-ts/runtime-rpc";
 import { Service } from "./services";
-import type { RefreshResponse } from "./messages";
-import type { RefreshRequest } from "./messages";
+import type { RefreshResponse } from "./procedures";
+import type { RefreshRequest } from "./procedures";
 import { stackIntercept } from "@protobuf-ts/runtime-rpc";
-import type { ExtractResponse } from "./messages";
-import type { ExtractRequest } from "./messages";
+import type { ExtractResponse } from "./procedures";
+import type { ExtractRequest } from "./procedures";
 import type { UnaryCall } from "@protobuf-ts/runtime-rpc";
 import type { RpcOptions } from "@protobuf-ts/runtime-rpc";
 /**

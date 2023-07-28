@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package members.public.server.v1;
+
+import "chat/members/public/server/v1/entities.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/members/public/server/v1;memberspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+message CreateMemberPacket {
+    members.public.server.v1.Member member    = 1;
+    int64                           timestamp = 2;
+}
+
+message UpdateMemberPacket {
+    string user_id   = 1;
+    string chat_id   = 2;
+    int64  timestamp = 3;
+}
+
+message DeleteMemberPacket {
+    string user_id   = 1;
+    string chat_id   = 2;
+    int64  timestamp = 3;
+}

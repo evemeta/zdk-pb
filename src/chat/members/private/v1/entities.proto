@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package members.private.v1;
+
+import "chat/members/private/v1/enums.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/members/private/v1;memberspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+message Query {
+    int64                                 limit      = 1;
+    int64                                 offset     = 2;
+    repeated members.private.v1.Condition conditions = 3;
+}
+
+message Member {
+    string                                  id           = 1;
+    string                                  user_id      = 2;
+    string                                  chat_id      = 3;
+    members.private.v1.Status               status       = 4;
+    repeated members.private.v1.Permission  permissions  = 5;
+    repeated members.private.v1.Restriction restrictions = 6;
+    int64                                   enter_time   = 7;
+    int64                                   leave_time   = 8;
+    int64                                   access_time  = 9;
+    int64                                   create_time  = 10;
+    int64                                   update_time  = 11;
+}
+
+message Condition {
+    repeated string                    ids      = 1;
+    repeated string                    user_ids = 2;
+    repeated string                    chat_ids = 3;
+    repeated members.private.v1.Status statuses = 4;
+}
+
+message Transient {
+    members.private.v1.Member future   = 1;
+    members.private.v1.Member current  = 2;
+    members.private.v1.Member previous = 3;
+}
+
+message Restriction {
+    members.private.v1.Type type        = 1;
+    int64                   create_time = 2;
+    int64                   expire_time = 3;
+}

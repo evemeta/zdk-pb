@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package tokens.private.v1;
 
-import "user/tokens/private/v1/messages.proto";
+import "user/tokens/private/v1/procedures.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/user/tokens/private/v1;tokenspb";

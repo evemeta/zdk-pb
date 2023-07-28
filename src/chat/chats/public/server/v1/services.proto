@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package chats.public.server.v1;
+
+import "chat/chats/public/server/v1/procedures.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/chats/public/server/v1;chatspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+service Service {
+
+    rpc Context(ContextRequest) returns (ContextResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: Context";
+            summary: "Context";
+            operation_id: "Context";
+        };
+    }
+}

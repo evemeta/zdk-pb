@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package websocket.public.server.v1;
+
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/websocket/public/server/v1;websocketpb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+message Message {
+    string name = 1;
+    bytes  data = 2;
+}
+
+message Session {
+    string          id           = 1;
+    string          token        = 2;
+    string          user_id      = 3;
+    repeated string subjects     = 4;
+    string          websocket_id = 5;
+}

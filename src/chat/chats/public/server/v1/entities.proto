@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package chats.public.server.v1;
+
+import "chat/members/public/server/v1/entities.proto";
+import "chat/messages/public/server/v1/entities.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/chats/public/server/v1;chatspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+message Chat {
+    string id          = 1;
+    int64  create_time = 2;
+    int64  update_time = 3;
+}
+
+message Context {
+    chats.public.server.v1.Chat                chat     = 1;
+    repeated members.public.server.v1.Member   members  = 2;
+    repeated messages.public.server.v1.Message messages = 3;
+}
+
+// todo; rozkminic jak ogarnac synchronizacje
