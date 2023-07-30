@@ -8,6 +8,13 @@ import "protoc-gen-openapiv2/options/annotations.proto";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/transponders/private/v1;transponderspb";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
+message Chunk {
+    int64                                        size     = 1;
+    int64                                        index    = 2;
+    int64                                        total    = 3;
+    repeated transponders.private.v1.Transponder entities = 4;
+}
+
 message Query {
     transponders.private.v1.Order              order      = 1;
     int64                                      depth      = 2;

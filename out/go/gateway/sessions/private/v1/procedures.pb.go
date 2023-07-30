@@ -171,6 +171,155 @@ func (x *CountResponse) GetTotal() int64 {
 	return 0
 }
 
+type RangeArgument struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Cache bool   `protobuf:"varint,1,opt,name=cache,proto3" json:"cache,omitempty"`
+	Query *Query `protobuf:"bytes,2,opt,name=query,proto3" json:"query,omitempty"`
+}
+
+func (x *RangeArgument) Reset() {
+	*x = RangeArgument{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RangeArgument) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RangeArgument) ProtoMessage() {}
+
+func (x *RangeArgument) ProtoReflect() protoreflect.Message {
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RangeArgument.ProtoReflect.Descriptor instead.
+func (*RangeArgument) Descriptor() ([]byte, []int) {
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *RangeArgument) GetCache() bool {
+	if x != nil {
+		return x.Cache
+	}
+	return false
+}
+
+func (x *RangeArgument) GetQuery() *Query {
+	if x != nil {
+		return x.Query
+	}
+	return nil
+}
+
+type RangeRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Arguments []*RangeArgument `protobuf:"bytes,1,rep,name=arguments,proto3" json:"arguments,omitempty"`
+}
+
+func (x *RangeRequest) Reset() {
+	*x = RangeRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RangeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RangeRequest) ProtoMessage() {}
+
+func (x *RangeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RangeRequest.ProtoReflect.Descriptor instead.
+func (*RangeRequest) Descriptor() ([]byte, []int) {
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *RangeRequest) GetArguments() []*RangeArgument {
+	if x != nil {
+		return x.Arguments
+	}
+	return nil
+}
+
+type RangeResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Chunks []*Chunk `protobuf:"bytes,1,rep,name=chunks,proto3" json:"chunks,omitempty"`
+}
+
+func (x *RangeResponse) Reset() {
+	*x = RangeResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RangeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RangeResponse) ProtoMessage() {}
+
+func (x *RangeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RangeResponse.ProtoReflect.Descriptor instead.
+func (*RangeResponse) Descriptor() ([]byte, []int) {
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *RangeResponse) GetChunks() []*Chunk {
+	if x != nil {
+		return x.Chunks
+	}
+	return nil
+}
+
 type SelectArgument struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -183,7 +332,7 @@ type SelectArgument struct {
 func (x *SelectArgument) Reset() {
 	*x = SelectArgument{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[3]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -196,7 +345,7 @@ func (x *SelectArgument) String() string {
 func (*SelectArgument) ProtoMessage() {}
 
 func (x *SelectArgument) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[3]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -209,7 +358,7 @@ func (x *SelectArgument) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SelectArgument.ProtoReflect.Descriptor instead.
 func (*SelectArgument) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{3}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *SelectArgument) GetCache() bool {
@@ -237,7 +386,7 @@ type SelectRequest struct {
 func (x *SelectRequest) Reset() {
 	*x = SelectRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[4]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -250,7 +399,7 @@ func (x *SelectRequest) String() string {
 func (*SelectRequest) ProtoMessage() {}
 
 func (x *SelectRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[4]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -263,7 +412,7 @@ func (x *SelectRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SelectRequest.ProtoReflect.Descriptor instead.
 func (*SelectRequest) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{4}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *SelectRequest) GetArguments() []*SelectArgument {
@@ -284,7 +433,7 @@ type SelectResponse struct {
 func (x *SelectResponse) Reset() {
 	*x = SelectResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[5]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -297,7 +446,7 @@ func (x *SelectResponse) String() string {
 func (*SelectResponse) ProtoMessage() {}
 
 func (x *SelectResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[5]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -310,7 +459,7 @@ func (x *SelectResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SelectResponse.ProtoReflect.Descriptor instead.
 func (*SelectResponse) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{5}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *SelectResponse) GetSessions() []*Session {
@@ -334,7 +483,7 @@ type CreateArgument struct {
 func (x *CreateArgument) Reset() {
 	*x = CreateArgument{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[6]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -347,7 +496,7 @@ func (x *CreateArgument) String() string {
 func (*CreateArgument) ProtoMessage() {}
 
 func (x *CreateArgument) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[6]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -360,7 +509,7 @@ func (x *CreateArgument) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateArgument.ProtoReflect.Descriptor instead.
 func (*CreateArgument) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{6}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *CreateArgument) GetId() string {
@@ -402,7 +551,7 @@ type CreateRequest struct {
 func (x *CreateRequest) Reset() {
 	*x = CreateRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[7]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -415,7 +564,7 @@ func (x *CreateRequest) String() string {
 func (*CreateRequest) ProtoMessage() {}
 
 func (x *CreateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[7]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -428,7 +577,7 @@ func (x *CreateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateRequest.ProtoReflect.Descriptor instead.
 func (*CreateRequest) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{7}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *CreateRequest) GetArguments() []*CreateArgument {
@@ -449,7 +598,7 @@ type CreateResponse struct {
 func (x *CreateResponse) Reset() {
 	*x = CreateResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[8]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -462,7 +611,7 @@ func (x *CreateResponse) String() string {
 func (*CreateResponse) ProtoMessage() {}
 
 func (x *CreateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[8]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -475,7 +624,7 @@ func (x *CreateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateResponse.ProtoReflect.Descriptor instead.
 func (*CreateResponse) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{8}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *CreateResponse) GetSessions() []*Session {
@@ -499,7 +648,7 @@ type CreateMutation struct {
 func (x *CreateMutation) Reset() {
 	*x = CreateMutation{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[9]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -512,7 +661,7 @@ func (x *CreateMutation) String() string {
 func (*CreateMutation) ProtoMessage() {}
 
 func (x *CreateMutation) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[9]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -525,7 +674,7 @@ func (x *CreateMutation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateMutation.ProtoReflect.Descriptor instead.
 func (*CreateMutation) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{9}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *CreateMutation) GetClosed() bool {
@@ -567,7 +716,7 @@ type CreateCondition struct {
 func (x *CreateCondition) Reset() {
 	*x = CreateCondition{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[10]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -580,7 +729,7 @@ func (x *CreateCondition) String() string {
 func (*CreateCondition) ProtoMessage() {}
 
 func (x *CreateCondition) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[10]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -593,7 +742,7 @@ func (x *CreateCondition) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateCondition.ProtoReflect.Descriptor instead.
 func (*CreateCondition) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{10}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *CreateCondition) GetCreateTransponderMutations() []*v1.CreateMutation {
@@ -614,7 +763,7 @@ type CreateTransaction struct {
 func (x *CreateTransaction) Reset() {
 	*x = CreateTransaction{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[11]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -627,7 +776,7 @@ func (x *CreateTransaction) String() string {
 func (*CreateTransaction) ProtoMessage() {}
 
 func (x *CreateTransaction) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[11]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -640,7 +789,7 @@ func (x *CreateTransaction) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateTransaction.ProtoReflect.Descriptor instead.
 func (*CreateTransaction) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{11}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *CreateTransaction) GetMutations() []*CreateMutation {
@@ -664,7 +813,7 @@ type UpdateArgument struct {
 func (x *UpdateArgument) Reset() {
 	*x = UpdateArgument{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[12]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -677,7 +826,7 @@ func (x *UpdateArgument) String() string {
 func (*UpdateArgument) ProtoMessage() {}
 
 func (x *UpdateArgument) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[12]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -690,7 +839,7 @@ func (x *UpdateArgument) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateArgument.ProtoReflect.Descriptor instead.
 func (*UpdateArgument) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{12}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *UpdateArgument) GetQuery() *Query {
@@ -732,7 +881,7 @@ type UpdateRequest struct {
 func (x *UpdateRequest) Reset() {
 	*x = UpdateRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[13]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[16]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -745,7 +894,7 @@ func (x *UpdateRequest) String() string {
 func (*UpdateRequest) ProtoMessage() {}
 
 func (x *UpdateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[13]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[16]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -758,7 +907,7 @@ func (x *UpdateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateRequest.ProtoReflect.Descriptor instead.
 func (*UpdateRequest) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{13}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *UpdateRequest) GetArguments() []*UpdateArgument {
@@ -779,7 +928,7 @@ type UpdateResponse struct {
 func (x *UpdateResponse) Reset() {
 	*x = UpdateResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[14]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[17]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -792,7 +941,7 @@ func (x *UpdateResponse) String() string {
 func (*UpdateResponse) ProtoMessage() {}
 
 func (x *UpdateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[14]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[17]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -805,7 +954,7 @@ func (x *UpdateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateResponse.ProtoReflect.Descriptor instead.
 func (*UpdateResponse) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{14}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *UpdateResponse) GetSessions() []*Session {
@@ -828,7 +977,7 @@ type UpdateMutation struct {
 func (x *UpdateMutation) Reset() {
 	*x = UpdateMutation{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[15]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[18]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -841,7 +990,7 @@ func (x *UpdateMutation) String() string {
 func (*UpdateMutation) ProtoMessage() {}
 
 func (x *UpdateMutation) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[15]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[18]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -854,7 +1003,7 @@ func (x *UpdateMutation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateMutation.ProtoReflect.Descriptor instead.
 func (*UpdateMutation) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{15}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *UpdateMutation) GetClosed() bool {
@@ -889,7 +1038,7 @@ type UpdateTransaction struct {
 func (x *UpdateTransaction) Reset() {
 	*x = UpdateTransaction{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[16]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[19]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -902,7 +1051,7 @@ func (x *UpdateTransaction) String() string {
 func (*UpdateTransaction) ProtoMessage() {}
 
 func (x *UpdateTransaction) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[16]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[19]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -915,7 +1064,7 @@ func (x *UpdateTransaction) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateTransaction.ProtoReflect.Descriptor instead.
 func (*UpdateTransaction) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{16}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *UpdateTransaction) GetMutations() []*UpdateMutation {
@@ -936,7 +1085,7 @@ type DeleteArgument struct {
 func (x *DeleteArgument) Reset() {
 	*x = DeleteArgument{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[17]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[20]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -949,7 +1098,7 @@ func (x *DeleteArgument) String() string {
 func (*DeleteArgument) ProtoMessage() {}
 
 func (x *DeleteArgument) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[17]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[20]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -962,7 +1111,7 @@ func (x *DeleteArgument) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteArgument.ProtoReflect.Descriptor instead.
 func (*DeleteArgument) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{17}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *DeleteArgument) GetQuery() *Query {
@@ -983,7 +1132,7 @@ type DeleteRequest struct {
 func (x *DeleteRequest) Reset() {
 	*x = DeleteRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[18]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[21]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -996,7 +1145,7 @@ func (x *DeleteRequest) String() string {
 func (*DeleteRequest) ProtoMessage() {}
 
 func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[18]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[21]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1009,7 +1158,7 @@ func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteRequest.ProtoReflect.Descriptor instead.
 func (*DeleteRequest) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{18}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *DeleteRequest) GetArguments() []*DeleteArgument {
@@ -1030,7 +1179,7 @@ type DeleteResponse struct {
 func (x *DeleteResponse) Reset() {
 	*x = DeleteResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[19]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[22]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1043,7 +1192,7 @@ func (x *DeleteResponse) String() string {
 func (*DeleteResponse) ProtoMessage() {}
 
 func (x *DeleteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[19]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[22]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1056,7 +1205,7 @@ func (x *DeleteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteResponse.ProtoReflect.Descriptor instead.
 func (*DeleteResponse) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{19}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *DeleteResponse) GetSessions() []*Session {
@@ -1080,7 +1229,7 @@ type DeleteMutation struct {
 func (x *DeleteMutation) Reset() {
 	*x = DeleteMutation{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[20]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[23]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1093,7 +1242,7 @@ func (x *DeleteMutation) String() string {
 func (*DeleteMutation) ProtoMessage() {}
 
 func (x *DeleteMutation) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[20]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[23]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1106,7 +1255,7 @@ func (x *DeleteMutation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteMutation.ProtoReflect.Descriptor instead.
 func (*DeleteMutation) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{20}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *DeleteMutation) GetClosed() bool {
@@ -1148,7 +1297,7 @@ type DeleteCondition struct {
 func (x *DeleteCondition) Reset() {
 	*x = DeleteCondition{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[21]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[24]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1161,7 +1310,7 @@ func (x *DeleteCondition) String() string {
 func (*DeleteCondition) ProtoMessage() {}
 
 func (x *DeleteCondition) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[21]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[24]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1174,7 +1323,7 @@ func (x *DeleteCondition) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteCondition.ProtoReflect.Descriptor instead.
 func (*DeleteCondition) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{21}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *DeleteCondition) GetDeleteTransponderMutations() []*v1.DeleteMutation {
@@ -1195,7 +1344,7 @@ type DeleteTransaction struct {
 func (x *DeleteTransaction) Reset() {
 	*x = DeleteTransaction{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[22]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[25]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1208,7 +1357,7 @@ func (x *DeleteTransaction) String() string {
 func (*DeleteTransaction) ProtoMessage() {}
 
 func (x *DeleteTransaction) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[22]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[25]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1221,7 +1370,7 @@ func (x *DeleteTransaction) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteTransaction.ProtoReflect.Descriptor instead.
 func (*DeleteTransaction) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{22}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *DeleteTransaction) GetMutations() []*DeleteMutation {
@@ -1244,7 +1393,7 @@ type AttachArgument struct {
 func (x *AttachArgument) Reset() {
 	*x = AttachArgument{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[23]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[26]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1257,7 +1406,7 @@ func (x *AttachArgument) String() string {
 func (*AttachArgument) ProtoMessage() {}
 
 func (x *AttachArgument) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[23]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[26]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1270,7 +1419,7 @@ func (x *AttachArgument) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AttachArgument.ProtoReflect.Descriptor instead.
 func (*AttachArgument) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{23}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *AttachArgument) GetId() string {
@@ -1305,7 +1454,7 @@ type AttachRequest struct {
 func (x *AttachRequest) Reset() {
 	*x = AttachRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[24]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[27]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1318,7 +1467,7 @@ func (x *AttachRequest) String() string {
 func (*AttachRequest) ProtoMessage() {}
 
 func (x *AttachRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[24]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[27]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1331,7 +1480,7 @@ func (x *AttachRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AttachRequest.ProtoReflect.Descriptor instead.
 func (*AttachRequest) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{24}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *AttachRequest) GetArguments() []*AttachArgument {
@@ -1352,7 +1501,7 @@ type AttachResponse struct {
 func (x *AttachResponse) Reset() {
 	*x = AttachResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[25]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[28]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1365,7 +1514,7 @@ func (x *AttachResponse) String() string {
 func (*AttachResponse) ProtoMessage() {}
 
 func (x *AttachResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[25]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[28]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1378,7 +1527,7 @@ func (x *AttachResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AttachResponse.ProtoReflect.Descriptor instead.
 func (*AttachResponse) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{25}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *AttachResponse) GetSubjects() []string {
@@ -1402,7 +1551,7 @@ type AttachMutation struct {
 func (x *AttachMutation) Reset() {
 	*x = AttachMutation{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[26]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[29]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1415,7 +1564,7 @@ func (x *AttachMutation) String() string {
 func (*AttachMutation) ProtoMessage() {}
 
 func (x *AttachMutation) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[26]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[29]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1428,7 +1577,7 @@ func (x *AttachMutation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AttachMutation.ProtoReflect.Descriptor instead.
 func (*AttachMutation) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{26}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *AttachMutation) GetClosed() bool {
@@ -1471,7 +1620,7 @@ type AttachCondition struct {
 func (x *AttachCondition) Reset() {
 	*x = AttachCondition{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[27]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[30]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1484,7 +1633,7 @@ func (x *AttachCondition) String() string {
 func (*AttachCondition) ProtoMessage() {}
 
 func (x *AttachCondition) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[27]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[30]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1497,7 +1646,7 @@ func (x *AttachCondition) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AttachCondition.ProtoReflect.Descriptor instead.
 func (*AttachCondition) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{27}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *AttachCondition) GetCreateMutations() []*CreateMutation {
@@ -1525,7 +1674,7 @@ type AttachTransaction struct {
 func (x *AttachTransaction) Reset() {
 	*x = AttachTransaction{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[28]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[31]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1538,7 +1687,7 @@ func (x *AttachTransaction) String() string {
 func (*AttachTransaction) ProtoMessage() {}
 
 func (x *AttachTransaction) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[28]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[31]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1551,7 +1700,7 @@ func (x *AttachTransaction) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AttachTransaction.ProtoReflect.Descriptor instead.
 func (*AttachTransaction) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{28}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *AttachTransaction) GetMutations() []*AttachMutation {
@@ -1573,7 +1722,7 @@ type DetachArgument struct {
 func (x *DetachArgument) Reset() {
 	*x = DetachArgument{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[29]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[32]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1586,7 +1735,7 @@ func (x *DetachArgument) String() string {
 func (*DetachArgument) ProtoMessage() {}
 
 func (x *DetachArgument) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[29]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[32]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1599,7 +1748,7 @@ func (x *DetachArgument) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DetachArgument.ProtoReflect.Descriptor instead.
 func (*DetachArgument) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{29}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *DetachArgument) GetId() string {
@@ -1627,7 +1776,7 @@ type DetachRequest struct {
 func (x *DetachRequest) Reset() {
 	*x = DetachRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[30]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[33]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1640,7 +1789,7 @@ func (x *DetachRequest) String() string {
 func (*DetachRequest) ProtoMessage() {}
 
 func (x *DetachRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[30]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[33]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1653,7 +1802,7 @@ func (x *DetachRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DetachRequest.ProtoReflect.Descriptor instead.
 func (*DetachRequest) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{30}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *DetachRequest) GetArguments() []*DetachArgument {
@@ -1672,7 +1821,7 @@ type DetachResponse struct {
 func (x *DetachResponse) Reset() {
 	*x = DetachResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[31]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[34]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1685,7 +1834,7 @@ func (x *DetachResponse) String() string {
 func (*DetachResponse) ProtoMessage() {}
 
 func (x *DetachResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[31]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[34]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1698,7 +1847,7 @@ func (x *DetachResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DetachResponse.ProtoReflect.Descriptor instead.
 func (*DetachResponse) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{31}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{34}
 }
 
 type DetachMutation struct {
@@ -1714,7 +1863,7 @@ type DetachMutation struct {
 func (x *DetachMutation) Reset() {
 	*x = DetachMutation{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[32]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[35]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1727,7 +1876,7 @@ func (x *DetachMutation) String() string {
 func (*DetachMutation) ProtoMessage() {}
 
 func (x *DetachMutation) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[32]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[35]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1740,7 +1889,7 @@ func (x *DetachMutation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DetachMutation.ProtoReflect.Descriptor instead.
 func (*DetachMutation) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{32}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *DetachMutation) GetClosed() bool {
@@ -1776,7 +1925,7 @@ type DetachCondition struct {
 func (x *DetachCondition) Reset() {
 	*x = DetachCondition{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[33]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[36]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1789,7 +1938,7 @@ func (x *DetachCondition) String() string {
 func (*DetachCondition) ProtoMessage() {}
 
 func (x *DetachCondition) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[33]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[36]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1802,7 +1951,7 @@ func (x *DetachCondition) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DetachCondition.ProtoReflect.Descriptor instead.
 func (*DetachCondition) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{33}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *DetachCondition) GetUpdateMutations() []*UpdateMutation {
@@ -1830,7 +1979,7 @@ type DetachTransaction struct {
 func (x *DetachTransaction) Reset() {
 	*x = DetachTransaction{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[34]
+		mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[37]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1843,7 +1992,7 @@ func (x *DetachTransaction) String() string {
 func (*DetachTransaction) ProtoMessage() {}
 
 func (x *DetachTransaction) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[34]
+	mi := &file_gateway_sessions_private_v1_procedures_proto_msgTypes[37]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1856,7 +2005,7 @@ func (x *DetachTransaction) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DetachTransaction.ProtoReflect.Descriptor instead.
 func (*DetachTransaction) Descriptor() ([]byte, []int) {
-	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{34}
+	return file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *DetachTransaction) GetMutations() []*DetachMutation {
@@ -1897,7 +2046,22 @@ var file_gateway_sessions_private_v1_procedures_proto_rawDesc = []byte{
 	0x6e, 0x74, 0x41, 0x72, 0x67, 0x75, 0x6d, 0x65, 0x6e, 0x74, 0x52, 0x09, 0x61, 0x72, 0x67, 0x75,
 	0x6d, 0x65, 0x6e, 0x74, 0x73, 0x22, 0x25, 0x0a, 0x0d, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65,
 	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x74, 0x6f, 0x74, 0x61, 0x6c, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x05, 0x74, 0x6f, 0x74, 0x61, 0x6c, 0x22, 0x58, 0x0a, 0x0e,
+	0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x05, 0x74, 0x6f, 0x74, 0x61, 0x6c, 0x22, 0x57, 0x0a, 0x0d,
+	0x52, 0x61, 0x6e, 0x67, 0x65, 0x41, 0x72, 0x67, 0x75, 0x6d, 0x65, 0x6e, 0x74, 0x12, 0x14, 0x0a,
+	0x05, 0x63, 0x61, 0x63, 0x68, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x05, 0x63, 0x61,
+	0x63, 0x68, 0x65, 0x12, 0x30, 0x0a, 0x05, 0x71, 0x75, 0x65, 0x72, 0x79, 0x18, 0x02, 0x20, 0x01,
+	0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x73, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x73, 0x2e, 0x70, 0x72,
+	0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x52, 0x05,
+	0x71, 0x75, 0x65, 0x72, 0x79, 0x22, 0x50, 0x0a, 0x0c, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x40, 0x0a, 0x09, 0x61, 0x72, 0x67, 0x75, 0x6d, 0x65, 0x6e,
+	0x74, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x22, 0x2e, 0x73, 0x65, 0x73, 0x73, 0x69,
+	0x6f, 0x6e, 0x73, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x52,
+	0x61, 0x6e, 0x67, 0x65, 0x41, 0x72, 0x67, 0x75, 0x6d, 0x65, 0x6e, 0x74, 0x52, 0x09, 0x61, 0x72,
+	0x67, 0x75, 0x6d, 0x65, 0x6e, 0x74, 0x73, 0x22, 0x43, 0x0a, 0x0d, 0x52, 0x61, 0x6e, 0x67, 0x65,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x32, 0x0a, 0x06, 0x63, 0x68, 0x75, 0x6e,
+	0x6b, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x73, 0x65, 0x73, 0x73, 0x69,
+	0x6f, 0x6e, 0x73, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x43,
+	0x68, 0x75, 0x6e, 0x6b, 0x52, 0x06, 0x63, 0x68, 0x75, 0x6e, 0x6b, 0x73, 0x22, 0x58, 0x0a, 0x0e,
 	0x53, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x41, 0x72, 0x67, 0x75, 0x6d, 0x65, 0x6e, 0x74, 0x12, 0x14,
 	0x0a, 0x05, 0x63, 0x61, 0x63, 0x68, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x05, 0x63,
 	0x61, 0x63, 0x68, 0x65, 0x12, 0x30, 0x0a, 0x05, 0x71, 0x75, 0x65, 0x72, 0x79, 0x18, 0x02, 0x20,
@@ -2147,96 +2311,103 @@ func file_gateway_sessions_private_v1_procedures_proto_rawDescGZIP() []byte {
 	return file_gateway_sessions_private_v1_procedures_proto_rawDescData
 }
 
-var file_gateway_sessions_private_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 35)
+var file_gateway_sessions_private_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 38)
 var file_gateway_sessions_private_v1_procedures_proto_goTypes = []interface{}{
 	(*CountArgument)(nil),     // 0: sessions.private.v1.CountArgument
 	(*CountRequest)(nil),      // 1: sessions.private.v1.CountRequest
 	(*CountResponse)(nil),     // 2: sessions.private.v1.CountResponse
-	(*SelectArgument)(nil),    // 3: sessions.private.v1.SelectArgument
-	(*SelectRequest)(nil),     // 4: sessions.private.v1.SelectRequest
-	(*SelectResponse)(nil),    // 5: sessions.private.v1.SelectResponse
-	(*CreateArgument)(nil),    // 6: sessions.private.v1.CreateArgument
-	(*CreateRequest)(nil),     // 7: sessions.private.v1.CreateRequest
-	(*CreateResponse)(nil),    // 8: sessions.private.v1.CreateResponse
-	(*CreateMutation)(nil),    // 9: sessions.private.v1.CreateMutation
-	(*CreateCondition)(nil),   // 10: sessions.private.v1.CreateCondition
-	(*CreateTransaction)(nil), // 11: sessions.private.v1.CreateTransaction
-	(*UpdateArgument)(nil),    // 12: sessions.private.v1.UpdateArgument
-	(*UpdateRequest)(nil),     // 13: sessions.private.v1.UpdateRequest
-	(*UpdateResponse)(nil),    // 14: sessions.private.v1.UpdateResponse
-	(*UpdateMutation)(nil),    // 15: sessions.private.v1.UpdateMutation
-	(*UpdateTransaction)(nil), // 16: sessions.private.v1.UpdateTransaction
-	(*DeleteArgument)(nil),    // 17: sessions.private.v1.DeleteArgument
-	(*DeleteRequest)(nil),     // 18: sessions.private.v1.DeleteRequest
-	(*DeleteResponse)(nil),    // 19: sessions.private.v1.DeleteResponse
-	(*DeleteMutation)(nil),    // 20: sessions.private.v1.DeleteMutation
-	(*DeleteCondition)(nil),   // 21: sessions.private.v1.DeleteCondition
-	(*DeleteTransaction)(nil), // 22: sessions.private.v1.DeleteTransaction
-	(*AttachArgument)(nil),    // 23: sessions.private.v1.AttachArgument
-	(*AttachRequest)(nil),     // 24: sessions.private.v1.AttachRequest
-	(*AttachResponse)(nil),    // 25: sessions.private.v1.AttachResponse
-	(*AttachMutation)(nil),    // 26: sessions.private.v1.AttachMutation
-	(*AttachCondition)(nil),   // 27: sessions.private.v1.AttachCondition
-	(*AttachTransaction)(nil), // 28: sessions.private.v1.AttachTransaction
-	(*DetachArgument)(nil),    // 29: sessions.private.v1.DetachArgument
-	(*DetachRequest)(nil),     // 30: sessions.private.v1.DetachRequest
-	(*DetachResponse)(nil),    // 31: sessions.private.v1.DetachResponse
-	(*DetachMutation)(nil),    // 32: sessions.private.v1.DetachMutation
-	(*DetachCondition)(nil),   // 33: sessions.private.v1.DetachCondition
-	(*DetachTransaction)(nil), // 34: sessions.private.v1.DetachTransaction
-	(*Query)(nil),             // 35: sessions.private.v1.Query
-	(*Session)(nil),           // 36: sessions.private.v1.Session
-	(Status)(0),               // 37: sessions.private.v1.Status
-	(*Transient)(nil),         // 38: sessions.private.v1.Transient
-	(*v1.CreateMutation)(nil), // 39: transponders.private.v1.CreateMutation
-	(*v1.DeleteMutation)(nil), // 40: transponders.private.v1.DeleteMutation
+	(*RangeArgument)(nil),     // 3: sessions.private.v1.RangeArgument
+	(*RangeRequest)(nil),      // 4: sessions.private.v1.RangeRequest
+	(*RangeResponse)(nil),     // 5: sessions.private.v1.RangeResponse
+	(*SelectArgument)(nil),    // 6: sessions.private.v1.SelectArgument
+	(*SelectRequest)(nil),     // 7: sessions.private.v1.SelectRequest
+	(*SelectResponse)(nil),    // 8: sessions.private.v1.SelectResponse
+	(*CreateArgument)(nil),    // 9: sessions.private.v1.CreateArgument
+	(*CreateRequest)(nil),     // 10: sessions.private.v1.CreateRequest
+	(*CreateResponse)(nil),    // 11: sessions.private.v1.CreateResponse
+	(*CreateMutation)(nil),    // 12: sessions.private.v1.CreateMutation
+	(*CreateCondition)(nil),   // 13: sessions.private.v1.CreateCondition
+	(*CreateTransaction)(nil), // 14: sessions.private.v1.CreateTransaction
+	(*UpdateArgument)(nil),    // 15: sessions.private.v1.UpdateArgument
+	(*UpdateRequest)(nil),     // 16: sessions.private.v1.UpdateRequest
+	(*UpdateResponse)(nil),    // 17: sessions.private.v1.UpdateResponse
+	(*UpdateMutation)(nil),    // 18: sessions.private.v1.UpdateMutation
+	(*UpdateTransaction)(nil), // 19: sessions.private.v1.UpdateTransaction
+	(*DeleteArgument)(nil),    // 20: sessions.private.v1.DeleteArgument
+	(*DeleteRequest)(nil),     // 21: sessions.private.v1.DeleteRequest
+	(*DeleteResponse)(nil),    // 22: sessions.private.v1.DeleteResponse
+	(*DeleteMutation)(nil),    // 23: sessions.private.v1.DeleteMutation
+	(*DeleteCondition)(nil),   // 24: sessions.private.v1.DeleteCondition
+	(*DeleteTransaction)(nil), // 25: sessions.private.v1.DeleteTransaction
+	(*AttachArgument)(nil),    // 26: sessions.private.v1.AttachArgument
+	(*AttachRequest)(nil),     // 27: sessions.private.v1.AttachRequest
+	(*AttachResponse)(nil),    // 28: sessions.private.v1.AttachResponse
+	(*AttachMutation)(nil),    // 29: sessions.private.v1.AttachMutation
+	(*AttachCondition)(nil),   // 30: sessions.private.v1.AttachCondition
+	(*AttachTransaction)(nil), // 31: sessions.private.v1.AttachTransaction
+	(*DetachArgument)(nil),    // 32: sessions.private.v1.DetachArgument
+	(*DetachRequest)(nil),     // 33: sessions.private.v1.DetachRequest
+	(*DetachResponse)(nil),    // 34: sessions.private.v1.DetachResponse
+	(*DetachMutation)(nil),    // 35: sessions.private.v1.DetachMutation
+	(*DetachCondition)(nil),   // 36: sessions.private.v1.DetachCondition
+	(*DetachTransaction)(nil), // 37: sessions.private.v1.DetachTransaction
+	(*Query)(nil),             // 38: sessions.private.v1.Query
+	(*Chunk)(nil),             // 39: sessions.private.v1.Chunk
+	(*Session)(nil),           // 40: sessions.private.v1.Session
+	(Status)(0),               // 41: sessions.private.v1.Status
+	(*Transient)(nil),         // 42: sessions.private.v1.Transient
+	(*v1.CreateMutation)(nil), // 43: transponders.private.v1.CreateMutation
+	(*v1.DeleteMutation)(nil), // 44: transponders.private.v1.DeleteMutation
 }
 var file_gateway_sessions_private_v1_procedures_proto_depIdxs = []int32{
-	35, // 0: sessions.private.v1.CountArgument.query:type_name -> sessions.private.v1.Query
+	38, // 0: sessions.private.v1.CountArgument.query:type_name -> sessions.private.v1.Query
 	0,  // 1: sessions.private.v1.CountRequest.arguments:type_name -> sessions.private.v1.CountArgument
-	35, // 2: sessions.private.v1.SelectArgument.query:type_name -> sessions.private.v1.Query
-	3,  // 3: sessions.private.v1.SelectRequest.arguments:type_name -> sessions.private.v1.SelectArgument
-	36, // 4: sessions.private.v1.SelectResponse.sessions:type_name -> sessions.private.v1.Session
-	37, // 5: sessions.private.v1.CreateArgument.status:type_name -> sessions.private.v1.Status
-	6,  // 6: sessions.private.v1.CreateRequest.arguments:type_name -> sessions.private.v1.CreateArgument
-	36, // 7: sessions.private.v1.CreateResponse.sessions:type_name -> sessions.private.v1.Session
-	6,  // 8: sessions.private.v1.CreateMutation.foundation:type_name -> sessions.private.v1.CreateArgument
-	10, // 9: sessions.private.v1.CreateMutation.condition:type_name -> sessions.private.v1.CreateCondition
-	38, // 10: sessions.private.v1.CreateMutation.transient:type_name -> sessions.private.v1.Transient
-	39, // 11: sessions.private.v1.CreateCondition.create_transponder_mutations:type_name -> transponders.private.v1.CreateMutation
-	9,  // 12: sessions.private.v1.CreateTransaction.mutations:type_name -> sessions.private.v1.CreateMutation
-	35, // 13: sessions.private.v1.UpdateArgument.query:type_name -> sessions.private.v1.Query
-	37, // 14: sessions.private.v1.UpdateArgument.status:type_name -> sessions.private.v1.Status
-	12, // 15: sessions.private.v1.UpdateRequest.arguments:type_name -> sessions.private.v1.UpdateArgument
-	36, // 16: sessions.private.v1.UpdateResponse.sessions:type_name -> sessions.private.v1.Session
-	12, // 17: sessions.private.v1.UpdateMutation.foundation:type_name -> sessions.private.v1.UpdateArgument
-	38, // 18: sessions.private.v1.UpdateMutation.transient:type_name -> sessions.private.v1.Transient
-	15, // 19: sessions.private.v1.UpdateTransaction.mutations:type_name -> sessions.private.v1.UpdateMutation
-	35, // 20: sessions.private.v1.DeleteArgument.query:type_name -> sessions.private.v1.Query
-	17, // 21: sessions.private.v1.DeleteRequest.arguments:type_name -> sessions.private.v1.DeleteArgument
-	36, // 22: sessions.private.v1.DeleteResponse.sessions:type_name -> sessions.private.v1.Session
-	17, // 23: sessions.private.v1.DeleteMutation.foundation:type_name -> sessions.private.v1.DeleteArgument
-	21, // 24: sessions.private.v1.DeleteMutation.condition:type_name -> sessions.private.v1.DeleteCondition
-	38, // 25: sessions.private.v1.DeleteMutation.transient:type_name -> sessions.private.v1.Transient
-	40, // 26: sessions.private.v1.DeleteCondition.delete_transponder_mutations:type_name -> transponders.private.v1.DeleteMutation
-	20, // 27: sessions.private.v1.DeleteTransaction.mutations:type_name -> sessions.private.v1.DeleteMutation
-	23, // 28: sessions.private.v1.AttachRequest.arguments:type_name -> sessions.private.v1.AttachArgument
-	23, // 29: sessions.private.v1.AttachMutation.foundation:type_name -> sessions.private.v1.AttachArgument
-	27, // 30: sessions.private.v1.AttachMutation.condition:type_name -> sessions.private.v1.AttachCondition
-	9,  // 31: sessions.private.v1.AttachCondition.create_mutations:type_name -> sessions.private.v1.CreateMutation
-	15, // 32: sessions.private.v1.AttachCondition.update_mutations:type_name -> sessions.private.v1.UpdateMutation
-	26, // 33: sessions.private.v1.AttachTransaction.mutations:type_name -> sessions.private.v1.AttachMutation
-	29, // 34: sessions.private.v1.DetachRequest.arguments:type_name -> sessions.private.v1.DetachArgument
-	29, // 35: sessions.private.v1.DetachMutation.foundation:type_name -> sessions.private.v1.DetachArgument
-	33, // 36: sessions.private.v1.DetachMutation.condition:type_name -> sessions.private.v1.DetachCondition
-	15, // 37: sessions.private.v1.DetachCondition.update_mutations:type_name -> sessions.private.v1.UpdateMutation
-	20, // 38: sessions.private.v1.DetachCondition.delete_mutations:type_name -> sessions.private.v1.DeleteMutation
-	32, // 39: sessions.private.v1.DetachTransaction.mutations:type_name -> sessions.private.v1.DetachMutation
-	40, // [40:40] is the sub-list for method output_type
-	40, // [40:40] is the sub-list for method input_type
-	40, // [40:40] is the sub-list for extension type_name
-	40, // [40:40] is the sub-list for extension extendee
-	0,  // [0:40] is the sub-list for field type_name
+	38, // 2: sessions.private.v1.RangeArgument.query:type_name -> sessions.private.v1.Query
+	3,  // 3: sessions.private.v1.RangeRequest.arguments:type_name -> sessions.private.v1.RangeArgument
+	39, // 4: sessions.private.v1.RangeResponse.chunks:type_name -> sessions.private.v1.Chunk
+	38, // 5: sessions.private.v1.SelectArgument.query:type_name -> sessions.private.v1.Query
+	6,  // 6: sessions.private.v1.SelectRequest.arguments:type_name -> sessions.private.v1.SelectArgument
+	40, // 7: sessions.private.v1.SelectResponse.sessions:type_name -> sessions.private.v1.Session
+	41, // 8: sessions.private.v1.CreateArgument.status:type_name -> sessions.private.v1.Status
+	9,  // 9: sessions.private.v1.CreateRequest.arguments:type_name -> sessions.private.v1.CreateArgument
+	40, // 10: sessions.private.v1.CreateResponse.sessions:type_name -> sessions.private.v1.Session
+	9,  // 11: sessions.private.v1.CreateMutation.foundation:type_name -> sessions.private.v1.CreateArgument
+	13, // 12: sessions.private.v1.CreateMutation.condition:type_name -> sessions.private.v1.CreateCondition
+	42, // 13: sessions.private.v1.CreateMutation.transient:type_name -> sessions.private.v1.Transient
+	43, // 14: sessions.private.v1.CreateCondition.create_transponder_mutations:type_name -> transponders.private.v1.CreateMutation
+	12, // 15: sessions.private.v1.CreateTransaction.mutations:type_name -> sessions.private.v1.CreateMutation
+	38, // 16: sessions.private.v1.UpdateArgument.query:type_name -> sessions.private.v1.Query
+	41, // 17: sessions.private.v1.UpdateArgument.status:type_name -> sessions.private.v1.Status
+	15, // 18: sessions.private.v1.UpdateRequest.arguments:type_name -> sessions.private.v1.UpdateArgument
+	40, // 19: sessions.private.v1.UpdateResponse.sessions:type_name -> sessions.private.v1.Session
+	15, // 20: sessions.private.v1.UpdateMutation.foundation:type_name -> sessions.private.v1.UpdateArgument
+	42, // 21: sessions.private.v1.UpdateMutation.transient:type_name -> sessions.private.v1.Transient
+	18, // 22: sessions.private.v1.UpdateTransaction.mutations:type_name -> sessions.private.v1.UpdateMutation
+	38, // 23: sessions.private.v1.DeleteArgument.query:type_name -> sessions.private.v1.Query
+	20, // 24: sessions.private.v1.DeleteRequest.arguments:type_name -> sessions.private.v1.DeleteArgument
+	40, // 25: sessions.private.v1.DeleteResponse.sessions:type_name -> sessions.private.v1.Session
+	20, // 26: sessions.private.v1.DeleteMutation.foundation:type_name -> sessions.private.v1.DeleteArgument
+	24, // 27: sessions.private.v1.DeleteMutation.condition:type_name -> sessions.private.v1.DeleteCondition
+	42, // 28: sessions.private.v1.DeleteMutation.transient:type_name -> sessions.private.v1.Transient
+	44, // 29: sessions.private.v1.DeleteCondition.delete_transponder_mutations:type_name -> transponders.private.v1.DeleteMutation
+	23, // 30: sessions.private.v1.DeleteTransaction.mutations:type_name -> sessions.private.v1.DeleteMutation
+	26, // 31: sessions.private.v1.AttachRequest.arguments:type_name -> sessions.private.v1.AttachArgument
+	26, // 32: sessions.private.v1.AttachMutation.foundation:type_name -> sessions.private.v1.AttachArgument
+	30, // 33: sessions.private.v1.AttachMutation.condition:type_name -> sessions.private.v1.AttachCondition
+	12, // 34: sessions.private.v1.AttachCondition.create_mutations:type_name -> sessions.private.v1.CreateMutation
+	18, // 35: sessions.private.v1.AttachCondition.update_mutations:type_name -> sessions.private.v1.UpdateMutation
+	29, // 36: sessions.private.v1.AttachTransaction.mutations:type_name -> sessions.private.v1.AttachMutation
+	32, // 37: sessions.private.v1.DetachRequest.arguments:type_name -> sessions.private.v1.DetachArgument
+	32, // 38: sessions.private.v1.DetachMutation.foundation:type_name -> sessions.private.v1.DetachArgument
+	36, // 39: sessions.private.v1.DetachMutation.condition:type_name -> sessions.private.v1.DetachCondition
+	18, // 40: sessions.private.v1.DetachCondition.update_mutations:type_name -> sessions.private.v1.UpdateMutation
+	23, // 41: sessions.private.v1.DetachCondition.delete_mutations:type_name -> sessions.private.v1.DeleteMutation
+	35, // 42: sessions.private.v1.DetachTransaction.mutations:type_name -> sessions.private.v1.DetachMutation
+	43, // [43:43] is the sub-list for method output_type
+	43, // [43:43] is the sub-list for method input_type
+	43, // [43:43] is the sub-list for extension type_name
+	43, // [43:43] is the sub-list for extension extendee
+	0,  // [0:43] is the sub-list for field type_name
 }
 
 func init() { file_gateway_sessions_private_v1_procedures_proto_init() }
@@ -2284,7 +2455,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*SelectArgument); i {
+			switch v := v.(*RangeArgument); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2296,7 +2467,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*SelectRequest); i {
+			switch v := v.(*RangeRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2308,7 +2479,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*SelectResponse); i {
+			switch v := v.(*RangeResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2320,7 +2491,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreateArgument); i {
+			switch v := v.(*SelectArgument); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2332,7 +2503,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreateRequest); i {
+			switch v := v.(*SelectRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2344,7 +2515,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreateResponse); i {
+			switch v := v.(*SelectResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2356,7 +2527,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreateMutation); i {
+			switch v := v.(*CreateArgument); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2368,7 +2539,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreateCondition); i {
+			switch v := v.(*CreateRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2380,7 +2551,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreateTransaction); i {
+			switch v := v.(*CreateResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2392,7 +2563,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateArgument); i {
+			switch v := v.(*CreateMutation); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2404,7 +2575,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateRequest); i {
+			switch v := v.(*CreateCondition); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2416,7 +2587,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateResponse); i {
+			switch v := v.(*CreateTransaction); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2428,7 +2599,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateMutation); i {
+			switch v := v.(*UpdateArgument); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2440,7 +2611,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateTransaction); i {
+			switch v := v.(*UpdateRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2452,7 +2623,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteArgument); i {
+			switch v := v.(*UpdateResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2464,7 +2635,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteRequest); i {
+			switch v := v.(*UpdateMutation); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2476,7 +2647,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteResponse); i {
+			switch v := v.(*UpdateTransaction); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2488,7 +2659,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteMutation); i {
+			switch v := v.(*DeleteArgument); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2500,7 +2671,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteCondition); i {
+			switch v := v.(*DeleteRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2512,7 +2683,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteTransaction); i {
+			switch v := v.(*DeleteResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2524,7 +2695,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AttachArgument); i {
+			switch v := v.(*DeleteMutation); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2536,7 +2707,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[24].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AttachRequest); i {
+			switch v := v.(*DeleteCondition); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2548,7 +2719,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[25].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AttachResponse); i {
+			switch v := v.(*DeleteTransaction); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2560,7 +2731,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[26].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AttachMutation); i {
+			switch v := v.(*AttachArgument); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2572,7 +2743,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[27].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AttachCondition); i {
+			switch v := v.(*AttachRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2584,7 +2755,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[28].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AttachTransaction); i {
+			switch v := v.(*AttachResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2596,7 +2767,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[29].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DetachArgument); i {
+			switch v := v.(*AttachMutation); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2608,7 +2779,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[30].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DetachRequest); i {
+			switch v := v.(*AttachCondition); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2620,7 +2791,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[31].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DetachResponse); i {
+			switch v := v.(*AttachTransaction); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2632,7 +2803,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[32].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DetachMutation); i {
+			switch v := v.(*DetachArgument); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2644,7 +2815,7 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[33].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DetachCondition); i {
+			switch v := v.(*DetachRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2656,6 +2827,42 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 		file_gateway_sessions_private_v1_procedures_proto_msgTypes[34].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DetachResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_gateway_sessions_private_v1_procedures_proto_msgTypes[35].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DetachMutation); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_gateway_sessions_private_v1_procedures_proto_msgTypes[36].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DetachCondition); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_gateway_sessions_private_v1_procedures_proto_msgTypes[37].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DetachTransaction); i {
 			case 0:
 				return &v.state
@@ -2668,14 +2875,14 @@ func file_gateway_sessions_private_v1_procedures_proto_init() {
 			}
 		}
 	}
-	file_gateway_sessions_private_v1_procedures_proto_msgTypes[12].OneofWrappers = []interface{}{}
+	file_gateway_sessions_private_v1_procedures_proto_msgTypes[15].OneofWrappers = []interface{}{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_gateway_sessions_private_v1_procedures_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   35,
+			NumMessages:   38,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

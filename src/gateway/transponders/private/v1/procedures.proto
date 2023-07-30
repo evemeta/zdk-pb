@@ -21,6 +21,19 @@ message CountResponse {
     int64 total = 1;
 }
 
+message RangeArgument {
+    bool                          cache = 1;
+    transponders.private.v1.Query query = 2;
+}
+
+message RangeRequest {
+    repeated transponders.private.v1.RangeArgument arguments = 1;
+}
+
+message RangeResponse {
+    repeated transponders.private.v1.Chunk chunks = 1;
+}
+
 message SelectArgument {
     bool                          cache = 1;
     transponders.private.v1.Query query = 2;
