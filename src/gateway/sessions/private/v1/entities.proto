@@ -9,9 +9,10 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/sessions/private/v
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 message Query {
-    int64                                  limit      = 1;
-    int64                                  offset     = 2;
-    repeated sessions.private.v1.Condition conditions = 3;
+    sessions.private.v1.Order              order      = 1;
+    int64                                  limit      = 2;
+    int64                                  offset     = 3;
+    repeated sessions.private.v1.Condition conditions = 4;
 }
 
 message Condition {
