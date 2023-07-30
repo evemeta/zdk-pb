@@ -11,7 +11,8 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/sessions/private/v
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 message CountArgument {
-    sessions.private.v1.Query query = 1;
+    bool                      cache = 1;
+    sessions.private.v1.Query query = 2;
 }
 
 message CountRequest {
@@ -23,7 +24,8 @@ message CountResponse {
 }
 
 message SelectArgument {
-    sessions.private.v1.Query query = 1;
+    bool                      cache = 1;
+    sessions.private.v1.Query query = 2;
 }
 
 message SelectRequest {
