@@ -20,6 +20,7 @@ const _ = grpc.SupportPackageIsVersion7
 
 const (
 	Service_Count_FullMethodName                   = "/members.private.v1.Service/Count"
+	Service_Range_FullMethodName                   = "/members.private.v1.Service/Range"
 	Service_Select_FullMethodName                  = "/members.private.v1.Service/Select"
 	Service_Create_FullMethodName                  = "/members.private.v1.Service/Create"
 	Service_InitiateCreateMutations_FullMethodName = "/members.private.v1.Service/InitiateCreateMutations"
@@ -45,6 +46,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ServiceClient interface {
 	Count(ctx context.Context, in *CountRequest, opts ...grpc.CallOption) (*CountResponse, error)
+	Range(ctx context.Context, in *RangeRequest, opts ...grpc.CallOption) (*RangeResponse, error)
 	Select(ctx context.Context, in *SelectRequest, opts ...grpc.CallOption) (*SelectResponse, error)
 	Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error)
 	InitiateCreateMutations(ctx context.Context, in *CreateTransaction, opts ...grpc.CallOption) (*CreateTransaction, error)
@@ -76,6 +78,15 @@ func NewServiceClient(cc grpc.ClientConnInterface) ServiceClient {
 func (c *serviceClient) Count(ctx context.Context, in *CountRequest, opts ...grpc.CallOption) (*CountResponse, error) {
 	out := new(CountResponse)
 	err := c.cc.Invoke(ctx, Service_Count_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) Range(ctx context.Context, in *RangeRequest, opts ...grpc.CallOption) (*RangeResponse, error) {
+	out := new(RangeResponse)
+	err := c.cc.Invoke(ctx, Service_Range_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -249,6 +260,7 @@ func (c *serviceClient) RollbackDeleteMutations(ctx context.Context, in *DeleteT
 // for forward compatibility
 type ServiceServer interface {
 	Count(context.Context, *CountRequest) (*CountResponse, error)
+	Range(context.Context, *RangeRequest) (*RangeResponse, error)
 	Select(context.Context, *SelectRequest) (*SelectResponse, error)
 	Create(context.Context, *CreateRequest) (*CreateResponse, error)
 	InitiateCreateMutations(context.Context, *CreateTransaction) (*CreateTransaction, error)
@@ -276,6 +288,9 @@ type UnimplementedServiceServer struct {
 
 func (UnimplementedServiceServer) Count(context.Context, *CountRequest) (*CountResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Count not implemented")
+}
+func (UnimplementedServiceServer) Range(context.Context, *RangeRequest) (*RangeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Range not implemented")
 }
 func (UnimplementedServiceServer) Select(context.Context, *SelectRequest) (*SelectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Select not implemented")
@@ -358,6 +373,24 @@ func _Service_Count_Handler(srv interface{}, ctx context.Context, dec func(inter
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ServiceServer).Count(ctx, req.(*CountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_Range_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RangeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).Range(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_Range_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).Range(ctx, req.(*RangeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -696,6 +729,10 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Count",
 			Handler:    _Service_Count_Handler,
+		},
+		{
+			MethodName: "Range",
+			Handler:    _Service_Range_Handler,
 		},
 		{
 			MethodName: "Select",
