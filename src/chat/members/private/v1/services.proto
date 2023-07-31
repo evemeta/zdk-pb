@@ -18,6 +18,14 @@ service Service {
         };
     }
 
+    rpc Range(RangeRequest) returns (RangeResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: Range";
+            summary: "Range";
+            operation_id: "Range";
+        };
+    }
+
     rpc Select(SelectRequest) returns (SelectResponse) {
         option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
             description: "Description: Select";

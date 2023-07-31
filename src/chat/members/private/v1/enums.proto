@@ -13,6 +13,12 @@ enum Type {
     Type_Block   = 2;
 }
 
+enum Order {
+    Order_Unknown    = 0;
+    Order_Ascending  = 1;
+    Order_Descending = 2;
+}
+
 enum Status {
     Status_Unknown = 0;
     Status_Online  = 1;

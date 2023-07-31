@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package chats.private.v1;
+
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/chats/private/v1;chatspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+enum Order {
+    Order_Unknown    = 0;
+    Order_Ascending  = 1;
+    Order_Descending = 2;
+}

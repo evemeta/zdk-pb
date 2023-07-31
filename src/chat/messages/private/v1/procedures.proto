@@ -10,7 +10,8 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/messages/private/v1;m
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 message CountArgument {
-    messages.private.v1.Query query = 1;
+    bool                      cache = 1;
+    messages.private.v1.Query query = 2;
 }
 
 message CountRequest {
@@ -21,8 +22,22 @@ message CountResponse {
     int64 total = 1;
 }
 
+message RangeArgument {
+    bool                      cache = 1;
+    messages.private.v1.Query query = 2;
+}
+
+message RangeRequest {
+    repeated messages.private.v1.RangeArgument arguments = 1;
+}
+
+message RangeResponse {
+    repeated messages.private.v1.Chunk chunks = 1;
+}
+
 message SelectArgument {
-    messages.private.v1.Query query = 1;
+    bool                      cache = 1;
+    messages.private.v1.Query query = 2;
 }
 
 message SelectRequest {
@@ -68,6 +83,8 @@ message UpdateArgument {
     optional string           user_id = 2;
     optional string           chat_id = 3;
     optional string           content = 4;
+
+    // todo; change 'optional' to dedicated types
 }
 
 message UpdateRequest {

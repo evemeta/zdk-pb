@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package chats.private.v1;
 
+import "chat/chats/private/v1/enums.proto";
 import "chat/members/private/v1/entities.proto";
 import "chat/messages/private/v1/entities.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
@@ -10,16 +11,25 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/chats/private/v1;chat
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 message Chat {
-    string id          = 1;
-    int64  access_time = 2;
-    int64  create_time = 3;
-    int64  update_time = 4;
+    string              id          = 1;
+    map<string, string> metadata    = 2;
+    int64               access_time = 3;
+    int64               create_time = 4;
+    int64               update_time = 5;
+}
+
+message Chunk {
+    int64                          size     = 1;
+    int64                          index    = 2;
+    int64                          total    = 3;
+    repeated chats.private.v1.Chat entities = 4;
 }
 
 message Query {
-    int64                               limit      = 1;
-    int64                               offset     = 2;
-    repeated chats.private.v1.Condition conditions = 3;
+    chats.private.v1.Order              order      = 1;
+    int64                               limit      = 2;
+    int64                               offset     = 3;
+    repeated chats.private.v1.Condition conditions = 4;
 }
 
 message Condition {
