@@ -8,12 +8,23 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/user/users/private/v1;user
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 enum Permission {
-    Permission_Unknown            = 0;
-    Permission_Chat               = 1;
-    Permission_ChatSelect         = 2;
-    Permission_ChatCreate         = 3;
-    Permission_ChatUpdate         = 4;
-    Permission_ChatUpdateCooldown = 5;
-    Permission_ChatBypass         = 6;
-    Permission_ChatBypassCooldown = 7;
+    Permission_Unknown                  = 0;
+    Permission_Chat                     = 100;
+    Permission_ChatSelect               = 101;
+    Permission_ChatEnter                = 102;
+    Permission_ChatLeave                = 103;
+    Permission_ChatMember               = 200;
+    Permission_ChatMemberSelect         = 201;
+    Permission_ChatMemberKick           = 202;
+    Permission_ChatMemberMute           = 203;
+    Permission_ChatMemberUnmute         = 204;
+    Permission_ChatMemberBlock          = 205;
+    Permission_ChatMemberUnblock        = 206;
+    Permission_ChatMessage              = 300;
+    Permission_ChatMessageSelect        = 301;
+    Permission_ChatMessageCreate        = 302;
+    Permission_ChatMessageUpdate        = 303;
+    Permission_ChatMessageUpdateContent = 304;
+    Permission_ChatMessageOwnDelete     = 305;
+    Permission_ChatMessageAnyDelete     = 306;
 }
