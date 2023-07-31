@@ -4,9 +4,19 @@
 import type { RpcTransport } from "@protobuf-ts/runtime-rpc";
 import type { ServiceInfo } from "@protobuf-ts/runtime-rpc";
 import { Service } from "./services";
+import type { UnblockResponse } from "./procedures";
+import type { UnblockRequest } from "./procedures";
+import type { BlockResponse } from "./procedures";
+import type { BlockRequest } from "./procedures";
+import type { UnmuteResponse } from "./procedures";
+import type { UnmuteRequest } from "./procedures";
+import type { MuteResponse } from "./procedures";
+import type { MuteRequest } from "./procedures";
+import type { KickResponse } from "./procedures";
+import type { KickRequest } from "./procedures";
 import { stackIntercept } from "@protobuf-ts/runtime-rpc";
-import type { SelectResponse } from "./procedures";
-import type { SelectRequest } from "./procedures";
+import type { RangeResponse } from "./procedures";
+import type { RangeRequest } from "./procedures";
 import type { UnaryCall } from "@protobuf-ts/runtime-rpc";
 import type { RpcOptions } from "@protobuf-ts/runtime-rpc";
 /**
@@ -14,9 +24,29 @@ import type { RpcOptions } from "@protobuf-ts/runtime-rpc";
  */
 export interface IServiceClient {
     /**
-     * @generated from protobuf rpc: Select(members.public.server.v1.SelectRequest) returns (members.public.server.v1.SelectResponse);
+     * @generated from protobuf rpc: Range(members.public.server.v1.RangeRequest) returns (members.public.server.v1.RangeResponse);
      */
-    select(input: SelectRequest, options?: RpcOptions): UnaryCall<SelectRequest, SelectResponse>;
+    range(input: RangeRequest, options?: RpcOptions): UnaryCall<RangeRequest, RangeResponse>;
+    /**
+     * @generated from protobuf rpc: Kick(members.public.server.v1.KickRequest) returns (members.public.server.v1.KickResponse);
+     */
+    kick(input: KickRequest, options?: RpcOptions): UnaryCall<KickRequest, KickResponse>;
+    /**
+     * @generated from protobuf rpc: Mute(members.public.server.v1.MuteRequest) returns (members.public.server.v1.MuteResponse);
+     */
+    mute(input: MuteRequest, options?: RpcOptions): UnaryCall<MuteRequest, MuteResponse>;
+    /**
+     * @generated from protobuf rpc: Unmute(members.public.server.v1.UnmuteRequest) returns (members.public.server.v1.UnmuteResponse);
+     */
+    unmute(input: UnmuteRequest, options?: RpcOptions): UnaryCall<UnmuteRequest, UnmuteResponse>;
+    /**
+     * @generated from protobuf rpc: Block(members.public.server.v1.BlockRequest) returns (members.public.server.v1.BlockResponse);
+     */
+    block(input: BlockRequest, options?: RpcOptions): UnaryCall<BlockRequest, BlockResponse>;
+    /**
+     * @generated from protobuf rpc: Unblock(members.public.server.v1.UnblockRequest) returns (members.public.server.v1.UnblockResponse);
+     */
+    unblock(input: UnblockRequest, options?: RpcOptions): UnaryCall<UnblockRequest, UnblockResponse>;
 }
 /**
  * @generated from protobuf service members.public.server.v1.Service
@@ -28,10 +58,45 @@ export class ServiceClient implements IServiceClient, ServiceInfo {
     constructor(private readonly _transport: RpcTransport) {
     }
     /**
-     * @generated from protobuf rpc: Select(members.public.server.v1.SelectRequest) returns (members.public.server.v1.SelectResponse);
+     * @generated from protobuf rpc: Range(members.public.server.v1.RangeRequest) returns (members.public.server.v1.RangeResponse);
      */
-    select(input: SelectRequest, options?: RpcOptions): UnaryCall<SelectRequest, SelectResponse> {
+    range(input: RangeRequest, options?: RpcOptions): UnaryCall<RangeRequest, RangeResponse> {
         const method = this.methods[0], opt = this._transport.mergeOptions(options);
-        return stackIntercept<SelectRequest, SelectResponse>("unary", this._transport, method, opt, input);
+        return stackIntercept<RangeRequest, RangeResponse>("unary", this._transport, method, opt, input);
+    }
+    /**
+     * @generated from protobuf rpc: Kick(members.public.server.v1.KickRequest) returns (members.public.server.v1.KickResponse);
+     */
+    kick(input: KickRequest, options?: RpcOptions): UnaryCall<KickRequest, KickResponse> {
+        const method = this.methods[1], opt = this._transport.mergeOptions(options);
+        return stackIntercept<KickRequest, KickResponse>("unary", this._transport, method, opt, input);
+    }
+    /**
+     * @generated from protobuf rpc: Mute(members.public.server.v1.MuteRequest) returns (members.public.server.v1.MuteResponse);
+     */
+    mute(input: MuteRequest, options?: RpcOptions): UnaryCall<MuteRequest, MuteResponse> {
+        const method = this.methods[2], opt = this._transport.mergeOptions(options);
+        return stackIntercept<MuteRequest, MuteResponse>("unary", this._transport, method, opt, input);
+    }
+    /**
+     * @generated from protobuf rpc: Unmute(members.public.server.v1.UnmuteRequest) returns (members.public.server.v1.UnmuteResponse);
+     */
+    unmute(input: UnmuteRequest, options?: RpcOptions): UnaryCall<UnmuteRequest, UnmuteResponse> {
+        const method = this.methods[3], opt = this._transport.mergeOptions(options);
+        return stackIntercept<UnmuteRequest, UnmuteResponse>("unary", this._transport, method, opt, input);
+    }
+    /**
+     * @generated from protobuf rpc: Block(members.public.server.v1.BlockRequest) returns (members.public.server.v1.BlockResponse);
+     */
+    block(input: BlockRequest, options?: RpcOptions): UnaryCall<BlockRequest, BlockResponse> {
+        const method = this.methods[4], opt = this._transport.mergeOptions(options);
+        return stackIntercept<BlockRequest, BlockResponse>("unary", this._transport, method, opt, input);
+    }
+    /**
+     * @generated from protobuf rpc: Unblock(members.public.server.v1.UnblockRequest) returns (members.public.server.v1.UnblockResponse);
+     */
+    unblock(input: UnblockRequest, options?: RpcOptions): UnaryCall<UnblockRequest, UnblockResponse> {
+        const method = this.methods[5], opt = this._transport.mergeOptions(options);
+        return stackIntercept<UnblockRequest, UnblockResponse>("unary", this._transport, method, opt, input);
     }
 }

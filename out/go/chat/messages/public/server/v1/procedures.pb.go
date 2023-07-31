@@ -21,14 +21,18 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type SelectRequest struct {
+type RangeRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
+
+	Order  Order `protobuf:"varint,1,opt,name=order,proto3,enum=messages.public.server.v1.Order" json:"order,omitempty"`
+	Limit  int64 `protobuf:"varint,2,opt,name=limit,proto3" json:"limit,omitempty"`
+	Offset int64 `protobuf:"varint,3,opt,name=offset,proto3" json:"offset,omitempty"`
 }
 
-func (x *SelectRequest) Reset() {
-	*x = SelectRequest{}
+func (x *RangeRequest) Reset() {
+	*x = RangeRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_chat_messages_public_server_v1_procedures_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -36,13 +40,13 @@ func (x *SelectRequest) Reset() {
 	}
 }
 
-func (x *SelectRequest) String() string {
+func (x *RangeRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SelectRequest) ProtoMessage() {}
+func (*RangeRequest) ProtoMessage() {}
 
-func (x *SelectRequest) ProtoReflect() protoreflect.Message {
+func (x *RangeRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_chat_messages_public_server_v1_procedures_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -54,21 +58,42 @@ func (x *SelectRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SelectRequest.ProtoReflect.Descriptor instead.
-func (*SelectRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use RangeRequest.ProtoReflect.Descriptor instead.
+func (*RangeRequest) Descriptor() ([]byte, []int) {
 	return file_chat_messages_public_server_v1_procedures_proto_rawDescGZIP(), []int{0}
 }
 
-type SelectResponse struct {
+func (x *RangeRequest) GetOrder() Order {
+	if x != nil {
+		return x.Order
+	}
+	return Order_Order_Unknown
+}
+
+func (x *RangeRequest) GetLimit() int64 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
+func (x *RangeRequest) GetOffset() int64 {
+	if x != nil {
+		return x.Offset
+	}
+	return 0
+}
+
+type RangeResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Messages []*Message `protobuf:"bytes,1,rep,name=messages,proto3" json:"messages,omitempty"` //    int64 total = 2;
+	Chunk *Chunk `protobuf:"bytes,1,opt,name=chunk,proto3" json:"chunk,omitempty"`
 }
 
-func (x *SelectResponse) Reset() {
-	*x = SelectResponse{}
+func (x *RangeResponse) Reset() {
+	*x = RangeResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_chat_messages_public_server_v1_procedures_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -76,13 +101,13 @@ func (x *SelectResponse) Reset() {
 	}
 }
 
-func (x *SelectResponse) String() string {
+func (x *RangeResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SelectResponse) ProtoMessage() {}
+func (*RangeResponse) ProtoMessage() {}
 
-func (x *SelectResponse) ProtoReflect() protoreflect.Message {
+func (x *RangeResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_chat_messages_public_server_v1_procedures_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -94,16 +119,361 @@ func (x *SelectResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SelectResponse.ProtoReflect.Descriptor instead.
-func (*SelectResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use RangeResponse.ProtoReflect.Descriptor instead.
+func (*RangeResponse) Descriptor() ([]byte, []int) {
 	return file_chat_messages_public_server_v1_procedures_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *SelectResponse) GetMessages() []*Message {
+func (x *RangeResponse) GetChunk() *Chunk {
 	if x != nil {
-		return x.Messages
+		return x.Chunk
 	}
 	return nil
+}
+
+type CreateRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ChatId  string `protobuf:"bytes,1,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
+	Content string `protobuf:"bytes,2,opt,name=content,proto3" json:"content,omitempty"`
+}
+
+func (x *CreateRequest) Reset() {
+	*x = CreateRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_chat_messages_public_server_v1_procedures_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CreateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateRequest) ProtoMessage() {}
+
+func (x *CreateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_chat_messages_public_server_v1_procedures_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateRequest.ProtoReflect.Descriptor instead.
+func (*CreateRequest) Descriptor() ([]byte, []int) {
+	return file_chat_messages_public_server_v1_procedures_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *CreateRequest) GetChatId() string {
+	if x != nil {
+		return x.ChatId
+	}
+	return ""
+}
+
+func (x *CreateRequest) GetContent() string {
+	if x != nil {
+		return x.Content
+	}
+	return ""
+}
+
+type CreateResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Message *Message `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+}
+
+func (x *CreateResponse) Reset() {
+	*x = CreateResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_chat_messages_public_server_v1_procedures_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CreateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateResponse) ProtoMessage() {}
+
+func (x *CreateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_chat_messages_public_server_v1_procedures_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateResponse.ProtoReflect.Descriptor instead.
+func (*CreateResponse) Descriptor() ([]byte, []int) {
+	return file_chat_messages_public_server_v1_procedures_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *CreateResponse) GetMessage() *Message {
+	if x != nil {
+		return x.Message
+	}
+	return nil
+}
+
+type UpdateRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id      string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Content *UpdateRequest_Content `protobuf:"bytes,2,opt,name=content,proto3" json:"content,omitempty"`
+}
+
+func (x *UpdateRequest) Reset() {
+	*x = UpdateRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_chat_messages_public_server_v1_procedures_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UpdateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateRequest) ProtoMessage() {}
+
+func (x *UpdateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_chat_messages_public_server_v1_procedures_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateRequest.ProtoReflect.Descriptor instead.
+func (*UpdateRequest) Descriptor() ([]byte, []int) {
+	return file_chat_messages_public_server_v1_procedures_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *UpdateRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *UpdateRequest) GetContent() *UpdateRequest_Content {
+	if x != nil {
+		return x.Content
+	}
+	return nil
+}
+
+type UpdateResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Message *Message `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+}
+
+func (x *UpdateResponse) Reset() {
+	*x = UpdateResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_chat_messages_public_server_v1_procedures_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UpdateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateResponse) ProtoMessage() {}
+
+func (x *UpdateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_chat_messages_public_server_v1_procedures_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateResponse.ProtoReflect.Descriptor instead.
+func (*UpdateResponse) Descriptor() ([]byte, []int) {
+	return file_chat_messages_public_server_v1_procedures_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *UpdateResponse) GetMessage() *Message {
+	if x != nil {
+		return x.Message
+	}
+	return nil
+}
+
+type DeleteRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (x *DeleteRequest) Reset() {
+	*x = DeleteRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_chat_messages_public_server_v1_procedures_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *DeleteRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteRequest) ProtoMessage() {}
+
+func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_chat_messages_public_server_v1_procedures_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteRequest.ProtoReflect.Descriptor instead.
+func (*DeleteRequest) Descriptor() ([]byte, []int) {
+	return file_chat_messages_public_server_v1_procedures_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *DeleteRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+type DeleteResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Message *Message `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+}
+
+func (x *DeleteResponse) Reset() {
+	*x = DeleteResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_chat_messages_public_server_v1_procedures_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *DeleteResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteResponse) ProtoMessage() {}
+
+func (x *DeleteResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_chat_messages_public_server_v1_procedures_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteResponse.ProtoReflect.Descriptor instead.
+func (*DeleteResponse) Descriptor() ([]byte, []int) {
+	return file_chat_messages_public_server_v1_procedures_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *DeleteResponse) GetMessage() *Message {
+	if x != nil {
+		return x.Message
+	}
+	return nil
+}
+
+type UpdateRequest_Content struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
+}
+
+func (x *UpdateRequest_Content) Reset() {
+	*x = UpdateRequest_Content{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_chat_messages_public_server_v1_procedures_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UpdateRequest_Content) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateRequest_Content) ProtoMessage() {}
+
+func (x *UpdateRequest_Content) ProtoReflect() protoreflect.Message {
+	mi := &file_chat_messages_public_server_v1_procedures_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateRequest_Content.ProtoReflect.Descriptor instead.
+func (*UpdateRequest_Content) Descriptor() ([]byte, []int) {
+	return file_chat_messages_public_server_v1_procedures_proto_rawDescGZIP(), []int{4, 0}
+}
+
+func (x *UpdateRequest_Content) GetValue() string {
+	if x != nil {
+		return x.Value
+	}
+	return ""
 }
 
 var File_chat_messages_public_server_v1_procedures_proto protoreflect.FileDescriptor
@@ -113,25 +483,64 @@ var file_chat_messages_public_server_v1_procedures_proto_rawDesc = []byte{
 	0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2f, 0x76, 0x31,
 	0x2f, 0x70, 0x72, 0x6f, 0x63, 0x65, 0x64, 0x75, 0x72, 0x65, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74,
 	0x6f, 0x12, 0x19, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c,
-	0x69, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x1a, 0x2d, 0x63, 0x68,
+	0x69, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x1a, 0x2a, 0x63, 0x68,
 	0x61, 0x74, 0x2f, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x2f, 0x70, 0x75, 0x62, 0x6c,
-	0x69, 0x63, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2f, 0x76, 0x31, 0x2f, 0x65, 0x6e, 0x74,
-	0x69, 0x74, 0x69, 0x65, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x2e, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x63, 0x2d, 0x67, 0x65, 0x6e, 0x2d, 0x6f, 0x70, 0x65, 0x6e, 0x61, 0x70, 0x69, 0x76,
-	0x32, 0x2f, 0x6f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x2f, 0x61, 0x6e, 0x6e, 0x6f, 0x74, 0x61,
-	0x74, 0x69, 0x6f, 0x6e, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x0f, 0x0a, 0x0d, 0x53,
-	0x65, 0x6c, 0x65, 0x63, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x50, 0x0a, 0x0e,
-	0x53, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x3e,
-	0x0a, 0x08, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b,
-	0x32, 0x22, 0x2e, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c,
-	0x69, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x65, 0x73,
-	0x73, 0x61, 0x67, 0x65, 0x52, 0x08, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x42, 0x4f,
-	0x5a, 0x4a, 0x67, 0x69, 0x74, 0x6c, 0x61, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x65, 0x76, 0x65,
-	0x6d, 0x65, 0x74, 0x61, 0x2f, 0x7a, 0x64, 0x6b, 0x2f, 0x70, 0x62, 0x2f, 0x6f, 0x75, 0x74, 0x2f,
-	0x67, 0x6f, 0x2f, 0x63, 0x68, 0x61, 0x74, 0x2f, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73,
-	0x2f, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2f, 0x76,
-	0x31, 0x3b, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x70, 0x62, 0x92, 0x41, 0x00, 0x62,
-	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x69, 0x63, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2f, 0x76, 0x31, 0x2f, 0x65, 0x6e, 0x75,
+	0x6d, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x2d, 0x63, 0x68, 0x61, 0x74, 0x2f, 0x6d,
+	0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x2f, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2f, 0x73,
+	0x65, 0x72, 0x76, 0x65, 0x72, 0x2f, 0x76, 0x31, 0x2f, 0x65, 0x6e, 0x74, 0x69, 0x74, 0x69, 0x65,
+	0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x63, 0x2d,
+	0x67, 0x65, 0x6e, 0x2d, 0x6f, 0x70, 0x65, 0x6e, 0x61, 0x70, 0x69, 0x76, 0x32, 0x2f, 0x6f, 0x70,
+	0x74, 0x69, 0x6f, 0x6e, 0x73, 0x2f, 0x61, 0x6e, 0x6e, 0x6f, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e,
+	0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x74, 0x0a, 0x0c, 0x52, 0x61, 0x6e, 0x67, 0x65,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x36, 0x0a, 0x05, 0x6f, 0x72, 0x64, 0x65, 0x72,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x20, 0x2e, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65,
+	0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e,
+	0x76, 0x31, 0x2e, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x52, 0x05, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x12,
+	0x14, 0x0a, 0x05, 0x6c, 0x69, 0x6d, 0x69, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x05,
+	0x6c, 0x69, 0x6d, 0x69, 0x74, 0x12, 0x16, 0x0a, 0x06, 0x6f, 0x66, 0x66, 0x73, 0x65, 0x74, 0x18,
+	0x03, 0x20, 0x01, 0x28, 0x03, 0x52, 0x06, 0x6f, 0x66, 0x66, 0x73, 0x65, 0x74, 0x22, 0x47, 0x0a,
+	0x0d, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x36,
+	0x0a, 0x05, 0x63, 0x68, 0x75, 0x6e, 0x6b, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x20, 0x2e,
+	0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e,
+	0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x43, 0x68, 0x75, 0x6e, 0x6b, 0x52,
+	0x05, 0x63, 0x68, 0x75, 0x6e, 0x6b, 0x22, 0x42, 0x0a, 0x0d, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x17, 0x0a, 0x07, 0x63, 0x68, 0x61, 0x74, 0x5f,
+	0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x63, 0x68, 0x61, 0x74, 0x49, 0x64,
+	0x12, 0x18, 0x0a, 0x07, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x07, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x22, 0x4e, 0x0a, 0x0e, 0x43, 0x72,
+	0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x3c, 0x0a, 0x07,
+	0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x22, 0x2e,
+	0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e,
+	0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67,
+	0x65, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22, 0x8c, 0x01, 0x0a, 0x0d, 0x55,
+	0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02,
+	0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x12, 0x4a, 0x0a, 0x07,
+	0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x30, 0x2e,
+	0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e,
+	0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x2e, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x52,
+	0x07, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x1a, 0x1f, 0x0a, 0x07, 0x43, 0x6f, 0x6e, 0x74,
+	0x65, 0x6e, 0x74, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x4e, 0x0a, 0x0e, 0x55, 0x70, 0x64,
+	0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x3c, 0x0a, 0x07, 0x6d,
+	0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x22, 0x2e, 0x6d,
+	0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e, 0x73,
+	0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65,
+	0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22, 0x1f, 0x0a, 0x0d, 0x44, 0x65, 0x6c,
+	0x65, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x4e, 0x0a, 0x0e, 0x44, 0x65,
+	0x6c, 0x65, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x3c, 0x0a, 0x07,
+	0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x22, 0x2e,
+	0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e,
+	0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67,
+	0x65, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x42, 0x4f, 0x5a, 0x4a, 0x67, 0x69,
+	0x74, 0x6c, 0x61, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x65, 0x76, 0x65, 0x6d, 0x65, 0x74, 0x61,
+	0x2f, 0x7a, 0x64, 0x6b, 0x2f, 0x70, 0x62, 0x2f, 0x6f, 0x75, 0x74, 0x2f, 0x67, 0x6f, 0x2f, 0x63,
+	0x68, 0x61, 0x74, 0x2f, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x2f, 0x70, 0x75, 0x62,
+	0x6c, 0x69, 0x63, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2f, 0x76, 0x31, 0x3b, 0x6d, 0x65,
+	0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x70, 0x62, 0x92, 0x41, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x33,
 }
 
 var (
@@ -146,19 +555,33 @@ func file_chat_messages_public_server_v1_procedures_proto_rawDescGZIP() []byte {
 	return file_chat_messages_public_server_v1_procedures_proto_rawDescData
 }
 
-var file_chat_messages_public_server_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_chat_messages_public_server_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_chat_messages_public_server_v1_procedures_proto_goTypes = []interface{}{
-	(*SelectRequest)(nil),  // 0: messages.public.server.v1.SelectRequest
-	(*SelectResponse)(nil), // 1: messages.public.server.v1.SelectResponse
-	(*Message)(nil),        // 2: messages.public.server.v1.Message
+	(*RangeRequest)(nil),          // 0: messages.public.server.v1.RangeRequest
+	(*RangeResponse)(nil),         // 1: messages.public.server.v1.RangeResponse
+	(*CreateRequest)(nil),         // 2: messages.public.server.v1.CreateRequest
+	(*CreateResponse)(nil),        // 3: messages.public.server.v1.CreateResponse
+	(*UpdateRequest)(nil),         // 4: messages.public.server.v1.UpdateRequest
+	(*UpdateResponse)(nil),        // 5: messages.public.server.v1.UpdateResponse
+	(*DeleteRequest)(nil),         // 6: messages.public.server.v1.DeleteRequest
+	(*DeleteResponse)(nil),        // 7: messages.public.server.v1.DeleteResponse
+	(*UpdateRequest_Content)(nil), // 8: messages.public.server.v1.UpdateRequest.Content
+	(Order)(0),                    // 9: messages.public.server.v1.Order
+	(*Chunk)(nil),                 // 10: messages.public.server.v1.Chunk
+	(*Message)(nil),               // 11: messages.public.server.v1.Message
 }
 var file_chat_messages_public_server_v1_procedures_proto_depIdxs = []int32{
-	2, // 0: messages.public.server.v1.SelectResponse.messages:type_name -> messages.public.server.v1.Message
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	9,  // 0: messages.public.server.v1.RangeRequest.order:type_name -> messages.public.server.v1.Order
+	10, // 1: messages.public.server.v1.RangeResponse.chunk:type_name -> messages.public.server.v1.Chunk
+	11, // 2: messages.public.server.v1.CreateResponse.message:type_name -> messages.public.server.v1.Message
+	8,  // 3: messages.public.server.v1.UpdateRequest.content:type_name -> messages.public.server.v1.UpdateRequest.Content
+	11, // 4: messages.public.server.v1.UpdateResponse.message:type_name -> messages.public.server.v1.Message
+	11, // 5: messages.public.server.v1.DeleteResponse.message:type_name -> messages.public.server.v1.Message
+	6,  // [6:6] is the sub-list for method output_type
+	6,  // [6:6] is the sub-list for method input_type
+	6,  // [6:6] is the sub-list for extension type_name
+	6,  // [6:6] is the sub-list for extension extendee
+	0,  // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_chat_messages_public_server_v1_procedures_proto_init() }
@@ -166,10 +589,11 @@ func file_chat_messages_public_server_v1_procedures_proto_init() {
 	if File_chat_messages_public_server_v1_procedures_proto != nil {
 		return
 	}
+	file_chat_messages_public_server_v1_enums_proto_init()
 	file_chat_messages_public_server_v1_entities_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_chat_messages_public_server_v1_procedures_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*SelectRequest); i {
+			switch v := v.(*RangeRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -181,7 +605,91 @@ func file_chat_messages_public_server_v1_procedures_proto_init() {
 			}
 		}
 		file_chat_messages_public_server_v1_procedures_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*SelectResponse); i {
+			switch v := v.(*RangeResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_chat_messages_public_server_v1_procedures_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CreateRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_chat_messages_public_server_v1_procedures_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CreateResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_chat_messages_public_server_v1_procedures_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UpdateRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_chat_messages_public_server_v1_procedures_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UpdateResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_chat_messages_public_server_v1_procedures_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DeleteRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_chat_messages_public_server_v1_procedures_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DeleteResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_chat_messages_public_server_v1_procedures_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UpdateRequest_Content); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -199,7 +707,7 @@ func file_chat_messages_public_server_v1_procedures_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_chat_messages_public_server_v1_procedures_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   9,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

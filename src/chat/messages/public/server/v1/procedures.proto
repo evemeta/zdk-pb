@@ -2,31 +2,49 @@ syntax = "proto3";
 
 package messages.public.server.v1;
 
+import "chat/messages/public/server/v1/enums.proto";
 import "chat/messages/public/server/v1/entities.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/messages/public/server/v1;messagespb";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
-message SelectRequest {
-//    string chat_id = 1;
-//    int64  offset  = 2;
-//    int64  limit   = 3;
+message RangeRequest {
+    messages.public.server.v1.Order order  = 1;
+    int64                           limit  = 2;
+    int64                           offset = 3;
 }
 
-message SelectResponse {
-    repeated messages.public.server.v1.Message messages = 1;
-//    int64 total = 2;
+message RangeResponse {
+    messages.public.server.v1.Chunk chunk = 1;
 }
 
-//message CreateMessage {
-//
-//}
-//
-//message UpdateMessage {
-//    string id = 1;
-//}
-//
-//message DeleteMessage {
-//    string id = 1;
-//}
+message CreateRequest {
+    string chat_id = 1;
+    string content = 2;
+}
+
+message CreateResponse {
+    messages.public.server.v1.Message message = 1;
+}
+
+message UpdateRequest {
+    string  id      = 1;
+    Content content = 2;
+
+    message Content {
+        string value = 1;
+    }
+}
+
+message UpdateResponse {
+    messages.public.server.v1.Message message = 1;
+}
+
+message DeleteRequest {
+    string id = 1;
+}
+
+message DeleteResponse {
+    messages.public.server.v1.Message message = 1;
+}

@@ -10,15 +10,23 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/chats/public/server/v
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 message Chat {
-    string id          = 1;
-    int64  create_time = 2;
-    int64  update_time = 3;
+    string              id          = 1;
+    map<string, string> metadata    = 2;
+    int64               create_time = 3;
+    int64               update_time = 4;
+}
+
+message Chunk {
+    int64                                size     = 1;
+    int64                                index    = 2;
+    int64                                total    = 3;
+    repeated chats.public.server.v1.Chat entities = 4;
 }
 
 message Context {
-    chats.public.server.v1.Chat                chat     = 1;
-    repeated members.public.server.v1.Member   members  = 2;
-    repeated messages.public.server.v1.Message messages = 3;
+    chats.public.server.v1.Chat     chat      = 1;
+    members.public.server.v1.Member member    = 2;
+    int64                           members   = 3;
+    messages.public.server.v1.Chunk messages  = 4;
+    int64                           timestamp = 5;
 }
-
-// todo; rozkminic jak ogarnac synchronizacje

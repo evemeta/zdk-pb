@@ -19,14 +19,24 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Service_Select_FullMethodName = "/members.public.server.v1.Service/Select"
+	Service_Range_FullMethodName   = "/members.public.server.v1.Service/Range"
+	Service_Kick_FullMethodName    = "/members.public.server.v1.Service/Kick"
+	Service_Mute_FullMethodName    = "/members.public.server.v1.Service/Mute"
+	Service_Unmute_FullMethodName  = "/members.public.server.v1.Service/Unmute"
+	Service_Block_FullMethodName   = "/members.public.server.v1.Service/Block"
+	Service_Unblock_FullMethodName = "/members.public.server.v1.Service/Unblock"
 )
 
 // ServiceClient is the client API for Service service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ServiceClient interface {
-	Select(ctx context.Context, in *SelectRequest, opts ...grpc.CallOption) (*SelectResponse, error)
+	Range(ctx context.Context, in *RangeRequest, opts ...grpc.CallOption) (*RangeResponse, error)
+	Kick(ctx context.Context, in *KickRequest, opts ...grpc.CallOption) (*KickResponse, error)
+	Mute(ctx context.Context, in *MuteRequest, opts ...grpc.CallOption) (*MuteResponse, error)
+	Unmute(ctx context.Context, in *UnmuteRequest, opts ...grpc.CallOption) (*UnmuteResponse, error)
+	Block(ctx context.Context, in *BlockRequest, opts ...grpc.CallOption) (*BlockResponse, error)
+	Unblock(ctx context.Context, in *UnblockRequest, opts ...grpc.CallOption) (*UnblockResponse, error)
 }
 
 type serviceClient struct {
@@ -37,9 +47,54 @@ func NewServiceClient(cc grpc.ClientConnInterface) ServiceClient {
 	return &serviceClient{cc}
 }
 
-func (c *serviceClient) Select(ctx context.Context, in *SelectRequest, opts ...grpc.CallOption) (*SelectResponse, error) {
-	out := new(SelectResponse)
-	err := c.cc.Invoke(ctx, Service_Select_FullMethodName, in, out, opts...)
+func (c *serviceClient) Range(ctx context.Context, in *RangeRequest, opts ...grpc.CallOption) (*RangeResponse, error) {
+	out := new(RangeResponse)
+	err := c.cc.Invoke(ctx, Service_Range_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) Kick(ctx context.Context, in *KickRequest, opts ...grpc.CallOption) (*KickResponse, error) {
+	out := new(KickResponse)
+	err := c.cc.Invoke(ctx, Service_Kick_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) Mute(ctx context.Context, in *MuteRequest, opts ...grpc.CallOption) (*MuteResponse, error) {
+	out := new(MuteResponse)
+	err := c.cc.Invoke(ctx, Service_Mute_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) Unmute(ctx context.Context, in *UnmuteRequest, opts ...grpc.CallOption) (*UnmuteResponse, error) {
+	out := new(UnmuteResponse)
+	err := c.cc.Invoke(ctx, Service_Unmute_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) Block(ctx context.Context, in *BlockRequest, opts ...grpc.CallOption) (*BlockResponse, error) {
+	out := new(BlockResponse)
+	err := c.cc.Invoke(ctx, Service_Block_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) Unblock(ctx context.Context, in *UnblockRequest, opts ...grpc.CallOption) (*UnblockResponse, error) {
+	out := new(UnblockResponse)
+	err := c.cc.Invoke(ctx, Service_Unblock_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -50,7 +105,12 @@ func (c *serviceClient) Select(ctx context.Context, in *SelectRequest, opts ...g
 // All implementations must embed UnimplementedServiceServer
 // for forward compatibility
 type ServiceServer interface {
-	Select(context.Context, *SelectRequest) (*SelectResponse, error)
+	Range(context.Context, *RangeRequest) (*RangeResponse, error)
+	Kick(context.Context, *KickRequest) (*KickResponse, error)
+	Mute(context.Context, *MuteRequest) (*MuteResponse, error)
+	Unmute(context.Context, *UnmuteRequest) (*UnmuteResponse, error)
+	Block(context.Context, *BlockRequest) (*BlockResponse, error)
+	Unblock(context.Context, *UnblockRequest) (*UnblockResponse, error)
 	mustEmbedUnimplementedServiceServer()
 }
 
@@ -58,8 +118,23 @@ type ServiceServer interface {
 type UnimplementedServiceServer struct {
 }
 
-func (UnimplementedServiceServer) Select(context.Context, *SelectRequest) (*SelectResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Select not implemented")
+func (UnimplementedServiceServer) Range(context.Context, *RangeRequest) (*RangeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Range not implemented")
+}
+func (UnimplementedServiceServer) Kick(context.Context, *KickRequest) (*KickResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Kick not implemented")
+}
+func (UnimplementedServiceServer) Mute(context.Context, *MuteRequest) (*MuteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Mute not implemented")
+}
+func (UnimplementedServiceServer) Unmute(context.Context, *UnmuteRequest) (*UnmuteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Unmute not implemented")
+}
+func (UnimplementedServiceServer) Block(context.Context, *BlockRequest) (*BlockResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Block not implemented")
+}
+func (UnimplementedServiceServer) Unblock(context.Context, *UnblockRequest) (*UnblockResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Unblock not implemented")
 }
 func (UnimplementedServiceServer) mustEmbedUnimplementedServiceServer() {}
 
@@ -74,20 +149,110 @@ func RegisterServiceServer(s grpc.ServiceRegistrar, srv ServiceServer) {
 	s.RegisterService(&Service_ServiceDesc, srv)
 }
 
-func _Service_Select_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SelectRequest)
+func _Service_Range_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RangeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ServiceServer).Select(ctx, in)
+		return srv.(ServiceServer).Range(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Service_Select_FullMethodName,
+		FullMethod: Service_Range_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).Select(ctx, req.(*SelectRequest))
+		return srv.(ServiceServer).Range(ctx, req.(*RangeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_Kick_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KickRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).Kick(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_Kick_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).Kick(ctx, req.(*KickRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_Mute_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MuteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).Mute(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_Mute_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).Mute(ctx, req.(*MuteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_Unmute_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnmuteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).Unmute(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_Unmute_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).Unmute(ctx, req.(*UnmuteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_Block_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BlockRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).Block(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_Block_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).Block(ctx, req.(*BlockRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_Unblock_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnblockRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).Unblock(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_Unblock_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).Unblock(ctx, req.(*UnblockRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -100,8 +265,28 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*ServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Select",
-			Handler:    _Service_Select_Handler,
+			MethodName: "Range",
+			Handler:    _Service_Range_Handler,
+		},
+		{
+			MethodName: "Kick",
+			Handler:    _Service_Kick_Handler,
+		},
+		{
+			MethodName: "Mute",
+			Handler:    _Service_Mute_Handler,
+		},
+		{
+			MethodName: "Unmute",
+			Handler:    _Service_Unmute_Handler,
+		},
+		{
+			MethodName: "Block",
+			Handler:    _Service_Block_Handler,
+		},
+		{
+			MethodName: "Unblock",
+			Handler:    _Service_Unblock_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

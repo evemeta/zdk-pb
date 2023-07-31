@@ -2,15 +2,33 @@ syntax = "proto3";
 
 package members.public.server.v1;
 
+import "chat/members/public/server/v1/enums.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/members/public/server/v1;memberspb";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
+message Chunk {
+    int64                                    size     = 1;
+    int64                                    index    = 2;
+    int64                                    total    = 3;
+    repeated members.public.server.v1.Member entities = 4;
+}
+
 message Member {
-    string id           = 1;
-    string user_id      = 2;
-    string chat_id      = 3;
-    int64  create_time  = 4;
-    int64  update_time  = 5;
+    string                                        id           = 1;
+    string                                        user_id      = 2;
+    string                                        chat_id      = 3;
+    map<string, string>                           metadata     = 4;
+    repeated members.public.server.v1.Permission  permissions  = 5;
+    repeated members.public.server.v1.Restriction restrictions = 6;
+    int64                                         create_time  = 7;
+    int64                                         update_time  = 8;
+}
+
+message Restriction {
+    members.public.server.v1.Type type        = 1;
+    string                        reason      = 2;
+    int64                         create_time = 3;
+    int64                         expire_time = 4;
 }

@@ -10,11 +10,51 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 service Service {
 
-    rpc Select(SelectRequest) returns (SelectResponse) {
+    rpc Range(RangeRequest) returns (RangeResponse) {
         option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Select";
-            summary: "Select";
-            operation_id: "Select";
+            description: "Description: Range";
+            summary: "Range";
+            operation_id: "Range";
+        };
+    }
+    
+    rpc Kick(KickRequest) returns (KickResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: Kick";
+            summary: "Kick";
+            operation_id: "Kick";
+        };
+    }
+
+    rpc Mute(MuteRequest) returns (MuteResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: Mute";
+            summary: "Mute";
+            operation_id: "Mute";
+        };
+    }
+
+    rpc Unmute(UnmuteRequest) returns (UnmuteResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: Unmute";
+            summary: "Unmute";
+            operation_id: "Unmute";
+        };
+    }
+
+    rpc Block(BlockRequest) returns (BlockResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: Block";
+            summary: "Block";
+            operation_id: "Block";
+        };
+    }
+
+    rpc Unblock(UnblockRequest) returns (UnblockResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: Unblock";
+            summary: "Unblock";
+            operation_id: "Unblock";
         };
     }
 }

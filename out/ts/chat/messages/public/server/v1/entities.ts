@@ -12,6 +12,27 @@ import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
 /**
+ * @generated from protobuf message messages.public.server.v1.Chunk
+ */
+export interface Chunk {
+    /**
+     * @generated from protobuf field: int64 size = 1;
+     */
+    size: bigint;
+    /**
+     * @generated from protobuf field: int64 index = 2;
+     */
+    index: bigint;
+    /**
+     * @generated from protobuf field: int64 total = 3;
+     */
+    total: bigint;
+    /**
+     * @generated from protobuf field: repeated messages.public.server.v1.Message entities = 4;
+     */
+    entities: Message[];
+}
+/**
  * @generated from protobuf message messages.public.server.v1.Message
  */
 export interface Message {
@@ -32,14 +53,88 @@ export interface Message {
      */
     content: string;
     /**
-     * @generated from protobuf field: int64 create_time = 5;
+     * @generated from protobuf field: map<string, string> metadata = 5;
+     */
+    metadata: {
+        [key: string]: string;
+    };
+    /**
+     * @generated from protobuf field: int64 create_time = 6;
      */
     createTime: bigint;
     /**
-     * @generated from protobuf field: int64 update_time = 6;
+     * @generated from protobuf field: int64 update_time = 7;
      */
     updateTime: bigint;
 }
+// @generated message type with reflection information, may provide speed optimized methods
+class Chunk$Type extends MessageType<Chunk> {
+    constructor() {
+        super("messages.public.server.v1.Chunk", [
+            { no: 1, name: "size", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 2, name: "index", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 3, name: "total", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 4, name: "entities", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => Message }
+        ]);
+    }
+    create(value?: PartialMessage<Chunk>): Chunk {
+        const message = { size: 0n, index: 0n, total: 0n, entities: [] };
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<Chunk>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Chunk): Chunk {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* int64 size */ 1:
+                    message.size = reader.int64().toBigInt();
+                    break;
+                case /* int64 index */ 2:
+                    message.index = reader.int64().toBigInt();
+                    break;
+                case /* int64 total */ 3:
+                    message.total = reader.int64().toBigInt();
+                    break;
+                case /* repeated messages.public.server.v1.Message entities */ 4:
+                    message.entities.push(Message.internalBinaryRead(reader, reader.uint32(), options));
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: Chunk, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* int64 size = 1; */
+        if (message.size !== 0n)
+            writer.tag(1, WireType.Varint).int64(message.size);
+        /* int64 index = 2; */
+        if (message.index !== 0n)
+            writer.tag(2, WireType.Varint).int64(message.index);
+        /* int64 total = 3; */
+        if (message.total !== 0n)
+            writer.tag(3, WireType.Varint).int64(message.total);
+        /* repeated messages.public.server.v1.Message entities = 4; */
+        for (let i = 0; i < message.entities.length; i++)
+            Message.internalBinaryWrite(message.entities[i], writer.tag(4, WireType.LengthDelimited).fork(), options).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message messages.public.server.v1.Chunk
+ */
+export const Chunk = new Chunk$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class Message$Type extends MessageType<Message> {
     constructor() {
@@ -48,12 +143,13 @@ class Message$Type extends MessageType<Message> {
             { no: 2, name: "user_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 3, name: "chat_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 4, name: "content", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 5, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 6, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 5, name: "metadata", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } },
+            { no: 6, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 7, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value?: PartialMessage<Message>): Message {
-        const message = { id: "", userId: "", chatId: "", content: "", createTime: 0n, updateTime: 0n };
+        const message = { id: "", userId: "", chatId: "", content: "", metadata: {}, createTime: 0n, updateTime: 0n };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<Message>(this, message, value);
@@ -76,10 +172,13 @@ class Message$Type extends MessageType<Message> {
                 case /* string content */ 4:
                     message.content = reader.string();
                     break;
-                case /* int64 create_time */ 5:
+                case /* map<string, string> metadata */ 5:
+                    this.binaryReadMap5(message.metadata, reader, options);
+                    break;
+                case /* int64 create_time */ 6:
                     message.createTime = reader.int64().toBigInt();
                     break;
-                case /* int64 update_time */ 6:
+                case /* int64 update_time */ 7:
                     message.updateTime = reader.int64().toBigInt();
                     break;
                 default:
@@ -92,6 +191,22 @@ class Message$Type extends MessageType<Message> {
             }
         }
         return message;
+    }
+    private binaryReadMap5(map: Message["metadata"], reader: IBinaryReader, options: BinaryReadOptions): void {
+        let len = reader.uint32(), end = reader.pos + len, key: keyof Message["metadata"] | undefined, val: Message["metadata"][any] | undefined;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case 1:
+                    key = reader.string();
+                    break;
+                case 2:
+                    val = reader.string();
+                    break;
+                default: throw new globalThis.Error("unknown map entry field for field messages.public.server.v1.Message.metadata");
+            }
+        }
+        map[key ?? ""] = val ?? "";
     }
     internalBinaryWrite(message: Message, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
         /* string id = 1; */
@@ -106,12 +221,15 @@ class Message$Type extends MessageType<Message> {
         /* string content = 4; */
         if (message.content !== "")
             writer.tag(4, WireType.LengthDelimited).string(message.content);
-        /* int64 create_time = 5; */
+        /* map<string, string> metadata = 5; */
+        for (let k of Object.keys(message.metadata))
+            writer.tag(5, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.metadata[k]).join();
+        /* int64 create_time = 6; */
         if (message.createTime !== 0n)
-            writer.tag(5, WireType.Varint).int64(message.createTime);
-        /* int64 update_time = 6; */
+            writer.tag(6, WireType.Varint).int64(message.createTime);
+        /* int64 update_time = 7; */
         if (message.updateTime !== 0n)
-            writer.tag(6, WireType.Varint).int64(message.updateTime);
+            writer.tag(7, WireType.Varint).int64(message.updateTime);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

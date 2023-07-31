@@ -19,14 +19,20 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Service_Select_FullMethodName = "/messages.public.server.v1.Service/Select"
+	Service_Range_FullMethodName  = "/messages.public.server.v1.Service/Range"
+	Service_Create_FullMethodName = "/messages.public.server.v1.Service/Create"
+	Service_Update_FullMethodName = "/messages.public.server.v1.Service/Update"
+	Service_Delete_FullMethodName = "/messages.public.server.v1.Service/Delete"
 )
 
 // ServiceClient is the client API for Service service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ServiceClient interface {
-	Select(ctx context.Context, in *SelectRequest, opts ...grpc.CallOption) (*SelectResponse, error)
+	Range(ctx context.Context, in *RangeRequest, opts ...grpc.CallOption) (*RangeResponse, error)
+	Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error)
+	Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error)
+	Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error)
 }
 
 type serviceClient struct {
@@ -37,9 +43,36 @@ func NewServiceClient(cc grpc.ClientConnInterface) ServiceClient {
 	return &serviceClient{cc}
 }
 
-func (c *serviceClient) Select(ctx context.Context, in *SelectRequest, opts ...grpc.CallOption) (*SelectResponse, error) {
-	out := new(SelectResponse)
-	err := c.cc.Invoke(ctx, Service_Select_FullMethodName, in, out, opts...)
+func (c *serviceClient) Range(ctx context.Context, in *RangeRequest, opts ...grpc.CallOption) (*RangeResponse, error) {
+	out := new(RangeResponse)
+	err := c.cc.Invoke(ctx, Service_Range_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error) {
+	out := new(CreateResponse)
+	err := c.cc.Invoke(ctx, Service_Create_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error) {
+	out := new(UpdateResponse)
+	err := c.cc.Invoke(ctx, Service_Update_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error) {
+	out := new(DeleteResponse)
+	err := c.cc.Invoke(ctx, Service_Delete_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -50,7 +83,10 @@ func (c *serviceClient) Select(ctx context.Context, in *SelectRequest, opts ...g
 // All implementations must embed UnimplementedServiceServer
 // for forward compatibility
 type ServiceServer interface {
-	Select(context.Context, *SelectRequest) (*SelectResponse, error)
+	Range(context.Context, *RangeRequest) (*RangeResponse, error)
+	Create(context.Context, *CreateRequest) (*CreateResponse, error)
+	Update(context.Context, *UpdateRequest) (*UpdateResponse, error)
+	Delete(context.Context, *DeleteRequest) (*DeleteResponse, error)
 	mustEmbedUnimplementedServiceServer()
 }
 
@@ -58,8 +94,17 @@ type ServiceServer interface {
 type UnimplementedServiceServer struct {
 }
 
-func (UnimplementedServiceServer) Select(context.Context, *SelectRequest) (*SelectResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Select not implemented")
+func (UnimplementedServiceServer) Range(context.Context, *RangeRequest) (*RangeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Range not implemented")
+}
+func (UnimplementedServiceServer) Create(context.Context, *CreateRequest) (*CreateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
+}
+func (UnimplementedServiceServer) Update(context.Context, *UpdateRequest) (*UpdateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
+}
+func (UnimplementedServiceServer) Delete(context.Context, *DeleteRequest) (*DeleteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
 }
 func (UnimplementedServiceServer) mustEmbedUnimplementedServiceServer() {}
 
@@ -74,20 +119,74 @@ func RegisterServiceServer(s grpc.ServiceRegistrar, srv ServiceServer) {
 	s.RegisterService(&Service_ServiceDesc, srv)
 }
 
-func _Service_Select_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SelectRequest)
+func _Service_Range_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RangeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ServiceServer).Select(ctx, in)
+		return srv.(ServiceServer).Range(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Service_Select_FullMethodName,
+		FullMethod: Service_Range_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).Select(ctx, req.(*SelectRequest))
+		return srv.(ServiceServer).Range(ctx, req.(*RangeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).Create(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_Create_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).Create(ctx, req.(*CreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).Update(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_Update_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).Update(ctx, req.(*UpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).Delete(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_Delete_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).Delete(ctx, req.(*DeleteRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -100,8 +199,20 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*ServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Select",
-			Handler:    _Service_Select_Handler,
+			MethodName: "Range",
+			Handler:    _Service_Range_Handler,
+		},
+		{
+			MethodName: "Create",
+			Handler:    _Service_Create_Handler,
+		},
+		{
+			MethodName: "Update",
+			Handler:    _Service_Update_Handler,
+		},
+		{
+			MethodName: "Delete",
+			Handler:    _Service_Delete_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

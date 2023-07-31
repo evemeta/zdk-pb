@@ -4,9 +4,15 @@
 import type { RpcTransport } from "@protobuf-ts/runtime-rpc";
 import type { ServiceInfo } from "@protobuf-ts/runtime-rpc";
 import { Service } from "./services";
+import type { DeleteResponse } from "./procedures";
+import type { DeleteRequest } from "./procedures";
+import type { UpdateResponse } from "./procedures";
+import type { UpdateRequest } from "./procedures";
+import type { CreateResponse } from "./procedures";
+import type { CreateRequest } from "./procedures";
 import { stackIntercept } from "@protobuf-ts/runtime-rpc";
-import type { SelectResponse } from "./procedures";
-import type { SelectRequest } from "./procedures";
+import type { RangeResponse } from "./procedures";
+import type { RangeRequest } from "./procedures";
 import type { UnaryCall } from "@protobuf-ts/runtime-rpc";
 import type { RpcOptions } from "@protobuf-ts/runtime-rpc";
 /**
@@ -14,9 +20,21 @@ import type { RpcOptions } from "@protobuf-ts/runtime-rpc";
  */
 export interface IServiceClient {
     /**
-     * @generated from protobuf rpc: Select(messages.public.server.v1.SelectRequest) returns (messages.public.server.v1.SelectResponse);
+     * @generated from protobuf rpc: Range(messages.public.server.v1.RangeRequest) returns (messages.public.server.v1.RangeResponse);
      */
-    select(input: SelectRequest, options?: RpcOptions): UnaryCall<SelectRequest, SelectResponse>;
+    range(input: RangeRequest, options?: RpcOptions): UnaryCall<RangeRequest, RangeResponse>;
+    /**
+     * @generated from protobuf rpc: Create(messages.public.server.v1.CreateRequest) returns (messages.public.server.v1.CreateResponse);
+     */
+    create(input: CreateRequest, options?: RpcOptions): UnaryCall<CreateRequest, CreateResponse>;
+    /**
+     * @generated from protobuf rpc: Update(messages.public.server.v1.UpdateRequest) returns (messages.public.server.v1.UpdateResponse);
+     */
+    update(input: UpdateRequest, options?: RpcOptions): UnaryCall<UpdateRequest, UpdateResponse>;
+    /**
+     * @generated from protobuf rpc: Delete(messages.public.server.v1.DeleteRequest) returns (messages.public.server.v1.DeleteResponse);
+     */
+    delete(input: DeleteRequest, options?: RpcOptions): UnaryCall<DeleteRequest, DeleteResponse>;
 }
 /**
  * @generated from protobuf service messages.public.server.v1.Service
@@ -28,10 +46,31 @@ export class ServiceClient implements IServiceClient, ServiceInfo {
     constructor(private readonly _transport: RpcTransport) {
     }
     /**
-     * @generated from protobuf rpc: Select(messages.public.server.v1.SelectRequest) returns (messages.public.server.v1.SelectResponse);
+     * @generated from protobuf rpc: Range(messages.public.server.v1.RangeRequest) returns (messages.public.server.v1.RangeResponse);
      */
-    select(input: SelectRequest, options?: RpcOptions): UnaryCall<SelectRequest, SelectResponse> {
+    range(input: RangeRequest, options?: RpcOptions): UnaryCall<RangeRequest, RangeResponse> {
         const method = this.methods[0], opt = this._transport.mergeOptions(options);
-        return stackIntercept<SelectRequest, SelectResponse>("unary", this._transport, method, opt, input);
+        return stackIntercept<RangeRequest, RangeResponse>("unary", this._transport, method, opt, input);
+    }
+    /**
+     * @generated from protobuf rpc: Create(messages.public.server.v1.CreateRequest) returns (messages.public.server.v1.CreateResponse);
+     */
+    create(input: CreateRequest, options?: RpcOptions): UnaryCall<CreateRequest, CreateResponse> {
+        const method = this.methods[1], opt = this._transport.mergeOptions(options);
+        return stackIntercept<CreateRequest, CreateResponse>("unary", this._transport, method, opt, input);
+    }
+    /**
+     * @generated from protobuf rpc: Update(messages.public.server.v1.UpdateRequest) returns (messages.public.server.v1.UpdateResponse);
+     */
+    update(input: UpdateRequest, options?: RpcOptions): UnaryCall<UpdateRequest, UpdateResponse> {
+        const method = this.methods[2], opt = this._transport.mergeOptions(options);
+        return stackIntercept<UpdateRequest, UpdateResponse>("unary", this._transport, method, opt, input);
+    }
+    /**
+     * @generated from protobuf rpc: Delete(messages.public.server.v1.DeleteRequest) returns (messages.public.server.v1.DeleteResponse);
+     */
+    delete(input: DeleteRequest, options?: RpcOptions): UnaryCall<DeleteRequest, DeleteResponse> {
+        const method = this.methods[3], opt = this._transport.mergeOptions(options);
+        return stackIntercept<DeleteRequest, DeleteResponse>("unary", this._transport, method, opt, input);
     }
 }

@@ -25,8 +25,13 @@ message CreateChatPacket {
 }
 
 message UpdateChatPacket {
-    string id        = 1;
-    int64  timestamp = 2;
+    string   id        = 1;
+    Metadata metadata  = 2;
+    int64    timestamp = 3;
+
+    message Metadata {
+        map<string, string> value = 1;
+    }
 }
 
 message DeleteChatPacket {

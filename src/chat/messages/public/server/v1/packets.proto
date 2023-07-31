@@ -14,9 +14,18 @@ message CreateMessagePacket {
 }
 
 message UpdateMessagePacket {
-    string          id        = 1;
-    optional string content   = 2;
-    int64           timestamp = 3;
+    string   id        = 1;
+    Content  content   = 2;
+    Metadata metadata  = 3;
+    int64    timestamp = 4;
+
+    message Content {
+        string value = 1;
+    }
+
+    message Metadata {
+        map<string, string> value = 1;
+    }
 }
 
 message DeleteMessagePacket {

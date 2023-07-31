@@ -11,6 +11,29 @@ import type { PartialMessage } from "@protobuf-ts/runtime";
 import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
+import { Type } from "./enums";
+import { Permission } from "./enums";
+/**
+ * @generated from protobuf message members.public.server.v1.Chunk
+ */
+export interface Chunk {
+    /**
+     * @generated from protobuf field: int64 size = 1;
+     */
+    size: bigint;
+    /**
+     * @generated from protobuf field: int64 index = 2;
+     */
+    index: bigint;
+    /**
+     * @generated from protobuf field: int64 total = 3;
+     */
+    total: bigint;
+    /**
+     * @generated from protobuf field: repeated members.public.server.v1.Member entities = 4;
+     */
+    entities: Member[];
+}
 /**
  * @generated from protobuf message members.public.server.v1.Member
  */
@@ -28,14 +51,117 @@ export interface Member {
      */
     chatId: string;
     /**
-     * @generated from protobuf field: int64 create_time = 4;
+     * @generated from protobuf field: map<string, string> metadata = 4;
+     */
+    metadata: {
+        [key: string]: string;
+    };
+    /**
+     * @generated from protobuf field: repeated members.public.server.v1.Permission permissions = 5;
+     */
+    permissions: Permission[];
+    /**
+     * @generated from protobuf field: repeated members.public.server.v1.Restriction restrictions = 6;
+     */
+    restrictions: Restriction[];
+    /**
+     * @generated from protobuf field: int64 create_time = 7;
      */
     createTime: bigint;
     /**
-     * @generated from protobuf field: int64 update_time = 5;
+     * @generated from protobuf field: int64 update_time = 8;
      */
     updateTime: bigint;
 }
+/**
+ * @generated from protobuf message members.public.server.v1.Restriction
+ */
+export interface Restriction {
+    /**
+     * @generated from protobuf field: members.public.server.v1.Type type = 1;
+     */
+    type: Type;
+    /**
+     * @generated from protobuf field: string reason = 2;
+     */
+    reason: string;
+    /**
+     * @generated from protobuf field: int64 create_time = 3;
+     */
+    createTime: bigint;
+    /**
+     * @generated from protobuf field: int64 expire_time = 4;
+     */
+    expireTime: bigint;
+}
+// @generated message type with reflection information, may provide speed optimized methods
+class Chunk$Type extends MessageType<Chunk> {
+    constructor() {
+        super("members.public.server.v1.Chunk", [
+            { no: 1, name: "size", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 2, name: "index", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 3, name: "total", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 4, name: "entities", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => Member }
+        ]);
+    }
+    create(value?: PartialMessage<Chunk>): Chunk {
+        const message = { size: 0n, index: 0n, total: 0n, entities: [] };
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<Chunk>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Chunk): Chunk {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* int64 size */ 1:
+                    message.size = reader.int64().toBigInt();
+                    break;
+                case /* int64 index */ 2:
+                    message.index = reader.int64().toBigInt();
+                    break;
+                case /* int64 total */ 3:
+                    message.total = reader.int64().toBigInt();
+                    break;
+                case /* repeated members.public.server.v1.Member entities */ 4:
+                    message.entities.push(Member.internalBinaryRead(reader, reader.uint32(), options));
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: Chunk, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* int64 size = 1; */
+        if (message.size !== 0n)
+            writer.tag(1, WireType.Varint).int64(message.size);
+        /* int64 index = 2; */
+        if (message.index !== 0n)
+            writer.tag(2, WireType.Varint).int64(message.index);
+        /* int64 total = 3; */
+        if (message.total !== 0n)
+            writer.tag(3, WireType.Varint).int64(message.total);
+        /* repeated members.public.server.v1.Member entities = 4; */
+        for (let i = 0; i < message.entities.length; i++)
+            Member.internalBinaryWrite(message.entities[i], writer.tag(4, WireType.LengthDelimited).fork(), options).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message members.public.server.v1.Chunk
+ */
+export const Chunk = new Chunk$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class Member$Type extends MessageType<Member> {
     constructor() {
@@ -43,12 +169,15 @@ class Member$Type extends MessageType<Member> {
             { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 2, name: "user_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 3, name: "chat_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 4, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 5, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 4, name: "metadata", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } },
+            { no: 5, name: "permissions", kind: "enum", repeat: 1 /*RepeatType.PACKED*/, T: () => ["members.public.server.v1.Permission", Permission] },
+            { no: 6, name: "restrictions", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => Restriction },
+            { no: 7, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 8, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value?: PartialMessage<Member>): Member {
-        const message = { id: "", userId: "", chatId: "", createTime: 0n, updateTime: 0n };
+        const message = { id: "", userId: "", chatId: "", metadata: {}, permissions: [], restrictions: [], createTime: 0n, updateTime: 0n };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<Member>(this, message, value);
@@ -68,10 +197,23 @@ class Member$Type extends MessageType<Member> {
                 case /* string chat_id */ 3:
                     message.chatId = reader.string();
                     break;
-                case /* int64 create_time */ 4:
+                case /* map<string, string> metadata */ 4:
+                    this.binaryReadMap4(message.metadata, reader, options);
+                    break;
+                case /* repeated members.public.server.v1.Permission permissions */ 5:
+                    if (wireType === WireType.LengthDelimited)
+                        for (let e = reader.int32() + reader.pos; reader.pos < e;)
+                            message.permissions.push(reader.int32());
+                    else
+                        message.permissions.push(reader.int32());
+                    break;
+                case /* repeated members.public.server.v1.Restriction restrictions */ 6:
+                    message.restrictions.push(Restriction.internalBinaryRead(reader, reader.uint32(), options));
+                    break;
+                case /* int64 create_time */ 7:
                     message.createTime = reader.int64().toBigInt();
                     break;
-                case /* int64 update_time */ 5:
+                case /* int64 update_time */ 8:
                     message.updateTime = reader.int64().toBigInt();
                     break;
                 default:
@@ -85,6 +227,22 @@ class Member$Type extends MessageType<Member> {
         }
         return message;
     }
+    private binaryReadMap4(map: Member["metadata"], reader: IBinaryReader, options: BinaryReadOptions): void {
+        let len = reader.uint32(), end = reader.pos + len, key: keyof Member["metadata"] | undefined, val: Member["metadata"][any] | undefined;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case 1:
+                    key = reader.string();
+                    break;
+                case 2:
+                    val = reader.string();
+                    break;
+                default: throw new globalThis.Error("unknown map entry field for field members.public.server.v1.Member.metadata");
+            }
+        }
+        map[key ?? ""] = val ?? "";
+    }
     internalBinaryWrite(message: Member, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
         /* string id = 1; */
         if (message.id !== "")
@@ -95,12 +253,25 @@ class Member$Type extends MessageType<Member> {
         /* string chat_id = 3; */
         if (message.chatId !== "")
             writer.tag(3, WireType.LengthDelimited).string(message.chatId);
-        /* int64 create_time = 4; */
+        /* map<string, string> metadata = 4; */
+        for (let k of Object.keys(message.metadata))
+            writer.tag(4, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.metadata[k]).join();
+        /* repeated members.public.server.v1.Permission permissions = 5; */
+        if (message.permissions.length) {
+            writer.tag(5, WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.permissions.length; i++)
+                writer.int32(message.permissions[i]);
+            writer.join();
+        }
+        /* repeated members.public.server.v1.Restriction restrictions = 6; */
+        for (let i = 0; i < message.restrictions.length; i++)
+            Restriction.internalBinaryWrite(message.restrictions[i], writer.tag(6, WireType.LengthDelimited).fork(), options).join();
+        /* int64 create_time = 7; */
         if (message.createTime !== 0n)
-            writer.tag(4, WireType.Varint).int64(message.createTime);
-        /* int64 update_time = 5; */
+            writer.tag(7, WireType.Varint).int64(message.createTime);
+        /* int64 update_time = 8; */
         if (message.updateTime !== 0n)
-            writer.tag(5, WireType.Varint).int64(message.updateTime);
+            writer.tag(8, WireType.Varint).int64(message.updateTime);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -111,3 +282,71 @@ class Member$Type extends MessageType<Member> {
  * @generated MessageType for protobuf message members.public.server.v1.Member
  */
 export const Member = new Member$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class Restriction$Type extends MessageType<Restriction> {
+    constructor() {
+        super("members.public.server.v1.Restriction", [
+            { no: 1, name: "type", kind: "enum", T: () => ["members.public.server.v1.Type", Type] },
+            { no: 2, name: "reason", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 3, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 4, name: "expire_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+        ]);
+    }
+    create(value?: PartialMessage<Restriction>): Restriction {
+        const message = { type: 0, reason: "", createTime: 0n, expireTime: 0n };
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<Restriction>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Restriction): Restriction {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* members.public.server.v1.Type type */ 1:
+                    message.type = reader.int32();
+                    break;
+                case /* string reason */ 2:
+                    message.reason = reader.string();
+                    break;
+                case /* int64 create_time */ 3:
+                    message.createTime = reader.int64().toBigInt();
+                    break;
+                case /* int64 expire_time */ 4:
+                    message.expireTime = reader.int64().toBigInt();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: Restriction, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* members.public.server.v1.Type type = 1; */
+        if (message.type !== 0)
+            writer.tag(1, WireType.Varint).int32(message.type);
+        /* string reason = 2; */
+        if (message.reason !== "")
+            writer.tag(2, WireType.LengthDelimited).string(message.reason);
+        /* int64 create_time = 3; */
+        if (message.createTime !== 0n)
+            writer.tag(3, WireType.Varint).int64(message.createTime);
+        /* int64 expire_time = 4; */
+        if (message.expireTime !== 0n)
+            writer.tag(4, WireType.Varint).int64(message.expireTime);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message members.public.server.v1.Restriction
+ */
+export const Restriction = new Restriction$Type();
