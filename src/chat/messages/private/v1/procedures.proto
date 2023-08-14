@@ -3,6 +3,7 @@ syntax = "proto3";
 package messages.private.v1;
 
 import "chat/messages/private/v1/entities.proto";
+import "chat/messages/private/v1/optionals.proto";
 import "gateway/transponders/private/v1/procedures.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
@@ -49,10 +50,11 @@ message SelectResponse {
 }
 
 message CreateArgument {
-    string id      = 1;
-    string user_id = 2;
-    string chat_id = 3;
-    string content = 4;
+    string              id       = 1;
+    string              user_id  = 2;
+    string              chat_id  = 3;
+    string              content  = 4;
+    map<string, string> metadata = 5;
 }
 
 message CreateRequest {
@@ -79,12 +81,11 @@ message CreateTransaction {
 }
 
 message UpdateArgument {
-    messages.private.v1.Query query   = 1;
-    optional string           user_id = 2;
-    optional string           chat_id = 3;
-    optional string           content = 4;
-
-    // todo; change 'optional' to dedicated types
+    messages.private.v1.Query                   query    = 1;
+    optional messages.private.v1.OptionalString user_id  = 2;
+    optional messages.private.v1.OptionalString chat_id  = 3;
+    optional messages.private.v1.OptionalString content  = 4;
+    optional messages.private.v1.OptionalMap    metadata = 5;
 }
 
 message UpdateRequest {

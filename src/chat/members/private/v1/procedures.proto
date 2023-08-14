@@ -4,6 +4,8 @@ package members.private.v1;
 
 import "chat/members/private/v1/enums.proto";
 import "chat/members/private/v1/entities.proto";
+import "chat/members/private/v1/optionals.proto";
+import "gateway/transponders/private/v1/entities.proto";
 import "gateway/transponders/private/v1/procedures.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
@@ -54,7 +56,7 @@ message CreateArgument {
     string                                  user_id      = 2;
     string                                  chat_id      = 3;
     members.private.v1.Status               status       = 4;
-    repeated members.private.v1.Permission  permissions  = 5;
+    map<string, string>                     metadata     = 5;
     repeated members.private.v1.Restriction restrictions = 6;
     int64                                   enter_time   = 7;
     int64                                   leave_time   = 8;
@@ -84,9 +86,10 @@ message CreateTransaction {
 }
 
 message UpdateArgument {
-    members.private.v1.Query query   = 1;
-    optional string          user_id = 2;
-    optional string          chat_id = 3;
+    members.private.v1.Query                   query    = 1;
+    optional members.private.v1.OptionalString user_id  = 2;
+    optional members.private.v1.OptionalString chat_id  = 3;
+    optional members.private.v1.OptionalMap    metadata = 4;
 }
 
 message UpdateRequest {
@@ -132,4 +135,138 @@ message DeleteCondition {
 
 message DeleteTransaction {
     repeated members.private.v1.DeleteMutation mutations = 1;
+}
+
+message KickArgument {
+    members.private.v1.Query query  = 1;
+    string                   reason = 2;
+}
+
+message KickRequest {
+    repeated members.private.v1.KickArgument arguments = 1;
+}
+
+message KickResponse {}
+
+message KickMutation {
+    bool                             closed     = 1;
+    members.private.v1.KickArgument  foundation = 2;
+    members.private.v1.KickCondition condition  = 3;
+}
+
+message KickCondition {
+    repeated members.private.v1.Member              members                      = 1;
+    repeated transponders.private.v1.Transponder    transponders                 = 2;
+    repeated members.private.v1.UpdateMutation      update_mutations             = 3;
+    repeated transponders.private.v1.DeleteMutation delete_transponder_mutations = 4;
+}
+
+message KickTransaction {
+    repeated members.private.v1.KickMutation mutations = 1;
+}
+
+message MuteArgument {
+    members.private.v1.Query query    = 1;
+    string                   reason   = 2;
+    int64                    duration = 3;
+}
+
+message MuteRequest {
+    repeated members.private.v1.MuteArgument arguments = 1;
+}
+
+message MuteResponse {}
+
+message MuteMutation {
+    bool                             closed     = 1;
+    members.private.v1.MuteArgument  foundation = 2;
+    members.private.v1.MuteCondition condition  = 3;
+}
+
+message MuteCondition {
+    repeated members.private.v1.Member         members          = 1;
+    repeated members.private.v1.UpdateMutation update_mutations = 2;
+}
+
+message MuteTransaction {
+    repeated members.private.v1.MuteMutation mutations = 1;
+}
+
+message UnmuteArgument {
+    members.private.v1.Query query = 1;
+}
+
+message UnmuteRequest {
+    repeated members.private.v1.UnmuteArgument arguments = 1;
+}
+
+message UnmuteResponse {}
+
+message UnmuteMutation {
+    bool                               closed     = 1;
+    members.private.v1.UnmuteArgument  foundation = 2;
+    members.private.v1.UnmuteCondition condition  = 3;
+}
+
+message UnmuteCondition {
+    repeated members.private.v1.Member         members          = 1;
+    repeated members.private.v1.UpdateMutation update_mutations = 2;
+}
+
+message UnmuteTransaction {
+    repeated members.private.v1.UnmuteMutation mutations = 1;
+}
+
+message BlockArgument {
+    members.private.v1.Query query    = 1;
+    string                   reason   = 2;
+    int64                    duration = 3;
+}
+
+message BlockRequest {
+    repeated members.private.v1.BlockArgument arguments = 1;
+}
+
+message BlockResponse {}
+
+message BlockMutation {
+    bool                              closed     = 1;
+    members.private.v1.BlockArgument  foundation = 2;
+    members.private.v1.BlockCondition condition  = 3;
+}
+
+message BlockCondition {
+    repeated members.private.v1.Member              members                      = 1;
+    repeated transponders.private.v1.Transponder    transponders                 = 2;
+    repeated members.private.v1.UpdateMutation      update_mutations             = 3;
+    repeated transponders.private.v1.DeleteMutation delete_transponder_mutations = 4;
+}
+
+message BlockTransaction {
+    repeated members.private.v1.BlockMutation mutations = 1;
+}
+
+message UnblockArgument {
+    members.private.v1.Query query = 1;
+}
+
+message UnblockRequest {
+    repeated members.private.v1.UnblockArgument arguments = 1;
+}
+
+message UnblockResponse {}
+
+message UnblockMutation {
+    bool                                closed     = 1;
+    members.private.v1.UnblockArgument  foundation = 2;
+    members.private.v1.UnblockCondition condition  = 3;
+}
+
+message UnblockCondition {
+    repeated members.private.v1.Member         members          = 1;
+    repeated members.private.v1.UpdateMutation update_mutations = 2;
+}
+
+message UnblockTransaction {
+    repeated members.private.v1.UnblockMutation mutations = 1;
 }

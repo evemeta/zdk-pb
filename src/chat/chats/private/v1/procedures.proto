@@ -3,6 +3,7 @@ syntax = "proto3";
 package chats.private.v1;
 
 import "chat/chats/private/v1/entities.proto";
+import "chat/chats/private/v1/optionals.proto";
 import "chat/members/private/v1/entities.proto";
 import "chat/members/private/v1/procedures.proto";
 import "chat/messages/private/v1/procedures.proto";
@@ -52,7 +53,8 @@ message SelectResponse {
 }
 
 message CreateArgument {
-    string id = 1;
+    string              id       = 1;
+    map<string, string> metadata = 2;
 }
 
 message CreateRequest {
@@ -74,7 +76,8 @@ message CreateTransaction {
 }
 
 message UpdateArgument {
-    chats.private.v1.Query query = 1;
+    chats.private.v1.Query                query    = 1;
+    optional chats.private.v1.OptionalMap metadata = 2;
 }
 
 message UpdateRequest {

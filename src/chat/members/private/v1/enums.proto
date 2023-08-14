@@ -24,7 +24,3 @@ enum Status {
     Status_Online  = 1;
     Status_Offline = 2;
 }
-
-enum Permission {
-    Permission_Unknown = 0;
-}
