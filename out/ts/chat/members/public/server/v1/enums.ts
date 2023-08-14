@@ -35,12 +35,3 @@ export enum Order {
      */
     Order_Descending = 2
 }
-/**
- * @generated from protobuf enum members.public.server.v1.Permission
- */
-export enum Permission {
-    /**
-     * @generated from protobuf enum value: Permission_Unknown = 0;
-     */
-    Permission_Unknown = 0
-}

@@ -11,8 +11,13 @@ import type { PartialMessage } from "@protobuf-ts/runtime";
 import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
+import { OptionalMap } from "./optionals";
+import { OptionalString } from "./optionals";
 import { Message } from "./entities";
 /**
+ * CreateMessagePacket is a notification sent to clients when a new message has been created in a chat.
+ * It includes details about the new message and the timestamp of the event.
+ *
  * @generated from protobuf message messages.public.server.v1.CreateMessagePacket
  */
 export interface CreateMessagePacket {
@@ -26,6 +31,9 @@ export interface CreateMessagePacket {
     timestamp: bigint;
 }
 /**
+ * UpdateMessagePacket is a notification sent to clients when a message has been updated in a chat.
+ * It includes the message ID, associated chat ID, updated content and metadata if any, along with the timestamp of the update.
+ *
  * @generated from protobuf message messages.public.server.v1.UpdateMessagePacket
  */
 export interface UpdateMessagePacket {
@@ -34,39 +42,26 @@ export interface UpdateMessagePacket {
      */
     id: string;
     /**
-     * @generated from protobuf field: messages.public.server.v1.UpdateMessagePacket.Content content = 2;
+     * @generated from protobuf field: string chat_id = 2;
      */
-    content?: UpdateMessagePacket_Content;
+    chatId: string;
     /**
-     * @generated from protobuf field: messages.public.server.v1.UpdateMessagePacket.Metadata metadata = 3;
+     * @generated from protobuf field: optional messages.public.server.v1.OptionalString content = 3;
      */
-    metadata?: UpdateMessagePacket_Metadata;
+    content?: OptionalString;
     /**
-     * @generated from protobuf field: int64 timestamp = 4;
+     * @generated from protobuf field: optional messages.public.server.v1.OptionalMap metadata = 4;
+     */
+    metadata?: OptionalMap;
+    /**
+     * @generated from protobuf field: int64 timestamp = 5;
      */
     timestamp: bigint;
 }
 /**
- * @generated from protobuf message messages.public.server.v1.UpdateMessagePacket.Content
- */
-export interface UpdateMessagePacket_Content {
-    /**
-     * @generated from protobuf field: string value = 1;
-     */
-    value: string;
-}
-/**
- * @generated from protobuf message messages.public.server.v1.UpdateMessagePacket.Metadata
- */
-export interface UpdateMessagePacket_Metadata {
-    /**
-     * @generated from protobuf field: map<string, string> value = 1;
-     */
-    value: {
-        [key: string]: string;
-    };
-}
-/**
+ * DeleteMessagePacket is a notification sent to clients when a message has been deleted from a chat.
+ * It includes the message ID, associated chat ID and the timestamp of the event.
+ *
  * @generated from protobuf message messages.public.server.v1.DeleteMessagePacket
  */
 export interface DeleteMessagePacket {
@@ -75,7 +70,11 @@ export interface DeleteMessagePacket {
      */
     id: string;
     /**
-     * @generated from protobuf field: int64 timestamp = 2;
+     * @generated from protobuf field: string chat_id = 2;
+     */
+    chatId: string;
+    /**
+     * @generated from protobuf field: int64 timestamp = 3;
      */
     timestamp: bigint;
 }
@@ -138,13 +137,14 @@ class UpdateMessagePacket$Type extends MessageType<UpdateMessagePacket> {
     constructor() {
         super("messages.public.server.v1.UpdateMessagePacket", [
             { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 2, name: "content", kind: "message", T: () => UpdateMessagePacket_Content },
-            { no: 3, name: "metadata", kind: "message", T: () => UpdateMessagePacket_Metadata },
-            { no: 4, name: "timestamp", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 2, name: "chat_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 3, name: "content", kind: "message", T: () => OptionalString },
+            { no: 4, name: "metadata", kind: "message", T: () => OptionalMap },
+            { no: 5, name: "timestamp", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value?: PartialMessage<UpdateMessagePacket>): UpdateMessagePacket {
-        const message = { id: "", timestamp: 0n };
+        const message = { id: "", chatId: "", timestamp: 0n };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<UpdateMessagePacket>(this, message, value);
@@ -158,13 +158,16 @@ class UpdateMessagePacket$Type extends MessageType<UpdateMessagePacket> {
                 case /* string id */ 1:
                     message.id = reader.string();
                     break;
-                case /* messages.public.server.v1.UpdateMessagePacket.Content content */ 2:
-                    message.content = UpdateMessagePacket_Content.internalBinaryRead(reader, reader.uint32(), options, message.content);
+                case /* string chat_id */ 2:
+                    message.chatId = reader.string();
                     break;
-                case /* messages.public.server.v1.UpdateMessagePacket.Metadata metadata */ 3:
-                    message.metadata = UpdateMessagePacket_Metadata.internalBinaryRead(reader, reader.uint32(), options, message.metadata);
+                case /* optional messages.public.server.v1.OptionalString content */ 3:
+                    message.content = OptionalString.internalBinaryRead(reader, reader.uint32(), options, message.content);
                     break;
-                case /* int64 timestamp */ 4:
+                case /* optional messages.public.server.v1.OptionalMap metadata */ 4:
+                    message.metadata = OptionalMap.internalBinaryRead(reader, reader.uint32(), options, message.metadata);
+                    break;
+                case /* int64 timestamp */ 5:
                     message.timestamp = reader.int64().toBigInt();
                     break;
                 default:
@@ -182,15 +185,18 @@ class UpdateMessagePacket$Type extends MessageType<UpdateMessagePacket> {
         /* string id = 1; */
         if (message.id !== "")
             writer.tag(1, WireType.LengthDelimited).string(message.id);
-        /* messages.public.server.v1.UpdateMessagePacket.Content content = 2; */
+        /* string chat_id = 2; */
+        if (message.chatId !== "")
+            writer.tag(2, WireType.LengthDelimited).string(message.chatId);
+        /* optional messages.public.server.v1.OptionalString content = 3; */
         if (message.content)
-            UpdateMessagePacket_Content.internalBinaryWrite(message.content, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        /* messages.public.server.v1.UpdateMessagePacket.Metadata metadata = 3; */
+            OptionalString.internalBinaryWrite(message.content, writer.tag(3, WireType.LengthDelimited).fork(), options).join();
+        /* optional messages.public.server.v1.OptionalMap metadata = 4; */
         if (message.metadata)
-            UpdateMessagePacket_Metadata.internalBinaryWrite(message.metadata, writer.tag(3, WireType.LengthDelimited).fork(), options).join();
-        /* int64 timestamp = 4; */
+            OptionalMap.internalBinaryWrite(message.metadata, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
+        /* int64 timestamp = 5; */
         if (message.timestamp !== 0n)
-            writer.tag(4, WireType.Varint).int64(message.timestamp);
+            writer.tag(5, WireType.Varint).int64(message.timestamp);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -202,125 +208,16 @@ class UpdateMessagePacket$Type extends MessageType<UpdateMessagePacket> {
  */
 export const UpdateMessagePacket = new UpdateMessagePacket$Type();
 // @generated message type with reflection information, may provide speed optimized methods
-class UpdateMessagePacket_Content$Type extends MessageType<UpdateMessagePacket_Content> {
-    constructor() {
-        super("messages.public.server.v1.UpdateMessagePacket.Content", [
-            { no: 1, name: "value", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
-        ]);
-    }
-    create(value?: PartialMessage<UpdateMessagePacket_Content>): UpdateMessagePacket_Content {
-        const message = { value: "" };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<UpdateMessagePacket_Content>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: UpdateMessagePacket_Content): UpdateMessagePacket_Content {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* string value */ 1:
-                    message.value = reader.string();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: UpdateMessagePacket_Content, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* string value = 1; */
-        if (message.value !== "")
-            writer.tag(1, WireType.LengthDelimited).string(message.value);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
-}
-/**
- * @generated MessageType for protobuf message messages.public.server.v1.UpdateMessagePacket.Content
- */
-export const UpdateMessagePacket_Content = new UpdateMessagePacket_Content$Type();
-// @generated message type with reflection information, may provide speed optimized methods
-class UpdateMessagePacket_Metadata$Type extends MessageType<UpdateMessagePacket_Metadata> {
-    constructor() {
-        super("messages.public.server.v1.UpdateMessagePacket.Metadata", [
-            { no: 1, name: "value", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } }
-        ]);
-    }
-    create(value?: PartialMessage<UpdateMessagePacket_Metadata>): UpdateMessagePacket_Metadata {
-        const message = { value: {} };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<UpdateMessagePacket_Metadata>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: UpdateMessagePacket_Metadata): UpdateMessagePacket_Metadata {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* map<string, string> value */ 1:
-                    this.binaryReadMap1(message.value, reader, options);
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    private binaryReadMap1(map: UpdateMessagePacket_Metadata["value"], reader: IBinaryReader, options: BinaryReadOptions): void {
-        let len = reader.uint32(), end = reader.pos + len, key: keyof UpdateMessagePacket_Metadata["value"] | undefined, val: UpdateMessagePacket_Metadata["value"][any] | undefined;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case 1:
-                    key = reader.string();
-                    break;
-                case 2:
-                    val = reader.string();
-                    break;
-                default: throw new globalThis.Error("unknown map entry field for field messages.public.server.v1.UpdateMessagePacket.Metadata.value");
-            }
-        }
-        map[key ?? ""] = val ?? "";
-    }
-    internalBinaryWrite(message: UpdateMessagePacket_Metadata, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* map<string, string> value = 1; */
-        for (let k of Object.keys(message.value))
-            writer.tag(1, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.value[k]).join();
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
-}
-/**
- * @generated MessageType for protobuf message messages.public.server.v1.UpdateMessagePacket.Metadata
- */
-export const UpdateMessagePacket_Metadata = new UpdateMessagePacket_Metadata$Type();
-// @generated message type with reflection information, may provide speed optimized methods
 class DeleteMessagePacket$Type extends MessageType<DeleteMessagePacket> {
     constructor() {
         super("messages.public.server.v1.DeleteMessagePacket", [
             { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 2, name: "timestamp", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 2, name: "chat_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 3, name: "timestamp", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value?: PartialMessage<DeleteMessagePacket>): DeleteMessagePacket {
-        const message = { id: "", timestamp: 0n };
+        const message = { id: "", chatId: "", timestamp: 0n };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<DeleteMessagePacket>(this, message, value);
@@ -334,7 +231,10 @@ class DeleteMessagePacket$Type extends MessageType<DeleteMessagePacket> {
                 case /* string id */ 1:
                     message.id = reader.string();
                     break;
-                case /* int64 timestamp */ 2:
+                case /* string chat_id */ 2:
+                    message.chatId = reader.string();
+                    break;
+                case /* int64 timestamp */ 3:
                     message.timestamp = reader.int64().toBigInt();
                     break;
                 default:
@@ -352,9 +252,12 @@ class DeleteMessagePacket$Type extends MessageType<DeleteMessagePacket> {
         /* string id = 1; */
         if (message.id !== "")
             writer.tag(1, WireType.LengthDelimited).string(message.id);
-        /* int64 timestamp = 2; */
+        /* string chat_id = 2; */
+        if (message.chatId !== "")
+            writer.tag(2, WireType.LengthDelimited).string(message.chatId);
+        /* int64 timestamp = 3; */
         if (message.timestamp !== 0n)
-            writer.tag(2, WireType.Varint).int64(message.timestamp);
+            writer.tag(3, WireType.Varint).int64(message.timestamp);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

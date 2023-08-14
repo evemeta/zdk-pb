@@ -11,35 +11,43 @@ import type { PartialMessage } from "@protobuf-ts/runtime";
 import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
+import { OptionalMap } from "./optionals";
 import { Chat } from "./entities";
 import { Member } from "../../../../members/public/server/v1/entities";
 /**
+ * EnterChatPacket is a notification sent to clients when a member has entered a chat.
+ * It contains information about the member and the timestamp of the event.
+ *
  * @generated from protobuf message chats.public.server.v1.EnterChatPacket
  */
 export interface EnterChatPacket {
     /**
      * @generated from protobuf field: members.public.server.v1.Member member = 1;
      */
-    member?: Member;
-    /**
+    member?: Member; // todo; leave it as it is for now, change it to just 'chat_id' or something like this in the near future    /**
      * @generated from protobuf field: int64 timestamp = 2;
      */
     timestamp: bigint;
 }
 /**
+ * LeaveChatPacket is a notification sent to clients when a member has left a chat.
+ * It contains information about the member and the timestamp of the event.
+ *
  * @generated from protobuf message chats.public.server.v1.LeaveChatPacket
  */
 export interface LeaveChatPacket {
     /**
      * @generated from protobuf field: members.public.server.v1.Member member = 1;
      */
-    member?: Member;
-    /**
+    member?: Member; // todo; leave it as it is for now, change it to just 'chat_id' or something like this in the near future    /**
      * @generated from protobuf field: int64 timestamp = 2;
      */
     timestamp: bigint;
 }
 /**
+ * CreateChatPacket is a notification sent to clients when a chat has been created.
+ * It provides details about the new chat and the timestamp of the event.
+ *
  * @generated from protobuf message chats.public.server.v1.CreateChatPacket
  */
 export interface CreateChatPacket {
@@ -53,6 +61,9 @@ export interface CreateChatPacket {
     timestamp: bigint;
 }
 /**
+ * UpdateChatPacket is a notification sent to clients when a chat has been updated.
+ * It includes the chat ID, any updated metadata, and the timestamp of the event.
+ *
  * @generated from protobuf message chats.public.server.v1.UpdateChatPacket
  */
 export interface UpdateChatPacket {
@@ -61,26 +72,18 @@ export interface UpdateChatPacket {
      */
     id: string;
     /**
-     * @generated from protobuf field: chats.public.server.v1.UpdateChatPacket.Metadata metadata = 2;
+     * @generated from protobuf field: optional chats.public.server.v1.OptionalMap metadata = 2;
      */
-    metadata?: UpdateChatPacket_Metadata;
+    metadata?: OptionalMap;
     /**
      * @generated from protobuf field: int64 timestamp = 3;
      */
     timestamp: bigint;
 }
 /**
- * @generated from protobuf message chats.public.server.v1.UpdateChatPacket.Metadata
- */
-export interface UpdateChatPacket_Metadata {
-    /**
-     * @generated from protobuf field: map<string, string> value = 1;
-     */
-    value: {
-        [key: string]: string;
-    };
-}
-/**
+ * DeleteChatPacket is a notification sent to clients when a chat has been deleted.
+ * It includes the chat ID and the timestamp of the event.
+ *
  * @generated from protobuf message chats.public.server.v1.DeleteChatPacket
  */
 export interface DeleteChatPacket {
@@ -260,7 +263,7 @@ class UpdateChatPacket$Type extends MessageType<UpdateChatPacket> {
     constructor() {
         super("chats.public.server.v1.UpdateChatPacket", [
             { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 2, name: "metadata", kind: "message", T: () => UpdateChatPacket_Metadata },
+            { no: 2, name: "metadata", kind: "message", T: () => OptionalMap },
             { no: 3, name: "timestamp", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
@@ -279,8 +282,8 @@ class UpdateChatPacket$Type extends MessageType<UpdateChatPacket> {
                 case /* string id */ 1:
                     message.id = reader.string();
                     break;
-                case /* chats.public.server.v1.UpdateChatPacket.Metadata metadata */ 2:
-                    message.metadata = UpdateChatPacket_Metadata.internalBinaryRead(reader, reader.uint32(), options, message.metadata);
+                case /* optional chats.public.server.v1.OptionalMap metadata */ 2:
+                    message.metadata = OptionalMap.internalBinaryRead(reader, reader.uint32(), options, message.metadata);
                     break;
                 case /* int64 timestamp */ 3:
                     message.timestamp = reader.int64().toBigInt();
@@ -300,9 +303,9 @@ class UpdateChatPacket$Type extends MessageType<UpdateChatPacket> {
         /* string id = 1; */
         if (message.id !== "")
             writer.tag(1, WireType.LengthDelimited).string(message.id);
-        /* chats.public.server.v1.UpdateChatPacket.Metadata metadata = 2; */
+        /* optional chats.public.server.v1.OptionalMap metadata = 2; */
         if (message.metadata)
-            UpdateChatPacket_Metadata.internalBinaryWrite(message.metadata, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
+            OptionalMap.internalBinaryWrite(message.metadata, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
         /* int64 timestamp = 3; */
         if (message.timestamp !== 0n)
             writer.tag(3, WireType.Varint).int64(message.timestamp);
@@ -316,69 +319,6 @@ class UpdateChatPacket$Type extends MessageType<UpdateChatPacket> {
  * @generated MessageType for protobuf message chats.public.server.v1.UpdateChatPacket
  */
 export const UpdateChatPacket = new UpdateChatPacket$Type();
-// @generated message type with reflection information, may provide speed optimized methods
-class UpdateChatPacket_Metadata$Type extends MessageType<UpdateChatPacket_Metadata> {
-    constructor() {
-        super("chats.public.server.v1.UpdateChatPacket.Metadata", [
-            { no: 1, name: "value", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } }
-        ]);
-    }
-    create(value?: PartialMessage<UpdateChatPacket_Metadata>): UpdateChatPacket_Metadata {
-        const message = { value: {} };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<UpdateChatPacket_Metadata>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: UpdateChatPacket_Metadata): UpdateChatPacket_Metadata {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* map<string, string> value */ 1:
-                    this.binaryReadMap1(message.value, reader, options);
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    private binaryReadMap1(map: UpdateChatPacket_Metadata["value"], reader: IBinaryReader, options: BinaryReadOptions): void {
-        let len = reader.uint32(), end = reader.pos + len, key: keyof UpdateChatPacket_Metadata["value"] | undefined, val: UpdateChatPacket_Metadata["value"][any] | undefined;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case 1:
-                    key = reader.string();
-                    break;
-                case 2:
-                    val = reader.string();
-                    break;
-                default: throw new globalThis.Error("unknown map entry field for field chats.public.server.v1.UpdateChatPacket.Metadata.value");
-            }
-        }
-        map[key ?? ""] = val ?? "";
-    }
-    internalBinaryWrite(message: UpdateChatPacket_Metadata, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* map<string, string> value = 1; */
-        for (let k of Object.keys(message.value))
-            writer.tag(1, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.value[k]).join();
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
-}
-/**
- * @generated MessageType for protobuf message chats.public.server.v1.UpdateChatPacket.Metadata
- */
-export const UpdateChatPacket_Metadata = new UpdateChatPacket_Metadata$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class DeleteChatPacket$Type extends MessageType<DeleteChatPacket> {
     constructor() {

@@ -3,10 +3,19 @@
 // tslint:disable
 import { ContextResponse } from "./procedures";
 import { ContextRequest } from "./procedures";
+import { SelectResponse } from "./procedures";
+import { SelectRequest } from "./procedures";
+import { RangeResponse } from "./procedures";
+import { RangeRequest } from "./procedures";
+import { CountResponse } from "./procedures";
+import { CountRequest } from "./procedures";
 import { ServiceType } from "@protobuf-ts/runtime-rpc";
 /**
  * @generated ServiceType for protobuf service chats.public.server.v1.Service
  */
 export const Service = new ServiceType("chats.public.server.v1.Service", [
+    { name: "Count", options: { "grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation": { summary: "Count", description: "Description: Count", operationId: "Count" } }, I: CountRequest, O: CountResponse },
+    { name: "Range", options: { "grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation": { summary: "Range", description: "Description: Range", operationId: "Range" } }, I: RangeRequest, O: RangeResponse },
+    { name: "Select", options: { "grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation": { summary: "Select", description: "Description: Select", operationId: "Select" } }, I: SelectRequest, O: SelectResponse },
     { name: "Context", options: { "grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation": { summary: "Context", description: "Description: Context", operationId: "Context" } }, I: ContextRequest, O: ContextResponse }
 ]);

@@ -4,15 +4,33 @@
 import type { RpcTransport } from "@protobuf-ts/runtime-rpc";
 import type { ServiceInfo } from "@protobuf-ts/runtime-rpc";
 import { Service } from "./services";
-import { stackIntercept } from "@protobuf-ts/runtime-rpc";
 import type { ContextResponse } from "./procedures";
 import type { ContextRequest } from "./procedures";
+import type { SelectResponse } from "./procedures";
+import type { SelectRequest } from "./procedures";
+import type { RangeResponse } from "./procedures";
+import type { RangeRequest } from "./procedures";
+import { stackIntercept } from "@protobuf-ts/runtime-rpc";
+import type { CountResponse } from "./procedures";
+import type { CountRequest } from "./procedures";
 import type { UnaryCall } from "@protobuf-ts/runtime-rpc";
 import type { RpcOptions } from "@protobuf-ts/runtime-rpc";
 /**
  * @generated from protobuf service chats.public.server.v1.Service
  */
 export interface IServiceClient {
+    /**
+     * @generated from protobuf rpc: Count(chats.public.server.v1.CountRequest) returns (chats.public.server.v1.CountResponse);
+     */
+    count(input: CountRequest, options?: RpcOptions): UnaryCall<CountRequest, CountResponse>;
+    /**
+     * @generated from protobuf rpc: Range(chats.public.server.v1.RangeRequest) returns (chats.public.server.v1.RangeResponse);
+     */
+    range(input: RangeRequest, options?: RpcOptions): UnaryCall<RangeRequest, RangeResponse>;
+    /**
+     * @generated from protobuf rpc: Select(chats.public.server.v1.SelectRequest) returns (chats.public.server.v1.SelectResponse);
+     */
+    select(input: SelectRequest, options?: RpcOptions): UnaryCall<SelectRequest, SelectResponse>;
     /**
      * @generated from protobuf rpc: Context(chats.public.server.v1.ContextRequest) returns (chats.public.server.v1.ContextResponse);
      */
@@ -28,10 +46,31 @@ export class ServiceClient implements IServiceClient, ServiceInfo {
     constructor(private readonly _transport: RpcTransport) {
     }
     /**
+     * @generated from protobuf rpc: Count(chats.public.server.v1.CountRequest) returns (chats.public.server.v1.CountResponse);
+     */
+    count(input: CountRequest, options?: RpcOptions): UnaryCall<CountRequest, CountResponse> {
+        const method = this.methods[0], opt = this._transport.mergeOptions(options);
+        return stackIntercept<CountRequest, CountResponse>("unary", this._transport, method, opt, input);
+    }
+    /**
+     * @generated from protobuf rpc: Range(chats.public.server.v1.RangeRequest) returns (chats.public.server.v1.RangeResponse);
+     */
+    range(input: RangeRequest, options?: RpcOptions): UnaryCall<RangeRequest, RangeResponse> {
+        const method = this.methods[1], opt = this._transport.mergeOptions(options);
+        return stackIntercept<RangeRequest, RangeResponse>("unary", this._transport, method, opt, input);
+    }
+    /**
+     * @generated from protobuf rpc: Select(chats.public.server.v1.SelectRequest) returns (chats.public.server.v1.SelectResponse);
+     */
+    select(input: SelectRequest, options?: RpcOptions): UnaryCall<SelectRequest, SelectResponse> {
+        const method = this.methods[2], opt = this._transport.mergeOptions(options);
+        return stackIntercept<SelectRequest, SelectResponse>("unary", this._transport, method, opt, input);
+    }
+    /**
      * @generated from protobuf rpc: Context(chats.public.server.v1.ContextRequest) returns (chats.public.server.v1.ContextResponse);
      */
     context(input: ContextRequest, options?: RpcOptions): UnaryCall<ContextRequest, ContextResponse> {
-        const method = this.methods[0], opt = this._transport.mergeOptions(options);
+        const method = this.methods[3], opt = this._transport.mergeOptions(options);
         return stackIntercept<ContextRequest, ContextResponse>("unary", this._transport, method, opt, input);
     }
 }

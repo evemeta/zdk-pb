@@ -19,26 +19,51 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Service_Count_FullMethodName                   = "/members.private.v1.Service/Count"
-	Service_Range_FullMethodName                   = "/members.private.v1.Service/Range"
-	Service_Select_FullMethodName                  = "/members.private.v1.Service/Select"
-	Service_Create_FullMethodName                  = "/members.private.v1.Service/Create"
-	Service_InitiateCreateMutations_FullMethodName = "/members.private.v1.Service/InitiateCreateMutations"
-	Service_ValidateCreateMutations_FullMethodName = "/members.private.v1.Service/ValidateCreateMutations"
-	Service_FinalizeCreateMutations_FullMethodName = "/members.private.v1.Service/FinalizeCreateMutations"
-	Service_AnnounceCreateMutations_FullMethodName = "/members.private.v1.Service/AnnounceCreateMutations"
-	Service_RollbackCreateMutations_FullMethodName = "/members.private.v1.Service/RollbackCreateMutations"
-	Service_Update_FullMethodName                  = "/members.private.v1.Service/Update"
-	Service_InitiateUpdateMutations_FullMethodName = "/members.private.v1.Service/InitiateUpdateMutations"
-	Service_ValidateUpdateMutations_FullMethodName = "/members.private.v1.Service/ValidateUpdateMutations"
-	Service_FinalizeUpdateMutations_FullMethodName = "/members.private.v1.Service/FinalizeUpdateMutations"
-	Service_AnnounceUpdateMutations_FullMethodName = "/members.private.v1.Service/AnnounceUpdateMutations"
-	Service_RollbackUpdateMutations_FullMethodName = "/members.private.v1.Service/RollbackUpdateMutations"
-	Service_Delete_FullMethodName                  = "/members.private.v1.Service/Delete"
-	Service_InitiateDeleteMutations_FullMethodName = "/members.private.v1.Service/InitiateDeleteMutations"
-	Service_FinalizeDeleteMutations_FullMethodName = "/members.private.v1.Service/FinalizeDeleteMutations"
-	Service_AnnounceDeleteMutations_FullMethodName = "/members.private.v1.Service/AnnounceDeleteMutations"
-	Service_RollbackDeleteMutations_FullMethodName = "/members.private.v1.Service/RollbackDeleteMutations"
+	Service_Count_FullMethodName                    = "/members.private.v1.Service/Count"
+	Service_Range_FullMethodName                    = "/members.private.v1.Service/Range"
+	Service_Select_FullMethodName                   = "/members.private.v1.Service/Select"
+	Service_Create_FullMethodName                   = "/members.private.v1.Service/Create"
+	Service_InitiateCreateMutations_FullMethodName  = "/members.private.v1.Service/InitiateCreateMutations"
+	Service_ValidateCreateMutations_FullMethodName  = "/members.private.v1.Service/ValidateCreateMutations"
+	Service_FinalizeCreateMutations_FullMethodName  = "/members.private.v1.Service/FinalizeCreateMutations"
+	Service_AnnounceCreateMutations_FullMethodName  = "/members.private.v1.Service/AnnounceCreateMutations"
+	Service_RollbackCreateMutations_FullMethodName  = "/members.private.v1.Service/RollbackCreateMutations"
+	Service_Update_FullMethodName                   = "/members.private.v1.Service/Update"
+	Service_InitiateUpdateMutations_FullMethodName  = "/members.private.v1.Service/InitiateUpdateMutations"
+	Service_ValidateUpdateMutations_FullMethodName  = "/members.private.v1.Service/ValidateUpdateMutations"
+	Service_FinalizeUpdateMutations_FullMethodName  = "/members.private.v1.Service/FinalizeUpdateMutations"
+	Service_AnnounceUpdateMutations_FullMethodName  = "/members.private.v1.Service/AnnounceUpdateMutations"
+	Service_RollbackUpdateMutations_FullMethodName  = "/members.private.v1.Service/RollbackUpdateMutations"
+	Service_Delete_FullMethodName                   = "/members.private.v1.Service/Delete"
+	Service_InitiateDeleteMutations_FullMethodName  = "/members.private.v1.Service/InitiateDeleteMutations"
+	Service_FinalizeDeleteMutations_FullMethodName  = "/members.private.v1.Service/FinalizeDeleteMutations"
+	Service_AnnounceDeleteMutations_FullMethodName  = "/members.private.v1.Service/AnnounceDeleteMutations"
+	Service_RollbackDeleteMutations_FullMethodName  = "/members.private.v1.Service/RollbackDeleteMutations"
+	Service_Kick_FullMethodName                     = "/members.private.v1.Service/Kick"
+	Service_InitiateKickMutations_FullMethodName    = "/members.private.v1.Service/InitiateKickMutations"
+	Service_FinalizeKickMutations_FullMethodName    = "/members.private.v1.Service/FinalizeKickMutations"
+	Service_AnnounceKickMutations_FullMethodName    = "/members.private.v1.Service/AnnounceKickMutations"
+	Service_RollbackKickMutations_FullMethodName    = "/members.private.v1.Service/RollbackKickMutations"
+	Service_Mute_FullMethodName                     = "/members.private.v1.Service/Mute"
+	Service_InitiateMuteMutations_FullMethodName    = "/members.private.v1.Service/InitiateMuteMutations"
+	Service_FinalizeMuteMutations_FullMethodName    = "/members.private.v1.Service/FinalizeMuteMutations"
+	Service_AnnounceMuteMutations_FullMethodName    = "/members.private.v1.Service/AnnounceMuteMutations"
+	Service_RollbackMuteMutations_FullMethodName    = "/members.private.v1.Service/RollbackMuteMutations"
+	Service_Unmute_FullMethodName                   = "/members.private.v1.Service/Unmute"
+	Service_InitiateUnmuteMutations_FullMethodName  = "/members.private.v1.Service/InitiateUnmuteMutations"
+	Service_FinalizeUnmuteMutations_FullMethodName  = "/members.private.v1.Service/FinalizeUnmuteMutations"
+	Service_AnnounceUnmuteMutations_FullMethodName  = "/members.private.v1.Service/AnnounceUnmuteMutations"
+	Service_RollbackUnmuteMutations_FullMethodName  = "/members.private.v1.Service/RollbackUnmuteMutations"
+	Service_Block_FullMethodName                    = "/members.private.v1.Service/Block"
+	Service_InitiateBlockMutations_FullMethodName   = "/members.private.v1.Service/InitiateBlockMutations"
+	Service_FinalizeBlockMutations_FullMethodName   = "/members.private.v1.Service/FinalizeBlockMutations"
+	Service_AnnounceBlockMutations_FullMethodName   = "/members.private.v1.Service/AnnounceBlockMutations"
+	Service_RollbackBlockMutations_FullMethodName   = "/members.private.v1.Service/RollbackBlockMutations"
+	Service_Unblock_FullMethodName                  = "/members.private.v1.Service/Unblock"
+	Service_InitiateUnblockMutations_FullMethodName = "/members.private.v1.Service/InitiateUnblockMutations"
+	Service_FinalizeUnblockMutations_FullMethodName = "/members.private.v1.Service/FinalizeUnblockMutations"
+	Service_AnnounceUnblockMutations_FullMethodName = "/members.private.v1.Service/AnnounceUnblockMutations"
+	Service_RollbackUnblockMutations_FullMethodName = "/members.private.v1.Service/RollbackUnblockMutations"
 )
 
 // ServiceClient is the client API for Service service.
@@ -65,6 +90,31 @@ type ServiceClient interface {
 	FinalizeDeleteMutations(ctx context.Context, in *DeleteTransaction, opts ...grpc.CallOption) (*DeleteTransaction, error)
 	AnnounceDeleteMutations(ctx context.Context, in *DeleteTransaction, opts ...grpc.CallOption) (*DeleteTransaction, error)
 	RollbackDeleteMutations(ctx context.Context, in *DeleteTransaction, opts ...grpc.CallOption) (*DeleteTransaction, error)
+	Kick(ctx context.Context, in *KickRequest, opts ...grpc.CallOption) (*KickResponse, error)
+	InitiateKickMutations(ctx context.Context, in *KickTransaction, opts ...grpc.CallOption) (*KickTransaction, error)
+	FinalizeKickMutations(ctx context.Context, in *KickTransaction, opts ...grpc.CallOption) (*KickTransaction, error)
+	AnnounceKickMutations(ctx context.Context, in *KickTransaction, opts ...grpc.CallOption) (*KickTransaction, error)
+	RollbackKickMutations(ctx context.Context, in *KickTransaction, opts ...grpc.CallOption) (*KickTransaction, error)
+	Mute(ctx context.Context, in *MuteRequest, opts ...grpc.CallOption) (*MuteResponse, error)
+	InitiateMuteMutations(ctx context.Context, in *MuteTransaction, opts ...grpc.CallOption) (*MuteTransaction, error)
+	FinalizeMuteMutations(ctx context.Context, in *MuteTransaction, opts ...grpc.CallOption) (*MuteTransaction, error)
+	AnnounceMuteMutations(ctx context.Context, in *MuteTransaction, opts ...grpc.CallOption) (*MuteTransaction, error)
+	RollbackMuteMutations(ctx context.Context, in *MuteTransaction, opts ...grpc.CallOption) (*MuteTransaction, error)
+	Unmute(ctx context.Context, in *UnmuteRequest, opts ...grpc.CallOption) (*UnmuteResponse, error)
+	InitiateUnmuteMutations(ctx context.Context, in *UnmuteTransaction, opts ...grpc.CallOption) (*UnmuteTransaction, error)
+	FinalizeUnmuteMutations(ctx context.Context, in *UnmuteTransaction, opts ...grpc.CallOption) (*UnmuteTransaction, error)
+	AnnounceUnmuteMutations(ctx context.Context, in *UnmuteTransaction, opts ...grpc.CallOption) (*UnmuteTransaction, error)
+	RollbackUnmuteMutations(ctx context.Context, in *UnmuteTransaction, opts ...grpc.CallOption) (*UnmuteTransaction, error)
+	Block(ctx context.Context, in *BlockRequest, opts ...grpc.CallOption) (*BlockResponse, error)
+	InitiateBlockMutations(ctx context.Context, in *BlockTransaction, opts ...grpc.CallOption) (*BlockTransaction, error)
+	FinalizeBlockMutations(ctx context.Context, in *BlockTransaction, opts ...grpc.CallOption) (*BlockTransaction, error)
+	AnnounceBlockMutations(ctx context.Context, in *BlockTransaction, opts ...grpc.CallOption) (*BlockTransaction, error)
+	RollbackBlockMutations(ctx context.Context, in *BlockTransaction, opts ...grpc.CallOption) (*BlockTransaction, error)
+	Unblock(ctx context.Context, in *UnblockRequest, opts ...grpc.CallOption) (*UnblockResponse, error)
+	InitiateUnblockMutations(ctx context.Context, in *UnblockTransaction, opts ...grpc.CallOption) (*UnblockTransaction, error)
+	FinalizeUnblockMutations(ctx context.Context, in *UnblockTransaction, opts ...grpc.CallOption) (*UnblockTransaction, error)
+	AnnounceUnblockMutations(ctx context.Context, in *UnblockTransaction, opts ...grpc.CallOption) (*UnblockTransaction, error)
+	RollbackUnblockMutations(ctx context.Context, in *UnblockTransaction, opts ...grpc.CallOption) (*UnblockTransaction, error)
 }
 
 type serviceClient struct {
@@ -255,6 +305,231 @@ func (c *serviceClient) RollbackDeleteMutations(ctx context.Context, in *DeleteT
 	return out, nil
 }
 
+func (c *serviceClient) Kick(ctx context.Context, in *KickRequest, opts ...grpc.CallOption) (*KickResponse, error) {
+	out := new(KickResponse)
+	err := c.cc.Invoke(ctx, Service_Kick_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) InitiateKickMutations(ctx context.Context, in *KickTransaction, opts ...grpc.CallOption) (*KickTransaction, error) {
+	out := new(KickTransaction)
+	err := c.cc.Invoke(ctx, Service_InitiateKickMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) FinalizeKickMutations(ctx context.Context, in *KickTransaction, opts ...grpc.CallOption) (*KickTransaction, error) {
+	out := new(KickTransaction)
+	err := c.cc.Invoke(ctx, Service_FinalizeKickMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) AnnounceKickMutations(ctx context.Context, in *KickTransaction, opts ...grpc.CallOption) (*KickTransaction, error) {
+	out := new(KickTransaction)
+	err := c.cc.Invoke(ctx, Service_AnnounceKickMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) RollbackKickMutations(ctx context.Context, in *KickTransaction, opts ...grpc.CallOption) (*KickTransaction, error) {
+	out := new(KickTransaction)
+	err := c.cc.Invoke(ctx, Service_RollbackKickMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) Mute(ctx context.Context, in *MuteRequest, opts ...grpc.CallOption) (*MuteResponse, error) {
+	out := new(MuteResponse)
+	err := c.cc.Invoke(ctx, Service_Mute_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) InitiateMuteMutations(ctx context.Context, in *MuteTransaction, opts ...grpc.CallOption) (*MuteTransaction, error) {
+	out := new(MuteTransaction)
+	err := c.cc.Invoke(ctx, Service_InitiateMuteMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) FinalizeMuteMutations(ctx context.Context, in *MuteTransaction, opts ...grpc.CallOption) (*MuteTransaction, error) {
+	out := new(MuteTransaction)
+	err := c.cc.Invoke(ctx, Service_FinalizeMuteMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) AnnounceMuteMutations(ctx context.Context, in *MuteTransaction, opts ...grpc.CallOption) (*MuteTransaction, error) {
+	out := new(MuteTransaction)
+	err := c.cc.Invoke(ctx, Service_AnnounceMuteMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) RollbackMuteMutations(ctx context.Context, in *MuteTransaction, opts ...grpc.CallOption) (*MuteTransaction, error) {
+	out := new(MuteTransaction)
+	err := c.cc.Invoke(ctx, Service_RollbackMuteMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) Unmute(ctx context.Context, in *UnmuteRequest, opts ...grpc.CallOption) (*UnmuteResponse, error) {
+	out := new(UnmuteResponse)
+	err := c.cc.Invoke(ctx, Service_Unmute_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) InitiateUnmuteMutations(ctx context.Context, in *UnmuteTransaction, opts ...grpc.CallOption) (*UnmuteTransaction, error) {
+	out := new(UnmuteTransaction)
+	err := c.cc.Invoke(ctx, Service_InitiateUnmuteMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) FinalizeUnmuteMutations(ctx context.Context, in *UnmuteTransaction, opts ...grpc.CallOption) (*UnmuteTransaction, error) {
+	out := new(UnmuteTransaction)
+	err := c.cc.Invoke(ctx, Service_FinalizeUnmuteMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) AnnounceUnmuteMutations(ctx context.Context, in *UnmuteTransaction, opts ...grpc.CallOption) (*UnmuteTransaction, error) {
+	out := new(UnmuteTransaction)
+	err := c.cc.Invoke(ctx, Service_AnnounceUnmuteMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) RollbackUnmuteMutations(ctx context.Context, in *UnmuteTransaction, opts ...grpc.CallOption) (*UnmuteTransaction, error) {
+	out := new(UnmuteTransaction)
+	err := c.cc.Invoke(ctx, Service_RollbackUnmuteMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) Block(ctx context.Context, in *BlockRequest, opts ...grpc.CallOption) (*BlockResponse, error) {
+	out := new(BlockResponse)
+	err := c.cc.Invoke(ctx, Service_Block_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) InitiateBlockMutations(ctx context.Context, in *BlockTransaction, opts ...grpc.CallOption) (*BlockTransaction, error) {
+	out := new(BlockTransaction)
+	err := c.cc.Invoke(ctx, Service_InitiateBlockMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) FinalizeBlockMutations(ctx context.Context, in *BlockTransaction, opts ...grpc.CallOption) (*BlockTransaction, error) {
+	out := new(BlockTransaction)
+	err := c.cc.Invoke(ctx, Service_FinalizeBlockMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) AnnounceBlockMutations(ctx context.Context, in *BlockTransaction, opts ...grpc.CallOption) (*BlockTransaction, error) {
+	out := new(BlockTransaction)
+	err := c.cc.Invoke(ctx, Service_AnnounceBlockMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) RollbackBlockMutations(ctx context.Context, in *BlockTransaction, opts ...grpc.CallOption) (*BlockTransaction, error) {
+	out := new(BlockTransaction)
+	err := c.cc.Invoke(ctx, Service_RollbackBlockMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) Unblock(ctx context.Context, in *UnblockRequest, opts ...grpc.CallOption) (*UnblockResponse, error) {
+	out := new(UnblockResponse)
+	err := c.cc.Invoke(ctx, Service_Unblock_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) InitiateUnblockMutations(ctx context.Context, in *UnblockTransaction, opts ...grpc.CallOption) (*UnblockTransaction, error) {
+	out := new(UnblockTransaction)
+	err := c.cc.Invoke(ctx, Service_InitiateUnblockMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) FinalizeUnblockMutations(ctx context.Context, in *UnblockTransaction, opts ...grpc.CallOption) (*UnblockTransaction, error) {
+	out := new(UnblockTransaction)
+	err := c.cc.Invoke(ctx, Service_FinalizeUnblockMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) AnnounceUnblockMutations(ctx context.Context, in *UnblockTransaction, opts ...grpc.CallOption) (*UnblockTransaction, error) {
+	out := new(UnblockTransaction)
+	err := c.cc.Invoke(ctx, Service_AnnounceUnblockMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) RollbackUnblockMutations(ctx context.Context, in *UnblockTransaction, opts ...grpc.CallOption) (*UnblockTransaction, error) {
+	out := new(UnblockTransaction)
+	err := c.cc.Invoke(ctx, Service_RollbackUnblockMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ServiceServer is the server API for Service service.
 // All implementations must embed UnimplementedServiceServer
 // for forward compatibility
@@ -279,6 +554,31 @@ type ServiceServer interface {
 	FinalizeDeleteMutations(context.Context, *DeleteTransaction) (*DeleteTransaction, error)
 	AnnounceDeleteMutations(context.Context, *DeleteTransaction) (*DeleteTransaction, error)
 	RollbackDeleteMutations(context.Context, *DeleteTransaction) (*DeleteTransaction, error)
+	Kick(context.Context, *KickRequest) (*KickResponse, error)
+	InitiateKickMutations(context.Context, *KickTransaction) (*KickTransaction, error)
+	FinalizeKickMutations(context.Context, *KickTransaction) (*KickTransaction, error)
+	AnnounceKickMutations(context.Context, *KickTransaction) (*KickTransaction, error)
+	RollbackKickMutations(context.Context, *KickTransaction) (*KickTransaction, error)
+	Mute(context.Context, *MuteRequest) (*MuteResponse, error)
+	InitiateMuteMutations(context.Context, *MuteTransaction) (*MuteTransaction, error)
+	FinalizeMuteMutations(context.Context, *MuteTransaction) (*MuteTransaction, error)
+	AnnounceMuteMutations(context.Context, *MuteTransaction) (*MuteTransaction, error)
+	RollbackMuteMutations(context.Context, *MuteTransaction) (*MuteTransaction, error)
+	Unmute(context.Context, *UnmuteRequest) (*UnmuteResponse, error)
+	InitiateUnmuteMutations(context.Context, *UnmuteTransaction) (*UnmuteTransaction, error)
+	FinalizeUnmuteMutations(context.Context, *UnmuteTransaction) (*UnmuteTransaction, error)
+	AnnounceUnmuteMutations(context.Context, *UnmuteTransaction) (*UnmuteTransaction, error)
+	RollbackUnmuteMutations(context.Context, *UnmuteTransaction) (*UnmuteTransaction, error)
+	Block(context.Context, *BlockRequest) (*BlockResponse, error)
+	InitiateBlockMutations(context.Context, *BlockTransaction) (*BlockTransaction, error)
+	FinalizeBlockMutations(context.Context, *BlockTransaction) (*BlockTransaction, error)
+	AnnounceBlockMutations(context.Context, *BlockTransaction) (*BlockTransaction, error)
+	RollbackBlockMutations(context.Context, *BlockTransaction) (*BlockTransaction, error)
+	Unblock(context.Context, *UnblockRequest) (*UnblockResponse, error)
+	InitiateUnblockMutations(context.Context, *UnblockTransaction) (*UnblockTransaction, error)
+	FinalizeUnblockMutations(context.Context, *UnblockTransaction) (*UnblockTransaction, error)
+	AnnounceUnblockMutations(context.Context, *UnblockTransaction) (*UnblockTransaction, error)
+	RollbackUnblockMutations(context.Context, *UnblockTransaction) (*UnblockTransaction, error)
 	mustEmbedUnimplementedServiceServer()
 }
 
@@ -345,6 +645,81 @@ func (UnimplementedServiceServer) AnnounceDeleteMutations(context.Context, *Dele
 }
 func (UnimplementedServiceServer) RollbackDeleteMutations(context.Context, *DeleteTransaction) (*DeleteTransaction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RollbackDeleteMutations not implemented")
+}
+func (UnimplementedServiceServer) Kick(context.Context, *KickRequest) (*KickResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Kick not implemented")
+}
+func (UnimplementedServiceServer) InitiateKickMutations(context.Context, *KickTransaction) (*KickTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InitiateKickMutations not implemented")
+}
+func (UnimplementedServiceServer) FinalizeKickMutations(context.Context, *KickTransaction) (*KickTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FinalizeKickMutations not implemented")
+}
+func (UnimplementedServiceServer) AnnounceKickMutations(context.Context, *KickTransaction) (*KickTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AnnounceKickMutations not implemented")
+}
+func (UnimplementedServiceServer) RollbackKickMutations(context.Context, *KickTransaction) (*KickTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RollbackKickMutations not implemented")
+}
+func (UnimplementedServiceServer) Mute(context.Context, *MuteRequest) (*MuteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Mute not implemented")
+}
+func (UnimplementedServiceServer) InitiateMuteMutations(context.Context, *MuteTransaction) (*MuteTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InitiateMuteMutations not implemented")
+}
+func (UnimplementedServiceServer) FinalizeMuteMutations(context.Context, *MuteTransaction) (*MuteTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FinalizeMuteMutations not implemented")
+}
+func (UnimplementedServiceServer) AnnounceMuteMutations(context.Context, *MuteTransaction) (*MuteTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AnnounceMuteMutations not implemented")
+}
+func (UnimplementedServiceServer) RollbackMuteMutations(context.Context, *MuteTransaction) (*MuteTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RollbackMuteMutations not implemented")
+}
+func (UnimplementedServiceServer) Unmute(context.Context, *UnmuteRequest) (*UnmuteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Unmute not implemented")
+}
+func (UnimplementedServiceServer) InitiateUnmuteMutations(context.Context, *UnmuteTransaction) (*UnmuteTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InitiateUnmuteMutations not implemented")
+}
+func (UnimplementedServiceServer) FinalizeUnmuteMutations(context.Context, *UnmuteTransaction) (*UnmuteTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FinalizeUnmuteMutations not implemented")
+}
+func (UnimplementedServiceServer) AnnounceUnmuteMutations(context.Context, *UnmuteTransaction) (*UnmuteTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AnnounceUnmuteMutations not implemented")
+}
+func (UnimplementedServiceServer) RollbackUnmuteMutations(context.Context, *UnmuteTransaction) (*UnmuteTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RollbackUnmuteMutations not implemented")
+}
+func (UnimplementedServiceServer) Block(context.Context, *BlockRequest) (*BlockResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Block not implemented")
+}
+func (UnimplementedServiceServer) InitiateBlockMutations(context.Context, *BlockTransaction) (*BlockTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InitiateBlockMutations not implemented")
+}
+func (UnimplementedServiceServer) FinalizeBlockMutations(context.Context, *BlockTransaction) (*BlockTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FinalizeBlockMutations not implemented")
+}
+func (UnimplementedServiceServer) AnnounceBlockMutations(context.Context, *BlockTransaction) (*BlockTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AnnounceBlockMutations not implemented")
+}
+func (UnimplementedServiceServer) RollbackBlockMutations(context.Context, *BlockTransaction) (*BlockTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RollbackBlockMutations not implemented")
+}
+func (UnimplementedServiceServer) Unblock(context.Context, *UnblockRequest) (*UnblockResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Unblock not implemented")
+}
+func (UnimplementedServiceServer) InitiateUnblockMutations(context.Context, *UnblockTransaction) (*UnblockTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InitiateUnblockMutations not implemented")
+}
+func (UnimplementedServiceServer) FinalizeUnblockMutations(context.Context, *UnblockTransaction) (*UnblockTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FinalizeUnblockMutations not implemented")
+}
+func (UnimplementedServiceServer) AnnounceUnblockMutations(context.Context, *UnblockTransaction) (*UnblockTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AnnounceUnblockMutations not implemented")
+}
+func (UnimplementedServiceServer) RollbackUnblockMutations(context.Context, *UnblockTransaction) (*UnblockTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RollbackUnblockMutations not implemented")
 }
 func (UnimplementedServiceServer) mustEmbedUnimplementedServiceServer() {}
 
@@ -719,6 +1094,456 @@ func _Service_RollbackDeleteMutations_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Service_Kick_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KickRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).Kick(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_Kick_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).Kick(ctx, req.(*KickRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_InitiateKickMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KickTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).InitiateKickMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_InitiateKickMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).InitiateKickMutations(ctx, req.(*KickTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_FinalizeKickMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KickTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).FinalizeKickMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_FinalizeKickMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).FinalizeKickMutations(ctx, req.(*KickTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_AnnounceKickMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KickTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).AnnounceKickMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_AnnounceKickMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).AnnounceKickMutations(ctx, req.(*KickTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_RollbackKickMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KickTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).RollbackKickMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_RollbackKickMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).RollbackKickMutations(ctx, req.(*KickTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_Mute_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MuteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).Mute(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_Mute_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).Mute(ctx, req.(*MuteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_InitiateMuteMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MuteTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).InitiateMuteMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_InitiateMuteMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).InitiateMuteMutations(ctx, req.(*MuteTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_FinalizeMuteMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MuteTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).FinalizeMuteMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_FinalizeMuteMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).FinalizeMuteMutations(ctx, req.(*MuteTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_AnnounceMuteMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MuteTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).AnnounceMuteMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_AnnounceMuteMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).AnnounceMuteMutations(ctx, req.(*MuteTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_RollbackMuteMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MuteTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).RollbackMuteMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_RollbackMuteMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).RollbackMuteMutations(ctx, req.(*MuteTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_Unmute_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnmuteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).Unmute(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_Unmute_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).Unmute(ctx, req.(*UnmuteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_InitiateUnmuteMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnmuteTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).InitiateUnmuteMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_InitiateUnmuteMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).InitiateUnmuteMutations(ctx, req.(*UnmuteTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_FinalizeUnmuteMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnmuteTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).FinalizeUnmuteMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_FinalizeUnmuteMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).FinalizeUnmuteMutations(ctx, req.(*UnmuteTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_AnnounceUnmuteMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnmuteTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).AnnounceUnmuteMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_AnnounceUnmuteMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).AnnounceUnmuteMutations(ctx, req.(*UnmuteTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_RollbackUnmuteMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnmuteTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).RollbackUnmuteMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_RollbackUnmuteMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).RollbackUnmuteMutations(ctx, req.(*UnmuteTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_Block_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BlockRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).Block(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_Block_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).Block(ctx, req.(*BlockRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_InitiateBlockMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BlockTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).InitiateBlockMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_InitiateBlockMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).InitiateBlockMutations(ctx, req.(*BlockTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_FinalizeBlockMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BlockTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).FinalizeBlockMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_FinalizeBlockMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).FinalizeBlockMutations(ctx, req.(*BlockTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_AnnounceBlockMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BlockTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).AnnounceBlockMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_AnnounceBlockMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).AnnounceBlockMutations(ctx, req.(*BlockTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_RollbackBlockMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BlockTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).RollbackBlockMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_RollbackBlockMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).RollbackBlockMutations(ctx, req.(*BlockTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_Unblock_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnblockRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).Unblock(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_Unblock_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).Unblock(ctx, req.(*UnblockRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_InitiateUnblockMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnblockTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).InitiateUnblockMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_InitiateUnblockMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).InitiateUnblockMutations(ctx, req.(*UnblockTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_FinalizeUnblockMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnblockTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).FinalizeUnblockMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_FinalizeUnblockMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).FinalizeUnblockMutations(ctx, req.(*UnblockTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_AnnounceUnblockMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnblockTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).AnnounceUnblockMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_AnnounceUnblockMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).AnnounceUnblockMutations(ctx, req.(*UnblockTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_RollbackUnblockMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnblockTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).RollbackUnblockMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_RollbackUnblockMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).RollbackUnblockMutations(ctx, req.(*UnblockTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Service_ServiceDesc is the grpc.ServiceDesc for Service service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -805,6 +1630,106 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RollbackDeleteMutations",
 			Handler:    _Service_RollbackDeleteMutations_Handler,
+		},
+		{
+			MethodName: "Kick",
+			Handler:    _Service_Kick_Handler,
+		},
+		{
+			MethodName: "InitiateKickMutations",
+			Handler:    _Service_InitiateKickMutations_Handler,
+		},
+		{
+			MethodName: "FinalizeKickMutations",
+			Handler:    _Service_FinalizeKickMutations_Handler,
+		},
+		{
+			MethodName: "AnnounceKickMutations",
+			Handler:    _Service_AnnounceKickMutations_Handler,
+		},
+		{
+			MethodName: "RollbackKickMutations",
+			Handler:    _Service_RollbackKickMutations_Handler,
+		},
+		{
+			MethodName: "Mute",
+			Handler:    _Service_Mute_Handler,
+		},
+		{
+			MethodName: "InitiateMuteMutations",
+			Handler:    _Service_InitiateMuteMutations_Handler,
+		},
+		{
+			MethodName: "FinalizeMuteMutations",
+			Handler:    _Service_FinalizeMuteMutations_Handler,
+		},
+		{
+			MethodName: "AnnounceMuteMutations",
+			Handler:    _Service_AnnounceMuteMutations_Handler,
+		},
+		{
+			MethodName: "RollbackMuteMutations",
+			Handler:    _Service_RollbackMuteMutations_Handler,
+		},
+		{
+			MethodName: "Unmute",
+			Handler:    _Service_Unmute_Handler,
+		},
+		{
+			MethodName: "InitiateUnmuteMutations",
+			Handler:    _Service_InitiateUnmuteMutations_Handler,
+		},
+		{
+			MethodName: "FinalizeUnmuteMutations",
+			Handler:    _Service_FinalizeUnmuteMutations_Handler,
+		},
+		{
+			MethodName: "AnnounceUnmuteMutations",
+			Handler:    _Service_AnnounceUnmuteMutations_Handler,
+		},
+		{
+			MethodName: "RollbackUnmuteMutations",
+			Handler:    _Service_RollbackUnmuteMutations_Handler,
+		},
+		{
+			MethodName: "Block",
+			Handler:    _Service_Block_Handler,
+		},
+		{
+			MethodName: "InitiateBlockMutations",
+			Handler:    _Service_InitiateBlockMutations_Handler,
+		},
+		{
+			MethodName: "FinalizeBlockMutations",
+			Handler:    _Service_FinalizeBlockMutations_Handler,
+		},
+		{
+			MethodName: "AnnounceBlockMutations",
+			Handler:    _Service_AnnounceBlockMutations_Handler,
+		},
+		{
+			MethodName: "RollbackBlockMutations",
+			Handler:    _Service_RollbackBlockMutations_Handler,
+		},
+		{
+			MethodName: "Unblock",
+			Handler:    _Service_Unblock_Handler,
+		},
+		{
+			MethodName: "InitiateUnblockMutations",
+			Handler:    _Service_InitiateUnblockMutations_Handler,
+		},
+		{
+			MethodName: "FinalizeUnblockMutations",
+			Handler:    _Service_FinalizeUnblockMutations_Handler,
+		},
+		{
+			MethodName: "AnnounceUnblockMutations",
+			Handler:    _Service_AnnounceUnblockMutations_Handler,
+		},
+		{
+			MethodName: "RollbackUnblockMutations",
+			Handler:    _Service_RollbackUnblockMutations_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

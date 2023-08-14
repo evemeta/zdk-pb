@@ -13,6 +13,7 @@ import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
 import { Chunk as Chunk$ } from "../../../../messages/public/server/v1/entities";
 import { Member } from "../../../../members/public/server/v1/entities";
+import { Order } from "./enums";
 /**
  * @generated from protobuf message chats.public.server.v1.Chat
  */
@@ -58,6 +59,27 @@ export interface Chunk {
     entities: Chat[];
 }
 /**
+ * @generated from protobuf message chats.public.server.v1.Query
+ */
+export interface Query {
+    /**
+     * @generated from protobuf field: chats.public.server.v1.Order order = 1;
+     */
+    order: Order;
+    /**
+     * @generated from protobuf field: int64 limit = 2;
+     */
+    limit: bigint;
+    /**
+     * @generated from protobuf field: int64 offset = 3;
+     */
+    offset: bigint;
+    /**
+     * @generated from protobuf field: chats.public.server.v1.Condition condition = 4;
+     */
+    condition?: Condition;
+}
+/**
  * @generated from protobuf message chats.public.server.v1.Context
  */
 export interface Context {
@@ -66,21 +88,77 @@ export interface Context {
      */
     chat?: Chat;
     /**
-     * @generated from protobuf field: members.public.server.v1.Member member = 2;
+     * @generated from protobuf field: chats.public.server.v1.Context.MemberSnapshot member = 2;
      */
-    member?: Member;
+    member?: Context_MemberSnapshot;
     /**
-     * @generated from protobuf field: int64 members = 3;
+     * @generated from protobuf field: chats.public.server.v1.Context.MembersSnapshot members = 3;
      */
-    members: bigint;
+    members?: Context_MembersSnapshot;
     /**
-     * @generated from protobuf field: messages.public.server.v1.Chunk messages = 4;
+     * @generated from protobuf field: chats.public.server.v1.Context.MessagesSnapshot messages = 4;
      */
-    messages?: Chunk$;
+    messages?: Context_MessagesSnapshot;
+}
+/**
+ * @generated from protobuf message chats.public.server.v1.Context.MemberSnapshot
+ */
+export interface Context_MemberSnapshot {
     /**
-     * @generated from protobuf field: int64 timestamp = 5;
+     * @generated from protobuf field: members.public.server.v1.Member snapshot = 1;
      */
-    timestamp: bigint;
+    snapshot?: Member;
+    /**
+     * @generated from protobuf field: int64 commence_timestamp = 2;
+     */
+    commenceTimestamp: bigint;
+    /**
+     * @generated from protobuf field: int64 complete_timestamp = 3;
+     */
+    completeTimestamp: bigint;
+}
+/**
+ * @generated from protobuf message chats.public.server.v1.Context.MembersSnapshot
+ */
+export interface Context_MembersSnapshot {
+    /**
+     * @generated from protobuf field: int64 snapshot = 1;
+     */
+    snapshot: bigint;
+    /**
+     * @generated from protobuf field: int64 commence_timestamp = 2;
+     */
+    commenceTimestamp: bigint;
+    /**
+     * @generated from protobuf field: int64 complete_timestamp = 3;
+     */
+    completeTimestamp: bigint;
+}
+/**
+ * @generated from protobuf message chats.public.server.v1.Context.MessagesSnapshot
+ */
+export interface Context_MessagesSnapshot {
+    /**
+     * @generated from protobuf field: messages.public.server.v1.Chunk snapshot = 1;
+     */
+    snapshot?: Chunk$;
+    /**
+     * @generated from protobuf field: int64 commence_timestamp = 2;
+     */
+    commenceTimestamp: bigint;
+    /**
+     * @generated from protobuf field: int64 complete_timestamp = 3;
+     */
+    completeTimestamp: bigint;
+}
+/**
+ * @generated from protobuf message chats.public.server.v1.Condition
+ */
+export interface Condition {
+    /**
+     * @generated from protobuf field: repeated string ids = 1;
+     */
+    ids: string[];
 }
 // @generated message type with reflection information, may provide speed optimized methods
 class Chat$Type extends MessageType<Chat> {
@@ -235,18 +313,85 @@ class Chunk$Type extends MessageType<Chunk> {
  */
 export const Chunk = new Chunk$Type();
 // @generated message type with reflection information, may provide speed optimized methods
+class Query$Type extends MessageType<Query> {
+    constructor() {
+        super("chats.public.server.v1.Query", [
+            { no: 1, name: "order", kind: "enum", T: () => ["chats.public.server.v1.Order", Order] },
+            { no: 2, name: "limit", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 3, name: "offset", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 4, name: "condition", kind: "message", T: () => Condition }
+        ]);
+    }
+    create(value?: PartialMessage<Query>): Query {
+        const message = { order: 0, limit: 0n, offset: 0n };
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<Query>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Query): Query {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* chats.public.server.v1.Order order */ 1:
+                    message.order = reader.int32();
+                    break;
+                case /* int64 limit */ 2:
+                    message.limit = reader.int64().toBigInt();
+                    break;
+                case /* int64 offset */ 3:
+                    message.offset = reader.int64().toBigInt();
+                    break;
+                case /* chats.public.server.v1.Condition condition */ 4:
+                    message.condition = Condition.internalBinaryRead(reader, reader.uint32(), options, message.condition);
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: Query, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* chats.public.server.v1.Order order = 1; */
+        if (message.order !== 0)
+            writer.tag(1, WireType.Varint).int32(message.order);
+        /* int64 limit = 2; */
+        if (message.limit !== 0n)
+            writer.tag(2, WireType.Varint).int64(message.limit);
+        /* int64 offset = 3; */
+        if (message.offset !== 0n)
+            writer.tag(3, WireType.Varint).int64(message.offset);
+        /* chats.public.server.v1.Condition condition = 4; */
+        if (message.condition)
+            Condition.internalBinaryWrite(message.condition, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message chats.public.server.v1.Query
+ */
+export const Query = new Query$Type();
+// @generated message type with reflection information, may provide speed optimized methods
 class Context$Type extends MessageType<Context> {
     constructor() {
         super("chats.public.server.v1.Context", [
             { no: 1, name: "chat", kind: "message", T: () => Chat },
-            { no: 2, name: "member", kind: "message", T: () => Member },
-            { no: 3, name: "members", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 4, name: "messages", kind: "message", T: () => Chunk$ },
-            { no: 5, name: "timestamp", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 2, name: "member", kind: "message", T: () => Context_MemberSnapshot },
+            { no: 3, name: "members", kind: "message", T: () => Context_MembersSnapshot },
+            { no: 4, name: "messages", kind: "message", T: () => Context_MessagesSnapshot }
         ]);
     }
     create(value?: PartialMessage<Context>): Context {
-        const message = { members: 0n, timestamp: 0n };
+        const message = {};
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<Context>(this, message, value);
@@ -260,17 +405,14 @@ class Context$Type extends MessageType<Context> {
                 case /* chats.public.server.v1.Chat chat */ 1:
                     message.chat = Chat.internalBinaryRead(reader, reader.uint32(), options, message.chat);
                     break;
-                case /* members.public.server.v1.Member member */ 2:
-                    message.member = Member.internalBinaryRead(reader, reader.uint32(), options, message.member);
+                case /* chats.public.server.v1.Context.MemberSnapshot member */ 2:
+                    message.member = Context_MemberSnapshot.internalBinaryRead(reader, reader.uint32(), options, message.member);
                     break;
-                case /* int64 members */ 3:
-                    message.members = reader.int64().toBigInt();
+                case /* chats.public.server.v1.Context.MembersSnapshot members */ 3:
+                    message.members = Context_MembersSnapshot.internalBinaryRead(reader, reader.uint32(), options, message.members);
                     break;
-                case /* messages.public.server.v1.Chunk messages */ 4:
-                    message.messages = Chunk$.internalBinaryRead(reader, reader.uint32(), options, message.messages);
-                    break;
-                case /* int64 timestamp */ 5:
-                    message.timestamp = reader.int64().toBigInt();
+                case /* chats.public.server.v1.Context.MessagesSnapshot messages */ 4:
+                    message.messages = Context_MessagesSnapshot.internalBinaryRead(reader, reader.uint32(), options, message.messages);
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -287,18 +429,15 @@ class Context$Type extends MessageType<Context> {
         /* chats.public.server.v1.Chat chat = 1; */
         if (message.chat)
             Chat.internalBinaryWrite(message.chat, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* members.public.server.v1.Member member = 2; */
+        /* chats.public.server.v1.Context.MemberSnapshot member = 2; */
         if (message.member)
-            Member.internalBinaryWrite(message.member, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        /* int64 members = 3; */
-        if (message.members !== 0n)
-            writer.tag(3, WireType.Varint).int64(message.members);
-        /* messages.public.server.v1.Chunk messages = 4; */
+            Context_MemberSnapshot.internalBinaryWrite(message.member, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
+        /* chats.public.server.v1.Context.MembersSnapshot members = 3; */
+        if (message.members)
+            Context_MembersSnapshot.internalBinaryWrite(message.members, writer.tag(3, WireType.LengthDelimited).fork(), options).join();
+        /* chats.public.server.v1.Context.MessagesSnapshot messages = 4; */
         if (message.messages)
-            Chunk$.internalBinaryWrite(message.messages, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
-        /* int64 timestamp = 5; */
-        if (message.timestamp !== 0n)
-            writer.tag(5, WireType.Varint).int64(message.timestamp);
+            Context_MessagesSnapshot.internalBinaryWrite(message.messages, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -309,3 +448,233 @@ class Context$Type extends MessageType<Context> {
  * @generated MessageType for protobuf message chats.public.server.v1.Context
  */
 export const Context = new Context$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class Context_MemberSnapshot$Type extends MessageType<Context_MemberSnapshot> {
+    constructor() {
+        super("chats.public.server.v1.Context.MemberSnapshot", [
+            { no: 1, name: "snapshot", kind: "message", T: () => Member },
+            { no: 2, name: "commence_timestamp", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 3, name: "complete_timestamp", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+        ]);
+    }
+    create(value?: PartialMessage<Context_MemberSnapshot>): Context_MemberSnapshot {
+        const message = { commenceTimestamp: 0n, completeTimestamp: 0n };
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<Context_MemberSnapshot>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Context_MemberSnapshot): Context_MemberSnapshot {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* members.public.server.v1.Member snapshot */ 1:
+                    message.snapshot = Member.internalBinaryRead(reader, reader.uint32(), options, message.snapshot);
+                    break;
+                case /* int64 commence_timestamp */ 2:
+                    message.commenceTimestamp = reader.int64().toBigInt();
+                    break;
+                case /* int64 complete_timestamp */ 3:
+                    message.completeTimestamp = reader.int64().toBigInt();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: Context_MemberSnapshot, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* members.public.server.v1.Member snapshot = 1; */
+        if (message.snapshot)
+            Member.internalBinaryWrite(message.snapshot, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
+        /* int64 commence_timestamp = 2; */
+        if (message.commenceTimestamp !== 0n)
+            writer.tag(2, WireType.Varint).int64(message.commenceTimestamp);
+        /* int64 complete_timestamp = 3; */
+        if (message.completeTimestamp !== 0n)
+            writer.tag(3, WireType.Varint).int64(message.completeTimestamp);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message chats.public.server.v1.Context.MemberSnapshot
+ */
+export const Context_MemberSnapshot = new Context_MemberSnapshot$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class Context_MembersSnapshot$Type extends MessageType<Context_MembersSnapshot> {
+    constructor() {
+        super("chats.public.server.v1.Context.MembersSnapshot", [
+            { no: 1, name: "snapshot", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 2, name: "commence_timestamp", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 3, name: "complete_timestamp", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+        ]);
+    }
+    create(value?: PartialMessage<Context_MembersSnapshot>): Context_MembersSnapshot {
+        const message = { snapshot: 0n, commenceTimestamp: 0n, completeTimestamp: 0n };
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<Context_MembersSnapshot>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Context_MembersSnapshot): Context_MembersSnapshot {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* int64 snapshot */ 1:
+                    message.snapshot = reader.int64().toBigInt();
+                    break;
+                case /* int64 commence_timestamp */ 2:
+                    message.commenceTimestamp = reader.int64().toBigInt();
+                    break;
+                case /* int64 complete_timestamp */ 3:
+                    message.completeTimestamp = reader.int64().toBigInt();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: Context_MembersSnapshot, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* int64 snapshot = 1; */
+        if (message.snapshot !== 0n)
+            writer.tag(1, WireType.Varint).int64(message.snapshot);
+        /* int64 commence_timestamp = 2; */
+        if (message.commenceTimestamp !== 0n)
+            writer.tag(2, WireType.Varint).int64(message.commenceTimestamp);
+        /* int64 complete_timestamp = 3; */
+        if (message.completeTimestamp !== 0n)
+            writer.tag(3, WireType.Varint).int64(message.completeTimestamp);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message chats.public.server.v1.Context.MembersSnapshot
+ */
+export const Context_MembersSnapshot = new Context_MembersSnapshot$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class Context_MessagesSnapshot$Type extends MessageType<Context_MessagesSnapshot> {
+    constructor() {
+        super("chats.public.server.v1.Context.MessagesSnapshot", [
+            { no: 1, name: "snapshot", kind: "message", T: () => Chunk$ },
+            { no: 2, name: "commence_timestamp", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 3, name: "complete_timestamp", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+        ]);
+    }
+    create(value?: PartialMessage<Context_MessagesSnapshot>): Context_MessagesSnapshot {
+        const message = { commenceTimestamp: 0n, completeTimestamp: 0n };
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<Context_MessagesSnapshot>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Context_MessagesSnapshot): Context_MessagesSnapshot {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* messages.public.server.v1.Chunk snapshot */ 1:
+                    message.snapshot = Chunk$.internalBinaryRead(reader, reader.uint32(), options, message.snapshot);
+                    break;
+                case /* int64 commence_timestamp */ 2:
+                    message.commenceTimestamp = reader.int64().toBigInt();
+                    break;
+                case /* int64 complete_timestamp */ 3:
+                    message.completeTimestamp = reader.int64().toBigInt();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: Context_MessagesSnapshot, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* messages.public.server.v1.Chunk snapshot = 1; */
+        if (message.snapshot)
+            Chunk$.internalBinaryWrite(message.snapshot, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
+        /* int64 commence_timestamp = 2; */
+        if (message.commenceTimestamp !== 0n)
+            writer.tag(2, WireType.Varint).int64(message.commenceTimestamp);
+        /* int64 complete_timestamp = 3; */
+        if (message.completeTimestamp !== 0n)
+            writer.tag(3, WireType.Varint).int64(message.completeTimestamp);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message chats.public.server.v1.Context.MessagesSnapshot
+ */
+export const Context_MessagesSnapshot = new Context_MessagesSnapshot$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class Condition$Type extends MessageType<Condition> {
+    constructor() {
+        super("chats.public.server.v1.Condition", [
+            { no: 1, name: "ids", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 9 /*ScalarType.STRING*/ }
+        ]);
+    }
+    create(value?: PartialMessage<Condition>): Condition {
+        const message = { ids: [] };
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<Condition>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Condition): Condition {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* repeated string ids */ 1:
+                    message.ids.push(reader.string());
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: Condition, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* repeated string ids = 1; */
+        for (let i = 0; i < message.ids.length; i++)
+            writer.tag(1, WireType.LengthDelimited).string(message.ids[i]);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message chats.public.server.v1.Condition
+ */
+export const Condition = new Condition$Type();

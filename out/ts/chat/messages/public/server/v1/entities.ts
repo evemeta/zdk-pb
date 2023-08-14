@@ -11,6 +11,7 @@ import type { PartialMessage } from "@protobuf-ts/runtime";
 import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
+import { Order } from "./enums";
 /**
  * @generated from protobuf message messages.public.server.v1.Chunk
  */
@@ -31,6 +32,27 @@ export interface Chunk {
      * @generated from protobuf field: repeated messages.public.server.v1.Message entities = 4;
      */
     entities: Message[];
+}
+/**
+ * @generated from protobuf message messages.public.server.v1.Query
+ */
+export interface Query {
+    /**
+     * @generated from protobuf field: messages.public.server.v1.Order order = 1;
+     */
+    order: Order;
+    /**
+     * @generated from protobuf field: int64 limit = 2;
+     */
+    limit: bigint;
+    /**
+     * @generated from protobuf field: int64 offset = 3;
+     */
+    offset: bigint;
+    /**
+     * @generated from protobuf field: messages.public.server.v1.Condition condition = 4;
+     */
+    condition?: Condition;
 }
 /**
  * @generated from protobuf message messages.public.server.v1.Message
@@ -66,6 +88,19 @@ export interface Message {
      * @generated from protobuf field: int64 update_time = 7;
      */
     updateTime: bigint;
+}
+/**
+ * @generated from protobuf message messages.public.server.v1.Condition
+ */
+export interface Condition {
+    /**
+     * @generated from protobuf field: repeated string ids = 1;
+     */
+    ids: string[];
+    /**
+     * @generated from protobuf field: repeated string chat_ids = 2;
+     */
+    chatIds: string[];
 }
 // @generated message type with reflection information, may provide speed optimized methods
 class Chunk$Type extends MessageType<Chunk> {
@@ -135,6 +170,74 @@ class Chunk$Type extends MessageType<Chunk> {
  * @generated MessageType for protobuf message messages.public.server.v1.Chunk
  */
 export const Chunk = new Chunk$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class Query$Type extends MessageType<Query> {
+    constructor() {
+        super("messages.public.server.v1.Query", [
+            { no: 1, name: "order", kind: "enum", T: () => ["messages.public.server.v1.Order", Order] },
+            { no: 2, name: "limit", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 3, name: "offset", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 4, name: "condition", kind: "message", T: () => Condition }
+        ]);
+    }
+    create(value?: PartialMessage<Query>): Query {
+        const message = { order: 0, limit: 0n, offset: 0n };
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<Query>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Query): Query {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* messages.public.server.v1.Order order */ 1:
+                    message.order = reader.int32();
+                    break;
+                case /* int64 limit */ 2:
+                    message.limit = reader.int64().toBigInt();
+                    break;
+                case /* int64 offset */ 3:
+                    message.offset = reader.int64().toBigInt();
+                    break;
+                case /* messages.public.server.v1.Condition condition */ 4:
+                    message.condition = Condition.internalBinaryRead(reader, reader.uint32(), options, message.condition);
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: Query, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* messages.public.server.v1.Order order = 1; */
+        if (message.order !== 0)
+            writer.tag(1, WireType.Varint).int32(message.order);
+        /* int64 limit = 2; */
+        if (message.limit !== 0n)
+            writer.tag(2, WireType.Varint).int64(message.limit);
+        /* int64 offset = 3; */
+        if (message.offset !== 0n)
+            writer.tag(3, WireType.Varint).int64(message.offset);
+        /* messages.public.server.v1.Condition condition = 4; */
+        if (message.condition)
+            Condition.internalBinaryWrite(message.condition, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message messages.public.server.v1.Query
+ */
+export const Query = new Query$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class Message$Type extends MessageType<Message> {
     constructor() {
@@ -240,3 +343,57 @@ class Message$Type extends MessageType<Message> {
  * @generated MessageType for protobuf message messages.public.server.v1.Message
  */
 export const Message = new Message$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class Condition$Type extends MessageType<Condition> {
+    constructor() {
+        super("messages.public.server.v1.Condition", [
+            { no: 1, name: "ids", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "chat_ids", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 9 /*ScalarType.STRING*/ }
+        ]);
+    }
+    create(value?: PartialMessage<Condition>): Condition {
+        const message = { ids: [], chatIds: [] };
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<Condition>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Condition): Condition {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* repeated string ids */ 1:
+                    message.ids.push(reader.string());
+                    break;
+                case /* repeated string chat_ids */ 2:
+                    message.chatIds.push(reader.string());
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: Condition, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* repeated string ids = 1; */
+        for (let i = 0; i < message.ids.length; i++)
+            writer.tag(1, WireType.LengthDelimited).string(message.ids[i]);
+        /* repeated string chat_ids = 2; */
+        for (let i = 0; i < message.chatIds.length; i++)
+            writer.tag(2, WireType.LengthDelimited).string(message.chatIds[i]);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message messages.public.server.v1.Condition
+ */
+export const Condition = new Condition$Type();

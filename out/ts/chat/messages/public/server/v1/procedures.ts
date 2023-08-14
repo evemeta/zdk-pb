@@ -11,25 +11,54 @@ import type { PartialMessage } from "@protobuf-ts/runtime";
 import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
-import { Message } from "./entities";
+import { OptionalString } from "./optionals";
 import { Chunk } from "./entities";
-import { Order } from "./enums";
+import { Message } from "./entities";
+import { Query } from "./entities";
+/**
+ * @generated from protobuf message messages.public.server.v1.CountRequest
+ */
+export interface CountRequest {
+    /**
+     * @generated from protobuf field: messages.public.server.v1.Query query = 1;
+     */
+    query?: Query;
+}
+/**
+ * @generated from protobuf message messages.public.server.v1.CountResponse
+ */
+export interface CountResponse {
+    /**
+     * @generated from protobuf field: int64 total = 1;
+     */
+    total: bigint;
+}
+/**
+ * @generated from protobuf message messages.public.server.v1.SelectRequest
+ */
+export interface SelectRequest {
+    /**
+     * @generated from protobuf field: messages.public.server.v1.Query query = 1;
+     */
+    query?: Query;
+}
+/**
+ * @generated from protobuf message messages.public.server.v1.SelectResponse
+ */
+export interface SelectResponse {
+    /**
+     * @generated from protobuf field: repeated messages.public.server.v1.Message messages = 1;
+     */
+    messages: Message[];
+}
 /**
  * @generated from protobuf message messages.public.server.v1.RangeRequest
  */
 export interface RangeRequest {
     /**
-     * @generated from protobuf field: messages.public.server.v1.Order order = 1;
+     * @generated from protobuf field: messages.public.server.v1.Query query = 1;
      */
-    order: Order;
-    /**
-     * @generated from protobuf field: int64 limit = 2;
-     */
-    limit: bigint;
-    /**
-     * @generated from protobuf field: int64 offset = 3;
-     */
-    offset: bigint;
+    query?: Query;
 }
 /**
  * @generated from protobuf message messages.public.server.v1.RangeResponse
@@ -71,18 +100,9 @@ export interface UpdateRequest {
      */
     id: string;
     /**
-     * @generated from protobuf field: messages.public.server.v1.UpdateRequest.Content content = 2;
+     * @generated from protobuf field: optional messages.public.server.v1.OptionalString content = 2;
      */
-    content?: UpdateRequest_Content;
-}
-/**
- * @generated from protobuf message messages.public.server.v1.UpdateRequest.Content
- */
-export interface UpdateRequest_Content {
-    /**
-     * @generated from protobuf field: string value = 1;
-     */
-    value: string;
+    content?: OptionalString;
 }
 /**
  * @generated from protobuf message messages.public.server.v1.UpdateResponse
@@ -112,16 +132,202 @@ export interface DeleteResponse {
     message?: Message;
 }
 // @generated message type with reflection information, may provide speed optimized methods
+class CountRequest$Type extends MessageType<CountRequest> {
+    constructor() {
+        super("messages.public.server.v1.CountRequest", [
+            { no: 1, name: "query", kind: "message", T: () => Query }
+        ]);
+    }
+    create(value?: PartialMessage<CountRequest>): CountRequest {
+        const message = {};
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<CountRequest>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: CountRequest): CountRequest {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* messages.public.server.v1.Query query */ 1:
+                    message.query = Query.internalBinaryRead(reader, reader.uint32(), options, message.query);
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: CountRequest, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* messages.public.server.v1.Query query = 1; */
+        if (message.query)
+            Query.internalBinaryWrite(message.query, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message messages.public.server.v1.CountRequest
+ */
+export const CountRequest = new CountRequest$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class CountResponse$Type extends MessageType<CountResponse> {
+    constructor() {
+        super("messages.public.server.v1.CountResponse", [
+            { no: 1, name: "total", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+        ]);
+    }
+    create(value?: PartialMessage<CountResponse>): CountResponse {
+        const message = { total: 0n };
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<CountResponse>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: CountResponse): CountResponse {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* int64 total */ 1:
+                    message.total = reader.int64().toBigInt();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: CountResponse, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* int64 total = 1; */
+        if (message.total !== 0n)
+            writer.tag(1, WireType.Varint).int64(message.total);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message messages.public.server.v1.CountResponse
+ */
+export const CountResponse = new CountResponse$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class SelectRequest$Type extends MessageType<SelectRequest> {
+    constructor() {
+        super("messages.public.server.v1.SelectRequest", [
+            { no: 1, name: "query", kind: "message", T: () => Query }
+        ]);
+    }
+    create(value?: PartialMessage<SelectRequest>): SelectRequest {
+        const message = {};
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<SelectRequest>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: SelectRequest): SelectRequest {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* messages.public.server.v1.Query query */ 1:
+                    message.query = Query.internalBinaryRead(reader, reader.uint32(), options, message.query);
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: SelectRequest, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* messages.public.server.v1.Query query = 1; */
+        if (message.query)
+            Query.internalBinaryWrite(message.query, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message messages.public.server.v1.SelectRequest
+ */
+export const SelectRequest = new SelectRequest$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class SelectResponse$Type extends MessageType<SelectResponse> {
+    constructor() {
+        super("messages.public.server.v1.SelectResponse", [
+            { no: 1, name: "messages", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => Message }
+        ]);
+    }
+    create(value?: PartialMessage<SelectResponse>): SelectResponse {
+        const message = { messages: [] };
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<SelectResponse>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: SelectResponse): SelectResponse {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* repeated messages.public.server.v1.Message messages */ 1:
+                    message.messages.push(Message.internalBinaryRead(reader, reader.uint32(), options));
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: SelectResponse, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* repeated messages.public.server.v1.Message messages = 1; */
+        for (let i = 0; i < message.messages.length; i++)
+            Message.internalBinaryWrite(message.messages[i], writer.tag(1, WireType.LengthDelimited).fork(), options).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message messages.public.server.v1.SelectResponse
+ */
+export const SelectResponse = new SelectResponse$Type();
+// @generated message type with reflection information, may provide speed optimized methods
 class RangeRequest$Type extends MessageType<RangeRequest> {
     constructor() {
         super("messages.public.server.v1.RangeRequest", [
-            { no: 1, name: "order", kind: "enum", T: () => ["messages.public.server.v1.Order", Order] },
-            { no: 2, name: "limit", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 3, name: "offset", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 1, name: "query", kind: "message", T: () => Query }
         ]);
     }
     create(value?: PartialMessage<RangeRequest>): RangeRequest {
-        const message = { order: 0, limit: 0n, offset: 0n };
+        const message = {};
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<RangeRequest>(this, message, value);
@@ -132,14 +338,8 @@ class RangeRequest$Type extends MessageType<RangeRequest> {
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* messages.public.server.v1.Order order */ 1:
-                    message.order = reader.int32();
-                    break;
-                case /* int64 limit */ 2:
-                    message.limit = reader.int64().toBigInt();
-                    break;
-                case /* int64 offset */ 3:
-                    message.offset = reader.int64().toBigInt();
+                case /* messages.public.server.v1.Query query */ 1:
+                    message.query = Query.internalBinaryRead(reader, reader.uint32(), options, message.query);
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -153,15 +353,9 @@ class RangeRequest$Type extends MessageType<RangeRequest> {
         return message;
     }
     internalBinaryWrite(message: RangeRequest, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* messages.public.server.v1.Order order = 1; */
-        if (message.order !== 0)
-            writer.tag(1, WireType.Varint).int32(message.order);
-        /* int64 limit = 2; */
-        if (message.limit !== 0n)
-            writer.tag(2, WireType.Varint).int64(message.limit);
-        /* int64 offset = 3; */
-        if (message.offset !== 0n)
-            writer.tag(3, WireType.Varint).int64(message.offset);
+        /* messages.public.server.v1.Query query = 1; */
+        if (message.query)
+            Query.internalBinaryWrite(message.query, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -325,7 +519,7 @@ class UpdateRequest$Type extends MessageType<UpdateRequest> {
     constructor() {
         super("messages.public.server.v1.UpdateRequest", [
             { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 2, name: "content", kind: "message", T: () => UpdateRequest_Content }
+            { no: 2, name: "content", kind: "message", T: () => OptionalString }
         ]);
     }
     create(value?: PartialMessage<UpdateRequest>): UpdateRequest {
@@ -343,8 +537,8 @@ class UpdateRequest$Type extends MessageType<UpdateRequest> {
                 case /* string id */ 1:
                     message.id = reader.string();
                     break;
-                case /* messages.public.server.v1.UpdateRequest.Content content */ 2:
-                    message.content = UpdateRequest_Content.internalBinaryRead(reader, reader.uint32(), options, message.content);
+                case /* optional messages.public.server.v1.OptionalString content */ 2:
+                    message.content = OptionalString.internalBinaryRead(reader, reader.uint32(), options, message.content);
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -361,9 +555,9 @@ class UpdateRequest$Type extends MessageType<UpdateRequest> {
         /* string id = 1; */
         if (message.id !== "")
             writer.tag(1, WireType.LengthDelimited).string(message.id);
-        /* messages.public.server.v1.UpdateRequest.Content content = 2; */
+        /* optional messages.public.server.v1.OptionalString content = 2; */
         if (message.content)
-            UpdateRequest_Content.internalBinaryWrite(message.content, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
+            OptionalString.internalBinaryWrite(message.content, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -374,53 +568,6 @@ class UpdateRequest$Type extends MessageType<UpdateRequest> {
  * @generated MessageType for protobuf message messages.public.server.v1.UpdateRequest
  */
 export const UpdateRequest = new UpdateRequest$Type();
-// @generated message type with reflection information, may provide speed optimized methods
-class UpdateRequest_Content$Type extends MessageType<UpdateRequest_Content> {
-    constructor() {
-        super("messages.public.server.v1.UpdateRequest.Content", [
-            { no: 1, name: "value", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
-        ]);
-    }
-    create(value?: PartialMessage<UpdateRequest_Content>): UpdateRequest_Content {
-        const message = { value: "" };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<UpdateRequest_Content>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: UpdateRequest_Content): UpdateRequest_Content {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* string value */ 1:
-                    message.value = reader.string();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: UpdateRequest_Content, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* string value = 1; */
-        if (message.value !== "")
-            writer.tag(1, WireType.LengthDelimited).string(message.value);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
-}
-/**
- * @generated MessageType for protobuf message messages.public.server.v1.UpdateRequest.Content
- */
-export const UpdateRequest_Content = new UpdateRequest_Content$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class UpdateResponse$Type extends MessageType<UpdateResponse> {
     constructor() {
