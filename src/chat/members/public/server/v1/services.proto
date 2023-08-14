@@ -10,11 +10,27 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 service Service {
 
+    rpc Count(CountRequest) returns (CountResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: Count";
+            summary: "Count";
+            operation_id: "Count";
+        };
+    }
+
     rpc Range(RangeRequest) returns (RangeResponse) {
         option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
             description: "Description: Range";
             summary: "Range";
             operation_id: "Range";
+        };
+    }
+
+    rpc Select(SelectRequest) returns (SelectResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: Select";
+            summary: "Select";
+            operation_id: "Select";
         };
     }
     

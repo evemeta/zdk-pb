@@ -8,6 +8,30 @@ import "protoc-gen-openapiv2/options/annotations.proto";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/chats/public/server/v1;chatspb";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
+message CountRequest {
+    chats.public.server.v1.Query query = 1;
+}
+
+message CountResponse {
+    int64 total = 1;
+}
+
+message SelectRequest {
+    chats.public.server.v1.Query query = 1;
+}
+
+message SelectResponse {
+    repeated chats.public.server.v1.Chat chats = 1;
+}
+
+message RangeRequest {
+    chats.public.server.v1.Query query = 1;
+}
+
+message RangeResponse {
+    chats.public.server.v1.Chunk chunk = 1;
+}
+
 message ContextRequest {
     string id = 1;
 }

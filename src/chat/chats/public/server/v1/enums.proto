@@ -1,17 +1,11 @@
 syntax = "proto3";
 
-package members.public.server.v1;
+package chats.public.server.v1;
 
 import "protoc-gen-openapiv2/options/annotations.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/members/public/server/v1;memberspb";
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/chats/public/server/v1;chatspb";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
-
-enum Type {
-    Type_Unknown = 0;
-    Type_Mute    = 1;
-    Type_Block   = 2;
-}
 
 enum Order {
     Order_Unknown    = 0;

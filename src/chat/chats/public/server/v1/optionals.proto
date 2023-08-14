@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package chats.public.server.v1;
+
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/chats/public/server/v1;chatspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+// OptionalMap represents a mapping of key-value pairs that can be intentionally left unset or null.
+// It allows for explicit control over the presence or absence of the map, accommodating scenarios where the map might be optional or intentionally omitted.
+message OptionalMap {
+    map<string, string> value = 1;
+}

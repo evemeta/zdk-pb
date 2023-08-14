@@ -15,15 +15,26 @@ message Chunk {
     repeated members.public.server.v1.Member entities = 4;
 }
 
+message Query {
+    members.public.server.v1.Order     order     = 1;
+    int64                              limit     = 2;
+    int64                              offset    = 3;
+    members.public.server.v1.Condition condition = 4;
+}
+
 message Member {
     string                                        id           = 1;
     string                                        user_id      = 2;
     string                                        chat_id      = 3;
     map<string, string>                           metadata     = 4;
-    repeated members.public.server.v1.Permission  permissions  = 5;
-    repeated members.public.server.v1.Restriction restrictions = 6;
-    int64                                         create_time  = 7;
-    int64                                         update_time  = 8;
+    repeated members.public.server.v1.Restriction restrictions = 5;
+    int64                                         create_time  = 6;
+    int64                                         update_time  = 7;
+}
+
+message Condition {
+    repeated string ids      = 1;
+    repeated string chat_ids = 2;
 }
 
 message Restriction {

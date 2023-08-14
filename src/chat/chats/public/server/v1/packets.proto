@@ -3,38 +3,45 @@ syntax = "proto3";
 package chats.public.server.v1;
 
 import "chat/chats/public/server/v1/entities.proto";
+import "chat/chats/public/server/v1/optionals.proto";
 import "chat/members/public/server/v1/entities.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/chats/public/server/v1;chatspb";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
+// EnterChatPacket is a notification sent to clients when a member has entered a chat.
+// It contains information about the member and the timestamp of the event.
 message EnterChatPacket {
-    members.public.server.v1.Member member    = 1;
-    int64                           timestamp = 2;
+    members.public.server.v1.Member member = 1; // todo; leave it as it is for now, change it to just 'chat_id' or something like this in the near future
+    int64 timestamp = 2;
 }
 
+// LeaveChatPacket is a notification sent to clients when a member has left a chat.
+// It contains information about the member and the timestamp of the event.
 message LeaveChatPacket {
-    members.public.server.v1.Member member    = 1;
-    int64                           timestamp = 2;
+    members.public.server.v1.Member member = 1; // todo; leave it as it is for now, change it to just 'chat_id' or something like this in the near future
+    int64 timestamp = 2;
 }
 
+// CreateChatPacket is a notification sent to clients when a chat has been created.
+// It provides details about the new chat and the timestamp of the event.
 message CreateChatPacket {
-    chats.public.server.v1.Chat chat      = 1;
-    int64                       timestamp = 2;
+    chats.public.server.v1.Chat chat = 1;
+    int64 timestamp = 2;
 }
 
+// UpdateChatPacket is a notification sent to clients when a chat has been updated.
+// It includes the chat ID, any updated metadata, and the timestamp of the event.
 message UpdateChatPacket {
-    string   id        = 1;
-    Metadata metadata  = 2;
-    int64    timestamp = 3;
-
-    message Metadata {
-        map<string, string> value = 1;
-    }
+    string id = 1;
+    optional chats.public.server.v1.OptionalMap metadata = 2;
+    int64 timestamp = 3;
 }
 
+// DeleteChatPacket is a notification sent to clients when a chat has been deleted.
+// It includes the chat ID and the timestamp of the event.
 message DeleteChatPacket {
-    string id        = 1;
+    string id = 1;
     int64  timestamp = 2;
 }

@@ -3,32 +3,33 @@ syntax = "proto3";
 package messages.public.server.v1;
 
 import "chat/messages/public/server/v1/entities.proto";
+import "chat/messages/public/server/v1/optionals.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/messages/public/server/v1;messagespb";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
+// CreateMessagePacket is a notification sent to clients when a new message has been created in a chat.
+// It includes details about the new message and the timestamp of the event.
 message CreateMessagePacket {
-    messages.public.server.v1.Message message   = 1;
-    int64                             timestamp = 2;
+    messages.public.server.v1.Message message = 1;
+    int64 timestamp = 2;
 }
 
+// UpdateMessagePacket is a notification sent to clients when a message has been updated in a chat.
+// It includes the message ID, associated chat ID, updated content and metadata if any, along with the timestamp of the update.
 message UpdateMessagePacket {
-    string   id        = 1;
-    Content  content   = 2;
-    Metadata metadata  = 3;
-    int64    timestamp = 4;
-
-    message Content {
-        string value = 1;
-    }
-
-    message Metadata {
-        map<string, string> value = 1;
-    }
+    string id = 1;
+    string chat_id = 2;
+    optional messages.public.server.v1.OptionalString content = 3;
+    optional messages.public.server.v1.OptionalMap metadata = 4;
+    int64 timestamp = 5;
 }
 
+// DeleteMessagePacket is a notification sent to clients when a message has been deleted from a chat.
+// It includes the message ID, associated chat ID and the timestamp of the event.
 message DeleteMessagePacket {
-    string id        = 1;
-    int64  timestamp = 2;
+    string id = 1;
+    string chat_id = 2;
+    int64  timestamp = 3;
 }
