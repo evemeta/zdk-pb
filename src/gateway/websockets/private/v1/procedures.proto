@@ -4,6 +4,7 @@ package websockets.private.v1;
 
 import "gateway/websockets/private/v1/enums.proto";
 import "gateway/websockets/private/v1/entities.proto";
+import "gateway/websockets/private/v1/optionals.proto";
 import "gateway/sessions/private/v1/procedures.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
@@ -75,10 +76,10 @@ message CreateTransaction {
 }
 
 message UpdateArgument {
-    websockets.private.v1.Query           query   = 1;
-    optional websockets.private.v1.Zone   zone    = 2;
-    optional websockets.private.v1.Status status  = 3;
-    optional string                       address = 4;
+    websockets.private.v1.Query                   query   = 1;
+    optional websockets.private.v1.OptionalZone   zone    = 2;
+    optional websockets.private.v1.OptionalStatus status  = 3;
+    optional websockets.private.v1.OptionalString address = 4;
 }
 
 message UpdateRequest {

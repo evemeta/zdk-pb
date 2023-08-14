@@ -4,6 +4,7 @@ package sessions.private.v1;
 
 import "gateway/sessions/private/v1/enums.proto";
 import "gateway/sessions/private/v1/entities.proto";
+import "gateway/sessions/private/v1/optionals.proto";
 import "gateway/transponders/private/v1/procedures.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
@@ -50,10 +51,10 @@ message SelectResponse {
 }
 
 message CreateArgument {
-    string                    id           = 1;
-    sessions.private.v1.Status status        = 2;
-    string                    user_id      = 3;
-    string                    websocket_id = 4;
+    string                     id           = 1;
+    sessions.private.v1.Status status       = 2;
+    string                     user_id      = 3;
+    string                     websocket_id = 4;
 }
 
 message CreateRequest {
@@ -80,10 +81,10 @@ message CreateTransaction {
 }
 
 message UpdateArgument {
-    sessions.private.v1.Query           query        = 1;
-    optional sessions.private.v1.Status status       = 2;
-    optional string                     user_id      = 3;
-    optional string                     websocket_id = 4;
+    sessions.private.v1.Query                   query        = 1;
+    optional sessions.private.v1.OptionalStatus status       = 2;
+    optional sessions.private.v1.OptionalString user_id      = 3;
+    optional sessions.private.v1.OptionalString websocket_id = 4;
 }
 
 message UpdateRequest {

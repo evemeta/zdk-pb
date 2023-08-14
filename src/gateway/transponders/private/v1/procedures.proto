@@ -3,6 +3,7 @@ syntax = "proto3";
 package transponders.private.v1;
 
 import "gateway/transponders/private/v1/entities.proto";
+import "gateway/transponders/private/v1/optionals.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/transponders/private/v1;transponderspb";
@@ -72,9 +73,9 @@ message CreateTransaction {
 }
 
 message UpdateArgument {
-    transponders.private.v1.Query query  = 1;
-    optional string               origin = 2;
-    optional string               target = 3;
+    transponders.private.v1.Query                   query  = 1;
+    optional transponders.private.v1.OptionalString origin = 2;
+    optional transponders.private.v1.OptionalString target = 3;
 }
 
 message UpdateRequest {
