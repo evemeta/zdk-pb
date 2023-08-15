@@ -21,11 +21,13 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// CountRequest represents a message designed to count members based on a given query.
 type CountRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Represents the specifications and conditions under which members should be counted.
 	Query *Query `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
 }
 
@@ -68,11 +70,13 @@ func (x *CountRequest) GetQuery() *Query {
 	return nil
 }
 
+// CountResponse represents a message that provides the result of the count procedure.
 type CountResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Represents the total number of members that match the criteria of the given query.
 	Total int64 `protobuf:"varint,1,opt,name=total,proto3" json:"total,omitempty"`
 }
 
@@ -115,11 +119,13 @@ func (x *CountResponse) GetTotal() int64 {
 	return 0
 }
 
+// SelectRequest represents a message designed to retrieve specific members based on a given query.
 type SelectRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Represents the specifications and conditions under which particular members should be retrieved.
 	Query *Query `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
 }
 
@@ -162,11 +168,13 @@ func (x *SelectRequest) GetQuery() *Query {
 	return nil
 }
 
+// SelectResponse represents a message that provides the result of the select procedure.
 type SelectResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Represents a list of chat members that match the criteria of the given query.
 	Members []*Member `protobuf:"bytes,1,rep,name=members,proto3" json:"members,omitempty"`
 }
 
@@ -209,11 +217,13 @@ func (x *SelectResponse) GetMembers() []*Member {
 	return nil
 }
 
+// RangeRequest represents a message designed to retrieve a chunk of members based on a given query.
 type RangeRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Represents the specifications and conditions under which a chunk of members should be retrieved.
 	Query *Query `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
 }
 
@@ -256,11 +266,13 @@ func (x *RangeRequest) GetQuery() *Query {
 	return nil
 }
 
+// RangeResponse represents a message that provides the result of the range procedure.
 type RangeResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Represents a chunk of members that match the criteria of the given query.
 	Chunk *Chunk `protobuf:"bytes,1,opt,name=chunk,proto3" json:"chunk,omitempty"`
 }
 
@@ -303,13 +315,17 @@ func (x *RangeResponse) GetChunk() *Chunk {
 	return nil
 }
 
+// KickRequest represents a message designed to forcefully remove a member from a chat.
 type KickRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Represents the unique identifier of the user associated with the member intended to be forcefully removed.
 	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	// Represents the unique identifier of the chat from which the member is to be removed.
 	ChatId string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
+	// Represents an optional reason or cause for kicking the member.
 	Reason string `protobuf:"bytes,3,opt,name=reason,proto3" json:"reason,omitempty"`
 }
 
@@ -366,6 +382,7 @@ func (x *KickRequest) GetReason() string {
 	return ""
 }
 
+// KickResponse represents a message that provides the result of the kick procedure.
 type KickResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -404,15 +421,20 @@ func (*KickResponse) Descriptor() ([]byte, []int) {
 	return file_chat_members_public_server_v1_procedures_proto_rawDescGZIP(), []int{7}
 }
 
+// MuteRequest represents a message designed to silence a member for a specified duration or indefinitely.
 type MuteRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	UserId   string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	ChatId   string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
-	Reason   string `protobuf:"bytes,3,opt,name=reason,proto3" json:"reason,omitempty"`
-	Duration int64  `protobuf:"varint,4,opt,name=duration,proto3" json:"duration,omitempty"`
+	// Represents the unique identifier of the user associated with the member intended to be muted.
+	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	// Represents the unique identifier of the chat in which the member will be muted.
+	ChatId string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
+	// Represents an optional reason or cause for muting the member.
+	Reason string `protobuf:"bytes,3,opt,name=reason,proto3" json:"reason,omitempty"`
+	// Represents the duration in minutes for which the member should be muted. A value of 0 indicates an indefinite mute.
+	Duration int64 `protobuf:"varint,4,opt,name=duration,proto3" json:"duration,omitempty"`
 }
 
 func (x *MuteRequest) Reset() {
@@ -475,6 +497,7 @@ func (x *MuteRequest) GetDuration() int64 {
 	return 0
 }
 
+// MuteResponse represents a message that provides the result of the mute procedure.
 type MuteResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -513,12 +536,15 @@ func (*MuteResponse) Descriptor() ([]byte, []int) {
 	return file_chat_members_public_server_v1_procedures_proto_rawDescGZIP(), []int{9}
 }
 
+// UnmuteRequest represents a message designed to restore communication privileges for a previously muted member.
 type UnmuteRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Represents the unique identifier of the user associated with the member intended to be unmuted.
 	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	// Represents the unique identifier of the chat in which the member is to be unmuted.
 	ChatId string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
 }
 
@@ -568,6 +594,7 @@ func (x *UnmuteRequest) GetChatId() string {
 	return ""
 }
 
+// UnmuteResponse represents a message that provides the result of the unmute procedure.
 type UnmuteResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -606,15 +633,20 @@ func (*UnmuteResponse) Descriptor() ([]byte, []int) {
 	return file_chat_members_public_server_v1_procedures_proto_rawDescGZIP(), []int{11}
 }
 
+// BlockRequest represents a message designed to forcefully remove a member from a chat and prevent them from participating for a specified duration or indefinitely.
 type BlockRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	UserId   string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	ChatId   string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
-	Reason   string `protobuf:"bytes,3,opt,name=reason,proto3" json:"reason,omitempty"`
-	Duration int64  `protobuf:"varint,4,opt,name=duration,proto3" json:"duration,omitempty"`
+	// Represents the unique identifier of the user associated with the member intended to be blocked.
+	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	// Represents the unique identifier of the chat from which the member will be blocked.
+	ChatId string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
+	// Represents an optional reason or cause for blocking the member.
+	Reason string `protobuf:"bytes,3,opt,name=reason,proto3" json:"reason,omitempty"`
+	// Represents the duration, in minutes, for which the member will be blocked. A value of 0 indicates a permanent block.
+	Duration int64 `protobuf:"varint,4,opt,name=duration,proto3" json:"duration,omitempty"`
 }
 
 func (x *BlockRequest) Reset() {
@@ -677,6 +709,7 @@ func (x *BlockRequest) GetDuration() int64 {
 	return 0
 }
 
+// BlockResponse represents a message that provides the result of the block procedure.
 type BlockResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -715,12 +748,15 @@ func (*BlockResponse) Descriptor() ([]byte, []int) {
 	return file_chat_members_public_server_v1_procedures_proto_rawDescGZIP(), []int{13}
 }
 
+// UnblockRequest represents a message designed to restore access privileges for a previously blocked member.
 type UnblockRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Represents the unique identifier of the user associated with the member intended to be unblocked.
 	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	// Represents the unique identifier of the chat in which the member's access will be restored.
 	ChatId string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
 }
 
@@ -770,6 +806,7 @@ func (x *UnblockRequest) GetChatId() string {
 	return ""
 }
 
+// UnblockResponse represents a message that provides the result of the unblock procedure.
 type UnblockResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache

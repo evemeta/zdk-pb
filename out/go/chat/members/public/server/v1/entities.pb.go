@@ -21,14 +21,20 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// Chunk represents a segmented portion of members used for pagination or segmented data retrieval.
+// It provides insights about the desired chunk size, its position within the overall dataset, and the actual members it contains.
 type Chunk struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Size     int64     `protobuf:"varint,1,opt,name=size,proto3" json:"size,omitempty"`
-	Index    int64     `protobuf:"varint,2,opt,name=index,proto3" json:"index,omitempty"`
-	Total    int64     `protobuf:"varint,3,opt,name=total,proto3" json:"total,omitempty"`
+	// Represents the desired size of the chunk, not necessarily the actual number of entities it contains.
+	Size int64 `protobuf:"varint,1,opt,name=size,proto3" json:"size,omitempty"`
+	// Represents the position of this chunk within the context of pagination.
+	Index int64 `protobuf:"varint,2,opt,name=index,proto3" json:"index,omitempty"`
+	// Represents the total count of entities across all chunks.
+	Total int64 `protobuf:"varint,3,opt,name=total,proto3" json:"total,omitempty"`
+	// Represents the actual members included in this chunk.
 	Entities []*Member `protobuf:"bytes,4,rep,name=entities,proto3" json:"entities,omitempty"`
 }
 
@@ -92,14 +98,20 @@ func (x *Chunk) GetEntities() []*Member {
 	return nil
 }
 
+// Query represents a structure designed to facilitate specific and conditional data retrieval.
+// It contains order specifications, limitations on the number of results, and conditions to filter data.
 type Query struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Order     Order      `protobuf:"varint,1,opt,name=order,proto3,enum=members.public.server.v1.Order" json:"order,omitempty"`
-	Limit     int64      `protobuf:"varint,2,opt,name=limit,proto3" json:"limit,omitempty"`
-	Offset    int64      `protobuf:"varint,3,opt,name=offset,proto3" json:"offset,omitempty"`
+	// Represents the order in which results should be retrieved.
+	Order Order `protobuf:"varint,1,opt,name=order,proto3,enum=members.public.server.v1.Order" json:"order,omitempty"`
+	// Represents the maximum number of results to be fetched.
+	Limit int64 `protobuf:"varint,2,opt,name=limit,proto3" json:"limit,omitempty"`
+	// Represents the starting point from which to retrieve results.
+	Offset int64 `protobuf:"varint,3,opt,name=offset,proto3" json:"offset,omitempty"`
+	// Represents the set of conditions that filter the data retrieval process.
 	Condition *Condition `protobuf:"bytes,4,opt,name=condition,proto3" json:"condition,omitempty"`
 }
 
@@ -163,18 +175,27 @@ func (x *Query) GetCondition() *Condition {
 	return nil
 }
 
+// Member represents a participant in a chat.
+// It contains details for identification, associated metadata, associated restrictions, and timestamps marking their chat activity.
 type Member struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id           string            `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	UserId       string            `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	ChatId       string            `protobuf:"bytes,3,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
-	Metadata     map[string]string `protobuf:"bytes,4,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
-	Restrictions []*Restriction    `protobuf:"bytes,5,rep,name=restrictions,proto3" json:"restrictions,omitempty"`
-	CreateTime   int64             `protobuf:"varint,6,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
-	UpdateTime   int64             `protobuf:"varint,7,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	// Represents the unique identifier for this member.
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Represents the unique identifier associated with the user of this member.
+	UserId string `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	// Represents the unique identifier of the chat in which this member exists.
+	ChatId string `protobuf:"bytes,3,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
+	// Represents a collection of key-value pairs providing additional context or information about this member.
+	Metadata map[string]string `protobuf:"bytes,4,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	// Represents a list of restrictions that have been applied to this member.
+	Restrictions []*Restriction `protobuf:"bytes,5,rep,name=restrictions,proto3" json:"restrictions,omitempty"`
+	// Represents the timestamp indicating when this member was created or added to the chat.
+	CreateTime int64 `protobuf:"varint,6,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	// Represents the timestamp of the last update associated with this member.
+	UpdateTime int64 `protobuf:"varint,7,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 }
 
 func (x *Member) Reset() {
@@ -258,12 +279,16 @@ func (x *Member) GetUpdateTime() int64 {
 	return 0
 }
 
+// Condition represents a set of criteria designed to filter data during retrieval.
+// It provides mechanisms to specifically target members based on identifiers or chat affiliations.
 type Condition struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Ids     []string `protobuf:"bytes,1,rep,name=ids,proto3" json:"ids,omitempty"`
+	// Represents a list of member identifiers for targeted data retrieval.
+	Ids []string `protobuf:"bytes,1,rep,name=ids,proto3" json:"ids,omitempty"`
+	// Represents a list of chat identifiers to filter members based on their association.
 	ChatIds []string `protobuf:"bytes,2,rep,name=chat_ids,json=chatIds,proto3" json:"chat_ids,omitempty"`
 }
 
@@ -313,15 +338,21 @@ func (x *Condition) GetChatIds() []string {
 	return nil
 }
 
+// Restriction represents a particular limitation applied to a member.
+// It provides insight into the type, reason, and duration of the restriction.
 type Restriction struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Type       Type   `protobuf:"varint,1,opt,name=type,proto3,enum=members.public.server.v1.Type" json:"type,omitempty"`
-	Reason     string `protobuf:"bytes,2,opt,name=reason,proto3" json:"reason,omitempty"`
-	CreateTime int64  `protobuf:"varint,3,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
-	ExpireTime int64  `protobuf:"varint,4,opt,name=expire_time,json=expireTime,proto3" json:"expire_time,omitempty"`
+	// Represents the type or category of the restriction.
+	Type Type `protobuf:"varint,1,opt,name=type,proto3,enum=members.public.server.v1.Type" json:"type,omitempty"`
+	// Represents a brief explanation or reason behind the application of this restriction.
+	Reason string `protobuf:"bytes,2,opt,name=reason,proto3" json:"reason,omitempty"`
+	// Represents the timestamp indicating when this restriction was put into place.
+	CreateTime int64 `protobuf:"varint,3,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	// Represents the timestamp indicating when this restriction will end or expire.
+	ExpireTime int64 `protobuf:"varint,4,opt,name=expire_time,json=expireTime,proto3" json:"expire_time,omitempty"`
 }
 
 func (x *Restriction) Reset() {

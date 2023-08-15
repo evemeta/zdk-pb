@@ -28,34 +28,50 @@ import type { RpcOptions } from "@protobuf-ts/runtime-rpc";
  */
 export interface IServiceClient {
     /**
+     * Count represents a procedure that retrieves the total number of members based on a specific query.
+     *
      * @generated from protobuf rpc: Count(members.public.server.v1.CountRequest) returns (members.public.server.v1.CountResponse);
      */
     count(input: CountRequest, options?: RpcOptions): UnaryCall<CountRequest, CountResponse>;
     /**
+     * Range represents a procedure that retrieves a chunk of members based on a specific query.
+     *
      * @generated from protobuf rpc: Range(members.public.server.v1.RangeRequest) returns (members.public.server.v1.RangeResponse);
      */
     range(input: RangeRequest, options?: RpcOptions): UnaryCall<RangeRequest, RangeResponse>;
     /**
+     * Select represents a procedure that retrieves specific members based on a specific query.
+     *
      * @generated from protobuf rpc: Select(members.public.server.v1.SelectRequest) returns (members.public.server.v1.SelectResponse);
      */
     select(input: SelectRequest, options?: RpcOptions): UnaryCall<SelectRequest, SelectResponse>;
     /**
+     * Kick represents a procedure that forcefully removes a member from a chat for a specific reason.
+     *
      * @generated from protobuf rpc: Kick(members.public.server.v1.KickRequest) returns (members.public.server.v1.KickResponse);
      */
     kick(input: KickRequest, options?: RpcOptions): UnaryCall<KickRequest, KickResponse>;
     /**
+     * Mute represents a procedure that silences a member for a specified duration or indefinitely.
+     *
      * @generated from protobuf rpc: Mute(members.public.server.v1.MuteRequest) returns (members.public.server.v1.MuteResponse);
      */
     mute(input: MuteRequest, options?: RpcOptions): UnaryCall<MuteRequest, MuteResponse>;
     /**
+     * Unmute represents a procedure that restores communication privileges for a previously muted member.
+     *
      * @generated from protobuf rpc: Unmute(members.public.server.v1.UnmuteRequest) returns (members.public.server.v1.UnmuteResponse);
      */
     unmute(input: UnmuteRequest, options?: RpcOptions): UnaryCall<UnmuteRequest, UnmuteResponse>;
     /**
+     * Block represents a procedure that forcefully removes a member from a chat and prevents them from participating for a specified duration or indefinitely.
+     *
      * @generated from protobuf rpc: Block(members.public.server.v1.BlockRequest) returns (members.public.server.v1.BlockResponse);
      */
     block(input: BlockRequest, options?: RpcOptions): UnaryCall<BlockRequest, BlockResponse>;
     /**
+     * Unblock represents a procedure that restores access privileges for a previously blocked member.
+     *
      * @generated from protobuf rpc: Unblock(members.public.server.v1.UnblockRequest) returns (members.public.server.v1.UnblockResponse);
      */
     unblock(input: UnblockRequest, options?: RpcOptions): UnaryCall<UnblockRequest, UnblockResponse>;
@@ -70,6 +86,8 @@ export class ServiceClient implements IServiceClient, ServiceInfo {
     constructor(private readonly _transport: RpcTransport) {
     }
     /**
+     * Count represents a procedure that retrieves the total number of members based on a specific query.
+     *
      * @generated from protobuf rpc: Count(members.public.server.v1.CountRequest) returns (members.public.server.v1.CountResponse);
      */
     count(input: CountRequest, options?: RpcOptions): UnaryCall<CountRequest, CountResponse> {
@@ -77,6 +95,8 @@ export class ServiceClient implements IServiceClient, ServiceInfo {
         return stackIntercept<CountRequest, CountResponse>("unary", this._transport, method, opt, input);
     }
     /**
+     * Range represents a procedure that retrieves a chunk of members based on a specific query.
+     *
      * @generated from protobuf rpc: Range(members.public.server.v1.RangeRequest) returns (members.public.server.v1.RangeResponse);
      */
     range(input: RangeRequest, options?: RpcOptions): UnaryCall<RangeRequest, RangeResponse> {
@@ -84,6 +104,8 @@ export class ServiceClient implements IServiceClient, ServiceInfo {
         return stackIntercept<RangeRequest, RangeResponse>("unary", this._transport, method, opt, input);
     }
     /**
+     * Select represents a procedure that retrieves specific members based on a specific query.
+     *
      * @generated from protobuf rpc: Select(members.public.server.v1.SelectRequest) returns (members.public.server.v1.SelectResponse);
      */
     select(input: SelectRequest, options?: RpcOptions): UnaryCall<SelectRequest, SelectResponse> {
@@ -91,6 +113,8 @@ export class ServiceClient implements IServiceClient, ServiceInfo {
         return stackIntercept<SelectRequest, SelectResponse>("unary", this._transport, method, opt, input);
     }
     /**
+     * Kick represents a procedure that forcefully removes a member from a chat for a specific reason.
+     *
      * @generated from protobuf rpc: Kick(members.public.server.v1.KickRequest) returns (members.public.server.v1.KickResponse);
      */
     kick(input: KickRequest, options?: RpcOptions): UnaryCall<KickRequest, KickResponse> {
@@ -98,6 +122,8 @@ export class ServiceClient implements IServiceClient, ServiceInfo {
         return stackIntercept<KickRequest, KickResponse>("unary", this._transport, method, opt, input);
     }
     /**
+     * Mute represents a procedure that silences a member for a specified duration or indefinitely.
+     *
      * @generated from protobuf rpc: Mute(members.public.server.v1.MuteRequest) returns (members.public.server.v1.MuteResponse);
      */
     mute(input: MuteRequest, options?: RpcOptions): UnaryCall<MuteRequest, MuteResponse> {
@@ -105,6 +131,8 @@ export class ServiceClient implements IServiceClient, ServiceInfo {
         return stackIntercept<MuteRequest, MuteResponse>("unary", this._transport, method, opt, input);
     }
     /**
+     * Unmute represents a procedure that restores communication privileges for a previously muted member.
+     *
      * @generated from protobuf rpc: Unmute(members.public.server.v1.UnmuteRequest) returns (members.public.server.v1.UnmuteResponse);
      */
     unmute(input: UnmuteRequest, options?: RpcOptions): UnaryCall<UnmuteRequest, UnmuteResponse> {
@@ -112,6 +140,8 @@ export class ServiceClient implements IServiceClient, ServiceInfo {
         return stackIntercept<UnmuteRequest, UnmuteResponse>("unary", this._transport, method, opt, input);
     }
     /**
+     * Block represents a procedure that forcefully removes a member from a chat and prevents them from participating for a specified duration or indefinitely.
+     *
      * @generated from protobuf rpc: Block(members.public.server.v1.BlockRequest) returns (members.public.server.v1.BlockResponse);
      */
     block(input: BlockRequest, options?: RpcOptions): UnaryCall<BlockRequest, BlockResponse> {
@@ -119,6 +149,8 @@ export class ServiceClient implements IServiceClient, ServiceInfo {
         return stackIntercept<BlockRequest, BlockResponse>("unary", this._transport, method, opt, input);
     }
     /**
+     * Unblock represents a procedure that restores access privileges for a previously blocked member.
+     *
      * @generated from protobuf rpc: Unblock(members.public.server.v1.UnblockRequest) returns (members.public.server.v1.UnblockResponse);
      */
     unblock(input: UnblockRequest, options?: RpcOptions): UnaryCall<UnblockRequest, UnblockResponse> {

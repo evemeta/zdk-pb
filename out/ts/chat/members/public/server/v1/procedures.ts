@@ -15,165 +15,239 @@ import { Chunk } from "./entities";
 import { Member } from "./entities";
 import { Query } from "./entities";
 /**
+ * CountRequest represents a message designed to count members based on a given query.
+ *
  * @generated from protobuf message members.public.server.v1.CountRequest
  */
 export interface CountRequest {
     /**
+     * Represents the specifications and conditions under which members should be counted.
+     *
      * @generated from protobuf field: members.public.server.v1.Query query = 1;
      */
     query?: Query;
 }
 /**
+ * CountResponse represents a message that provides the result of the count procedure.
+ *
  * @generated from protobuf message members.public.server.v1.CountResponse
  */
 export interface CountResponse {
     /**
+     * Represents the total number of members that match the criteria of the given query.
+     *
      * @generated from protobuf field: int64 total = 1;
      */
     total: bigint;
 }
 /**
+ * SelectRequest represents a message designed to retrieve specific members based on a given query.
+ *
  * @generated from protobuf message members.public.server.v1.SelectRequest
  */
 export interface SelectRequest {
     /**
+     * Represents the specifications and conditions under which particular members should be retrieved.
+     *
      * @generated from protobuf field: members.public.server.v1.Query query = 1;
      */
     query?: Query;
 }
 /**
+ * SelectResponse represents a message that provides the result of the select procedure.
+ *
  * @generated from protobuf message members.public.server.v1.SelectResponse
  */
 export interface SelectResponse {
     /**
+     * Represents a list of chat members that match the criteria of the given query.
+     *
      * @generated from protobuf field: repeated members.public.server.v1.Member members = 1;
      */
     members: Member[];
 }
 /**
+ * RangeRequest represents a message designed to retrieve a chunk of members based on a given query.
+ *
  * @generated from protobuf message members.public.server.v1.RangeRequest
  */
 export interface RangeRequest {
     /**
+     * Represents the specifications and conditions under which a chunk of members should be retrieved.
+     *
      * @generated from protobuf field: members.public.server.v1.Query query = 1;
      */
     query?: Query;
 }
 /**
+ * RangeResponse represents a message that provides the result of the range procedure.
+ *
  * @generated from protobuf message members.public.server.v1.RangeResponse
  */
 export interface RangeResponse {
     /**
+     * Represents a chunk of members that match the criteria of the given query.
+     *
      * @generated from protobuf field: members.public.server.v1.Chunk chunk = 1;
      */
     chunk?: Chunk;
 }
 /**
+ * KickRequest represents a message designed to forcefully remove a member from a chat.
+ *
  * @generated from protobuf message members.public.server.v1.KickRequest
  */
 export interface KickRequest {
     /**
+     * Represents the unique identifier of the user associated with the member intended to be forcefully removed.
+     *
      * @generated from protobuf field: string user_id = 1;
      */
     userId: string;
     /**
+     * Represents the unique identifier of the chat from which the member is to be removed.
+     *
      * @generated from protobuf field: string chat_id = 2;
      */
     chatId: string;
     /**
+     * Represents an optional reason or cause for kicking the member.
+     *
      * @generated from protobuf field: string reason = 3;
      */
     reason: string;
 }
 /**
+ * KickResponse represents a message that provides the result of the kick procedure.
+ *
  * @generated from protobuf message members.public.server.v1.KickResponse
  */
 export interface KickResponse {
 }
 /**
+ * MuteRequest represents a message designed to silence a member for a specified duration or indefinitely.
+ *
  * @generated from protobuf message members.public.server.v1.MuteRequest
  */
 export interface MuteRequest {
     /**
+     * Represents the unique identifier of the user associated with the member intended to be muted.
+     *
      * @generated from protobuf field: string user_id = 1;
      */
     userId: string;
     /**
+     * Represents the unique identifier of the chat in which the member will be muted.
+     *
      * @generated from protobuf field: string chat_id = 2;
      */
     chatId: string;
     /**
+     * Represents an optional reason or cause for muting the member.
+     *
      * @generated from protobuf field: string reason = 3;
      */
     reason: string;
     /**
+     * Represents the duration in minutes for which the member should be muted. A value of 0 indicates an indefinite mute.
+     *
      * @generated from protobuf field: int64 duration = 4;
      */
     duration: bigint;
 }
 /**
+ * MuteResponse represents a message that provides the result of the mute procedure.
+ *
  * @generated from protobuf message members.public.server.v1.MuteResponse
  */
 export interface MuteResponse {
 }
 /**
+ * UnmuteRequest represents a message designed to restore communication privileges for a previously muted member.
+ *
  * @generated from protobuf message members.public.server.v1.UnmuteRequest
  */
 export interface UnmuteRequest {
     /**
+     * Represents the unique identifier of the user associated with the member intended to be unmuted.
+     *
      * @generated from protobuf field: string user_id = 1;
      */
     userId: string;
     /**
+     * Represents the unique identifier of the chat in which the member is to be unmuted.
+     *
      * @generated from protobuf field: string chat_id = 2;
      */
     chatId: string;
 }
 /**
+ * UnmuteResponse represents a message that provides the result of the unmute procedure.
+ *
  * @generated from protobuf message members.public.server.v1.UnmuteResponse
  */
 export interface UnmuteResponse {
 }
 /**
+ * BlockRequest represents a message designed to forcefully remove a member from a chat and prevent them from participating for a specified duration or indefinitely.
+ *
  * @generated from protobuf message members.public.server.v1.BlockRequest
  */
 export interface BlockRequest {
     /**
+     * Represents the unique identifier of the user associated with the member intended to be blocked.
+     *
      * @generated from protobuf field: string user_id = 1;
      */
     userId: string;
     /**
+     * Represents the unique identifier of the chat from which the member will be blocked.
+     *
      * @generated from protobuf field: string chat_id = 2;
      */
     chatId: string;
     /**
+     * Represents an optional reason or cause for blocking the member.
+     *
      * @generated from protobuf field: string reason = 3;
      */
     reason: string;
     /**
+     * Represents the duration, in minutes, for which the member will be blocked. A value of 0 indicates a permanent block.
+     *
      * @generated from protobuf field: int64 duration = 4;
      */
     duration: bigint;
 }
 /**
+ * BlockResponse represents a message that provides the result of the block procedure.
+ *
  * @generated from protobuf message members.public.server.v1.BlockResponse
  */
 export interface BlockResponse {
 }
 /**
+ * UnblockRequest represents a message designed to restore access privileges for a previously blocked member.
+ *
  * @generated from protobuf message members.public.server.v1.UnblockRequest
  */
 export interface UnblockRequest {
     /**
+     * Represents the unique identifier of the user associated with the member intended to be unblocked.
+     *
      * @generated from protobuf field: string user_id = 1;
      */
     userId: string;
     /**
+     * Represents the unique identifier of the chat in which the member's access will be restored.
+     *
      * @generated from protobuf field: string chat_id = 2;
      */
     chatId: string;
 }
 /**
+ * UnblockResponse represents a message that provides the result of the unblock procedure.
+ *
  * @generated from protobuf message members.public.server.v1.UnblockResponse
  */
 export interface UnblockResponse {

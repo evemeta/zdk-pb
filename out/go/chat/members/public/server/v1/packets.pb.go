@@ -28,8 +28,10 @@ type CreateMemberPacket struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Member    *Member `protobuf:"bytes,1,opt,name=member,proto3" json:"member,omitempty"`
-	Timestamp int64   `protobuf:"varint,2,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	// Represents the comprehensive details of the newly created member.
+	Member *Member `protobuf:"bytes,1,opt,name=member,proto3" json:"member,omitempty"`
+	// Represents the exact moment, when the member was created.
+	Timestamp int64 `protobuf:"varint,2,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
 }
 
 func (x *CreateMemberPacket) Reset() {
@@ -79,16 +81,20 @@ func (x *CreateMemberPacket) GetTimestamp() int64 {
 }
 
 // UpdateMemberPacket is a notification sent to clients when a member has been updated in a chat.
-// It includes the user and chat IDs, any updated metadata, and the timestamp of the event.
+// It includes the user and chat identifiers, any updated metadata, and the timestamp of the event.
 type UpdateMemberPacket struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	UserId    string       `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	ChatId    string       `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
-	Metadata  *OptionalMap `protobuf:"bytes,3,opt,name=metadata,proto3,oneof" json:"metadata,omitempty"`
-	Timestamp int64        `protobuf:"varint,4,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	// Represents the unique identifier of the user associated with the updated member.
+	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	// Represents the unique identifier of the chat in which the member was updated.
+	ChatId string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
+	// Represents a new or updated metadata associated with the member. It may be absent if no metadata changes occurred.
+	Metadata *OptionalMap `protobuf:"bytes,3,opt,name=metadata,proto3,oneof" json:"metadata,omitempty"`
+	// Represents the exact moment, when the member was updated.
+	Timestamp int64 `protobuf:"varint,4,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
 }
 
 func (x *UpdateMemberPacket) Reset() {
@@ -152,15 +158,18 @@ func (x *UpdateMemberPacket) GetTimestamp() int64 {
 }
 
 // DeleteMemberPacket is a notification sent to clients when a member has been deleted from a chat.
-// It includes the user and chat IDs and the timestamp of the event.
+// It includes the user and chat identifiers and the timestamp of the event.
 type DeleteMemberPacket struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	UserId    string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	ChatId    string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
-	Timestamp int64  `protobuf:"varint,3,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	// Represents the unique identifier of the user associated with the deleted member.
+	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	// Represents the unique identifier of the chat in which the member was deleted.
+	ChatId string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
+	// Represents the exact moment, when the member was deleted.
+	Timestamp int64 `protobuf:"varint,3,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
 }
 
 func (x *DeleteMemberPacket) Reset() {
@@ -217,16 +226,20 @@ func (x *DeleteMemberPacket) GetTimestamp() int64 {
 }
 
 // KickMemberPacket is a notification sent to clients when a member has been kicked from a chat.
-// It includes the user and chat IDs, reason for the kick, and the timestamp of the event.
+// It includes the user and chat identifiers, reason for the kick, and the timestamp of the event.
 type KickMemberPacket struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	UserId    string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	ChatId    string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
-	Reason    string `protobuf:"bytes,3,opt,name=reason,proto3" json:"reason,omitempty"`
-	Timestamp int64  `protobuf:"varint,4,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	// Represents the unique identifier of the user associated with the kicked member.
+	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	// Represents the unique identifier of the chat from which the member was kicked.
+	ChatId string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
+	// Represents an optional reason or cause for kicking the member.
+	Reason string `protobuf:"bytes,3,opt,name=reason,proto3" json:"reason,omitempty"`
+	// Represents the exact moment, when the member was kicked.
+	Timestamp int64 `protobuf:"varint,4,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
 }
 
 func (x *KickMemberPacket) Reset() {
@@ -290,17 +303,22 @@ func (x *KickMemberPacket) GetTimestamp() int64 {
 }
 
 // MuteMemberPacket is a notification sent to clients when a member has been muted in a chat.
-// It includes the user and chat IDs, reason for the mute, duration of the mute, and the timestamp of the event.
+// It includes the user and chat identifiers, reason for the mute, duration of the mute, and the timestamp of the event.
 type MuteMemberPacket struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	UserId    string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	ChatId    string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
-	Reason    string `protobuf:"bytes,3,opt,name=reason,proto3" json:"reason,omitempty"`
-	Duration  int64  `protobuf:"varint,4,opt,name=duration,proto3" json:"duration,omitempty"`
-	Timestamp int64  `protobuf:"varint,5,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	// Represents the unique identifier of the user associated with the muted member.
+	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	// Represents the unique identifier of the chat in which the member was muted.
+	ChatId string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
+	// Represents an optional reason or cause for muting the member.
+	Reason string `protobuf:"bytes,3,opt,name=reason,proto3" json:"reason,omitempty"`
+	// Represents the duration in minutes for which the member is muted. A value of 0 indicates an indefinite mute.
+	Duration int64 `protobuf:"varint,4,opt,name=duration,proto3" json:"duration,omitempty"`
+	// Represents the exact moment, when the member was muted.
+	Timestamp int64 `protobuf:"varint,5,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
 }
 
 func (x *MuteMemberPacket) Reset() {
@@ -371,15 +389,18 @@ func (x *MuteMemberPacket) GetTimestamp() int64 {
 }
 
 // UnmuteMemberPacket is a notification sent to clients when a member has been unmuted in a chat.
-// It includes the user and chat IDs and the timestamp of the event.
+// It includes the user and chat identifiers and the timestamp of the event.
 type UnmuteMemberPacket struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	UserId    string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	ChatId    string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
-	Timestamp int64  `protobuf:"varint,3,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	// Represents the unique identifier of the user associated with the unmuted member.
+	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	// Represents the unique identifier of the chat in which the member was unmuted.
+	ChatId string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
+	// Represents the exact moment, when the member was unmuted.
+	Timestamp int64 `protobuf:"varint,3,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
 }
 
 func (x *UnmuteMemberPacket) Reset() {
@@ -436,17 +457,22 @@ func (x *UnmuteMemberPacket) GetTimestamp() int64 {
 }
 
 // BlockMemberPacket is a notification sent to clients when a member has been blocked in a chat.
-// It includes the user and chat IDs, reason for the block, duration of the block, and the timestamp of the event.
+// It includes the user and chat identifiers, reason for the block, duration of the block, and the timestamp of the event.
 type BlockMemberPacket struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	UserId    string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	ChatId    string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
-	Reason    string `protobuf:"bytes,3,opt,name=reason,proto3" json:"reason,omitempty"`
-	Duration  int64  `protobuf:"varint,4,opt,name=duration,proto3" json:"duration,omitempty"`
-	Timestamp int64  `protobuf:"varint,5,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	// Represents the unique identifier of the user associated with the blocked member.
+	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	// Represents the unique identifier of the chat in which the member was blocked.
+	ChatId string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
+	// Represents an optional reason or cause for blocking the member.
+	Reason string `protobuf:"bytes,3,opt,name=reason,proto3" json:"reason,omitempty"`
+	// Represents the duration in minutes for which the member is blocked. A value of 0 indicates a permanent block.
+	Duration int64 `protobuf:"varint,4,opt,name=duration,proto3" json:"duration,omitempty"`
+	// Represents the exact moment, when the member was blocked.
+	Timestamp int64 `protobuf:"varint,5,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
 }
 
 func (x *BlockMemberPacket) Reset() {
@@ -517,15 +543,18 @@ func (x *BlockMemberPacket) GetTimestamp() int64 {
 }
 
 // UnblockMemberPacket is a notification sent to clients when a member has been unblocked in a chat.
-// It includes the user and chat IDs and the timestamp of the event.
+// It includes the user and chat identifiers and the timestamp of the event.
 type UnblockMemberPacket struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	UserId    string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	ChatId    string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
-	Timestamp int64  `protobuf:"varint,3,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	// Represents the unique identifier of the user associated with the unblocked member.
+	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	// Represents the unique identifier of the chat in which the member was unblocked.
+	ChatId string `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
+	// Represents the exact moment, when the member was unblocked.
+	Timestamp int64 `protobuf:"varint,3,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
 }
 
 func (x *UnblockMemberPacket) Reset() {

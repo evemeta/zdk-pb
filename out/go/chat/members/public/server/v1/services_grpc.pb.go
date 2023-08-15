@@ -33,13 +33,21 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ServiceClient interface {
+	// Count represents a procedure that retrieves the total number of members based on a specific query.
 	Count(ctx context.Context, in *CountRequest, opts ...grpc.CallOption) (*CountResponse, error)
+	// Range represents a procedure that retrieves a chunk of members based on a specific query.
 	Range(ctx context.Context, in *RangeRequest, opts ...grpc.CallOption) (*RangeResponse, error)
+	// Select represents a procedure that retrieves specific members based on a specific query.
 	Select(ctx context.Context, in *SelectRequest, opts ...grpc.CallOption) (*SelectResponse, error)
+	// Kick represents a procedure that forcefully removes a member from a chat for a specific reason.
 	Kick(ctx context.Context, in *KickRequest, opts ...grpc.CallOption) (*KickResponse, error)
+	// Mute represents a procedure that silences a member for a specified duration or indefinitely.
 	Mute(ctx context.Context, in *MuteRequest, opts ...grpc.CallOption) (*MuteResponse, error)
+	// Unmute represents a procedure that restores communication privileges for a previously muted member.
 	Unmute(ctx context.Context, in *UnmuteRequest, opts ...grpc.CallOption) (*UnmuteResponse, error)
+	// Block represents a procedure that forcefully removes a member from a chat and prevents them from participating for a specified duration or indefinitely.
 	Block(ctx context.Context, in *BlockRequest, opts ...grpc.CallOption) (*BlockResponse, error)
+	// Unblock represents a procedure that restores access privileges for a previously blocked member.
 	Unblock(ctx context.Context, in *UnblockRequest, opts ...grpc.CallOption) (*UnblockResponse, error)
 }
 
@@ -127,13 +135,21 @@ func (c *serviceClient) Unblock(ctx context.Context, in *UnblockRequest, opts ..
 // All implementations must embed UnimplementedServiceServer
 // for forward compatibility
 type ServiceServer interface {
+	// Count represents a procedure that retrieves the total number of members based on a specific query.
 	Count(context.Context, *CountRequest) (*CountResponse, error)
+	// Range represents a procedure that retrieves a chunk of members based on a specific query.
 	Range(context.Context, *RangeRequest) (*RangeResponse, error)
+	// Select represents a procedure that retrieves specific members based on a specific query.
 	Select(context.Context, *SelectRequest) (*SelectResponse, error)
+	// Kick represents a procedure that forcefully removes a member from a chat for a specific reason.
 	Kick(context.Context, *KickRequest) (*KickResponse, error)
+	// Mute represents a procedure that silences a member for a specified duration or indefinitely.
 	Mute(context.Context, *MuteRequest) (*MuteResponse, error)
+	// Unmute represents a procedure that restores communication privileges for a previously muted member.
 	Unmute(context.Context, *UnmuteRequest) (*UnmuteResponse, error)
+	// Block represents a procedure that forcefully removes a member from a chat and prevents them from participating for a specified duration or indefinitely.
 	Block(context.Context, *BlockRequest) (*BlockResponse, error)
+	// Unblock represents a procedure that restores access privileges for a previously blocked member.
 	Unblock(context.Context, *UnblockRequest) (*UnblockResponse, error)
 	mustEmbedUnimplementedServiceServer()
 }

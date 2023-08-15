@@ -14,112 +14,169 @@ import { MessageType } from "@protobuf-ts/runtime";
 import { Type } from "./enums";
 import { Order } from "./enums";
 /**
+ * Chunk represents a segmented portion of members used for pagination or segmented data retrieval.
+ * It provides insights about the desired chunk size, its position within the overall dataset, and the actual members it contains.
+ *
  * @generated from protobuf message members.public.server.v1.Chunk
  */
 export interface Chunk {
     /**
+     * Represents the desired size of the chunk, not necessarily the actual number of entities it contains.
+     *
      * @generated from protobuf field: int64 size = 1;
      */
     size: bigint;
     /**
+     * Represents the position of this chunk within the context of pagination.
+     *
      * @generated from protobuf field: int64 index = 2;
      */
     index: bigint;
     /**
+     * Represents the total count of entities across all chunks.
+     *
      * @generated from protobuf field: int64 total = 3;
      */
     total: bigint;
     /**
+     * Represents the actual members included in this chunk.
+     *
      * @generated from protobuf field: repeated members.public.server.v1.Member entities = 4;
      */
     entities: Member[];
 }
 /**
+ * Query represents a structure designed to facilitate specific and conditional data retrieval.
+ * It contains order specifications, limitations on the number of results, and conditions to filter data.
+ *
  * @generated from protobuf message members.public.server.v1.Query
  */
 export interface Query {
     /**
+     * Represents the order in which results should be retrieved.
+     *
      * @generated from protobuf field: members.public.server.v1.Order order = 1;
      */
     order: Order;
     /**
+     * Represents the maximum number of results to be fetched.
+     *
      * @generated from protobuf field: int64 limit = 2;
      */
     limit: bigint;
     /**
+     * Represents the starting point from which to retrieve results.
+     *
      * @generated from protobuf field: int64 offset = 3;
      */
     offset: bigint;
     /**
+     * Represents the set of conditions that filter the data retrieval process.
+     *
      * @generated from protobuf field: members.public.server.v1.Condition condition = 4;
      */
     condition?: Condition;
 }
 /**
+ * Member represents a participant in a chat.
+ * It contains details for identification, associated metadata, associated restrictions, and timestamps marking their chat activity.
+ *
  * @generated from protobuf message members.public.server.v1.Member
  */
 export interface Member {
     /**
+     * Represents the unique identifier for this member.
+     *
      * @generated from protobuf field: string id = 1;
      */
     id: string;
     /**
+     * Represents the unique identifier associated with the user of this member.
+     *
      * @generated from protobuf field: string user_id = 2;
      */
     userId: string;
     /**
+     * Represents the unique identifier of the chat in which this member exists.
+     *
      * @generated from protobuf field: string chat_id = 3;
      */
     chatId: string;
     /**
+     * Represents a collection of key-value pairs providing additional context or information about this member.
+     *
      * @generated from protobuf field: map<string, string> metadata = 4;
      */
     metadata: {
         [key: string]: string;
     };
     /**
+     * Represents a list of restrictions that have been applied to this member.
+     *
      * @generated from protobuf field: repeated members.public.server.v1.Restriction restrictions = 5;
      */
     restrictions: Restriction[];
     /**
+     * Represents the timestamp indicating when this member was created or added to the chat.
+     *
      * @generated from protobuf field: int64 create_time = 6;
      */
     createTime: bigint;
     /**
+     * Represents the timestamp of the last update associated with this member.
+     *
      * @generated from protobuf field: int64 update_time = 7;
      */
     updateTime: bigint;
 }
 /**
+ * Condition represents a set of criteria designed to filter data during retrieval.
+ * It provides mechanisms to specifically target members based on identifiers or chat affiliations.
+ *
  * @generated from protobuf message members.public.server.v1.Condition
  */
 export interface Condition {
     /**
+     * Represents a list of member identifiers for targeted data retrieval.
+     *
      * @generated from protobuf field: repeated string ids = 1;
      */
     ids: string[];
     /**
+     * Represents a list of chat identifiers to filter members based on their association.
+     *
      * @generated from protobuf field: repeated string chat_ids = 2;
      */
     chatIds: string[];
 }
 /**
+ * Restriction represents a particular limitation applied to a member.
+ * It provides insight into the type, reason, and duration of the restriction.
+ *
  * @generated from protobuf message members.public.server.v1.Restriction
  */
 export interface Restriction {
     /**
+     * Represents the type or category of the restriction.
+     *
      * @generated from protobuf field: members.public.server.v1.Type type = 1;
      */
     type: Type;
     /**
+     * Represents a brief explanation or reason behind the application of this restriction.
+     *
      * @generated from protobuf field: string reason = 2;
      */
     reason: string;
     /**
+     * Represents the timestamp indicating when this restriction was put into place.
+     *
      * @generated from protobuf field: int64 create_time = 3;
      */
     createTime: bigint;
     /**
+     * Represents the timestamp indicating when this restriction will end or expire.
+     *
      * @generated from protobuf field: int64 expire_time = 4;
      */
     expireTime: bigint;

@@ -21,6 +21,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// Type represents an enumeration that specifies the kinds of restrictions or actions that can be applied to a member.
 type Type int32
 
 const (
@@ -70,6 +71,7 @@ func (Type) EnumDescriptor() ([]byte, []int) {
 	return file_chat_members_public_server_v1_enums_proto_rawDescGZIP(), []int{0}
 }
 
+// Order represents an enumeration that specifies the sort order for data retrieval, particularly in the context of querying.
 type Order int32
 
 const (

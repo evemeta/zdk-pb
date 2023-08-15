@@ -2,6 +2,8 @@
 // @generated from protobuf file "chat/members/public/server/v1/enums.proto" (package "members.public.server.v1", syntax proto3)
 // tslint:disable
 /**
+ * Type represents an enumeration that specifies the kinds of restrictions or actions that can be applied to a member.
+ *
  * @generated from protobuf enum members.public.server.v1.Type
  */
 export enum Type {
@@ -19,6 +21,8 @@ export enum Type {
     Type_Block = 2
 }
 /**
+ * Order represents an enumeration that specifies the sort order for data retrieval, particularly in the context of querying.
+ *
  * @generated from protobuf enum members.public.server.v1.Order
  */
 export enum Order {

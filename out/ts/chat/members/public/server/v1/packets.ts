@@ -21,174 +21,232 @@ import { Member } from "./entities";
  */
 export interface CreateMemberPacket {
     /**
+     * Represents the comprehensive details of the newly created member.
+     *
      * @generated from protobuf field: members.public.server.v1.Member member = 1;
      */
     member?: Member;
     /**
+     * Represents the exact moment, when the member was created.
+     *
      * @generated from protobuf field: int64 timestamp = 2;
      */
     timestamp: bigint;
 }
 /**
  * UpdateMemberPacket is a notification sent to clients when a member has been updated in a chat.
- * It includes the user and chat IDs, any updated metadata, and the timestamp of the event.
+ * It includes the user and chat identifiers, any updated metadata, and the timestamp of the event.
  *
  * @generated from protobuf message members.public.server.v1.UpdateMemberPacket
  */
 export interface UpdateMemberPacket {
     /**
+     * Represents the unique identifier of the user associated with the updated member.
+     *
      * @generated from protobuf field: string user_id = 1;
      */
     userId: string;
     /**
+     * Represents the unique identifier of the chat in which the member was updated.
+     *
      * @generated from protobuf field: string chat_id = 2;
      */
     chatId: string;
     /**
+     * Represents a new or updated metadata associated with the member. It may be absent if no metadata changes occurred.
+     *
      * @generated from protobuf field: optional members.public.server.v1.OptionalMap metadata = 3;
      */
     metadata?: OptionalMap;
     /**
+     * Represents the exact moment, when the member was updated.
+     *
      * @generated from protobuf field: int64 timestamp = 4;
      */
     timestamp: bigint;
 }
 /**
  * DeleteMemberPacket is a notification sent to clients when a member has been deleted from a chat.
- * It includes the user and chat IDs and the timestamp of the event.
+ * It includes the user and chat identifiers and the timestamp of the event.
  *
  * @generated from protobuf message members.public.server.v1.DeleteMemberPacket
  */
 export interface DeleteMemberPacket {
     /**
+     * Represents the unique identifier of the user associated with the deleted member.
+     *
      * @generated from protobuf field: string user_id = 1;
      */
     userId: string;
     /**
+     * Represents the unique identifier of the chat in which the member was deleted.
+     *
      * @generated from protobuf field: string chat_id = 2;
      */
     chatId: string;
     /**
+     * Represents the exact moment, when the member was deleted.
+     *
      * @generated from protobuf field: int64 timestamp = 3;
      */
     timestamp: bigint;
 }
 /**
  * KickMemberPacket is a notification sent to clients when a member has been kicked from a chat.
- * It includes the user and chat IDs, reason for the kick, and the timestamp of the event.
+ * It includes the user and chat identifiers, reason for the kick, and the timestamp of the event.
  *
  * @generated from protobuf message members.public.server.v1.KickMemberPacket
  */
 export interface KickMemberPacket {
     /**
+     * Represents the unique identifier of the user associated with the kicked member.
+     *
      * @generated from protobuf field: string user_id = 1;
      */
     userId: string;
     /**
+     * Represents the unique identifier of the chat from which the member was kicked.
+     *
      * @generated from protobuf field: string chat_id = 2;
      */
     chatId: string;
     /**
+     * Represents an optional reason or cause for kicking the member.
+     *
      * @generated from protobuf field: string reason = 3;
      */
     reason: string;
     /**
+     * Represents the exact moment, when the member was kicked.
+     *
      * @generated from protobuf field: int64 timestamp = 4;
      */
     timestamp: bigint;
 }
 /**
  * MuteMemberPacket is a notification sent to clients when a member has been muted in a chat.
- * It includes the user and chat IDs, reason for the mute, duration of the mute, and the timestamp of the event.
+ * It includes the user and chat identifiers, reason for the mute, duration of the mute, and the timestamp of the event.
  *
  * @generated from protobuf message members.public.server.v1.MuteMemberPacket
  */
 export interface MuteMemberPacket {
     /**
+     * Represents the unique identifier of the user associated with the muted member.
+     *
      * @generated from protobuf field: string user_id = 1;
      */
     userId: string;
     /**
+     * Represents the unique identifier of the chat in which the member was muted.
+     *
      * @generated from protobuf field: string chat_id = 2;
      */
     chatId: string;
     /**
+     * Represents an optional reason or cause for muting the member.
+     *
      * @generated from protobuf field: string reason = 3;
      */
     reason: string;
     /**
+     * Represents the duration in minutes for which the member is muted. A value of 0 indicates an indefinite mute.
+     *
      * @generated from protobuf field: int64 duration = 4;
      */
     duration: bigint;
     /**
+     * Represents the exact moment, when the member was muted.
+     *
      * @generated from protobuf field: int64 timestamp = 5;
      */
     timestamp: bigint;
 }
 /**
  * UnmuteMemberPacket is a notification sent to clients when a member has been unmuted in a chat.
- * It includes the user and chat IDs and the timestamp of the event.
+ * It includes the user and chat identifiers and the timestamp of the event.
  *
  * @generated from protobuf message members.public.server.v1.UnmuteMemberPacket
  */
 export interface UnmuteMemberPacket {
     /**
+     * Represents the unique identifier of the user associated with the unmuted member.
+     *
      * @generated from protobuf field: string user_id = 1;
      */
     userId: string;
     /**
+     * Represents the unique identifier of the chat in which the member was unmuted.
+     *
      * @generated from protobuf field: string chat_id = 2;
      */
     chatId: string;
     /**
+     * Represents the exact moment, when the member was unmuted.
+     *
      * @generated from protobuf field: int64 timestamp = 3;
      */
     timestamp: bigint;
 }
 /**
  * BlockMemberPacket is a notification sent to clients when a member has been blocked in a chat.
- * It includes the user and chat IDs, reason for the block, duration of the block, and the timestamp of the event.
+ * It includes the user and chat identifiers, reason for the block, duration of the block, and the timestamp of the event.
  *
  * @generated from protobuf message members.public.server.v1.BlockMemberPacket
  */
 export interface BlockMemberPacket {
     /**
+     * Represents the unique identifier of the user associated with the blocked member.
+     *
      * @generated from protobuf field: string user_id = 1;
      */
     userId: string;
     /**
+     * Represents the unique identifier of the chat in which the member was blocked.
+     *
      * @generated from protobuf field: string chat_id = 2;
      */
     chatId: string;
     /**
+     * Represents an optional reason or cause for blocking the member.
+     *
      * @generated from protobuf field: string reason = 3;
      */
     reason: string;
     /**
+     * Represents the duration in minutes for which the member is blocked. A value of 0 indicates a permanent block.
+     *
      * @generated from protobuf field: int64 duration = 4;
      */
     duration: bigint;
     /**
+     * Represents the exact moment, when the member was blocked.
+     *
      * @generated from protobuf field: int64 timestamp = 5;
      */
     timestamp: bigint;
 }
 /**
  * UnblockMemberPacket is a notification sent to clients when a member has been unblocked in a chat.
- * It includes the user and chat IDs and the timestamp of the event.
+ * It includes the user and chat identifiers and the timestamp of the event.
  *
  * @generated from protobuf message members.public.server.v1.UnblockMemberPacket
  */
 export interface UnblockMemberPacket {
     /**
+     * Represents the unique identifier of the user associated with the unblocked member.
+     *
      * @generated from protobuf field: string user_id = 1;
      */
     userId: string;
     /**
+     * Represents the unique identifier of the chat in which the member was unblocked.
+     *
      * @generated from protobuf field: string chat_id = 2;
      */
     chatId: string;
     /**
+     * Represents the exact moment, when the member was unblocked.
+     *
      * @generated from protobuf field: int64 timestamp = 3;
      */
     timestamp: bigint;

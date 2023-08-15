@@ -8,38 +8,69 @@ import "protoc-gen-openapiv2/options/annotations.proto";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/members/public/server/v1;memberspb";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
+// Chunk represents a segmented portion of members used for pagination or segmented data retrieval.
+// It provides insights about the desired chunk size, its position within the overall dataset, and the actual members it contains.
 message Chunk {
-    int64                                    size     = 1;
-    int64                                    index    = 2;
-    int64                                    total    = 3;
+    // Represents the desired size of the chunk, not necessarily the actual number of entities it contains.
+    int64 size = 1;
+    // Represents the position of this chunk within the context of pagination.
+    int64 index = 2;
+    // Represents the total count of entities across all chunks.
+    int64 total = 3;
+    // Represents the actual members included in this chunk.
     repeated members.public.server.v1.Member entities = 4;
 }
 
+// Query represents a structure designed to facilitate specific and conditional data retrieval.
+// It contains order specifications, limitations on the number of results, and conditions to filter data.
 message Query {
-    members.public.server.v1.Order     order     = 1;
-    int64                              limit     = 2;
-    int64                              offset    = 3;
+    // Represents the order in which results should be retrieved.
+    members.public.server.v1.Order order = 1;
+    // Represents the maximum number of results to be fetched.
+    int64 limit = 2;
+    // Represents the starting point from which to retrieve results.
+    int64 offset = 3;
+    // Represents the set of conditions that filter the data retrieval process.
     members.public.server.v1.Condition condition = 4;
 }
 
+// Member represents a participant in a chat.
+// It contains details for identification, associated metadata, associated restrictions, and timestamps marking their chat activity.
 message Member {
-    string                                        id           = 1;
-    string                                        user_id      = 2;
-    string                                        chat_id      = 3;
-    map<string, string>                           metadata     = 4;
+    // Represents the unique identifier for this member.
+    string id = 1;
+    // Represents the unique identifier associated with the user of this member.
+    string user_id = 2;
+    // Represents the unique identifier of the chat in which this member exists.
+    string chat_id = 3;
+    // Represents a collection of key-value pairs providing additional context or information about this member.
+    map<string, string> metadata = 4;
+    // Represents a list of restrictions that have been applied to this member.
     repeated members.public.server.v1.Restriction restrictions = 5;
-    int64                                         create_time  = 6;
-    int64                                         update_time  = 7;
+    // Represents the timestamp indicating when this member was created or added to the chat.
+    int64 create_time = 6;
+    // Represents the timestamp of the last update associated with this member.
+    int64 update_time = 7;
 }
 
+// Condition represents a set of criteria designed to filter data during retrieval.
+// It provides mechanisms to specifically target members based on identifiers or chat affiliations.
 message Condition {
-    repeated string ids      = 1;
+    // Represents a list of member identifiers for targeted data retrieval.
+    repeated string ids = 1;
+    // Represents a list of chat identifiers to filter members based on their association.
     repeated string chat_ids = 2;
 }
 
+// Restriction represents a particular limitation applied to a member.
+// It provides insight into the type, reason, and duration of the restriction.
 message Restriction {
-    members.public.server.v1.Type type        = 1;
-    string                        reason      = 2;
-    int64                         create_time = 3;
-    int64                         expire_time = 4;
+    // Represents the type or category of the restriction.
+    members.public.server.v1.Type type = 1;
+    // Represents a brief explanation or reason behind the application of this restriction.
+    string reason = 2;
+    // Represents the timestamp indicating when this restriction was put into place.
+    int64 create_time = 3;
+    // Represents the timestamp indicating when this restriction will end or expire.
+    int64 expire_time = 4;
 }

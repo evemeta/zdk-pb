@@ -7,12 +7,14 @@ import "protoc-gen-openapiv2/options/annotations.proto";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/members/public/server/v1;memberspb";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
+// Type represents an enumeration that specifies the kinds of restrictions or actions that can be applied to a member.
 enum Type {
     Type_Unknown = 0;
     Type_Mute    = 1;
     Type_Block   = 2;
 }
 
+// Order represents an enumeration that specifies the sort order for data retrieval, particularly in the context of querying.
 enum Order {
     Order_Unknown    = 0;
     Order_Ascending  = 1;

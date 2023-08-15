@@ -10,6 +10,7 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 service Service {
 
+    // Count represents a procedure that retrieves the total number of members based on a specific query.
     rpc Count(CountRequest) returns (CountResponse) {
         option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
             description: "Description: Count";
@@ -18,6 +19,7 @@ service Service {
         };
     }
 
+    // Range represents a procedure that retrieves a chunk of members based on a specific query.
     rpc Range(RangeRequest) returns (RangeResponse) {
         option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
             description: "Description: Range";
@@ -26,6 +28,7 @@ service Service {
         };
     }
 
+    // Select represents a procedure that retrieves specific members based on a specific query.
     rpc Select(SelectRequest) returns (SelectResponse) {
         option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
             description: "Description: Select";
@@ -33,7 +36,8 @@ service Service {
             operation_id: "Select";
         };
     }
-    
+
+    // Kick represents a procedure that forcefully removes a member from a chat for a specific reason.
     rpc Kick(KickRequest) returns (KickResponse) {
         option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
             description: "Description: Kick";
@@ -42,6 +46,7 @@ service Service {
         };
     }
 
+    // Mute represents a procedure that silences a member for a specified duration or indefinitely.
     rpc Mute(MuteRequest) returns (MuteResponse) {
         option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
             description: "Description: Mute";
@@ -50,6 +55,7 @@ service Service {
         };
     }
 
+    // Unmute represents a procedure that restores communication privileges for a previously muted member.
     rpc Unmute(UnmuteRequest) returns (UnmuteResponse) {
         option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
             description: "Description: Unmute";
@@ -58,6 +64,7 @@ service Service {
         };
     }
 
+    // Block represents a procedure that forcefully removes a member from a chat and prevents them from participating for a specified duration or indefinitely.
     rpc Block(BlockRequest) returns (BlockResponse) {
         option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
             description: "Description: Block";
@@ -66,6 +73,7 @@ service Service {
         };
     }
 
+    // Unblock represents a procedure that restores access privileges for a previously blocked member.
     rpc Unblock(UnblockRequest) returns (UnblockResponse) {
         option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
             description: "Description: Unblock";
