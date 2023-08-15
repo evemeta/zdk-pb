@@ -41,9 +41,10 @@ message KickRequest {
 message KickResponse {}
 
 message MuteRequest {
-    string user_id = 1;
-    string chat_id = 2;
-    string reason  = 3;
+    string user_id  = 1;
+    string chat_id  = 2;
+    string reason   = 3;
+    int64  duration = 4;
 }
 
 message MuteResponse {}
@@ -56,9 +57,10 @@ message UnmuteRequest {
 message UnmuteResponse {}
 
 message BlockRequest {
-    string user_id = 1;
-    string chat_id = 2;
-    string reason  = 3;
+    string user_id  = 1;
+    string chat_id  = 2;
+    string reason   = 3;
+    int64  duration = 4;
 }
 
 message BlockResponse {}

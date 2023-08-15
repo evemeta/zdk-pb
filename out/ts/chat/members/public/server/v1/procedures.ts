@@ -106,6 +106,10 @@ export interface MuteRequest {
      * @generated from protobuf field: string reason = 3;
      */
     reason: string;
+    /**
+     * @generated from protobuf field: int64 duration = 4;
+     */
+    duration: bigint;
 }
 /**
  * @generated from protobuf message members.public.server.v1.MuteResponse
@@ -146,6 +150,10 @@ export interface BlockRequest {
      * @generated from protobuf field: string reason = 3;
      */
     reason: string;
+    /**
+     * @generated from protobuf field: int64 duration = 4;
+     */
+    duration: bigint;
 }
 /**
  * @generated from protobuf message members.public.server.v1.BlockResponse
@@ -545,11 +553,12 @@ class MuteRequest$Type extends MessageType<MuteRequest> {
         super("members.public.server.v1.MuteRequest", [
             { no: 1, name: "user_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 2, name: "chat_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 3, name: "reason", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
+            { no: 3, name: "reason", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 4, name: "duration", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value?: PartialMessage<MuteRequest>): MuteRequest {
-        const message = { userId: "", chatId: "", reason: "" };
+        const message = { userId: "", chatId: "", reason: "", duration: 0n };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<MuteRequest>(this, message, value);
@@ -568,6 +577,9 @@ class MuteRequest$Type extends MessageType<MuteRequest> {
                     break;
                 case /* string reason */ 3:
                     message.reason = reader.string();
+                    break;
+                case /* int64 duration */ 4:
+                    message.duration = reader.int64().toBigInt();
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -590,6 +602,9 @@ class MuteRequest$Type extends MessageType<MuteRequest> {
         /* string reason = 3; */
         if (message.reason !== "")
             writer.tag(3, WireType.LengthDelimited).string(message.reason);
+        /* int64 duration = 4; */
+        if (message.duration !== 0n)
+            writer.tag(4, WireType.Varint).int64(message.duration);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -712,11 +727,12 @@ class BlockRequest$Type extends MessageType<BlockRequest> {
         super("members.public.server.v1.BlockRequest", [
             { no: 1, name: "user_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 2, name: "chat_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 3, name: "reason", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
+            { no: 3, name: "reason", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 4, name: "duration", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value?: PartialMessage<BlockRequest>): BlockRequest {
-        const message = { userId: "", chatId: "", reason: "" };
+        const message = { userId: "", chatId: "", reason: "", duration: 0n };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<BlockRequest>(this, message, value);
@@ -735,6 +751,9 @@ class BlockRequest$Type extends MessageType<BlockRequest> {
                     break;
                 case /* string reason */ 3:
                     message.reason = reader.string();
+                    break;
+                case /* int64 duration */ 4:
+                    message.duration = reader.int64().toBigInt();
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -757,6 +776,9 @@ class BlockRequest$Type extends MessageType<BlockRequest> {
         /* string reason = 3; */
         if (message.reason !== "")
             writer.tag(3, WireType.LengthDelimited).string(message.reason);
+        /* int64 duration = 4; */
+        if (message.duration !== 0n)
+            writer.tag(4, WireType.Varint).int64(message.duration);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
