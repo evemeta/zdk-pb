@@ -63,9 +63,10 @@ message CreateResponse {
 }
 
 message CreateMutation {
-    bool                                       closed     = 1;
-    transponders.private.v1.CreateArgument     foundation = 2;
-    repeated transponders.private.v1.Transient transient  = 3;
+    transponders.private.v1.CreateArgument     foundation      = 1;
+    repeated transponders.private.v1.Transient transient       = 2;
+    int64                                      begin_timestamp = 3;
+    int64                                      close_timestamp = 4;
 }
 
 message CreateTransaction {
@@ -87,9 +88,10 @@ message UpdateResponse {
 }
 
 message UpdateMutation {
-    bool                                       closed     = 1;
-    transponders.private.v1.UpdateArgument     foundation = 2;
-    repeated transponders.private.v1.Transient transient  = 3;
+    transponders.private.v1.UpdateArgument     foundation      = 1;
+    repeated transponders.private.v1.Transient transient       = 2;
+    int64                                      begin_timestamp = 3;
+    int64                                      close_timestamp = 4;
 }
 
 message UpdateTransaction {
@@ -109,9 +111,10 @@ message DeleteResponse {
 }
 
 message DeleteMutation {
-    bool                                       closed     = 1;
-    transponders.private.v1.DeleteArgument     foundation = 2;
-    repeated transponders.private.v1.Transient transient  = 3;
+    transponders.private.v1.DeleteArgument     foundation      = 1;
+    repeated transponders.private.v1.Transient transient       = 2;
+    int64                                      begin_timestamp = 3;
+    int64                                      close_timestamp = 4;
 }
 
 message DeleteTransaction {

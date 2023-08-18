@@ -66,9 +66,10 @@ message CreateResponse {
 }
 
 message CreateMutation {
-    bool                                closed     = 1;
-    chats.private.v1.CreateArgument     foundation = 2;
-    repeated chats.private.v1.Transient transient  = 3;
+    chats.private.v1.CreateArgument     foundation      = 1;
+    repeated chats.private.v1.Transient transient       = 2;
+    int64                               begin_timestamp = 3;
+    int64                               close_timestamp = 4;
 }
 
 message CreateTransaction {
@@ -89,9 +90,10 @@ message UpdateResponse {
 }
 
 message UpdateMutation {
-    bool                                closed     = 1;
-    chats.private.v1.UpdateArgument     foundation = 2;
-    repeated chats.private.v1.Transient transient  = 3;
+    chats.private.v1.UpdateArgument     foundation      = 1;
+    repeated chats.private.v1.Transient transient       = 2;
+    int64                               begin_timestamp = 3;
+    int64                               close_timestamp = 4;
 }
 
 message UpdateTransaction {
@@ -111,10 +113,11 @@ message DeleteResponse {
 }
 
 message DeleteMutation {
-    bool                                closed     = 1;
-    chats.private.v1.DeleteArgument     foundation = 2;
-    chats.private.v1.DeleteCondition    condition  = 3;
-    repeated chats.private.v1.Transient transient  = 4;
+    chats.private.v1.DeleteArgument     foundation      = 1;
+    chats.private.v1.DeleteCondition    condition       = 2;
+    repeated chats.private.v1.Transient transient       = 3;
+    int64                               begin_timestamp = 4;
+    int64                               close_timestamp = 5;
 }
 
 message DeleteCondition {
@@ -139,9 +142,10 @@ message EnterRequest {
 message EnterResponse {}
 
 message EnterMutation {
-    bool                            closed     = 1;
-    chats.private.v1.EnterArgument  foundation = 2;
-    chats.private.v1.EnterCondition condition  = 3;
+    chats.private.v1.EnterArgument  foundation      = 1;
+    chats.private.v1.EnterCondition condition       = 2;
+    int64                           begin_timestamp = 3;
+    int64                           close_timestamp = 4;
 }
 
 message EnterCondition {
@@ -169,9 +173,10 @@ message LeaveRequest {
 message LeaveResponse {}
 
 message LeaveMutation {
-    bool                            closed     = 1;
-    chats.private.v1.LeaveArgument  foundation = 2;
-    chats.private.v1.LeaveCondition condition  = 3;
+    chats.private.v1.LeaveArgument  foundation      = 1;
+    chats.private.v1.LeaveCondition condition       = 2;
+    int64                           begin_timestamp = 3;
+    int64                           close_timestamp = 4;
 }
 
 message LeaveCondition {

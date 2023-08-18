@@ -66,10 +66,11 @@ message CreateResponse {
 }
 
 message CreateMutation {
-    bool                                   closed     = 1;
-    sessions.private.v1.CreateArgument     foundation = 2;
-    sessions.private.v1.CreateCondition    condition  = 3;
-    repeated sessions.private.v1.Transient transient  = 4;
+    sessions.private.v1.CreateArgument     foundation      = 1;
+    sessions.private.v1.CreateCondition    condition       = 2;
+    repeated sessions.private.v1.Transient transient       = 3;
+    int64                                  begin_timestamp = 4;
+    int64                                  close_timestamp = 5;
 }
 
 message CreateCondition {
@@ -96,9 +97,10 @@ message UpdateResponse {
 }
 
 message UpdateMutation {
-    bool                                   closed     = 1;
-    sessions.private.v1.UpdateArgument     foundation = 2;
-    repeated sessions.private.v1.Transient transient  = 3;
+    sessions.private.v1.UpdateArgument     foundation      = 1;
+    repeated sessions.private.v1.Transient transient       = 2;
+    int64                                  begin_timestamp = 3;
+    int64                                  close_timestamp = 4;
 }
 
 message UpdateTransaction {
@@ -118,10 +120,11 @@ message DeleteResponse {
 }
 
 message DeleteMutation {
-    bool                                   closed     = 1;
-    sessions.private.v1.DeleteArgument     foundation = 2;
-    sessions.private.v1.DeleteCondition    condition  = 3;
-    repeated sessions.private.v1.Transient transient  = 4;
+    sessions.private.v1.DeleteArgument     foundation      = 1;
+    sessions.private.v1.DeleteCondition    condition       = 2;
+    repeated sessions.private.v1.Transient transient       = 3;
+    int64                                  begin_timestamp = 4;
+    int64                                  close_timestamp = 5;
 }
 
 message DeleteCondition {
@@ -147,10 +150,11 @@ message AttachResponse {
 }
 
 message AttachMutation {
-    bool                                closed     = 1;
-    sessions.private.v1.AttachArgument  foundation = 2;
-    sessions.private.v1.AttachCondition condition  = 3;
-    repeated string                     transient  = 4;
+    sessions.private.v1.AttachArgument  foundation      = 1;
+    sessions.private.v1.AttachCondition condition       = 2;
+    repeated string                     transient       = 3;
+    int64                               begin_timestamp = 4;
+    int64                               close_timestamp = 5;
 }
 
 message AttachCondition {
@@ -174,9 +178,10 @@ message DetachRequest {
 message DetachResponse {}
 
 message DetachMutation {
-    bool                                closed     = 1;
-    sessions.private.v1.DetachArgument  foundation = 2;
-    sessions.private.v1.DetachCondition condition  = 3;
+    sessions.private.v1.DetachArgument  foundation      = 1;
+    sessions.private.v1.DetachCondition condition       = 2;
+    int64                               begin_timestamp = 3;
+    int64                               close_timestamp = 4;
 }
 
 message DetachCondition {

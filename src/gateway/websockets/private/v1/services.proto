@@ -145,4 +145,76 @@ service Service {
             operation_id: "RollbackDeleteMutations";
         };
     }
+
+    rpc Broadcast(BroadcastRequest) returns (BroadcastResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: Broadcast";
+            summary: "Broadcast";
+            operation_id: "Broadcast";
+        };
+    }
+
+    rpc InitiateBroadcastMutations(BroadcastTransaction) returns (BroadcastTransaction) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: InitiateBroadcastMutations";
+            summary: "InitiateBroadcastMutations";
+            operation_id: "InitiateBroadcastMutations";
+        };
+    }
+
+    rpc FinalizeBroadcastMutations(BroadcastTransaction) returns (BroadcastTransaction) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: FinalizeBroadcastMutations";
+            summary: "FinalizeBroadcastMutations";
+            operation_id: "FinalizeBroadcastMutations";
+        };
+    }
+
+    rpc Disconnect(DisconnectRequest) returns (DisconnectResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: Disconnect";
+            summary: "Disconnect";
+            operation_id: "Disconnect";
+        };
+    }
+
+    rpc InitiateDisconnectMutations(DisconnectTransaction) returns (DisconnectTransaction) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: InitiateDisconnectMutations";
+            summary: "InitiateDisconnectMutations";
+            operation_id: "InitiateDisconnectMutations";
+        };
+    }
+
+    rpc FinalizeDisconnectMutations(DisconnectTransaction) returns (DisconnectTransaction) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: FinalizeDisconnectMutations";
+            summary: "FinalizeDisconnectMutations";
+            operation_id: "FinalizeDisconnectMutations";
+        };
+    }
+
+    rpc Reintegrate(ReintegrateRequest) returns (ReintegrateResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: Reintegrate";
+            summary: "Reintegrate";
+            operation_id: "Reintegrate";
+        };
+    }
+
+    rpc InitiateReintegrateMutations(ReintegrateTransaction) returns (ReintegrateTransaction) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: InitiateReintegrateMutations";
+            summary: "InitiateReintegrateMutations";
+            operation_id: "InitiateReintegrateMutations";
+        };
+    }
+
+    rpc FinalizeReintegrateMutations(ReintegrateTransaction) returns (ReintegrateTransaction) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: FinalizeReintegrateMutations";
+            summary: "FinalizeReintegrateMutations";
+            operation_id: "FinalizeReintegrateMutations";
+        };
+    }
 }

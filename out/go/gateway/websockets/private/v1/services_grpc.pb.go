@@ -19,23 +19,32 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Service_Count_FullMethodName                   = "/websockets.private.v1.Service/Count"
-	Service_Range_FullMethodName                   = "/websockets.private.v1.Service/Range"
-	Service_Select_FullMethodName                  = "/websockets.private.v1.Service/Select"
-	Service_Create_FullMethodName                  = "/websockets.private.v1.Service/Create"
-	Service_InitiateCreateMutations_FullMethodName = "/websockets.private.v1.Service/InitiateCreateMutations"
-	Service_ValidateCreateMutations_FullMethodName = "/websockets.private.v1.Service/ValidateCreateMutations"
-	Service_FinalizeCreateMutations_FullMethodName = "/websockets.private.v1.Service/FinalizeCreateMutations"
-	Service_RollbackCreateMutations_FullMethodName = "/websockets.private.v1.Service/RollbackCreateMutations"
-	Service_Update_FullMethodName                  = "/websockets.private.v1.Service/Update"
-	Service_InitiateUpdateMutations_FullMethodName = "/websockets.private.v1.Service/InitiateUpdateMutations"
-	Service_ValidateUpdateMutations_FullMethodName = "/websockets.private.v1.Service/ValidateUpdateMutations"
-	Service_FinalizeUpdateMutations_FullMethodName = "/websockets.private.v1.Service/FinalizeUpdateMutations"
-	Service_RollbackUpdateMutations_FullMethodName = "/websockets.private.v1.Service/RollbackUpdateMutations"
-	Service_Delete_FullMethodName                  = "/websockets.private.v1.Service/Delete"
-	Service_InitiateDeleteMutations_FullMethodName = "/websockets.private.v1.Service/InitiateDeleteMutations"
-	Service_FinalizeDeleteMutations_FullMethodName = "/websockets.private.v1.Service/FinalizeDeleteMutations"
-	Service_RollbackDeleteMutations_FullMethodName = "/websockets.private.v1.Service/RollbackDeleteMutations"
+	Service_Count_FullMethodName                        = "/websockets.private.v1.Service/Count"
+	Service_Range_FullMethodName                        = "/websockets.private.v1.Service/Range"
+	Service_Select_FullMethodName                       = "/websockets.private.v1.Service/Select"
+	Service_Create_FullMethodName                       = "/websockets.private.v1.Service/Create"
+	Service_InitiateCreateMutations_FullMethodName      = "/websockets.private.v1.Service/InitiateCreateMutations"
+	Service_ValidateCreateMutations_FullMethodName      = "/websockets.private.v1.Service/ValidateCreateMutations"
+	Service_FinalizeCreateMutations_FullMethodName      = "/websockets.private.v1.Service/FinalizeCreateMutations"
+	Service_RollbackCreateMutations_FullMethodName      = "/websockets.private.v1.Service/RollbackCreateMutations"
+	Service_Update_FullMethodName                       = "/websockets.private.v1.Service/Update"
+	Service_InitiateUpdateMutations_FullMethodName      = "/websockets.private.v1.Service/InitiateUpdateMutations"
+	Service_ValidateUpdateMutations_FullMethodName      = "/websockets.private.v1.Service/ValidateUpdateMutations"
+	Service_FinalizeUpdateMutations_FullMethodName      = "/websockets.private.v1.Service/FinalizeUpdateMutations"
+	Service_RollbackUpdateMutations_FullMethodName      = "/websockets.private.v1.Service/RollbackUpdateMutations"
+	Service_Delete_FullMethodName                       = "/websockets.private.v1.Service/Delete"
+	Service_InitiateDeleteMutations_FullMethodName      = "/websockets.private.v1.Service/InitiateDeleteMutations"
+	Service_FinalizeDeleteMutations_FullMethodName      = "/websockets.private.v1.Service/FinalizeDeleteMutations"
+	Service_RollbackDeleteMutations_FullMethodName      = "/websockets.private.v1.Service/RollbackDeleteMutations"
+	Service_Broadcast_FullMethodName                    = "/websockets.private.v1.Service/Broadcast"
+	Service_InitiateBroadcastMutations_FullMethodName   = "/websockets.private.v1.Service/InitiateBroadcastMutations"
+	Service_FinalizeBroadcastMutations_FullMethodName   = "/websockets.private.v1.Service/FinalizeBroadcastMutations"
+	Service_Disconnect_FullMethodName                   = "/websockets.private.v1.Service/Disconnect"
+	Service_InitiateDisconnectMutations_FullMethodName  = "/websockets.private.v1.Service/InitiateDisconnectMutations"
+	Service_FinalizeDisconnectMutations_FullMethodName  = "/websockets.private.v1.Service/FinalizeDisconnectMutations"
+	Service_Reintegrate_FullMethodName                  = "/websockets.private.v1.Service/Reintegrate"
+	Service_InitiateReintegrateMutations_FullMethodName = "/websockets.private.v1.Service/InitiateReintegrateMutations"
+	Service_FinalizeReintegrateMutations_FullMethodName = "/websockets.private.v1.Service/FinalizeReintegrateMutations"
 )
 
 // ServiceClient is the client API for Service service.
@@ -59,6 +68,15 @@ type ServiceClient interface {
 	InitiateDeleteMutations(ctx context.Context, in *DeleteTransaction, opts ...grpc.CallOption) (*DeleteTransaction, error)
 	FinalizeDeleteMutations(ctx context.Context, in *DeleteTransaction, opts ...grpc.CallOption) (*DeleteTransaction, error)
 	RollbackDeleteMutations(ctx context.Context, in *DeleteTransaction, opts ...grpc.CallOption) (*DeleteTransaction, error)
+	Broadcast(ctx context.Context, in *BroadcastRequest, opts ...grpc.CallOption) (*BroadcastResponse, error)
+	InitiateBroadcastMutations(ctx context.Context, in *BroadcastTransaction, opts ...grpc.CallOption) (*BroadcastTransaction, error)
+	FinalizeBroadcastMutations(ctx context.Context, in *BroadcastTransaction, opts ...grpc.CallOption) (*BroadcastTransaction, error)
+	Disconnect(ctx context.Context, in *DisconnectRequest, opts ...grpc.CallOption) (*DisconnectResponse, error)
+	InitiateDisconnectMutations(ctx context.Context, in *DisconnectTransaction, opts ...grpc.CallOption) (*DisconnectTransaction, error)
+	FinalizeDisconnectMutations(ctx context.Context, in *DisconnectTransaction, opts ...grpc.CallOption) (*DisconnectTransaction, error)
+	Reintegrate(ctx context.Context, in *ReintegrateRequest, opts ...grpc.CallOption) (*ReintegrateResponse, error)
+	InitiateReintegrateMutations(ctx context.Context, in *ReintegrateTransaction, opts ...grpc.CallOption) (*ReintegrateTransaction, error)
+	FinalizeReintegrateMutations(ctx context.Context, in *ReintegrateTransaction, opts ...grpc.CallOption) (*ReintegrateTransaction, error)
 }
 
 type serviceClient struct {
@@ -222,6 +240,87 @@ func (c *serviceClient) RollbackDeleteMutations(ctx context.Context, in *DeleteT
 	return out, nil
 }
 
+func (c *serviceClient) Broadcast(ctx context.Context, in *BroadcastRequest, opts ...grpc.CallOption) (*BroadcastResponse, error) {
+	out := new(BroadcastResponse)
+	err := c.cc.Invoke(ctx, Service_Broadcast_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) InitiateBroadcastMutations(ctx context.Context, in *BroadcastTransaction, opts ...grpc.CallOption) (*BroadcastTransaction, error) {
+	out := new(BroadcastTransaction)
+	err := c.cc.Invoke(ctx, Service_InitiateBroadcastMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) FinalizeBroadcastMutations(ctx context.Context, in *BroadcastTransaction, opts ...grpc.CallOption) (*BroadcastTransaction, error) {
+	out := new(BroadcastTransaction)
+	err := c.cc.Invoke(ctx, Service_FinalizeBroadcastMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) Disconnect(ctx context.Context, in *DisconnectRequest, opts ...grpc.CallOption) (*DisconnectResponse, error) {
+	out := new(DisconnectResponse)
+	err := c.cc.Invoke(ctx, Service_Disconnect_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) InitiateDisconnectMutations(ctx context.Context, in *DisconnectTransaction, opts ...grpc.CallOption) (*DisconnectTransaction, error) {
+	out := new(DisconnectTransaction)
+	err := c.cc.Invoke(ctx, Service_InitiateDisconnectMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) FinalizeDisconnectMutations(ctx context.Context, in *DisconnectTransaction, opts ...grpc.CallOption) (*DisconnectTransaction, error) {
+	out := new(DisconnectTransaction)
+	err := c.cc.Invoke(ctx, Service_FinalizeDisconnectMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) Reintegrate(ctx context.Context, in *ReintegrateRequest, opts ...grpc.CallOption) (*ReintegrateResponse, error) {
+	out := new(ReintegrateResponse)
+	err := c.cc.Invoke(ctx, Service_Reintegrate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) InitiateReintegrateMutations(ctx context.Context, in *ReintegrateTransaction, opts ...grpc.CallOption) (*ReintegrateTransaction, error) {
+	out := new(ReintegrateTransaction)
+	err := c.cc.Invoke(ctx, Service_InitiateReintegrateMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) FinalizeReintegrateMutations(ctx context.Context, in *ReintegrateTransaction, opts ...grpc.CallOption) (*ReintegrateTransaction, error) {
+	out := new(ReintegrateTransaction)
+	err := c.cc.Invoke(ctx, Service_FinalizeReintegrateMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ServiceServer is the server API for Service service.
 // All implementations must embed UnimplementedServiceServer
 // for forward compatibility
@@ -243,6 +342,15 @@ type ServiceServer interface {
 	InitiateDeleteMutations(context.Context, *DeleteTransaction) (*DeleteTransaction, error)
 	FinalizeDeleteMutations(context.Context, *DeleteTransaction) (*DeleteTransaction, error)
 	RollbackDeleteMutations(context.Context, *DeleteTransaction) (*DeleteTransaction, error)
+	Broadcast(context.Context, *BroadcastRequest) (*BroadcastResponse, error)
+	InitiateBroadcastMutations(context.Context, *BroadcastTransaction) (*BroadcastTransaction, error)
+	FinalizeBroadcastMutations(context.Context, *BroadcastTransaction) (*BroadcastTransaction, error)
+	Disconnect(context.Context, *DisconnectRequest) (*DisconnectResponse, error)
+	InitiateDisconnectMutations(context.Context, *DisconnectTransaction) (*DisconnectTransaction, error)
+	FinalizeDisconnectMutations(context.Context, *DisconnectTransaction) (*DisconnectTransaction, error)
+	Reintegrate(context.Context, *ReintegrateRequest) (*ReintegrateResponse, error)
+	InitiateReintegrateMutations(context.Context, *ReintegrateTransaction) (*ReintegrateTransaction, error)
+	FinalizeReintegrateMutations(context.Context, *ReintegrateTransaction) (*ReintegrateTransaction, error)
 	mustEmbedUnimplementedServiceServer()
 }
 
@@ -300,6 +408,33 @@ func (UnimplementedServiceServer) FinalizeDeleteMutations(context.Context, *Dele
 }
 func (UnimplementedServiceServer) RollbackDeleteMutations(context.Context, *DeleteTransaction) (*DeleteTransaction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RollbackDeleteMutations not implemented")
+}
+func (UnimplementedServiceServer) Broadcast(context.Context, *BroadcastRequest) (*BroadcastResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Broadcast not implemented")
+}
+func (UnimplementedServiceServer) InitiateBroadcastMutations(context.Context, *BroadcastTransaction) (*BroadcastTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InitiateBroadcastMutations not implemented")
+}
+func (UnimplementedServiceServer) FinalizeBroadcastMutations(context.Context, *BroadcastTransaction) (*BroadcastTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FinalizeBroadcastMutations not implemented")
+}
+func (UnimplementedServiceServer) Disconnect(context.Context, *DisconnectRequest) (*DisconnectResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Disconnect not implemented")
+}
+func (UnimplementedServiceServer) InitiateDisconnectMutations(context.Context, *DisconnectTransaction) (*DisconnectTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InitiateDisconnectMutations not implemented")
+}
+func (UnimplementedServiceServer) FinalizeDisconnectMutations(context.Context, *DisconnectTransaction) (*DisconnectTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FinalizeDisconnectMutations not implemented")
+}
+func (UnimplementedServiceServer) Reintegrate(context.Context, *ReintegrateRequest) (*ReintegrateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Reintegrate not implemented")
+}
+func (UnimplementedServiceServer) InitiateReintegrateMutations(context.Context, *ReintegrateTransaction) (*ReintegrateTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InitiateReintegrateMutations not implemented")
+}
+func (UnimplementedServiceServer) FinalizeReintegrateMutations(context.Context, *ReintegrateTransaction) (*ReintegrateTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FinalizeReintegrateMutations not implemented")
 }
 func (UnimplementedServiceServer) mustEmbedUnimplementedServiceServer() {}
 
@@ -620,6 +755,168 @@ func _Service_RollbackDeleteMutations_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Service_Broadcast_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BroadcastRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).Broadcast(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_Broadcast_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).Broadcast(ctx, req.(*BroadcastRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_InitiateBroadcastMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BroadcastTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).InitiateBroadcastMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_InitiateBroadcastMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).InitiateBroadcastMutations(ctx, req.(*BroadcastTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_FinalizeBroadcastMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BroadcastTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).FinalizeBroadcastMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_FinalizeBroadcastMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).FinalizeBroadcastMutations(ctx, req.(*BroadcastTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_Disconnect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DisconnectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).Disconnect(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_Disconnect_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).Disconnect(ctx, req.(*DisconnectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_InitiateDisconnectMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DisconnectTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).InitiateDisconnectMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_InitiateDisconnectMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).InitiateDisconnectMutations(ctx, req.(*DisconnectTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_FinalizeDisconnectMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DisconnectTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).FinalizeDisconnectMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_FinalizeDisconnectMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).FinalizeDisconnectMutations(ctx, req.(*DisconnectTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_Reintegrate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReintegrateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).Reintegrate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_Reintegrate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).Reintegrate(ctx, req.(*ReintegrateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_InitiateReintegrateMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReintegrateTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).InitiateReintegrateMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_InitiateReintegrateMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).InitiateReintegrateMutations(ctx, req.(*ReintegrateTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_FinalizeReintegrateMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReintegrateTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).FinalizeReintegrateMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_FinalizeReintegrateMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).FinalizeReintegrateMutations(ctx, req.(*ReintegrateTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Service_ServiceDesc is the grpc.ServiceDesc for Service service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -694,6 +991,42 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RollbackDeleteMutations",
 			Handler:    _Service_RollbackDeleteMutations_Handler,
+		},
+		{
+			MethodName: "Broadcast",
+			Handler:    _Service_Broadcast_Handler,
+		},
+		{
+			MethodName: "InitiateBroadcastMutations",
+			Handler:    _Service_InitiateBroadcastMutations_Handler,
+		},
+		{
+			MethodName: "FinalizeBroadcastMutations",
+			Handler:    _Service_FinalizeBroadcastMutations_Handler,
+		},
+		{
+			MethodName: "Disconnect",
+			Handler:    _Service_Disconnect_Handler,
+		},
+		{
+			MethodName: "InitiateDisconnectMutations",
+			Handler:    _Service_InitiateDisconnectMutations_Handler,
+		},
+		{
+			MethodName: "FinalizeDisconnectMutations",
+			Handler:    _Service_FinalizeDisconnectMutations_Handler,
+		},
+		{
+			MethodName: "Reintegrate",
+			Handler:    _Service_Reintegrate_Handler,
+		},
+		{
+			MethodName: "InitiateReintegrateMutations",
+			Handler:    _Service_InitiateReintegrateMutations_Handler,
+		},
+		{
+			MethodName: "FinalizeReintegrateMutations",
+			Handler:    _Service_FinalizeReintegrateMutations_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

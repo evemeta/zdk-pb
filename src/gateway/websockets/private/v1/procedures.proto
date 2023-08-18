@@ -5,6 +5,7 @@ package websockets.private.v1;
 import "gateway/websockets/private/v1/enums.proto";
 import "gateway/websockets/private/v1/entities.proto";
 import "gateway/websockets/private/v1/optionals.proto";
+import "gateway/sessions/private/v1/entities.proto";
 import "gateway/sessions/private/v1/procedures.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
@@ -66,9 +67,10 @@ message CreateResponse {
 }
 
 message CreateMutation {
-    bool                                     closed     = 1;
-    websockets.private.v1.CreateArgument     foundation = 2;
-    repeated websockets.private.v1.Transient transient  = 3;
+    websockets.private.v1.CreateArgument     foundation      = 1;
+    repeated websockets.private.v1.Transient transient       = 2;
+    int64                                    begin_timestamp = 3;
+    int64                                    close_timestamp = 4;
 }
 
 message CreateTransaction {
@@ -91,9 +93,10 @@ message UpdateResponse {
 }
 
 message UpdateMutation {
-    bool                                     closed     = 1;
-    websockets.private.v1.UpdateArgument     foundation = 2;
-    repeated websockets.private.v1.Transient transient  = 3;
+    websockets.private.v1.UpdateArgument     foundation      = 1;
+    repeated websockets.private.v1.Transient transient       = 2;
+    int64                                    begin_timestamp = 3;
+    int64                                    close_timestamp = 4;
 }
 
 message UpdateTransaction {
@@ -113,10 +116,11 @@ message DeleteResponse {
 }
 
 message DeleteMutation {
-    bool                                     closed     = 1;
-    websockets.private.v1.DeleteArgument     foundation = 2;
-    websockets.private.v1.DeleteCondition    condition  = 3;
-    repeated websockets.private.v1.Transient transient  = 4;
+    websockets.private.v1.DeleteArgument     foundation      = 1;
+    websockets.private.v1.DeleteCondition    condition       = 2;
+    repeated websockets.private.v1.Transient transient       = 3;
+    int64                                    begin_timestamp = 4;
+    int64                                    close_timestamp = 5;
 }
 
 message DeleteCondition {
@@ -127,4 +131,81 @@ message DeleteTransaction {
     repeated websockets.private.v1.DeleteMutation mutations = 1;
 }
 
-// todo; include broadcast and disconnect
+message BroadcastArgument {
+    sessions.private.v1.Query     query   = 1;
+    websockets.private.v1.Message message = 2;
+}
+
+message BroadcastRequest {
+    repeated websockets.private.v1.BroadcastArgument arguments = 1;
+}
+
+message BroadcastResponse {}
+
+message BroadcastMutation {
+    websockets.private.v1.BroadcastArgument  foundation      = 1;
+    websockets.private.v1.BroadcastCondition condition       = 2;
+    int64                                    begin_timestamp = 3;
+    int64                                    close_timestamp = 4;
+}
+
+message BroadcastCondition {
+    repeated sessions.private.v1.Session     sessions   = 1;
+    repeated websockets.private.v1.Websocket websockets = 2;
+}
+
+message BroadcastTransaction {
+    repeated websockets.private.v1.BroadcastMutation mutations = 1;
+}
+
+message DisconnectArgument {
+    sessions.private.v1.Query query = 1;
+}
+
+message DisconnectRequest {
+    repeated websockets.private.v1.DisconnectArgument arguments = 1;
+}
+
+message DisconnectResponse {}
+
+message DisconnectMutation {
+    websockets.private.v1.DisconnectArgument  foundation      = 1;
+    websockets.private.v1.DisconnectCondition condition       = 2;
+    int64                                     begin_timestamp = 3;
+    int64                                     close_timestamp = 4;
+}
+
+message DisconnectCondition {
+    repeated sessions.private.v1.Session     sessions   = 1;
+    repeated websockets.private.v1.Websocket websockets = 2;
+}
+
+message DisconnectTransaction {
+    repeated websockets.private.v1.DisconnectMutation mutations = 1;
+}
+
+message ReintegrateArgument {
+    sessions.private.v1.Query query = 1;
+}
+
+message ReintegrateRequest {
+    repeated websockets.private.v1.ReintegrateArgument arguments = 1;
+}
+
+message ReintegrateResponse {}
+
+message ReintegrateMutation {
+    websockets.private.v1.ReintegrateArgument  foundation      = 1;
+    websockets.private.v1.ReintegrateCondition condition       = 2;
+    int64                                      begin_timestamp = 3;
+    int64                                      close_timestamp = 4;
+}
+
+message ReintegrateCondition {
+    repeated sessions.private.v1.Session     sessions   = 1;
+    repeated websockets.private.v1.Websocket websockets = 2;
+}
+
+message ReintegrateTransaction {
+    repeated websockets.private.v1.ReintegrateMutation mutations = 1;
+}

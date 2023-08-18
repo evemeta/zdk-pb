@@ -23,6 +23,11 @@ message Query {
     repeated websockets.private.v1.Condition conditions = 4;
 }
 
+message Message {
+    string name = 1;
+    bytes  data = 2;
+}
+
 message Condition {
     repeated string                       ids       = 1;
     repeated websockets.private.v1.Zone   zones     = 2;
