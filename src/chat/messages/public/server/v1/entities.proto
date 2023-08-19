@@ -8,31 +8,65 @@ import "protoc-gen-openapiv2/options/annotations.proto";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/messages/public/server/v1;messagespb";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
+// Chunk represents a segmented portion of messages used for pagination or segmented data retrieval.
+// It provides insights about the desired chunk size, its position within the overall dataset, and the actual messages it contains.
 message Chunk {
-    int64                                      size     = 1;
-    int64                                      index    = 2;
-    int64                                      total    = 3;
+    // Represents the desired size of the chunk, not necessarily the actual number of entities it contains.
+    int64 size = 1;
+    // Represents the position of this chunk within the context of pagination.
+    int64 index = 2;
+    // Represents the total count of entities across all chunks.
+    int64 total = 3;
+    // Represents the actual messages included in this chunk.
     repeated messages.public.server.v1.Message entities = 4;
 }
 
+// Query represents a structure designed to facilitate specific and conditional data retrieval.
+// It contains order specifications, limitations on the number of results, and conditions to filter data.
 message Query {
-    messages.public.server.v1.Order     order     = 1;
-    int64                               limit     = 2;
-    int64                               offset    = 3;
+    // Represents the order in which results should be retrieved.
+    messages.public.server.v1.Order order = 1;
+    // Represents the maximum number of results to be fetched.
+    int64 limit = 2;
+    // Represents the starting point from which to retrieve results.
+    int64 offset = 3;
+    // Represents the set of conditions that filter the data retrieval process.
     messages.public.server.v1.Condition condition = 4;
 }
 
+// Message represents an individual piece of communication within a chat.
+// It contains details for identification, associated content, associated metadata, and timestamps reflecting its creation and last alteration.
 message Message {
-    string              id          = 1;
-    string              user_id     = 2;
-    string              chat_id     = 3;
-    string              content     = 4;
-    map<string, string> metadata    = 5;
-    int64               create_time = 6;
-    int64               update_time = 7;
+    // Represents the unique identifier for this message.
+    string id = 1;
+    // Represents the unique identifier of the user associated with this message.
+    string user_id = 2;
+    // Represents the unique identifier of the chat in which this message exists.
+    string chat_id = 3;
+    // Represents the textual content of this message.
+    string content = 4;
+    // Represents a collection of key-value pairs providing additional context or information about this message.
+    map<string, string> metadata = 5;
+    // Represents the timestamp indicating when this message was sent.
+    int64 create_time = 6;
+    // Represents the timestamp of the last update associated with this message.
+    int64 update_time = 7;
 }
 
+// Condition represents a set of criteria designed to filter data during retrieval.
+// It provides mechanisms to specifically target messages based on identifiers or chat affiliations.
 message Condition {
-    repeated string ids      = 1;
+    // Represents a list of message identifiers for targeted data retrieval.
+    repeated string ids = 1;
+    // Represents a list of chat identifiers to filter messages based on their association.
     repeated string chat_ids = 2;
+}
+
+// Timeframe represents a specific span or duration marked by its commencement and completion times.
+// It provides a clear boundary to understand when a particular activity began and when it ended.
+message Timeframe {
+    // Represents the timestamp indicating when the activity or retrieve of data commenced.
+    int64 commence = 1;
+    // Represents the timestamp indicating when the activity or retrieve of data completed.
+    int64 complete = 2;
 }

@@ -13,81 +13,102 @@ import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
 import { OptionalMap } from "./optionals";
 import { OptionalString } from "./optionals";
+import { Timeframe } from "./entities";
 import { Message } from "./entities";
 /**
- * CreateMessagePacket is a notification sent to clients when a new message has been created in a chat.
- * It includes details about the new message and the timestamp of the event.
+ * CreateMessagePacket is a notification sent to clients when a new message has been created.
+ * It provides the details of the message and the relevant timeframe associated with the event.
  *
  * @generated from protobuf message messages.public.server.v1.CreateMessagePacket
  */
 export interface CreateMessagePacket {
     /**
+     * Represents the comprehensive details of the newly created message.
+     *
      * @generated from protobuf field: messages.public.server.v1.Message message = 1;
      */
     message?: Message;
     /**
-     * @generated from protobuf field: int64 timestamp = 2;
+     * Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+     *
+     * @generated from protobuf field: messages.public.server.v1.Timeframe timeframe = 2;
      */
-    timestamp: bigint;
+    timeframe?: Timeframe;
 }
 /**
- * UpdateMessagePacket is a notification sent to clients when a message has been updated in a chat.
- * It includes the message ID, associated chat ID, updated content and metadata if any, along with the timestamp of the update.
+ * UpdateMessagePacket is a notification sent to clients when a message has been updated.
+ * It provides the identifier of the message and its associated chat, updated details, and the relevant timeframe of the update.
  *
  * @generated from protobuf message messages.public.server.v1.UpdateMessagePacket
  */
 export interface UpdateMessagePacket {
     /**
+     * Represents the unique identifier of the message.
+     *
      * @generated from protobuf field: string id = 1;
      */
     id: string;
     /**
+     * Represents the unique identifier of the chat in which the message was updated.
+     *
      * @generated from protobuf field: string chat_id = 2;
      */
     chatId: string;
     /**
+     * Represents a new or updated content associated with the message. It may be absent if no content changes occurred.
+     *
      * @generated from protobuf field: optional messages.public.server.v1.OptionalString content = 3;
      */
     content?: OptionalString;
     /**
+     * Represents a new or updated metadata associated with the message. It may be absent if no metadata changes occurred.
+     *
      * @generated from protobuf field: optional messages.public.server.v1.OptionalMap metadata = 4;
      */
     metadata?: OptionalMap;
     /**
-     * @generated from protobuf field: int64 timestamp = 5;
+     * Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+     *
+     * @generated from protobuf field: messages.public.server.v1.Timeframe timeframe = 5;
      */
-    timestamp: bigint;
+    timeframe?: Timeframe;
 }
 /**
- * DeleteMessagePacket is a notification sent to clients when a message has been deleted from a chat.
- * It includes the message ID, associated chat ID and the timestamp of the event.
+ * DeleteMessagePacket is a notification sent to clients when a message has been deleted.
+ * It provides the identifier of the message and its associated chat, and the relevant timeframe associated with the deletion.
  *
  * @generated from protobuf message messages.public.server.v1.DeleteMessagePacket
  */
 export interface DeleteMessagePacket {
     /**
+     * Represents the unique identifier of the message.
+     *
      * @generated from protobuf field: string id = 1;
      */
     id: string;
     /**
+     * Represents the unique identifier of the chat in which the message was deleted.
+     *
      * @generated from protobuf field: string chat_id = 2;
      */
     chatId: string;
     /**
-     * @generated from protobuf field: int64 timestamp = 3;
+     * Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+     *
+     * @generated from protobuf field: messages.public.server.v1.Timeframe timeframe = 3;
      */
-    timestamp: bigint;
+    timeframe?: Timeframe;
 }
 // @generated message type with reflection information, may provide speed optimized methods
 class CreateMessagePacket$Type extends MessageType<CreateMessagePacket> {
     constructor() {
         super("messages.public.server.v1.CreateMessagePacket", [
             { no: 1, name: "message", kind: "message", T: () => Message },
-            { no: 2, name: "timestamp", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 2, name: "timeframe", kind: "message", T: () => Timeframe }
         ]);
     }
     create(value?: PartialMessage<CreateMessagePacket>): CreateMessagePacket {
-        const message = { timestamp: 0n };
+        const message = {};
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<CreateMessagePacket>(this, message, value);
@@ -101,8 +122,8 @@ class CreateMessagePacket$Type extends MessageType<CreateMessagePacket> {
                 case /* messages.public.server.v1.Message message */ 1:
                     message.message = Message.internalBinaryRead(reader, reader.uint32(), options, message.message);
                     break;
-                case /* int64 timestamp */ 2:
-                    message.timestamp = reader.int64().toBigInt();
+                case /* messages.public.server.v1.Timeframe timeframe */ 2:
+                    message.timeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.timeframe);
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -119,9 +140,9 @@ class CreateMessagePacket$Type extends MessageType<CreateMessagePacket> {
         /* messages.public.server.v1.Message message = 1; */
         if (message.message)
             Message.internalBinaryWrite(message.message, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* int64 timestamp = 2; */
-        if (message.timestamp !== 0n)
-            writer.tag(2, WireType.Varint).int64(message.timestamp);
+        /* messages.public.server.v1.Timeframe timeframe = 2; */
+        if (message.timeframe)
+            Timeframe.internalBinaryWrite(message.timeframe, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -140,11 +161,11 @@ class UpdateMessagePacket$Type extends MessageType<UpdateMessagePacket> {
             { no: 2, name: "chat_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 3, name: "content", kind: "message", T: () => OptionalString },
             { no: 4, name: "metadata", kind: "message", T: () => OptionalMap },
-            { no: 5, name: "timestamp", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 5, name: "timeframe", kind: "message", T: () => Timeframe }
         ]);
     }
     create(value?: PartialMessage<UpdateMessagePacket>): UpdateMessagePacket {
-        const message = { id: "", chatId: "", timestamp: 0n };
+        const message = { id: "", chatId: "" };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<UpdateMessagePacket>(this, message, value);
@@ -167,8 +188,8 @@ class UpdateMessagePacket$Type extends MessageType<UpdateMessagePacket> {
                 case /* optional messages.public.server.v1.OptionalMap metadata */ 4:
                     message.metadata = OptionalMap.internalBinaryRead(reader, reader.uint32(), options, message.metadata);
                     break;
-                case /* int64 timestamp */ 5:
-                    message.timestamp = reader.int64().toBigInt();
+                case /* messages.public.server.v1.Timeframe timeframe */ 5:
+                    message.timeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.timeframe);
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -194,9 +215,9 @@ class UpdateMessagePacket$Type extends MessageType<UpdateMessagePacket> {
         /* optional messages.public.server.v1.OptionalMap metadata = 4; */
         if (message.metadata)
             OptionalMap.internalBinaryWrite(message.metadata, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
-        /* int64 timestamp = 5; */
-        if (message.timestamp !== 0n)
-            writer.tag(5, WireType.Varint).int64(message.timestamp);
+        /* messages.public.server.v1.Timeframe timeframe = 5; */
+        if (message.timeframe)
+            Timeframe.internalBinaryWrite(message.timeframe, writer.tag(5, WireType.LengthDelimited).fork(), options).join();
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -213,11 +234,11 @@ class DeleteMessagePacket$Type extends MessageType<DeleteMessagePacket> {
         super("messages.public.server.v1.DeleteMessagePacket", [
             { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 2, name: "chat_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 3, name: "timestamp", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 3, name: "timeframe", kind: "message", T: () => Timeframe }
         ]);
     }
     create(value?: PartialMessage<DeleteMessagePacket>): DeleteMessagePacket {
-        const message = { id: "", chatId: "", timestamp: 0n };
+        const message = { id: "", chatId: "" };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<DeleteMessagePacket>(this, message, value);
@@ -234,8 +255,8 @@ class DeleteMessagePacket$Type extends MessageType<DeleteMessagePacket> {
                 case /* string chat_id */ 2:
                     message.chatId = reader.string();
                     break;
-                case /* int64 timestamp */ 3:
-                    message.timestamp = reader.int64().toBigInt();
+                case /* messages.public.server.v1.Timeframe timeframe */ 3:
+                    message.timeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.timeframe);
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -255,9 +276,9 @@ class DeleteMessagePacket$Type extends MessageType<DeleteMessagePacket> {
         /* string chat_id = 2; */
         if (message.chatId !== "")
             writer.tag(2, WireType.LengthDelimited).string(message.chatId);
-        /* int64 timestamp = 3; */
-        if (message.timestamp !== 0n)
-            writer.tag(3, WireType.Varint).int64(message.timestamp);
+        /* messages.public.server.v1.Timeframe timeframe = 3; */
+        if (message.timeframe)
+            Timeframe.internalBinaryWrite(message.timeframe, writer.tag(3, WireType.LengthDelimited).fork(), options).join();
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

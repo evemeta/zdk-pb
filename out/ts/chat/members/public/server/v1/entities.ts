@@ -79,7 +79,7 @@ export interface Query {
 }
 /**
  * Member represents a participant in a chat.
- * It contains details for identification, associated metadata, associated restrictions, and timestamps marking their chat activity.
+ * It contains details for identification, associated metadata, associated restrictions, and timestamps reflecting its creation and last alteration.
  *
  * @generated from protobuf message members.public.server.v1.Member
  */
@@ -91,7 +91,7 @@ export interface Member {
      */
     id: string;
     /**
-     * Represents the unique identifier associated with the user of this member.
+     * Represents the unique identifier of the user associated with this member.
      *
      * @generated from protobuf field: string user_id = 2;
      */
@@ -148,6 +148,26 @@ export interface Condition {
      * @generated from protobuf field: repeated string chat_ids = 2;
      */
     chatIds: string[];
+}
+/**
+ * Timeframe represents a specific span or duration marked by its commencement and completion times.
+ * It provides a clear boundary to understand when a particular activity began and when it ended.
+ *
+ * @generated from protobuf message members.public.server.v1.Timeframe
+ */
+export interface Timeframe {
+    /**
+     * Represents the timestamp indicating when the activity commenced.
+     *
+     * @generated from protobuf field: int64 commence = 1;
+     */
+    commence: bigint;
+    /**
+     * Represents the timestamp indicating when the activity completed.
+     *
+     * @generated from protobuf field: int64 complete = 2;
+     */
+    complete: bigint;
 }
 /**
  * Restriction represents a particular limitation applied to a member.
@@ -476,6 +496,60 @@ class Condition$Type extends MessageType<Condition> {
  * @generated MessageType for protobuf message members.public.server.v1.Condition
  */
 export const Condition = new Condition$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class Timeframe$Type extends MessageType<Timeframe> {
+    constructor() {
+        super("members.public.server.v1.Timeframe", [
+            { no: 1, name: "commence", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 2, name: "complete", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+        ]);
+    }
+    create(value?: PartialMessage<Timeframe>): Timeframe {
+        const message = { commence: 0n, complete: 0n };
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<Timeframe>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Timeframe): Timeframe {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* int64 commence */ 1:
+                    message.commence = reader.int64().toBigInt();
+                    break;
+                case /* int64 complete */ 2:
+                    message.complete = reader.int64().toBigInt();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: Timeframe, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* int64 commence = 1; */
+        if (message.commence !== 0n)
+            writer.tag(1, WireType.Varint).int64(message.commence);
+        /* int64 complete = 2; */
+        if (message.complete !== 0n)
+            writer.tag(2, WireType.Varint).int64(message.complete);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message members.public.server.v1.Timeframe
+ */
+export const Timeframe = new Timeframe$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class Restriction$Type extends MessageType<Restriction> {
     constructor() {

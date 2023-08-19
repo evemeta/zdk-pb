@@ -29,9 +29,13 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ServiceClient interface {
+	// Count represents a procedure that retrieves the total number of chats based on a specific query.
 	Count(ctx context.Context, in *CountRequest, opts ...grpc.CallOption) (*CountResponse, error)
+	// Range represents a procedure that retrieves a chunk of chats based on a specific query.
 	Range(ctx context.Context, in *RangeRequest, opts ...grpc.CallOption) (*RangeResponse, error)
+	// Select represents a procedure that retrieves specific chats based on a specific query.
 	Select(ctx context.Context, in *SelectRequest, opts ...grpc.CallOption) (*SelectResponse, error)
+	// Context represents a procedure that retrieves the context associated with a specific chat based on its unique identifier.
 	Context(ctx context.Context, in *ContextRequest, opts ...grpc.CallOption) (*ContextResponse, error)
 }
 
@@ -83,9 +87,13 @@ func (c *serviceClient) Context(ctx context.Context, in *ContextRequest, opts ..
 // All implementations must embed UnimplementedServiceServer
 // for forward compatibility
 type ServiceServer interface {
+	// Count represents a procedure that retrieves the total number of chats based on a specific query.
 	Count(context.Context, *CountRequest) (*CountResponse, error)
+	// Range represents a procedure that retrieves a chunk of chats based on a specific query.
 	Range(context.Context, *RangeRequest) (*RangeResponse, error)
+	// Select represents a procedure that retrieves specific chats based on a specific query.
 	Select(context.Context, *SelectRequest) (*SelectResponse, error)
+	// Context represents a procedure that retrieves the context associated with a specific chat based on its unique identifier.
 	Context(context.Context, *ContextRequest) (*ContextResponse, error)
 	mustEmbedUnimplementedServiceServer()
 }

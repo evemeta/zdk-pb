@@ -21,14 +21,20 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// Chunk represents a segmented portion of messages used for pagination or segmented data retrieval.
+// It provides insights about the desired chunk size, its position within the overall dataset, and the actual messages it contains.
 type Chunk struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Size     int64      `protobuf:"varint,1,opt,name=size,proto3" json:"size,omitempty"`
-	Index    int64      `protobuf:"varint,2,opt,name=index,proto3" json:"index,omitempty"`
-	Total    int64      `protobuf:"varint,3,opt,name=total,proto3" json:"total,omitempty"`
+	// Represents the desired size of the chunk, not necessarily the actual number of entities it contains.
+	Size int64 `protobuf:"varint,1,opt,name=size,proto3" json:"size,omitempty"`
+	// Represents the position of this chunk within the context of pagination.
+	Index int64 `protobuf:"varint,2,opt,name=index,proto3" json:"index,omitempty"`
+	// Represents the total count of entities across all chunks.
+	Total int64 `protobuf:"varint,3,opt,name=total,proto3" json:"total,omitempty"`
+	// Represents the actual messages included in this chunk.
 	Entities []*Message `protobuf:"bytes,4,rep,name=entities,proto3" json:"entities,omitempty"`
 }
 
@@ -92,14 +98,20 @@ func (x *Chunk) GetEntities() []*Message {
 	return nil
 }
 
+// Query represents a structure designed to facilitate specific and conditional data retrieval.
+// It contains order specifications, limitations on the number of results, and conditions to filter data.
 type Query struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Order     Order      `protobuf:"varint,1,opt,name=order,proto3,enum=messages.public.server.v1.Order" json:"order,omitempty"`
-	Limit     int64      `protobuf:"varint,2,opt,name=limit,proto3" json:"limit,omitempty"`
-	Offset    int64      `protobuf:"varint,3,opt,name=offset,proto3" json:"offset,omitempty"`
+	// Represents the order in which results should be retrieved.
+	Order Order `protobuf:"varint,1,opt,name=order,proto3,enum=messages.public.server.v1.Order" json:"order,omitempty"`
+	// Represents the maximum number of results to be fetched.
+	Limit int64 `protobuf:"varint,2,opt,name=limit,proto3" json:"limit,omitempty"`
+	// Represents the starting point from which to retrieve results.
+	Offset int64 `protobuf:"varint,3,opt,name=offset,proto3" json:"offset,omitempty"`
+	// Represents the set of conditions that filter the data retrieval process.
 	Condition *Condition `protobuf:"bytes,4,opt,name=condition,proto3" json:"condition,omitempty"`
 }
 
@@ -163,18 +175,27 @@ func (x *Query) GetCondition() *Condition {
 	return nil
 }
 
+// Message represents an individual piece of communication within a chat.
+// It contains details for identification, associated content, associated metadata, and timestamps reflecting its creation and last alteration.
 type Message struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id         string            `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	UserId     string            `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	ChatId     string            `protobuf:"bytes,3,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
-	Content    string            `protobuf:"bytes,4,opt,name=content,proto3" json:"content,omitempty"`
-	Metadata   map[string]string `protobuf:"bytes,5,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
-	CreateTime int64             `protobuf:"varint,6,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
-	UpdateTime int64             `protobuf:"varint,7,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	// Represents the unique identifier for this message.
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Represents the unique identifier of the user associated with this message.
+	UserId string `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	// Represents the unique identifier of the chat in which this message exists.
+	ChatId string `protobuf:"bytes,3,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
+	// Represents the textual content of this message.
+	Content string `protobuf:"bytes,4,opt,name=content,proto3" json:"content,omitempty"`
+	// Represents a collection of key-value pairs providing additional context or information about this message.
+	Metadata map[string]string `protobuf:"bytes,5,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	// Represents the timestamp indicating when this message was sent.
+	CreateTime int64 `protobuf:"varint,6,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	// Represents the timestamp of the last update associated with this message.
+	UpdateTime int64 `protobuf:"varint,7,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 }
 
 func (x *Message) Reset() {
@@ -258,12 +279,16 @@ func (x *Message) GetUpdateTime() int64 {
 	return 0
 }
 
+// Condition represents a set of criteria designed to filter data during retrieval.
+// It provides mechanisms to specifically target messages based on identifiers or chat affiliations.
 type Condition struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Ids     []string `protobuf:"bytes,1,rep,name=ids,proto3" json:"ids,omitempty"`
+	// Represents a list of message identifiers for targeted data retrieval.
+	Ids []string `protobuf:"bytes,1,rep,name=ids,proto3" json:"ids,omitempty"`
+	// Represents a list of chat identifiers to filter messages based on their association.
 	ChatIds []string `protobuf:"bytes,2,rep,name=chat_ids,json=chatIds,proto3" json:"chat_ids,omitempty"`
 }
 
@@ -311,6 +336,65 @@ func (x *Condition) GetChatIds() []string {
 		return x.ChatIds
 	}
 	return nil
+}
+
+// Timeframe represents a specific span or duration marked by its commencement and completion times.
+// It provides a clear boundary to understand when a particular activity began and when it ended.
+type Timeframe struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Represents the timestamp indicating when the activity commenced.
+	Commence int64 `protobuf:"varint,1,opt,name=commence,proto3" json:"commence,omitempty"`
+	// Represents the timestamp indicating when the activity completed.
+	Complete int64 `protobuf:"varint,2,opt,name=complete,proto3" json:"complete,omitempty"`
+}
+
+func (x *Timeframe) Reset() {
+	*x = Timeframe{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_chat_messages_public_server_v1_entities_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Timeframe) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Timeframe) ProtoMessage() {}
+
+func (x *Timeframe) ProtoReflect() protoreflect.Message {
+	mi := &file_chat_messages_public_server_v1_entities_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Timeframe.ProtoReflect.Descriptor instead.
+func (*Timeframe) Descriptor() ([]byte, []int) {
+	return file_chat_messages_public_server_v1_entities_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *Timeframe) GetCommence() int64 {
+	if x != nil {
+		return x.Commence
+	}
+	return 0
+}
+
+func (x *Timeframe) GetComplete() int64 {
+	if x != nil {
+		return x.Complete
+	}
+	return 0
 }
 
 var File_chat_messages_public_server_v1_entities_proto protoreflect.FileDescriptor
@@ -369,12 +453,17 @@ var file_chat_messages_public_server_v1_entities_proto_rawDesc = []byte{
 	0x64, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x10, 0x0a, 0x03, 0x69, 0x64, 0x73, 0x18, 0x01, 0x20,
 	0x03, 0x28, 0x09, 0x52, 0x03, 0x69, 0x64, 0x73, 0x12, 0x19, 0x0a, 0x08, 0x63, 0x68, 0x61, 0x74,
 	0x5f, 0x69, 0x64, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x09, 0x52, 0x07, 0x63, 0x68, 0x61, 0x74,
-	0x49, 0x64, 0x73, 0x42, 0x4f, 0x5a, 0x4a, 0x67, 0x69, 0x74, 0x6c, 0x61, 0x62, 0x2e, 0x63, 0x6f,
-	0x6d, 0x2f, 0x65, 0x76, 0x65, 0x6d, 0x65, 0x74, 0x61, 0x2f, 0x7a, 0x64, 0x6b, 0x2f, 0x70, 0x62,
-	0x2f, 0x6f, 0x75, 0x74, 0x2f, 0x67, 0x6f, 0x2f, 0x63, 0x68, 0x61, 0x74, 0x2f, 0x6d, 0x65, 0x73,
-	0x73, 0x61, 0x67, 0x65, 0x73, 0x2f, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2f, 0x73, 0x65, 0x72,
-	0x76, 0x65, 0x72, 0x2f, 0x76, 0x31, 0x3b, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x70,
-	0x62, 0x92, 0x41, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x49, 0x64, 0x73, 0x22, 0x43, 0x0a, 0x09, 0x54, 0x69, 0x6d, 0x65, 0x66, 0x72, 0x61, 0x6d, 0x65,
+	0x12, 0x1a, 0x0a, 0x08, 0x63, 0x6f, 0x6d, 0x6d, 0x65, 0x6e, 0x63, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x03, 0x52, 0x08, 0x63, 0x6f, 0x6d, 0x6d, 0x65, 0x6e, 0x63, 0x65, 0x12, 0x1a, 0x0a, 0x08,
+	0x63, 0x6f, 0x6d, 0x70, 0x6c, 0x65, 0x74, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x08,
+	0x63, 0x6f, 0x6d, 0x70, 0x6c, 0x65, 0x74, 0x65, 0x42, 0x4f, 0x5a, 0x4a, 0x67, 0x69, 0x74, 0x6c,
+	0x61, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x65, 0x76, 0x65, 0x6d, 0x65, 0x74, 0x61, 0x2f, 0x7a,
+	0x64, 0x6b, 0x2f, 0x70, 0x62, 0x2f, 0x6f, 0x75, 0x74, 0x2f, 0x67, 0x6f, 0x2f, 0x63, 0x68, 0x61,
+	0x74, 0x2f, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x2f, 0x70, 0x75, 0x62, 0x6c, 0x69,
+	0x63, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2f, 0x76, 0x31, 0x3b, 0x6d, 0x65, 0x73, 0x73,
+	0x61, 0x67, 0x65, 0x73, 0x70, 0x62, 0x92, 0x41, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x33,
 }
 
 var (
@@ -389,20 +478,21 @@ func file_chat_messages_public_server_v1_entities_proto_rawDescGZIP() []byte {
 	return file_chat_messages_public_server_v1_entities_proto_rawDescData
 }
 
-var file_chat_messages_public_server_v1_entities_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_chat_messages_public_server_v1_entities_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_chat_messages_public_server_v1_entities_proto_goTypes = []interface{}{
 	(*Chunk)(nil),     // 0: messages.public.server.v1.Chunk
 	(*Query)(nil),     // 1: messages.public.server.v1.Query
 	(*Message)(nil),   // 2: messages.public.server.v1.Message
 	(*Condition)(nil), // 3: messages.public.server.v1.Condition
-	nil,               // 4: messages.public.server.v1.Message.MetadataEntry
-	(Order)(0),        // 5: messages.public.server.v1.Order
+	(*Timeframe)(nil), // 4: messages.public.server.v1.Timeframe
+	nil,               // 5: messages.public.server.v1.Message.MetadataEntry
+	(Order)(0),        // 6: messages.public.server.v1.Order
 }
 var file_chat_messages_public_server_v1_entities_proto_depIdxs = []int32{
 	2, // 0: messages.public.server.v1.Chunk.entities:type_name -> messages.public.server.v1.Message
-	5, // 1: messages.public.server.v1.Query.order:type_name -> messages.public.server.v1.Order
+	6, // 1: messages.public.server.v1.Query.order:type_name -> messages.public.server.v1.Order
 	3, // 2: messages.public.server.v1.Query.condition:type_name -> messages.public.server.v1.Condition
-	4, // 3: messages.public.server.v1.Message.metadata:type_name -> messages.public.server.v1.Message.MetadataEntry
+	5, // 3: messages.public.server.v1.Message.metadata:type_name -> messages.public.server.v1.Message.MetadataEntry
 	4, // [4:4] is the sub-list for method output_type
 	4, // [4:4] is the sub-list for method input_type
 	4, // [4:4] is the sub-list for extension type_name
@@ -465,6 +555,18 @@ func file_chat_messages_public_server_v1_entities_proto_init() {
 				return nil
 			}
 		}
+		file_chat_messages_public_server_v1_entities_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*Timeframe); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -472,7 +574,7 @@ func file_chat_messages_public_server_v1_entities_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_chat_messages_public_server_v1_entities_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

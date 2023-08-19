@@ -20,18 +20,26 @@ import type { RpcOptions } from "@protobuf-ts/runtime-rpc";
  */
 export interface IServiceClient {
     /**
+     * Count represents a procedure that retrieves the total number of chats based on a specific query.
+     *
      * @generated from protobuf rpc: Count(chats.public.server.v1.CountRequest) returns (chats.public.server.v1.CountResponse);
      */
     count(input: CountRequest, options?: RpcOptions): UnaryCall<CountRequest, CountResponse>;
     /**
+     * Range represents a procedure that retrieves a chunk of chats based on a specific query.
+     *
      * @generated from protobuf rpc: Range(chats.public.server.v1.RangeRequest) returns (chats.public.server.v1.RangeResponse);
      */
     range(input: RangeRequest, options?: RpcOptions): UnaryCall<RangeRequest, RangeResponse>;
     /**
+     * Select represents a procedure that retrieves specific chats based on a specific query.
+     *
      * @generated from protobuf rpc: Select(chats.public.server.v1.SelectRequest) returns (chats.public.server.v1.SelectResponse);
      */
     select(input: SelectRequest, options?: RpcOptions): UnaryCall<SelectRequest, SelectResponse>;
     /**
+     * Context represents a procedure that retrieves the context associated with a specific chat based on its unique identifier.
+     *
      * @generated from protobuf rpc: Context(chats.public.server.v1.ContextRequest) returns (chats.public.server.v1.ContextResponse);
      */
     context(input: ContextRequest, options?: RpcOptions): UnaryCall<ContextRequest, ContextResponse>;
@@ -46,6 +54,8 @@ export class ServiceClient implements IServiceClient, ServiceInfo {
     constructor(private readonly _transport: RpcTransport) {
     }
     /**
+     * Count represents a procedure that retrieves the total number of chats based on a specific query.
+     *
      * @generated from protobuf rpc: Count(chats.public.server.v1.CountRequest) returns (chats.public.server.v1.CountResponse);
      */
     count(input: CountRequest, options?: RpcOptions): UnaryCall<CountRequest, CountResponse> {
@@ -53,6 +63,8 @@ export class ServiceClient implements IServiceClient, ServiceInfo {
         return stackIntercept<CountRequest, CountResponse>("unary", this._transport, method, opt, input);
     }
     /**
+     * Range represents a procedure that retrieves a chunk of chats based on a specific query.
+     *
      * @generated from protobuf rpc: Range(chats.public.server.v1.RangeRequest) returns (chats.public.server.v1.RangeResponse);
      */
     range(input: RangeRequest, options?: RpcOptions): UnaryCall<RangeRequest, RangeResponse> {
@@ -60,6 +72,8 @@ export class ServiceClient implements IServiceClient, ServiceInfo {
         return stackIntercept<RangeRequest, RangeResponse>("unary", this._transport, method, opt, input);
     }
     /**
+     * Select represents a procedure that retrieves specific chats based on a specific query.
+     *
      * @generated from protobuf rpc: Select(chats.public.server.v1.SelectRequest) returns (chats.public.server.v1.SelectResponse);
      */
     select(input: SelectRequest, options?: RpcOptions): UnaryCall<SelectRequest, SelectResponse> {
@@ -67,6 +81,8 @@ export class ServiceClient implements IServiceClient, ServiceInfo {
         return stackIntercept<SelectRequest, SelectResponse>("unary", this._transport, method, opt, input);
     }
     /**
+     * Context represents a procedure that retrieves the context associated with a specific chat based on its unique identifier.
+     *
      * @generated from protobuf rpc: Context(chats.public.server.v1.ContextRequest) returns (chats.public.server.v1.ContextResponse);
      */
     context(input: ContextRequest, options?: RpcOptions): UnaryCall<ContextRequest, ContextResponse> {

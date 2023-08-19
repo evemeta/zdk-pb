@@ -21,11 +21,13 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// CountRequest represents a message designed to count messages based on a given query.
 type CountRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Represents the specifications and conditions under which messages should be counted.
 	Query *Query `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
 }
 
@@ -68,11 +70,13 @@ func (x *CountRequest) GetQuery() *Query {
 	return nil
 }
 
+// CountResponse represents a message that provides the result of the count procedure.
 type CountResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Represents the total number of messages that match the criteria of the given query.
 	Total int64 `protobuf:"varint,1,opt,name=total,proto3" json:"total,omitempty"`
 }
 
@@ -115,11 +119,13 @@ func (x *CountResponse) GetTotal() int64 {
 	return 0
 }
 
+// SelectRequest represents a message designed to retrieve specific messages based on a given query.
 type SelectRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Represents the specifications and conditions under which particular messages should be retrieved.
 	Query *Query `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
 }
 
@@ -162,11 +168,13 @@ func (x *SelectRequest) GetQuery() *Query {
 	return nil
 }
 
+// SelectResponse represents a message that provides the result of the select procedure.
 type SelectResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Represents a list of messages that match the criteria of the given query.
 	Messages []*Message `protobuf:"bytes,1,rep,name=messages,proto3" json:"messages,omitempty"`
 }
 
@@ -209,11 +217,13 @@ func (x *SelectResponse) GetMessages() []*Message {
 	return nil
 }
 
+// RangeRequest represents a message designed to retrieve a chunk of messages based on a given query.
 type RangeRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Represents the specifications and conditions under which a chunk of messages should be retrieved.
 	Query *Query `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
 }
 
@@ -256,11 +266,13 @@ func (x *RangeRequest) GetQuery() *Query {
 	return nil
 }
 
+// RangeResponse represents a message that provides the result of the range procedure.
 type RangeResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Represents a chunk of messages that match the criteria of the given query.
 	Chunk *Chunk `protobuf:"bytes,1,opt,name=chunk,proto3" json:"chunk,omitempty"`
 }
 
@@ -303,12 +315,15 @@ func (x *RangeResponse) GetChunk() *Chunk {
 	return nil
 }
 
+// CreateRequest represents a message designed to create a new message.
 type CreateRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	ChatId  string `protobuf:"bytes,1,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
+	// Represents the unique identifier of the chat in which the message will be created.
+	ChatId string `protobuf:"bytes,1,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
+	// Represents the textual content of the message.
 	Content string `protobuf:"bytes,2,opt,name=content,proto3" json:"content,omitempty"`
 }
 
@@ -358,11 +373,13 @@ func (x *CreateRequest) GetContent() string {
 	return ""
 }
 
+// RangeResponse represents a message that provides the result of the create procedure.
 type CreateResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Represents the comprehensive details of the created message.
 	Message *Message `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
 }
 
@@ -405,12 +422,15 @@ func (x *CreateResponse) GetMessage() *Message {
 	return nil
 }
 
+// UpdateRequest represents a message designed to update a specific message based on its unique identifier.
 type UpdateRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id      string          `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Represents the unique identifier of the message intended to be updated.
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Represents a new content associated with the message. It may be absent if no content changes are necessary.
 	Content *OptionalString `protobuf:"bytes,2,opt,name=content,proto3,oneof" json:"content,omitempty"`
 }
 
@@ -460,11 +480,13 @@ func (x *UpdateRequest) GetContent() *OptionalString {
 	return nil
 }
 
+// RangeResponse represents a message that provides the result of the update procedure.
 type UpdateResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Represents the comprehensive details of the updated message.
 	Message *Message `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
 }
 
@@ -507,11 +529,13 @@ func (x *UpdateResponse) GetMessage() *Message {
 	return nil
 }
 
+// DeleteRequest represents a message designed to delete a specific message based on its unique identifier.
 type DeleteRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Represents the unique identifier of the message intended to be deleted.
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
@@ -554,11 +578,13 @@ func (x *DeleteRequest) GetId() string {
 	return ""
 }
 
+// RangeResponse represents a message that provides the result of the delete procedure.
 type DeleteResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Represents the comprehensive details of the deleted message.
 	Message *Message `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
 }
 

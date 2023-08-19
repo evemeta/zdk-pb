@@ -10,6 +10,7 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 service Service {
 
+    // Count represents a procedure that retrieves the total number of messages based on a specific query.
     rpc Count(CountRequest) returns (CountResponse) {
         option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
             description: "Description: Count";
@@ -18,6 +19,7 @@ service Service {
         };
     }
 
+    // Range represents a procedure that retrieves a chunk of messages based on a specific query.
     rpc Range(RangeRequest) returns (RangeResponse) {
         option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
             description: "Description: Range";
@@ -26,6 +28,7 @@ service Service {
         };
     }
 
+    // Select represents a procedure that retrieves specific messages based on a specific query.
     rpc Select(SelectRequest) returns (SelectResponse) {
         option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
             description: "Description: Select";
@@ -34,6 +37,7 @@ service Service {
         };
     }
 
+    // Create represents a procedure that creates a new message.
     rpc Create(CreateRequest) returns (CreateResponse) {
         option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
             description: "Description: Create";
@@ -42,6 +46,7 @@ service Service {
         };
     }
 
+    // Update represents a procedure that updates a specific message based on its unique identifier.
     rpc Update(UpdateRequest) returns (UpdateResponse) {
         option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
             description: "Description: Update";
@@ -50,6 +55,7 @@ service Service {
         };
     }
 
+    // Delete represents a procedure that deletes a specific message based on its unique identifier.
     rpc Delete(DeleteRequest) returns (DeleteResponse) {
         option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
             description: "Description: Delete";

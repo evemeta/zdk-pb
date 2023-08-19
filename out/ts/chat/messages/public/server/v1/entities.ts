@@ -13,94 +13,160 @@ import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
 import { Order } from "./enums";
 /**
+ * Chunk represents a segmented portion of messages used for pagination or segmented data retrieval.
+ * It provides insights about the desired chunk size, its position within the overall dataset, and the actual messages it contains.
+ *
  * @generated from protobuf message messages.public.server.v1.Chunk
  */
 export interface Chunk {
     /**
+     * Represents the desired size of the chunk, not necessarily the actual number of entities it contains.
+     *
      * @generated from protobuf field: int64 size = 1;
      */
     size: bigint;
     /**
+     * Represents the position of this chunk within the context of pagination.
+     *
      * @generated from protobuf field: int64 index = 2;
      */
     index: bigint;
     /**
+     * Represents the total count of entities across all chunks.
+     *
      * @generated from protobuf field: int64 total = 3;
      */
     total: bigint;
     /**
+     * Represents the actual messages included in this chunk.
+     *
      * @generated from protobuf field: repeated messages.public.server.v1.Message entities = 4;
      */
     entities: Message[];
 }
 /**
+ * Query represents a structure designed to facilitate specific and conditional data retrieval.
+ * It contains order specifications, limitations on the number of results, and conditions to filter data.
+ *
  * @generated from protobuf message messages.public.server.v1.Query
  */
 export interface Query {
     /**
+     * Represents the order in which results should be retrieved.
+     *
      * @generated from protobuf field: messages.public.server.v1.Order order = 1;
      */
     order: Order;
     /**
+     * Represents the maximum number of results to be fetched.
+     *
      * @generated from protobuf field: int64 limit = 2;
      */
     limit: bigint;
     /**
+     * Represents the starting point from which to retrieve results.
+     *
      * @generated from protobuf field: int64 offset = 3;
      */
     offset: bigint;
     /**
+     * Represents the set of conditions that filter the data retrieval process.
+     *
      * @generated from protobuf field: messages.public.server.v1.Condition condition = 4;
      */
     condition?: Condition;
 }
 /**
+ * Message represents an individual piece of communication within a chat.
+ * It contains details for identification, associated content, associated metadata, and timestamps reflecting its creation and last alteration.
+ *
  * @generated from protobuf message messages.public.server.v1.Message
  */
 export interface Message {
     /**
+     * Represents the unique identifier for this message.
+     *
      * @generated from protobuf field: string id = 1;
      */
     id: string;
     /**
+     * Represents the unique identifier of the user associated with this message.
+     *
      * @generated from protobuf field: string user_id = 2;
      */
     userId: string;
     /**
+     * Represents the unique identifier of the chat in which this message exists.
+     *
      * @generated from protobuf field: string chat_id = 3;
      */
     chatId: string;
     /**
+     * Represents the textual content of this message.
+     *
      * @generated from protobuf field: string content = 4;
      */
     content: string;
     /**
+     * Represents a collection of key-value pairs providing additional context or information about this message.
+     *
      * @generated from protobuf field: map<string, string> metadata = 5;
      */
     metadata: {
         [key: string]: string;
     };
     /**
+     * Represents the timestamp indicating when this message was sent.
+     *
      * @generated from protobuf field: int64 create_time = 6;
      */
     createTime: bigint;
     /**
+     * Represents the timestamp of the last update associated with this message.
+     *
      * @generated from protobuf field: int64 update_time = 7;
      */
     updateTime: bigint;
 }
 /**
+ * Condition represents a set of criteria designed to filter data during retrieval.
+ * It provides mechanisms to specifically target messages based on identifiers or chat affiliations.
+ *
  * @generated from protobuf message messages.public.server.v1.Condition
  */
 export interface Condition {
     /**
+     * Represents a list of message identifiers for targeted data retrieval.
+     *
      * @generated from protobuf field: repeated string ids = 1;
      */
     ids: string[];
     /**
+     * Represents a list of chat identifiers to filter messages based on their association.
+     *
      * @generated from protobuf field: repeated string chat_ids = 2;
      */
     chatIds: string[];
+}
+/**
+ * Timeframe represents a specific span or duration marked by its commencement and completion times.
+ * It provides a clear boundary to understand when a particular activity began and when it ended.
+ *
+ * @generated from protobuf message messages.public.server.v1.Timeframe
+ */
+export interface Timeframe {
+    /**
+     * Represents the timestamp indicating when the activity commenced.
+     *
+     * @generated from protobuf field: int64 commence = 1;
+     */
+    commence: bigint;
+    /**
+     * Represents the timestamp indicating when the activity completed.
+     *
+     * @generated from protobuf field: int64 complete = 2;
+     */
+    complete: bigint;
 }
 // @generated message type with reflection information, may provide speed optimized methods
 class Chunk$Type extends MessageType<Chunk> {
@@ -397,3 +463,57 @@ class Condition$Type extends MessageType<Condition> {
  * @generated MessageType for protobuf message messages.public.server.v1.Condition
  */
 export const Condition = new Condition$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class Timeframe$Type extends MessageType<Timeframe> {
+    constructor() {
+        super("messages.public.server.v1.Timeframe", [
+            { no: 1, name: "commence", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 2, name: "complete", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+        ]);
+    }
+    create(value?: PartialMessage<Timeframe>): Timeframe {
+        const message = { commence: 0n, complete: 0n };
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<Timeframe>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Timeframe): Timeframe {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* int64 commence */ 1:
+                    message.commence = reader.int64().toBigInt();
+                    break;
+                case /* int64 complete */ 2:
+                    message.complete = reader.int64().toBigInt();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: Timeframe, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* int64 commence = 1; */
+        if (message.commence !== 0n)
+            writer.tag(1, WireType.Varint).int64(message.commence);
+        /* int64 complete = 2; */
+        if (message.complete !== 0n)
+            writer.tag(2, WireType.Varint).int64(message.complete);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message messages.public.server.v1.Timeframe
+ */
+export const Timeframe = new Timeframe$Type();

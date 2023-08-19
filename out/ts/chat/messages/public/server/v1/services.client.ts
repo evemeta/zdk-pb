@@ -24,26 +24,38 @@ import type { RpcOptions } from "@protobuf-ts/runtime-rpc";
  */
 export interface IServiceClient {
     /**
+     * Count represents a procedure that retrieves the total number of messages based on a specific query.
+     *
      * @generated from protobuf rpc: Count(messages.public.server.v1.CountRequest) returns (messages.public.server.v1.CountResponse);
      */
     count(input: CountRequest, options?: RpcOptions): UnaryCall<CountRequest, CountResponse>;
     /**
+     * Range represents a procedure that retrieves a chunk of messages based on a specific query.
+     *
      * @generated from protobuf rpc: Range(messages.public.server.v1.RangeRequest) returns (messages.public.server.v1.RangeResponse);
      */
     range(input: RangeRequest, options?: RpcOptions): UnaryCall<RangeRequest, RangeResponse>;
     /**
+     * Select represents a procedure that retrieves specific messages based on a specific query.
+     *
      * @generated from protobuf rpc: Select(messages.public.server.v1.SelectRequest) returns (messages.public.server.v1.SelectResponse);
      */
     select(input: SelectRequest, options?: RpcOptions): UnaryCall<SelectRequest, SelectResponse>;
     /**
+     * Create represents a procedure that creates a new message.
+     *
      * @generated from protobuf rpc: Create(messages.public.server.v1.CreateRequest) returns (messages.public.server.v1.CreateResponse);
      */
     create(input: CreateRequest, options?: RpcOptions): UnaryCall<CreateRequest, CreateResponse>;
     /**
+     * Update represents a procedure that updates a specific message based on its unique identifier.
+     *
      * @generated from protobuf rpc: Update(messages.public.server.v1.UpdateRequest) returns (messages.public.server.v1.UpdateResponse);
      */
     update(input: UpdateRequest, options?: RpcOptions): UnaryCall<UpdateRequest, UpdateResponse>;
     /**
+     * Delete represents a procedure that deletes a specific message based on its unique identifier.
+     *
      * @generated from protobuf rpc: Delete(messages.public.server.v1.DeleteRequest) returns (messages.public.server.v1.DeleteResponse);
      */
     delete(input: DeleteRequest, options?: RpcOptions): UnaryCall<DeleteRequest, DeleteResponse>;
@@ -58,6 +70,8 @@ export class ServiceClient implements IServiceClient, ServiceInfo {
     constructor(private readonly _transport: RpcTransport) {
     }
     /**
+     * Count represents a procedure that retrieves the total number of messages based on a specific query.
+     *
      * @generated from protobuf rpc: Count(messages.public.server.v1.CountRequest) returns (messages.public.server.v1.CountResponse);
      */
     count(input: CountRequest, options?: RpcOptions): UnaryCall<CountRequest, CountResponse> {
@@ -65,6 +79,8 @@ export class ServiceClient implements IServiceClient, ServiceInfo {
         return stackIntercept<CountRequest, CountResponse>("unary", this._transport, method, opt, input);
     }
     /**
+     * Range represents a procedure that retrieves a chunk of messages based on a specific query.
+     *
      * @generated from protobuf rpc: Range(messages.public.server.v1.RangeRequest) returns (messages.public.server.v1.RangeResponse);
      */
     range(input: RangeRequest, options?: RpcOptions): UnaryCall<RangeRequest, RangeResponse> {
@@ -72,6 +88,8 @@ export class ServiceClient implements IServiceClient, ServiceInfo {
         return stackIntercept<RangeRequest, RangeResponse>("unary", this._transport, method, opt, input);
     }
     /**
+     * Select represents a procedure that retrieves specific messages based on a specific query.
+     *
      * @generated from protobuf rpc: Select(messages.public.server.v1.SelectRequest) returns (messages.public.server.v1.SelectResponse);
      */
     select(input: SelectRequest, options?: RpcOptions): UnaryCall<SelectRequest, SelectResponse> {
@@ -79,6 +97,8 @@ export class ServiceClient implements IServiceClient, ServiceInfo {
         return stackIntercept<SelectRequest, SelectResponse>("unary", this._transport, method, opt, input);
     }
     /**
+     * Create represents a procedure that creates a new message.
+     *
      * @generated from protobuf rpc: Create(messages.public.server.v1.CreateRequest) returns (messages.public.server.v1.CreateResponse);
      */
     create(input: CreateRequest, options?: RpcOptions): UnaryCall<CreateRequest, CreateResponse> {
@@ -86,6 +106,8 @@ export class ServiceClient implements IServiceClient, ServiceInfo {
         return stackIntercept<CreateRequest, CreateResponse>("unary", this._transport, method, opt, input);
     }
     /**
+     * Update represents a procedure that updates a specific message based on its unique identifier.
+     *
      * @generated from protobuf rpc: Update(messages.public.server.v1.UpdateRequest) returns (messages.public.server.v1.UpdateResponse);
      */
     update(input: UpdateRequest, options?: RpcOptions): UnaryCall<UpdateRequest, UpdateResponse> {
@@ -93,6 +115,8 @@ export class ServiceClient implements IServiceClient, ServiceInfo {
         return stackIntercept<UpdateRequest, UpdateResponse>("unary", this._transport, method, opt, input);
     }
     /**
+     * Delete represents a procedure that deletes a specific message based on its unique identifier.
+     *
      * @generated from protobuf rpc: Delete(messages.public.server.v1.DeleteRequest) returns (messages.public.server.v1.DeleteResponse);
      */
     delete(input: DeleteRequest, options?: RpcOptions): UnaryCall<DeleteRequest, DeleteResponse> {

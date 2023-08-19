@@ -16,117 +16,169 @@ import { Chunk } from "./entities";
 import { Message } from "./entities";
 import { Query } from "./entities";
 /**
+ * CountRequest represents a message designed to count messages based on a given query.
+ *
  * @generated from protobuf message messages.public.server.v1.CountRequest
  */
 export interface CountRequest {
     /**
+     * Represents the specifications and conditions under which messages should be counted.
+     *
      * @generated from protobuf field: messages.public.server.v1.Query query = 1;
      */
     query?: Query;
 }
 /**
+ * CountResponse represents a message that provides the result of the count procedure.
+ *
  * @generated from protobuf message messages.public.server.v1.CountResponse
  */
 export interface CountResponse {
     /**
+     * Represents the total number of messages that match the criteria of the given query.
+     *
      * @generated from protobuf field: int64 total = 1;
      */
     total: bigint;
 }
 /**
+ * SelectRequest represents a message designed to retrieve specific messages based on a given query.
+ *
  * @generated from protobuf message messages.public.server.v1.SelectRequest
  */
 export interface SelectRequest {
     /**
+     * Represents the specifications and conditions under which particular messages should be retrieved.
+     *
      * @generated from protobuf field: messages.public.server.v1.Query query = 1;
      */
     query?: Query;
 }
 /**
+ * SelectResponse represents a message that provides the result of the select procedure.
+ *
  * @generated from protobuf message messages.public.server.v1.SelectResponse
  */
 export interface SelectResponse {
     /**
+     * Represents a list of messages that match the criteria of the given query.
+     *
      * @generated from protobuf field: repeated messages.public.server.v1.Message messages = 1;
      */
     messages: Message[];
 }
 /**
+ * RangeRequest represents a message designed to retrieve a chunk of messages based on a given query.
+ *
  * @generated from protobuf message messages.public.server.v1.RangeRequest
  */
 export interface RangeRequest {
     /**
+     * Represents the specifications and conditions under which a chunk of messages should be retrieved.
+     *
      * @generated from protobuf field: messages.public.server.v1.Query query = 1;
      */
     query?: Query;
 }
 /**
+ * RangeResponse represents a message that provides the result of the range procedure.
+ *
  * @generated from protobuf message messages.public.server.v1.RangeResponse
  */
 export interface RangeResponse {
     /**
+     * Represents a chunk of messages that match the criteria of the given query.
+     *
      * @generated from protobuf field: messages.public.server.v1.Chunk chunk = 1;
      */
     chunk?: Chunk;
 }
 /**
+ * CreateRequest represents a message designed to create a new message.
+ *
  * @generated from protobuf message messages.public.server.v1.CreateRequest
  */
 export interface CreateRequest {
     /**
+     * Represents the unique identifier of the chat in which the message will be created.
+     *
      * @generated from protobuf field: string chat_id = 1;
      */
     chatId: string;
     /**
+     * Represents the textual content of the message.
+     *
      * @generated from protobuf field: string content = 2;
      */
     content: string;
 }
 /**
+ * RangeResponse represents a message that provides the result of the create procedure.
+ *
  * @generated from protobuf message messages.public.server.v1.CreateResponse
  */
 export interface CreateResponse {
     /**
+     * Represents the comprehensive details of the created message.
+     *
      * @generated from protobuf field: messages.public.server.v1.Message message = 1;
      */
     message?: Message;
 }
 /**
+ * UpdateRequest represents a message designed to update a specific message based on its unique identifier.
+ *
  * @generated from protobuf message messages.public.server.v1.UpdateRequest
  */
 export interface UpdateRequest {
     /**
+     * Represents the unique identifier of the message intended to be updated.
+     *
      * @generated from protobuf field: string id = 1;
      */
     id: string;
     /**
+     * Represents a new content associated with the message. It may be absent if no content changes are necessary.
+     *
      * @generated from protobuf field: optional messages.public.server.v1.OptionalString content = 2;
      */
     content?: OptionalString;
 }
 /**
+ * RangeResponse represents a message that provides the result of the update procedure.
+ *
  * @generated from protobuf message messages.public.server.v1.UpdateResponse
  */
 export interface UpdateResponse {
     /**
+     * Represents the comprehensive details of the updated message.
+     *
      * @generated from protobuf field: messages.public.server.v1.Message message = 1;
      */
     message?: Message;
 }
 /**
+ * DeleteRequest represents a message designed to delete a specific message based on its unique identifier.
+ *
  * @generated from protobuf message messages.public.server.v1.DeleteRequest
  */
 export interface DeleteRequest {
     /**
+     * Represents the unique identifier of the message intended to be deleted.
+     *
      * @generated from protobuf field: string id = 1;
      */
     id: string;
 }
 /**
+ * RangeResponse represents a message that provides the result of the delete procedure.
+ *
  * @generated from protobuf message messages.public.server.v1.DeleteResponse
  */
 export interface DeleteResponse {
     /**
+     * Represents the comprehensive details of the deleted message.
+     *
      * @generated from protobuf field: messages.public.server.v1.Message message = 1;
      */
     message?: Message;

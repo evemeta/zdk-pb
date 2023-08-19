@@ -16,73 +16,105 @@ import { Chunk } from "./entities";
 import { Chat } from "./entities";
 import { Query } from "./entities";
 /**
+ * CountRequest represents a message designed to count chats based on a given query.
+ *
  * @generated from protobuf message chats.public.server.v1.CountRequest
  */
 export interface CountRequest {
     /**
+     * Represents the specifications and conditions under which chats should be counted.
+     *
      * @generated from protobuf field: chats.public.server.v1.Query query = 1;
      */
     query?: Query;
 }
 /**
+ * CountResponse represents a message that provides the result of the count procedure.
+ *
  * @generated from protobuf message chats.public.server.v1.CountResponse
  */
 export interface CountResponse {
     /**
+     * Represents the total number of chats that match the criteria of the given query.
+     *
      * @generated from protobuf field: int64 total = 1;
      */
     total: bigint;
 }
 /**
+ * SelectRequest represents a message designed to retrieve specific chats based on a given query.
+ *
  * @generated from protobuf message chats.public.server.v1.SelectRequest
  */
 export interface SelectRequest {
     /**
+     * Represents the specifications and conditions under which particular chats should be retrieved.
+     *
      * @generated from protobuf field: chats.public.server.v1.Query query = 1;
      */
     query?: Query;
 }
 /**
+ * SelectResponse represents a message that provides the result of the select procedure.
+ *
  * @generated from protobuf message chats.public.server.v1.SelectResponse
  */
 export interface SelectResponse {
     /**
+     * Represents a list of chats that match the criteria of the given query.
+     *
      * @generated from protobuf field: repeated chats.public.server.v1.Chat chats = 1;
      */
     chats: Chat[];
 }
 /**
+ * RangeRequest represents a message designed to retrieve a chunk of chats based on a given query.
+ *
  * @generated from protobuf message chats.public.server.v1.RangeRequest
  */
 export interface RangeRequest {
     /**
+     * Represents the specifications and conditions under which a chunk of chats should be retrieved.
+     *
      * @generated from protobuf field: chats.public.server.v1.Query query = 1;
      */
     query?: Query;
 }
 /**
+ * RangeResponse represents a message that provides the result of the range procedure.
+ *
  * @generated from protobuf message chats.public.server.v1.RangeResponse
  */
 export interface RangeResponse {
     /**
+     * Represents a chunk of chats that match the criteria of the given query.
+     *
      * @generated from protobuf field: chats.public.server.v1.Chunk chunk = 1;
      */
     chunk?: Chunk;
 }
 /**
+ * ContextRequest represents a message designed to retrieve the context associated with a specific chat based on its unique identifier.
+ *
  * @generated from protobuf message chats.public.server.v1.ContextRequest
  */
 export interface ContextRequest {
     /**
+     * Represents the unique identifier for the chat whose context is to be retrieved.
+     *
      * @generated from protobuf field: string id = 1;
      */
     id: string;
 }
 /**
+ * ContextResponse represents a message that provides the result of the context procedure.
+ *
  * @generated from protobuf message chats.public.server.v1.ContextResponse
  */
 export interface ContextResponse {
     /**
+     * Represents the snapshot of the chat, including its current state corresponding to the unique identifier specified in the request.
+     *
      * @generated from protobuf field: chats.public.server.v1.Context context = 1;
      */
     context?: Context;

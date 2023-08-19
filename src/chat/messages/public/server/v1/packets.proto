@@ -9,27 +9,37 @@ import "protoc-gen-openapiv2/options/annotations.proto";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/messages/public/server/v1;messagespb";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
-// CreateMessagePacket is a notification sent to clients when a new message has been created in a chat.
-// It includes details about the new message and the timestamp of the event.
+// CreateMessagePacket is a notification sent to clients when a new message has been created.
+// It provides the details of the message and the relevant timeframe associated with the event.
 message CreateMessagePacket {
+    // Represents the comprehensive details of the newly created message.
     messages.public.server.v1.Message message = 1;
-    int64 timestamp = 2;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+    messages.public.server.v1.Timeframe timeframe = 2;
 }
 
-// UpdateMessagePacket is a notification sent to clients when a message has been updated in a chat.
-// It includes the message ID, associated chat ID, updated content and metadata if any, along with the timestamp of the update.
+// UpdateMessagePacket is a notification sent to clients when a message has been updated.
+// It provides the identifier of the message and its associated chat, updated details, and the relevant timeframe of the update.
 message UpdateMessagePacket {
+    // Represents the unique identifier of the message.
     string id = 1;
+    // Represents the unique identifier of the chat in which the message was updated.
     string chat_id = 2;
+    // Represents a new or updated content associated with the message. It may be absent if no content changes occurred.
     optional messages.public.server.v1.OptionalString content = 3;
+    // Represents a new or updated metadata associated with the message. It may be absent if no metadata changes occurred.
     optional messages.public.server.v1.OptionalMap metadata = 4;
-    int64 timestamp = 5;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+    messages.public.server.v1.Timeframe timeframe = 5;
 }
 
-// DeleteMessagePacket is a notification sent to clients when a message has been deleted from a chat.
-// It includes the message ID, associated chat ID and the timestamp of the event.
+// DeleteMessagePacket is a notification sent to clients when a message has been deleted.
+// It provides the identifier of the message and its associated chat, and the relevant timeframe associated with the deletion.
 message DeleteMessagePacket {
+    // Represents the unique identifier of the message.
     string id = 1;
+    // Represents the unique identifier of the chat in which the message was deleted.
     string chat_id = 2;
-    int64  timestamp = 3;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+    messages.public.server.v1.Timeframe timeframe = 3;
 }

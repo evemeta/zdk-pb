@@ -174,7 +174,7 @@ type SelectResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Represents a list of chat members that match the criteria of the given query.
+	// Represents a list of members that match the criteria of the given query.
 	Members []*Member `protobuf:"bytes,1,rep,name=members,proto3" json:"members,omitempty"`
 }
 

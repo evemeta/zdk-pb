@@ -28,7 +28,7 @@ message SelectRequest {
 
 // SelectResponse represents a message that provides the result of the select procedure.
 message SelectResponse {
-    // Represents a list of chat members that match the criteria of the given query.
+    // Represents a list of members that match the criteria of the given query.
     repeated members.public.server.v1.Member members = 1;
 }
 

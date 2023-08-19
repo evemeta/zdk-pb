@@ -21,11 +21,13 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// CountRequest represents a message designed to count chats based on a given query.
 type CountRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Represents the specifications and conditions under which chats should be counted.
 	Query *Query `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
 }
 
@@ -68,11 +70,13 @@ func (x *CountRequest) GetQuery() *Query {
 	return nil
 }
 
+// CountResponse represents a message that provides the result of the count procedure.
 type CountResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Represents the total number of chats that match the criteria of the given query.
 	Total int64 `protobuf:"varint,1,opt,name=total,proto3" json:"total,omitempty"`
 }
 
@@ -115,11 +119,13 @@ func (x *CountResponse) GetTotal() int64 {
 	return 0
 }
 
+// SelectRequest represents a message designed to retrieve specific chats based on a given query.
 type SelectRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Represents the specifications and conditions under which particular chats should be retrieved.
 	Query *Query `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
 }
 
@@ -162,11 +168,13 @@ func (x *SelectRequest) GetQuery() *Query {
 	return nil
 }
 
+// SelectResponse represents a message that provides the result of the select procedure.
 type SelectResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Represents a list of chats that match the criteria of the given query.
 	Chats []*Chat `protobuf:"bytes,1,rep,name=chats,proto3" json:"chats,omitempty"`
 }
 
@@ -209,11 +217,13 @@ func (x *SelectResponse) GetChats() []*Chat {
 	return nil
 }
 
+// RangeRequest represents a message designed to retrieve a chunk of chats based on a given query.
 type RangeRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Represents the specifications and conditions under which a chunk of chats should be retrieved.
 	Query *Query `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
 }
 
@@ -256,11 +266,13 @@ func (x *RangeRequest) GetQuery() *Query {
 	return nil
 }
 
+// RangeResponse represents a message that provides the result of the range procedure.
 type RangeResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Represents a chunk of chats that match the criteria of the given query.
 	Chunk *Chunk `protobuf:"bytes,1,opt,name=chunk,proto3" json:"chunk,omitempty"`
 }
 
@@ -303,11 +315,13 @@ func (x *RangeResponse) GetChunk() *Chunk {
 	return nil
 }
 
+// ContextRequest represents a message designed to retrieve the context associated with a specific chat based on its unique identifier.
 type ContextRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Represents the unique identifier for the chat whose context is to be retrieved.
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
@@ -350,11 +364,13 @@ func (x *ContextRequest) GetId() string {
 	return ""
 }
 
+// ContextResponse represents a message that provides the result of the context procedure.
 type ContextResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Represents the snapshot of the chat, including its current state corresponding to the unique identifier specified in the request.
 	Context *Context `protobuf:"bytes,1,opt,name=context,proto3" json:"context,omitempty"`
 }
 

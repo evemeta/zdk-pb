@@ -35,11 +35,11 @@ message Query {
 }
 
 // Member represents a participant in a chat.
-// It contains details for identification, associated metadata, associated restrictions, and timestamps marking their chat activity.
+// It contains details for identification, associated metadata, associated restrictions, and timestamps reflecting its creation and last alteration.
 message Member {
     // Represents the unique identifier for this member.
     string id = 1;
-    // Represents the unique identifier associated with the user of this member.
+    // Represents the unique identifier of the user associated with this member.
     string user_id = 2;
     // Represents the unique identifier of the chat in which this member exists.
     string chat_id = 3;
@@ -60,6 +60,15 @@ message Condition {
     repeated string ids = 1;
     // Represents a list of chat identifiers to filter members based on their association.
     repeated string chat_ids = 2;
+}
+
+// Timeframe represents a specific span or duration marked by its commencement and completion times.
+// It provides a clear boundary to understand when a particular activity began and when it ended.
+message Timeframe {
+    // Represents the timestamp indicating when the activity or retrieve of data commenced.
+    int64 commence = 1;
+    // Represents the timestamp indicating when the activity or retrieve of data completed.
+    int64 complete = 2;
 }
 
 // Restriction represents a particular limitation applied to a member.

@@ -31,11 +31,17 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ServiceClient interface {
+	// Count represents a procedure that retrieves the total number of messages based on a specific query.
 	Count(ctx context.Context, in *CountRequest, opts ...grpc.CallOption) (*CountResponse, error)
+	// Range represents a procedure that retrieves a chunk of messages based on a specific query.
 	Range(ctx context.Context, in *RangeRequest, opts ...grpc.CallOption) (*RangeResponse, error)
+	// Select represents a procedure that retrieves specific messages based on a specific query.
 	Select(ctx context.Context, in *SelectRequest, opts ...grpc.CallOption) (*SelectResponse, error)
+	// Create represents a procedure that creates a new message.
 	Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error)
+	// Update represents a procedure that updates a specific message based on its unique identifier.
 	Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error)
+	// Delete represents a procedure that deletes a specific message based on its unique identifier.
 	Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error)
 }
 
@@ -105,11 +111,17 @@ func (c *serviceClient) Delete(ctx context.Context, in *DeleteRequest, opts ...g
 // All implementations must embed UnimplementedServiceServer
 // for forward compatibility
 type ServiceServer interface {
+	// Count represents a procedure that retrieves the total number of messages based on a specific query.
 	Count(context.Context, *CountRequest) (*CountResponse, error)
+	// Range represents a procedure that retrieves a chunk of messages based on a specific query.
 	Range(context.Context, *RangeRequest) (*RangeResponse, error)
+	// Select represents a procedure that retrieves specific messages based on a specific query.
 	Select(context.Context, *SelectRequest) (*SelectResponse, error)
+	// Create represents a procedure that creates a new message.
 	Create(context.Context, *CreateRequest) (*CreateResponse, error)
+	// Update represents a procedure that updates a specific message based on its unique identifier.
 	Update(context.Context, *UpdateRequest) (*UpdateResponse, error)
+	// Delete represents a procedure that deletes a specific message based on its unique identifier.
 	Delete(context.Context, *DeleteRequest) (*DeleteResponse, error)
 	mustEmbedUnimplementedServiceServer()
 }

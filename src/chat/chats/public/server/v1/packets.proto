@@ -11,37 +11,48 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/chats/public/server/v
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 // EnterChatPacket is a notification sent to clients when a member has entered a chat.
-// It contains information about the member and the timestamp of the event.
+// It provides the details of the member entering and the relevant timeframe associated with the event.
 message EnterChatPacket {
-    members.public.server.v1.Member member = 1; // todo; leave it as it is for now, change it to just 'chat_id' or something like this in the near future
-    int64 timestamp = 2;
+    // Represents the comprehensive details of the member entering the chat.
+    members.public.server.v1.Member member = 1;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+    chats.public.server.v1.Timeframe timeframe = 2;
 }
 
 // LeaveChatPacket is a notification sent to clients when a member has left a chat.
-// It contains information about the member and the timestamp of the event.
+// It provides the details of the member leaving and the relevant timeframe associated with the event.
 message LeaveChatPacket {
-    members.public.server.v1.Member member = 1; // todo; leave it as it is for now, change it to just 'chat_id' or something like this in the near future
-    int64 timestamp = 2;
+    // Represents the comprehensive details of the member leaving the chat.
+    members.public.server.v1.Member member = 1;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+    chats.public.server.v1.Timeframe timeframe = 2;
 }
 
-// CreateChatPacket is a notification sent to clients when a chat has been created.
-// It provides details about the new chat and the timestamp of the event.
+// CreateChatPacket is a notification sent to clients when a new chat has been created.
+// It provides the details of the chat and the relevant timeframe associated with the event.
 message CreateChatPacket {
+    // Represents the comprehensive details of the newly created chat.
     chats.public.server.v1.Chat chat = 1;
-    int64 timestamp = 2;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+    chats.public.server.v1.Timeframe timeframe = 2;
 }
 
 // UpdateChatPacket is a notification sent to clients when a chat has been updated.
-// It includes the chat ID, any updated metadata, and the timestamp of the event.
+// It provides the identifier of the chat, updated details, and the relevant timeframe associated with the event.
 message UpdateChatPacket {
+    // Represents the unique identifier of the chat.
     string id = 1;
+    // Represents a new or updated metadata associated with the chat. It may be absent if no metadata changes occurred.
     optional chats.public.server.v1.OptionalMap metadata = 2;
-    int64 timestamp = 3;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+    chats.public.server.v1.Timeframe timeframe = 3;
 }
 
 // DeleteChatPacket is a notification sent to clients when a chat has been deleted.
-// It includes the chat ID and the timestamp of the event.
+// It provides the identifier of the chat and the relevant timeframe associated with the event.
 message DeleteChatPacket {
+    // Represents the unique identifier of the chat.
     string id = 1;
-    int64  timestamp = 2;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+    chats.public.server.v1.Timeframe timeframe = 2;
 }

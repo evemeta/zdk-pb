@@ -60,7 +60,7 @@ export interface SelectRequest {
  */
 export interface SelectResponse {
     /**
-     * Represents a list of chat members that match the criteria of the given query.
+     * Represents a list of members that match the criteria of the given query.
      *
      * @generated from protobuf field: repeated members.public.server.v1.Member members = 1;
      */

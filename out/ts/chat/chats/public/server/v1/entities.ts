@@ -15,150 +15,192 @@ import { Chunk as Chunk$ } from "../../../../messages/public/server/v1/entities"
 import { Member } from "../../../../members/public/server/v1/entities";
 import { Order } from "./enums";
 /**
+ * Chat represents a conversation environment.
+ * It contains details for identification, associated metadata, and timestamps reflecting its creation and last alteration.
+ *
  * @generated from protobuf message chats.public.server.v1.Chat
  */
 export interface Chat {
     /**
+     * Represents the unique identifier for this chat.
+     *
      * @generated from protobuf field: string id = 1;
      */
     id: string;
     /**
+     * Represents a collection of key-value pairs providing additional context or information about this chat.
+     *
      * @generated from protobuf field: map<string, string> metadata = 2;
      */
     metadata: {
         [key: string]: string;
     };
     /**
+     * Represents the timestamp indicating when this chat was created.
+     *
      * @generated from protobuf field: int64 create_time = 3;
      */
     createTime: bigint;
     /**
+     * Represents the timestamp of the last update associated with this chat.
+     *
      * @generated from protobuf field: int64 update_time = 4;
      */
     updateTime: bigint;
 }
 /**
+ * Chunk represents a segmented portion of chats used for pagination or segmented data retrieval.
+ * It provides insights about the desired chunk size, its position within the overall dataset, and the actual chats it contains.
+ *
  * @generated from protobuf message chats.public.server.v1.Chunk
  */
 export interface Chunk {
     /**
+     * Represents the desired size of the chunk, not necessarily the actual number of entities it contains.
+     *
      * @generated from protobuf field: int64 size = 1;
      */
     size: bigint;
     /**
+     * Represents the position of this chunk within the context of pagination.
+     *
      * @generated from protobuf field: int64 index = 2;
      */
     index: bigint;
     /**
+     * Represents the total count of entities across all chunks.
+     *
      * @generated from protobuf field: int64 total = 3;
      */
     total: bigint;
     /**
+     * Represents the actual chats included in this chunk.
+     *
      * @generated from protobuf field: repeated chats.public.server.v1.Chat entities = 4;
      */
     entities: Chat[];
 }
 /**
+ * Query represents a structure designed to facilitate specific and conditional data retrieval.
+ * It contains order specifications, limitations on the number of results, and conditions to filter data.
+ *
  * @generated from protobuf message chats.public.server.v1.Query
  */
 export interface Query {
     /**
+     * Represents the order in which results should be retrieved.
+     *
      * @generated from protobuf field: chats.public.server.v1.Order order = 1;
      */
     order: Order;
     /**
+     * Represents the maximum number of results to be fetched.
+     *
      * @generated from protobuf field: int64 limit = 2;
      */
     limit: bigint;
     /**
+     * Represents the starting point from which to retrieve results.
+     *
      * @generated from protobuf field: int64 offset = 3;
      */
     offset: bigint;
     /**
+     * Represents the set of conditions that filter the data retrieval process.
+     *
      * @generated from protobuf field: chats.public.server.v1.Condition condition = 4;
      */
     condition?: Condition;
 }
 /**
+ * Context represents a comprehensive snapshot of the current state of the chat.
+ * It contains details about the chat, its members, and recent messages, while also noting the timeframes associated with each data retrieval.
+ *
  * @generated from protobuf message chats.public.server.v1.Context
  */
 export interface Context {
     /**
+     * Represents the comprehensive details of the chat.
+     *
      * @generated from protobuf field: chats.public.server.v1.Chat chat = 1;
      */
     chat?: Chat;
     /**
-     * @generated from protobuf field: chats.public.server.v1.Context.MemberSnapshot member = 2;
+     * Represents the specific span of time, containing the commence and complete timestamps associated with the retrieval of chat from the database.
+     *
+     * @generated from protobuf field: chats.public.server.v1.Timeframe chat_timeframe = 2;
      */
-    member?: Context_MemberSnapshot;
+    chatTimeframe?: Timeframe;
     /**
-     * @generated from protobuf field: chats.public.server.v1.Context.MembersSnapshot members = 3;
+     * Represents the comprehensive details of the member currently accessing or interacting with the chat.
+     *
+     * @generated from protobuf field: members.public.server.v1.Member member = 3;
      */
-    members?: Context_MembersSnapshot;
+    member?: Member;
     /**
-     * @generated from protobuf field: chats.public.server.v1.Context.MessagesSnapshot messages = 4;
+     * Represents the specific span of time, containing the commence and complete timestamps associated with the retrieval of member from the database.
+     *
+     * @generated from protobuf field: chats.public.server.v1.Timeframe member_timeframe = 4;
      */
-    messages?: Context_MessagesSnapshot;
+    memberTimeframe?: Timeframe;
+    /**
+     * Represents the total number of members who are presently online in the chat.
+     *
+     * @generated from protobuf field: int64 members = 5;
+     */
+    members: bigint;
+    /**
+     * Represents the specific span of time, containing the commence and complete timestamps associated with the retrieval of members from the database.
+     *
+     * @generated from protobuf field: chats.public.server.v1.Timeframe members_timeframe = 6;
+     */
+    membersTimeframe?: Timeframe;
+    /**
+     * Represents a chunk of the most recent messages in the chat.
+     *
+     * @generated from protobuf field: messages.public.server.v1.Chunk messages = 7;
+     */
+    messages?: Chunk$;
+    /**
+     * Represents the specific span of time, containing the commence and complete timestamps associated with the retrieval of messages from the database.
+     *
+     * @generated from protobuf field: chats.public.server.v1.Timeframe messages_timeframe = 8;
+     */
+    messagesTimeframe?: Timeframe;
 }
 /**
- * @generated from protobuf message chats.public.server.v1.Context.MemberSnapshot
- */
-export interface Context_MemberSnapshot {
-    /**
-     * @generated from protobuf field: members.public.server.v1.Member snapshot = 1;
-     */
-    snapshot?: Member;
-    /**
-     * @generated from protobuf field: int64 commence_timestamp = 2;
-     */
-    commenceTimestamp: bigint;
-    /**
-     * @generated from protobuf field: int64 complete_timestamp = 3;
-     */
-    completeTimestamp: bigint;
-}
-/**
- * @generated from protobuf message chats.public.server.v1.Context.MembersSnapshot
- */
-export interface Context_MembersSnapshot {
-    /**
-     * @generated from protobuf field: int64 snapshot = 1;
-     */
-    snapshot: bigint;
-    /**
-     * @generated from protobuf field: int64 commence_timestamp = 2;
-     */
-    commenceTimestamp: bigint;
-    /**
-     * @generated from protobuf field: int64 complete_timestamp = 3;
-     */
-    completeTimestamp: bigint;
-}
-/**
- * @generated from protobuf message chats.public.server.v1.Context.MessagesSnapshot
- */
-export interface Context_MessagesSnapshot {
-    /**
-     * @generated from protobuf field: messages.public.server.v1.Chunk snapshot = 1;
-     */
-    snapshot?: Chunk$;
-    /**
-     * @generated from protobuf field: int64 commence_timestamp = 2;
-     */
-    commenceTimestamp: bigint;
-    /**
-     * @generated from protobuf field: int64 complete_timestamp = 3;
-     */
-    completeTimestamp: bigint;
-}
-/**
+ * Condition represents a set of criteria designed to filter data during retrieval.
+ * It provides mechanisms to specifically target chats based on identifiers.
+ *
  * @generated from protobuf message chats.public.server.v1.Condition
  */
 export interface Condition {
     /**
+     * Represents a list of chat identifiers for targeted data retrieval.
+     *
      * @generated from protobuf field: repeated string ids = 1;
      */
     ids: string[];
+}
+/**
+ * Timeframe represents a specific span or duration marked by its commencement and completion times.
+ * It provides a clear boundary to understand when a particular activity began and when it ended.
+ *
+ * @generated from protobuf message chats.public.server.v1.Timeframe
+ */
+export interface Timeframe {
+    /**
+     * Represents the timestamp indicating when the activity or retrieve of data commenced.
+     *
+     * @generated from protobuf field: int64 commence = 1;
+     */
+    commence: bigint;
+    /**
+     * Represents the timestamp indicating when the activity or retrieve of data completed.
+     *
+     * @generated from protobuf field: int64 complete = 2;
+     */
+    complete: bigint;
 }
 // @generated message type with reflection information, may provide speed optimized methods
 class Chat$Type extends MessageType<Chat> {
@@ -385,13 +427,17 @@ class Context$Type extends MessageType<Context> {
     constructor() {
         super("chats.public.server.v1.Context", [
             { no: 1, name: "chat", kind: "message", T: () => Chat },
-            { no: 2, name: "member", kind: "message", T: () => Context_MemberSnapshot },
-            { no: 3, name: "members", kind: "message", T: () => Context_MembersSnapshot },
-            { no: 4, name: "messages", kind: "message", T: () => Context_MessagesSnapshot }
+            { no: 2, name: "chat_timeframe", kind: "message", T: () => Timeframe },
+            { no: 3, name: "member", kind: "message", T: () => Member },
+            { no: 4, name: "member_timeframe", kind: "message", T: () => Timeframe },
+            { no: 5, name: "members", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 6, name: "members_timeframe", kind: "message", T: () => Timeframe },
+            { no: 7, name: "messages", kind: "message", T: () => Chunk$ },
+            { no: 8, name: "messages_timeframe", kind: "message", T: () => Timeframe }
         ]);
     }
     create(value?: PartialMessage<Context>): Context {
-        const message = {};
+        const message = { members: 0n };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<Context>(this, message, value);
@@ -405,14 +451,26 @@ class Context$Type extends MessageType<Context> {
                 case /* chats.public.server.v1.Chat chat */ 1:
                     message.chat = Chat.internalBinaryRead(reader, reader.uint32(), options, message.chat);
                     break;
-                case /* chats.public.server.v1.Context.MemberSnapshot member */ 2:
-                    message.member = Context_MemberSnapshot.internalBinaryRead(reader, reader.uint32(), options, message.member);
+                case /* chats.public.server.v1.Timeframe chat_timeframe */ 2:
+                    message.chatTimeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.chatTimeframe);
                     break;
-                case /* chats.public.server.v1.Context.MembersSnapshot members */ 3:
-                    message.members = Context_MembersSnapshot.internalBinaryRead(reader, reader.uint32(), options, message.members);
+                case /* members.public.server.v1.Member member */ 3:
+                    message.member = Member.internalBinaryRead(reader, reader.uint32(), options, message.member);
                     break;
-                case /* chats.public.server.v1.Context.MessagesSnapshot messages */ 4:
-                    message.messages = Context_MessagesSnapshot.internalBinaryRead(reader, reader.uint32(), options, message.messages);
+                case /* chats.public.server.v1.Timeframe member_timeframe */ 4:
+                    message.memberTimeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.memberTimeframe);
+                    break;
+                case /* int64 members */ 5:
+                    message.members = reader.int64().toBigInt();
+                    break;
+                case /* chats.public.server.v1.Timeframe members_timeframe */ 6:
+                    message.membersTimeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.membersTimeframe);
+                    break;
+                case /* messages.public.server.v1.Chunk messages */ 7:
+                    message.messages = Chunk$.internalBinaryRead(reader, reader.uint32(), options, message.messages);
+                    break;
+                case /* chats.public.server.v1.Timeframe messages_timeframe */ 8:
+                    message.messagesTimeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.messagesTimeframe);
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -429,15 +487,27 @@ class Context$Type extends MessageType<Context> {
         /* chats.public.server.v1.Chat chat = 1; */
         if (message.chat)
             Chat.internalBinaryWrite(message.chat, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* chats.public.server.v1.Context.MemberSnapshot member = 2; */
+        /* chats.public.server.v1.Timeframe chat_timeframe = 2; */
+        if (message.chatTimeframe)
+            Timeframe.internalBinaryWrite(message.chatTimeframe, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
+        /* members.public.server.v1.Member member = 3; */
         if (message.member)
-            Context_MemberSnapshot.internalBinaryWrite(message.member, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        /* chats.public.server.v1.Context.MembersSnapshot members = 3; */
-        if (message.members)
-            Context_MembersSnapshot.internalBinaryWrite(message.members, writer.tag(3, WireType.LengthDelimited).fork(), options).join();
-        /* chats.public.server.v1.Context.MessagesSnapshot messages = 4; */
+            Member.internalBinaryWrite(message.member, writer.tag(3, WireType.LengthDelimited).fork(), options).join();
+        /* chats.public.server.v1.Timeframe member_timeframe = 4; */
+        if (message.memberTimeframe)
+            Timeframe.internalBinaryWrite(message.memberTimeframe, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
+        /* int64 members = 5; */
+        if (message.members !== 0n)
+            writer.tag(5, WireType.Varint).int64(message.members);
+        /* chats.public.server.v1.Timeframe members_timeframe = 6; */
+        if (message.membersTimeframe)
+            Timeframe.internalBinaryWrite(message.membersTimeframe, writer.tag(6, WireType.LengthDelimited).fork(), options).join();
+        /* messages.public.server.v1.Chunk messages = 7; */
         if (message.messages)
-            Context_MessagesSnapshot.internalBinaryWrite(message.messages, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
+            Chunk$.internalBinaryWrite(message.messages, writer.tag(7, WireType.LengthDelimited).fork(), options).join();
+        /* chats.public.server.v1.Timeframe messages_timeframe = 8; */
+        if (message.messagesTimeframe)
+            Timeframe.internalBinaryWrite(message.messagesTimeframe, writer.tag(8, WireType.LengthDelimited).fork(), options).join();
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -448,189 +518,6 @@ class Context$Type extends MessageType<Context> {
  * @generated MessageType for protobuf message chats.public.server.v1.Context
  */
 export const Context = new Context$Type();
-// @generated message type with reflection information, may provide speed optimized methods
-class Context_MemberSnapshot$Type extends MessageType<Context_MemberSnapshot> {
-    constructor() {
-        super("chats.public.server.v1.Context.MemberSnapshot", [
-            { no: 1, name: "snapshot", kind: "message", T: () => Member },
-            { no: 2, name: "commence_timestamp", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 3, name: "complete_timestamp", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
-        ]);
-    }
-    create(value?: PartialMessage<Context_MemberSnapshot>): Context_MemberSnapshot {
-        const message = { commenceTimestamp: 0n, completeTimestamp: 0n };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<Context_MemberSnapshot>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Context_MemberSnapshot): Context_MemberSnapshot {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* members.public.server.v1.Member snapshot */ 1:
-                    message.snapshot = Member.internalBinaryRead(reader, reader.uint32(), options, message.snapshot);
-                    break;
-                case /* int64 commence_timestamp */ 2:
-                    message.commenceTimestamp = reader.int64().toBigInt();
-                    break;
-                case /* int64 complete_timestamp */ 3:
-                    message.completeTimestamp = reader.int64().toBigInt();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: Context_MemberSnapshot, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* members.public.server.v1.Member snapshot = 1; */
-        if (message.snapshot)
-            Member.internalBinaryWrite(message.snapshot, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* int64 commence_timestamp = 2; */
-        if (message.commenceTimestamp !== 0n)
-            writer.tag(2, WireType.Varint).int64(message.commenceTimestamp);
-        /* int64 complete_timestamp = 3; */
-        if (message.completeTimestamp !== 0n)
-            writer.tag(3, WireType.Varint).int64(message.completeTimestamp);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
-}
-/**
- * @generated MessageType for protobuf message chats.public.server.v1.Context.MemberSnapshot
- */
-export const Context_MemberSnapshot = new Context_MemberSnapshot$Type();
-// @generated message type with reflection information, may provide speed optimized methods
-class Context_MembersSnapshot$Type extends MessageType<Context_MembersSnapshot> {
-    constructor() {
-        super("chats.public.server.v1.Context.MembersSnapshot", [
-            { no: 1, name: "snapshot", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 2, name: "commence_timestamp", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 3, name: "complete_timestamp", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
-        ]);
-    }
-    create(value?: PartialMessage<Context_MembersSnapshot>): Context_MembersSnapshot {
-        const message = { snapshot: 0n, commenceTimestamp: 0n, completeTimestamp: 0n };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<Context_MembersSnapshot>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Context_MembersSnapshot): Context_MembersSnapshot {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* int64 snapshot */ 1:
-                    message.snapshot = reader.int64().toBigInt();
-                    break;
-                case /* int64 commence_timestamp */ 2:
-                    message.commenceTimestamp = reader.int64().toBigInt();
-                    break;
-                case /* int64 complete_timestamp */ 3:
-                    message.completeTimestamp = reader.int64().toBigInt();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: Context_MembersSnapshot, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* int64 snapshot = 1; */
-        if (message.snapshot !== 0n)
-            writer.tag(1, WireType.Varint).int64(message.snapshot);
-        /* int64 commence_timestamp = 2; */
-        if (message.commenceTimestamp !== 0n)
-            writer.tag(2, WireType.Varint).int64(message.commenceTimestamp);
-        /* int64 complete_timestamp = 3; */
-        if (message.completeTimestamp !== 0n)
-            writer.tag(3, WireType.Varint).int64(message.completeTimestamp);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
-}
-/**
- * @generated MessageType for protobuf message chats.public.server.v1.Context.MembersSnapshot
- */
-export const Context_MembersSnapshot = new Context_MembersSnapshot$Type();
-// @generated message type with reflection information, may provide speed optimized methods
-class Context_MessagesSnapshot$Type extends MessageType<Context_MessagesSnapshot> {
-    constructor() {
-        super("chats.public.server.v1.Context.MessagesSnapshot", [
-            { no: 1, name: "snapshot", kind: "message", T: () => Chunk$ },
-            { no: 2, name: "commence_timestamp", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 3, name: "complete_timestamp", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
-        ]);
-    }
-    create(value?: PartialMessage<Context_MessagesSnapshot>): Context_MessagesSnapshot {
-        const message = { commenceTimestamp: 0n, completeTimestamp: 0n };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<Context_MessagesSnapshot>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Context_MessagesSnapshot): Context_MessagesSnapshot {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* messages.public.server.v1.Chunk snapshot */ 1:
-                    message.snapshot = Chunk$.internalBinaryRead(reader, reader.uint32(), options, message.snapshot);
-                    break;
-                case /* int64 commence_timestamp */ 2:
-                    message.commenceTimestamp = reader.int64().toBigInt();
-                    break;
-                case /* int64 complete_timestamp */ 3:
-                    message.completeTimestamp = reader.int64().toBigInt();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: Context_MessagesSnapshot, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* messages.public.server.v1.Chunk snapshot = 1; */
-        if (message.snapshot)
-            Chunk$.internalBinaryWrite(message.snapshot, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* int64 commence_timestamp = 2; */
-        if (message.commenceTimestamp !== 0n)
-            writer.tag(2, WireType.Varint).int64(message.commenceTimestamp);
-        /* int64 complete_timestamp = 3; */
-        if (message.completeTimestamp !== 0n)
-            writer.tag(3, WireType.Varint).int64(message.completeTimestamp);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
-}
-/**
- * @generated MessageType for protobuf message chats.public.server.v1.Context.MessagesSnapshot
- */
-export const Context_MessagesSnapshot = new Context_MessagesSnapshot$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class Condition$Type extends MessageType<Condition> {
     constructor() {
@@ -678,3 +565,57 @@ class Condition$Type extends MessageType<Condition> {
  * @generated MessageType for protobuf message chats.public.server.v1.Condition
  */
 export const Condition = new Condition$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class Timeframe$Type extends MessageType<Timeframe> {
+    constructor() {
+        super("chats.public.server.v1.Timeframe", [
+            { no: 1, name: "commence", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 2, name: "complete", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+        ]);
+    }
+    create(value?: PartialMessage<Timeframe>): Timeframe {
+        const message = { commence: 0n, complete: 0n };
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<Timeframe>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Timeframe): Timeframe {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* int64 commence */ 1:
+                    message.commence = reader.int64().toBigInt();
+                    break;
+                case /* int64 complete */ 2:
+                    message.complete = reader.int64().toBigInt();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: Timeframe, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* int64 commence = 1; */
+        if (message.commence !== 0n)
+            writer.tag(1, WireType.Varint).int64(message.commence);
+        /* int64 complete = 2; */
+        if (message.complete !== 0n)
+            writer.tag(2, WireType.Varint).int64(message.complete);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message chats.public.server.v1.Timeframe
+ */
+export const Timeframe = new Timeframe$Type();

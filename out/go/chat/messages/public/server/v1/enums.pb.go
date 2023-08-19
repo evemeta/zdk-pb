@@ -21,6 +21,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// Order represents an enumeration that specifies the sort order for data retrieval, particularly in the context of querying.
 type Order int32
 
 const (
