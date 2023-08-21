@@ -32,5 +32,6 @@ generate() {
 
 generate chat
 generate gateway
+generate room
 generate user
 generate websocket

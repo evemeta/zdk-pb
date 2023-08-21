@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package rooms.public.server.v1;
+
+import "room/rooms/public/server/v1/entities.proto";
+import "room/rooms/public/server/v1/optionals.proto";
+import "room/members/public/server/v1/entities.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/rooms/public/server/v1;roomspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+// EnterRoomPacket is a notification sent to clients when a member has entered a room.
+// It provides the details of the member entering and the relevant timeframe associated with the event.
+message EnterRoomPacket {
+    // Represents the comprehensive details of the member entering the room.
+    members.public.server.v1.Member member = 1;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+    rooms.public.server.v1.Timeframe timeframe = 2;
+}
+
+// LeaveRoomPacket is a notification sent to clients when a member has left a room.
+// It provides the details of the member leaving and the relevant timeframe associated with the event.
+message LeaveRoomPacket {
+    // Represents the comprehensive details of the member leaving the room.
+    members.public.server.v1.Member member = 1;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+    rooms.public.server.v1.Timeframe timeframe = 2;
+}
+
+// CreateRoomPacket is a notification sent to clients when a new room has been created.
+// It provides the details of the room and the relevant timeframe associated with the event.
+message CreateRoomPacket {
+    // Represents the comprehensive details of the newly created room.
+    rooms.public.server.v1.Room room = 1;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+    rooms.public.server.v1.Timeframe timeframe = 2;
+}
+
+// UpdateRoomPacket is a notification sent to clients when a room has been updated.
+// It provides the identifier of the room, updated details, and the relevant timeframe associated with the event.
+message UpdateRoomPacket {
+    // Represents the unique identifier of the room.
+    string id = 1;
+    // Represents a new or updated metadata associated with the room. It may be absent if no metadata changes occurred.
+    optional rooms.public.server.v1.OptionalMap metadata = 2;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+    rooms.public.server.v1.Timeframe timeframe = 3;
+}
+
+// DeleteRoomPacket is a notification sent to clients when a room has been deleted.
+// It provides the identifier of the room and the relevant timeframe associated with the event.
+message DeleteRoomPacket {
+    // Represents the unique identifier of the room.
+    string id = 1;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+    rooms.public.server.v1.Timeframe timeframe = 2;
+}

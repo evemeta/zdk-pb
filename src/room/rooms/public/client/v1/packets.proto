@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package rooms.public.client.v1;
+
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/rooms/public/client/v1;roomspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+message EnterRoomPacket {
+    string id = 1;
+}
+
+message LeaveRoomPacket {
+    string id = 1;
+}

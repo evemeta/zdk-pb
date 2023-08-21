@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package rooms.public.server.v1;
+
+import "room/rooms/public/server/v1/entities.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/rooms/public/server/v1;roomspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+// CountRequest represents a message designed to count rooms based on a given query.
+message CountRequest {
+    // Represents the specifications and conditions under which rooms should be counted.
+    rooms.public.server.v1.Query query = 1;
+}
+
+// CountResponse represents a message that provides the result of the count procedure.
+message CountResponse {
+    // Represents the total number of rooms that match the criteria of the given query.
+    int64 total = 1;
+}
+
+// SelectRequest represents a message designed to retrieve specific rooms based on a given query.
+message SelectRequest {
+    // Represents the specifications and conditions under which particular rooms should be retrieved.
+    rooms.public.server.v1.Query query = 1;
+}
+
+// SelectResponse represents a message that provides the result of the select procedure.
+message SelectResponse {
+    // Represents a list of rooms that match the criteria of the given query.
+    repeated rooms.public.server.v1.Room rooms = 1;
+}
+
+// RangeRequest represents a message designed to retrieve a chunk of rooms based on a given query.
+message RangeRequest {
+    // Represents the specifications and conditions under which a chunk of rooms should be retrieved.
+    rooms.public.server.v1.Query query = 1;
+}
+
+// RangeResponse represents a message that provides the result of the range procedure.
+message RangeResponse {
+    // Represents a chunk of rooms that match the criteria of the given query.
+    rooms.public.server.v1.Chunk chunk = 1;
+}
+
+// ContextRequest represents a message designed to retrieve the context associated with a specific room based on its unique identifier.
+message ContextRequest {
+    // Represents the unique identifier for the room whose context is to be retrieved.
+    string id = 1;
+}
+
+// ContextResponse represents a message that provides the result of the context procedure.
+message ContextResponse {
+    // Represents the snapshot of the room, including its current state corresponding to the unique identifier specified in the request.
+    rooms.public.server.v1.Context context = 1;
+}
