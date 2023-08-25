@@ -156,13 +156,13 @@ export interface Condition {
  */
 export interface Timeframe {
     /**
-     * Represents the timestamp indicating when the activity commenced.
+     * Represents the timestamp indicating when the activity or retrieve of data commenced.
      *
      * @generated from protobuf field: int64 commence = 1;
      */
     commence: bigint;
     /**
-     * Represents the timestamp indicating when the activity completed.
+     * Represents the timestamp indicating when the activity or retrieve of data completed.
      *
      * @generated from protobuf field: int64 complete = 2;
      */

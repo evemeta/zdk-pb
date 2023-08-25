@@ -345,9 +345,9 @@ type Timeframe struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Represents the timestamp indicating when the activity commenced.
+	// Represents the timestamp indicating when the activity or retrieve of data commenced.
 	Commence int64 `protobuf:"varint,1,opt,name=commence,proto3" json:"commence,omitempty"`
-	// Represents the timestamp indicating when the activity completed.
+	// Represents the timestamp indicating when the activity or retrieve of data completed.
 	Complete int64 `protobuf:"varint,2,opt,name=complete,proto3" json:"complete,omitempty"`
 }
 

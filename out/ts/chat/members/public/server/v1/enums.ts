@@ -2,25 +2,6 @@
 // @generated from protobuf file "chat/members/public/server/v1/enums.proto" (package "members.public.server.v1", syntax proto3)
 // tslint:disable
 /**
- * Type represents an enumeration that specifies the kinds of restrictions or actions that can be applied to a member.
- *
- * @generated from protobuf enum members.public.server.v1.Type
- */
-export enum Type {
-    /**
-     * @generated from protobuf enum value: Type_Unknown = 0;
-     */
-    Type_Unknown = 0,
-    /**
-     * @generated from protobuf enum value: Type_Mute = 1;
-     */
-    Type_Mute = 1,
-    /**
-     * @generated from protobuf enum value: Type_Block = 2;
-     */
-    Type_Block = 2
-}
-/**
  * Order represents an enumeration that specifies the sort order for data retrieval, particularly in the context of querying.
  *
  * @generated from protobuf enum members.public.server.v1.Order
@@ -38,4 +19,23 @@ export enum Order {
      * @generated from protobuf enum value: Order_Descending = 2;
      */
     Order_Descending = 2
+}
+/**
+ * RestrictionType represents an enumeration that specifies the kinds of restrictions or actions that can be applied to a member.
+ *
+ * @generated from protobuf enum members.public.server.v1.RestrictionType
+ */
+export enum RestrictionType {
+    /**
+     * @generated from protobuf enum value: RestrictionType_Unknown = 0;
+     */
+    RestrictionType_Unknown = 0,
+    /**
+     * @generated from protobuf enum value: RestrictionType_Mute = 1;
+     */
+    RestrictionType_Mute = 1,
+    /**
+     * @generated from protobuf enum value: RestrictionType_Block = 2;
+     */
+    RestrictionType_Block = 2
 }
