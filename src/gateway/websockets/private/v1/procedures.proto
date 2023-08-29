@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package websockets.private.v1;
+package gateway.websockets.private.v1;
 
 import "gateway/websockets/private/v1/enums.proto";
 import "gateway/websockets/private/v1/entities.proto";
@@ -13,12 +13,12 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/websockets/private
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 message CountArgument {
-    bool                        cache = 1;
-    websockets.private.v1.Query query = 2;
+    bool                                cache = 1;
+    gateway.websockets.private.v1.Query query = 2;
 }
 
 message CountRequest {
-    repeated websockets.private.v1.CountArgument arguments = 1;
+    repeated gateway.websockets.private.v1.CountArgument arguments = 1;
 }
 
 message CountResponse {
@@ -26,186 +26,186 @@ message CountResponse {
 }
 
 message RangeArgument {
-    bool                        cache = 1;
-    websockets.private.v1.Query query = 2;
+    bool                                cache = 1;
+    gateway.websockets.private.v1.Query query = 2;
 }
 
 message RangeRequest {
-    repeated websockets.private.v1.RangeArgument arguments = 1;
+    repeated gateway.websockets.private.v1.RangeArgument arguments = 1;
 }
 
 message RangeResponse {
-    repeated websockets.private.v1.Chunk chunks = 1;
+    repeated gateway.websockets.private.v1.Chunk chunks = 1;
 }
 
 message SelectArgument {
-    bool                        cache = 1;
-    websockets.private.v1.Query query = 2;
+    bool                                cache = 1;
+    gateway.websockets.private.v1.Query query = 2;
 }
 
 message SelectRequest {
-    repeated websockets.private.v1.SelectArgument arguments = 1;
+    repeated gateway.websockets.private.v1.SelectArgument arguments = 1;
 }
 
 message SelectResponse {
-    repeated websockets.private.v1.Websocket websockets = 1;
+    repeated gateway.websockets.private.v1.Websocket websockets = 1;
 }
 
 message CreateArgument {
-    string                       id      = 1;
-    websockets.private.v1.Zone   zone    = 2;
-    websockets.private.v1.Status status  = 3;
-    string                       address = 4;
+    string                               id      = 1;
+    gateway.websockets.private.v1.Zone   zone    = 2;
+    gateway.websockets.private.v1.Status status  = 3;
+    string                               address = 4;
 }
 
 message CreateRequest {
-    repeated websockets.private.v1.CreateArgument arguments = 1;
+    repeated gateway.websockets.private.v1.CreateArgument arguments = 1;
 }
 
 message CreateResponse {
-    repeated websockets.private.v1.Websocket websockets = 1;
+    repeated gateway.websockets.private.v1.Websocket websockets = 1;
 }
 
 message CreateMutation {
-    websockets.private.v1.CreateArgument     foundation      = 1;
-    repeated websockets.private.v1.Transient transient       = 2;
-    int64                                    begin_timestamp = 3;
-    int64                                    close_timestamp = 4;
+    gateway.websockets.private.v1.CreateArgument     foundation      = 1;
+    repeated gateway.websockets.private.v1.Transient transient       = 2;
+    int64                                            begin_timestamp = 3;
+    int64                                            close_timestamp = 4;
 }
 
 message CreateTransaction {
-    repeated websockets.private.v1.CreateMutation mutations = 1;
+    repeated gateway.websockets.private.v1.CreateMutation mutations = 1;
 }
 
 message UpdateArgument {
-    websockets.private.v1.Query                   query   = 1;
-    optional websockets.private.v1.OptionalZone   zone    = 2;
-    optional websockets.private.v1.OptionalStatus status  = 3;
-    optional websockets.private.v1.OptionalString address = 4;
+    gateway.websockets.private.v1.Query                   query   = 1;
+    optional gateway.websockets.private.v1.OptionalZone   zone    = 2;
+    optional gateway.websockets.private.v1.OptionalStatus status  = 3;
+    optional gateway.websockets.private.v1.OptionalString address = 4;
 }
 
 message UpdateRequest {
-    repeated websockets.private.v1.UpdateArgument arguments = 1;
+    repeated gateway.websockets.private.v1.UpdateArgument arguments = 1;
 }
 
 message UpdateResponse {
-    repeated websockets.private.v1.Websocket websockets = 1;
+    repeated gateway.websockets.private.v1.Websocket websockets = 1;
 }
 
 message UpdateMutation {
-    websockets.private.v1.UpdateArgument     foundation      = 1;
-    repeated websockets.private.v1.Transient transient       = 2;
-    int64                                    begin_timestamp = 3;
-    int64                                    close_timestamp = 4;
+    gateway.websockets.private.v1.UpdateArgument     foundation      = 1;
+    repeated gateway.websockets.private.v1.Transient transient       = 2;
+    int64                                            begin_timestamp = 3;
+    int64                                            close_timestamp = 4;
 }
 
 message UpdateTransaction {
-    repeated websockets.private.v1.UpdateMutation mutations = 1;
+    repeated gateway.websockets.private.v1.UpdateMutation mutations = 1;
 }
 
 message DeleteArgument {
-    websockets.private.v1.Query query = 1;
+    gateway.websockets.private.v1.Query query = 1;
 }
 
 message DeleteRequest {
-    repeated websockets.private.v1.DeleteArgument arguments = 1;
+    repeated gateway.websockets.private.v1.DeleteArgument arguments = 1;
 }
 
 message DeleteResponse {
-    repeated websockets.private.v1.Websocket websockets = 1;
+    repeated gateway.websockets.private.v1.Websocket websockets = 1;
 }
 
 message DeleteMutation {
-    websockets.private.v1.DeleteArgument     foundation      = 1;
-    websockets.private.v1.DeleteCondition    condition       = 2;
-    repeated websockets.private.v1.Transient transient       = 3;
-    int64                                    begin_timestamp = 4;
-    int64                                    close_timestamp = 5;
+    gateway.websockets.private.v1.DeleteArgument     foundation      = 1;
+    gateway.websockets.private.v1.DeleteCondition    condition       = 2;
+    repeated gateway.websockets.private.v1.Transient transient       = 3;
+    int64                                            begin_timestamp = 4;
+    int64                                            close_timestamp = 5;
 }
 
 message DeleteCondition {
-    repeated sessions.private.v1.DeleteMutation delete_session_mutations = 1;
+    repeated gateway.sessions.private.v1.DeleteMutation delete_session_mutations = 1;
 }
 
 message DeleteTransaction {
-    repeated websockets.private.v1.DeleteMutation mutations = 1;
+    repeated gateway.websockets.private.v1.DeleteMutation mutations = 1;
 }
 
 message BroadcastArgument {
-    sessions.private.v1.Query     query   = 1;
-    websockets.private.v1.Message message = 2;
+    gateway.sessions.private.v1.Query     query   = 1;
+    gateway.websockets.private.v1.Message message = 2;
 }
 
 message BroadcastRequest {
-    repeated websockets.private.v1.BroadcastArgument arguments = 1;
+    repeated gateway.websockets.private.v1.BroadcastArgument arguments = 1;
 }
 
 message BroadcastResponse {}
 
 message BroadcastMutation {
-    websockets.private.v1.BroadcastArgument  foundation      = 1;
-    websockets.private.v1.BroadcastCondition condition       = 2;
-    int64                                    begin_timestamp = 3;
-    int64                                    close_timestamp = 4;
+    gateway.websockets.private.v1.BroadcastArgument  foundation      = 1;
+    gateway.websockets.private.v1.BroadcastCondition condition       = 2;
+    int64                                            begin_timestamp = 3;
+    int64                                            close_timestamp = 4;
 }
 
 message BroadcastCondition {
-    repeated sessions.private.v1.Session     sessions   = 1;
-    repeated websockets.private.v1.Websocket websockets = 2;
+    repeated gateway.sessions.private.v1.Session     sessions   = 1;
+    repeated gateway.websockets.private.v1.Websocket websockets = 2;
 }
 
 message BroadcastTransaction {
-    repeated websockets.private.v1.BroadcastMutation mutations = 1;
+    repeated gateway.websockets.private.v1.BroadcastMutation mutations = 1;
 }
 
 message DisconnectArgument {
-    sessions.private.v1.Query query = 1;
+    gateway.sessions.private.v1.Query query = 1;
 }
 
 message DisconnectRequest {
-    repeated websockets.private.v1.DisconnectArgument arguments = 1;
+    repeated gateway.websockets.private.v1.DisconnectArgument arguments = 1;
 }
 
 message DisconnectResponse {}
 
 message DisconnectMutation {
-    websockets.private.v1.DisconnectArgument  foundation      = 1;
-    websockets.private.v1.DisconnectCondition condition       = 2;
-    int64                                     begin_timestamp = 3;
-    int64                                     close_timestamp = 4;
+    gateway.websockets.private.v1.DisconnectArgument  foundation      = 1;
+    gateway.websockets.private.v1.DisconnectCondition condition       = 2;
+    int64                                             begin_timestamp = 3;
+    int64                                             close_timestamp = 4;
 }
 
 message DisconnectCondition {
-    repeated sessions.private.v1.Session     sessions   = 1;
-    repeated websockets.private.v1.Websocket websockets = 2;
+    repeated gateway.sessions.private.v1.Session     sessions   = 1;
+    repeated gateway.websockets.private.v1.Websocket websockets = 2;
 }
 
 message DisconnectTransaction {
-    repeated websockets.private.v1.DisconnectMutation mutations = 1;
+    repeated gateway.websockets.private.v1.DisconnectMutation mutations = 1;
 }
 
 message ReintegrateArgument {
-    sessions.private.v1.Query query = 1;
+    gateway.sessions.private.v1.Query query = 1;
 }
 
 message ReintegrateRequest {
-    repeated websockets.private.v1.ReintegrateArgument arguments = 1;
+    repeated gateway.websockets.private.v1.ReintegrateArgument arguments = 1;
 }
 
 message ReintegrateResponse {}
 
 message ReintegrateMutation {
-    websockets.private.v1.ReintegrateArgument  foundation      = 1;
-    websockets.private.v1.ReintegrateCondition condition       = 2;
-    int64                                      begin_timestamp = 3;
-    int64                                      close_timestamp = 4;
+    gateway.websockets.private.v1.ReintegrateArgument  foundation      = 1;
+    gateway.websockets.private.v1.ReintegrateCondition condition       = 2;
+    int64                                              begin_timestamp = 3;
+    int64                                              close_timestamp = 4;
 }
 
 message ReintegrateCondition {
-    repeated sessions.private.v1.Session     sessions   = 1;
-    repeated websockets.private.v1.Websocket websockets = 2;
+    repeated gateway.sessions.private.v1.Session     sessions   = 1;
+    repeated gateway.websockets.private.v1.Websocket websockets = 2;
 }
 
 message ReintegrateTransaction {
-    repeated websockets.private.v1.ReintegrateMutation mutations = 1;
+    repeated gateway.websockets.private.v1.ReintegrateMutation mutations = 1;
 }

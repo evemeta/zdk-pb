@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package sessions.private.v1;
+package gateway.sessions.private.v1;
 
 import "gateway/sessions/private/v1/enums.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
@@ -9,38 +9,38 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/sessions/private/v
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 message Chunk {
-    int64                                size     = 1;
-    int64                                index    = 2;
-    int64                                total    = 3;
-    repeated sessions.private.v1.Session entities = 4;
+    int64                                        size     = 1;
+    int64                                        index    = 2;
+    int64                                        total    = 3;
+    repeated gateway.sessions.private.v1.Session entities = 4;
 }
 
 message Query {
-    sessions.private.v1.Order              order      = 1;
-    int64                                  limit      = 2;
-    int64                                  offset     = 3;
-    repeated sessions.private.v1.Condition conditions = 4;
+    gateway.sessions.private.v1.Order              order      = 1;
+    int64                                          limit      = 2;
+    int64                                          offset     = 3;
+    repeated gateway.sessions.private.v1.Condition conditions = 4;
 }
 
 message Condition {
-    repeated string                     ids           = 1;
-    repeated sessions.private.v1.Status statuses      = 2;
-    repeated string                     user_ids      = 3;
-    repeated string                     websocket_ids = 4;
+    repeated string                             ids           = 1;
+    repeated gateway.sessions.private.v1.Status statuses      = 2;
+    repeated string                             user_ids      = 3;
+    repeated string                             websocket_ids = 4;
 }
 
 message Transient {
-    sessions.private.v1.Session future   = 1;
-    sessions.private.v1.Session current  = 2;
-    sessions.private.v1.Session previous = 3;
+    gateway.sessions.private.v1.Session future   = 1;
+    gateway.sessions.private.v1.Session current  = 2;
+    gateway.sessions.private.v1.Session previous = 3;
 }
 
 message Session {
-    string                     id           = 1;
-    sessions.private.v1.Status status       = 2;
-    string                     user_id      = 3;
-    string                     websocket_id = 4;
-    int64                      access_time  = 5;
-    int64                      create_time  = 6;
-    int64                      update_time  = 7;
+    string                             id           = 1;
+    gateway.sessions.private.v1.Status status       = 2;
+    string                             user_id      = 3;
+    string                             websocket_id = 4;
+    int64                              access_time  = 5;
+    int64                              create_time  = 6;
+    int64                              update_time  = 7;
 }

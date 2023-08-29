@@ -1,8 +1,9 @@
 syntax = "proto3";
 
-package rooms.public.server.v1;
+package room.rooms.public.server.v1;
 
 import "room/rooms/public/server/v1/enums.proto";
+import "chat/chats/public/server/v1/entities.proto";
 import "room/members/public/server/v1/entities.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
@@ -14,14 +15,12 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 message Room {
     // Represents the unique identifier for this room.
     string id = 1;
-    // todo;
-    string chat_id = 2;
     // Represents a collection of key-value pairs providing additional context or information about this room.
-    map<string, string> metadata = 3;
+    map<string, string> metadata = 2;
     // Represents the timestamp indicating when this room was created.
-    int64 create_time = 4;
+    int64 create_time = 3;
     // Represents the timestamp of the last update associated with this room.
-    int64 update_time = 5;
+    int64 update_time = 4;
 }
 
 // Chunk represents a segmented portion of rooms used for pagination or segmented data retrieval.
@@ -34,37 +33,41 @@ message Chunk {
     // Represents the total count of entities across all chunks.
     int64 total = 3;
     // Represents the actual rooms included in this chunk.
-    repeated rooms.public.server.v1.Room entities = 4;
+    repeated room.rooms.public.server.v1.Room entities = 4;
 }
 
 // Query represents a structure designed to facilitate specific and conditional data retrieval.
 // It contains order specifications, limitations on the number of results, and conditions to filter data.
 message Query {
     // Represents the order in which results should be retrieved.
-    rooms.public.server.v1.Order order = 1;
+    room.rooms.public.server.v1.Order order = 1;
     // Represents the maximum number of results to be fetched.
     int64 limit = 2;
     // Represents the starting point from which to retrieve results.
     int64 offset = 3;
     // Represents the set of conditions that filter the data retrieval process.
-    rooms.public.server.v1.Condition condition = 4;
+    room.rooms.public.server.v1.Condition condition = 4;
 }
 
 // Context represents a comprehensive snapshot of the current state of the room.
 // It contains details about the room, its members, and recent messages, while also noting the timeframes associated with each data retrieval.
 message Context {
     // Represents the comprehensive details of the room.
-    rooms.public.server.v1.Room room = 1;
+    room.rooms.public.server.v1.Room room = 1;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the retrieval of room from the database.
-    rooms.public.server.v1.Timeframe room_timeframe = 2;
-    // Represents the comprehensive details of the member currently accessing or interacting with the room.
-    members.public.server.v1.Member member = 3;
-    // Represents the specific span of time, containing the commence and complete timestamps associated with the retrieval of member from the database.
-    rooms.public.server.v1.Timeframe member_timeframe = 4;
+    room.rooms.public.server.v1.Timeframe room_timeframe = 2;
     // todo;
-    repeated members.public.server.v1.Member members = 5;
+    chat.chats.public.server.v1.Chat chat = 3;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the retrieval of chat from the database.
+    room.rooms.public.server.v1.Timeframe chat_timeframe = 4;
+    // Represents the comprehensive details of the member currently accessing or interacting with the room.
+    room.members.public.server.v1.Member member = 5;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the retrieval of member from the database.
+    room.rooms.public.server.v1.Timeframe member_timeframe = 6;
+    // todo;
+    repeated room.members.public.server.v1.Member members = 7;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the retrieval of members from the database.
-    rooms.public.server.v1.Timeframe members_timeframe = 6;
+    room.rooms.public.server.v1.Timeframe members_timeframe = 8;
 }
 
 // Condition represents a set of criteria designed to filter data during retrieval.

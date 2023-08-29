@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package tokens.private.v1;
+package user.tokens.private.v1;
 
 import "user/users/private/v1/enums.proto";
 import "user/users/private/v1/entities.proto";
@@ -10,15 +10,15 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/user/tokens/private/v1;tok
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 message CreateArgument {
-    string                               id          = 1;
-    string                               avatar      = 2;
-    string                               fullname    = 3;
-    string                               nickname    = 4;
-    repeated users.private.v1.Permission permissions = 5;
+    string                                    id          = 1;
+    string                                    avatar      = 2;
+    string                                    fullname    = 3;
+    string                                    nickname    = 4;
+    repeated user.users.private.v1.Permission permissions = 5;
 }
 
 message CreateRequest {
-    repeated tokens.private.v1.CreateArgument arguments = 1;
+    repeated user.tokens.private.v1.CreateArgument arguments = 1;
 }
 
 message CreateResponse {
@@ -30,11 +30,11 @@ message ExtractArgument {
 }
 
 message ExtractRequest {
-    repeated tokens.private.v1.ExtractArgument arguments = 1;
+    repeated user.tokens.private.v1.ExtractArgument arguments = 1;
 }
 
 message ExtractResponse {
-    repeated users.private.v1.User users = 1;
+    repeated user.users.private.v1.User users = 1;
 }
 
 message RefreshArgument {
@@ -42,7 +42,7 @@ message RefreshArgument {
 }
 
 message RefreshRequest {
-    repeated tokens.private.v1.RefreshArgument arguments = 1;
+    repeated user.tokens.private.v1.RefreshArgument arguments = 1;
 }
 
 message RefreshResponse {

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package members.public.server.v1;
+package room.members.public.server.v1;
 
 import "room/members/public/server/v1/entities.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
@@ -11,7 +11,7 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 // CountRequest represents a message designed to count members based on a given query.
 message CountRequest {
     // Represents the specifications and conditions under which members should be counted.
-    members.public.server.v1.Query query = 1;
+    room.members.public.server.v1.Query query = 1;
 }
 
 // CountResponse represents a message that provides the result of the count procedure.
@@ -23,25 +23,25 @@ message CountResponse {
 // SelectRequest represents a message designed to retrieve specific members based on a given query.
 message SelectRequest {
     // Represents the specifications and conditions under which particular members should be retrieved.
-    members.public.server.v1.Query query = 1;
+    room.members.public.server.v1.Query query = 1;
 }
 
 // SelectResponse represents a message that provides the result of the select procedure.
 message SelectResponse {
     // Represents a list of members that match the criteria of the given query.
-    repeated members.public.server.v1.Member members = 1;
+    repeated room.members.public.server.v1.Member members = 1;
 }
 
 // RangeRequest represents a message designed to retrieve a chunk of members based on a given query.
 message RangeRequest {
     // Represents the specifications and conditions under which a chunk of members should be retrieved.
-    members.public.server.v1.Query query = 1;
+    room.members.public.server.v1.Query query = 1;
 }
 
 // RangeResponse represents a message that provides the result of the range procedure.
 message RangeResponse {
     // Represents a chunk of members that match the criteria of the given query.
-    members.public.server.v1.Chunk chunk = 1;
+    room.members.public.server.v1.Chunk chunk = 1;
 }
 
 // KickRequest represents a message designed to forcefully remove a member from a room.
@@ -56,29 +56,3 @@ message KickRequest {
 
 // KickResponse represents a message that provides the result of the kick procedure.
 message KickResponse {}
-
-// BlockRequest represents a message designed to forcefully remove a member from a room and prevent them from participating for a specified duration or indefinitely.
-message BlockRequest {
-    // Represents the unique identifier of the user associated with the member intended to be blocked.
-    string user_id = 1;
-    // Represents the unique identifier of the room from which the member will be blocked.
-    string room_id = 2;
-    // Represents an optional reason or cause for blocking the member.
-    string reason = 3;
-    // Represents the duration, in minutes, for which the member will be blocked. A value of 0 indicates a permanent block.
-    int64 duration = 4;
-}
-
-// BlockResponse represents a message that provides the result of the block procedure.
-message BlockResponse {}
-
-// UnblockRequest represents a message designed to restore access privileges for a previously blocked member.
-message UnblockRequest {
-    // Represents the unique identifier of the user associated with the member intended to be unblocked.
-    string user_id = 1;
-    // Represents the unique identifier of the room in which the member's access will be restored.
-    string room_id = 2;
-}
-
-// UnblockResponse represents a message that provides the result of the unblock procedure.
-message UnblockResponse {}

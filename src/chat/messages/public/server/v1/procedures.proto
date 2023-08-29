@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package messages.public.server.v1;
+package chat.messages.public.server.v1;
 
 import "chat/messages/public/server/v1/entities.proto";
 import "chat/messages/public/server/v1/optionals.proto";
@@ -12,7 +12,7 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 // CountRequest represents a message designed to count messages based on a given query.
 message CountRequest {
     // Represents the specifications and conditions under which messages should be counted.
-    messages.public.server.v1.Query query = 1;
+    chat.messages.public.server.v1.Query query = 1;
 }
 
 // CountResponse represents a message that provides the result of the count procedure.
@@ -24,25 +24,25 @@ message CountResponse {
 // SelectRequest represents a message designed to retrieve specific messages based on a given query.
 message SelectRequest {
     // Represents the specifications and conditions under which particular messages should be retrieved.
-    messages.public.server.v1.Query query = 1;
+    chat.messages.public.server.v1.Query query = 1;
 }
 
 // SelectResponse represents a message that provides the result of the select procedure.
 message SelectResponse {
     // Represents a list of messages that match the criteria of the given query.
-    repeated messages.public.server.v1.Message messages = 1;
+    repeated chat.messages.public.server.v1.Message messages = 1;
 }
 
 // RangeRequest represents a message designed to retrieve a chunk of messages based on a given query.
 message RangeRequest {
     // Represents the specifications and conditions under which a chunk of messages should be retrieved.
-    messages.public.server.v1.Query query = 1;
+    chat.messages.public.server.v1.Query query = 1;
 }
 
 // RangeResponse represents a message that provides the result of the range procedure.
 message RangeResponse {
     // Represents a chunk of messages that match the criteria of the given query.
-    messages.public.server.v1.Chunk chunk = 1;
+    chat.messages.public.server.v1.Chunk chunk = 1;
 }
 
 // CreateRequest represents a message designed to create a new message.
@@ -56,7 +56,7 @@ message CreateRequest {
 // RangeResponse represents a message that provides the result of the create procedure.
 message CreateResponse {
     // Represents the comprehensive details of the created message.
-    messages.public.server.v1.Message message = 1;
+    chat.messages.public.server.v1.Message message = 1;
 }
 
 // UpdateRequest represents a message designed to update a specific message based on its unique identifier.
@@ -64,13 +64,13 @@ message UpdateRequest {
     // Represents the unique identifier of the message intended to be updated.
     string id = 1;
     // Represents a new content associated with the message. It may be absent if no content changes are necessary.
-    optional messages.public.server.v1.OptionalString content = 2;
+    optional chat.messages.public.server.v1.OptionalString content = 2;
 }
 
 // RangeResponse represents a message that provides the result of the update procedure.
 message UpdateResponse {
     // Represents the comprehensive details of the updated message.
-    messages.public.server.v1.Message message = 1;
+    chat.messages.public.server.v1.Message message = 1;
 }
 
 // DeleteRequest represents a message designed to delete a specific message based on its unique identifier.
@@ -82,5 +82,5 @@ message DeleteRequest {
 // RangeResponse represents a message that provides the result of the delete procedure.
 message DeleteResponse {
     // Represents the comprehensive details of the deleted message.
-    messages.public.server.v1.Message message = 1;
+    chat.messages.public.server.v1.Message message = 1;
 }

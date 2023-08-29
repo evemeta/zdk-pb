@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package chats.private.v1;
+package chat.chats.private.v1;
 
 import "protoc-gen-openapiv2/options/annotations.proto";
 

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package chats.private.v1;
+package chat.chats.private.v1;
 
 import "chat/chats/private/v1/enums.proto";
 import "chat/members/private/v1/entities.proto";
@@ -19,27 +19,27 @@ message Chat {
 }
 
 message Chunk {
-    int64                          size     = 1;
-    int64                          index    = 2;
-    int64                          total    = 3;
-    repeated chats.private.v1.Chat entities = 4;
+    int64                               size     = 1;
+    int64                               index    = 2;
+    int64                               total    = 3;
+    repeated chat.chats.private.v1.Chat entities = 4;
 }
 
 message Query {
-    chats.private.v1.Order              order      = 1;
-    int64                               limit      = 2;
-    int64                               offset     = 3;
-    repeated chats.private.v1.Condition conditions = 4;
+    chat.chats.private.v1.Order              order      = 1;
+    int64                                    limit      = 2;
+    int64                                    offset     = 3;
+    repeated chat.chats.private.v1.Condition conditions = 4;
 }
 
 message Condition {
-    repeated string                    ids      = 1;
-    repeated members.private.v1.Query  members  = 2;
-    repeated messages.private.v1.Query messages = 3;
+    repeated string                         ids      = 1;
+    repeated chat.members.private.v1.Query  members  = 2;
+    repeated chat.messages.private.v1.Query messages = 3;
 }
 
 message Transient {
-    chats.private.v1.Chat future   = 1;
-    chats.private.v1.Chat current  = 2;
-    chats.private.v1.Chat previous = 3;
+    chat.chats.private.v1.Chat future   = 1;
+    chat.chats.private.v1.Chat current  = 2;
+    chat.chats.private.v1.Chat previous = 3;
 }

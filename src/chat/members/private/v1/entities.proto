@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package members.private.v1;
+package chat.members.private.v1;
 
 import "chat/members/private/v1/enums.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
@@ -9,50 +9,50 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/members/private/v1;me
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 message Chunk {
-    int64                              size     = 1;
-    int64                              index    = 2;
-    int64                              total    = 3;
-    repeated members.private.v1.Member entities = 4;
+    int64                                   size     = 1;
+    int64                                   index    = 2;
+    int64                                   total    = 3;
+    repeated chat.members.private.v1.Member entities = 4;
 }
 
 message Query {
-    members.private.v1.Order              order      = 1;
-    int64                                 limit      = 2;
-    int64                                 offset     = 3;
-    repeated members.private.v1.Condition conditions = 4;
+    chat.members.private.v1.Order              order      = 1;
+    int64                                      limit      = 2;
+    int64                                      offset     = 3;
+    repeated chat.members.private.v1.Condition conditions = 4;
 }
 
 message Member {
-    string                                  id           = 1;
-    string                                  user_id      = 2;
-    string                                  chat_id      = 3;
-    members.private.v1.Status               status       = 4;
-    map<string, string>                     metadata     = 5;
-    repeated members.private.v1.Restriction restrictions = 6;
-    int64                                   enter_time   = 7;
-    int64                                   leave_time   = 8;
-    int64                                   access_time  = 9;
-    int64                                   create_time  = 10;
-    int64                                   update_time  = 11;
+    string                                       id           = 1;
+    string                                       user_id      = 2;
+    string                                       chat_id      = 3;
+    chat.members.private.v1.Status               status       = 4;
+    map<string, string>                          metadata     = 5;
+    repeated chat.members.private.v1.Restriction restrictions = 6;
+    int64                                        enter_time   = 7;
+    int64                                        leave_time   = 8;
+    int64                                        access_time  = 9;
+    int64                                        create_time  = 10;
+    int64                                        update_time  = 11;
 }
 
 message Condition {
-    repeated string                             ids               = 1;
-    repeated string                             user_ids          = 2;
-    repeated string                             chat_ids          = 3;
-    repeated members.private.v1.Status          statuses          = 4;
-    repeated members.private.v1.RestrictionType restriction_types = 5;
+    repeated string                                  ids               = 1;
+    repeated string                                  user_ids          = 2;
+    repeated string                                  chat_ids          = 3;
+    repeated chat.members.private.v1.Status          statuses          = 4;
+    repeated chat.members.private.v1.RestrictionType restriction_types = 5;
 }
 
 message Transient {
-    members.private.v1.Member future   = 1;
-    members.private.v1.Member current  = 2;
-    members.private.v1.Member previous = 3;
+    chat.members.private.v1.Member future   = 1;
+    chat.members.private.v1.Member current  = 2;
+    chat.members.private.v1.Member previous = 3;
 }
 
 message Restriction {
-    members.private.v1.RestrictionType type        = 1;
-    string                             reason      = 2;
-    int64                              create_time = 3;
-    int64                              expire_time = 4;
+    chat.members.private.v1.RestrictionType type        = 1;
+    string                                  reason      = 2;
+    int64                                   create_time = 3;
+    int64                                   expire_time = 4;
 }

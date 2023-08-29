@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package subscriptions.private.v1;
+package gateway.subscriptions.private.v1;
 
 import "protoc-gen-openapiv2/options/annotations.proto";
 
@@ -12,7 +12,7 @@ message SelectArgument {
 }
 
 message SelectRequest {
-    repeated subscriptions.private.v1.SelectArgument arguments = 1;
+    repeated gateway.subscriptions.private.v1.SelectArgument arguments = 1;
 }
 
 message SelectResponse {

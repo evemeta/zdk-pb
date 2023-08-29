@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package websockets.private.v1;
+package gateway.websockets.private.v1;
 
 import "gateway/websockets/private/v1/enums.proto";
 import "gateway/sessions/private/v1/entities.proto";
@@ -10,17 +10,17 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/websockets/private
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 message Chunk {
-    int64                                    size     = 1;
-    int64                                    index    = 2;
-    int64                                    total    = 3;
-    repeated websockets.private.v1.Websocket entities = 4;
+    int64                                            size     = 1;
+    int64                                            index    = 2;
+    int64                                            total    = 3;
+    repeated gateway.websockets.private.v1.Websocket entities = 4;
 }
 
 message Query {
-    websockets.private.v1.Order              order      = 1;
-    int64                                    limit      = 2;
-    int64                                    offset     = 3;
-    repeated websockets.private.v1.Condition conditions = 4;
+    gateway.websockets.private.v1.Order              order      = 1;
+    int64                                            limit      = 2;
+    int64                                            offset     = 3;
+    repeated gateway.websockets.private.v1.Condition conditions = 4;
 }
 
 message Message {
@@ -29,25 +29,25 @@ message Message {
 }
 
 message Condition {
-    repeated string                       ids       = 1;
-    repeated websockets.private.v1.Zone   zones     = 2;
-    repeated sessions.private.v1.Query    sessions  = 3;
-    repeated websockets.private.v1.Status statuses  = 4;
-    repeated string                       addresses = 5;
+    repeated string                               ids       = 1;
+    repeated gateway.websockets.private.v1.Zone   zones     = 2;
+    repeated gateway.sessions.private.v1.Query    sessions  = 3;
+    repeated gateway.websockets.private.v1.Status statuses  = 4;
+    repeated string                               addresses = 5;
 }
 
 message Transient {
-    websockets.private.v1.Websocket future   = 1;
-    websockets.private.v1.Websocket current  = 2;
-    websockets.private.v1.Websocket previous = 3;
+    gateway.websockets.private.v1.Websocket future   = 1;
+    gateway.websockets.private.v1.Websocket current  = 2;
+    gateway.websockets.private.v1.Websocket previous = 3;
 }
 
 message Websocket {
-    string                       id          = 1;
-    websockets.private.v1.Zone   zone        = 2;
-    websockets.private.v1.Status status      = 3;
-    string                       address     = 4;
-    int64                        access_time = 5;
-    int64                        create_time = 6;
-    int64                        update_time = 7;
+    string                               id          = 1;
+    gateway.websockets.private.v1.Zone   zone        = 2;
+    gateway.websockets.private.v1.Status status      = 3;
+    string                               address     = 4;
+    int64                                access_time = 5;
+    int64                                create_time = 6;
+    int64                                update_time = 7;
 }

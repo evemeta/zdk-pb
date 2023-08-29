@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package members.public.server.v1;
+package chat.members.public.server.v1;
 
 import "chat/members/public/server/v1/entities.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
@@ -11,7 +11,7 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 // CountRequest represents a message designed to count members based on a given query.
 message CountRequest {
     // Represents the specifications and conditions under which members should be counted.
-    members.public.server.v1.Query query = 1;
+    chat.members.public.server.v1.Query query = 1;
 }
 
 // CountResponse represents a message that provides the result of the count procedure.
@@ -23,25 +23,25 @@ message CountResponse {
 // SelectRequest represents a message designed to retrieve specific members based on a given query.
 message SelectRequest {
     // Represents the specifications and conditions under which particular members should be retrieved.
-    members.public.server.v1.Query query = 1;
+    chat.members.public.server.v1.Query query = 1;
 }
 
 // SelectResponse represents a message that provides the result of the select procedure.
 message SelectResponse {
     // Represents a list of members that match the criteria of the given query.
-    repeated members.public.server.v1.Member members = 1;
+    repeated chat.members.public.server.v1.Member members = 1;
 }
 
 // RangeRequest represents a message designed to retrieve a chunk of members based on a given query.
 message RangeRequest {
     // Represents the specifications and conditions under which a chunk of members should be retrieved.
-    members.public.server.v1.Query query = 1;
+    chat.members.public.server.v1.Query query = 1;
 }
 
 // RangeResponse represents a message that provides the result of the range procedure.
 message RangeResponse {
     // Represents a chunk of members that match the criteria of the given query.
-    members.public.server.v1.Chunk chunk = 1;
+    chat.members.public.server.v1.Chunk chunk = 1;
 }
 
 // KickRequest represents a message designed to forcefully remove a member from a chat.

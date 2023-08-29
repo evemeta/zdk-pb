@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package members.public.server.v1;
+package room.members.public.server.v1;
 
 import "room/members/public/server/v1/procedures.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
@@ -43,24 +43,6 @@ service Service {
             description: "Description: Kick";
             summary: "Kick";
             operation_id: "Kick";
-        };
-    }
-
-    // Block represents a procedure that forcefully removes a member from a room and prevents them from participating for a specified duration or indefinitely.
-    rpc Block(BlockRequest) returns (BlockResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Block";
-            summary: "Block";
-            operation_id: "Block";
-        };
-    }
-
-    // Unblock represents a procedure that restores access privileges for a previously blocked member.
-    rpc Unblock(UnblockRequest) returns (UnblockResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Unblock";
-            summary: "Unblock";
-            operation_id: "Unblock";
         };
     }
 }

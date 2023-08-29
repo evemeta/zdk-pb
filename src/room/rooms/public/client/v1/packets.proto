@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package rooms.public.client.v1;
+package room.rooms.public.client.v1;
 
 import "protoc-gen-openapiv2/options/annotations.proto";
 
@@ -9,6 +9,7 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 message EnterRoomPacket {
     string id = 1;
+    // streams
 }
 
 message LeaveRoomPacket {

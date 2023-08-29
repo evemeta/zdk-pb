@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package websockets.private.v1;
+package gateway.websockets.private.v1;
 
 import "gateway/websockets/private/v1/enums.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
@@ -10,12 +10,12 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 // OptionalZone todo;
 message OptionalZone {
-    websockets.private.v1.Zone value = 1;
+    gateway.websockets.private.v1.Zone value = 1;
 }
 
 // OptionalStatus todo;
 message OptionalStatus {
-    websockets.private.v1.Status value = 1;
+    gateway.websockets.private.v1.Status value = 1;
 }
 
 // OptionalString represents a string value that can be intentionally left unset or null.

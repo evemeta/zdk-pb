@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package members.public.server.v1;
+package room.members.public.server.v1;
 
 import "protoc-gen-openapiv2/options/annotations.proto";
 
@@ -14,24 +14,21 @@ enum Order {
     Order_Descending = 2;
 }
 
+// StreamType todo;
+enum StreamType {
+    StreamType_Unknown = 0;
+    StreamType_Audio   = 1;
+    StreamType_Video   = 2;
+}
+
+// StreamState todo;
+enum StreamState {
+    StreamState_Unknown  = 0;
+    StreamState_Enabled  = 1;
+    StreamState_Disabled = 2;
+}
+
 // RestrictionType represents an enumeration that specifies the kinds of restrictions or actions that can be applied to a member.
 enum RestrictionType {
     RestrictionType_Unknown = 0;
-    RestrictionType_Block   = 1;
-}
-
-// ConnectionStatus todo;
-enum ConnectionStatus {
-    ConnectionStatus_Unknown = 0;
-    ConnectionStatus_Connected = 1;
-    ConnectionStatus_Connecting = 2;
-    ConnectionStatus_Reconnecting = 3;
-    ConnectionStatus_Disconnected = 4;
-}
-
-// Capability todo;
-enum Capability {
-    Capability_Unknown = 0;
-    Capability_Audio = 1;
-    Capability_Video = 2;
 }

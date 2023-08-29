@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package messages.public.server.v1;
+package chat.messages.public.server.v1;
 
 import "chat/messages/public/server/v1/entities.proto";
 import "chat/messages/public/server/v1/optionals.proto";
@@ -13,9 +13,9 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 // It provides the details of the message and the relevant timeframe associated with the event.
 message CreateMessagePacket {
     // Represents the comprehensive details of the newly created message.
-    messages.public.server.v1.Message message = 1;
+    chat.messages.public.server.v1.Message message = 1;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
-    messages.public.server.v1.Timeframe timeframe = 2;
+    chat.messages.public.server.v1.Timeframe timeframe = 2;
 }
 
 // UpdateMessagePacket is a notification sent to clients when a message has been updated.
@@ -26,11 +26,11 @@ message UpdateMessagePacket {
     // Represents the unique identifier of the chat in which the message was updated.
     string chat_id = 2;
     // Represents a new or updated content associated with the message. It may be absent if no content changes occurred.
-    optional messages.public.server.v1.OptionalString content = 3;
+    optional chat.messages.public.server.v1.OptionalString content = 3;
     // Represents a new or updated metadata associated with the message. It may be absent if no metadata changes occurred.
-    optional messages.public.server.v1.OptionalMap metadata = 4;
+    optional chat.messages.public.server.v1.OptionalMap metadata = 4;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
-    messages.public.server.v1.Timeframe timeframe = 5;
+    chat.messages.public.server.v1.Timeframe timeframe = 5;
 }
 
 // DeleteMessagePacket is a notification sent to clients when a message has been deleted.
@@ -41,5 +41,5 @@ message DeleteMessagePacket {
     // Represents the unique identifier of the chat in which the message was deleted.
     string chat_id = 2;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
-    messages.public.server.v1.Timeframe timeframe = 3;
+    chat.messages.public.server.v1.Timeframe timeframe = 3;
 }

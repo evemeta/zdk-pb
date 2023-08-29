@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package brokers.private.v1;
+package gateway.brokers.private.v1;
 
 import "protoc-gen-openapiv2/options/annotations.proto";
 

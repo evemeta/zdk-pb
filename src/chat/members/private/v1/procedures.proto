@@ -1,24 +1,24 @@
 syntax = "proto3";
 
-package members.private.v1;
+package chat.members.private.v1;
 
 import "chat/members/private/v1/enums.proto";
 import "chat/members/private/v1/entities.proto";
 import "chat/members/private/v1/optionals.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
 import "gateway/transponders/private/v1/entities.proto";
 import "gateway/transponders/private/v1/procedures.proto";
-import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/members/private/v1;memberspb";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 message CountArgument {
-    bool                     cache = 1;
-    members.private.v1.Query query = 2;
+    bool                          cache = 1;
+    chat.members.private.v1.Query query = 2;
 }
 
 message CountRequest {
-    repeated members.private.v1.CountArgument arguments = 1;
+    repeated chat.members.private.v1.CountArgument arguments = 1;
 }
 
 message CountResponse {
@@ -26,255 +26,255 @@ message CountResponse {
 }
 
 message RangeArgument {
-    bool                     cache = 1;
-    members.private.v1.Query query = 2;
+    bool                          cache = 1;
+    chat.members.private.v1.Query query = 2;
 }
 
 message RangeRequest {
-    repeated members.private.v1.RangeArgument arguments = 1;
+    repeated chat.members.private.v1.RangeArgument arguments = 1;
 }
 
 message RangeResponse {
-    repeated members.private.v1.Chunk chunks = 1;
+    repeated chat.members.private.v1.Chunk chunks = 1;
 }
 
 message SelectArgument {
-    bool                     cache = 1;
-    members.private.v1.Query query = 2;
+    bool                          cache = 1;
+    chat.members.private.v1.Query query = 2;
 }
 
 message SelectRequest {
-    repeated members.private.v1.SelectArgument arguments = 1;
+    repeated chat.members.private.v1.SelectArgument arguments = 1;
 }
 
 message SelectResponse {
-    repeated members.private.v1.Member members = 1;
+    repeated chat.members.private.v1.Member members = 1;
 }
 
 message CreateArgument {
-    string                                  id           = 1;
-    string                                  user_id      = 2;
-    string                                  chat_id      = 3;
-    members.private.v1.Status               status       = 4;
-    map<string, string>                     metadata     = 5;
-    repeated members.private.v1.Restriction restrictions = 6;
-    int64                                   enter_time   = 7;
-    int64                                   leave_time   = 8;
+    string                                       id           = 1;
+    string                                       user_id      = 2;
+    string                                       chat_id      = 3;
+    chat.members.private.v1.Status               status       = 4;
+    map<string, string>                          metadata     = 5;
+    repeated chat.members.private.v1.Restriction restrictions = 6;
+    int64                                        enter_time   = 7;
+    int64                                        leave_time   = 8;
 }
 
 message CreateRequest {
-    repeated members.private.v1.CreateArgument arguments = 1;
+    repeated chat.members.private.v1.CreateArgument arguments = 1;
 }
 
 message CreateResponse {
-    repeated members.private.v1.Member members = 1;
+    repeated chat.members.private.v1.Member members = 1;
 }
 
 message CreateMutation {
-    members.private.v1.CreateArgument     foundation      = 1;
-    members.private.v1.CreateCondition    condition       = 2;
-    repeated members.private.v1.Transient transient       = 3;
-    int64                                 begin_timestamp = 4;
-    int64                                 close_timestamp = 5;
+    chat.members.private.v1.CreateArgument     foundation      = 1;
+    chat.members.private.v1.CreateCondition    condition       = 2;
+    repeated chat.members.private.v1.Transient transient       = 3;
+    int64                                      begin_timestamp = 4;
+    int64                                      close_timestamp = 5;
 }
 
 message CreateCondition {
-    repeated transponders.private.v1.CreateMutation create_transponder_mutations = 1;
+    repeated gateway.transponders.private.v1.CreateMutation create_transponder_mutations = 1;
 }
 
 message CreateTransaction {
-    repeated members.private.v1.CreateMutation mutations = 1;
+    repeated chat.members.private.v1.CreateMutation mutations = 1;
 }
 
 message UpdateArgument {
-    members.private.v1.Query                   query    = 1;
-    optional members.private.v1.OptionalString user_id  = 2;
-    optional members.private.v1.OptionalString chat_id  = 3;
-    optional members.private.v1.OptionalMap    metadata = 4;
+    chat.members.private.v1.Query           query    = 1;
+    optional chat.members.private.v1.OptionalString user_id  = 2;
+    optional chat.members.private.v1.OptionalString chat_id  = 3;
+    optional chat.members.private.v1.OptionalMap    metadata = 4;
 }
 
 message UpdateRequest {
-    repeated members.private.v1.UpdateArgument arguments = 1;
+    repeated chat.members.private.v1.UpdateArgument arguments = 1;
 }
 
 message UpdateResponse {
-    repeated members.private.v1.Member members = 1;
+    repeated chat.members.private.v1.Member members = 1;
 }
 
 message UpdateMutation {
-    members.private.v1.UpdateArgument     foundation      = 1;
-    repeated members.private.v1.Transient transient       = 2;
-    int64                                 begin_timestamp = 3;
-    int64                                 close_timestamp = 4;
+    chat.members.private.v1.UpdateArgument     foundation      = 1;
+    repeated chat.members.private.v1.Transient transient       = 2;
+    int64                                      begin_timestamp = 3;
+    int64                                      close_timestamp = 4;
 }
 
 message UpdateTransaction {
-    repeated members.private.v1.UpdateMutation mutations = 1;
+    repeated chat.members.private.v1.UpdateMutation mutations = 1;
 }
 
 message DeleteArgument {
-    members.private.v1.Query query = 1;
+    chat.members.private.v1.Query query = 1;
 }
 
 message DeleteRequest {
-    repeated members.private.v1.DeleteArgument arguments = 1;
+    repeated chat.members.private.v1.DeleteArgument arguments = 1;
 }
 
 message DeleteResponse {
-    repeated members.private.v1.Member members = 1;
+    repeated chat.members.private.v1.Member members = 1;
 }
 
 message DeleteMutation {
-    members.private.v1.DeleteArgument     foundation      = 1;
-    members.private.v1.DeleteCondition    condition       = 2;
-    repeated members.private.v1.Transient transient       = 3;
-    int64                                 begin_timestamp = 4;
-    int64                                 close_timestamp = 5;
+    chat.members.private.v1.DeleteArgument     foundation      = 1;
+    chat.members.private.v1.DeleteCondition    condition       = 2;
+    repeated chat.members.private.v1.Transient transient       = 3;
+    int64                                      begin_timestamp = 4;
+    int64                                      close_timestamp = 5;
 }
 
 message DeleteCondition {
-    repeated transponders.private.v1.DeleteMutation delete_transponder_mutations = 1;
+    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 1;
 }
 
 message DeleteTransaction {
-    repeated members.private.v1.DeleteMutation mutations = 1;
+    repeated chat.members.private.v1.DeleteMutation mutations = 1;
 }
 
 message KickArgument {
-    members.private.v1.Query query  = 1;
-    string                   reason = 2;
+    chat.members.private.v1.Query query  = 1;
+    string                        reason = 2;
 }
 
 message KickRequest {
-    repeated members.private.v1.KickArgument arguments = 1;
+    repeated chat.members.private.v1.KickArgument arguments = 1;
 }
 
 message KickResponse {}
 
 message KickMutation {
-    members.private.v1.KickArgument  foundation      = 1;
-    members.private.v1.KickCondition condition       = 2;
-    int64                            begin_timestamp = 3;
-    int64                            close_timestamp = 4;
+    chat.members.private.v1.KickArgument  foundation      = 1;
+    chat.members.private.v1.KickCondition condition       = 2;
+    int64                                 begin_timestamp = 3;
+    int64                                 close_timestamp = 4;
 }
 
 message KickCondition {
-    repeated members.private.v1.Member              members                      = 1;
-    repeated transponders.private.v1.Transponder    transponders                 = 2;
-    repeated members.private.v1.UpdateMutation      update_mutations             = 3;
-    repeated transponders.private.v1.DeleteMutation delete_transponder_mutations = 4;
+    repeated chat.members.private.v1.Member                 members                      = 1;
+    repeated gateway.transponders.private.v1.Transponder    transponders                 = 2;
+    repeated chat.members.private.v1.UpdateMutation         update_mutations             = 3;
+    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 4;
 }
 
 message KickTransaction {
-    repeated members.private.v1.KickMutation mutations = 1;
+    repeated chat.members.private.v1.KickMutation mutations = 1;
 }
 
 message MuteArgument {
-    members.private.v1.Query query    = 1;
-    string                   reason   = 2;
-    int64                    duration = 3;
+    chat.members.private.v1.Query query    = 1;
+    string                        reason   = 2;
+    int64                         duration = 3;
 }
 
 message MuteRequest {
-    repeated members.private.v1.MuteArgument arguments = 1;
+    repeated chat.members.private.v1.MuteArgument arguments = 1;
 }
 
 message MuteResponse {}
 
 message MuteMutation {
-    members.private.v1.MuteArgument  foundation      = 1;
-    members.private.v1.MuteCondition condition       = 2;
-    int64                            begin_timestamp = 3;
-    int64                            close_timestamp = 4;
+    chat.members.private.v1.MuteArgument  foundation      = 1;
+    chat.members.private.v1.MuteCondition condition       = 2;
+    int64                                 begin_timestamp = 3;
+    int64                                 close_timestamp = 4;
 }
 
 message MuteCondition {
-    repeated members.private.v1.Member         members          = 1;
-    repeated members.private.v1.UpdateMutation update_mutations = 2;
+    repeated chat.members.private.v1.Member         members          = 1;
+    repeated chat.members.private.v1.UpdateMutation update_mutations = 2;
 }
 
 message MuteTransaction {
-    repeated members.private.v1.MuteMutation mutations = 1;
+    repeated chat.members.private.v1.MuteMutation mutations = 1;
 }
 
 message UnmuteArgument {
-    members.private.v1.Query query = 1;
+    chat.members.private.v1.Query query = 1;
 }
 
 message UnmuteRequest {
-    repeated members.private.v1.UnmuteArgument arguments = 1;
+    repeated chat.members.private.v1.UnmuteArgument arguments = 1;
 }
 
 message UnmuteResponse {}
 
 message UnmuteMutation {
-    members.private.v1.UnmuteArgument  foundation      = 1;
-    members.private.v1.UnmuteCondition condition       = 2;
-    int64                              begin_timestamp = 3;
-    int64                              close_timestamp = 4;
+    chat.members.private.v1.UnmuteArgument  foundation      = 1;
+    chat.members.private.v1.UnmuteCondition condition       = 2;
+    int64                                   begin_timestamp = 3;
+    int64                                   close_timestamp = 4;
 }
 
 message UnmuteCondition {
-    repeated members.private.v1.Member         members          = 1;
-    repeated members.private.v1.UpdateMutation update_mutations = 2;
+    repeated chat.members.private.v1.Member         members          = 1;
+    repeated chat.members.private.v1.UpdateMutation update_mutations = 2;
 }
 
 message UnmuteTransaction {
-    repeated members.private.v1.UnmuteMutation mutations = 1;
+    repeated chat.members.private.v1.UnmuteMutation mutations = 1;
 }
 
 message BlockArgument {
-    members.private.v1.Query query    = 1;
-    string                   reason   = 2;
-    int64                    duration = 3;
+    chat.members.private.v1.Query query    = 1;
+    string                        reason   = 2;
+    int64                         duration = 3;
 }
 
 message BlockRequest {
-    repeated members.private.v1.BlockArgument arguments = 1;
+    repeated chat.members.private.v1.BlockArgument arguments = 1;
 }
 
 message BlockResponse {}
 
 message BlockMutation {
-    members.private.v1.BlockArgument  foundation      = 1;
-    members.private.v1.BlockCondition condition       = 2;
-    int64                             begin_timestamp = 3;
-    int64                             close_timestamp = 4;
+    chat.members.private.v1.BlockArgument  foundation      = 1;
+    chat.members.private.v1.BlockCondition condition       = 2;
+    int64                                  begin_timestamp = 3;
+    int64                                  close_timestamp = 4;
 }
 
 message BlockCondition {
-    repeated members.private.v1.Member              members                      = 1;
-    repeated transponders.private.v1.Transponder    transponders                 = 2;
-    repeated members.private.v1.UpdateMutation      update_mutations             = 3;
-    repeated transponders.private.v1.DeleteMutation delete_transponder_mutations = 4;
+    repeated chat.members.private.v1.Member                 members                      = 1;
+    repeated gateway.transponders.private.v1.Transponder    transponders                 = 2;
+    repeated chat.members.private.v1.UpdateMutation         update_mutations             = 3;
+    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 4;
 }
 
 message BlockTransaction {
-    repeated members.private.v1.BlockMutation mutations = 1;
+    repeated chat.members.private.v1.BlockMutation mutations = 1;
 }
 
 message UnblockArgument {
-    members.private.v1.Query query = 1;
+    chat.members.private.v1.Query query = 1;
 }
 
 message UnblockRequest {
-    repeated members.private.v1.UnblockArgument arguments = 1;
+    repeated chat.members.private.v1.UnblockArgument arguments = 1;
 }
 
 message UnblockResponse {}
 
 message UnblockMutation {
-    members.private.v1.UnblockArgument  foundation      = 1;
-    members.private.v1.UnblockCondition condition       = 2;
-    int64                               begin_timestamp = 3;
-    int64                               close_timestamp = 4;
+    chat.members.private.v1.UnblockArgument  foundation      = 1;
+    chat.members.private.v1.UnblockCondition condition       = 2;
+    int64                                    begin_timestamp = 3;
+    int64                                    close_timestamp = 4;
 }
 
 message UnblockCondition {
-    repeated members.private.v1.Member         members          = 1;
-    repeated members.private.v1.UpdateMutation update_mutations = 2;
+    repeated chat.members.private.v1.Member         members          = 1;
+    repeated chat.members.private.v1.UpdateMutation update_mutations = 2;
 }
 
 message UnblockTransaction {
-    repeated members.private.v1.UnblockMutation mutations = 1;
+    repeated chat.members.private.v1.UnblockMutation mutations = 1;
 }

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package sessions.private.v1;
+package gateway.sessions.private.v1;
 
 import "gateway/sessions/private/v1/enums.proto";
 import "gateway/sessions/private/v1/entities.proto";
@@ -12,12 +12,12 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/sessions/private/v
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 message CountArgument {
-    bool                      cache = 1;
-    sessions.private.v1.Query query = 2;
+    bool                              cache = 1;
+    gateway.sessions.private.v1.Query query = 2;
 }
 
 message CountRequest {
-    repeated sessions.private.v1.CountArgument arguments = 1;
+    repeated gateway.sessions.private.v1.CountArgument arguments = 1;
 }
 
 message CountResponse {
@@ -25,114 +25,114 @@ message CountResponse {
 }
 
 message RangeArgument {
-    bool                      cache = 1;
-    sessions.private.v1.Query query = 2;
+    bool                              cache = 1;
+    gateway.sessions.private.v1.Query query = 2;
 }
 
 message RangeRequest {
-    repeated sessions.private.v1.RangeArgument arguments = 1;
+    repeated gateway.sessions.private.v1.RangeArgument arguments = 1;
 }
 
 message RangeResponse {
-    repeated sessions.private.v1.Chunk chunks = 1;
+    repeated gateway.sessions.private.v1.Chunk chunks = 1;
 }
 
 message SelectArgument {
-    bool                      cache = 1;
-    sessions.private.v1.Query query = 2;
+    bool                              cache = 1;
+    gateway.sessions.private.v1.Query query = 2;
 }
 
 message SelectRequest {
-    repeated sessions.private.v1.SelectArgument arguments = 1;
+    repeated gateway.sessions.private.v1.SelectArgument arguments = 1;
 }
 
 message SelectResponse {
-    repeated sessions.private.v1.Session sessions = 1;
+    repeated gateway.sessions.private.v1.Session sessions = 1;
 }
 
 message CreateArgument {
-    string                     id           = 1;
-    sessions.private.v1.Status status       = 2;
-    string                     user_id      = 3;
-    string                     websocket_id = 4;
+    string                             id           = 1;
+    gateway.sessions.private.v1.Status status       = 2;
+    string                             user_id      = 3;
+    string                             websocket_id = 4;
 }
 
 message CreateRequest {
-    repeated sessions.private.v1.CreateArgument arguments = 1;
+    repeated gateway.sessions.private.v1.CreateArgument arguments = 1;
 }
 
 message CreateResponse {
-    repeated sessions.private.v1.Session sessions = 1;
+    repeated gateway.sessions.private.v1.Session sessions = 1;
 }
 
 message CreateMutation {
-    sessions.private.v1.CreateArgument     foundation      = 1;
-    sessions.private.v1.CreateCondition    condition       = 2;
-    repeated sessions.private.v1.Transient transient       = 3;
-    int64                                  begin_timestamp = 4;
-    int64                                  close_timestamp = 5;
+    gateway.sessions.private.v1.CreateArgument     foundation      = 1;
+    gateway.sessions.private.v1.CreateCondition    condition       = 2;
+    repeated gateway.sessions.private.v1.Transient transient       = 3;
+    int64                                          begin_timestamp = 4;
+    int64                                          close_timestamp = 5;
 }
 
 message CreateCondition {
-    repeated transponders.private.v1.CreateMutation create_transponder_mutations = 1;
+    repeated gateway.transponders.private.v1.CreateMutation create_transponder_mutations = 1;
 }
 
 message CreateTransaction {
-    repeated sessions.private.v1.CreateMutation mutations = 1;
+    repeated gateway.sessions.private.v1.CreateMutation mutations = 1;
 }
 
 message UpdateArgument {
-    sessions.private.v1.Query                   query        = 1;
-    optional sessions.private.v1.OptionalStatus status       = 2;
-    optional sessions.private.v1.OptionalString user_id      = 3;
-    optional sessions.private.v1.OptionalString websocket_id = 4;
+    gateway.sessions.private.v1.Query                   query        = 1;
+    optional gateway.sessions.private.v1.OptionalStatus status       = 2;
+    optional gateway.sessions.private.v1.OptionalString user_id      = 3;
+    optional gateway.sessions.private.v1.OptionalString websocket_id = 4;
 }
 
 message UpdateRequest {
-    repeated sessions.private.v1.UpdateArgument arguments = 1;
+    repeated gateway.sessions.private.v1.UpdateArgument arguments = 1;
 }
 
 message UpdateResponse {
-    repeated sessions.private.v1.Session sessions = 1;
+    repeated gateway.sessions.private.v1.Session sessions = 1;
 }
 
 message UpdateMutation {
-    sessions.private.v1.UpdateArgument     foundation      = 1;
-    repeated sessions.private.v1.Transient transient       = 2;
-    int64                                  begin_timestamp = 3;
-    int64                                  close_timestamp = 4;
+    gateway.sessions.private.v1.UpdateArgument     foundation      = 1;
+    repeated gateway.sessions.private.v1.Transient transient       = 2;
+    int64                                          begin_timestamp = 3;
+    int64                                          close_timestamp = 4;
 }
 
 message UpdateTransaction {
-    repeated sessions.private.v1.UpdateMutation mutations = 1;
+    repeated gateway.sessions.private.v1.UpdateMutation mutations = 1;
 }
 
 message DeleteArgument {
-    sessions.private.v1.Query query = 1;
+    gateway.sessions.private.v1.Query query = 1;
 }
 
 message DeleteRequest {
-    repeated sessions.private.v1.DeleteArgument arguments = 1;
+    repeated gateway.sessions.private.v1.DeleteArgument arguments = 1;
 }
 
 message DeleteResponse {
-    repeated sessions.private.v1.Session sessions = 1;
+    repeated gateway.sessions.private.v1.Session sessions = 1;
 }
 
 message DeleteMutation {
-    sessions.private.v1.DeleteArgument     foundation      = 1;
-    sessions.private.v1.DeleteCondition    condition       = 2;
-    repeated sessions.private.v1.Transient transient       = 3;
-    int64                                  begin_timestamp = 4;
-    int64                                  close_timestamp = 5;
+    gateway.sessions.private.v1.DeleteArgument     foundation      = 1;
+    gateway.sessions.private.v1.DeleteCondition    condition       = 2;
+    repeated gateway.sessions.private.v1.Transient transient       = 3;
+    int64                                          begin_timestamp = 4;
+    int64                                          close_timestamp = 5;
 }
 
 message DeleteCondition {
-    repeated transponders.private.v1.DeleteMutation delete_transponder_mutations = 1;
+    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 1;
 }
 
 message DeleteTransaction {
-    repeated sessions.private.v1.DeleteMutation mutations = 1;
+    repeated gateway.sessions.private.v1.DeleteMutation mutations = 1;
 }
 
 message AttachArgument {
@@ -142,7 +142,7 @@ message AttachArgument {
 }
 
 message AttachRequest {
-    repeated sessions.private.v1.AttachArgument arguments = 1;
+    repeated gateway.sessions.private.v1.AttachArgument arguments = 1;
 }
 
 message AttachResponse {
@@ -150,20 +150,20 @@ message AttachResponse {
 }
 
 message AttachMutation {
-    sessions.private.v1.AttachArgument  foundation      = 1;
-    sessions.private.v1.AttachCondition condition       = 2;
-    repeated string                     transient       = 3;
-    int64                               begin_timestamp = 4;
-    int64                               close_timestamp = 5;
+    gateway.sessions.private.v1.AttachArgument  foundation      = 1;
+    gateway.sessions.private.v1.AttachCondition condition       = 2;
+    repeated string                             transient       = 3;
+    int64                                       begin_timestamp = 4;
+    int64                                       close_timestamp = 5;
 }
 
 message AttachCondition {
-    repeated sessions.private.v1.CreateMutation create_mutations = 1;
-    repeated sessions.private.v1.UpdateMutation update_mutations = 2;
+    repeated gateway.sessions.private.v1.CreateMutation create_mutations = 1;
+    repeated gateway.sessions.private.v1.UpdateMutation update_mutations = 2;
 }
 
 message AttachTransaction {
-    repeated sessions.private.v1.AttachMutation mutations = 1;
+    repeated gateway.sessions.private.v1.AttachMutation mutations = 1;
 }
 
 message DetachArgument {
@@ -172,23 +172,23 @@ message DetachArgument {
 }
 
 message DetachRequest {
-    repeated sessions.private.v1.DetachArgument arguments = 1;
+    repeated gateway.sessions.private.v1.DetachArgument arguments = 1;
 }
 
 message DetachResponse {}
 
 message DetachMutation {
-    sessions.private.v1.DetachArgument  foundation      = 1;
-    sessions.private.v1.DetachCondition condition       = 2;
-    int64                               begin_timestamp = 3;
-    int64                               close_timestamp = 4;
+    gateway.sessions.private.v1.DetachArgument  foundation      = 1;
+    gateway.sessions.private.v1.DetachCondition condition       = 2;
+    int64                                       begin_timestamp = 3;
+    int64                                       close_timestamp = 4;
 }
 
 message DetachCondition {
-    repeated sessions.private.v1.UpdateMutation update_mutations = 1;
-    repeated sessions.private.v1.DeleteMutation delete_mutations = 2;
+    repeated gateway.sessions.private.v1.UpdateMutation update_mutations = 1;
+    repeated gateway.sessions.private.v1.DeleteMutation delete_mutations = 2;
 }
 
 message DetachTransaction {
-    repeated sessions.private.v1.DetachMutation mutations = 1;
+    repeated gateway.sessions.private.v1.DetachMutation mutations = 1;
 }

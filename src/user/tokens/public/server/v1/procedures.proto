@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package tokens.public.server.v1;
+package user.tokens.public.server.v1;
 
 import "user/users/public/server/v1/entities.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
@@ -11,7 +11,7 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 message ExtractRequest {}
 
 message ExtractResponse {
-    users.public.server.v1.User user = 1;
+    user.users.public.server.v1.User user = 1;
 }
 
 message RefreshRequest {}

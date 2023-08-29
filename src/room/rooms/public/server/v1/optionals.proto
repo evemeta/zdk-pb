@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package rooms.public.server.v1;
+package room.rooms.public.server.v1;
 
 import "protoc-gen-openapiv2/options/annotations.proto";
 

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package users.public.server.v1;
+package user.users.public.server.v1;
 
 import "protoc-gen-openapiv2/options/annotations.proto";
 

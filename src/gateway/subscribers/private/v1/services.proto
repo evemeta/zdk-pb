@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package subscribers.private.v1;
+package gateway.subscribers.private.v1;
 
 import "gateway/subscribers/private/v1/procedures.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";

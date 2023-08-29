@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package members.public.server.v1;
+package room.members.public.server.v1;
 
 import "room/members/public/server/v1/entities.proto";
 import "room/members/public/server/v1/optionals.proto";
@@ -13,9 +13,9 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 // It provides the details of the new member and the relevant timeframe associated with the event.
 message CreateMemberPacket {
     // Represents the comprehensive details of the newly created member.
-    members.public.server.v1.Member member = 1;
+    room.members.public.server.v1.Member member = 1;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
-    members.public.server.v1.Timeframe timeframe = 2;
+    room.members.public.server.v1.Timeframe timeframe = 2;
 }
 
 // UpdateMemberPacket is a notification sent to clients when a member has been updated.
@@ -26,9 +26,9 @@ message UpdateMemberPacket {
     // Represents the unique identifier of the room in which the member was updated.
     string room_id = 2;
     // Represents a new or updated metadata associated with the member. It may be absent if no metadata changes occurred.
-    optional members.public.server.v1.OptionalMap metadata = 3;
+    optional room.members.public.server.v1.OptionalMap metadata = 3;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
-    members.public.server.v1.Timeframe timeframe = 4;
+    room.members.public.server.v1.Timeframe timeframe = 4;
 }
 
 // DeleteMemberPacket is a notification sent to clients when a member has been deleted.
@@ -39,7 +39,7 @@ message DeleteMemberPacket {
     // Represents the unique identifier of the room in which the member was deleted.
     string room_id = 2;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
-    members.public.server.v1.Timeframe timeframe = 3;
+    room.members.public.server.v1.Timeframe timeframe = 3;
 }
 
 // KickMemberPacket is a notification sent to clients when a member has been kicked from a room.
@@ -52,31 +52,49 @@ message KickMemberPacket {
     // Represents an optional reason or cause for kicking the member.
     string reason = 3;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
-    members.public.server.v1.Timeframe timeframe = 4;
+    room.members.public.server.v1.Timeframe timeframe = 4;
 }
 
-// BlockMemberPacket is a notification sent to clients when a member has been blocked in a room.
-// It provides the identifiers of associated user and room, reason for the block, duration of the block, and the relevant timeframe associated with the event.
-message BlockMemberPacket {
-    // Represents the unique identifier of the user associated with the blocked member.
+// CreateMemberStreamPacket todo;
+message CreateMemberStreamPacket {
+    // todo;
     string user_id = 1;
-    // Represents the unique identifier of the room in which the member was blocked.
+    // todo;
     string room_id = 2;
-    // Represents an optional reason or cause for blocking the member.
-    string reason = 3;
-    // Represents the duration in minutes for which the member is blocked. A value of 0 indicates a permanent block.
-    int64 duration = 4;
-    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
-    members.public.server.v1.Timeframe timeframe = 5;
+    // todo;
+    room.members.public.server.v1.Stream stream = 3;
+    // todo;
+    room.members.public.server.v1.Timeframe timeframe = 4;
 }
 
-// UnblockMemberPacket is a notification sent to clients when a member has been unblocked in a room.
-// It provides the identifiers of associated user and room and the relevant timeframe associated with the event.
-message UnblockMemberPacket {
-    // Represents the unique identifier of the user associated with the unblocked member.
+// DeleteMemberStreamPacket todo;
+message DeleteMemberStreamPacket {
+    // todo;
     string user_id = 1;
-    // Represents the unique identifier of the room in which the member was unblocked.
+    // todo;
     string room_id = 2;
-    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
-    members.public.server.v1.Timeframe timeframe = 3;
+    // todo;
+    room.members.public.server.v1.Timeframe timeframe = 3;
+}
+
+// CreateMemberRestrictionPacket todo;
+message CreateMemberRestrictionPacket {
+    // todo;
+    string user_id = 1;
+    // todo;
+    string room_id = 2;
+    // todo;
+    room.members.public.server.v1.Restriction restriction = 3;
+    // todo;
+    room.members.public.server.v1.Timeframe timeframe = 4;
+}
+
+// DeleteMemberRestrictionPacket todo;
+message DeleteMemberRestrictionPacket {
+    // todo;
+    string user_id = 1;
+    // todo;
+    string room_id = 2;
+    // todo;
+    room.members.public.server.v1.Timeframe timeframe = 3;
 }

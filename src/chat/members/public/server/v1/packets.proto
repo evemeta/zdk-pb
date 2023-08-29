@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package members.public.server.v1;
+package chat.members.public.server.v1;
 
 import "chat/members/public/server/v1/entities.proto";
 import "chat/members/public/server/v1/optionals.proto";
@@ -13,9 +13,9 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 // It provides the details of the new member and the relevant timeframe associated with the event.
 message CreateMemberPacket {
     // Represents the comprehensive details of the newly created member.
-    members.public.server.v1.Member member = 1;
+    chat.members.public.server.v1.Member member = 1;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
-    members.public.server.v1.Timeframe timeframe = 2;
+    chat.members.public.server.v1.Timeframe timeframe = 2;
 }
 
 // UpdateMemberPacket is a notification sent to clients when a member has been updated.
@@ -26,9 +26,9 @@ message UpdateMemberPacket {
     // Represents the unique identifier of the chat in which the member was updated.
     string chat_id = 2;
     // Represents a new or updated metadata associated with the member. It may be absent if no metadata changes occurred.
-    optional members.public.server.v1.OptionalMap metadata = 3;
+    optional chat.members.public.server.v1.OptionalMap metadata = 3;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
-    members.public.server.v1.Timeframe timeframe = 4;
+    chat.members.public.server.v1.Timeframe timeframe = 4;
 }
 
 // DeleteMemberPacket is a notification sent to clients when a member has been deleted.
@@ -39,7 +39,7 @@ message DeleteMemberPacket {
     // Represents the unique identifier of the chat in which the member was deleted.
     string chat_id = 2;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
-    members.public.server.v1.Timeframe timeframe = 3;
+    chat.members.public.server.v1.Timeframe timeframe = 3;
 }
 
 // KickMemberPacket is a notification sent to clients when a member has been kicked from a chat.
@@ -52,7 +52,7 @@ message KickMemberPacket {
     // Represents an optional reason or cause for kicking the member.
     string reason = 3;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
-    members.public.server.v1.Timeframe timeframe = 4;
+    chat.members.public.server.v1.Timeframe timeframe = 4;
 }
 
 // MuteMemberPacket is a notification sent to clients when a member has been muted in a chat.
@@ -67,7 +67,7 @@ message MuteMemberPacket {
     // Represents the duration in minutes for which the member is muted. A value of 0 indicates an indefinite mute.
     int64 duration = 4;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
-    members.public.server.v1.Timeframe timeframe = 5;
+    chat.members.public.server.v1.Timeframe timeframe = 5;
 }
 
 // UnmuteMemberPacket is a notification sent to clients when a member has been unmuted in a chat.
@@ -78,7 +78,7 @@ message UnmuteMemberPacket {
     // Represents the unique identifier of the chat in which the member was unmuted.
     string chat_id = 2;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
-    members.public.server.v1.Timeframe timeframe = 3;
+    chat.members.public.server.v1.Timeframe timeframe = 3;
 }
 
 // BlockMemberPacket is a notification sent to clients when a member has been blocked in a chat.
@@ -93,7 +93,7 @@ message BlockMemberPacket {
     // Represents the duration in minutes for which the member is blocked. A value of 0 indicates a permanent block.
     int64 duration = 4;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
-    members.public.server.v1.Timeframe timeframe = 5;
+    chat.members.public.server.v1.Timeframe timeframe = 5;
 }
 
 // UnblockMemberPacket is a notification sent to clients when a member has been unblocked in a chat.
@@ -104,5 +104,5 @@ message UnblockMemberPacket {
     // Represents the unique identifier of the chat in which the member was unblocked.
     string chat_id = 2;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
-    members.public.server.v1.Timeframe timeframe = 3;
+    chat.members.public.server.v1.Timeframe timeframe = 3;
 }

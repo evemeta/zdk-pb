@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package sessions.private.v1;
+package gateway.sessions.private.v1;
 
 import "protoc-gen-openapiv2/options/annotations.proto";
 

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package members.public.server.v1;
+package chat.members.public.server.v1;
 
 import "chat/members/public/server/v1/enums.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
@@ -18,20 +18,20 @@ message Chunk {
     // Represents the total count of entities across all chunks.
     int64 total = 3;
     // Represents the actual members included in this chunk.
-    repeated members.public.server.v1.Member entities = 4;
+    repeated chat.members.public.server.v1.Member entities = 4;
 }
 
 // Query represents a structure designed to facilitate specific and conditional data retrieval.
 // It contains order specifications, limitations on the number of results, and conditions to filter data.
 message Query {
     // Represents the order in which results should be retrieved.
-    members.public.server.v1.Order order = 1;
+    chat.members.public.server.v1.Order order = 1;
     // Represents the maximum number of results to be fetched.
     int64 limit = 2;
     // Represents the starting point from which to retrieve results.
     int64 offset = 3;
     // Represents the set of conditions that filter the data retrieval process.
-    members.public.server.v1.Condition condition = 4;
+    chat.members.public.server.v1.Condition condition = 4;
 }
 
 // Member represents a participant in a chat.
@@ -46,7 +46,7 @@ message Member {
     // Represents a collection of key-value pairs providing additional context or information about this member.
     map<string, string> metadata = 4;
     // Represents a list of restrictions that have been applied to this member.
-    repeated members.public.server.v1.Restriction restrictions = 5;
+    repeated chat.members.public.server.v1.Restriction restrictions = 5;
     // Represents the timestamp indicating when this member was created or added to the chat.
     int64 create_time = 6;
     // Represents the timestamp of the last update associated with this member.
@@ -75,7 +75,7 @@ message Timeframe {
 // It provides insight into the type, reason, and duration of the restriction.
 message Restriction {
     // Represents the type or category of the restriction.
-    members.public.server.v1.RestrictionType type = 1;
+    chat.members.public.server.v1.RestrictionType type = 1;
     // Represents a brief explanation or reason behind the application of this restriction.
     string reason = 2;
     // Represents the timestamp indicating when this restriction was put into place.

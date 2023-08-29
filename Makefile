@@ -9,6 +9,9 @@ ifeq ($(findstring microsoft,$(shell uname -a)),microsoft)
 	export OS=WINDOWS
 endif
 
+export TITLE = "\033[32m[%s]\033[0m %s\n"
+export ERROR = "\033[31m[%s]\033[0m %s\n"
+
 export PROTOC_GEN_GO_VER=1.30.0
 export PROTOC_GEN_WEB_VER=1.3.1
 
@@ -39,8 +42,12 @@ endif
 ifeq ($(OS),WINDOWS)
 gen::
 	@dos2unix --quiet generate.sh
+	@printf $(TITLE) "+" "Generating.."
 	@./generate.sh
+	@printf $(TITLE) "+" "Done"
 else
 gen::
+	@printf $(TITLE) "+" "Generating.."
 	@./generate.sh
+	@printf $(TITLE) "+" "Done"
 endif

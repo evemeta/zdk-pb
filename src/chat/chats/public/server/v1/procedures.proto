@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package chats.public.server.v1;
+package chat.chats.public.server.v1;
 
 import "chat/chats/public/server/v1/entities.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
@@ -11,7 +11,7 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 // CountRequest represents a message designed to count chats based on a given query.
 message CountRequest {
     // Represents the specifications and conditions under which chats should be counted.
-    chats.public.server.v1.Query query = 1;
+    chat.chats.public.server.v1.Query query = 1;
 }
 
 // CountResponse represents a message that provides the result of the count procedure.
@@ -23,25 +23,25 @@ message CountResponse {
 // SelectRequest represents a message designed to retrieve specific chats based on a given query.
 message SelectRequest {
     // Represents the specifications and conditions under which particular chats should be retrieved.
-    chats.public.server.v1.Query query = 1;
+    chat.chats.public.server.v1.Query query = 1;
 }
 
 // SelectResponse represents a message that provides the result of the select procedure.
 message SelectResponse {
     // Represents a list of chats that match the criteria of the given query.
-    repeated chats.public.server.v1.Chat chats = 1;
+    repeated chat.chats.public.server.v1.Chat chats = 1;
 }
 
 // RangeRequest represents a message designed to retrieve a chunk of chats based on a given query.
 message RangeRequest {
     // Represents the specifications and conditions under which a chunk of chats should be retrieved.
-    chats.public.server.v1.Query query = 1;
+    chat.chats.public.server.v1.Query query = 1;
 }
 
 // RangeResponse represents a message that provides the result of the range procedure.
 message RangeResponse {
     // Represents a chunk of chats that match the criteria of the given query.
-    chats.public.server.v1.Chunk chunk = 1;
+    chat.chats.public.server.v1.Chunk chunk = 1;
 }
 
 // ContextRequest represents a message designed to retrieve the context associated with a specific chat based on its unique identifier.
@@ -53,5 +53,5 @@ message ContextRequest {
 // ContextResponse represents a message that provides the result of the context procedure.
 message ContextResponse {
     // Represents the snapshot of the chat, including its current state corresponding to the unique identifier specified in the request.
-    chats.public.server.v1.Context context = 1;
+    chat.chats.public.server.v1.Context context = 1;
 }
