@@ -4,7 +4,6 @@ package chat.chats.private.v1;
 
 import "chat/chats/private/v1/entities.proto";
 import "chat/chats/private/v1/optionals.proto";
-import "chat/members/private/v1/entities.proto";
 import "chat/members/private/v1/procedures.proto";
 import "chat/messages/private/v1/procedures.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
@@ -149,11 +148,9 @@ message EnterMutation {
 }
 
 message EnterCondition {
-    repeated chat.chats.private.v1.Chat                     chats                        = 1;
-    repeated chat.members.private.v1.Member                 members                      = 2;
-    repeated chat.members.private.v1.CreateMutation         create_member_mutations      = 3;
-    repeated chat.members.private.v1.UpdateMutation         update_member_mutations      = 4;
-    repeated gateway.transponders.private.v1.CreateMutation create_transponder_mutations = 5;
+    repeated chat.members.private.v1.CreateMutation         create_member_mutations      = 1;
+    repeated chat.members.private.v1.UpdateMutation         update_member_mutations      = 2;
+    repeated gateway.transponders.private.v1.CreateMutation create_transponder_mutations = 3;
 }
 
 message EnterTransaction {
@@ -180,9 +177,8 @@ message LeaveMutation {
 }
 
 message LeaveCondition {
-    repeated chat.members.private.v1.Member                 members                      = 1;
-    repeated chat.members.private.v1.UpdateMutation         update_member_mutations      = 2;
-    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 3;
+    repeated chat.members.private.v1.UpdateMutation         update_member_mutations      = 1;
+    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 2;
 }
 
 message LeaveTransaction {

@@ -6,7 +6,6 @@ import "chat/members/private/v1/enums.proto";
 import "chat/members/private/v1/entities.proto";
 import "chat/members/private/v1/optionals.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
-import "gateway/transponders/private/v1/entities.proto";
 import "gateway/transponders/private/v1/procedures.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/members/private/v1;memberspb";
@@ -87,7 +86,7 @@ message CreateTransaction {
 }
 
 message UpdateArgument {
-    chat.members.private.v1.Query           query    = 1;
+    chat.members.private.v1.Query                   query    = 1;
     optional chat.members.private.v1.OptionalString user_id  = 2;
     optional chat.members.private.v1.OptionalString chat_id  = 3;
     optional chat.members.private.v1.OptionalMap    metadata = 4;
@@ -159,10 +158,8 @@ message KickMutation {
 }
 
 message KickCondition {
-    repeated chat.members.private.v1.Member                 members                      = 1;
-    repeated gateway.transponders.private.v1.Transponder    transponders                 = 2;
-    repeated chat.members.private.v1.UpdateMutation         update_mutations             = 3;
-    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 4;
+    repeated chat.members.private.v1.UpdateMutation         update_mutations             = 1;
+    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 2;
 }
 
 message KickTransaction {
@@ -189,8 +186,7 @@ message MuteMutation {
 }
 
 message MuteCondition {
-    repeated chat.members.private.v1.Member         members          = 1;
-    repeated chat.members.private.v1.UpdateMutation update_mutations = 2;
+    repeated chat.members.private.v1.UpdateMutation update_mutations = 1;
 }
 
 message MuteTransaction {
@@ -215,8 +211,7 @@ message UnmuteMutation {
 }
 
 message UnmuteCondition {
-    repeated chat.members.private.v1.Member         members          = 1;
-    repeated chat.members.private.v1.UpdateMutation update_mutations = 2;
+    repeated chat.members.private.v1.UpdateMutation update_mutations = 1;
 }
 
 message UnmuteTransaction {
@@ -243,10 +238,8 @@ message BlockMutation {
 }
 
 message BlockCondition {
-    repeated chat.members.private.v1.Member                 members                      = 1;
-    repeated gateway.transponders.private.v1.Transponder    transponders                 = 2;
-    repeated chat.members.private.v1.UpdateMutation         update_mutations             = 3;
-    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 4;
+    repeated chat.members.private.v1.UpdateMutation         update_mutations             = 1;
+    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 2;
 }
 
 message BlockTransaction {
@@ -271,8 +264,7 @@ message UnblockMutation {
 }
 
 message UnblockCondition {
-    repeated chat.members.private.v1.Member         members          = 1;
-    repeated chat.members.private.v1.UpdateMutation update_mutations = 2;
+    repeated chat.members.private.v1.UpdateMutation update_mutations = 1;
 }
 
 message UnblockTransaction {
