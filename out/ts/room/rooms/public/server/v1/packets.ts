@@ -37,15 +37,21 @@ export interface EnterRoomPacket {
 }
 /**
  * LeaveRoomPacket is a notification sent to clients when a member has left a room.
- * todo;
+ * It provides the details of the member leaving and the relevant timeframe associated with the event.
  *
  * @generated from protobuf message room.rooms.public.server.v1.LeaveRoomPacket
  */
 export interface LeaveRoomPacket {
     /**
+     * Represents the comprehensive details of the member leaving the room.
+     *
+     * @generated from protobuf field: room.members.public.server.v1.Member member = 1;
+     */
+    member?: Member;
+    /**
      * Represents the specific span of time, containing the commence and complete timestamps associated with the event.
      *
-     * @generated from protobuf field: room.rooms.public.server.v1.Timeframe timeframe = 1;
+     * @generated from protobuf field: room.rooms.public.server.v1.Timeframe timeframe = 2;
      */
     timeframe?: Timeframe;
 }
@@ -115,6 +121,21 @@ export interface DeleteRoomPacket {
      */
     timeframe?: Timeframe;
 }
+/**
+ * @generated from protobuf message room.rooms.public.server.v1.CustomRoomPacket
+ */
+export interface CustomRoomPacket {
+    /**
+     * @generated from protobuf field: string name = 1;
+     */
+    name: string;
+    /**
+     * @generated from protobuf field: map<string, string> data = 2;
+     */
+    data: {
+        [key: string]: string;
+    };
+}
 // @generated message type with reflection information, may provide speed optimized methods
 class EnterRoomPacket$Type extends MessageType<EnterRoomPacket> {
     constructor() {
@@ -173,7 +194,8 @@ export const EnterRoomPacket = new EnterRoomPacket$Type();
 class LeaveRoomPacket$Type extends MessageType<LeaveRoomPacket> {
     constructor() {
         super("room.rooms.public.server.v1.LeaveRoomPacket", [
-            { no: 1, name: "timeframe", kind: "message", T: () => Timeframe }
+            { no: 1, name: "member", kind: "message", T: () => Member },
+            { no: 2, name: "timeframe", kind: "message", T: () => Timeframe }
         ]);
     }
     create(value?: PartialMessage<LeaveRoomPacket>): LeaveRoomPacket {
@@ -188,7 +210,10 @@ class LeaveRoomPacket$Type extends MessageType<LeaveRoomPacket> {
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* room.rooms.public.server.v1.Timeframe timeframe */ 1:
+                case /* room.members.public.server.v1.Member member */ 1:
+                    message.member = Member.internalBinaryRead(reader, reader.uint32(), options, message.member);
+                    break;
+                case /* room.rooms.public.server.v1.Timeframe timeframe */ 2:
                     message.timeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.timeframe);
                     break;
                 default:
@@ -203,9 +228,12 @@ class LeaveRoomPacket$Type extends MessageType<LeaveRoomPacket> {
         return message;
     }
     internalBinaryWrite(message: LeaveRoomPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* room.rooms.public.server.v1.Timeframe timeframe = 1; */
+        /* room.members.public.server.v1.Member member = 1; */
+        if (message.member)
+            Member.internalBinaryWrite(message.member, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
+        /* room.rooms.public.server.v1.Timeframe timeframe = 2; */
         if (message.timeframe)
-            Timeframe.internalBinaryWrite(message.timeframe, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
+            Timeframe.internalBinaryWrite(message.timeframe, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -385,3 +413,73 @@ class DeleteRoomPacket$Type extends MessageType<DeleteRoomPacket> {
  * @generated MessageType for protobuf message room.rooms.public.server.v1.DeleteRoomPacket
  */
 export const DeleteRoomPacket = new DeleteRoomPacket$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class CustomRoomPacket$Type extends MessageType<CustomRoomPacket> {
+    constructor() {
+        super("room.rooms.public.server.v1.CustomRoomPacket", [
+            { no: 1, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "data", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } }
+        ]);
+    }
+    create(value?: PartialMessage<CustomRoomPacket>): CustomRoomPacket {
+        const message = { name: "", data: {} };
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<CustomRoomPacket>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: CustomRoomPacket): CustomRoomPacket {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string name */ 1:
+                    message.name = reader.string();
+                    break;
+                case /* map<string, string> data */ 2:
+                    this.binaryReadMap2(message.data, reader, options);
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    private binaryReadMap2(map: CustomRoomPacket["data"], reader: IBinaryReader, options: BinaryReadOptions): void {
+        let len = reader.uint32(), end = reader.pos + len, key: keyof CustomRoomPacket["data"] | undefined, val: CustomRoomPacket["data"][any] | undefined;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case 1:
+                    key = reader.string();
+                    break;
+                case 2:
+                    val = reader.string();
+                    break;
+                default: throw new globalThis.Error("unknown map entry field for field room.rooms.public.server.v1.CustomRoomPacket.data");
+            }
+        }
+        map[key ?? ""] = val ?? "";
+    }
+    internalBinaryWrite(message: CustomRoomPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string name = 1; */
+        if (message.name !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.name);
+        /* map<string, string> data = 2; */
+        for (let k of Object.keys(message.data))
+            writer.tag(2, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.data[k]).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message room.rooms.public.server.v1.CustomRoomPacket
+ */
+export const CustomRoomPacket = new CustomRoomPacket$Type();

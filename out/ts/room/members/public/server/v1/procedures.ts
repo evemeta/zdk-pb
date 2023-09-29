@@ -124,6 +124,46 @@ export interface KickRequest {
  */
 export interface KickResponse {
 }
+/**
+ * @generated from protobuf message room.members.public.server.v1.CreateStreamRequest
+ */
+export interface CreateStreamRequest {
+}
+/**
+ * @generated from protobuf message room.members.public.server.v1.CreateStreamResponse
+ */
+export interface CreateStreamResponse {
+}
+/**
+ * @generated from protobuf message room.members.public.server.v1.UpdateStreamRequest
+ */
+export interface UpdateStreamRequest {
+}
+/**
+ * @generated from protobuf message room.members.public.server.v1.UpdateStreamResponse
+ */
+export interface UpdateStreamResponse {
+}
+/**
+ * @generated from protobuf message room.members.public.server.v1.DeleteStreamRequest
+ */
+export interface DeleteStreamRequest {
+}
+/**
+ * @generated from protobuf message room.members.public.server.v1.DeleteStreamResponse
+ */
+export interface DeleteStreamResponse {
+}
+/**
+ * @generated from protobuf message room.members.public.server.v1.CreateRestrictionRequest
+ */
+export interface CreateRestrictionRequest {
+}
+/**
+ * @generated from protobuf message room.members.public.server.v1.DeleteRestrictionRequest
+ */
+export interface DeleteRestrictionRequest {
+}
 // @generated message type with reflection information, may provide speed optimized methods
 class CountRequest$Type extends MessageType<CountRequest> {
     constructor() {
@@ -493,3 +533,211 @@ class KickResponse$Type extends MessageType<KickResponse> {
  * @generated MessageType for protobuf message room.members.public.server.v1.KickResponse
  */
 export const KickResponse = new KickResponse$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class CreateStreamRequest$Type extends MessageType<CreateStreamRequest> {
+    constructor() {
+        super("room.members.public.server.v1.CreateStreamRequest", []);
+    }
+    create(value?: PartialMessage<CreateStreamRequest>): CreateStreamRequest {
+        const message = {};
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<CreateStreamRequest>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: CreateStreamRequest): CreateStreamRequest {
+        return target ?? this.create();
+    }
+    internalBinaryWrite(message: CreateStreamRequest, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message room.members.public.server.v1.CreateStreamRequest
+ */
+export const CreateStreamRequest = new CreateStreamRequest$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class CreateStreamResponse$Type extends MessageType<CreateStreamResponse> {
+    constructor() {
+        super("room.members.public.server.v1.CreateStreamResponse", []);
+    }
+    create(value?: PartialMessage<CreateStreamResponse>): CreateStreamResponse {
+        const message = {};
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<CreateStreamResponse>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: CreateStreamResponse): CreateStreamResponse {
+        return target ?? this.create();
+    }
+    internalBinaryWrite(message: CreateStreamResponse, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message room.members.public.server.v1.CreateStreamResponse
+ */
+export const CreateStreamResponse = new CreateStreamResponse$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class UpdateStreamRequest$Type extends MessageType<UpdateStreamRequest> {
+    constructor() {
+        super("room.members.public.server.v1.UpdateStreamRequest", []);
+    }
+    create(value?: PartialMessage<UpdateStreamRequest>): UpdateStreamRequest {
+        const message = {};
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<UpdateStreamRequest>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: UpdateStreamRequest): UpdateStreamRequest {
+        return target ?? this.create();
+    }
+    internalBinaryWrite(message: UpdateStreamRequest, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message room.members.public.server.v1.UpdateStreamRequest
+ */
+export const UpdateStreamRequest = new UpdateStreamRequest$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class UpdateStreamResponse$Type extends MessageType<UpdateStreamResponse> {
+    constructor() {
+        super("room.members.public.server.v1.UpdateStreamResponse", []);
+    }
+    create(value?: PartialMessage<UpdateStreamResponse>): UpdateStreamResponse {
+        const message = {};
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<UpdateStreamResponse>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: UpdateStreamResponse): UpdateStreamResponse {
+        return target ?? this.create();
+    }
+    internalBinaryWrite(message: UpdateStreamResponse, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message room.members.public.server.v1.UpdateStreamResponse
+ */
+export const UpdateStreamResponse = new UpdateStreamResponse$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class DeleteStreamRequest$Type extends MessageType<DeleteStreamRequest> {
+    constructor() {
+        super("room.members.public.server.v1.DeleteStreamRequest", []);
+    }
+    create(value?: PartialMessage<DeleteStreamRequest>): DeleteStreamRequest {
+        const message = {};
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<DeleteStreamRequest>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: DeleteStreamRequest): DeleteStreamRequest {
+        return target ?? this.create();
+    }
+    internalBinaryWrite(message: DeleteStreamRequest, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message room.members.public.server.v1.DeleteStreamRequest
+ */
+export const DeleteStreamRequest = new DeleteStreamRequest$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class DeleteStreamResponse$Type extends MessageType<DeleteStreamResponse> {
+    constructor() {
+        super("room.members.public.server.v1.DeleteStreamResponse", []);
+    }
+    create(value?: PartialMessage<DeleteStreamResponse>): DeleteStreamResponse {
+        const message = {};
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<DeleteStreamResponse>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: DeleteStreamResponse): DeleteStreamResponse {
+        return target ?? this.create();
+    }
+    internalBinaryWrite(message: DeleteStreamResponse, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message room.members.public.server.v1.DeleteStreamResponse
+ */
+export const DeleteStreamResponse = new DeleteStreamResponse$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class CreateRestrictionRequest$Type extends MessageType<CreateRestrictionRequest> {
+    constructor() {
+        super("room.members.public.server.v1.CreateRestrictionRequest", []);
+    }
+    create(value?: PartialMessage<CreateRestrictionRequest>): CreateRestrictionRequest {
+        const message = {};
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<CreateRestrictionRequest>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: CreateRestrictionRequest): CreateRestrictionRequest {
+        return target ?? this.create();
+    }
+    internalBinaryWrite(message: CreateRestrictionRequest, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message room.members.public.server.v1.CreateRestrictionRequest
+ */
+export const CreateRestrictionRequest = new CreateRestrictionRequest$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class DeleteRestrictionRequest$Type extends MessageType<DeleteRestrictionRequest> {
+    constructor() {
+        super("room.members.public.server.v1.DeleteRestrictionRequest", []);
+    }
+    create(value?: PartialMessage<DeleteRestrictionRequest>): DeleteRestrictionRequest {
+        const message = {};
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<DeleteRestrictionRequest>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: DeleteRestrictionRequest): DeleteRestrictionRequest {
+        return target ?? this.create();
+    }
+    internalBinaryWrite(message: DeleteRestrictionRequest, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message room.members.public.server.v1.DeleteRestrictionRequest
+ */
+export const DeleteRestrictionRequest = new DeleteRestrictionRequest$Type();

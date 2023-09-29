@@ -12,6 +12,8 @@ import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
 import { RestrictionType } from "./enums";
+import { ConnectionState } from "./enums";
+import { ConnectionType } from "./enums";
 import { StreamState } from "./enums";
 import { StreamType } from "./enums";
 import { Order } from "./enums";
@@ -80,7 +82,8 @@ export interface Query {
     condition?: Condition;
 }
 /**
- * Member todo;
+ * Member represents a participant in a room.
+ * It contains details for identification, associated metadata, associated restrictions, and timestamps reflecting its creation and last alteration.
  *
  * @generated from protobuf message room.members.public.server.v1.Member
  */
@@ -120,48 +123,55 @@ export interface Member {
     /**
      * todo;
      *
-     * @generated from protobuf field: repeated room.members.public.server.v1.Restriction restrictions = 6;
+     * @generated from protobuf field: repeated room.members.public.server.v1.Connection connections = 6;
+     */
+    connections: Connection[];
+    /**
+     * todo;
+     *
+     * @generated from protobuf field: repeated room.members.public.server.v1.Restriction restrictions = 7;
      */
     restrictions: Restriction[];
     /**
      * Represents the timestamp indicating when this member was created or added to the room.
      *
-     * @generated from protobuf field: int64 create_time = 7;
+     * @generated from protobuf field: int64 create_time = 8;
      */
     createTime: bigint;
     /**
      * Represents the timestamp of the last update associated with this member.
      *
-     * @generated from protobuf field: int64 update_time = 8;
+     * @generated from protobuf field: int64 update_time = 9;
      */
     updateTime: bigint;
 }
 /**
- * Stream todo;
+ * Stream represents a specific type of media (e.g., video, audio) that a member is sharing in a room.
+ * It provides information on the type of stream, its current state, and timestamps reflecting its creation and last alteration.
  *
  * @generated from protobuf message room.members.public.server.v1.Stream
  */
 export interface Stream {
     /**
-     * todo;
+     * Represents the type of the stream, such as video or audio.
      *
      * @generated from protobuf field: room.members.public.server.v1.StreamType type = 1;
      */
     type: StreamType;
     /**
-     * todo;
+     * Represents the current state of the stream, indicating whether data is actively being transmitted or is muted locally.
      *
      * @generated from protobuf field: room.members.public.server.v1.StreamState state = 2;
      */
     state: StreamState;
     /**
-     * todo;
+     * Represents the timestamp indicating when this stream was created.
      *
      * @generated from protobuf field: int64 create_time = 3;
      */
     createTime: bigint;
     /**
-     * todo;
+     * Represents the timestamp of the last update associated with this stream.
      *
      * @generated from protobuf field: int64 update_time = 4;
      */
@@ -207,6 +217,39 @@ export interface Timeframe {
      */
     complete: bigint;
 }
+/**
+ * Connection todo;
+ *
+ * @generated from protobuf message room.members.public.server.v1.Connection
+ */
+export interface Connection {
+    /**
+     * todo;
+     *
+     * @generated from protobuf field: room.members.public.server.v1.ConnectionType type = 1;
+     */
+    type: ConnectionType;
+    /**
+     * todo;
+     *
+     * @generated from protobuf field: room.members.public.server.v1.ConnectionState state = 2;
+     */
+    state: ConnectionState;
+    /**
+     * Represents the timestamp indicating when this connection was created.
+     *
+     * @generated from protobuf field: int64 create_time = 3;
+     */
+    createTime: bigint;
+    /**
+     * Represents the timestamp of the last update associated with this connection.
+     *
+     * @generated from protobuf field: int64 update_time = 4;
+     */
+    updateTime: bigint;
+}
+// todo; moze zamiast 'type' w connection to ustawic 'direction' czy cos, w sumie to spoko, np. 'Direction.Receive'
+
 /**
  * Restriction represents a particular limitation applied to a member.
  * It provides insight into the type, reason, and duration of the restriction.
@@ -384,13 +427,14 @@ class Member$Type extends MessageType<Member> {
             { no: 3, name: "room_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 4, name: "streams", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => Stream },
             { no: 5, name: "metadata", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } },
-            { no: 6, name: "restrictions", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => Restriction },
-            { no: 7, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 8, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 6, name: "connections", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => Connection },
+            { no: 7, name: "restrictions", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => Restriction },
+            { no: 8, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 9, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value?: PartialMessage<Member>): Member {
-        const message = { id: "", userId: "", roomId: "", streams: [], metadata: {}, restrictions: [], createTime: 0n, updateTime: 0n };
+        const message = { id: "", userId: "", roomId: "", streams: [], metadata: {}, connections: [], restrictions: [], createTime: 0n, updateTime: 0n };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<Member>(this, message, value);
@@ -416,13 +460,16 @@ class Member$Type extends MessageType<Member> {
                 case /* map<string, string> metadata */ 5:
                     this.binaryReadMap5(message.metadata, reader, options);
                     break;
-                case /* repeated room.members.public.server.v1.Restriction restrictions */ 6:
+                case /* repeated room.members.public.server.v1.Connection connections */ 6:
+                    message.connections.push(Connection.internalBinaryRead(reader, reader.uint32(), options));
+                    break;
+                case /* repeated room.members.public.server.v1.Restriction restrictions */ 7:
                     message.restrictions.push(Restriction.internalBinaryRead(reader, reader.uint32(), options));
                     break;
-                case /* int64 create_time */ 7:
+                case /* int64 create_time */ 8:
                     message.createTime = reader.int64().toBigInt();
                     break;
-                case /* int64 update_time */ 8:
+                case /* int64 update_time */ 9:
                     message.updateTime = reader.int64().toBigInt();
                     break;
                 default:
@@ -468,15 +515,18 @@ class Member$Type extends MessageType<Member> {
         /* map<string, string> metadata = 5; */
         for (let k of Object.keys(message.metadata))
             writer.tag(5, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.metadata[k]).join();
-        /* repeated room.members.public.server.v1.Restriction restrictions = 6; */
+        /* repeated room.members.public.server.v1.Connection connections = 6; */
+        for (let i = 0; i < message.connections.length; i++)
+            Connection.internalBinaryWrite(message.connections[i], writer.tag(6, WireType.LengthDelimited).fork(), options).join();
+        /* repeated room.members.public.server.v1.Restriction restrictions = 7; */
         for (let i = 0; i < message.restrictions.length; i++)
-            Restriction.internalBinaryWrite(message.restrictions[i], writer.tag(6, WireType.LengthDelimited).fork(), options).join();
-        /* int64 create_time = 7; */
+            Restriction.internalBinaryWrite(message.restrictions[i], writer.tag(7, WireType.LengthDelimited).fork(), options).join();
+        /* int64 create_time = 8; */
         if (message.createTime !== 0n)
-            writer.tag(7, WireType.Varint).int64(message.createTime);
-        /* int64 update_time = 8; */
+            writer.tag(8, WireType.Varint).int64(message.createTime);
+        /* int64 update_time = 9; */
         if (message.updateTime !== 0n)
-            writer.tag(8, WireType.Varint).int64(message.updateTime);
+            writer.tag(9, WireType.Varint).int64(message.updateTime);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -663,6 +713,74 @@ class Timeframe$Type extends MessageType<Timeframe> {
  * @generated MessageType for protobuf message room.members.public.server.v1.Timeframe
  */
 export const Timeframe = new Timeframe$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class Connection$Type extends MessageType<Connection> {
+    constructor() {
+        super("room.members.public.server.v1.Connection", [
+            { no: 1, name: "type", kind: "enum", T: () => ["room.members.public.server.v1.ConnectionType", ConnectionType] },
+            { no: 2, name: "state", kind: "enum", T: () => ["room.members.public.server.v1.ConnectionState", ConnectionState] },
+            { no: 3, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 4, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+        ]);
+    }
+    create(value?: PartialMessage<Connection>): Connection {
+        const message = { type: 0, state: 0, createTime: 0n, updateTime: 0n };
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<Connection>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Connection): Connection {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* room.members.public.server.v1.ConnectionType type */ 1:
+                    message.type = reader.int32();
+                    break;
+                case /* room.members.public.server.v1.ConnectionState state */ 2:
+                    message.state = reader.int32();
+                    break;
+                case /* int64 create_time */ 3:
+                    message.createTime = reader.int64().toBigInt();
+                    break;
+                case /* int64 update_time */ 4:
+                    message.updateTime = reader.int64().toBigInt();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: Connection, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* room.members.public.server.v1.ConnectionType type = 1; */
+        if (message.type !== 0)
+            writer.tag(1, WireType.Varint).int32(message.type);
+        /* room.members.public.server.v1.ConnectionState state = 2; */
+        if (message.state !== 0)
+            writer.tag(2, WireType.Varint).int32(message.state);
+        /* int64 create_time = 3; */
+        if (message.createTime !== 0n)
+            writer.tag(3, WireType.Varint).int64(message.createTime);
+        /* int64 update_time = 4; */
+        if (message.updateTime !== 0n)
+            writer.tag(4, WireType.Varint).int64(message.updateTime);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message room.members.public.server.v1.Connection
+ */
+export const Connection = new Connection$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class Restriction$Type extends MessageType<Restriction> {
     constructor() {

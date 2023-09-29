@@ -34,7 +34,8 @@ message Query {
     room.members.public.server.v1.Condition condition = 4;
 }
 
-// Member todo;
+// Member represents a participant in a room.
+// It contains details for identification, associated metadata, associated restrictions, and timestamps reflecting its creation and last alteration.
 message Member {
     // Represents the unique identifier for this member.
     string id = 1;
@@ -47,22 +48,25 @@ message Member {
     // Represents a collection of key-value pairs providing additional context or information about this member.
     map<string, string> metadata = 5;
     // todo;
-    repeated room.members.public.server.v1.Restriction restrictions = 6;
+    repeated room.members.public.server.v1.Connection connections = 6;
+    // todo;
+    repeated room.members.public.server.v1.Restriction restrictions = 7;
     // Represents the timestamp indicating when this member was created or added to the room.
-    int64 create_time = 7;
+    int64 create_time = 8;
     // Represents the timestamp of the last update associated with this member.
-    int64 update_time = 8;
+    int64 update_time = 9;
 }
 
-// Stream todo;
+// Stream represents a specific type of media (e.g., video, audio) that a member is sharing in a room.
+// It provides information on the type of stream, its current state, and timestamps reflecting its creation and last alteration.
 message Stream {
-    // todo;
+    // Represents the type of the stream, such as video or audio.
     room.members.public.server.v1.StreamType type = 1;
-    // todo;
+    // Represents the current state of the stream, indicating whether data is actively being transmitted or is muted locally.
     room.members.public.server.v1.StreamState state = 2;
-    // todo;
+    // Represents the timestamp indicating when this stream was created.
     int64 create_time = 3;
-    // todo;
+    // Represents the timestamp of the last update associated with this stream.
     int64 update_time = 4;
 }
 
@@ -84,6 +88,20 @@ message Timeframe {
     int64 complete = 2;
 }
 
+// Connection todo;
+message Connection {
+    // todo;
+    room.members.public.server.v1.ConnectionType type = 1;
+    // todo;
+    room.members.public.server.v1.ConnectionState state = 2;
+    // Represents the timestamp indicating when this connection was created.
+    int64 create_time = 3;
+    // Represents the timestamp of the last update associated with this connection.
+    int64 update_time = 4;
+}
+
+// todo; moze zamiast 'type' w connection to ustawic 'direction' czy cos, w sumie to spoko, np. 'Direction.Receive'
+
 // Restriction represents a particular limitation applied to a member.
 // It provides insight into the type, reason, and duration of the restriction.
 message Restriction {
@@ -96,3 +114,9 @@ message Restriction {
     // Represents the timestamp indicating when this restriction will end or expire.
     int64 expire_time = 4;
 }
+
+
+// todo; stream ma byc zawsze subowany, niewazne czy wlaczony czy wylaczony
+// todo; stramy mozna apdejtowac tylko jesli jest polaczenie z sfu (sender)
+
+// todo; moze zmienic 'StreamState' z 'Enabled' i 'Disabled' na 'Transmiting' czy cos w tym stylu, podejsc do tematu badziej na zasadzie dane sa transmitowane albo i nie

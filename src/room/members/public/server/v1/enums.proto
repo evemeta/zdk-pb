@@ -28,6 +28,21 @@ enum StreamState {
     StreamState_Disabled = 2;
 }
 
+// ConnectionType todo;
+enum ConnectionType {
+    ConnectionType_Unknown  = 0;
+    ConnectionType_Receive  = 1;
+    ConnectionType_Transmit = 2;
+}
+
+// ConnectionState todo;
+enum ConnectionState {
+    ConnectionState_Unknown      = 0;
+    ConnectionState_Connected    = 1;
+    ConnectionState_Connecting   = 2;
+    ConnectionState_Reconnecting = 3;
+}
+
 // RestrictionType represents an enumeration that specifies the kinds of restrictions or actions that can be applied to a member.
 enum RestrictionType {
     RestrictionType_Unknown = 0;

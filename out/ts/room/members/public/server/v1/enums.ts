@@ -59,6 +59,48 @@ export enum StreamState {
     StreamState_Disabled = 2
 }
 /**
+ * ConnectionType todo;
+ *
+ * @generated from protobuf enum room.members.public.server.v1.ConnectionType
+ */
+export enum ConnectionType {
+    /**
+     * @generated from protobuf enum value: ConnectionType_Unknown = 0;
+     */
+    ConnectionType_Unknown = 0,
+    /**
+     * @generated from protobuf enum value: ConnectionType_Receive = 1;
+     */
+    ConnectionType_Receive = 1,
+    /**
+     * @generated from protobuf enum value: ConnectionType_Transmit = 2;
+     */
+    ConnectionType_Transmit = 2
+}
+/**
+ * ConnectionState todo;
+ *
+ * @generated from protobuf enum room.members.public.server.v1.ConnectionState
+ */
+export enum ConnectionState {
+    /**
+     * @generated from protobuf enum value: ConnectionState_Unknown = 0;
+     */
+    ConnectionState_Unknown = 0,
+    /**
+     * @generated from protobuf enum value: ConnectionState_Connected = 1;
+     */
+    ConnectionState_Connected = 1,
+    /**
+     * @generated from protobuf enum value: ConnectionState_Connecting = 2;
+     */
+    ConnectionState_Connecting = 2,
+    /**
+     * @generated from protobuf enum value: ConnectionState_Reconnecting = 3;
+     */
+    ConnectionState_Reconnecting = 3
+}
+/**
  * RestrictionType represents an enumeration that specifies the kinds of restrictions or actions that can be applied to a member.
  *
  * @generated from protobuf enum room.members.public.server.v1.RestrictionType

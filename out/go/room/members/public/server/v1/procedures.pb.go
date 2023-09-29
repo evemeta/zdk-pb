@@ -421,6 +421,310 @@ func (*KickResponse) Descriptor() ([]byte, []int) {
 	return file_room_members_public_server_v1_procedures_proto_rawDescGZIP(), []int{7}
 }
 
+type CreateStreamRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *CreateStreamRequest) Reset() {
+	*x = CreateStreamRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_room_members_public_server_v1_procedures_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CreateStreamRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateStreamRequest) ProtoMessage() {}
+
+func (x *CreateStreamRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_room_members_public_server_v1_procedures_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateStreamRequest.ProtoReflect.Descriptor instead.
+func (*CreateStreamRequest) Descriptor() ([]byte, []int) {
+	return file_room_members_public_server_v1_procedures_proto_rawDescGZIP(), []int{8}
+}
+
+type CreateStreamResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *CreateStreamResponse) Reset() {
+	*x = CreateStreamResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_room_members_public_server_v1_procedures_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CreateStreamResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateStreamResponse) ProtoMessage() {}
+
+func (x *CreateStreamResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_room_members_public_server_v1_procedures_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateStreamResponse.ProtoReflect.Descriptor instead.
+func (*CreateStreamResponse) Descriptor() ([]byte, []int) {
+	return file_room_members_public_server_v1_procedures_proto_rawDescGZIP(), []int{9}
+}
+
+type UpdateStreamRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *UpdateStreamRequest) Reset() {
+	*x = UpdateStreamRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_room_members_public_server_v1_procedures_proto_msgTypes[10]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UpdateStreamRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateStreamRequest) ProtoMessage() {}
+
+func (x *UpdateStreamRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_room_members_public_server_v1_procedures_proto_msgTypes[10]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateStreamRequest.ProtoReflect.Descriptor instead.
+func (*UpdateStreamRequest) Descriptor() ([]byte, []int) {
+	return file_room_members_public_server_v1_procedures_proto_rawDescGZIP(), []int{10}
+}
+
+type UpdateStreamResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *UpdateStreamResponse) Reset() {
+	*x = UpdateStreamResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_room_members_public_server_v1_procedures_proto_msgTypes[11]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UpdateStreamResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateStreamResponse) ProtoMessage() {}
+
+func (x *UpdateStreamResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_room_members_public_server_v1_procedures_proto_msgTypes[11]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateStreamResponse.ProtoReflect.Descriptor instead.
+func (*UpdateStreamResponse) Descriptor() ([]byte, []int) {
+	return file_room_members_public_server_v1_procedures_proto_rawDescGZIP(), []int{11}
+}
+
+type DeleteStreamRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *DeleteStreamRequest) Reset() {
+	*x = DeleteStreamRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_room_members_public_server_v1_procedures_proto_msgTypes[12]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *DeleteStreamRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteStreamRequest) ProtoMessage() {}
+
+func (x *DeleteStreamRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_room_members_public_server_v1_procedures_proto_msgTypes[12]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteStreamRequest.ProtoReflect.Descriptor instead.
+func (*DeleteStreamRequest) Descriptor() ([]byte, []int) {
+	return file_room_members_public_server_v1_procedures_proto_rawDescGZIP(), []int{12}
+}
+
+type DeleteStreamResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *DeleteStreamResponse) Reset() {
+	*x = DeleteStreamResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_room_members_public_server_v1_procedures_proto_msgTypes[13]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *DeleteStreamResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteStreamResponse) ProtoMessage() {}
+
+func (x *DeleteStreamResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_room_members_public_server_v1_procedures_proto_msgTypes[13]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteStreamResponse.ProtoReflect.Descriptor instead.
+func (*DeleteStreamResponse) Descriptor() ([]byte, []int) {
+	return file_room_members_public_server_v1_procedures_proto_rawDescGZIP(), []int{13}
+}
+
+type CreateRestrictionRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *CreateRestrictionRequest) Reset() {
+	*x = CreateRestrictionRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_room_members_public_server_v1_procedures_proto_msgTypes[14]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CreateRestrictionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateRestrictionRequest) ProtoMessage() {}
+
+func (x *CreateRestrictionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_room_members_public_server_v1_procedures_proto_msgTypes[14]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateRestrictionRequest.ProtoReflect.Descriptor instead.
+func (*CreateRestrictionRequest) Descriptor() ([]byte, []int) {
+	return file_room_members_public_server_v1_procedures_proto_rawDescGZIP(), []int{14}
+}
+
+type DeleteRestrictionRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *DeleteRestrictionRequest) Reset() {
+	*x = DeleteRestrictionRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_room_members_public_server_v1_procedures_proto_msgTypes[15]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *DeleteRestrictionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteRestrictionRequest) ProtoMessage() {}
+
+func (x *DeleteRestrictionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_room_members_public_server_v1_procedures_proto_msgTypes[15]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteRestrictionRequest.ProtoReflect.Descriptor instead.
+func (*DeleteRestrictionRequest) Descriptor() ([]byte, []int) {
+	return file_room_members_public_server_v1_procedures_proto_rawDescGZIP(), []int{15}
+}
+
 var File_room_members_public_server_v1_procedures_proto protoreflect.FileDescriptor
 
 var file_room_members_public_server_v1_procedures_proto_rawDesc = []byte{
@@ -468,12 +772,24 @@ var file_room_members_public_server_v1_procedures_proto_rawDesc = []byte{
 	0x28, 0x09, 0x52, 0x06, 0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x12, 0x16, 0x0a, 0x06, 0x72, 0x65,
 	0x61, 0x73, 0x6f, 0x6e, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x72, 0x65, 0x61, 0x73,
 	0x6f, 0x6e, 0x22, 0x0e, 0x0a, 0x0c, 0x4b, 0x69, 0x63, 0x6b, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x42, 0x4d, 0x5a, 0x48, 0x67, 0x69, 0x74, 0x6c, 0x61, 0x62, 0x2e, 0x63, 0x6f, 0x6d,
-	0x2f, 0x65, 0x76, 0x65, 0x6d, 0x65, 0x74, 0x61, 0x2f, 0x7a, 0x64, 0x6b, 0x2f, 0x70, 0x62, 0x2f,
-	0x6f, 0x75, 0x74, 0x2f, 0x67, 0x6f, 0x2f, 0x72, 0x6f, 0x6f, 0x6d, 0x2f, 0x6d, 0x65, 0x6d, 0x62,
-	0x65, 0x72, 0x73, 0x2f, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x65,
-	0x72, 0x2f, 0x76, 0x31, 0x3b, 0x6d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x70, 0x62, 0x92, 0x41,
-	0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x73, 0x65, 0x22, 0x15, 0x0a, 0x13, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x53, 0x74, 0x72, 0x65,
+	0x61, 0x6d, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x16, 0x0a, 0x14, 0x43, 0x72, 0x65,
+	0x61, 0x74, 0x65, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x22, 0x15, 0x0a, 0x13, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x53, 0x74, 0x72, 0x65, 0x61,
+	0x6d, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x16, 0x0a, 0x14, 0x55, 0x70, 0x64, 0x61,
+	0x74, 0x65, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x22, 0x15, 0x0a, 0x13, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x16, 0x0a, 0x14, 0x44, 0x65, 0x6c, 0x65, 0x74,
+	0x65, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
+	0x1a, 0x0a, 0x18, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x74, 0x72, 0x69, 0x63,
+	0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x1a, 0x0a, 0x18, 0x44,
+	0x65, 0x6c, 0x65, 0x74, 0x65, 0x52, 0x65, 0x73, 0x74, 0x72, 0x69, 0x63, 0x74, 0x69, 0x6f, 0x6e,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x42, 0x4d, 0x5a, 0x48, 0x67, 0x69, 0x74, 0x6c, 0x61,
+	0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x65, 0x76, 0x65, 0x6d, 0x65, 0x74, 0x61, 0x2f, 0x7a, 0x64,
+	0x6b, 0x2f, 0x70, 0x62, 0x2f, 0x6f, 0x75, 0x74, 0x2f, 0x67, 0x6f, 0x2f, 0x72, 0x6f, 0x6f, 0x6d,
+	0x2f, 0x6d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x2f, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2f,
+	0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2f, 0x76, 0x31, 0x3b, 0x6d, 0x65, 0x6d, 0x62, 0x65, 0x72,
+	0x73, 0x70, 0x62, 0x92, 0x41, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -488,26 +804,34 @@ func file_room_members_public_server_v1_procedures_proto_rawDescGZIP() []byte {
 	return file_room_members_public_server_v1_procedures_proto_rawDescData
 }
 
-var file_room_members_public_server_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_room_members_public_server_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 16)
 var file_room_members_public_server_v1_procedures_proto_goTypes = []interface{}{
-	(*CountRequest)(nil),   // 0: room.members.public.server.v1.CountRequest
-	(*CountResponse)(nil),  // 1: room.members.public.server.v1.CountResponse
-	(*SelectRequest)(nil),  // 2: room.members.public.server.v1.SelectRequest
-	(*SelectResponse)(nil), // 3: room.members.public.server.v1.SelectResponse
-	(*RangeRequest)(nil),   // 4: room.members.public.server.v1.RangeRequest
-	(*RangeResponse)(nil),  // 5: room.members.public.server.v1.RangeResponse
-	(*KickRequest)(nil),    // 6: room.members.public.server.v1.KickRequest
-	(*KickResponse)(nil),   // 7: room.members.public.server.v1.KickResponse
-	(*Query)(nil),          // 8: room.members.public.server.v1.Query
-	(*Member)(nil),         // 9: room.members.public.server.v1.Member
-	(*Chunk)(nil),          // 10: room.members.public.server.v1.Chunk
+	(*CountRequest)(nil),             // 0: room.members.public.server.v1.CountRequest
+	(*CountResponse)(nil),            // 1: room.members.public.server.v1.CountResponse
+	(*SelectRequest)(nil),            // 2: room.members.public.server.v1.SelectRequest
+	(*SelectResponse)(nil),           // 3: room.members.public.server.v1.SelectResponse
+	(*RangeRequest)(nil),             // 4: room.members.public.server.v1.RangeRequest
+	(*RangeResponse)(nil),            // 5: room.members.public.server.v1.RangeResponse
+	(*KickRequest)(nil),              // 6: room.members.public.server.v1.KickRequest
+	(*KickResponse)(nil),             // 7: room.members.public.server.v1.KickResponse
+	(*CreateStreamRequest)(nil),      // 8: room.members.public.server.v1.CreateStreamRequest
+	(*CreateStreamResponse)(nil),     // 9: room.members.public.server.v1.CreateStreamResponse
+	(*UpdateStreamRequest)(nil),      // 10: room.members.public.server.v1.UpdateStreamRequest
+	(*UpdateStreamResponse)(nil),     // 11: room.members.public.server.v1.UpdateStreamResponse
+	(*DeleteStreamRequest)(nil),      // 12: room.members.public.server.v1.DeleteStreamRequest
+	(*DeleteStreamResponse)(nil),     // 13: room.members.public.server.v1.DeleteStreamResponse
+	(*CreateRestrictionRequest)(nil), // 14: room.members.public.server.v1.CreateRestrictionRequest
+	(*DeleteRestrictionRequest)(nil), // 15: room.members.public.server.v1.DeleteRestrictionRequest
+	(*Query)(nil),                    // 16: room.members.public.server.v1.Query
+	(*Member)(nil),                   // 17: room.members.public.server.v1.Member
+	(*Chunk)(nil),                    // 18: room.members.public.server.v1.Chunk
 }
 var file_room_members_public_server_v1_procedures_proto_depIdxs = []int32{
-	8,  // 0: room.members.public.server.v1.CountRequest.query:type_name -> room.members.public.server.v1.Query
-	8,  // 1: room.members.public.server.v1.SelectRequest.query:type_name -> room.members.public.server.v1.Query
-	9,  // 2: room.members.public.server.v1.SelectResponse.members:type_name -> room.members.public.server.v1.Member
-	8,  // 3: room.members.public.server.v1.RangeRequest.query:type_name -> room.members.public.server.v1.Query
-	10, // 4: room.members.public.server.v1.RangeResponse.chunk:type_name -> room.members.public.server.v1.Chunk
+	16, // 0: room.members.public.server.v1.CountRequest.query:type_name -> room.members.public.server.v1.Query
+	16, // 1: room.members.public.server.v1.SelectRequest.query:type_name -> room.members.public.server.v1.Query
+	17, // 2: room.members.public.server.v1.SelectResponse.members:type_name -> room.members.public.server.v1.Member
+	16, // 3: room.members.public.server.v1.RangeRequest.query:type_name -> room.members.public.server.v1.Query
+	18, // 4: room.members.public.server.v1.RangeResponse.chunk:type_name -> room.members.public.server.v1.Chunk
 	5,  // [5:5] is the sub-list for method output_type
 	5,  // [5:5] is the sub-list for method input_type
 	5,  // [5:5] is the sub-list for extension type_name
@@ -618,6 +942,102 @@ func file_room_members_public_server_v1_procedures_proto_init() {
 				return nil
 			}
 		}
+		file_room_members_public_server_v1_procedures_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CreateStreamRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_room_members_public_server_v1_procedures_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CreateStreamResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_room_members_public_server_v1_procedures_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UpdateStreamRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_room_members_public_server_v1_procedures_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UpdateStreamResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_room_members_public_server_v1_procedures_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DeleteStreamRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_room_members_public_server_v1_procedures_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DeleteStreamResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_room_members_public_server_v1_procedures_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CreateRestrictionRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_room_members_public_server_v1_procedures_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DeleteRestrictionRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -625,7 +1045,7 @@ func file_room_members_public_server_v1_procedures_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_room_members_public_server_v1_procedures_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   8,
+			NumMessages:   16,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

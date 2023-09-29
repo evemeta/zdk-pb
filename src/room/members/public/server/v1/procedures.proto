@@ -56,3 +56,19 @@ message KickRequest {
 
 // KickResponse represents a message that provides the result of the kick procedure.
 message KickResponse {}
+
+message CreateStreamRequest {}
+
+message CreateStreamResponse {}
+
+message UpdateStreamRequest {}
+
+message UpdateStreamResponse {}
+
+message DeleteStreamRequest {}
+
+message DeleteStreamResponse {}
+
+message CreateRestrictionRequest {}
+
+message DeleteRestrictionRequest {}

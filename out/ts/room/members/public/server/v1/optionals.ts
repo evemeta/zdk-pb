@@ -11,6 +11,8 @@ import type { PartialMessage } from "@protobuf-ts/runtime";
 import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
+import { ConnectionState } from "./enums";
+import { StreamState } from "./enums";
 /**
  * OptionalMap represents a mapping of key-value pairs that can be intentionally left unset or null.
  * It allows for explicit control over the presence or absence of the map, accommodating scenarios where the map might be optional or intentionally omitted.
@@ -24,6 +26,24 @@ export interface OptionalMap {
     value: {
         [key: string]: string;
     };
+}
+/**
+ * @generated from protobuf message room.members.public.server.v1.OptionalStreamState
+ */
+export interface OptionalStreamState {
+    /**
+     * @generated from protobuf field: room.members.public.server.v1.StreamState value = 1;
+     */
+    value: StreamState;
+}
+/**
+ * @generated from protobuf message room.members.public.server.v1.OptionalConnectionState
+ */
+export interface OptionalConnectionState {
+    /**
+     * @generated from protobuf field: room.members.public.server.v1.ConnectionState value = 1;
+     */
+    value: ConnectionState;
 }
 // @generated message type with reflection information, may provide speed optimized methods
 class OptionalMap$Type extends MessageType<OptionalMap> {
@@ -88,3 +108,97 @@ class OptionalMap$Type extends MessageType<OptionalMap> {
  * @generated MessageType for protobuf message room.members.public.server.v1.OptionalMap
  */
 export const OptionalMap = new OptionalMap$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class OptionalStreamState$Type extends MessageType<OptionalStreamState> {
+    constructor() {
+        super("room.members.public.server.v1.OptionalStreamState", [
+            { no: 1, name: "value", kind: "enum", T: () => ["room.members.public.server.v1.StreamState", StreamState] }
+        ]);
+    }
+    create(value?: PartialMessage<OptionalStreamState>): OptionalStreamState {
+        const message = { value: 0 };
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<OptionalStreamState>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: OptionalStreamState): OptionalStreamState {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* room.members.public.server.v1.StreamState value */ 1:
+                    message.value = reader.int32();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: OptionalStreamState, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* room.members.public.server.v1.StreamState value = 1; */
+        if (message.value !== 0)
+            writer.tag(1, WireType.Varint).int32(message.value);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message room.members.public.server.v1.OptionalStreamState
+ */
+export const OptionalStreamState = new OptionalStreamState$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class OptionalConnectionState$Type extends MessageType<OptionalConnectionState> {
+    constructor() {
+        super("room.members.public.server.v1.OptionalConnectionState", [
+            { no: 1, name: "value", kind: "enum", T: () => ["room.members.public.server.v1.ConnectionState", ConnectionState] }
+        ]);
+    }
+    create(value?: PartialMessage<OptionalConnectionState>): OptionalConnectionState {
+        const message = { value: 0 };
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<OptionalConnectionState>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: OptionalConnectionState): OptionalConnectionState {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* room.members.public.server.v1.ConnectionState value */ 1:
+                    message.value = reader.int32();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: OptionalConnectionState, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* room.members.public.server.v1.ConnectionState value = 1; */
+        if (message.value !== 0)
+            writer.tag(1, WireType.Varint).int32(message.value);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message room.members.public.server.v1.OptionalConnectionState
+ */
+export const OptionalConnectionState = new OptionalConnectionState$Type();

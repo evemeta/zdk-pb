@@ -20,10 +20,12 @@ message EnterRoomPacket {
 }
 
 // LeaveRoomPacket is a notification sent to clients when a member has left a room.
-// todo;
+// It provides the details of the member leaving and the relevant timeframe associated with the event.
 message LeaveRoomPacket {
+    // Represents the comprehensive details of the member leaving the room.
+    room.members.public.server.v1.Member member = 1;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
-    room.rooms.public.server.v1.Timeframe timeframe = 1;
+    room.rooms.public.server.v1.Timeframe timeframe = 2;
 }
 
 // CreateRoomPacket is a notification sent to clients when a new room has been created.
@@ -53,4 +55,9 @@ message DeleteRoomPacket {
     string id = 1;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
     room.rooms.public.server.v1.Timeframe timeframe = 2;
+}
+
+message CustomRoomPacket {
+    string name = 1;
+    map<string, string> data = 2;
 }
