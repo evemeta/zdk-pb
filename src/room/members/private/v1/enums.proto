@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package room.members.private.v1;
+
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/members/private/v1;memberspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+enum Order {
+    OrderUnknown    = 0;
+    OrderAscending  = 1;
+    OrderDescending = 2;
+}
+
+enum Status {
+    StatusUnknown      = 0;
+    StatusConnected    = 1;
+    StatusDisconnected = 2;
+}
+
+enum RestrictionKind {
+    RestrictionKindUnknown = 0;
+}
+
+enum StreamKind {
+    StreamKindUnknown = 0;
+    StreamKindAudio   = 1;
+    StreamKindVideo   = 2;
+}
+
+enum StreamState {
+    StreamStateUnknown  = 0;
+    StreamStateEnabled  = 1;
+    StreamStateDisabled = 2;
+}
+
+enum ConnectionKind {
+    ConnectionKindUnknown  = 0;
+    ConnectionKindReceive  = 1;
+    ConnectionKindTransmit = 2;
+}
+
+enum ConnectionState {
+    ConnectionStateUnknown      = 0;
+    ConnectionStateConnected    = 1;
+    ConnectionStateConnecting   = 2;
+    ConnectionStateReconnecting = 3;
+}

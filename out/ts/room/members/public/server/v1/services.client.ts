@@ -4,6 +4,16 @@
 import type { RpcTransport } from "@protobuf-ts/runtime-rpc";
 import type { ServiceInfo } from "@protobuf-ts/runtime-rpc";
 import { Service } from "./services";
+import type { DeleteRestrictionResponse } from "./procedures";
+import type { DeleteRestrictionRequest } from "./procedures";
+import type { CreateRestrictionResponse } from "./procedures";
+import type { CreateRestrictionRequest } from "./procedures";
+import type { DeleteStreamResponse } from "./procedures";
+import type { DeleteStreamRequest } from "./procedures";
+import type { UpdateStreamResponse } from "./procedures";
+import type { UpdateStreamRequest } from "./procedures";
+import type { CreateStreamResponse } from "./procedures";
+import type { CreateStreamRequest } from "./procedures";
 import type { KickResponse } from "./procedures";
 import type { KickRequest } from "./procedures";
 import type { SelectResponse } from "./procedures";
@@ -43,6 +53,36 @@ export interface IServiceClient {
      * @generated from protobuf rpc: Kick(room.members.public.server.v1.KickRequest) returns (room.members.public.server.v1.KickResponse);
      */
     kick(input: KickRequest, options?: RpcOptions): UnaryCall<KickRequest, KickResponse>;
+    /**
+     * CreateStream todo;
+     *
+     * @generated from protobuf rpc: CreateStream(room.members.public.server.v1.CreateStreamRequest) returns (room.members.public.server.v1.CreateStreamResponse);
+     */
+    createStream(input: CreateStreamRequest, options?: RpcOptions): UnaryCall<CreateStreamRequest, CreateStreamResponse>;
+    /**
+     * UpdateStream todo;
+     *
+     * @generated from protobuf rpc: UpdateStream(room.members.public.server.v1.UpdateStreamRequest) returns (room.members.public.server.v1.UpdateStreamResponse);
+     */
+    updateStream(input: UpdateStreamRequest, options?: RpcOptions): UnaryCall<UpdateStreamRequest, UpdateStreamResponse>;
+    /**
+     * DeleteStream todo;
+     *
+     * @generated from protobuf rpc: DeleteStream(room.members.public.server.v1.DeleteStreamRequest) returns (room.members.public.server.v1.DeleteStreamResponse);
+     */
+    deleteStream(input: DeleteStreamRequest, options?: RpcOptions): UnaryCall<DeleteStreamRequest, DeleteStreamResponse>;
+    /**
+     * CreateRestriction todo;
+     *
+     * @generated from protobuf rpc: CreateRestriction(room.members.public.server.v1.CreateRestrictionRequest) returns (room.members.public.server.v1.CreateRestrictionResponse);
+     */
+    createRestriction(input: CreateRestrictionRequest, options?: RpcOptions): UnaryCall<CreateRestrictionRequest, CreateRestrictionResponse>;
+    /**
+     * DeleteRestriction todo;
+     *
+     * @generated from protobuf rpc: DeleteRestriction(room.members.public.server.v1.DeleteRestrictionRequest) returns (room.members.public.server.v1.DeleteRestrictionResponse);
+     */
+    deleteRestriction(input: DeleteRestrictionRequest, options?: RpcOptions): UnaryCall<DeleteRestrictionRequest, DeleteRestrictionResponse>;
 }
 /**
  * @generated from protobuf service room.members.public.server.v1.Service
@@ -88,5 +128,50 @@ export class ServiceClient implements IServiceClient, ServiceInfo {
     kick(input: KickRequest, options?: RpcOptions): UnaryCall<KickRequest, KickResponse> {
         const method = this.methods[3], opt = this._transport.mergeOptions(options);
         return stackIntercept<KickRequest, KickResponse>("unary", this._transport, method, opt, input);
+    }
+    /**
+     * CreateStream todo;
+     *
+     * @generated from protobuf rpc: CreateStream(room.members.public.server.v1.CreateStreamRequest) returns (room.members.public.server.v1.CreateStreamResponse);
+     */
+    createStream(input: CreateStreamRequest, options?: RpcOptions): UnaryCall<CreateStreamRequest, CreateStreamResponse> {
+        const method = this.methods[4], opt = this._transport.mergeOptions(options);
+        return stackIntercept<CreateStreamRequest, CreateStreamResponse>("unary", this._transport, method, opt, input);
+    }
+    /**
+     * UpdateStream todo;
+     *
+     * @generated from protobuf rpc: UpdateStream(room.members.public.server.v1.UpdateStreamRequest) returns (room.members.public.server.v1.UpdateStreamResponse);
+     */
+    updateStream(input: UpdateStreamRequest, options?: RpcOptions): UnaryCall<UpdateStreamRequest, UpdateStreamResponse> {
+        const method = this.methods[5], opt = this._transport.mergeOptions(options);
+        return stackIntercept<UpdateStreamRequest, UpdateStreamResponse>("unary", this._transport, method, opt, input);
+    }
+    /**
+     * DeleteStream todo;
+     *
+     * @generated from protobuf rpc: DeleteStream(room.members.public.server.v1.DeleteStreamRequest) returns (room.members.public.server.v1.DeleteStreamResponse);
+     */
+    deleteStream(input: DeleteStreamRequest, options?: RpcOptions): UnaryCall<DeleteStreamRequest, DeleteStreamResponse> {
+        const method = this.methods[6], opt = this._transport.mergeOptions(options);
+        return stackIntercept<DeleteStreamRequest, DeleteStreamResponse>("unary", this._transport, method, opt, input);
+    }
+    /**
+     * CreateRestriction todo;
+     *
+     * @generated from protobuf rpc: CreateRestriction(room.members.public.server.v1.CreateRestrictionRequest) returns (room.members.public.server.v1.CreateRestrictionResponse);
+     */
+    createRestriction(input: CreateRestrictionRequest, options?: RpcOptions): UnaryCall<CreateRestrictionRequest, CreateRestrictionResponse> {
+        const method = this.methods[7], opt = this._transport.mergeOptions(options);
+        return stackIntercept<CreateRestrictionRequest, CreateRestrictionResponse>("unary", this._transport, method, opt, input);
+    }
+    /**
+     * DeleteRestriction todo;
+     *
+     * @generated from protobuf rpc: DeleteRestriction(room.members.public.server.v1.DeleteRestrictionRequest) returns (room.members.public.server.v1.DeleteRestrictionResponse);
+     */
+    deleteRestriction(input: DeleteRestrictionRequest, options?: RpcOptions): UnaryCall<DeleteRestrictionRequest, DeleteRestrictionResponse> {
+        const method = this.methods[8], opt = this._transport.mergeOptions(options);
+        return stackIntercept<DeleteRestrictionRequest, DeleteRestrictionResponse>("unary", this._transport, method, opt, input);
     }
 }

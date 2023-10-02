@@ -28,6 +28,8 @@ export interface OptionalMap {
     };
 }
 /**
+ * OptionalStreamState todo;
+ *
  * @generated from protobuf message room.members.public.server.v1.OptionalStreamState
  */
 export interface OptionalStreamState {
@@ -37,6 +39,8 @@ export interface OptionalStreamState {
     value: StreamState;
 }
 /**
+ * OptionalConnectionState todo;
+ *
  * @generated from protobuf message room.members.public.server.v1.OptionalConnectionState
  */
 export interface OptionalConnectionState {

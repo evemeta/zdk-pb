@@ -183,29 +183,3 @@ message DisconnectCondition {
 message DisconnectTransaction {
     repeated gateway.websockets.private.v1.DisconnectMutation mutations = 1;
 }
-
-message ReintegrateArgument {
-    gateway.sessions.private.v1.Query query = 1;
-}
-
-message ReintegrateRequest {
-    repeated gateway.websockets.private.v1.ReintegrateArgument arguments = 1;
-}
-
-message ReintegrateResponse {}
-
-message ReintegrateMutation {
-    gateway.websockets.private.v1.ReintegrateArgument  foundation      = 1;
-    gateway.websockets.private.v1.ReintegrateCondition condition       = 2;
-    int64                                              begin_timestamp = 3;
-    int64                                              close_timestamp = 4;
-}
-
-message ReintegrateCondition {
-    repeated gateway.sessions.private.v1.Session     sessions   = 1;
-    repeated gateway.websockets.private.v1.Websocket websockets = 2;
-}
-
-message ReintegrateTransaction {
-    repeated gateway.websockets.private.v1.ReintegrateMutation mutations = 1;
-}

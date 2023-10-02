@@ -8,13 +8,13 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/transponders/priva
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 enum Order {
-    Order_Unknown    = 0;
-    Order_Ascending  = 1;
-    Order_Descending = 2;
+    OrderUnknown    = 0;
+    OrderAscending  = 1;
+    OrderDescending = 2;
 }
 
 enum Direction {
-    Direction_Unknown = 0;
-    Direction_Up      = 1;
-    Direction_Down    = 2;
+    DirectionUnknown = 0;
+    DirectionUp      = 1;
+    DirectionDown    = 2;
 }

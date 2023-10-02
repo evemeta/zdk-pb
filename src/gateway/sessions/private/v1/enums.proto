@@ -8,13 +8,13 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/sessions/private/v
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 enum Order {
-    Order_Unknown    = 0;
-    Order_Ascending  = 1;
-    Order_Descending = 2;
+    OrderUnknown    = 0;
+    OrderAscending  = 1;
+    OrderDescending = 2;
 }
 
 enum Status {
-    Status_Unknown      = 0;
-    Status_Connected    = 1;
-    Status_Reconnecting = 2;
+    StatusUnknown      = 0;
+    StatusConnected    = 1;
+    StatusReconnecting = 2;
 }

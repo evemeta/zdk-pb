@@ -9,7 +9,7 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 // Order represents an enumeration that specifies the sort order for data retrieval, particularly in the context of querying.
 enum Order {
-    Order_Unknown    = 0;
-    Order_Ascending  = 1;
-    Order_Descending = 2;
+    OrderUnknown    = 0;
+    OrderAscending  = 1;
+    OrderDescending = 2;
 }

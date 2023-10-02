@@ -8,24 +8,24 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/websockets/private
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 enum Zone {
-    Zone_Unknown      = 0;
-    Zone_Asia         = 1;
-    Zone_Africa       = 2;
-    Zone_Europe       = 3;
-    Zone_Oceania      = 4;
-    Zone_NorthAmerica = 5;
-    Zone_SouthAmerica = 6;
+    ZoneUnknown      = 0;
+    ZoneAsia         = 1;
+    ZoneAfrica       = 2;
+    ZoneEurope       = 3;
+    ZoneOceania      = 4;
+    ZoneNorthAmerica = 5;
+    ZoneSouthAmerica = 6;
 }
 
 enum Order {
-    Order_Unknown    = 0;
-    Order_Ascending  = 1;
-    Order_Descending = 2;
+    OrderUnknown    = 0;
+    OrderAscending  = 1;
+    OrderDescending = 2;
 }
 
 enum Status {
-    Status_Unknown     = 0;
-    Status_Initiating  = 1;
-    Status_Initiated   = 2;
-    Status_Terminating = 3;
+    StatusUnknown     = 0;
+    StatusInitiating  = 1;
+    StatusInitiated   = 2;
+    StatusTerminating = 3;
 }

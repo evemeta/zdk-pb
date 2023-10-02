@@ -8,9 +8,9 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/websocket/public/server/v1
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 enum Cause {
-    Cause_Unknown       = 0;
-    Cause_Timeout       = 1;
-    Cause_Relocation    = 2;
-    Cause_Maintenance   = 3;
-    Cause_Disconnection = 4;
+    CauseUnknown    = 0;
+    CauseFailure    = 1;
+    CauseTimeout    = 2;
+    CauseRelocate   = 3;
+    CauseDisconnect = 4;
 }

@@ -15,12 +15,14 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 message Room {
     // Represents the unique identifier for this room.
     string id = 1;
+    // todo;
+    room.rooms.public.server.v1.Kind kind = 2;
     // Represents a collection of key-value pairs providing additional context or information about this room.
-    map<string, string> metadata = 2;
+    map<string, string> metadata = 3;
     // Represents the timestamp indicating when this room was created.
-    int64 create_time = 3;
+    int64 create_time = 4;
     // Represents the timestamp of the last update associated with this room.
-    int64 update_time = 4;
+    int64 update_time = 5;
 }
 
 // Chunk represents a segmented portion of rooms used for pagination or segmented data retrieval.

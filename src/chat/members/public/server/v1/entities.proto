@@ -75,7 +75,7 @@ message Timeframe {
 // It provides insight into the type, reason, and duration of the restriction.
 message Restriction {
     // Represents the type or category of the restriction.
-    chat.members.public.server.v1.RestrictionType type = 1;
+    chat.members.public.server.v1.RestrictionKind kind = 1;
     // Represents a brief explanation or reason behind the application of this restriction.
     string reason = 2;
     // Represents the timestamp indicating when this restriction was put into place.

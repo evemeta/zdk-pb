@@ -28,13 +28,3 @@ message DisconnectRequest {
 }
 
 message DisconnectResponse {}
-
-message ReintegrateArgument {
-    repeated string session_ids = 1;
-}
-
-message ReintegrateRequest {
-    repeated websocket.private.v1.ReintegrateArgument arguments = 1;
-}
-
-message ReintegrateResponse {}

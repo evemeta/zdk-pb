@@ -8,19 +8,19 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/members/private/v1;me
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 enum Order {
-    Order_Unknown    = 0;
-    Order_Ascending  = 1;
-    Order_Descending = 2;
+    OrderUnknown    = 0;
+    OrderAscending  = 1;
+    OrderDescending = 2;
 }
 
 enum Status {
-    Status_Unknown = 0;
-    Status_Online  = 1;
-    Status_Offline = 2;
+    StatusUnknown = 0;
+    StatusConnected  = 1;
+    StatusDisconnected = 2;
 }
 
-enum RestrictionType {
-    RestrictionType_Unknown = 0;
-    RestrictionType_Mute    = 1;
-    RestrictionType_Block   = 2;
+enum RestrictionKind {
+    RestrictionKindUnknown = 0;
+    RestrictionKindMute    = 1;
+    RestrictionKindBlock   = 2;
 }

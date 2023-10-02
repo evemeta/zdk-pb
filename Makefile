@@ -44,10 +44,14 @@ gen::
 	@dos2unix --quiet generate.sh
 	@printf $(TITLE) "+" "Generating.."
 	@./generate.sh
+	@printf $(TITLE) "+" "Transforming.."
+	@./transform.sh
 	@printf $(TITLE) "+" "Done"
 else
 gen::
 	@printf $(TITLE) "+" "Generating.."
 	@./generate.sh
+	@printf $(TITLE) "+" "Transforming.."
+	@./transform.sh
 	@printf $(TITLE) "+" "Done"
 endif

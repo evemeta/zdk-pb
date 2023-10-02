@@ -1,0 +1,196 @@
+syntax = "proto3";
+
+package room.rooms.private.v1;
+
+import "room/rooms/private/v1/enums.proto";
+import "room/rooms/private/v1/entities.proto";
+import "room/rooms/private/v1/optionals.proto";
+import "chat/chats/private/v1/procedures.proto";
+import "room/members/private/v1/procedures.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+import "gateway/transponders/private/v1/procedures.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/rooms/private/v1;roomspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+message CountArgument {
+    bool                        cache = 1;
+    room.rooms.private.v1.Query query = 2;
+}
+
+message CountRequest {
+    repeated room.rooms.private.v1.CountArgument arguments = 1;
+}
+
+message CountResponse {
+    int64 total = 1;
+}
+
+message RangeArgument {
+    bool                        cache = 1;
+    room.rooms.private.v1.Query query = 2;
+}
+
+message RangeRequest {
+    repeated room.rooms.private.v1.RangeArgument arguments = 1;
+}
+
+message RangeResponse {
+    repeated room.rooms.private.v1.Chunk chunks = 1;
+}
+
+message SelectArgument {
+    bool                        cache = 1;
+    room.rooms.private.v1.Query query = 2;
+}
+
+message SelectRequest {
+    repeated room.rooms.private.v1.SelectArgument arguments = 1;
+}
+
+message SelectResponse {
+    repeated room.rooms.private.v1.Room rooms = 1;
+}
+
+message CreateArgument {
+    string                id       = 1;
+    rooms.private.v1.Kind kind     = 2;
+    map<string, string>   metadata = 3;
+}
+
+message CreateRequest {
+    repeated room.rooms.private.v1.CreateArgument arguments = 1;
+}
+
+message CreateResponse {
+    repeated room.rooms.private.v1.Room rooms = 1;
+}
+
+message CreateMutation {
+    room.rooms.private.v1.CreateArgument     foundation      = 1;
+    room.rooms.private.v1.CreateCondition    condition       = 2;
+    repeated room.rooms.private.v1.Transient transient       = 3;
+    int64                                    begin_timestamp = 4;
+    int64                                    close_timestamp = 5;
+}
+
+message CreateCondition {
+    repeated chat.chats.private.v1.CreateMutation           create_chat_mutations        = 1;
+    repeated gateway.transponders.private.v1.CreateMutation create_transponder_mutations = 2;
+}
+
+message CreateTransaction {
+    repeated room.rooms.private.v1.CreateMutation mutations = 1;
+}
+
+message UpdateArgument {
+    room.rooms.private.v1.Query                 query    = 1;
+    optional room.rooms.private.v1.OptionalKind kind     = 2;
+    optional room.rooms.private.v1.OptionalMap  metadata = 3;
+}
+
+message UpdateRequest {
+    repeated room.rooms.private.v1.UpdateArgument arguments = 1;
+}
+
+message UpdateResponse {
+    repeated room.rooms.private.v1.Room rooms = 1;
+}
+
+message UpdateMutation {
+    room.rooms.private.v1.UpdateArgument     foundation      = 1;
+    repeated room.rooms.private.v1.Transient transient       = 2;
+    int64                                    begin_timestamp = 3;
+    int64                                    close_timestamp = 4;
+}
+
+message UpdateTransaction {
+    repeated room.rooms.private.v1.UpdateMutation mutations = 1;
+}
+
+message DeleteArgument {
+    room.rooms.private.v1.Query query = 1;
+}
+
+message DeleteRequest {
+    repeated room.rooms.private.v1.DeleteArgument arguments = 1;
+}
+
+message DeleteResponse {
+    repeated room.rooms.private.v1.Room rooms = 1;
+}
+
+message DeleteMutation {
+    room.rooms.private.v1.DeleteArgument     foundation      = 1;
+    room.rooms.private.v1.DeleteCondition    condition       = 2;
+    repeated room.rooms.private.v1.Transient transient       = 3;
+    int64                                    begin_timestamp = 4;
+    int64                                    close_timestamp = 5;
+}
+
+message DeleteCondition {
+    repeated chat.chats.private.v1.DeleteMutation           delete_chat_mutations        = 1;
+    repeated room.members.private.v1.DeleteMutation         delete_member_mutations      = 2;
+    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 3;
+}
+
+message DeleteTransaction {
+    repeated room.rooms.private.v1.DeleteMutation mutations = 1;
+}
+
+message EnterArgument {
+    string id         = 1;
+    string user_id    = 2;
+    string session_id = 3;
+}
+
+message EnterRequest {
+    repeated room.rooms.private.v1.EnterArgument arguments = 1;
+}
+
+message EnterResponse {}
+
+message EnterMutation {
+    room.rooms.private.v1.EnterArgument  foundation      = 1;
+    room.rooms.private.v1.EnterCondition condition       = 2;
+    int64                                begin_timestamp = 3;
+    int64                                close_timestamp = 4;
+}
+
+message EnterCondition {
+    repeated room.members.private.v1.CreateMutation         create_member_mutations      = 1;
+    repeated room.members.private.v1.UpdateMutation         update_member_mutations      = 2;
+    repeated gateway.transponders.private.v1.CreateMutation create_transponder_mutations = 3;
+}
+
+message EnterTransaction {
+    repeated room.rooms.private.v1.EnterMutation mutations = 1;
+}
+
+message LeaveArgument {
+    string id         = 1;
+    string user_id    = 2;
+    string session_id = 3;
+}
+
+message LeaveRequest {
+    repeated room.rooms.private.v1.LeaveArgument arguments = 1;
+}
+
+message LeaveResponse {}
+
+message LeaveMutation {
+    room.rooms.private.v1.LeaveArgument  foundation      = 1;
+    room.rooms.private.v1.LeaveCondition condition       = 2;
+    int64                                begin_timestamp = 3;
+    int64                                close_timestamp = 4;
+}
+
+message LeaveCondition {
+    repeated room.members.private.v1.UpdateMutation         update_member_mutations      = 1;
+    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 2;
+}
+
+message LeaveTransaction {
+    repeated room.rooms.private.v1.LeaveMutation mutations = 1;
+}

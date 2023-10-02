@@ -19,9 +19,8 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Service_Broadcast_FullMethodName   = "/websocket.private.v1.Service/Broadcast"
-	Service_Disconnect_FullMethodName  = "/websocket.private.v1.Service/Disconnect"
-	Service_Reintegrate_FullMethodName = "/websocket.private.v1.Service/Reintegrate"
+	Service_Broadcast_FullMethodName  = "/websocket.private.v1.Service/Broadcast"
+	Service_Disconnect_FullMethodName = "/websocket.private.v1.Service/Disconnect"
 )
 
 // ServiceClient is the client API for Service service.
@@ -30,7 +29,6 @@ const (
 type ServiceClient interface {
 	Broadcast(ctx context.Context, in *BroadcastRequest, opts ...grpc.CallOption) (*BroadcastResponse, error)
 	Disconnect(ctx context.Context, in *DisconnectRequest, opts ...grpc.CallOption) (*DisconnectResponse, error)
-	Reintegrate(ctx context.Context, in *ReintegrateRequest, opts ...grpc.CallOption) (*ReintegrateResponse, error)
 }
 
 type serviceClient struct {
@@ -59,22 +57,12 @@ func (c *serviceClient) Disconnect(ctx context.Context, in *DisconnectRequest, o
 	return out, nil
 }
 
-func (c *serviceClient) Reintegrate(ctx context.Context, in *ReintegrateRequest, opts ...grpc.CallOption) (*ReintegrateResponse, error) {
-	out := new(ReintegrateResponse)
-	err := c.cc.Invoke(ctx, Service_Reintegrate_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // ServiceServer is the server API for Service service.
 // All implementations must embed UnimplementedServiceServer
 // for forward compatibility
 type ServiceServer interface {
 	Broadcast(context.Context, *BroadcastRequest) (*BroadcastResponse, error)
 	Disconnect(context.Context, *DisconnectRequest) (*DisconnectResponse, error)
-	Reintegrate(context.Context, *ReintegrateRequest) (*ReintegrateResponse, error)
 	mustEmbedUnimplementedServiceServer()
 }
 
@@ -87,9 +75,6 @@ func (UnimplementedServiceServer) Broadcast(context.Context, *BroadcastRequest) 
 }
 func (UnimplementedServiceServer) Disconnect(context.Context, *DisconnectRequest) (*DisconnectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Disconnect not implemented")
-}
-func (UnimplementedServiceServer) Reintegrate(context.Context, *ReintegrateRequest) (*ReintegrateResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Reintegrate not implemented")
 }
 func (UnimplementedServiceServer) mustEmbedUnimplementedServiceServer() {}
 
@@ -140,24 +125,6 @@ func _Service_Disconnect_Handler(srv interface{}, ctx context.Context, dec func(
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Service_Reintegrate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReintegrateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).Reintegrate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Service_Reintegrate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).Reintegrate(ctx, req.(*ReintegrateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // Service_ServiceDesc is the grpc.ServiceDesc for Service service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -172,10 +139,6 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Disconnect",
 			Handler:    _Service_Disconnect_Handler,
-		},
-		{
-			MethodName: "Reintegrate",
-			Handler:    _Service_Reintegrate_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

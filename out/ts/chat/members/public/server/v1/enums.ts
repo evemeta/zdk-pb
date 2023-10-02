@@ -8,34 +8,34 @@
  */
 export enum Order {
     /**
-     * @generated from protobuf enum value: Order_Unknown = 0;
+     * @generated from protobuf enum value: Unknown = 0;
      */
-    Order_Unknown = 0,
+    Unknown = 0,
     /**
-     * @generated from protobuf enum value: Order_Ascending = 1;
+     * @generated from protobuf enum value: Ascending = 1;
      */
-    Order_Ascending = 1,
+    Ascending = 1,
     /**
-     * @generated from protobuf enum value: Order_Descending = 2;
+     * @generated from protobuf enum value: Descending = 2;
      */
-    Order_Descending = 2
+    Descending = 2
 }
 /**
- * RestrictionType represents an enumeration that specifies the kinds of restrictions or actions that can be applied to a member.
+ * RestrictionKind represents an enumeration that specifies the kinds of restrictions or actions that can be applied to a member.
  *
- * @generated from protobuf enum chat.members.public.server.v1.RestrictionType
+ * @generated from protobuf enum chat.members.public.server.v1.RestrictionKind
  */
-export enum RestrictionType {
+export enum RestrictionKind {
     /**
-     * @generated from protobuf enum value: RestrictionType_Unknown = 0;
+     * @generated from protobuf enum value: Unknown = 0;
      */
-    RestrictionType_Unknown = 0,
+    Unknown = 0,
     /**
-     * @generated from protobuf enum value: RestrictionType_Mute = 1;
+     * @generated from protobuf enum value: Mute = 1;
      */
-    RestrictionType_Mute = 1,
+    Mute = 1,
     /**
-     * @generated from protobuf enum value: RestrictionType_Block = 2;
+     * @generated from protobuf enum value: Block = 2;
      */
-    RestrictionType_Block = 2
+    Block = 2
 }

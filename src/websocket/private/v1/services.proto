@@ -17,20 +17,12 @@ service Service {
             operation_id: "Broadcast";
         };
     }
-    
+
     rpc Disconnect(DisconnectRequest) returns (DisconnectResponse) {
         option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
             description: "Description: Disconnect";
             summary: "Disconnect";
             operation_id: "Disconnect";
-        };
-    }
-
-    rpc Reintegrate(ReintegrateRequest) returns (ReintegrateResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Reintegrate";
-            summary: "Reintegrate";
-            operation_id: "Reintegrate";
         };
     }
 }

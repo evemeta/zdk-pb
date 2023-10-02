@@ -6,79 +6,79 @@
  */
 export enum Permission {
     /**
-     * @generated from protobuf enum value: Permission_Unknown = 0;
+     * @generated from protobuf enum value: Unknown = 0;
      */
-    Permission_Unknown = 0,
+    Unknown = 0,
     /**
-     * @generated from protobuf enum value: Permission_Chat = 100;
+     * @generated from protobuf enum value: Chat = 100;
      */
-    Permission_Chat = 100,
+    Chat = 100,
     /**
-     * @generated from protobuf enum value: Permission_ChatSelect = 101;
+     * @generated from protobuf enum value: ChatSelect = 101;
      */
-    Permission_ChatSelect = 101,
+    ChatSelect = 101,
     /**
-     * @generated from protobuf enum value: Permission_ChatEnter = 102;
+     * @generated from protobuf enum value: ChatEnter = 102;
      */
-    Permission_ChatEnter = 102,
+    ChatEnter = 102,
     /**
-     * @generated from protobuf enum value: Permission_ChatLeave = 103;
+     * @generated from protobuf enum value: ChatLeave = 103;
      */
-    Permission_ChatLeave = 103,
+    ChatLeave = 103,
     /**
-     * @generated from protobuf enum value: Permission_ChatMember = 200;
+     * @generated from protobuf enum value: ChatMember = 200;
      */
-    Permission_ChatMember = 200,
+    ChatMember = 200,
     /**
-     * @generated from protobuf enum value: Permission_ChatMemberSelect = 201;
+     * @generated from protobuf enum value: ChatMemberSelect = 201;
      */
-    Permission_ChatMemberSelect = 201,
+    ChatMemberSelect = 201,
     /**
-     * @generated from protobuf enum value: Permission_ChatMemberKick = 202;
+     * @generated from protobuf enum value: ChatMemberKick = 202;
      */
-    Permission_ChatMemberKick = 202,
+    ChatMemberKick = 202,
     /**
-     * @generated from protobuf enum value: Permission_ChatMemberMute = 203;
+     * @generated from protobuf enum value: ChatMemberMute = 203;
      */
-    Permission_ChatMemberMute = 203,
+    ChatMemberMute = 203,
     /**
-     * @generated from protobuf enum value: Permission_ChatMemberUnmute = 204;
+     * @generated from protobuf enum value: ChatMemberUnmute = 204;
      */
-    Permission_ChatMemberUnmute = 204,
+    ChatMemberUnmute = 204,
     /**
-     * @generated from protobuf enum value: Permission_ChatMemberBlock = 205;
+     * @generated from protobuf enum value: ChatMemberBlock = 205;
      */
-    Permission_ChatMemberBlock = 205,
+    ChatMemberBlock = 205,
     /**
-     * @generated from protobuf enum value: Permission_ChatMemberUnblock = 206;
+     * @generated from protobuf enum value: ChatMemberUnblock = 206;
      */
-    Permission_ChatMemberUnblock = 206,
+    ChatMemberUnblock = 206,
     /**
-     * @generated from protobuf enum value: Permission_ChatMessage = 300;
+     * @generated from protobuf enum value: ChatMessage = 300;
      */
-    Permission_ChatMessage = 300,
+    ChatMessage = 300,
     /**
-     * @generated from protobuf enum value: Permission_ChatMessageSelect = 301;
+     * @generated from protobuf enum value: ChatMessageSelect = 301;
      */
-    Permission_ChatMessageSelect = 301,
+    ChatMessageSelect = 301,
     /**
-     * @generated from protobuf enum value: Permission_ChatMessageCreate = 302;
+     * @generated from protobuf enum value: ChatMessageCreate = 302;
      */
-    Permission_ChatMessageCreate = 302,
+    ChatMessageCreate = 302,
     /**
-     * @generated from protobuf enum value: Permission_ChatMessageUpdate = 303;
+     * @generated from protobuf enum value: ChatMessageUpdate = 303;
      */
-    Permission_ChatMessageUpdate = 303,
+    ChatMessageUpdate = 303,
     /**
-     * @generated from protobuf enum value: Permission_ChatMessageUpdateContent = 304;
+     * @generated from protobuf enum value: ChatMessageUpdateContent = 304;
      */
-    Permission_ChatMessageUpdateContent = 304,
+    ChatMessageUpdateContent = 304,
     /**
-     * @generated from protobuf enum value: Permission_ChatMessageOwnDelete = 305;
+     * @generated from protobuf enum value: ChatMessageOwnDelete = 305;
      */
-    Permission_ChatMessageOwnDelete = 305,
+    ChatMessageOwnDelete = 305,
     /**
-     * @generated from protobuf enum value: Permission_ChatMessageAnyDelete = 306;
+     * @generated from protobuf enum value: ChatMessageAnyDelete = 306;
      */
-    Permission_ChatMessageAnyDelete = 306
+    ChatMessageAnyDelete = 306
 }

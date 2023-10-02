@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+package room.members.private.v1;
+
+import "room/members/private/v1/enums.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/members/private/v1;memberspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+message Chunk {
+    int64                                   size     = 1;
+    int64                                   index    = 2;
+    int64                                   total    = 3;
+    repeated room.members.private.v1.Member entities = 4;
+}
+
+message Query {
+    room.members.private.v1.Order              order      = 1;
+    int64                                      limit      = 2;
+    int64                                      offset     = 3;
+    repeated room.members.private.v1.Condition conditions = 4;
+}
+
+message Member {
+    string                                       id           = 1;
+    string                                       user_id      = 2;
+    string                                       room_id      = 3;
+    room.members.private.v1.Status               status       = 4;
+    repeated room.members.private.v1.Stream      streams      = 5;
+    map<string, string>                          metadata     = 6;
+    repeated room.members.private.v1.Connection  connections  = 7;
+    repeated room.members.private.v1.Restriction restrictions = 8;
+    int64                                        enter_time   = 9;
+    int64                                        leave_time   = 10;
+    int64                                        access_time  = 11;
+    int64                                        create_time  = 12;
+    int64                                        update_time  = 13;
+}
+
+message Stream {
+    room.members.private.v1.StreamKind  kind        = 1;
+    room.members.private.v1.StreamState state       = 2;
+    int64                               create_time = 3;
+    int64                               update_time = 4;
+}
+
+message Condition {
+    repeated string                         ids      = 1;
+    repeated string                         user_ids = 2;
+    repeated string                         room_ids = 3;
+    repeated room.members.private.v1.Status statuses = 4;
+}
+
+message Transient {
+    room.members.private.v1.Member future   = 1;
+    room.members.private.v1.Member current  = 2;
+    room.members.private.v1.Member previous = 3;
+}
+
+message Connection {
+    room.members.private.v1.ConnectionKind  kind        = 1;
+    room.members.private.v1.ConnectionState state       = 2;
+    int64                                   create_time = 3;
+    int64                                   update_time = 4;
+}
+
+message Restriction {
+    room.members.private.v1.RestrictionKind kind        = 1;
+    string                                  reason      = 2;
+    int64                                   create_time = 3;
+    int64                                   expire_time = 4;
+}

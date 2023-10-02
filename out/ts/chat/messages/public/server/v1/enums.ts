@@ -8,15 +8,15 @@
  */
 export enum Order {
     /**
-     * @generated from protobuf enum value: Order_Unknown = 0;
+     * @generated from protobuf enum value: Unknown = 0;
      */
-    Order_Unknown = 0,
+    Unknown = 0,
     /**
-     * @generated from protobuf enum value: Order_Ascending = 1;
+     * @generated from protobuf enum value: Ascending = 1;
      */
-    Order_Ascending = 1,
+    Ascending = 1,
     /**
-     * @generated from protobuf enum value: Order_Descending = 2;
+     * @generated from protobuf enum value: Descending = 2;
      */
-    Order_Descending = 2
+    Descending = 2
 }

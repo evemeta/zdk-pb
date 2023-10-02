@@ -11,11 +11,11 @@ import type { PartialMessage } from "@protobuf-ts/runtime";
 import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
-import { RestrictionType } from "./enums";
+import { RestrictionKind } from "./enums";
 import { ConnectionState } from "./enums";
-import { ConnectionType } from "./enums";
+import { ConnectionKind } from "./enums";
 import { StreamState } from "./enums";
-import { StreamType } from "./enums";
+import { StreamKind } from "./enums";
 import { Order } from "./enums";
 /**
  * Chunk represents a segmented portion of members used for pagination or segmented data retrieval.
@@ -146,18 +146,18 @@ export interface Member {
     updateTime: bigint;
 }
 /**
- * Stream represents a specific type of media (e.g., video, audio) that a member is sharing in a room.
- * It provides information on the type of stream, its current state, and timestamps reflecting its creation and last alteration.
+ * Stream represents a specific kind of media (e.g., video, audio) that a member is sharing in a room.
+ * It provides information on the kind of stream, its current state, and timestamps reflecting its creation and last alteration.
  *
  * @generated from protobuf message room.members.public.server.v1.Stream
  */
 export interface Stream {
     /**
-     * Represents the type of the stream, such as video or audio.
+     * Represents the kind of the stream, such as video or audio.
      *
-     * @generated from protobuf field: room.members.public.server.v1.StreamType type = 1;
+     * @generated from protobuf field: room.members.public.server.v1.StreamKind kind = 1;
      */
-    type: StreamType;
+    kind: StreamKind;
     /**
      * Represents the current state of the stream, indicating whether data is actively being transmitted or is muted locally.
      *
@@ -226,9 +226,9 @@ export interface Connection {
     /**
      * todo;
      *
-     * @generated from protobuf field: room.members.public.server.v1.ConnectionType type = 1;
+     * @generated from protobuf field: room.members.public.server.v1.ConnectionKind kind = 1;
      */
-    type: ConnectionType;
+    kind: ConnectionKind;
     /**
      * todo;
      *
@@ -248,21 +248,19 @@ export interface Connection {
      */
     updateTime: bigint;
 }
-// todo; moze zamiast 'type' w connection to ustawic 'direction' czy cos, w sumie to spoko, np. 'Direction.Receive'
-
 /**
  * Restriction represents a particular limitation applied to a member.
- * It provides insight into the type, reason, and duration of the restriction.
+ * It provides insight into the kind, reason, and duration of the restriction.
  *
  * @generated from protobuf message room.members.public.server.v1.Restriction
  */
 export interface Restriction {
     /**
-     * Represents the type or category of the restriction.
+     * Represents the kind or category of the restriction.
      *
-     * @generated from protobuf field: room.members.public.server.v1.RestrictionType type = 1;
+     * @generated from protobuf field: room.members.public.server.v1.RestrictionKind kind = 1;
      */
-    type: RestrictionType;
+    kind: RestrictionKind;
     /**
      * Represents a brief explanation or reason behind the application of this restriction.
      *
@@ -541,14 +539,14 @@ export const Member = new Member$Type();
 class Stream$Type extends MessageType<Stream> {
     constructor() {
         super("room.members.public.server.v1.Stream", [
-            { no: 1, name: "type", kind: "enum", T: () => ["room.members.public.server.v1.StreamType", StreamType] },
+            { no: 1, name: "kind", kind: "enum", T: () => ["room.members.public.server.v1.StreamKind", StreamKind] },
             { no: 2, name: "state", kind: "enum", T: () => ["room.members.public.server.v1.StreamState", StreamState] },
             { no: 3, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 4, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value?: PartialMessage<Stream>): Stream {
-        const message = { type: 0, state: 0, createTime: 0n, updateTime: 0n };
+        const message = { kind: 0, state: 0, createTime: 0n, updateTime: 0n };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<Stream>(this, message, value);
@@ -559,8 +557,8 @@ class Stream$Type extends MessageType<Stream> {
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* room.members.public.server.v1.StreamType type */ 1:
-                    message.type = reader.int32();
+                case /* room.members.public.server.v1.StreamKind kind */ 1:
+                    message.kind = reader.int32();
                     break;
                 case /* room.members.public.server.v1.StreamState state */ 2:
                     message.state = reader.int32();
@@ -583,9 +581,9 @@ class Stream$Type extends MessageType<Stream> {
         return message;
     }
     internalBinaryWrite(message: Stream, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* room.members.public.server.v1.StreamType type = 1; */
-        if (message.type !== 0)
-            writer.tag(1, WireType.Varint).int32(message.type);
+        /* room.members.public.server.v1.StreamKind kind = 1; */
+        if (message.kind !== 0)
+            writer.tag(1, WireType.Varint).int32(message.kind);
         /* room.members.public.server.v1.StreamState state = 2; */
         if (message.state !== 0)
             writer.tag(2, WireType.Varint).int32(message.state);
@@ -717,14 +715,14 @@ export const Timeframe = new Timeframe$Type();
 class Connection$Type extends MessageType<Connection> {
     constructor() {
         super("room.members.public.server.v1.Connection", [
-            { no: 1, name: "type", kind: "enum", T: () => ["room.members.public.server.v1.ConnectionType", ConnectionType] },
+            { no: 1, name: "kind", kind: "enum", T: () => ["room.members.public.server.v1.ConnectionKind", ConnectionKind] },
             { no: 2, name: "state", kind: "enum", T: () => ["room.members.public.server.v1.ConnectionState", ConnectionState] },
             { no: 3, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 4, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value?: PartialMessage<Connection>): Connection {
-        const message = { type: 0, state: 0, createTime: 0n, updateTime: 0n };
+        const message = { kind: 0, state: 0, createTime: 0n, updateTime: 0n };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<Connection>(this, message, value);
@@ -735,8 +733,8 @@ class Connection$Type extends MessageType<Connection> {
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* room.members.public.server.v1.ConnectionType type */ 1:
-                    message.type = reader.int32();
+                case /* room.members.public.server.v1.ConnectionKind kind */ 1:
+                    message.kind = reader.int32();
                     break;
                 case /* room.members.public.server.v1.ConnectionState state */ 2:
                     message.state = reader.int32();
@@ -759,9 +757,9 @@ class Connection$Type extends MessageType<Connection> {
         return message;
     }
     internalBinaryWrite(message: Connection, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* room.members.public.server.v1.ConnectionType type = 1; */
-        if (message.type !== 0)
-            writer.tag(1, WireType.Varint).int32(message.type);
+        /* room.members.public.server.v1.ConnectionKind kind = 1; */
+        if (message.kind !== 0)
+            writer.tag(1, WireType.Varint).int32(message.kind);
         /* room.members.public.server.v1.ConnectionState state = 2; */
         if (message.state !== 0)
             writer.tag(2, WireType.Varint).int32(message.state);
@@ -785,14 +783,14 @@ export const Connection = new Connection$Type();
 class Restriction$Type extends MessageType<Restriction> {
     constructor() {
         super("room.members.public.server.v1.Restriction", [
-            { no: 1, name: "type", kind: "enum", T: () => ["room.members.public.server.v1.RestrictionType", RestrictionType] },
+            { no: 1, name: "kind", kind: "enum", T: () => ["room.members.public.server.v1.RestrictionKind", RestrictionKind] },
             { no: 2, name: "reason", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 3, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 4, name: "expire_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value?: PartialMessage<Restriction>): Restriction {
-        const message = { type: 0, reason: "", createTime: 0n, expireTime: 0n };
+        const message = { kind: 0, reason: "", createTime: 0n, expireTime: 0n };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<Restriction>(this, message, value);
@@ -803,8 +801,8 @@ class Restriction$Type extends MessageType<Restriction> {
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* room.members.public.server.v1.RestrictionType type */ 1:
-                    message.type = reader.int32();
+                case /* room.members.public.server.v1.RestrictionKind kind */ 1:
+                    message.kind = reader.int32();
                     break;
                 case /* string reason */ 2:
                     message.reason = reader.string();
@@ -827,9 +825,9 @@ class Restriction$Type extends MessageType<Restriction> {
         return message;
     }
     internalBinaryWrite(message: Restriction, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* room.members.public.server.v1.RestrictionType type = 1; */
-        if (message.type !== 0)
-            writer.tag(1, WireType.Varint).int32(message.type);
+        /* room.members.public.server.v1.RestrictionKind kind = 1; */
+        if (message.kind !== 0)
+            writer.tag(1, WireType.Varint).int32(message.kind);
         /* string reason = 2; */
         if (message.reason !== "")
             writer.tag(2, WireType.LengthDelimited).string(message.reason);

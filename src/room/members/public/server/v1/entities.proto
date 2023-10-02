@@ -57,11 +57,11 @@ message Member {
     int64 update_time = 9;
 }
 
-// Stream represents a specific type of media (e.g., video, audio) that a member is sharing in a room.
-// It provides information on the type of stream, its current state, and timestamps reflecting its creation and last alteration.
+// Stream represents a specific kind of media (e.g., video, audio) that a member is sharing in a room.
+// It provides information on the kind of stream, its current state, and timestamps reflecting its creation and last alteration.
 message Stream {
-    // Represents the type of the stream, such as video or audio.
-    room.members.public.server.v1.StreamType type = 1;
+    // Represents the kind of the stream, such as video or audio.
+    room.members.public.server.v1.StreamKind kind = 1;
     // Represents the current state of the stream, indicating whether data is actively being transmitted or is muted locally.
     room.members.public.server.v1.StreamState state = 2;
     // Represents the timestamp indicating when this stream was created.
@@ -91,7 +91,7 @@ message Timeframe {
 // Connection todo;
 message Connection {
     // todo;
-    room.members.public.server.v1.ConnectionType type = 1;
+    room.members.public.server.v1.ConnectionKind kind = 1;
     // todo;
     room.members.public.server.v1.ConnectionState state = 2;
     // Represents the timestamp indicating when this connection was created.
@@ -100,13 +100,11 @@ message Connection {
     int64 update_time = 4;
 }
 
-// todo; moze zamiast 'type' w connection to ustawic 'direction' czy cos, w sumie to spoko, np. 'Direction.Receive'
-
 // Restriction represents a particular limitation applied to a member.
-// It provides insight into the type, reason, and duration of the restriction.
+// It provides insight into the kind, reason, and duration of the restriction.
 message Restriction {
-    // Represents the type or category of the restriction.
-    room.members.public.server.v1.RestrictionType type = 1;
+    // Represents the kind or category of the restriction.
+    room.members.public.server.v1.RestrictionKind kind = 1;
     // Represents a brief explanation or reason behind the application of this restriction.
     string reason = 2;
     // Represents the timestamp indicating when this restriction was put into place.
@@ -114,9 +112,3 @@ message Restriction {
     // Represents the timestamp indicating when this restriction will end or expire.
     int64 expire_time = 4;
 }
-
-
-// todo; stream ma byc zawsze subowany, niewazne czy wlaczony czy wylaczony
-// todo; stramy mozna apdejtowac tylko jesli jest polaczenie z sfu (sender)
-
-// todo; moze zmienic 'StreamState' z 'Enabled' i 'Disabled' na 'Transmiting' czy cos w tym stylu, podejsc do tematu badziej na zasadzie dane sa transmitowane albo i nie

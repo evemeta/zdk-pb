@@ -140,7 +140,7 @@ func (x *Query) GetOrder() Order {
 	if x != nil {
 		return x.Order
 	}
-	return Order_Order_Unknown
+	return OrderUnknown
 }
 
 func (x *Query) GetLimit() int64 {
@@ -418,14 +418,14 @@ func (x *Websocket) GetZone() Zone {
 	if x != nil {
 		return x.Zone
 	}
-	return Zone_Zone_Unknown
+	return ZoneUnknown
 }
 
 func (x *Websocket) GetStatus() Status {
 	if x != nil {
 		return x.Status
 	}
-	return Status_Status_Unknown
+	return StatusUnknown
 }
 
 func (x *Websocket) GetAddress() string {

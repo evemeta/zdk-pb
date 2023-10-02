@@ -151,7 +151,7 @@ func (x *Query) GetOrder() Order {
 	if x != nil {
 		return x.Order
 	}
-	return Order_Order_Unknown
+	return OrderUnknown
 }
 
 func (x *Query) GetLimit() int64 {

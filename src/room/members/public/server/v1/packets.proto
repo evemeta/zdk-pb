@@ -56,8 +56,6 @@ message KickMemberPacket {
     room.members.public.server.v1.Timeframe timeframe = 4;
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 // CreateMemberStreamPacket is a notification sent to clients when a new stream has been created for a member.
 // It provides the details of the stream, identifiers for the associated user and room, and the relevant timeframe associated with the event.
 message CreateMemberStreamPacket {
@@ -71,6 +69,20 @@ message CreateMemberStreamPacket {
     room.members.public.server.v1.Timeframe timeframe = 4;
 }
 
+// UpdateMemberStreamPacket todo;
+message UpdateMemberStreamPacket {
+    // todo;
+    string user_id = 1;
+    // todo;
+    string room_id = 2;
+    // todo;
+    members.public.server.v1.StreamKind kind = 3;
+    // todo;
+    members.public.server.v1.OptionalStreamState state = 4;
+    // todo;
+    room.members.public.server.v1.Timeframe timeframe = 5;
+}
+
 // DeleteMemberStreamPacket todo;
 message DeleteMemberStreamPacket {
     // todo;
@@ -78,7 +90,7 @@ message DeleteMemberStreamPacket {
     // todo;
     string room_id = 2;
     // todo;
-    members.public.server.v1.StreamType type = 3;
+    members.public.server.v1.StreamKind kind = 3;
     // todo;
     room.members.public.server.v1.Timeframe timeframe = 4;
 }
@@ -103,7 +115,7 @@ message DeleteMemberConnectionPacket {
     // todo;
     string room_id = 2;
     // todo;
-    members.public.server.v1.ConnectionType type = 3;
+    members.public.server.v1.ConnectionKind kind = 3;
     // todo;
     room.members.public.server.v1.Timeframe timeframe = 4;
 }
@@ -121,34 +133,6 @@ message CreateMemberRestrictionPacket {
     room.members.public.server.v1.Timeframe timeframe = 4;
 }
 
-// DeleteMemberRestrictionPacket todo;
-message DeleteMemberRestrictionPacket {
-    // todo;
-    string user_id = 1;
-    // todo;
-    string room_id = 2;
-    // todo;
-    members.public.server.v1.RestrictionType type = 3;
-    // todo;
-    room.members.public.server.v1.Timeframe timeframe = 4;
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// UpdateMemberStreamPacket todo;
-message UpdateMemberStreamPacket {
-    // todo;
-    string user_id = 1;
-    // todo;
-    string room_id = 2;
-    // todo;
-    members.public.server.v1.StreamType type = 3;
-    // todo;
-    members.public.server.v1.OptionalStreamState state = 4;
-    // todo;
-    room.members.public.server.v1.Timeframe timeframe = 5;
-}
-
 // UpdateMemberConnectionPacket todo;
 message UpdateMemberConnectionPacket {
     // todo;
@@ -156,9 +140,21 @@ message UpdateMemberConnectionPacket {
     // todo;
     string room_id = 2;
     // todo;
-    members.public.server.v1.ConnectionType type = 3;
+    members.public.server.v1.ConnectionKind kind = 3;
     // todo;
     members.public.server.v1.OptionalConnectionState state = 4;
     // todo;
     room.members.public.server.v1.Timeframe timeframe = 5;
+}
+
+// DeleteMemberRestrictionPacket todo;
+message DeleteMemberRestrictionPacket {
+    // todo;
+    string user_id = 1;
+    // todo;
+    string room_id = 2;
+    // todo;
+    members.public.server.v1.RestrictionKind kind = 3;
+    // todo;
+    room.members.public.server.v1.Timeframe timeframe = 4;
 }

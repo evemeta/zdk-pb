@@ -9,41 +9,41 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 // Order represents an enumeration that specifies the sort order for data retrieval, particularly in the context of querying.
 enum Order {
-    Order_Unknown    = 0;
-    Order_Ascending  = 1;
-    Order_Descending = 2;
+    OrderUnknown    = 0;
+    OrderAscending  = 1;
+    OrderDescending = 2;
 }
 
-// StreamType todo;
-enum StreamType {
-    StreamType_Unknown = 0;
-    StreamType_Audio   = 1;
-    StreamType_Video   = 2;
+// StreamKind todo;
+enum StreamKind {
+    StreamKindUnknown = 0;
+    StreamKindAudio   = 1;
+    StreamKindVideo   = 2;
 }
 
 // StreamState todo;
 enum StreamState {
-    StreamState_Unknown  = 0;
-    StreamState_Enabled  = 1;
-    StreamState_Disabled = 2;
+    StreamStateUnknown  = 0;
+    StreamStateEnabled  = 1;
+    StreamStateDisabled = 2;
 }
 
-// ConnectionType todo;
-enum ConnectionType {
-    ConnectionType_Unknown  = 0;
-    ConnectionType_Receive  = 1;
-    ConnectionType_Transmit = 2;
+// ConnectionKind todo;
+enum ConnectionKind {
+    ConnectionKindUnknown  = 0;
+    ConnectionKindReceive  = 1;
+    ConnectionKindTransmit = 2;
 }
 
 // ConnectionState todo;
 enum ConnectionState {
-    ConnectionState_Unknown      = 0;
-    ConnectionState_Connected    = 1;
-    ConnectionState_Connecting   = 2;
-    ConnectionState_Reconnecting = 3;
+    ConnectionStateUnknown      = 0;
+    ConnectionStateConnected    = 1;
+    ConnectionStateConnecting   = 2;
+    ConnectionStateReconnecting = 3;
 }
 
-// RestrictionType represents an enumeration that specifies the kinds of restrictions or actions that can be applied to a member.
-enum RestrictionType {
-    RestrictionType_Unknown = 0;
+// RestrictionKind represents an enumeration that specifies the kinds of restrictions or actions that can be applied to a member.
+enum RestrictionKind {
+    RestrictionKindUnknown = 0;
 }

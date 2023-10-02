@@ -45,4 +45,19 @@ service Service {
             operation_id: "Kick";
         };
     }
+    
+    // CreateStream todo;
+    rpc CreateStream(CreateStreamRequest) returns (CreateStreamResponse);
+
+    // UpdateStream todo;
+    rpc UpdateStream(UpdateStreamRequest) returns (UpdateStreamResponse);
+
+    // DeleteStream todo;
+    rpc DeleteStream(DeleteStreamRequest) returns (DeleteStreamResponse);
+
+    // CreateRestriction todo;
+    rpc CreateRestriction(CreateRestrictionRequest) returns (CreateRestrictionResponse);
+
+    // DeleteRestriction todo;
+    rpc DeleteRestriction(DeleteRestrictionRequest) returns (DeleteRestrictionResponse);
 }

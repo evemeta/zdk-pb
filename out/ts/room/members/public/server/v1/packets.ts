@@ -11,13 +11,13 @@ import type { PartialMessage } from "@protobuf-ts/runtime";
 import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
+import { RestrictionKind } from "./enums";
 import { OptionalConnectionState } from "./optionals";
-import { OptionalStreamState } from "./optionals";
-import { RestrictionType } from "./enums";
 import { Restriction } from "./entities";
-import { ConnectionType } from "./enums";
+import { ConnectionKind } from "./enums";
 import { Connection } from "./entities";
-import { StreamType } from "./enums";
+import { OptionalStreamState } from "./optionals";
+import { StreamKind } from "./enums";
 import { Stream } from "./entities";
 import { OptionalMap } from "./optionals";
 import { Timeframe } from "./entities";
@@ -132,8 +132,6 @@ export interface KickMemberPacket {
      */
     timeframe?: Timeframe;
 }
-// //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 /**
  * CreateMemberStreamPacket is a notification sent to clients when a new stream has been created for a member.
  * It provides the details of the stream, identifiers for the associated user and room, and the relevant timeframe associated with the event.
@@ -167,6 +165,43 @@ export interface CreateMemberStreamPacket {
     timeframe?: Timeframe;
 }
 /**
+ * UpdateMemberStreamPacket todo;
+ *
+ * @generated from protobuf message room.members.public.server.v1.UpdateMemberStreamPacket
+ */
+export interface UpdateMemberStreamPacket {
+    /**
+     * todo;
+     *
+     * @generated from protobuf field: string user_id = 1;
+     */
+    userId: string;
+    /**
+     * todo;
+     *
+     * @generated from protobuf field: string room_id = 2;
+     */
+    roomId: string;
+    /**
+     * todo;
+     *
+     * @generated from protobuf field: room.members.public.server.v1.StreamKind kind = 3;
+     */
+    kind: StreamKind;
+    /**
+     * todo;
+     *
+     * @generated from protobuf field: room.members.public.server.v1.OptionalStreamState state = 4;
+     */
+    state?: OptionalStreamState;
+    /**
+     * todo;
+     *
+     * @generated from protobuf field: room.members.public.server.v1.Timeframe timeframe = 5;
+     */
+    timeframe?: Timeframe;
+}
+/**
  * DeleteMemberStreamPacket todo;
  *
  * @generated from protobuf message room.members.public.server.v1.DeleteMemberStreamPacket
@@ -187,9 +222,9 @@ export interface DeleteMemberStreamPacket {
     /**
      * todo;
      *
-     * @generated from protobuf field: room.members.public.server.v1.StreamType type = 3;
+     * @generated from protobuf field: room.members.public.server.v1.StreamKind kind = 3;
      */
-    type: StreamType;
+    kind: StreamKind;
     /**
      * todo;
      *
@@ -250,9 +285,9 @@ export interface DeleteMemberConnectionPacket {
     /**
      * todo;
      *
-     * @generated from protobuf field: room.members.public.server.v1.ConnectionType type = 3;
+     * @generated from protobuf field: room.members.public.server.v1.ConnectionKind kind = 3;
      */
-    type: ConnectionType;
+    kind: ConnectionKind;
     /**
      * todo;
      *
@@ -293,76 +328,6 @@ export interface CreateMemberRestrictionPacket {
     timeframe?: Timeframe;
 }
 /**
- * DeleteMemberRestrictionPacket todo;
- *
- * @generated from protobuf message room.members.public.server.v1.DeleteMemberRestrictionPacket
- */
-export interface DeleteMemberRestrictionPacket {
-    /**
-     * todo;
-     *
-     * @generated from protobuf field: string user_id = 1;
-     */
-    userId: string;
-    /**
-     * todo;
-     *
-     * @generated from protobuf field: string room_id = 2;
-     */
-    roomId: string;
-    /**
-     * todo;
-     *
-     * @generated from protobuf field: room.members.public.server.v1.RestrictionType type = 3;
-     */
-    type: RestrictionType;
-    /**
-     * todo;
-     *
-     * @generated from protobuf field: room.members.public.server.v1.Timeframe timeframe = 4;
-     */
-    timeframe?: Timeframe;
-}
-// //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-/**
- * UpdateMemberStreamPacket todo;
- *
- * @generated from protobuf message room.members.public.server.v1.UpdateMemberStreamPacket
- */
-export interface UpdateMemberStreamPacket {
-    /**
-     * todo;
-     *
-     * @generated from protobuf field: string user_id = 1;
-     */
-    userId: string;
-    /**
-     * todo;
-     *
-     * @generated from protobuf field: string room_id = 2;
-     */
-    roomId: string;
-    /**
-     * todo;
-     *
-     * @generated from protobuf field: room.members.public.server.v1.StreamType type = 3;
-     */
-    type: StreamType;
-    /**
-     * todo;
-     *
-     * @generated from protobuf field: room.members.public.server.v1.OptionalStreamState state = 4;
-     */
-    state?: OptionalStreamState;
-    /**
-     * todo;
-     *
-     * @generated from protobuf field: room.members.public.server.v1.Timeframe timeframe = 5;
-     */
-    timeframe?: Timeframe;
-}
-/**
  * UpdateMemberConnectionPacket todo;
  *
  * @generated from protobuf message room.members.public.server.v1.UpdateMemberConnectionPacket
@@ -383,9 +348,9 @@ export interface UpdateMemberConnectionPacket {
     /**
      * todo;
      *
-     * @generated from protobuf field: room.members.public.server.v1.ConnectionType type = 3;
+     * @generated from protobuf field: room.members.public.server.v1.ConnectionKind kind = 3;
      */
-    type: ConnectionType;
+    kind: ConnectionKind;
     /**
      * todo;
      *
@@ -396,6 +361,37 @@ export interface UpdateMemberConnectionPacket {
      * todo;
      *
      * @generated from protobuf field: room.members.public.server.v1.Timeframe timeframe = 5;
+     */
+    timeframe?: Timeframe;
+}
+/**
+ * DeleteMemberRestrictionPacket todo;
+ *
+ * @generated from protobuf message room.members.public.server.v1.DeleteMemberRestrictionPacket
+ */
+export interface DeleteMemberRestrictionPacket {
+    /**
+     * todo;
+     *
+     * @generated from protobuf field: string user_id = 1;
+     */
+    userId: string;
+    /**
+     * todo;
+     *
+     * @generated from protobuf field: string room_id = 2;
+     */
+    roomId: string;
+    /**
+     * todo;
+     *
+     * @generated from protobuf field: room.members.public.server.v1.RestrictionKind kind = 3;
+     */
+    kind: RestrictionKind;
+    /**
+     * todo;
+     *
+     * @generated from protobuf field: room.members.public.server.v1.Timeframe timeframe = 4;
      */
     timeframe?: Timeframe;
 }
@@ -719,17 +715,92 @@ class CreateMemberStreamPacket$Type extends MessageType<CreateMemberStreamPacket
  */
 export const CreateMemberStreamPacket = new CreateMemberStreamPacket$Type();
 // @generated message type with reflection information, may provide speed optimized methods
+class UpdateMemberStreamPacket$Type extends MessageType<UpdateMemberStreamPacket> {
+    constructor() {
+        super("room.members.public.server.v1.UpdateMemberStreamPacket", [
+            { no: 1, name: "user_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "room_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 3, name: "kind", kind: "enum", T: () => ["room.members.public.server.v1.StreamKind", StreamKind] },
+            { no: 4, name: "state", kind: "message", T: () => OptionalStreamState },
+            { no: 5, name: "timeframe", kind: "message", T: () => Timeframe }
+        ]);
+    }
+    create(value?: PartialMessage<UpdateMemberStreamPacket>): UpdateMemberStreamPacket {
+        const message = { userId: "", roomId: "", kind: 0 };
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<UpdateMemberStreamPacket>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: UpdateMemberStreamPacket): UpdateMemberStreamPacket {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string user_id */ 1:
+                    message.userId = reader.string();
+                    break;
+                case /* string room_id */ 2:
+                    message.roomId = reader.string();
+                    break;
+                case /* room.members.public.server.v1.StreamKind kind */ 3:
+                    message.kind = reader.int32();
+                    break;
+                case /* room.members.public.server.v1.OptionalStreamState state */ 4:
+                    message.state = OptionalStreamState.internalBinaryRead(reader, reader.uint32(), options, message.state);
+                    break;
+                case /* room.members.public.server.v1.Timeframe timeframe */ 5:
+                    message.timeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.timeframe);
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: UpdateMemberStreamPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string user_id = 1; */
+        if (message.userId !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.userId);
+        /* string room_id = 2; */
+        if (message.roomId !== "")
+            writer.tag(2, WireType.LengthDelimited).string(message.roomId);
+        /* room.members.public.server.v1.StreamKind kind = 3; */
+        if (message.kind !== 0)
+            writer.tag(3, WireType.Varint).int32(message.kind);
+        /* room.members.public.server.v1.OptionalStreamState state = 4; */
+        if (message.state)
+            OptionalStreamState.internalBinaryWrite(message.state, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
+        /* room.members.public.server.v1.Timeframe timeframe = 5; */
+        if (message.timeframe)
+            Timeframe.internalBinaryWrite(message.timeframe, writer.tag(5, WireType.LengthDelimited).fork(), options).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message room.members.public.server.v1.UpdateMemberStreamPacket
+ */
+export const UpdateMemberStreamPacket = new UpdateMemberStreamPacket$Type();
+// @generated message type with reflection information, may provide speed optimized methods
 class DeleteMemberStreamPacket$Type extends MessageType<DeleteMemberStreamPacket> {
     constructor() {
         super("room.members.public.server.v1.DeleteMemberStreamPacket", [
             { no: 1, name: "user_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 2, name: "room_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 3, name: "type", kind: "enum", T: () => ["room.members.public.server.v1.StreamType", StreamType] },
+            { no: 3, name: "kind", kind: "enum", T: () => ["room.members.public.server.v1.StreamKind", StreamKind] },
             { no: 4, name: "timeframe", kind: "message", T: () => Timeframe }
         ]);
     }
     create(value?: PartialMessage<DeleteMemberStreamPacket>): DeleteMemberStreamPacket {
-        const message = { userId: "", roomId: "", type: 0 };
+        const message = { userId: "", roomId: "", kind: 0 };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<DeleteMemberStreamPacket>(this, message, value);
@@ -746,8 +817,8 @@ class DeleteMemberStreamPacket$Type extends MessageType<DeleteMemberStreamPacket
                 case /* string room_id */ 2:
                     message.roomId = reader.string();
                     break;
-                case /* room.members.public.server.v1.StreamType type */ 3:
-                    message.type = reader.int32();
+                case /* room.members.public.server.v1.StreamKind kind */ 3:
+                    message.kind = reader.int32();
                     break;
                 case /* room.members.public.server.v1.Timeframe timeframe */ 4:
                     message.timeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.timeframe);
@@ -770,9 +841,9 @@ class DeleteMemberStreamPacket$Type extends MessageType<DeleteMemberStreamPacket
         /* string room_id = 2; */
         if (message.roomId !== "")
             writer.tag(2, WireType.LengthDelimited).string(message.roomId);
-        /* room.members.public.server.v1.StreamType type = 3; */
-        if (message.type !== 0)
-            writer.tag(3, WireType.Varint).int32(message.type);
+        /* room.members.public.server.v1.StreamKind kind = 3; */
+        if (message.kind !== 0)
+            writer.tag(3, WireType.Varint).int32(message.kind);
         /* room.members.public.server.v1.Timeframe timeframe = 4; */
         if (message.timeframe)
             Timeframe.internalBinaryWrite(message.timeframe, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
@@ -860,12 +931,12 @@ class DeleteMemberConnectionPacket$Type extends MessageType<DeleteMemberConnecti
         super("room.members.public.server.v1.DeleteMemberConnectionPacket", [
             { no: 1, name: "user_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 2, name: "room_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 3, name: "type", kind: "enum", T: () => ["room.members.public.server.v1.ConnectionType", ConnectionType] },
+            { no: 3, name: "kind", kind: "enum", T: () => ["room.members.public.server.v1.ConnectionKind", ConnectionKind] },
             { no: 4, name: "timeframe", kind: "message", T: () => Timeframe }
         ]);
     }
     create(value?: PartialMessage<DeleteMemberConnectionPacket>): DeleteMemberConnectionPacket {
-        const message = { userId: "", roomId: "", type: 0 };
+        const message = { userId: "", roomId: "", kind: 0 };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<DeleteMemberConnectionPacket>(this, message, value);
@@ -882,8 +953,8 @@ class DeleteMemberConnectionPacket$Type extends MessageType<DeleteMemberConnecti
                 case /* string room_id */ 2:
                     message.roomId = reader.string();
                     break;
-                case /* room.members.public.server.v1.ConnectionType type */ 3:
-                    message.type = reader.int32();
+                case /* room.members.public.server.v1.ConnectionKind kind */ 3:
+                    message.kind = reader.int32();
                     break;
                 case /* room.members.public.server.v1.Timeframe timeframe */ 4:
                     message.timeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.timeframe);
@@ -906,9 +977,9 @@ class DeleteMemberConnectionPacket$Type extends MessageType<DeleteMemberConnecti
         /* string room_id = 2; */
         if (message.roomId !== "")
             writer.tag(2, WireType.LengthDelimited).string(message.roomId);
-        /* room.members.public.server.v1.ConnectionType type = 3; */
-        if (message.type !== 0)
-            writer.tag(3, WireType.Varint).int32(message.type);
+        /* room.members.public.server.v1.ConnectionKind kind = 3; */
+        if (message.kind !== 0)
+            writer.tag(3, WireType.Varint).int32(message.kind);
         /* room.members.public.server.v1.Timeframe timeframe = 4; */
         if (message.timeframe)
             Timeframe.internalBinaryWrite(message.timeframe, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
@@ -991,161 +1062,18 @@ class CreateMemberRestrictionPacket$Type extends MessageType<CreateMemberRestric
  */
 export const CreateMemberRestrictionPacket = new CreateMemberRestrictionPacket$Type();
 // @generated message type with reflection information, may provide speed optimized methods
-class DeleteMemberRestrictionPacket$Type extends MessageType<DeleteMemberRestrictionPacket> {
-    constructor() {
-        super("room.members.public.server.v1.DeleteMemberRestrictionPacket", [
-            { no: 1, name: "user_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 2, name: "room_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 3, name: "type", kind: "enum", T: () => ["room.members.public.server.v1.RestrictionType", RestrictionType] },
-            { no: 4, name: "timeframe", kind: "message", T: () => Timeframe }
-        ]);
-    }
-    create(value?: PartialMessage<DeleteMemberRestrictionPacket>): DeleteMemberRestrictionPacket {
-        const message = { userId: "", roomId: "", type: 0 };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<DeleteMemberRestrictionPacket>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: DeleteMemberRestrictionPacket): DeleteMemberRestrictionPacket {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* string user_id */ 1:
-                    message.userId = reader.string();
-                    break;
-                case /* string room_id */ 2:
-                    message.roomId = reader.string();
-                    break;
-                case /* room.members.public.server.v1.RestrictionType type */ 3:
-                    message.type = reader.int32();
-                    break;
-                case /* room.members.public.server.v1.Timeframe timeframe */ 4:
-                    message.timeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.timeframe);
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: DeleteMemberRestrictionPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* string user_id = 1; */
-        if (message.userId !== "")
-            writer.tag(1, WireType.LengthDelimited).string(message.userId);
-        /* string room_id = 2; */
-        if (message.roomId !== "")
-            writer.tag(2, WireType.LengthDelimited).string(message.roomId);
-        /* room.members.public.server.v1.RestrictionType type = 3; */
-        if (message.type !== 0)
-            writer.tag(3, WireType.Varint).int32(message.type);
-        /* room.members.public.server.v1.Timeframe timeframe = 4; */
-        if (message.timeframe)
-            Timeframe.internalBinaryWrite(message.timeframe, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
-}
-/**
- * @generated MessageType for protobuf message room.members.public.server.v1.DeleteMemberRestrictionPacket
- */
-export const DeleteMemberRestrictionPacket = new DeleteMemberRestrictionPacket$Type();
-// @generated message type with reflection information, may provide speed optimized methods
-class UpdateMemberStreamPacket$Type extends MessageType<UpdateMemberStreamPacket> {
-    constructor() {
-        super("room.members.public.server.v1.UpdateMemberStreamPacket", [
-            { no: 1, name: "user_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 2, name: "room_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 3, name: "type", kind: "enum", T: () => ["room.members.public.server.v1.StreamType", StreamType] },
-            { no: 4, name: "state", kind: "message", T: () => OptionalStreamState },
-            { no: 5, name: "timeframe", kind: "message", T: () => Timeframe }
-        ]);
-    }
-    create(value?: PartialMessage<UpdateMemberStreamPacket>): UpdateMemberStreamPacket {
-        const message = { userId: "", roomId: "", type: 0 };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<UpdateMemberStreamPacket>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: UpdateMemberStreamPacket): UpdateMemberStreamPacket {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* string user_id */ 1:
-                    message.userId = reader.string();
-                    break;
-                case /* string room_id */ 2:
-                    message.roomId = reader.string();
-                    break;
-                case /* room.members.public.server.v1.StreamType type */ 3:
-                    message.type = reader.int32();
-                    break;
-                case /* room.members.public.server.v1.OptionalStreamState state */ 4:
-                    message.state = OptionalStreamState.internalBinaryRead(reader, reader.uint32(), options, message.state);
-                    break;
-                case /* room.members.public.server.v1.Timeframe timeframe */ 5:
-                    message.timeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.timeframe);
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: UpdateMemberStreamPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* string user_id = 1; */
-        if (message.userId !== "")
-            writer.tag(1, WireType.LengthDelimited).string(message.userId);
-        /* string room_id = 2; */
-        if (message.roomId !== "")
-            writer.tag(2, WireType.LengthDelimited).string(message.roomId);
-        /* room.members.public.server.v1.StreamType type = 3; */
-        if (message.type !== 0)
-            writer.tag(3, WireType.Varint).int32(message.type);
-        /* room.members.public.server.v1.OptionalStreamState state = 4; */
-        if (message.state)
-            OptionalStreamState.internalBinaryWrite(message.state, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
-        /* room.members.public.server.v1.Timeframe timeframe = 5; */
-        if (message.timeframe)
-            Timeframe.internalBinaryWrite(message.timeframe, writer.tag(5, WireType.LengthDelimited).fork(), options).join();
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
-}
-/**
- * @generated MessageType for protobuf message room.members.public.server.v1.UpdateMemberStreamPacket
- */
-export const UpdateMemberStreamPacket = new UpdateMemberStreamPacket$Type();
-// @generated message type with reflection information, may provide speed optimized methods
 class UpdateMemberConnectionPacket$Type extends MessageType<UpdateMemberConnectionPacket> {
     constructor() {
         super("room.members.public.server.v1.UpdateMemberConnectionPacket", [
             { no: 1, name: "user_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 2, name: "room_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 3, name: "type", kind: "enum", T: () => ["room.members.public.server.v1.ConnectionType", ConnectionType] },
+            { no: 3, name: "kind", kind: "enum", T: () => ["room.members.public.server.v1.ConnectionKind", ConnectionKind] },
             { no: 4, name: "state", kind: "message", T: () => OptionalConnectionState },
             { no: 5, name: "timeframe", kind: "message", T: () => Timeframe }
         ]);
     }
     create(value?: PartialMessage<UpdateMemberConnectionPacket>): UpdateMemberConnectionPacket {
-        const message = { userId: "", roomId: "", type: 0 };
+        const message = { userId: "", roomId: "", kind: 0 };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<UpdateMemberConnectionPacket>(this, message, value);
@@ -1162,8 +1090,8 @@ class UpdateMemberConnectionPacket$Type extends MessageType<UpdateMemberConnecti
                 case /* string room_id */ 2:
                     message.roomId = reader.string();
                     break;
-                case /* room.members.public.server.v1.ConnectionType type */ 3:
-                    message.type = reader.int32();
+                case /* room.members.public.server.v1.ConnectionKind kind */ 3:
+                    message.kind = reader.int32();
                     break;
                 case /* room.members.public.server.v1.OptionalConnectionState state */ 4:
                     message.state = OptionalConnectionState.internalBinaryRead(reader, reader.uint32(), options, message.state);
@@ -1189,9 +1117,9 @@ class UpdateMemberConnectionPacket$Type extends MessageType<UpdateMemberConnecti
         /* string room_id = 2; */
         if (message.roomId !== "")
             writer.tag(2, WireType.LengthDelimited).string(message.roomId);
-        /* room.members.public.server.v1.ConnectionType type = 3; */
-        if (message.type !== 0)
-            writer.tag(3, WireType.Varint).int32(message.type);
+        /* room.members.public.server.v1.ConnectionKind kind = 3; */
+        if (message.kind !== 0)
+            writer.tag(3, WireType.Varint).int32(message.kind);
         /* room.members.public.server.v1.OptionalConnectionState state = 4; */
         if (message.state)
             OptionalConnectionState.internalBinaryWrite(message.state, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
@@ -1208,3 +1136,71 @@ class UpdateMemberConnectionPacket$Type extends MessageType<UpdateMemberConnecti
  * @generated MessageType for protobuf message room.members.public.server.v1.UpdateMemberConnectionPacket
  */
 export const UpdateMemberConnectionPacket = new UpdateMemberConnectionPacket$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class DeleteMemberRestrictionPacket$Type extends MessageType<DeleteMemberRestrictionPacket> {
+    constructor() {
+        super("room.members.public.server.v1.DeleteMemberRestrictionPacket", [
+            { no: 1, name: "user_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "room_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 3, name: "kind", kind: "enum", T: () => ["room.members.public.server.v1.RestrictionKind", RestrictionKind] },
+            { no: 4, name: "timeframe", kind: "message", T: () => Timeframe }
+        ]);
+    }
+    create(value?: PartialMessage<DeleteMemberRestrictionPacket>): DeleteMemberRestrictionPacket {
+        const message = { userId: "", roomId: "", kind: 0 };
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<DeleteMemberRestrictionPacket>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: DeleteMemberRestrictionPacket): DeleteMemberRestrictionPacket {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string user_id */ 1:
+                    message.userId = reader.string();
+                    break;
+                case /* string room_id */ 2:
+                    message.roomId = reader.string();
+                    break;
+                case /* room.members.public.server.v1.RestrictionKind kind */ 3:
+                    message.kind = reader.int32();
+                    break;
+                case /* room.members.public.server.v1.Timeframe timeframe */ 4:
+                    message.timeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.timeframe);
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: DeleteMemberRestrictionPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string user_id = 1; */
+        if (message.userId !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.userId);
+        /* string room_id = 2; */
+        if (message.roomId !== "")
+            writer.tag(2, WireType.LengthDelimited).string(message.roomId);
+        /* room.members.public.server.v1.RestrictionKind kind = 3; */
+        if (message.kind !== 0)
+            writer.tag(3, WireType.Varint).int32(message.kind);
+        /* room.members.public.server.v1.Timeframe timeframe = 4; */
+        if (message.timeframe)
+            Timeframe.internalBinaryWrite(message.timeframe, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message room.members.public.server.v1.DeleteMemberRestrictionPacket
+ */
+export const DeleteMemberRestrictionPacket = new DeleteMemberRestrictionPacket$Type();

@@ -8,36 +8,36 @@
  */
 export enum Order {
     /**
-     * @generated from protobuf enum value: Order_Unknown = 0;
+     * @generated from protobuf enum value: Unknown = 0;
      */
-    Order_Unknown = 0,
+    Unknown = 0,
     /**
-     * @generated from protobuf enum value: Order_Ascending = 1;
+     * @generated from protobuf enum value: Ascending = 1;
      */
-    Order_Ascending = 1,
+    Ascending = 1,
     /**
-     * @generated from protobuf enum value: Order_Descending = 2;
+     * @generated from protobuf enum value: Descending = 2;
      */
-    Order_Descending = 2
+    Descending = 2
 }
 /**
- * StreamType todo;
+ * StreamKind todo;
  *
- * @generated from protobuf enum room.members.public.server.v1.StreamType
+ * @generated from protobuf enum room.members.public.server.v1.StreamKind
  */
-export enum StreamType {
+export enum StreamKind {
     /**
-     * @generated from protobuf enum value: StreamType_Unknown = 0;
+     * @generated from protobuf enum value: Unknown = 0;
      */
-    StreamType_Unknown = 0,
+    Unknown = 0,
     /**
-     * @generated from protobuf enum value: StreamType_Audio = 1;
+     * @generated from protobuf enum value: Audio = 1;
      */
-    StreamType_Audio = 1,
+    Audio = 1,
     /**
-     * @generated from protobuf enum value: StreamType_Video = 2;
+     * @generated from protobuf enum value: Video = 2;
      */
-    StreamType_Video = 2
+    Video = 2
 }
 /**
  * StreamState todo;
@@ -46,36 +46,36 @@ export enum StreamType {
  */
 export enum StreamState {
     /**
-     * @generated from protobuf enum value: StreamState_Unknown = 0;
+     * @generated from protobuf enum value: Unknown = 0;
      */
-    StreamState_Unknown = 0,
+    Unknown = 0,
     /**
-     * @generated from protobuf enum value: StreamState_Enabled = 1;
+     * @generated from protobuf enum value: Enabled = 1;
      */
-    StreamState_Enabled = 1,
+    Enabled = 1,
     /**
-     * @generated from protobuf enum value: StreamState_Disabled = 2;
+     * @generated from protobuf enum value: Disabled = 2;
      */
-    StreamState_Disabled = 2
+    Disabled = 2
 }
 /**
- * ConnectionType todo;
+ * ConnectionKind todo;
  *
- * @generated from protobuf enum room.members.public.server.v1.ConnectionType
+ * @generated from protobuf enum room.members.public.server.v1.ConnectionKind
  */
-export enum ConnectionType {
+export enum ConnectionKind {
     /**
-     * @generated from protobuf enum value: ConnectionType_Unknown = 0;
+     * @generated from protobuf enum value: Unknown = 0;
      */
-    ConnectionType_Unknown = 0,
+    Unknown = 0,
     /**
-     * @generated from protobuf enum value: ConnectionType_Receive = 1;
+     * @generated from protobuf enum value: Receive = 1;
      */
-    ConnectionType_Receive = 1,
+    Receive = 1,
     /**
-     * @generated from protobuf enum value: ConnectionType_Transmit = 2;
+     * @generated from protobuf enum value: Transmit = 2;
      */
-    ConnectionType_Transmit = 2
+    Transmit = 2
 }
 /**
  * ConnectionState todo;
@@ -84,30 +84,30 @@ export enum ConnectionType {
  */
 export enum ConnectionState {
     /**
-     * @generated from protobuf enum value: ConnectionState_Unknown = 0;
+     * @generated from protobuf enum value: Unknown = 0;
      */
-    ConnectionState_Unknown = 0,
+    Unknown = 0,
     /**
-     * @generated from protobuf enum value: ConnectionState_Connected = 1;
+     * @generated from protobuf enum value: Connected = 1;
      */
-    ConnectionState_Connected = 1,
+    Connected = 1,
     /**
-     * @generated from protobuf enum value: ConnectionState_Connecting = 2;
+     * @generated from protobuf enum value: Connecting = 2;
      */
-    ConnectionState_Connecting = 2,
+    Connecting = 2,
     /**
-     * @generated from protobuf enum value: ConnectionState_Reconnecting = 3;
+     * @generated from protobuf enum value: Reconnecting = 3;
      */
-    ConnectionState_Reconnecting = 3
+    Reconnecting = 3
 }
 /**
- * RestrictionType represents an enumeration that specifies the kinds of restrictions or actions that can be applied to a member.
+ * RestrictionKind represents an enumeration that specifies the kinds of restrictions or actions that can be applied to a member.
  *
- * @generated from protobuf enum room.members.public.server.v1.RestrictionType
+ * @generated from protobuf enum room.members.public.server.v1.RestrictionKind
  */
-export enum RestrictionType {
+export enum RestrictionKind {
     /**
-     * @generated from protobuf enum value: RestrictionType_Unknown = 0;
+     * @generated from protobuf enum value: Unknown = 0;
      */
-    RestrictionType_Unknown = 0
+    Unknown = 0
 }

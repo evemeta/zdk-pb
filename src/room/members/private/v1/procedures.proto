@@ -1,0 +1,335 @@
+syntax = "proto3";
+
+package room.members.private.v1;
+
+import "room/members/private/v1/enums.proto";
+import "room/members/private/v1/entities.proto";
+import "room/members/private/v1/optionals.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+import "gateway/transponders/private/v1/procedures.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/members/private/v1;memberspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+message CountArgument {
+    bool                          cache = 1;
+    room.members.private.v1.Query query = 2;
+}
+
+message CountRequest {
+    repeated room.members.private.v1.CountArgument arguments = 1;
+}
+
+message CountResponse {
+    int64 total = 1;
+}
+
+message RangeArgument {
+    bool                          cache = 1;
+    room.members.private.v1.Query query = 2;
+}
+
+message RangeRequest {
+    repeated room.members.private.v1.RangeArgument arguments = 1;
+}
+
+message RangeResponse {
+    repeated room.members.private.v1.Chunk chunks = 1;
+}
+
+message SelectArgument {
+    bool                          cache = 1;
+    room.members.private.v1.Query query = 2;
+}
+
+message SelectRequest {
+    repeated room.members.private.v1.SelectArgument arguments = 1;
+}
+
+message SelectResponse {
+    repeated room.members.private.v1.Member members = 1;
+}
+
+message CreateArgument {
+    string                                       id           = 1;
+    string                                       user_id      = 2;
+    string                                       room_id      = 3;
+    room.members.private.v1.Status               status       = 4;
+    repeated room.members.private.v1.Stream      streams      = 5;
+    map<string, string>                          metadata     = 6;
+    repeated room.members.private.v1.Connection connections   = 7;
+    repeated room.members.private.v1.Restriction restrictions = 8;
+    int64                                        enter_time   = 9;
+    int64                                        leave_time   = 10;
+}
+
+message CreateRequest {
+    repeated room.members.private.v1.CreateArgument arguments = 1;
+}
+
+message CreateResponse {
+    repeated room.members.private.v1.Member members = 1;
+}
+
+message CreateMutation {
+    room.members.private.v1.CreateArgument     foundation      = 1;
+    room.members.private.v1.CreateCondition    condition       = 2;
+    repeated room.members.private.v1.Transient transient       = 3;
+    int64                                      begin_timestamp = 4;
+    int64                                      close_timestamp = 5;
+}
+
+message CreateCondition {
+    repeated gateway.transponders.private.v1.CreateMutation create_transponder_mutations = 1;
+}
+
+message CreateTransaction {
+    repeated room.members.private.v1.CreateMutation mutations = 1;
+}
+
+message UpdateArgument {
+    room.members.private.v1.Query                   query    = 1;
+    optional room.members.private.v1.OptionalString user_id  = 2;
+    optional room.members.private.v1.OptionalString room_id  = 3;
+    optional room.members.private.v1.OptionalMap    metadata = 4;
+}
+
+message UpdateRequest {
+    repeated room.members.private.v1.UpdateArgument arguments = 1;
+}
+
+message UpdateResponse {
+    repeated room.members.private.v1.Member members = 1;
+}
+
+message UpdateMutation {
+    room.members.private.v1.UpdateArgument     foundation      = 1;
+    repeated room.members.private.v1.Transient transient       = 2;
+    int64                                      begin_timestamp = 3;
+    int64                                      close_timestamp = 4;
+}
+
+message UpdateTransaction {
+    repeated room.members.private.v1.UpdateMutation mutations = 1;
+}
+
+message DeleteArgument {
+    room.members.private.v1.Query query = 1;
+}
+
+message DeleteRequest {
+    repeated room.members.private.v1.DeleteArgument arguments = 1;
+}
+
+message DeleteResponse {
+    repeated room.members.private.v1.Member members = 1;
+}
+
+message DeleteMutation {
+    room.members.private.v1.DeleteArgument     foundation      = 1;
+    room.members.private.v1.DeleteCondition    condition       = 2;
+    repeated room.members.private.v1.Transient transient       = 3;
+    int64                                      begin_timestamp = 4;
+    int64                                      close_timestamp = 5;
+}
+
+message DeleteCondition {
+    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 1;
+}
+
+message DeleteTransaction {
+    repeated room.members.private.v1.DeleteMutation mutations = 1;
+}
+
+message KickArgument {
+    room.members.private.v1.Query query  = 1;
+    string                        reason = 2;
+}
+
+message KickRequest {
+    repeated room.members.private.v1.KickArgument arguments = 1;
+}
+
+message KickResponse {}
+
+message KickMutation {
+    room.members.private.v1.KickArgument  foundation      = 1;
+    room.members.private.v1.KickCondition condition       = 2;
+    int64                                 begin_timestamp = 3;
+    int64                                 close_timestamp = 4;
+}
+
+message KickCondition {
+    repeated room.members.private.v1.UpdateMutation         update_mutations             = 1;
+    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 2;
+}
+
+message KickTransaction {
+    repeated room.members.private.v1.KickMutation mutations = 1;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+message CreateStreamArgument {
+    room.members.private.v1.Query       query = 1;
+    room.members.private.v1.StreamKind  kind  = 2;
+    room.members.private.v1.StreamState state = 3;
+}
+
+message CreateStreamRequest {
+    repeated room.members.private.v1.CreateStreamArgument arguments = 1;
+}
+
+message CreateStreamResponse {}
+
+message CreateStreamMutation {
+    room.members.private.v1.CreateStreamArgument  foundation      = 1;
+    room.members.private.v1.CreateStreamCondition condition       = 2;
+    int64                                         begin_timestamp = 3;
+    int64                                         close_timestamp = 4;
+}
+
+message CreateStreamCondition {
+    repeated room.members.private.v1.UpdateMutation update_mutations = 1;
+}
+
+message CreateStreamTransaction {
+    repeated room.members.private.v1.CreateStreamMutation mutations = 1;
+}
+
+message DeleteStreamArgument {
+    room.members.private.v1.Query      query = 1;
+    room.members.private.v1.StreamKind kind  = 2;
+}
+
+message DeleteStreamRequest {
+    repeated room.members.private.v1.DeleteStreamArgument arguments = 1;
+}
+
+message DeleteStreamResponse {}
+
+message DeleteStreamMutation {
+    room.members.private.v1.DeleteStreamArgument  foundation      = 1;
+    room.members.private.v1.DeleteStreamCondition condition       = 2;
+    int64                                         begin_timestamp = 3;
+    int64                                         close_timestamp = 4;
+}
+
+message DeleteStreamCondition {
+    repeated room.members.private.v1.UpdateMutation update_mutations = 1;
+}
+
+message DeleteStreamTransaction {
+    repeated room.members.private.v1.DeleteStreamMutation mutations = 1;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+message CreateRestrictionArgument {
+    room.members.private.v1.Query            query    = 1;
+    room.members.private.v1.RestrictionKind  kind     = 2;
+    string                                   reason   = 3;
+    int64                                    duration = 4;
+}
+
+message CreateRestrictionRequest {
+    repeated room.members.private.v1.CreateRestrictionArgument arguments = 1;
+}
+
+message CreateRestrictionResponse {}
+
+message CreateRestrictionMutation {
+    room.members.private.v1.CreateRestrictionArgument  foundation      = 1;
+    room.members.private.v1.CreateRestrictionCondition condition       = 2;
+    int64                                         begin_timestamp = 3;
+    int64                                         close_timestamp = 4;
+}
+
+message CreateRestrictionCondition {
+    repeated room.members.private.v1.UpdateMutation update_mutations = 1;
+}
+
+message CreateRestrictionTransaction {
+    repeated room.members.private.v1.CreateRestrictionMutation mutations = 1;
+}
+
+message DeleteRestrictionArgument {
+    room.members.private.v1.Query           query = 1;
+    room.members.private.v1.RestrictionKind kind  = 2;
+}
+
+message DeleteRestrictionRequest {
+    repeated room.members.private.v1.DeleteRestrictionArgument arguments = 1;
+}
+
+message DeleteRestrictionResponse {}
+
+message DeleteRestrictionMutation {
+    room.members.private.v1.DeleteRestrictionArgument  foundation      = 1;
+    room.members.private.v1.DeleteRestrictionCondition condition       = 2;
+    int64                                              begin_timestamp = 3;
+    int64                                              close_timestamp = 4;
+}
+
+message DeleteRestrictionCondition {
+    repeated room.members.private.v1.UpdateMutation update_mutations = 1;
+}
+
+message DeleteRestrictionTransaction {
+    repeated room.members.private.v1.DeleteRestrictionMutation mutations = 1;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+message CreateConnectionArgument {
+    room.members.private.v1.Query           query = 1;
+    room.members.private.v1.ConnectionKind  kind  = 2;
+    room.members.private.v1.ConnectionState state = 3;
+}
+
+message CreateConnectionRequest {
+    repeated room.members.private.v1.CreateConnectionArgument arguments = 1;
+}
+
+message CreateConnectionResponse {}
+
+message CreateConnectionMutation {
+    room.members.private.v1.CreateConnectionArgument  foundation      = 1;
+    room.members.private.v1.CreateConnectionCondition condition       = 2;
+    int64                                             begin_timestamp = 3;
+    int64                                             close_timestamp = 4;
+}
+
+message CreateConnectionCondition {
+    repeated room.members.private.v1.UpdateMutation update_mutations = 1;
+}
+
+message CreateConnectionTransaction {
+    repeated room.members.private.v1.CreateConnectionMutation mutations = 1;
+}
+
+message DeleteConnectionArgument {
+    room.members.private.v1.Query          query = 1;
+    room.members.private.v1.ConnectionKind kind  = 2;
+}
+
+message DeleteConnectionRequest {
+    repeated room.members.private.v1.DeleteConnectionArgument arguments = 1;
+}
+
+message DeleteConnectionResponse {}
+
+message DeleteConnectionMutation {
+    room.members.private.v1.DeleteConnectionArgument  foundation      = 1;
+    room.members.private.v1.DeleteConnectionCondition condition       = 2;
+    int64                                             begin_timestamp = 3;
+    int64                                             close_timestamp = 4;
+}
+
+message DeleteConnectionCondition {
+    repeated room.members.private.v1.UpdateMutation update_mutations = 1;
+}
+
+message DeleteConnectionTransaction {
+    repeated room.members.private.v1.DeleteConnectionMutation mutations = 1;
+}

@@ -541,7 +541,7 @@ func (x *CreateArgument) GetStatus() Status {
 	if x != nil {
 		return x.Status
 	}
-	return Status_Status_Unknown
+	return StatusUnknown
 }
 
 func (x *CreateArgument) GetMetadata() map[string]string {

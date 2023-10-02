@@ -379,6 +379,91 @@ func (x *CreateMemberStreamPacket) GetTimeframe() *Timeframe {
 	return nil
 }
 
+// UpdateMemberStreamPacket todo;
+type UpdateMemberStreamPacket struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// todo;
+	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	// todo;
+	RoomId string `protobuf:"bytes,2,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
+	// todo;
+	Kind StreamKind `protobuf:"varint,3,opt,name=kind,proto3,enum=room.members.public.server.v1.StreamKind" json:"kind,omitempty"`
+	// todo;
+	State *OptionalStreamState `protobuf:"bytes,4,opt,name=state,proto3" json:"state,omitempty"`
+	// todo;
+	Timeframe *Timeframe `protobuf:"bytes,5,opt,name=timeframe,proto3" json:"timeframe,omitempty"`
+}
+
+func (x *UpdateMemberStreamPacket) Reset() {
+	*x = UpdateMemberStreamPacket{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_room_members_public_server_v1_packets_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UpdateMemberStreamPacket) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateMemberStreamPacket) ProtoMessage() {}
+
+func (x *UpdateMemberStreamPacket) ProtoReflect() protoreflect.Message {
+	mi := &file_room_members_public_server_v1_packets_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateMemberStreamPacket.ProtoReflect.Descriptor instead.
+func (*UpdateMemberStreamPacket) Descriptor() ([]byte, []int) {
+	return file_room_members_public_server_v1_packets_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *UpdateMemberStreamPacket) GetUserId() string {
+	if x != nil {
+		return x.UserId
+	}
+	return ""
+}
+
+func (x *UpdateMemberStreamPacket) GetRoomId() string {
+	if x != nil {
+		return x.RoomId
+	}
+	return ""
+}
+
+func (x *UpdateMemberStreamPacket) GetKind() StreamKind {
+	if x != nil {
+		return x.Kind
+	}
+	return StreamKindUnknown
+}
+
+func (x *UpdateMemberStreamPacket) GetState() *OptionalStreamState {
+	if x != nil {
+		return x.State
+	}
+	return nil
+}
+
+func (x *UpdateMemberStreamPacket) GetTimeframe() *Timeframe {
+	if x != nil {
+		return x.Timeframe
+	}
+	return nil
+}
+
 // DeleteMemberStreamPacket todo;
 type DeleteMemberStreamPacket struct {
 	state         protoimpl.MessageState
@@ -390,7 +475,7 @@ type DeleteMemberStreamPacket struct {
 	// todo;
 	RoomId string `protobuf:"bytes,2,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
 	// todo;
-	Type StreamType `protobuf:"varint,3,opt,name=type,proto3,enum=room.members.public.server.v1.StreamType" json:"type,omitempty"`
+	Kind StreamKind `protobuf:"varint,3,opt,name=kind,proto3,enum=room.members.public.server.v1.StreamKind" json:"kind,omitempty"`
 	// todo;
 	Timeframe *Timeframe `protobuf:"bytes,4,opt,name=timeframe,proto3" json:"timeframe,omitempty"`
 }
@@ -398,7 +483,7 @@ type DeleteMemberStreamPacket struct {
 func (x *DeleteMemberStreamPacket) Reset() {
 	*x = DeleteMemberStreamPacket{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_room_members_public_server_v1_packets_proto_msgTypes[5]
+		mi := &file_room_members_public_server_v1_packets_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -411,7 +496,7 @@ func (x *DeleteMemberStreamPacket) String() string {
 func (*DeleteMemberStreamPacket) ProtoMessage() {}
 
 func (x *DeleteMemberStreamPacket) ProtoReflect() protoreflect.Message {
-	mi := &file_room_members_public_server_v1_packets_proto_msgTypes[5]
+	mi := &file_room_members_public_server_v1_packets_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -424,7 +509,7 @@ func (x *DeleteMemberStreamPacket) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteMemberStreamPacket.ProtoReflect.Descriptor instead.
 func (*DeleteMemberStreamPacket) Descriptor() ([]byte, []int) {
-	return file_room_members_public_server_v1_packets_proto_rawDescGZIP(), []int{5}
+	return file_room_members_public_server_v1_packets_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *DeleteMemberStreamPacket) GetUserId() string {
@@ -441,11 +526,11 @@ func (x *DeleteMemberStreamPacket) GetRoomId() string {
 	return ""
 }
 
-func (x *DeleteMemberStreamPacket) GetType() StreamType {
+func (x *DeleteMemberStreamPacket) GetKind() StreamKind {
 	if x != nil {
-		return x.Type
+		return x.Kind
 	}
-	return StreamType_StreamType_Unknown
+	return StreamKindUnknown
 }
 
 func (x *DeleteMemberStreamPacket) GetTimeframe() *Timeframe {
@@ -475,7 +560,7 @@ type CreateMemberConnectionPacket struct {
 func (x *CreateMemberConnectionPacket) Reset() {
 	*x = CreateMemberConnectionPacket{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_room_members_public_server_v1_packets_proto_msgTypes[6]
+		mi := &file_room_members_public_server_v1_packets_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -488,7 +573,7 @@ func (x *CreateMemberConnectionPacket) String() string {
 func (*CreateMemberConnectionPacket) ProtoMessage() {}
 
 func (x *CreateMemberConnectionPacket) ProtoReflect() protoreflect.Message {
-	mi := &file_room_members_public_server_v1_packets_proto_msgTypes[6]
+	mi := &file_room_members_public_server_v1_packets_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -501,7 +586,7 @@ func (x *CreateMemberConnectionPacket) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateMemberConnectionPacket.ProtoReflect.Descriptor instead.
 func (*CreateMemberConnectionPacket) Descriptor() ([]byte, []int) {
-	return file_room_members_public_server_v1_packets_proto_rawDescGZIP(), []int{6}
+	return file_room_members_public_server_v1_packets_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *CreateMemberConnectionPacket) GetUserId() string {
@@ -543,7 +628,7 @@ type DeleteMemberConnectionPacket struct {
 	// todo;
 	RoomId string `protobuf:"bytes,2,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
 	// todo;
-	Type ConnectionType `protobuf:"varint,3,opt,name=type,proto3,enum=room.members.public.server.v1.ConnectionType" json:"type,omitempty"`
+	Kind ConnectionKind `protobuf:"varint,3,opt,name=kind,proto3,enum=room.members.public.server.v1.ConnectionKind" json:"kind,omitempty"`
 	// todo;
 	Timeframe *Timeframe `protobuf:"bytes,4,opt,name=timeframe,proto3" json:"timeframe,omitempty"`
 }
@@ -551,7 +636,7 @@ type DeleteMemberConnectionPacket struct {
 func (x *DeleteMemberConnectionPacket) Reset() {
 	*x = DeleteMemberConnectionPacket{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_room_members_public_server_v1_packets_proto_msgTypes[7]
+		mi := &file_room_members_public_server_v1_packets_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -564,7 +649,7 @@ func (x *DeleteMemberConnectionPacket) String() string {
 func (*DeleteMemberConnectionPacket) ProtoMessage() {}
 
 func (x *DeleteMemberConnectionPacket) ProtoReflect() protoreflect.Message {
-	mi := &file_room_members_public_server_v1_packets_proto_msgTypes[7]
+	mi := &file_room_members_public_server_v1_packets_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -577,7 +662,7 @@ func (x *DeleteMemberConnectionPacket) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteMemberConnectionPacket.ProtoReflect.Descriptor instead.
 func (*DeleteMemberConnectionPacket) Descriptor() ([]byte, []int) {
-	return file_room_members_public_server_v1_packets_proto_rawDescGZIP(), []int{7}
+	return file_room_members_public_server_v1_packets_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *DeleteMemberConnectionPacket) GetUserId() string {
@@ -594,11 +679,11 @@ func (x *DeleteMemberConnectionPacket) GetRoomId() string {
 	return ""
 }
 
-func (x *DeleteMemberConnectionPacket) GetType() ConnectionType {
+func (x *DeleteMemberConnectionPacket) GetKind() ConnectionKind {
 	if x != nil {
-		return x.Type
+		return x.Kind
 	}
-	return ConnectionType_ConnectionType_Unknown
+	return ConnectionKindUnknown
 }
 
 func (x *DeleteMemberConnectionPacket) GetTimeframe() *Timeframe {
@@ -628,7 +713,7 @@ type CreateMemberRestrictionPacket struct {
 func (x *CreateMemberRestrictionPacket) Reset() {
 	*x = CreateMemberRestrictionPacket{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_room_members_public_server_v1_packets_proto_msgTypes[8]
+		mi := &file_room_members_public_server_v1_packets_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -641,7 +726,7 @@ func (x *CreateMemberRestrictionPacket) String() string {
 func (*CreateMemberRestrictionPacket) ProtoMessage() {}
 
 func (x *CreateMemberRestrictionPacket) ProtoReflect() protoreflect.Message {
-	mi := &file_room_members_public_server_v1_packets_proto_msgTypes[8]
+	mi := &file_room_members_public_server_v1_packets_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -654,7 +739,7 @@ func (x *CreateMemberRestrictionPacket) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateMemberRestrictionPacket.ProtoReflect.Descriptor instead.
 func (*CreateMemberRestrictionPacket) Descriptor() ([]byte, []int) {
-	return file_room_members_public_server_v1_packets_proto_rawDescGZIP(), []int{8}
+	return file_room_members_public_server_v1_packets_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *CreateMemberRestrictionPacket) GetUserId() string {
@@ -685,167 +770,6 @@ func (x *CreateMemberRestrictionPacket) GetTimeframe() *Timeframe {
 	return nil
 }
 
-// DeleteMemberRestrictionPacket todo;
-type DeleteMemberRestrictionPacket struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	// todo;
-	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	// todo;
-	RoomId string `protobuf:"bytes,2,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
-	// todo;
-	Type RestrictionType `protobuf:"varint,3,opt,name=type,proto3,enum=room.members.public.server.v1.RestrictionType" json:"type,omitempty"`
-	// todo;
-	Timeframe *Timeframe `protobuf:"bytes,4,opt,name=timeframe,proto3" json:"timeframe,omitempty"`
-}
-
-func (x *DeleteMemberRestrictionPacket) Reset() {
-	*x = DeleteMemberRestrictionPacket{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_room_members_public_server_v1_packets_proto_msgTypes[9]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *DeleteMemberRestrictionPacket) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DeleteMemberRestrictionPacket) ProtoMessage() {}
-
-func (x *DeleteMemberRestrictionPacket) ProtoReflect() protoreflect.Message {
-	mi := &file_room_members_public_server_v1_packets_proto_msgTypes[9]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DeleteMemberRestrictionPacket.ProtoReflect.Descriptor instead.
-func (*DeleteMemberRestrictionPacket) Descriptor() ([]byte, []int) {
-	return file_room_members_public_server_v1_packets_proto_rawDescGZIP(), []int{9}
-}
-
-func (x *DeleteMemberRestrictionPacket) GetUserId() string {
-	if x != nil {
-		return x.UserId
-	}
-	return ""
-}
-
-func (x *DeleteMemberRestrictionPacket) GetRoomId() string {
-	if x != nil {
-		return x.RoomId
-	}
-	return ""
-}
-
-func (x *DeleteMemberRestrictionPacket) GetType() RestrictionType {
-	if x != nil {
-		return x.Type
-	}
-	return RestrictionType_RestrictionType_Unknown
-}
-
-func (x *DeleteMemberRestrictionPacket) GetTimeframe() *Timeframe {
-	if x != nil {
-		return x.Timeframe
-	}
-	return nil
-}
-
-// UpdateMemberStreamPacket todo;
-type UpdateMemberStreamPacket struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	// todo;
-	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	// todo;
-	RoomId string `protobuf:"bytes,2,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
-	// todo;
-	Type StreamType `protobuf:"varint,3,opt,name=type,proto3,enum=room.members.public.server.v1.StreamType" json:"type,omitempty"`
-	// todo;
-	State *OptionalStreamState `protobuf:"bytes,4,opt,name=state,proto3" json:"state,omitempty"`
-	// todo;
-	Timeframe *Timeframe `protobuf:"bytes,5,opt,name=timeframe,proto3" json:"timeframe,omitempty"`
-}
-
-func (x *UpdateMemberStreamPacket) Reset() {
-	*x = UpdateMemberStreamPacket{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_room_members_public_server_v1_packets_proto_msgTypes[10]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UpdateMemberStreamPacket) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateMemberStreamPacket) ProtoMessage() {}
-
-func (x *UpdateMemberStreamPacket) ProtoReflect() protoreflect.Message {
-	mi := &file_room_members_public_server_v1_packets_proto_msgTypes[10]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateMemberStreamPacket.ProtoReflect.Descriptor instead.
-func (*UpdateMemberStreamPacket) Descriptor() ([]byte, []int) {
-	return file_room_members_public_server_v1_packets_proto_rawDescGZIP(), []int{10}
-}
-
-func (x *UpdateMemberStreamPacket) GetUserId() string {
-	if x != nil {
-		return x.UserId
-	}
-	return ""
-}
-
-func (x *UpdateMemberStreamPacket) GetRoomId() string {
-	if x != nil {
-		return x.RoomId
-	}
-	return ""
-}
-
-func (x *UpdateMemberStreamPacket) GetType() StreamType {
-	if x != nil {
-		return x.Type
-	}
-	return StreamType_StreamType_Unknown
-}
-
-func (x *UpdateMemberStreamPacket) GetState() *OptionalStreamState {
-	if x != nil {
-		return x.State
-	}
-	return nil
-}
-
-func (x *UpdateMemberStreamPacket) GetTimeframe() *Timeframe {
-	if x != nil {
-		return x.Timeframe
-	}
-	return nil
-}
-
 // UpdateMemberConnectionPacket todo;
 type UpdateMemberConnectionPacket struct {
 	state         protoimpl.MessageState
@@ -857,7 +781,7 @@ type UpdateMemberConnectionPacket struct {
 	// todo;
 	RoomId string `protobuf:"bytes,2,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
 	// todo;
-	Type ConnectionType `protobuf:"varint,3,opt,name=type,proto3,enum=room.members.public.server.v1.ConnectionType" json:"type,omitempty"`
+	Kind ConnectionKind `protobuf:"varint,3,opt,name=kind,proto3,enum=room.members.public.server.v1.ConnectionKind" json:"kind,omitempty"`
 	// todo;
 	State *OptionalConnectionState `protobuf:"bytes,4,opt,name=state,proto3" json:"state,omitempty"`
 	// todo;
@@ -867,7 +791,7 @@ type UpdateMemberConnectionPacket struct {
 func (x *UpdateMemberConnectionPacket) Reset() {
 	*x = UpdateMemberConnectionPacket{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_room_members_public_server_v1_packets_proto_msgTypes[11]
+		mi := &file_room_members_public_server_v1_packets_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -880,7 +804,7 @@ func (x *UpdateMemberConnectionPacket) String() string {
 func (*UpdateMemberConnectionPacket) ProtoMessage() {}
 
 func (x *UpdateMemberConnectionPacket) ProtoReflect() protoreflect.Message {
-	mi := &file_room_members_public_server_v1_packets_proto_msgTypes[11]
+	mi := &file_room_members_public_server_v1_packets_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -893,7 +817,7 @@ func (x *UpdateMemberConnectionPacket) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateMemberConnectionPacket.ProtoReflect.Descriptor instead.
 func (*UpdateMemberConnectionPacket) Descriptor() ([]byte, []int) {
-	return file_room_members_public_server_v1_packets_proto_rawDescGZIP(), []int{11}
+	return file_room_members_public_server_v1_packets_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *UpdateMemberConnectionPacket) GetUserId() string {
@@ -910,11 +834,11 @@ func (x *UpdateMemberConnectionPacket) GetRoomId() string {
 	return ""
 }
 
-func (x *UpdateMemberConnectionPacket) GetType() ConnectionType {
+func (x *UpdateMemberConnectionPacket) GetKind() ConnectionKind {
 	if x != nil {
-		return x.Type
+		return x.Kind
 	}
-	return ConnectionType_ConnectionType_Unknown
+	return ConnectionKindUnknown
 }
 
 func (x *UpdateMemberConnectionPacket) GetState() *OptionalConnectionState {
@@ -925,6 +849,82 @@ func (x *UpdateMemberConnectionPacket) GetState() *OptionalConnectionState {
 }
 
 func (x *UpdateMemberConnectionPacket) GetTimeframe() *Timeframe {
+	if x != nil {
+		return x.Timeframe
+	}
+	return nil
+}
+
+// DeleteMemberRestrictionPacket todo;
+type DeleteMemberRestrictionPacket struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// todo;
+	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	// todo;
+	RoomId string `protobuf:"bytes,2,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
+	// todo;
+	Kind RestrictionKind `protobuf:"varint,3,opt,name=kind,proto3,enum=room.members.public.server.v1.RestrictionKind" json:"kind,omitempty"`
+	// todo;
+	Timeframe *Timeframe `protobuf:"bytes,4,opt,name=timeframe,proto3" json:"timeframe,omitempty"`
+}
+
+func (x *DeleteMemberRestrictionPacket) Reset() {
+	*x = DeleteMemberRestrictionPacket{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_room_members_public_server_v1_packets_proto_msgTypes[11]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *DeleteMemberRestrictionPacket) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteMemberRestrictionPacket) ProtoMessage() {}
+
+func (x *DeleteMemberRestrictionPacket) ProtoReflect() protoreflect.Message {
+	mi := &file_room_members_public_server_v1_packets_proto_msgTypes[11]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteMemberRestrictionPacket.ProtoReflect.Descriptor instead.
+func (*DeleteMemberRestrictionPacket) Descriptor() ([]byte, []int) {
+	return file_room_members_public_server_v1_packets_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *DeleteMemberRestrictionPacket) GetUserId() string {
+	if x != nil {
+		return x.UserId
+	}
+	return ""
+}
+
+func (x *DeleteMemberRestrictionPacket) GetRoomId() string {
+	if x != nil {
+		return x.RoomId
+	}
+	return ""
+}
+
+func (x *DeleteMemberRestrictionPacket) GetKind() RestrictionKind {
+	if x != nil {
+		return x.Kind
+	}
+	return RestrictionKindUnknown
+}
+
+func (x *DeleteMemberRestrictionPacket) GetTimeframe() *Timeframe {
 	if x != nil {
 		return x.Timeframe
 	}
@@ -1007,16 +1007,34 @@ var file_room_members_public_server_v1_packets_proto_rawDesc = []byte{
 	0x18, 0x04, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x28, 0x2e, 0x72, 0x6f, 0x6f, 0x6d, 0x2e, 0x6d, 0x65,
 	0x6d, 0x62, 0x65, 0x72, 0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e, 0x73, 0x65, 0x72,
 	0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x66, 0x72, 0x61, 0x6d, 0x65,
+	0x52, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x66, 0x72, 0x61, 0x6d, 0x65, 0x22, 0x9d, 0x02, 0x0a, 0x18,
+	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x53, 0x74, 0x72, 0x65,
+	0x61, 0x6d, 0x50, 0x61, 0x63, 0x6b, 0x65, 0x74, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72,
+	0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49,
+	0x64, 0x12, 0x17, 0x0a, 0x07, 0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x06, 0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x12, 0x3d, 0x0a, 0x04, 0x6b, 0x69,
+	0x6e, 0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x29, 0x2e, 0x72, 0x6f, 0x6f, 0x6d, 0x2e,
+	0x6d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e, 0x73,
+	0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x4b,
+	0x69, 0x6e, 0x64, 0x52, 0x04, 0x6b, 0x69, 0x6e, 0x64, 0x12, 0x48, 0x0a, 0x05, 0x73, 0x74, 0x61,
+	0x74, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x32, 0x2e, 0x72, 0x6f, 0x6f, 0x6d, 0x2e,
+	0x6d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e, 0x73,
+	0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x4f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x61,
+	0x6c, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x53, 0x74, 0x61, 0x74, 0x65, 0x52, 0x05, 0x73, 0x74,
+	0x61, 0x74, 0x65, 0x12, 0x46, 0x0a, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x66, 0x72, 0x61, 0x6d, 0x65,
+	0x18, 0x05, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x28, 0x2e, 0x72, 0x6f, 0x6f, 0x6d, 0x2e, 0x6d, 0x65,
+	0x6d, 0x62, 0x65, 0x72, 0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e, 0x73, 0x65, 0x72,
+	0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x66, 0x72, 0x61, 0x6d, 0x65,
 	0x52, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x66, 0x72, 0x61, 0x6d, 0x65, 0x22, 0xd3, 0x01, 0x0a, 0x18,
 	0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x53, 0x74, 0x72, 0x65,
 	0x61, 0x6d, 0x50, 0x61, 0x63, 0x6b, 0x65, 0x74, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72,
 	0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49,
 	0x64, 0x12, 0x17, 0x0a, 0x07, 0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x06, 0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x12, 0x3d, 0x0a, 0x04, 0x74, 0x79,
-	0x70, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x29, 0x2e, 0x72, 0x6f, 0x6f, 0x6d, 0x2e,
+	0x28, 0x09, 0x52, 0x06, 0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x12, 0x3d, 0x0a, 0x04, 0x6b, 0x69,
+	0x6e, 0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x29, 0x2e, 0x72, 0x6f, 0x6f, 0x6d, 0x2e,
 	0x6d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e, 0x73,
-	0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x54,
-	0x79, 0x70, 0x65, 0x52, 0x04, 0x74, 0x79, 0x70, 0x65, 0x12, 0x46, 0x0a, 0x09, 0x74, 0x69, 0x6d,
+	0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x4b,
+	0x69, 0x6e, 0x64, 0x52, 0x04, 0x6b, 0x69, 0x6e, 0x64, 0x12, 0x46, 0x0a, 0x09, 0x74, 0x69, 0x6d,
 	0x65, 0x66, 0x72, 0x61, 0x6d, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x28, 0x2e, 0x72,
 	0x6f, 0x6f, 0x6d, 0x2e, 0x6d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c,
 	0x69, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x54, 0x69, 0x6d,
@@ -1040,11 +1058,11 @@ var file_room_members_public_server_v1_packets_proto_rawDesc = []byte{
 	0x6f, 0x6e, 0x50, 0x61, 0x63, 0x6b, 0x65, 0x74, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72,
 	0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49,
 	0x64, 0x12, 0x17, 0x0a, 0x07, 0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x06, 0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x12, 0x41, 0x0a, 0x04, 0x74, 0x79,
-	0x70, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x2d, 0x2e, 0x72, 0x6f, 0x6f, 0x6d, 0x2e,
+	0x28, 0x09, 0x52, 0x06, 0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x12, 0x41, 0x0a, 0x04, 0x6b, 0x69,
+	0x6e, 0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x2d, 0x2e, 0x72, 0x6f, 0x6f, 0x6d, 0x2e,
 	0x6d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e, 0x73,
 	0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x43, 0x6f, 0x6e, 0x6e, 0x65, 0x63, 0x74,
-	0x69, 0x6f, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x52, 0x04, 0x74, 0x79, 0x70, 0x65, 0x12, 0x46, 0x0a,
+	0x69, 0x6f, 0x6e, 0x4b, 0x69, 0x6e, 0x64, 0x52, 0x04, 0x6b, 0x69, 0x6e, 0x64, 0x12, 0x46, 0x0a,
 	0x09, 0x74, 0x69, 0x6d, 0x65, 0x66, 0x72, 0x61, 0x6d, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0b,
 	0x32, 0x28, 0x2e, 0x72, 0x6f, 0x6f, 0x6d, 0x2e, 0x6d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x2e,
 	0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31,
@@ -1064,54 +1082,36 @@ var file_room_members_public_server_v1_packets_proto_rawDesc = []byte{
 	0x6d, 0x2e, 0x6d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63,
 	0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x66,
 	0x72, 0x61, 0x6d, 0x65, 0x52, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x66, 0x72, 0x61, 0x6d, 0x65, 0x22,
-	0xdd, 0x01, 0x0a, 0x1d, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72,
-	0x52, 0x65, 0x73, 0x74, 0x72, 0x69, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x50, 0x61, 0x63, 0x6b, 0x65,
-	0x74, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x17, 0x0a, 0x07, 0x72, 0x6f,
-	0x6f, 0x6d, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x72, 0x6f, 0x6f,
-	0x6d, 0x49, 0x64, 0x12, 0x42, 0x0a, 0x04, 0x74, 0x79, 0x70, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28,
-	0x0e, 0x32, 0x2e, 0x2e, 0x72, 0x6f, 0x6f, 0x6d, 0x2e, 0x6d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x73,
-	0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76,
-	0x31, 0x2e, 0x52, 0x65, 0x73, 0x74, 0x72, 0x69, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x54, 0x79, 0x70,
-	0x65, 0x52, 0x04, 0x74, 0x79, 0x70, 0x65, 0x12, 0x46, 0x0a, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x66,
-	0x72, 0x61, 0x6d, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x28, 0x2e, 0x72, 0x6f, 0x6f,
-	0x6d, 0x2e, 0x6d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63,
-	0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x66,
-	0x72, 0x61, 0x6d, 0x65, 0x52, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x66, 0x72, 0x61, 0x6d, 0x65, 0x22,
-	0x9d, 0x02, 0x0a, 0x18, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72,
-	0x53, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x50, 0x61, 0x63, 0x6b, 0x65, 0x74, 0x12, 0x17, 0x0a, 0x07,
-	0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x75,
-	0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x17, 0x0a, 0x07, 0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64,
-	0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x12, 0x3d,
-	0x0a, 0x04, 0x74, 0x79, 0x70, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x29, 0x2e, 0x72,
-	0x6f, 0x6f, 0x6d, 0x2e, 0x6d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c,
-	0x69, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x53, 0x74, 0x72,
-	0x65, 0x61, 0x6d, 0x54, 0x79, 0x70, 0x65, 0x52, 0x04, 0x74, 0x79, 0x70, 0x65, 0x12, 0x48, 0x0a,
-	0x05, 0x73, 0x74, 0x61, 0x74, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x32, 0x2e, 0x72,
-	0x6f, 0x6f, 0x6d, 0x2e, 0x6d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c,
-	0x69, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x4f, 0x70, 0x74,
-	0x69, 0x6f, 0x6e, 0x61, 0x6c, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x53, 0x74, 0x61, 0x74, 0x65,
-	0x52, 0x05, 0x73, 0x74, 0x61, 0x74, 0x65, 0x12, 0x46, 0x0a, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x66,
-	0x72, 0x61, 0x6d, 0x65, 0x18, 0x05, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x28, 0x2e, 0x72, 0x6f, 0x6f,
-	0x6d, 0x2e, 0x6d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63,
-	0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x66,
-	0x72, 0x61, 0x6d, 0x65, 0x52, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x66, 0x72, 0x61, 0x6d, 0x65, 0x22,
 	0xa9, 0x02, 0x0a, 0x1c, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72,
 	0x43, 0x6f, 0x6e, 0x6e, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x50, 0x61, 0x63, 0x6b, 0x65, 0x74,
 	0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
 	0x09, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x17, 0x0a, 0x07, 0x72, 0x6f, 0x6f,
 	0x6d, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x72, 0x6f, 0x6f, 0x6d,
-	0x49, 0x64, 0x12, 0x41, 0x0a, 0x04, 0x74, 0x79, 0x70, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0e,
+	0x49, 0x64, 0x12, 0x41, 0x0a, 0x04, 0x6b, 0x69, 0x6e, 0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0e,
 	0x32, 0x2d, 0x2e, 0x72, 0x6f, 0x6f, 0x6d, 0x2e, 0x6d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x2e,
 	0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31,
-	0x2e, 0x43, 0x6f, 0x6e, 0x6e, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x52,
-	0x04, 0x74, 0x79, 0x70, 0x65, 0x12, 0x4c, 0x0a, 0x05, 0x73, 0x74, 0x61, 0x74, 0x65, 0x18, 0x04,
+	0x2e, 0x43, 0x6f, 0x6e, 0x6e, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x4b, 0x69, 0x6e, 0x64, 0x52,
+	0x04, 0x6b, 0x69, 0x6e, 0x64, 0x12, 0x4c, 0x0a, 0x05, 0x73, 0x74, 0x61, 0x74, 0x65, 0x18, 0x04,
 	0x20, 0x01, 0x28, 0x0b, 0x32, 0x36, 0x2e, 0x72, 0x6f, 0x6f, 0x6d, 0x2e, 0x6d, 0x65, 0x6d, 0x62,
 	0x65, 0x72, 0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65,
 	0x72, 0x2e, 0x76, 0x31, 0x2e, 0x4f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x61, 0x6c, 0x43, 0x6f, 0x6e,
 	0x6e, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x53, 0x74, 0x61, 0x74, 0x65, 0x52, 0x05, 0x73, 0x74,
 	0x61, 0x74, 0x65, 0x12, 0x46, 0x0a, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x66, 0x72, 0x61, 0x6d, 0x65,
 	0x18, 0x05, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x28, 0x2e, 0x72, 0x6f, 0x6f, 0x6d, 0x2e, 0x6d, 0x65,
+	0x6d, 0x62, 0x65, 0x72, 0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e, 0x73, 0x65, 0x72,
+	0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x66, 0x72, 0x61, 0x6d, 0x65,
+	0x52, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x66, 0x72, 0x61, 0x6d, 0x65, 0x22, 0xdd, 0x01, 0x0a, 0x1d,
+	0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x52, 0x65, 0x73, 0x74,
+	0x72, 0x69, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x50, 0x61, 0x63, 0x6b, 0x65, 0x74, 0x12, 0x17, 0x0a,
+	0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06,
+	0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x17, 0x0a, 0x07, 0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69,
+	0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x12,
+	0x42, 0x0a, 0x04, 0x6b, 0x69, 0x6e, 0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x2e, 0x2e,
+	0x72, 0x6f, 0x6f, 0x6d, 0x2e, 0x6d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x2e, 0x70, 0x75, 0x62,
+	0x6c, 0x69, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x52, 0x65,
+	0x73, 0x74, 0x72, 0x69, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x4b, 0x69, 0x6e, 0x64, 0x52, 0x04, 0x6b,
+	0x69, 0x6e, 0x64, 0x12, 0x46, 0x0a, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x66, 0x72, 0x61, 0x6d, 0x65,
+	0x18, 0x04, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x28, 0x2e, 0x72, 0x6f, 0x6f, 0x6d, 0x2e, 0x6d, 0x65,
 	0x6d, 0x62, 0x65, 0x72, 0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e, 0x73, 0x65, 0x72,
 	0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x66, 0x72, 0x61, 0x6d, 0x65,
 	0x52, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x66, 0x72, 0x61, 0x6d, 0x65, 0x42, 0x4d, 0x5a, 0x48, 0x67,
@@ -1142,24 +1142,24 @@ var file_room_members_public_server_v1_packets_proto_goTypes = []interface{}{
 	(*DeleteMemberPacket)(nil),            // 2: room.members.public.server.v1.DeleteMemberPacket
 	(*KickMemberPacket)(nil),              // 3: room.members.public.server.v1.KickMemberPacket
 	(*CreateMemberStreamPacket)(nil),      // 4: room.members.public.server.v1.CreateMemberStreamPacket
-	(*DeleteMemberStreamPacket)(nil),      // 5: room.members.public.server.v1.DeleteMemberStreamPacket
-	(*CreateMemberConnectionPacket)(nil),  // 6: room.members.public.server.v1.CreateMemberConnectionPacket
-	(*DeleteMemberConnectionPacket)(nil),  // 7: room.members.public.server.v1.DeleteMemberConnectionPacket
-	(*CreateMemberRestrictionPacket)(nil), // 8: room.members.public.server.v1.CreateMemberRestrictionPacket
-	(*DeleteMemberRestrictionPacket)(nil), // 9: room.members.public.server.v1.DeleteMemberRestrictionPacket
-	(*UpdateMemberStreamPacket)(nil),      // 10: room.members.public.server.v1.UpdateMemberStreamPacket
-	(*UpdateMemberConnectionPacket)(nil),  // 11: room.members.public.server.v1.UpdateMemberConnectionPacket
+	(*UpdateMemberStreamPacket)(nil),      // 5: room.members.public.server.v1.UpdateMemberStreamPacket
+	(*DeleteMemberStreamPacket)(nil),      // 6: room.members.public.server.v1.DeleteMemberStreamPacket
+	(*CreateMemberConnectionPacket)(nil),  // 7: room.members.public.server.v1.CreateMemberConnectionPacket
+	(*DeleteMemberConnectionPacket)(nil),  // 8: room.members.public.server.v1.DeleteMemberConnectionPacket
+	(*CreateMemberRestrictionPacket)(nil), // 9: room.members.public.server.v1.CreateMemberRestrictionPacket
+	(*UpdateMemberConnectionPacket)(nil),  // 10: room.members.public.server.v1.UpdateMemberConnectionPacket
+	(*DeleteMemberRestrictionPacket)(nil), // 11: room.members.public.server.v1.DeleteMemberRestrictionPacket
 	(*Member)(nil),                        // 12: room.members.public.server.v1.Member
 	(*Timeframe)(nil),                     // 13: room.members.public.server.v1.Timeframe
 	(*OptionalMap)(nil),                   // 14: room.members.public.server.v1.OptionalMap
 	(*Stream)(nil),                        // 15: room.members.public.server.v1.Stream
-	(StreamType)(0),                       // 16: room.members.public.server.v1.StreamType
-	(*Connection)(nil),                    // 17: room.members.public.server.v1.Connection
-	(ConnectionType)(0),                   // 18: room.members.public.server.v1.ConnectionType
-	(*Restriction)(nil),                   // 19: room.members.public.server.v1.Restriction
-	(RestrictionType)(0),                  // 20: room.members.public.server.v1.RestrictionType
-	(*OptionalStreamState)(nil),           // 21: room.members.public.server.v1.OptionalStreamState
-	(*OptionalConnectionState)(nil),       // 22: room.members.public.server.v1.OptionalConnectionState
+	(StreamKind)(0),                       // 16: room.members.public.server.v1.StreamKind
+	(*OptionalStreamState)(nil),           // 17: room.members.public.server.v1.OptionalStreamState
+	(*Connection)(nil),                    // 18: room.members.public.server.v1.Connection
+	(ConnectionKind)(0),                   // 19: room.members.public.server.v1.ConnectionKind
+	(*Restriction)(nil),                   // 20: room.members.public.server.v1.Restriction
+	(*OptionalConnectionState)(nil),       // 21: room.members.public.server.v1.OptionalConnectionState
+	(RestrictionKind)(0),                  // 22: room.members.public.server.v1.RestrictionKind
 }
 var file_room_members_public_server_v1_packets_proto_depIdxs = []int32{
 	12, // 0: room.members.public.server.v1.CreateMemberPacket.member:type_name -> room.members.public.server.v1.Member
@@ -1170,22 +1170,22 @@ var file_room_members_public_server_v1_packets_proto_depIdxs = []int32{
 	13, // 5: room.members.public.server.v1.KickMemberPacket.timeframe:type_name -> room.members.public.server.v1.Timeframe
 	15, // 6: room.members.public.server.v1.CreateMemberStreamPacket.stream:type_name -> room.members.public.server.v1.Stream
 	13, // 7: room.members.public.server.v1.CreateMemberStreamPacket.timeframe:type_name -> room.members.public.server.v1.Timeframe
-	16, // 8: room.members.public.server.v1.DeleteMemberStreamPacket.type:type_name -> room.members.public.server.v1.StreamType
-	13, // 9: room.members.public.server.v1.DeleteMemberStreamPacket.timeframe:type_name -> room.members.public.server.v1.Timeframe
-	17, // 10: room.members.public.server.v1.CreateMemberConnectionPacket.connection:type_name -> room.members.public.server.v1.Connection
-	13, // 11: room.members.public.server.v1.CreateMemberConnectionPacket.timeframe:type_name -> room.members.public.server.v1.Timeframe
-	18, // 12: room.members.public.server.v1.DeleteMemberConnectionPacket.type:type_name -> room.members.public.server.v1.ConnectionType
-	13, // 13: room.members.public.server.v1.DeleteMemberConnectionPacket.timeframe:type_name -> room.members.public.server.v1.Timeframe
-	19, // 14: room.members.public.server.v1.CreateMemberRestrictionPacket.restriction:type_name -> room.members.public.server.v1.Restriction
-	13, // 15: room.members.public.server.v1.CreateMemberRestrictionPacket.timeframe:type_name -> room.members.public.server.v1.Timeframe
-	20, // 16: room.members.public.server.v1.DeleteMemberRestrictionPacket.type:type_name -> room.members.public.server.v1.RestrictionType
-	13, // 17: room.members.public.server.v1.DeleteMemberRestrictionPacket.timeframe:type_name -> room.members.public.server.v1.Timeframe
-	16, // 18: room.members.public.server.v1.UpdateMemberStreamPacket.type:type_name -> room.members.public.server.v1.StreamType
-	21, // 19: room.members.public.server.v1.UpdateMemberStreamPacket.state:type_name -> room.members.public.server.v1.OptionalStreamState
-	13, // 20: room.members.public.server.v1.UpdateMemberStreamPacket.timeframe:type_name -> room.members.public.server.v1.Timeframe
-	18, // 21: room.members.public.server.v1.UpdateMemberConnectionPacket.type:type_name -> room.members.public.server.v1.ConnectionType
-	22, // 22: room.members.public.server.v1.UpdateMemberConnectionPacket.state:type_name -> room.members.public.server.v1.OptionalConnectionState
-	13, // 23: room.members.public.server.v1.UpdateMemberConnectionPacket.timeframe:type_name -> room.members.public.server.v1.Timeframe
+	16, // 8: room.members.public.server.v1.UpdateMemberStreamPacket.kind:type_name -> room.members.public.server.v1.StreamKind
+	17, // 9: room.members.public.server.v1.UpdateMemberStreamPacket.state:type_name -> room.members.public.server.v1.OptionalStreamState
+	13, // 10: room.members.public.server.v1.UpdateMemberStreamPacket.timeframe:type_name -> room.members.public.server.v1.Timeframe
+	16, // 11: room.members.public.server.v1.DeleteMemberStreamPacket.kind:type_name -> room.members.public.server.v1.StreamKind
+	13, // 12: room.members.public.server.v1.DeleteMemberStreamPacket.timeframe:type_name -> room.members.public.server.v1.Timeframe
+	18, // 13: room.members.public.server.v1.CreateMemberConnectionPacket.connection:type_name -> room.members.public.server.v1.Connection
+	13, // 14: room.members.public.server.v1.CreateMemberConnectionPacket.timeframe:type_name -> room.members.public.server.v1.Timeframe
+	19, // 15: room.members.public.server.v1.DeleteMemberConnectionPacket.kind:type_name -> room.members.public.server.v1.ConnectionKind
+	13, // 16: room.members.public.server.v1.DeleteMemberConnectionPacket.timeframe:type_name -> room.members.public.server.v1.Timeframe
+	20, // 17: room.members.public.server.v1.CreateMemberRestrictionPacket.restriction:type_name -> room.members.public.server.v1.Restriction
+	13, // 18: room.members.public.server.v1.CreateMemberRestrictionPacket.timeframe:type_name -> room.members.public.server.v1.Timeframe
+	19, // 19: room.members.public.server.v1.UpdateMemberConnectionPacket.kind:type_name -> room.members.public.server.v1.ConnectionKind
+	21, // 20: room.members.public.server.v1.UpdateMemberConnectionPacket.state:type_name -> room.members.public.server.v1.OptionalConnectionState
+	13, // 21: room.members.public.server.v1.UpdateMemberConnectionPacket.timeframe:type_name -> room.members.public.server.v1.Timeframe
+	22, // 22: room.members.public.server.v1.DeleteMemberRestrictionPacket.kind:type_name -> room.members.public.server.v1.RestrictionKind
+	13, // 23: room.members.public.server.v1.DeleteMemberRestrictionPacket.timeframe:type_name -> room.members.public.server.v1.Timeframe
 	24, // [24:24] is the sub-list for method output_type
 	24, // [24:24] is the sub-list for method input_type
 	24, // [24:24] is the sub-list for extension type_name
@@ -1263,66 +1263,6 @@ func file_room_members_public_server_v1_packets_proto_init() {
 			}
 		}
 		file_room_members_public_server_v1_packets_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteMemberStreamPacket); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_room_members_public_server_v1_packets_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreateMemberConnectionPacket); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_room_members_public_server_v1_packets_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteMemberConnectionPacket); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_room_members_public_server_v1_packets_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreateMemberRestrictionPacket); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_room_members_public_server_v1_packets_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteMemberRestrictionPacket); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_room_members_public_server_v1_packets_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateMemberStreamPacket); i {
 			case 0:
 				return &v.state
@@ -1334,8 +1274,68 @@ func file_room_members_public_server_v1_packets_proto_init() {
 				return nil
 			}
 		}
-		file_room_members_public_server_v1_packets_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+		file_room_members_public_server_v1_packets_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DeleteMemberStreamPacket); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_room_members_public_server_v1_packets_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CreateMemberConnectionPacket); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_room_members_public_server_v1_packets_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DeleteMemberConnectionPacket); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_room_members_public_server_v1_packets_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CreateMemberRestrictionPacket); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_room_members_public_server_v1_packets_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateMemberConnectionPacket); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_room_members_public_server_v1_packets_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DeleteMemberRestrictionPacket); i {
 			case 0:
 				return &v.state
 			case 1:

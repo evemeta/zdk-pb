@@ -125,44 +125,74 @@ export interface KickRequest {
 export interface KickResponse {
 }
 /**
+ * CreateStreamRequest todo;
+ *
  * @generated from protobuf message room.members.public.server.v1.CreateStreamRequest
  */
 export interface CreateStreamRequest {
 }
 /**
+ * CreateStreamResponse todo;
+ *
  * @generated from protobuf message room.members.public.server.v1.CreateStreamResponse
  */
 export interface CreateStreamResponse {
 }
 /**
+ * UpdateStreamRequest todo;
+ *
  * @generated from protobuf message room.members.public.server.v1.UpdateStreamRequest
  */
 export interface UpdateStreamRequest {
 }
 /**
+ * UpdateStreamResponse todo;
+ *
  * @generated from protobuf message room.members.public.server.v1.UpdateStreamResponse
  */
 export interface UpdateStreamResponse {
 }
 /**
+ * DeleteStreamRequest todo;
+ *
  * @generated from protobuf message room.members.public.server.v1.DeleteStreamRequest
  */
 export interface DeleteStreamRequest {
 }
 /**
+ * DeleteStreamResponse todo;
+ *
  * @generated from protobuf message room.members.public.server.v1.DeleteStreamResponse
  */
 export interface DeleteStreamResponse {
 }
 /**
+ * CreateRestrictionRequest todo;
+ *
  * @generated from protobuf message room.members.public.server.v1.CreateRestrictionRequest
  */
 export interface CreateRestrictionRequest {
 }
 /**
+ * CreateRestrictionResponse todo;
+ *
+ * @generated from protobuf message room.members.public.server.v1.CreateRestrictionResponse
+ */
+export interface CreateRestrictionResponse {
+}
+/**
+ * DeleteRestrictionRequest todo;
+ *
  * @generated from protobuf message room.members.public.server.v1.DeleteRestrictionRequest
  */
 export interface DeleteRestrictionRequest {
+}
+/**
+ * DeleteRestrictionResponse todo;
+ *
+ * @generated from protobuf message room.members.public.server.v1.DeleteRestrictionResponse
+ */
+export interface DeleteRestrictionResponse {
 }
 // @generated message type with reflection information, may provide speed optimized methods
 class CountRequest$Type extends MessageType<CountRequest> {
@@ -716,6 +746,32 @@ class CreateRestrictionRequest$Type extends MessageType<CreateRestrictionRequest
  */
 export const CreateRestrictionRequest = new CreateRestrictionRequest$Type();
 // @generated message type with reflection information, may provide speed optimized methods
+class CreateRestrictionResponse$Type extends MessageType<CreateRestrictionResponse> {
+    constructor() {
+        super("room.members.public.server.v1.CreateRestrictionResponse", []);
+    }
+    create(value?: PartialMessage<CreateRestrictionResponse>): CreateRestrictionResponse {
+        const message = {};
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<CreateRestrictionResponse>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: CreateRestrictionResponse): CreateRestrictionResponse {
+        return target ?? this.create();
+    }
+    internalBinaryWrite(message: CreateRestrictionResponse, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message room.members.public.server.v1.CreateRestrictionResponse
+ */
+export const CreateRestrictionResponse = new CreateRestrictionResponse$Type();
+// @generated message type with reflection information, may provide speed optimized methods
 class DeleteRestrictionRequest$Type extends MessageType<DeleteRestrictionRequest> {
     constructor() {
         super("room.members.public.server.v1.DeleteRestrictionRequest", []);
@@ -741,3 +797,29 @@ class DeleteRestrictionRequest$Type extends MessageType<DeleteRestrictionRequest
  * @generated MessageType for protobuf message room.members.public.server.v1.DeleteRestrictionRequest
  */
 export const DeleteRestrictionRequest = new DeleteRestrictionRequest$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class DeleteRestrictionResponse$Type extends MessageType<DeleteRestrictionResponse> {
+    constructor() {
+        super("room.members.public.server.v1.DeleteRestrictionResponse", []);
+    }
+    create(value?: PartialMessage<DeleteRestrictionResponse>): DeleteRestrictionResponse {
+        const message = {};
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<DeleteRestrictionResponse>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: DeleteRestrictionResponse): DeleteRestrictionResponse {
+        return target ?? this.create();
+    }
+    internalBinaryWrite(message: DeleteRestrictionResponse, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message room.members.public.server.v1.DeleteRestrictionResponse
+ */
+export const DeleteRestrictionResponse = new DeleteRestrictionResponse$Type();

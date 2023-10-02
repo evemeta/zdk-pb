@@ -57,18 +57,32 @@ message KickRequest {
 // KickResponse represents a message that provides the result of the kick procedure.
 message KickResponse {}
 
+// CreateStreamRequest todo;
 message CreateStreamRequest {}
 
+// CreateStreamResponse todo;
 message CreateStreamResponse {}
 
+// UpdateStreamRequest todo;
 message UpdateStreamRequest {}
 
+// UpdateStreamResponse todo;
 message UpdateStreamResponse {}
 
+// DeleteStreamRequest todo;
 message DeleteStreamRequest {}
 
+// DeleteStreamResponse todo;
 message DeleteStreamResponse {}
 
+// CreateRestrictionRequest todo;
 message CreateRestrictionRequest {}
 
+// CreateRestrictionResponse todo;
+message CreateRestrictionResponse {}
+
+// DeleteRestrictionRequest todo;
 message DeleteRestrictionRequest {}
+
+// DeleteRestrictionResponse todo;
+message DeleteRestrictionResponse {}

@@ -70,6 +70,7 @@ func (x *OptionalMap) GetValue() map[string]string {
 	return nil
 }
 
+// OptionalStreamState todo;
 type OptionalStreamState struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -114,9 +115,10 @@ func (x *OptionalStreamState) GetValue() StreamState {
 	if x != nil {
 		return x.Value
 	}
-	return StreamState_StreamState_Unknown
+	return StreamStateUnknown
 }
 
+// OptionalConnectionState todo;
 type OptionalConnectionState struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -161,7 +163,7 @@ func (x *OptionalConnectionState) GetValue() ConnectionState {
 	if x != nil {
 		return x.Value
 	}
-	return ConnectionState_ConnectionState_Unknown
+	return ConnectionStateUnknown
 }
 
 var File_room_members_public_server_v1_optionals_proto protoreflect.FileDescriptor

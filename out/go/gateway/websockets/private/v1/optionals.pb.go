@@ -66,7 +66,7 @@ func (x *OptionalZone) GetValue() Zone {
 	if x != nil {
 		return x.Value
 	}
-	return Zone_Zone_Unknown
+	return ZoneUnknown
 }
 
 // OptionalStatus todo;
@@ -114,7 +114,7 @@ func (x *OptionalStatus) GetValue() Status {
 	if x != nil {
 		return x.Value
 	}
-	return Status_Status_Unknown
+	return StatusUnknown
 }
 
 // OptionalString represents a string value that can be intentionally left unset or null.

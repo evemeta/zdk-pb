@@ -53,11 +53,6 @@ export interface AcknowledgePacket {
      */
     error: string;
 }
-/**
- * @generated from protobuf message websocket.public.server.v1.ReintegratePacket
- */
-export interface ReintegratePacket {
-}
 // @generated message type with reflection information, may provide speed optimized methods
 class HandshakePacket$Type extends MessageType<HandshakePacket> {
     constructor() {
@@ -253,29 +248,3 @@ class AcknowledgePacket$Type extends MessageType<AcknowledgePacket> {
  * @generated MessageType for protobuf message websocket.public.server.v1.AcknowledgePacket
  */
 export const AcknowledgePacket = new AcknowledgePacket$Type();
-// @generated message type with reflection information, may provide speed optimized methods
-class ReintegratePacket$Type extends MessageType<ReintegratePacket> {
-    constructor() {
-        super("websocket.public.server.v1.ReintegratePacket", []);
-    }
-    create(value?: PartialMessage<ReintegratePacket>): ReintegratePacket {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<ReintegratePacket>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ReintegratePacket): ReintegratePacket {
-        return target ?? this.create();
-    }
-    internalBinaryWrite(message: ReintegratePacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
-}
-/**
- * @generated MessageType for protobuf message websocket.public.server.v1.ReintegratePacket
- */
-export const ReintegratePacket = new ReintegratePacket$Type();

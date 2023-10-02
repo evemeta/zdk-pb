@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package room.rooms.private.v1;
+
+import "room/rooms/private/v1/enums.proto";
+import "room/members/private/v1/entities.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/rooms/private/v1;roomspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+message Room {
+    string                     id          = 1;
+    string                     chat_id     = 2;
+    room.rooms.private.v1.Kind kind        = 3;
+    map<string, string>        metadata    = 4;
+    int64                      access_time = 5;
+    int64                      create_time = 6;
+    int64                      update_time = 7;
+}
+
+message Chunk {
+    int64                               size     = 1;
+    int64                               index    = 2;
+    int64                               total    = 3;
+    repeated room.rooms.private.v1.Room entities = 4;
+}
+
+message Query {
+    room.rooms.private.v1.Order              order      = 1;
+    int64                                    limit      = 2;
+    int64                                    offset     = 3;
+    repeated room.rooms.private.v1.Condition conditions = 4;
+}
+
+message Condition {
+    repeated string                        ids     = 1;
+    repeated room.members.private.v1.Query members = 2;
+}
+
+message Transient {
+    room.rooms.private.v1.Room future   = 1;
+    room.rooms.private.v1.Room current  = 2;
+    room.rooms.private.v1.Room previous = 3;
+}

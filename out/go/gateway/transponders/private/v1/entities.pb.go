@@ -141,7 +141,7 @@ func (x *Query) GetOrder() Order {
 	if x != nil {
 		return x.Order
 	}
-	return Order_Order_Unknown
+	return OrderUnknown
 }
 
 func (x *Query) GetDepth() int64 {
@@ -169,7 +169,7 @@ func (x *Query) GetDirection() Direction {
 	if x != nil {
 		return x.Direction
 	}
-	return Direction_Direction_Unknown
+	return DirectionUnknown
 }
 
 func (x *Query) GetConditions() []*Condition {

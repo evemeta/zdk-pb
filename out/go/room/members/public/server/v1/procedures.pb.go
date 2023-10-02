@@ -421,6 +421,7 @@ func (*KickResponse) Descriptor() ([]byte, []int) {
 	return file_room_members_public_server_v1_procedures_proto_rawDescGZIP(), []int{7}
 }
 
+// CreateStreamRequest todo;
 type CreateStreamRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -459,6 +460,7 @@ func (*CreateStreamRequest) Descriptor() ([]byte, []int) {
 	return file_room_members_public_server_v1_procedures_proto_rawDescGZIP(), []int{8}
 }
 
+// CreateStreamResponse todo;
 type CreateStreamResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -497,6 +499,7 @@ func (*CreateStreamResponse) Descriptor() ([]byte, []int) {
 	return file_room_members_public_server_v1_procedures_proto_rawDescGZIP(), []int{9}
 }
 
+// UpdateStreamRequest todo;
 type UpdateStreamRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -535,6 +538,7 @@ func (*UpdateStreamRequest) Descriptor() ([]byte, []int) {
 	return file_room_members_public_server_v1_procedures_proto_rawDescGZIP(), []int{10}
 }
 
+// UpdateStreamResponse todo;
 type UpdateStreamResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -573,6 +577,7 @@ func (*UpdateStreamResponse) Descriptor() ([]byte, []int) {
 	return file_room_members_public_server_v1_procedures_proto_rawDescGZIP(), []int{11}
 }
 
+// DeleteStreamRequest todo;
 type DeleteStreamRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -611,6 +616,7 @@ func (*DeleteStreamRequest) Descriptor() ([]byte, []int) {
 	return file_room_members_public_server_v1_procedures_proto_rawDescGZIP(), []int{12}
 }
 
+// DeleteStreamResponse todo;
 type DeleteStreamResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -649,6 +655,7 @@ func (*DeleteStreamResponse) Descriptor() ([]byte, []int) {
 	return file_room_members_public_server_v1_procedures_proto_rawDescGZIP(), []int{13}
 }
 
+// CreateRestrictionRequest todo;
 type CreateRestrictionRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -687,6 +694,46 @@ func (*CreateRestrictionRequest) Descriptor() ([]byte, []int) {
 	return file_room_members_public_server_v1_procedures_proto_rawDescGZIP(), []int{14}
 }
 
+// CreateRestrictionResponse todo;
+type CreateRestrictionResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *CreateRestrictionResponse) Reset() {
+	*x = CreateRestrictionResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_room_members_public_server_v1_procedures_proto_msgTypes[15]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CreateRestrictionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateRestrictionResponse) ProtoMessage() {}
+
+func (x *CreateRestrictionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_room_members_public_server_v1_procedures_proto_msgTypes[15]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateRestrictionResponse.ProtoReflect.Descriptor instead.
+func (*CreateRestrictionResponse) Descriptor() ([]byte, []int) {
+	return file_room_members_public_server_v1_procedures_proto_rawDescGZIP(), []int{15}
+}
+
+// DeleteRestrictionRequest todo;
 type DeleteRestrictionRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -696,7 +743,7 @@ type DeleteRestrictionRequest struct {
 func (x *DeleteRestrictionRequest) Reset() {
 	*x = DeleteRestrictionRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_room_members_public_server_v1_procedures_proto_msgTypes[15]
+		mi := &file_room_members_public_server_v1_procedures_proto_msgTypes[16]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -709,7 +756,7 @@ func (x *DeleteRestrictionRequest) String() string {
 func (*DeleteRestrictionRequest) ProtoMessage() {}
 
 func (x *DeleteRestrictionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_room_members_public_server_v1_procedures_proto_msgTypes[15]
+	mi := &file_room_members_public_server_v1_procedures_proto_msgTypes[16]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -722,7 +769,46 @@ func (x *DeleteRestrictionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteRestrictionRequest.ProtoReflect.Descriptor instead.
 func (*DeleteRestrictionRequest) Descriptor() ([]byte, []int) {
-	return file_room_members_public_server_v1_procedures_proto_rawDescGZIP(), []int{15}
+	return file_room_members_public_server_v1_procedures_proto_rawDescGZIP(), []int{16}
+}
+
+// DeleteRestrictionResponse todo;
+type DeleteRestrictionResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *DeleteRestrictionResponse) Reset() {
+	*x = DeleteRestrictionResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_room_members_public_server_v1_procedures_proto_msgTypes[17]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *DeleteRestrictionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteRestrictionResponse) ProtoMessage() {}
+
+func (x *DeleteRestrictionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_room_members_public_server_v1_procedures_proto_msgTypes[17]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteRestrictionResponse.ProtoReflect.Descriptor instead.
+func (*DeleteRestrictionResponse) Descriptor() ([]byte, []int) {
+	return file_room_members_public_server_v1_procedures_proto_rawDescGZIP(), []int{17}
 }
 
 var File_room_members_public_server_v1_procedures_proto protoreflect.FileDescriptor
@@ -782,14 +868,18 @@ var file_room_members_public_server_v1_procedures_proto_rawDesc = []byte{
 	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x16, 0x0a, 0x14, 0x44, 0x65, 0x6c, 0x65, 0x74,
 	0x65, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
 	0x1a, 0x0a, 0x18, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x74, 0x72, 0x69, 0x63,
-	0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x1a, 0x0a, 0x18, 0x44,
-	0x65, 0x6c, 0x65, 0x74, 0x65, 0x52, 0x65, 0x73, 0x74, 0x72, 0x69, 0x63, 0x74, 0x69, 0x6f, 0x6e,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x42, 0x4d, 0x5a, 0x48, 0x67, 0x69, 0x74, 0x6c, 0x61,
-	0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x65, 0x76, 0x65, 0x6d, 0x65, 0x74, 0x61, 0x2f, 0x7a, 0x64,
-	0x6b, 0x2f, 0x70, 0x62, 0x2f, 0x6f, 0x75, 0x74, 0x2f, 0x67, 0x6f, 0x2f, 0x72, 0x6f, 0x6f, 0x6d,
-	0x2f, 0x6d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x2f, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2f,
-	0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2f, 0x76, 0x31, 0x3b, 0x6d, 0x65, 0x6d, 0x62, 0x65, 0x72,
-	0x73, 0x70, 0x62, 0x92, 0x41, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x1b, 0x0a, 0x19, 0x43,
+	0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x74, 0x72, 0x69, 0x63, 0x74, 0x69, 0x6f, 0x6e,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x1a, 0x0a, 0x18, 0x44, 0x65, 0x6c, 0x65,
+	0x74, 0x65, 0x52, 0x65, 0x73, 0x74, 0x72, 0x69, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x22, 0x1b, 0x0a, 0x19, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x52, 0x65,
+	0x73, 0x74, 0x72, 0x69, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x42, 0x4d, 0x5a, 0x48, 0x67, 0x69, 0x74, 0x6c, 0x61, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f,
+	0x65, 0x76, 0x65, 0x6d, 0x65, 0x74, 0x61, 0x2f, 0x7a, 0x64, 0x6b, 0x2f, 0x70, 0x62, 0x2f, 0x6f,
+	0x75, 0x74, 0x2f, 0x67, 0x6f, 0x2f, 0x72, 0x6f, 0x6f, 0x6d, 0x2f, 0x6d, 0x65, 0x6d, 0x62, 0x65,
+	0x72, 0x73, 0x2f, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72,
+	0x2f, 0x76, 0x31, 0x3b, 0x6d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x70, 0x62, 0x92, 0x41, 0x00,
+	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -804,34 +894,36 @@ func file_room_members_public_server_v1_procedures_proto_rawDescGZIP() []byte {
 	return file_room_members_public_server_v1_procedures_proto_rawDescData
 }
 
-var file_room_members_public_server_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 16)
+var file_room_members_public_server_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 18)
 var file_room_members_public_server_v1_procedures_proto_goTypes = []interface{}{
-	(*CountRequest)(nil),             // 0: room.members.public.server.v1.CountRequest
-	(*CountResponse)(nil),            // 1: room.members.public.server.v1.CountResponse
-	(*SelectRequest)(nil),            // 2: room.members.public.server.v1.SelectRequest
-	(*SelectResponse)(nil),           // 3: room.members.public.server.v1.SelectResponse
-	(*RangeRequest)(nil),             // 4: room.members.public.server.v1.RangeRequest
-	(*RangeResponse)(nil),            // 5: room.members.public.server.v1.RangeResponse
-	(*KickRequest)(nil),              // 6: room.members.public.server.v1.KickRequest
-	(*KickResponse)(nil),             // 7: room.members.public.server.v1.KickResponse
-	(*CreateStreamRequest)(nil),      // 8: room.members.public.server.v1.CreateStreamRequest
-	(*CreateStreamResponse)(nil),     // 9: room.members.public.server.v1.CreateStreamResponse
-	(*UpdateStreamRequest)(nil),      // 10: room.members.public.server.v1.UpdateStreamRequest
-	(*UpdateStreamResponse)(nil),     // 11: room.members.public.server.v1.UpdateStreamResponse
-	(*DeleteStreamRequest)(nil),      // 12: room.members.public.server.v1.DeleteStreamRequest
-	(*DeleteStreamResponse)(nil),     // 13: room.members.public.server.v1.DeleteStreamResponse
-	(*CreateRestrictionRequest)(nil), // 14: room.members.public.server.v1.CreateRestrictionRequest
-	(*DeleteRestrictionRequest)(nil), // 15: room.members.public.server.v1.DeleteRestrictionRequest
-	(*Query)(nil),                    // 16: room.members.public.server.v1.Query
-	(*Member)(nil),                   // 17: room.members.public.server.v1.Member
-	(*Chunk)(nil),                    // 18: room.members.public.server.v1.Chunk
+	(*CountRequest)(nil),              // 0: room.members.public.server.v1.CountRequest
+	(*CountResponse)(nil),             // 1: room.members.public.server.v1.CountResponse
+	(*SelectRequest)(nil),             // 2: room.members.public.server.v1.SelectRequest
+	(*SelectResponse)(nil),            // 3: room.members.public.server.v1.SelectResponse
+	(*RangeRequest)(nil),              // 4: room.members.public.server.v1.RangeRequest
+	(*RangeResponse)(nil),             // 5: room.members.public.server.v1.RangeResponse
+	(*KickRequest)(nil),               // 6: room.members.public.server.v1.KickRequest
+	(*KickResponse)(nil),              // 7: room.members.public.server.v1.KickResponse
+	(*CreateStreamRequest)(nil),       // 8: room.members.public.server.v1.CreateStreamRequest
+	(*CreateStreamResponse)(nil),      // 9: room.members.public.server.v1.CreateStreamResponse
+	(*UpdateStreamRequest)(nil),       // 10: room.members.public.server.v1.UpdateStreamRequest
+	(*UpdateStreamResponse)(nil),      // 11: room.members.public.server.v1.UpdateStreamResponse
+	(*DeleteStreamRequest)(nil),       // 12: room.members.public.server.v1.DeleteStreamRequest
+	(*DeleteStreamResponse)(nil),      // 13: room.members.public.server.v1.DeleteStreamResponse
+	(*CreateRestrictionRequest)(nil),  // 14: room.members.public.server.v1.CreateRestrictionRequest
+	(*CreateRestrictionResponse)(nil), // 15: room.members.public.server.v1.CreateRestrictionResponse
+	(*DeleteRestrictionRequest)(nil),  // 16: room.members.public.server.v1.DeleteRestrictionRequest
+	(*DeleteRestrictionResponse)(nil), // 17: room.members.public.server.v1.DeleteRestrictionResponse
+	(*Query)(nil),                     // 18: room.members.public.server.v1.Query
+	(*Member)(nil),                    // 19: room.members.public.server.v1.Member
+	(*Chunk)(nil),                     // 20: room.members.public.server.v1.Chunk
 }
 var file_room_members_public_server_v1_procedures_proto_depIdxs = []int32{
-	16, // 0: room.members.public.server.v1.CountRequest.query:type_name -> room.members.public.server.v1.Query
-	16, // 1: room.members.public.server.v1.SelectRequest.query:type_name -> room.members.public.server.v1.Query
-	17, // 2: room.members.public.server.v1.SelectResponse.members:type_name -> room.members.public.server.v1.Member
-	16, // 3: room.members.public.server.v1.RangeRequest.query:type_name -> room.members.public.server.v1.Query
-	18, // 4: room.members.public.server.v1.RangeResponse.chunk:type_name -> room.members.public.server.v1.Chunk
+	18, // 0: room.members.public.server.v1.CountRequest.query:type_name -> room.members.public.server.v1.Query
+	18, // 1: room.members.public.server.v1.SelectRequest.query:type_name -> room.members.public.server.v1.Query
+	19, // 2: room.members.public.server.v1.SelectResponse.members:type_name -> room.members.public.server.v1.Member
+	18, // 3: room.members.public.server.v1.RangeRequest.query:type_name -> room.members.public.server.v1.Query
+	20, // 4: room.members.public.server.v1.RangeResponse.chunk:type_name -> room.members.public.server.v1.Chunk
 	5,  // [5:5] is the sub-list for method output_type
 	5,  // [5:5] is the sub-list for method input_type
 	5,  // [5:5] is the sub-list for extension type_name
@@ -1027,7 +1119,31 @@ func file_room_members_public_server_v1_procedures_proto_init() {
 			}
 		}
 		file_room_members_public_server_v1_procedures_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CreateRestrictionResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_room_members_public_server_v1_procedures_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteRestrictionRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_room_members_public_server_v1_procedures_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DeleteRestrictionResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1045,7 +1161,7 @@ func file_room_members_public_server_v1_procedures_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_room_members_public_server_v1_procedures_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   16,
+			NumMessages:   18,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

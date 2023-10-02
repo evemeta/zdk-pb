@@ -19,10 +19,15 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Service_Count_FullMethodName  = "/room.members.public.server.v1.Service/Count"
-	Service_Range_FullMethodName  = "/room.members.public.server.v1.Service/Range"
-	Service_Select_FullMethodName = "/room.members.public.server.v1.Service/Select"
-	Service_Kick_FullMethodName   = "/room.members.public.server.v1.Service/Kick"
+	Service_Count_FullMethodName             = "/room.members.public.server.v1.Service/Count"
+	Service_Range_FullMethodName             = "/room.members.public.server.v1.Service/Range"
+	Service_Select_FullMethodName            = "/room.members.public.server.v1.Service/Select"
+	Service_Kick_FullMethodName              = "/room.members.public.server.v1.Service/Kick"
+	Service_CreateStream_FullMethodName      = "/room.members.public.server.v1.Service/CreateStream"
+	Service_UpdateStream_FullMethodName      = "/room.members.public.server.v1.Service/UpdateStream"
+	Service_DeleteStream_FullMethodName      = "/room.members.public.server.v1.Service/DeleteStream"
+	Service_CreateRestriction_FullMethodName = "/room.members.public.server.v1.Service/CreateRestriction"
+	Service_DeleteRestriction_FullMethodName = "/room.members.public.server.v1.Service/DeleteRestriction"
 )
 
 // ServiceClient is the client API for Service service.
@@ -37,6 +42,16 @@ type ServiceClient interface {
 	Select(ctx context.Context, in *SelectRequest, opts ...grpc.CallOption) (*SelectResponse, error)
 	// Kick represents a procedure that forcefully removes a member from a room for a specific reason.
 	Kick(ctx context.Context, in *KickRequest, opts ...grpc.CallOption) (*KickResponse, error)
+	// CreateStream todo;
+	CreateStream(ctx context.Context, in *CreateStreamRequest, opts ...grpc.CallOption) (*CreateStreamResponse, error)
+	// UpdateStream todo;
+	UpdateStream(ctx context.Context, in *UpdateStreamRequest, opts ...grpc.CallOption) (*UpdateStreamResponse, error)
+	// DeleteStream todo;
+	DeleteStream(ctx context.Context, in *DeleteStreamRequest, opts ...grpc.CallOption) (*DeleteStreamResponse, error)
+	// CreateRestriction todo;
+	CreateRestriction(ctx context.Context, in *CreateRestrictionRequest, opts ...grpc.CallOption) (*CreateRestrictionResponse, error)
+	// DeleteRestriction todo;
+	DeleteRestriction(ctx context.Context, in *DeleteRestrictionRequest, opts ...grpc.CallOption) (*DeleteRestrictionResponse, error)
 }
 
 type serviceClient struct {
@@ -83,6 +98,51 @@ func (c *serviceClient) Kick(ctx context.Context, in *KickRequest, opts ...grpc.
 	return out, nil
 }
 
+func (c *serviceClient) CreateStream(ctx context.Context, in *CreateStreamRequest, opts ...grpc.CallOption) (*CreateStreamResponse, error) {
+	out := new(CreateStreamResponse)
+	err := c.cc.Invoke(ctx, Service_CreateStream_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) UpdateStream(ctx context.Context, in *UpdateStreamRequest, opts ...grpc.CallOption) (*UpdateStreamResponse, error) {
+	out := new(UpdateStreamResponse)
+	err := c.cc.Invoke(ctx, Service_UpdateStream_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) DeleteStream(ctx context.Context, in *DeleteStreamRequest, opts ...grpc.CallOption) (*DeleteStreamResponse, error) {
+	out := new(DeleteStreamResponse)
+	err := c.cc.Invoke(ctx, Service_DeleteStream_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) CreateRestriction(ctx context.Context, in *CreateRestrictionRequest, opts ...grpc.CallOption) (*CreateRestrictionResponse, error) {
+	out := new(CreateRestrictionResponse)
+	err := c.cc.Invoke(ctx, Service_CreateRestriction_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) DeleteRestriction(ctx context.Context, in *DeleteRestrictionRequest, opts ...grpc.CallOption) (*DeleteRestrictionResponse, error) {
+	out := new(DeleteRestrictionResponse)
+	err := c.cc.Invoke(ctx, Service_DeleteRestriction_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ServiceServer is the server API for Service service.
 // All implementations must embed UnimplementedServiceServer
 // for forward compatibility
@@ -95,6 +155,16 @@ type ServiceServer interface {
 	Select(context.Context, *SelectRequest) (*SelectResponse, error)
 	// Kick represents a procedure that forcefully removes a member from a room for a specific reason.
 	Kick(context.Context, *KickRequest) (*KickResponse, error)
+	// CreateStream todo;
+	CreateStream(context.Context, *CreateStreamRequest) (*CreateStreamResponse, error)
+	// UpdateStream todo;
+	UpdateStream(context.Context, *UpdateStreamRequest) (*UpdateStreamResponse, error)
+	// DeleteStream todo;
+	DeleteStream(context.Context, *DeleteStreamRequest) (*DeleteStreamResponse, error)
+	// CreateRestriction todo;
+	CreateRestriction(context.Context, *CreateRestrictionRequest) (*CreateRestrictionResponse, error)
+	// DeleteRestriction todo;
+	DeleteRestriction(context.Context, *DeleteRestrictionRequest) (*DeleteRestrictionResponse, error)
 	mustEmbedUnimplementedServiceServer()
 }
 
@@ -113,6 +183,21 @@ func (UnimplementedServiceServer) Select(context.Context, *SelectRequest) (*Sele
 }
 func (UnimplementedServiceServer) Kick(context.Context, *KickRequest) (*KickResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Kick not implemented")
+}
+func (UnimplementedServiceServer) CreateStream(context.Context, *CreateStreamRequest) (*CreateStreamResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateStream not implemented")
+}
+func (UnimplementedServiceServer) UpdateStream(context.Context, *UpdateStreamRequest) (*UpdateStreamResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateStream not implemented")
+}
+func (UnimplementedServiceServer) DeleteStream(context.Context, *DeleteStreamRequest) (*DeleteStreamResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteStream not implemented")
+}
+func (UnimplementedServiceServer) CreateRestriction(context.Context, *CreateRestrictionRequest) (*CreateRestrictionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateRestriction not implemented")
+}
+func (UnimplementedServiceServer) DeleteRestriction(context.Context, *DeleteRestrictionRequest) (*DeleteRestrictionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteRestriction not implemented")
 }
 func (UnimplementedServiceServer) mustEmbedUnimplementedServiceServer() {}
 
@@ -199,6 +284,96 @@ func _Service_Kick_Handler(srv interface{}, ctx context.Context, dec func(interf
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Service_CreateStream_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateStreamRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).CreateStream(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_CreateStream_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).CreateStream(ctx, req.(*CreateStreamRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_UpdateStream_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateStreamRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).UpdateStream(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_UpdateStream_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).UpdateStream(ctx, req.(*UpdateStreamRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_DeleteStream_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteStreamRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).DeleteStream(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_DeleteStream_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).DeleteStream(ctx, req.(*DeleteStreamRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_CreateRestriction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateRestrictionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).CreateRestriction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_CreateRestriction_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).CreateRestriction(ctx, req.(*CreateRestrictionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_DeleteRestriction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteRestrictionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).DeleteRestriction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_DeleteRestriction_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).DeleteRestriction(ctx, req.(*DeleteRestrictionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Service_ServiceDesc is the grpc.ServiceDesc for Service service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -221,6 +396,26 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Kick",
 			Handler:    _Service_Kick_Handler,
+		},
+		{
+			MethodName: "CreateStream",
+			Handler:    _Service_CreateStream_Handler,
+		},
+		{
+			MethodName: "UpdateStream",
+			Handler:    _Service_UpdateStream_Handler,
+		},
+		{
+			MethodName: "DeleteStream",
+			Handler:    _Service_DeleteStream_Handler,
+		},
+		{
+			MethodName: "CreateRestriction",
+			Handler:    _Service_CreateRestriction_Handler,
+		},
+		{
+			MethodName: "DeleteRestriction",
+			Handler:    _Service_DeleteRestriction_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

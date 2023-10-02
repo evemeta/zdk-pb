@@ -193,28 +193,4 @@ service Service {
             operation_id: "FinalizeDisconnectMutations";
         };
     }
-
-    rpc Reintegrate(ReintegrateRequest) returns (ReintegrateResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Reintegrate";
-            summary: "Reintegrate";
-            operation_id: "Reintegrate";
-        };
-    }
-
-    rpc InitiateReintegrateMutations(ReintegrateTransaction) returns (ReintegrateTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: InitiateReintegrateMutations";
-            summary: "InitiateReintegrateMutations";
-            operation_id: "InitiateReintegrateMutations";
-        };
-    }
-
-    rpc FinalizeReintegrateMutations(ReintegrateTransaction) returns (ReintegrateTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: FinalizeReintegrateMutations";
-            summary: "FinalizeReintegrateMutations";
-            operation_id: "FinalizeReintegrateMutations";
-        };
-    }
 }

@@ -523,14 +523,14 @@ func (x *CreateArgument) GetZone() Zone {
 	if x != nil {
 		return x.Zone
 	}
-	return Zone_Zone_Unknown
+	return ZoneUnknown
 }
 
 func (x *CreateArgument) GetStatus() Status {
 	if x != nil {
 		return x.Status
 	}
-	return Status_Status_Unknown
+	return StatusUnknown
 }
 
 func (x *CreateArgument) GetAddress() string {
@@ -1967,311 +1967,6 @@ func (x *DisconnectTransaction) GetMutations() []*DisconnectMutation {
 	return nil
 }
 
-type ReintegrateArgument struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Query *v1.Query `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
-}
-
-func (x *ReintegrateArgument) Reset() {
-	*x = ReintegrateArgument{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_websockets_private_v1_procedures_proto_msgTypes[37]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *ReintegrateArgument) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReintegrateArgument) ProtoMessage() {}
-
-func (x *ReintegrateArgument) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_websockets_private_v1_procedures_proto_msgTypes[37]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReintegrateArgument.ProtoReflect.Descriptor instead.
-func (*ReintegrateArgument) Descriptor() ([]byte, []int) {
-	return file_gateway_websockets_private_v1_procedures_proto_rawDescGZIP(), []int{37}
-}
-
-func (x *ReintegrateArgument) GetQuery() *v1.Query {
-	if x != nil {
-		return x.Query
-	}
-	return nil
-}
-
-type ReintegrateRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Arguments []*ReintegrateArgument `protobuf:"bytes,1,rep,name=arguments,proto3" json:"arguments,omitempty"`
-}
-
-func (x *ReintegrateRequest) Reset() {
-	*x = ReintegrateRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_websockets_private_v1_procedures_proto_msgTypes[38]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *ReintegrateRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReintegrateRequest) ProtoMessage() {}
-
-func (x *ReintegrateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_websockets_private_v1_procedures_proto_msgTypes[38]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReintegrateRequest.ProtoReflect.Descriptor instead.
-func (*ReintegrateRequest) Descriptor() ([]byte, []int) {
-	return file_gateway_websockets_private_v1_procedures_proto_rawDescGZIP(), []int{38}
-}
-
-func (x *ReintegrateRequest) GetArguments() []*ReintegrateArgument {
-	if x != nil {
-		return x.Arguments
-	}
-	return nil
-}
-
-type ReintegrateResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-}
-
-func (x *ReintegrateResponse) Reset() {
-	*x = ReintegrateResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_websockets_private_v1_procedures_proto_msgTypes[39]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *ReintegrateResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReintegrateResponse) ProtoMessage() {}
-
-func (x *ReintegrateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_websockets_private_v1_procedures_proto_msgTypes[39]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReintegrateResponse.ProtoReflect.Descriptor instead.
-func (*ReintegrateResponse) Descriptor() ([]byte, []int) {
-	return file_gateway_websockets_private_v1_procedures_proto_rawDescGZIP(), []int{39}
-}
-
-type ReintegrateMutation struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Foundation     *ReintegrateArgument  `protobuf:"bytes,1,opt,name=foundation,proto3" json:"foundation,omitempty"`
-	Condition      *ReintegrateCondition `protobuf:"bytes,2,opt,name=condition,proto3" json:"condition,omitempty"`
-	BeginTimestamp int64                 `protobuf:"varint,3,opt,name=begin_timestamp,json=beginTimestamp,proto3" json:"begin_timestamp,omitempty"`
-	CloseTimestamp int64                 `protobuf:"varint,4,opt,name=close_timestamp,json=closeTimestamp,proto3" json:"close_timestamp,omitempty"`
-}
-
-func (x *ReintegrateMutation) Reset() {
-	*x = ReintegrateMutation{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_websockets_private_v1_procedures_proto_msgTypes[40]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *ReintegrateMutation) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReintegrateMutation) ProtoMessage() {}
-
-func (x *ReintegrateMutation) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_websockets_private_v1_procedures_proto_msgTypes[40]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReintegrateMutation.ProtoReflect.Descriptor instead.
-func (*ReintegrateMutation) Descriptor() ([]byte, []int) {
-	return file_gateway_websockets_private_v1_procedures_proto_rawDescGZIP(), []int{40}
-}
-
-func (x *ReintegrateMutation) GetFoundation() *ReintegrateArgument {
-	if x != nil {
-		return x.Foundation
-	}
-	return nil
-}
-
-func (x *ReintegrateMutation) GetCondition() *ReintegrateCondition {
-	if x != nil {
-		return x.Condition
-	}
-	return nil
-}
-
-func (x *ReintegrateMutation) GetBeginTimestamp() int64 {
-	if x != nil {
-		return x.BeginTimestamp
-	}
-	return 0
-}
-
-func (x *ReintegrateMutation) GetCloseTimestamp() int64 {
-	if x != nil {
-		return x.CloseTimestamp
-	}
-	return 0
-}
-
-type ReintegrateCondition struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Sessions   []*v1.Session `protobuf:"bytes,1,rep,name=sessions,proto3" json:"sessions,omitempty"`
-	Websockets []*Websocket  `protobuf:"bytes,2,rep,name=websockets,proto3" json:"websockets,omitempty"`
-}
-
-func (x *ReintegrateCondition) Reset() {
-	*x = ReintegrateCondition{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_websockets_private_v1_procedures_proto_msgTypes[41]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *ReintegrateCondition) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReintegrateCondition) ProtoMessage() {}
-
-func (x *ReintegrateCondition) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_websockets_private_v1_procedures_proto_msgTypes[41]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReintegrateCondition.ProtoReflect.Descriptor instead.
-func (*ReintegrateCondition) Descriptor() ([]byte, []int) {
-	return file_gateway_websockets_private_v1_procedures_proto_rawDescGZIP(), []int{41}
-}
-
-func (x *ReintegrateCondition) GetSessions() []*v1.Session {
-	if x != nil {
-		return x.Sessions
-	}
-	return nil
-}
-
-func (x *ReintegrateCondition) GetWebsockets() []*Websocket {
-	if x != nil {
-		return x.Websockets
-	}
-	return nil
-}
-
-type ReintegrateTransaction struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Mutations []*ReintegrateMutation `protobuf:"bytes,1,rep,name=mutations,proto3" json:"mutations,omitempty"`
-}
-
-func (x *ReintegrateTransaction) Reset() {
-	*x = ReintegrateTransaction{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_websockets_private_v1_procedures_proto_msgTypes[42]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *ReintegrateTransaction) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReintegrateTransaction) ProtoMessage() {}
-
-func (x *ReintegrateTransaction) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_websockets_private_v1_procedures_proto_msgTypes[42]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReintegrateTransaction.ProtoReflect.Descriptor instead.
-func (*ReintegrateTransaction) Descriptor() ([]byte, []int) {
-	return file_gateway_websockets_private_v1_procedures_proto_rawDescGZIP(), []int{42}
-}
-
-func (x *ReintegrateTransaction) GetMutations() []*ReintegrateMutation {
-	if x != nil {
-		return x.Mutations
-	}
-	return nil
-}
-
 var File_gateway_websockets_private_v1_procedures_proto protoreflect.FileDescriptor
 
 var file_gateway_websockets_private_v1_procedures_proto_rawDesc = []byte{
@@ -2592,60 +2287,13 @@ var file_gateway_websockets_private_v1_procedures_proto_rawDesc = []byte{
 	0x32, 0x31, 0x2e, 0x67, 0x61, 0x74, 0x65, 0x77, 0x61, 0x79, 0x2e, 0x77, 0x65, 0x62, 0x73, 0x6f,
 	0x63, 0x6b, 0x65, 0x74, 0x73, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31,
 	0x2e, 0x44, 0x69, 0x73, 0x63, 0x6f, 0x6e, 0x6e, 0x65, 0x63, 0x74, 0x4d, 0x75, 0x74, 0x61, 0x74,
-	0x69, 0x6f, 0x6e, 0x52, 0x09, 0x6d, 0x75, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x22, 0x4f,
-	0x0a, 0x13, 0x52, 0x65, 0x69, 0x6e, 0x74, 0x65, 0x67, 0x72, 0x61, 0x74, 0x65, 0x41, 0x72, 0x67,
-	0x75, 0x6d, 0x65, 0x6e, 0x74, 0x12, 0x38, 0x0a, 0x05, 0x71, 0x75, 0x65, 0x72, 0x79, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x0b, 0x32, 0x22, 0x2e, 0x67, 0x61, 0x74, 0x65, 0x77, 0x61, 0x79, 0x2e, 0x73,
-	0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x73, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e,
-	0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x52, 0x05, 0x71, 0x75, 0x65, 0x72, 0x79, 0x22,
-	0x66, 0x0a, 0x12, 0x52, 0x65, 0x69, 0x6e, 0x74, 0x65, 0x67, 0x72, 0x61, 0x74, 0x65, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x50, 0x0a, 0x09, 0x61, 0x72, 0x67, 0x75, 0x6d, 0x65, 0x6e,
-	0x74, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x32, 0x2e, 0x67, 0x61, 0x74, 0x65, 0x77,
-	0x61, 0x79, 0x2e, 0x77, 0x65, 0x62, 0x73, 0x6f, 0x63, 0x6b, 0x65, 0x74, 0x73, 0x2e, 0x70, 0x72,
-	0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x52, 0x65, 0x69, 0x6e, 0x74, 0x65, 0x67,
-	0x72, 0x61, 0x74, 0x65, 0x41, 0x72, 0x67, 0x75, 0x6d, 0x65, 0x6e, 0x74, 0x52, 0x09, 0x61, 0x72,
-	0x67, 0x75, 0x6d, 0x65, 0x6e, 0x74, 0x73, 0x22, 0x15, 0x0a, 0x13, 0x52, 0x65, 0x69, 0x6e, 0x74,
-	0x65, 0x67, 0x72, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x8e,
-	0x02, 0x0a, 0x13, 0x52, 0x65, 0x69, 0x6e, 0x74, 0x65, 0x67, 0x72, 0x61, 0x74, 0x65, 0x4d, 0x75,
-	0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x52, 0x0a, 0x0a, 0x66, 0x6f, 0x75, 0x6e, 0x64, 0x61,
-	0x74, 0x69, 0x6f, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x32, 0x2e, 0x67, 0x61, 0x74,
-	0x65, 0x77, 0x61, 0x79, 0x2e, 0x77, 0x65, 0x62, 0x73, 0x6f, 0x63, 0x6b, 0x65, 0x74, 0x73, 0x2e,
-	0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x52, 0x65, 0x69, 0x6e, 0x74,
-	0x65, 0x67, 0x72, 0x61, 0x74, 0x65, 0x41, 0x72, 0x67, 0x75, 0x6d, 0x65, 0x6e, 0x74, 0x52, 0x0a,
-	0x66, 0x6f, 0x75, 0x6e, 0x64, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x51, 0x0a, 0x09, 0x63, 0x6f,
-	0x6e, 0x64, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x33, 0x2e,
-	0x67, 0x61, 0x74, 0x65, 0x77, 0x61, 0x79, 0x2e, 0x77, 0x65, 0x62, 0x73, 0x6f, 0x63, 0x6b, 0x65,
-	0x74, 0x73, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x52, 0x65,
-	0x69, 0x6e, 0x74, 0x65, 0x67, 0x72, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6e, 0x64, 0x69, 0x74, 0x69,
-	0x6f, 0x6e, 0x52, 0x09, 0x63, 0x6f, 0x6e, 0x64, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x27, 0x0a,
-	0x0f, 0x62, 0x65, 0x67, 0x69, 0x6e, 0x5f, 0x74, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70,
-	0x18, 0x03, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0e, 0x62, 0x65, 0x67, 0x69, 0x6e, 0x54, 0x69, 0x6d,
-	0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x12, 0x27, 0x0a, 0x0f, 0x63, 0x6c, 0x6f, 0x73, 0x65, 0x5f,
-	0x74, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x18, 0x04, 0x20, 0x01, 0x28, 0x03, 0x52,
-	0x0e, 0x63, 0x6c, 0x6f, 0x73, 0x65, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x22,
-	0xa2, 0x01, 0x0a, 0x14, 0x52, 0x65, 0x69, 0x6e, 0x74, 0x65, 0x67, 0x72, 0x61, 0x74, 0x65, 0x43,
-	0x6f, 0x6e, 0x64, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x40, 0x0a, 0x08, 0x73, 0x65, 0x73, 0x73,
-	0x69, 0x6f, 0x6e, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x24, 0x2e, 0x67, 0x61, 0x74,
-	0x65, 0x77, 0x61, 0x79, 0x2e, 0x73, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x73, 0x2e, 0x70, 0x72,
-	0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e,
-	0x52, 0x08, 0x73, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x73, 0x12, 0x48, 0x0a, 0x0a, 0x77, 0x65,
-	0x62, 0x73, 0x6f, 0x63, 0x6b, 0x65, 0x74, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x28,
-	0x2e, 0x67, 0x61, 0x74, 0x65, 0x77, 0x61, 0x79, 0x2e, 0x77, 0x65, 0x62, 0x73, 0x6f, 0x63, 0x6b,
-	0x65, 0x74, 0x73, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x57,
-	0x65, 0x62, 0x73, 0x6f, 0x63, 0x6b, 0x65, 0x74, 0x52, 0x0a, 0x77, 0x65, 0x62, 0x73, 0x6f, 0x63,
-	0x6b, 0x65, 0x74, 0x73, 0x22, 0x6a, 0x0a, 0x16, 0x52, 0x65, 0x69, 0x6e, 0x74, 0x65, 0x67, 0x72,
-	0x61, 0x74, 0x65, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x50,
-	0x0a, 0x09, 0x6d, 0x75, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28,
-	0x0b, 0x32, 0x32, 0x2e, 0x67, 0x61, 0x74, 0x65, 0x77, 0x61, 0x79, 0x2e, 0x77, 0x65, 0x62, 0x73,
-	0x6f, 0x63, 0x6b, 0x65, 0x74, 0x73, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76,
-	0x31, 0x2e, 0x52, 0x65, 0x69, 0x6e, 0x74, 0x65, 0x67, 0x72, 0x61, 0x74, 0x65, 0x4d, 0x75, 0x74,
-	0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x09, 0x6d, 0x75, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73,
-	0x42, 0x50, 0x5a, 0x4b, 0x67, 0x69, 0x74, 0x6c, 0x61, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x65,
-	0x76, 0x65, 0x6d, 0x65, 0x74, 0x61, 0x2f, 0x7a, 0x64, 0x6b, 0x2f, 0x70, 0x62, 0x2f, 0x6f, 0x75,
-	0x74, 0x2f, 0x67, 0x6f, 0x2f, 0x67, 0x61, 0x74, 0x65, 0x77, 0x61, 0x79, 0x2f, 0x77, 0x65, 0x62,
-	0x73, 0x6f, 0x63, 0x6b, 0x65, 0x74, 0x73, 0x2f, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2f,
-	0x76, 0x31, 0x3b, 0x77, 0x65, 0x62, 0x73, 0x6f, 0x63, 0x6b, 0x65, 0x74, 0x73, 0x70, 0x62, 0x92,
-	0x41, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x69, 0x6f, 0x6e, 0x52, 0x09, 0x6d, 0x75, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x42, 0x50,
+	0x5a, 0x4b, 0x67, 0x69, 0x74, 0x6c, 0x61, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x65, 0x76, 0x65,
+	0x6d, 0x65, 0x74, 0x61, 0x2f, 0x7a, 0x64, 0x6b, 0x2f, 0x70, 0x62, 0x2f, 0x6f, 0x75, 0x74, 0x2f,
+	0x67, 0x6f, 0x2f, 0x67, 0x61, 0x74, 0x65, 0x77, 0x61, 0x79, 0x2f, 0x77, 0x65, 0x62, 0x73, 0x6f,
+	0x63, 0x6b, 0x65, 0x74, 0x73, 0x2f, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2f, 0x76, 0x31,
+	0x3b, 0x77, 0x65, 0x62, 0x73, 0x6f, 0x63, 0x6b, 0x65, 0x74, 0x73, 0x70, 0x62, 0x92, 0x41, 0x00,
+	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -2660,125 +2308,112 @@ func file_gateway_websockets_private_v1_procedures_proto_rawDescGZIP() []byte {
 	return file_gateway_websockets_private_v1_procedures_proto_rawDescData
 }
 
-var file_gateway_websockets_private_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 43)
+var file_gateway_websockets_private_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 37)
 var file_gateway_websockets_private_v1_procedures_proto_goTypes = []interface{}{
-	(*CountArgument)(nil),          // 0: gateway.websockets.private.v1.CountArgument
-	(*CountRequest)(nil),           // 1: gateway.websockets.private.v1.CountRequest
-	(*CountResponse)(nil),          // 2: gateway.websockets.private.v1.CountResponse
-	(*RangeArgument)(nil),          // 3: gateway.websockets.private.v1.RangeArgument
-	(*RangeRequest)(nil),           // 4: gateway.websockets.private.v1.RangeRequest
-	(*RangeResponse)(nil),          // 5: gateway.websockets.private.v1.RangeResponse
-	(*SelectArgument)(nil),         // 6: gateway.websockets.private.v1.SelectArgument
-	(*SelectRequest)(nil),          // 7: gateway.websockets.private.v1.SelectRequest
-	(*SelectResponse)(nil),         // 8: gateway.websockets.private.v1.SelectResponse
-	(*CreateArgument)(nil),         // 9: gateway.websockets.private.v1.CreateArgument
-	(*CreateRequest)(nil),          // 10: gateway.websockets.private.v1.CreateRequest
-	(*CreateResponse)(nil),         // 11: gateway.websockets.private.v1.CreateResponse
-	(*CreateMutation)(nil),         // 12: gateway.websockets.private.v1.CreateMutation
-	(*CreateTransaction)(nil),      // 13: gateway.websockets.private.v1.CreateTransaction
-	(*UpdateArgument)(nil),         // 14: gateway.websockets.private.v1.UpdateArgument
-	(*UpdateRequest)(nil),          // 15: gateway.websockets.private.v1.UpdateRequest
-	(*UpdateResponse)(nil),         // 16: gateway.websockets.private.v1.UpdateResponse
-	(*UpdateMutation)(nil),         // 17: gateway.websockets.private.v1.UpdateMutation
-	(*UpdateTransaction)(nil),      // 18: gateway.websockets.private.v1.UpdateTransaction
-	(*DeleteArgument)(nil),         // 19: gateway.websockets.private.v1.DeleteArgument
-	(*DeleteRequest)(nil),          // 20: gateway.websockets.private.v1.DeleteRequest
-	(*DeleteResponse)(nil),         // 21: gateway.websockets.private.v1.DeleteResponse
-	(*DeleteMutation)(nil),         // 22: gateway.websockets.private.v1.DeleteMutation
-	(*DeleteCondition)(nil),        // 23: gateway.websockets.private.v1.DeleteCondition
-	(*DeleteTransaction)(nil),      // 24: gateway.websockets.private.v1.DeleteTransaction
-	(*BroadcastArgument)(nil),      // 25: gateway.websockets.private.v1.BroadcastArgument
-	(*BroadcastRequest)(nil),       // 26: gateway.websockets.private.v1.BroadcastRequest
-	(*BroadcastResponse)(nil),      // 27: gateway.websockets.private.v1.BroadcastResponse
-	(*BroadcastMutation)(nil),      // 28: gateway.websockets.private.v1.BroadcastMutation
-	(*BroadcastCondition)(nil),     // 29: gateway.websockets.private.v1.BroadcastCondition
-	(*BroadcastTransaction)(nil),   // 30: gateway.websockets.private.v1.BroadcastTransaction
-	(*DisconnectArgument)(nil),     // 31: gateway.websockets.private.v1.DisconnectArgument
-	(*DisconnectRequest)(nil),      // 32: gateway.websockets.private.v1.DisconnectRequest
-	(*DisconnectResponse)(nil),     // 33: gateway.websockets.private.v1.DisconnectResponse
-	(*DisconnectMutation)(nil),     // 34: gateway.websockets.private.v1.DisconnectMutation
-	(*DisconnectCondition)(nil),    // 35: gateway.websockets.private.v1.DisconnectCondition
-	(*DisconnectTransaction)(nil),  // 36: gateway.websockets.private.v1.DisconnectTransaction
-	(*ReintegrateArgument)(nil),    // 37: gateway.websockets.private.v1.ReintegrateArgument
-	(*ReintegrateRequest)(nil),     // 38: gateway.websockets.private.v1.ReintegrateRequest
-	(*ReintegrateResponse)(nil),    // 39: gateway.websockets.private.v1.ReintegrateResponse
-	(*ReintegrateMutation)(nil),    // 40: gateway.websockets.private.v1.ReintegrateMutation
-	(*ReintegrateCondition)(nil),   // 41: gateway.websockets.private.v1.ReintegrateCondition
-	(*ReintegrateTransaction)(nil), // 42: gateway.websockets.private.v1.ReintegrateTransaction
-	(*Query)(nil),                  // 43: gateway.websockets.private.v1.Query
-	(*Chunk)(nil),                  // 44: gateway.websockets.private.v1.Chunk
-	(*Websocket)(nil),              // 45: gateway.websockets.private.v1.Websocket
-	(Zone)(0),                      // 46: gateway.websockets.private.v1.Zone
-	(Status)(0),                    // 47: gateway.websockets.private.v1.Status
-	(*Transient)(nil),              // 48: gateway.websockets.private.v1.Transient
-	(*OptionalZone)(nil),           // 49: gateway.websockets.private.v1.OptionalZone
-	(*OptionalStatus)(nil),         // 50: gateway.websockets.private.v1.OptionalStatus
-	(*OptionalString)(nil),         // 51: gateway.websockets.private.v1.OptionalString
-	(*v1.DeleteMutation)(nil),      // 52: gateway.sessions.private.v1.DeleteMutation
-	(*v1.Query)(nil),               // 53: gateway.sessions.private.v1.Query
-	(*Message)(nil),                // 54: gateway.websockets.private.v1.Message
-	(*v1.Session)(nil),             // 55: gateway.sessions.private.v1.Session
+	(*CountArgument)(nil),         // 0: gateway.websockets.private.v1.CountArgument
+	(*CountRequest)(nil),          // 1: gateway.websockets.private.v1.CountRequest
+	(*CountResponse)(nil),         // 2: gateway.websockets.private.v1.CountResponse
+	(*RangeArgument)(nil),         // 3: gateway.websockets.private.v1.RangeArgument
+	(*RangeRequest)(nil),          // 4: gateway.websockets.private.v1.RangeRequest
+	(*RangeResponse)(nil),         // 5: gateway.websockets.private.v1.RangeResponse
+	(*SelectArgument)(nil),        // 6: gateway.websockets.private.v1.SelectArgument
+	(*SelectRequest)(nil),         // 7: gateway.websockets.private.v1.SelectRequest
+	(*SelectResponse)(nil),        // 8: gateway.websockets.private.v1.SelectResponse
+	(*CreateArgument)(nil),        // 9: gateway.websockets.private.v1.CreateArgument
+	(*CreateRequest)(nil),         // 10: gateway.websockets.private.v1.CreateRequest
+	(*CreateResponse)(nil),        // 11: gateway.websockets.private.v1.CreateResponse
+	(*CreateMutation)(nil),        // 12: gateway.websockets.private.v1.CreateMutation
+	(*CreateTransaction)(nil),     // 13: gateway.websockets.private.v1.CreateTransaction
+	(*UpdateArgument)(nil),        // 14: gateway.websockets.private.v1.UpdateArgument
+	(*UpdateRequest)(nil),         // 15: gateway.websockets.private.v1.UpdateRequest
+	(*UpdateResponse)(nil),        // 16: gateway.websockets.private.v1.UpdateResponse
+	(*UpdateMutation)(nil),        // 17: gateway.websockets.private.v1.UpdateMutation
+	(*UpdateTransaction)(nil),     // 18: gateway.websockets.private.v1.UpdateTransaction
+	(*DeleteArgument)(nil),        // 19: gateway.websockets.private.v1.DeleteArgument
+	(*DeleteRequest)(nil),         // 20: gateway.websockets.private.v1.DeleteRequest
+	(*DeleteResponse)(nil),        // 21: gateway.websockets.private.v1.DeleteResponse
+	(*DeleteMutation)(nil),        // 22: gateway.websockets.private.v1.DeleteMutation
+	(*DeleteCondition)(nil),       // 23: gateway.websockets.private.v1.DeleteCondition
+	(*DeleteTransaction)(nil),     // 24: gateway.websockets.private.v1.DeleteTransaction
+	(*BroadcastArgument)(nil),     // 25: gateway.websockets.private.v1.BroadcastArgument
+	(*BroadcastRequest)(nil),      // 26: gateway.websockets.private.v1.BroadcastRequest
+	(*BroadcastResponse)(nil),     // 27: gateway.websockets.private.v1.BroadcastResponse
+	(*BroadcastMutation)(nil),     // 28: gateway.websockets.private.v1.BroadcastMutation
+	(*BroadcastCondition)(nil),    // 29: gateway.websockets.private.v1.BroadcastCondition
+	(*BroadcastTransaction)(nil),  // 30: gateway.websockets.private.v1.BroadcastTransaction
+	(*DisconnectArgument)(nil),    // 31: gateway.websockets.private.v1.DisconnectArgument
+	(*DisconnectRequest)(nil),     // 32: gateway.websockets.private.v1.DisconnectRequest
+	(*DisconnectResponse)(nil),    // 33: gateway.websockets.private.v1.DisconnectResponse
+	(*DisconnectMutation)(nil),    // 34: gateway.websockets.private.v1.DisconnectMutation
+	(*DisconnectCondition)(nil),   // 35: gateway.websockets.private.v1.DisconnectCondition
+	(*DisconnectTransaction)(nil), // 36: gateway.websockets.private.v1.DisconnectTransaction
+	(*Query)(nil),                 // 37: gateway.websockets.private.v1.Query
+	(*Chunk)(nil),                 // 38: gateway.websockets.private.v1.Chunk
+	(*Websocket)(nil),             // 39: gateway.websockets.private.v1.Websocket
+	(Zone)(0),                     // 40: gateway.websockets.private.v1.Zone
+	(Status)(0),                   // 41: gateway.websockets.private.v1.Status
+	(*Transient)(nil),             // 42: gateway.websockets.private.v1.Transient
+	(*OptionalZone)(nil),          // 43: gateway.websockets.private.v1.OptionalZone
+	(*OptionalStatus)(nil),        // 44: gateway.websockets.private.v1.OptionalStatus
+	(*OptionalString)(nil),        // 45: gateway.websockets.private.v1.OptionalString
+	(*v1.DeleteMutation)(nil),     // 46: gateway.sessions.private.v1.DeleteMutation
+	(*v1.Query)(nil),              // 47: gateway.sessions.private.v1.Query
+	(*Message)(nil),               // 48: gateway.websockets.private.v1.Message
+	(*v1.Session)(nil),            // 49: gateway.sessions.private.v1.Session
 }
 var file_gateway_websockets_private_v1_procedures_proto_depIdxs = []int32{
-	43, // 0: gateway.websockets.private.v1.CountArgument.query:type_name -> gateway.websockets.private.v1.Query
+	37, // 0: gateway.websockets.private.v1.CountArgument.query:type_name -> gateway.websockets.private.v1.Query
 	0,  // 1: gateway.websockets.private.v1.CountRequest.arguments:type_name -> gateway.websockets.private.v1.CountArgument
-	43, // 2: gateway.websockets.private.v1.RangeArgument.query:type_name -> gateway.websockets.private.v1.Query
+	37, // 2: gateway.websockets.private.v1.RangeArgument.query:type_name -> gateway.websockets.private.v1.Query
 	3,  // 3: gateway.websockets.private.v1.RangeRequest.arguments:type_name -> gateway.websockets.private.v1.RangeArgument
-	44, // 4: gateway.websockets.private.v1.RangeResponse.chunks:type_name -> gateway.websockets.private.v1.Chunk
-	43, // 5: gateway.websockets.private.v1.SelectArgument.query:type_name -> gateway.websockets.private.v1.Query
+	38, // 4: gateway.websockets.private.v1.RangeResponse.chunks:type_name -> gateway.websockets.private.v1.Chunk
+	37, // 5: gateway.websockets.private.v1.SelectArgument.query:type_name -> gateway.websockets.private.v1.Query
 	6,  // 6: gateway.websockets.private.v1.SelectRequest.arguments:type_name -> gateway.websockets.private.v1.SelectArgument
-	45, // 7: gateway.websockets.private.v1.SelectResponse.websockets:type_name -> gateway.websockets.private.v1.Websocket
-	46, // 8: gateway.websockets.private.v1.CreateArgument.zone:type_name -> gateway.websockets.private.v1.Zone
-	47, // 9: gateway.websockets.private.v1.CreateArgument.status:type_name -> gateway.websockets.private.v1.Status
+	39, // 7: gateway.websockets.private.v1.SelectResponse.websockets:type_name -> gateway.websockets.private.v1.Websocket
+	40, // 8: gateway.websockets.private.v1.CreateArgument.zone:type_name -> gateway.websockets.private.v1.Zone
+	41, // 9: gateway.websockets.private.v1.CreateArgument.status:type_name -> gateway.websockets.private.v1.Status
 	9,  // 10: gateway.websockets.private.v1.CreateRequest.arguments:type_name -> gateway.websockets.private.v1.CreateArgument
-	45, // 11: gateway.websockets.private.v1.CreateResponse.websockets:type_name -> gateway.websockets.private.v1.Websocket
+	39, // 11: gateway.websockets.private.v1.CreateResponse.websockets:type_name -> gateway.websockets.private.v1.Websocket
 	9,  // 12: gateway.websockets.private.v1.CreateMutation.foundation:type_name -> gateway.websockets.private.v1.CreateArgument
-	48, // 13: gateway.websockets.private.v1.CreateMutation.transient:type_name -> gateway.websockets.private.v1.Transient
+	42, // 13: gateway.websockets.private.v1.CreateMutation.transient:type_name -> gateway.websockets.private.v1.Transient
 	12, // 14: gateway.websockets.private.v1.CreateTransaction.mutations:type_name -> gateway.websockets.private.v1.CreateMutation
-	43, // 15: gateway.websockets.private.v1.UpdateArgument.query:type_name -> gateway.websockets.private.v1.Query
-	49, // 16: gateway.websockets.private.v1.UpdateArgument.zone:type_name -> gateway.websockets.private.v1.OptionalZone
-	50, // 17: gateway.websockets.private.v1.UpdateArgument.status:type_name -> gateway.websockets.private.v1.OptionalStatus
-	51, // 18: gateway.websockets.private.v1.UpdateArgument.address:type_name -> gateway.websockets.private.v1.OptionalString
+	37, // 15: gateway.websockets.private.v1.UpdateArgument.query:type_name -> gateway.websockets.private.v1.Query
+	43, // 16: gateway.websockets.private.v1.UpdateArgument.zone:type_name -> gateway.websockets.private.v1.OptionalZone
+	44, // 17: gateway.websockets.private.v1.UpdateArgument.status:type_name -> gateway.websockets.private.v1.OptionalStatus
+	45, // 18: gateway.websockets.private.v1.UpdateArgument.address:type_name -> gateway.websockets.private.v1.OptionalString
 	14, // 19: gateway.websockets.private.v1.UpdateRequest.arguments:type_name -> gateway.websockets.private.v1.UpdateArgument
-	45, // 20: gateway.websockets.private.v1.UpdateResponse.websockets:type_name -> gateway.websockets.private.v1.Websocket
+	39, // 20: gateway.websockets.private.v1.UpdateResponse.websockets:type_name -> gateway.websockets.private.v1.Websocket
 	14, // 21: gateway.websockets.private.v1.UpdateMutation.foundation:type_name -> gateway.websockets.private.v1.UpdateArgument
-	48, // 22: gateway.websockets.private.v1.UpdateMutation.transient:type_name -> gateway.websockets.private.v1.Transient
+	42, // 22: gateway.websockets.private.v1.UpdateMutation.transient:type_name -> gateway.websockets.private.v1.Transient
 	17, // 23: gateway.websockets.private.v1.UpdateTransaction.mutations:type_name -> gateway.websockets.private.v1.UpdateMutation
-	43, // 24: gateway.websockets.private.v1.DeleteArgument.query:type_name -> gateway.websockets.private.v1.Query
+	37, // 24: gateway.websockets.private.v1.DeleteArgument.query:type_name -> gateway.websockets.private.v1.Query
 	19, // 25: gateway.websockets.private.v1.DeleteRequest.arguments:type_name -> gateway.websockets.private.v1.DeleteArgument
-	45, // 26: gateway.websockets.private.v1.DeleteResponse.websockets:type_name -> gateway.websockets.private.v1.Websocket
+	39, // 26: gateway.websockets.private.v1.DeleteResponse.websockets:type_name -> gateway.websockets.private.v1.Websocket
 	19, // 27: gateway.websockets.private.v1.DeleteMutation.foundation:type_name -> gateway.websockets.private.v1.DeleteArgument
 	23, // 28: gateway.websockets.private.v1.DeleteMutation.condition:type_name -> gateway.websockets.private.v1.DeleteCondition
-	48, // 29: gateway.websockets.private.v1.DeleteMutation.transient:type_name -> gateway.websockets.private.v1.Transient
-	52, // 30: gateway.websockets.private.v1.DeleteCondition.delete_session_mutations:type_name -> gateway.sessions.private.v1.DeleteMutation
+	42, // 29: gateway.websockets.private.v1.DeleteMutation.transient:type_name -> gateway.websockets.private.v1.Transient
+	46, // 30: gateway.websockets.private.v1.DeleteCondition.delete_session_mutations:type_name -> gateway.sessions.private.v1.DeleteMutation
 	22, // 31: gateway.websockets.private.v1.DeleteTransaction.mutations:type_name -> gateway.websockets.private.v1.DeleteMutation
-	53, // 32: gateway.websockets.private.v1.BroadcastArgument.query:type_name -> gateway.sessions.private.v1.Query
-	54, // 33: gateway.websockets.private.v1.BroadcastArgument.message:type_name -> gateway.websockets.private.v1.Message
+	47, // 32: gateway.websockets.private.v1.BroadcastArgument.query:type_name -> gateway.sessions.private.v1.Query
+	48, // 33: gateway.websockets.private.v1.BroadcastArgument.message:type_name -> gateway.websockets.private.v1.Message
 	25, // 34: gateway.websockets.private.v1.BroadcastRequest.arguments:type_name -> gateway.websockets.private.v1.BroadcastArgument
 	25, // 35: gateway.websockets.private.v1.BroadcastMutation.foundation:type_name -> gateway.websockets.private.v1.BroadcastArgument
 	29, // 36: gateway.websockets.private.v1.BroadcastMutation.condition:type_name -> gateway.websockets.private.v1.BroadcastCondition
-	55, // 37: gateway.websockets.private.v1.BroadcastCondition.sessions:type_name -> gateway.sessions.private.v1.Session
-	45, // 38: gateway.websockets.private.v1.BroadcastCondition.websockets:type_name -> gateway.websockets.private.v1.Websocket
+	49, // 37: gateway.websockets.private.v1.BroadcastCondition.sessions:type_name -> gateway.sessions.private.v1.Session
+	39, // 38: gateway.websockets.private.v1.BroadcastCondition.websockets:type_name -> gateway.websockets.private.v1.Websocket
 	28, // 39: gateway.websockets.private.v1.BroadcastTransaction.mutations:type_name -> gateway.websockets.private.v1.BroadcastMutation
-	53, // 40: gateway.websockets.private.v1.DisconnectArgument.query:type_name -> gateway.sessions.private.v1.Query
+	47, // 40: gateway.websockets.private.v1.DisconnectArgument.query:type_name -> gateway.sessions.private.v1.Query
 	31, // 41: gateway.websockets.private.v1.DisconnectRequest.arguments:type_name -> gateway.websockets.private.v1.DisconnectArgument
 	31, // 42: gateway.websockets.private.v1.DisconnectMutation.foundation:type_name -> gateway.websockets.private.v1.DisconnectArgument
 	35, // 43: gateway.websockets.private.v1.DisconnectMutation.condition:type_name -> gateway.websockets.private.v1.DisconnectCondition
-	55, // 44: gateway.websockets.private.v1.DisconnectCondition.sessions:type_name -> gateway.sessions.private.v1.Session
-	45, // 45: gateway.websockets.private.v1.DisconnectCondition.websockets:type_name -> gateway.websockets.private.v1.Websocket
+	49, // 44: gateway.websockets.private.v1.DisconnectCondition.sessions:type_name -> gateway.sessions.private.v1.Session
+	39, // 45: gateway.websockets.private.v1.DisconnectCondition.websockets:type_name -> gateway.websockets.private.v1.Websocket
 	34, // 46: gateway.websockets.private.v1.DisconnectTransaction.mutations:type_name -> gateway.websockets.private.v1.DisconnectMutation
-	53, // 47: gateway.websockets.private.v1.ReintegrateArgument.query:type_name -> gateway.sessions.private.v1.Query
-	37, // 48: gateway.websockets.private.v1.ReintegrateRequest.arguments:type_name -> gateway.websockets.private.v1.ReintegrateArgument
-	37, // 49: gateway.websockets.private.v1.ReintegrateMutation.foundation:type_name -> gateway.websockets.private.v1.ReintegrateArgument
-	41, // 50: gateway.websockets.private.v1.ReintegrateMutation.condition:type_name -> gateway.websockets.private.v1.ReintegrateCondition
-	55, // 51: gateway.websockets.private.v1.ReintegrateCondition.sessions:type_name -> gateway.sessions.private.v1.Session
-	45, // 52: gateway.websockets.private.v1.ReintegrateCondition.websockets:type_name -> gateway.websockets.private.v1.Websocket
-	40, // 53: gateway.websockets.private.v1.ReintegrateTransaction.mutations:type_name -> gateway.websockets.private.v1.ReintegrateMutation
-	54, // [54:54] is the sub-list for method output_type
-	54, // [54:54] is the sub-list for method input_type
-	54, // [54:54] is the sub-list for extension type_name
-	54, // [54:54] is the sub-list for extension extendee
-	0,  // [0:54] is the sub-list for field type_name
+	47, // [47:47] is the sub-list for method output_type
+	47, // [47:47] is the sub-list for method input_type
+	47, // [47:47] is the sub-list for extension type_name
+	47, // [47:47] is the sub-list for extension extendee
+	0,  // [0:47] is the sub-list for field type_name
 }
 
 func init() { file_gateway_websockets_private_v1_procedures_proto_init() }
@@ -3234,78 +2869,6 @@ func file_gateway_websockets_private_v1_procedures_proto_init() {
 				return nil
 			}
 		}
-		file_gateway_websockets_private_v1_procedures_proto_msgTypes[37].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ReintegrateArgument); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_gateway_websockets_private_v1_procedures_proto_msgTypes[38].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ReintegrateRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_gateway_websockets_private_v1_procedures_proto_msgTypes[39].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ReintegrateResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_gateway_websockets_private_v1_procedures_proto_msgTypes[40].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ReintegrateMutation); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_gateway_websockets_private_v1_procedures_proto_msgTypes[41].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ReintegrateCondition); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_gateway_websockets_private_v1_procedures_proto_msgTypes[42].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ReintegrateTransaction); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
 	}
 	file_gateway_websockets_private_v1_procedures_proto_msgTypes[14].OneofWrappers = []interface{}{}
 	type x struct{}
@@ -3314,7 +2877,7 @@ func file_gateway_websockets_private_v1_procedures_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_gateway_websockets_private_v1_procedures_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   43,
+			NumMessages:   37,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

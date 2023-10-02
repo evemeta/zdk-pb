@@ -11,7 +11,7 @@ import type { PartialMessage } from "@protobuf-ts/runtime";
 import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
-import { RestrictionType } from "./enums";
+import { RestrictionKind } from "./enums";
 import { Order } from "./enums";
 /**
  * Chunk represents a segmented portion of members used for pagination or segmented data retrieval.
@@ -179,9 +179,9 @@ export interface Restriction {
     /**
      * Represents the type or category of the restriction.
      *
-     * @generated from protobuf field: chat.members.public.server.v1.RestrictionType type = 1;
+     * @generated from protobuf field: chat.members.public.server.v1.RestrictionKind kind = 1;
      */
-    type: RestrictionType;
+    kind: RestrictionKind;
     /**
      * Represents a brief explanation or reason behind the application of this restriction.
      *
@@ -554,14 +554,14 @@ export const Timeframe = new Timeframe$Type();
 class Restriction$Type extends MessageType<Restriction> {
     constructor() {
         super("chat.members.public.server.v1.Restriction", [
-            { no: 1, name: "type", kind: "enum", T: () => ["chat.members.public.server.v1.RestrictionType", RestrictionType] },
+            { no: 1, name: "kind", kind: "enum", T: () => ["chat.members.public.server.v1.RestrictionKind", RestrictionKind] },
             { no: 2, name: "reason", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 3, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 4, name: "expire_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value?: PartialMessage<Restriction>): Restriction {
-        const message = { type: 0, reason: "", createTime: 0n, expireTime: 0n };
+        const message = { kind: 0, reason: "", createTime: 0n, expireTime: 0n };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<Restriction>(this, message, value);
@@ -572,8 +572,8 @@ class Restriction$Type extends MessageType<Restriction> {
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* chat.members.public.server.v1.RestrictionType type */ 1:
-                    message.type = reader.int32();
+                case /* chat.members.public.server.v1.RestrictionKind kind */ 1:
+                    message.kind = reader.int32();
                     break;
                 case /* string reason */ 2:
                     message.reason = reader.string();
@@ -596,9 +596,9 @@ class Restriction$Type extends MessageType<Restriction> {
         return message;
     }
     internalBinaryWrite(message: Restriction, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* chat.members.public.server.v1.RestrictionType type = 1; */
-        if (message.type !== 0)
-            writer.tag(1, WireType.Varint).int32(message.type);
+        /* chat.members.public.server.v1.RestrictionKind kind = 1; */
+        if (message.kind !== 0)
+            writer.tag(1, WireType.Varint).int32(message.kind);
         /* string reason = 2; */
         if (message.reason !== "")
             writer.tag(2, WireType.LengthDelimited).string(message.reason);

@@ -41,7 +41,7 @@ message Condition {
     repeated string                                  user_ids          = 2;
     repeated string                                  chat_ids          = 3;
     repeated chat.members.private.v1.Status          statuses          = 4;
-    repeated chat.members.private.v1.RestrictionType restriction_types = 5;
+    repeated chat.members.private.v1.RestrictionKind restriction_kinds = 5;
 }
 
 message Transient {
@@ -51,7 +51,7 @@ message Transient {
 }
 
 message Restriction {
-    chat.members.private.v1.RestrictionType type        = 1;
+    chat.members.private.v1.RestrictionKind kind        = 1;
     string                                  reason      = 2;
     int64                                   create_time = 3;
     int64                                   expire_time = 4;

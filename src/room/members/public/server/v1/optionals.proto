@@ -14,10 +14,12 @@ message OptionalMap {
     map<string, string> value = 1;
 }
 
+// OptionalStreamState todo;
 message OptionalStreamState {
     members.public.server.v1.StreamState value = 1;
 }
 
+// OptionalConnectionState todo;
 message OptionalConnectionState {
     members.public.server.v1.ConnectionState value = 1;
 }
