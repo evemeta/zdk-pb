@@ -6,6 +6,8 @@ import "chat/messages/public/server/v1/entities.proto";
 import "chat/messages/public/server/v1/optionals.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
+option java_multiple_files = true;
+option java_package = "com.evemeta.zdk.pb.chat.server.messages";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/messages/public/server/v1;messagespb";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
