@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package sfu.public.client.v1;
+
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/websocket/public/client/v1;websocketpb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+message ConnectPacket {}

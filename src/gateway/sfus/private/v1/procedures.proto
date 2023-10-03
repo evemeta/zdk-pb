@@ -1,0 +1,133 @@
+syntax = "proto3";
+
+package gateway.sfus.private.v1;
+
+import "gateway/sfus/private/v1/enums.proto";
+import "gateway/sfus/private/v1/entities.proto";
+import "gateway/sfus/private/v1/optionals.proto";
+import "gateway/connections/private/v1/procedures.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/sfus/private/v1;sfuspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+message CountArgument {
+    bool                          cache = 1;
+    gateway.sfus.private.v1.Query query = 2;
+}
+
+message CountRequest {
+    repeated gateway.sfus.private.v1.CountArgument arguments = 1;
+}
+
+message CountResponse {
+    int64 total = 1;
+}
+
+message RangeArgument {
+    bool                          cache = 1;
+    gateway.sfus.private.v1.Query query = 2;
+}
+
+message RangeRequest {
+    repeated gateway.sfus.private.v1.RangeArgument arguments = 1;
+}
+
+message RangeResponse {
+    repeated gateway.sfus.private.v1.Chunk chunks = 1;
+}
+
+message SelectArgument {
+    bool                          cache = 1;
+    gateway.sfus.private.v1.Query query = 2;
+}
+
+message SelectRequest {
+    repeated gateway.sfus.private.v1.SelectArgument arguments = 1;
+}
+
+message SelectResponse {
+    repeated gateway.sfus.private.v1.Sfu sfus = 1;
+}
+
+message CreateArgument {
+    string                         id      = 1;
+    gateway.sfus.private.v1.Kind   kind    = 2;
+    gateway.sfus.private.v1.Zone   zone    = 3;
+    gateway.sfus.private.v1.Status status  = 4;
+    string                         address = 5;
+}
+
+message CreateRequest {
+    repeated gateway.sfus.private.v1.CreateArgument arguments = 1;
+}
+
+message CreateResponse {
+    repeated gateway.sfus.private.v1.Sfu sfus = 1;
+}
+
+message CreateMutation {
+    gateway.sfus.private.v1.CreateArgument     foundation      = 1;
+    repeated gateway.sfus.private.v1.Transient transient       = 2;
+    int64                                      begin_timestamp = 3;
+    int64                                      close_timestamp = 4;
+}
+
+message CreateTransaction {
+    repeated gateway.sfus.private.v1.CreateMutation mutations = 1;
+}
+
+message UpdateArgument {
+    gateway.sfus.private.v1.Query                   query   = 1;
+    optional gateway.sfus.private.v1.OptionalKind   kind    = 2;
+    optional gateway.sfus.private.v1.OptionalZone   zone    = 3;
+    optional gateway.sfus.private.v1.OptionalStatus status  = 4;
+    optional gateway.sfus.private.v1.OptionalString address = 5;
+}
+
+message UpdateRequest {
+    repeated gateway.sfus.private.v1.UpdateArgument arguments = 1;
+}
+
+message UpdateResponse {
+    repeated gateway.sfus.private.v1.Sfu sfus = 1;
+}
+
+message UpdateMutation {
+    gateway.sfus.private.v1.UpdateArgument     foundation      = 1;
+    repeated gateway.sfus.private.v1.Transient transient       = 2;
+    int64                                      begin_timestamp = 3;
+    int64                                      close_timestamp = 4;
+}
+
+message UpdateTransaction {
+    repeated gateway.sfus.private.v1.UpdateMutation mutations = 1;
+}
+
+message DeleteArgument {
+    gateway.sfus.private.v1.Query query = 1;
+}
+
+message DeleteRequest {
+    repeated gateway.sfus.private.v1.DeleteArgument arguments = 1;
+}
+
+message DeleteResponse {
+    repeated gateway.sfus.private.v1.Sfu sfus = 1;
+}
+
+message DeleteMutation {
+    gateway.sfus.private.v1.DeleteArgument     foundation      = 1;
+    gateway.sfus.private.v1.DeleteCondition    condition       = 2;
+    repeated gateway.sfus.private.v1.Transient transient       = 3;
+    int64                                      begin_timestamp = 4;
+    int64                                      close_timestamp = 5;
+}
+
+message DeleteCondition {
+    repeated gateway.connections.private.v1.DeleteMutation delete_connection_mutations = 1;
+}
+
+message DeleteTransaction {
+    repeated gateway.sfus.private.v1.DeleteMutation mutations = 1;
+}

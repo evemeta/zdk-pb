@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package gateway.connections.private.v1;
+
+import "gateway/connections/private/v1/enums.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/connections/private/v1;connectionspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+message Chunk {
+    int64                                              size     = 1;
+    int64                                              index    = 2;
+    int64                                              total    = 3;
+    repeated gateway.connections.private.v1.Connection entities = 4;
+}
+
+message Query {
+    gateway.connections.private.v1.Order              order      = 1;
+    int64                                             limit      = 2;
+    int64                                             offset     = 3;
+    repeated gateway.connections.private.v1.Condition conditions = 4;
+}
+
+message Condition {
+    repeated string                                ids         = 1;
+    repeated string                                sfu_ids     = 2;
+    repeated string                                user_ids    = 3;
+    repeated string                                room_ids    = 4;
+    repeated string                                session_ids = 5;
+    repeated gateway.connections.private.v1.Status statuses    = 6;
+}
+
+message Transient {
+    gateway.connections.private.v1.Connection future   = 1;
+    gateway.connections.private.v1.Connection current  = 2;
+    gateway.connections.private.v1.Connection previous = 3;
+}
+
+message Connection {
+    string                                id           = 1;
+    string                                sfu_id       = 2;
+    string                                user_id      = 3;
+    string                                room_id      = 4;
+    string                                session_id   = 5;
+    gateway.connections.private.v1.Status status       = 6;
+    int64                                 access_time  = 7;
+    int64                                 create_time  = 8;
+    int64                                 update_time  = 9;
+}

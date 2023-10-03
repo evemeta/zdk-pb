@@ -52,9 +52,9 @@ message SelectResponse {
 
 message CreateArgument {
     string                             id           = 1;
-    gateway.sessions.private.v1.Status status       = 2;
-    string                             user_id      = 3;
-    string                             websocket_id = 4;
+    string                             user_id      = 2;
+    string                             websocket_id = 3;
+    gateway.sessions.private.v1.Status status       = 4;
 }
 
 message CreateRequest {
@@ -83,9 +83,9 @@ message CreateTransaction {
 
 message UpdateArgument {
     gateway.sessions.private.v1.Query                   query        = 1;
-    optional gateway.sessions.private.v1.OptionalStatus status       = 2;
-    optional gateway.sessions.private.v1.OptionalString user_id      = 3;
-    optional gateway.sessions.private.v1.OptionalString websocket_id = 4;
+    optional gateway.sessions.private.v1.OptionalString user_id      = 2;
+    optional gateway.sessions.private.v1.OptionalString websocket_id = 3;
+    optional gateway.sessions.private.v1.OptionalStatus status       = 4;
 }
 
 message UpdateRequest {

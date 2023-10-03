@@ -1,0 +1,129 @@
+syntax = "proto3";
+
+package gateway.connections.private.v1;
+
+import "gateway/connections/private/v1/enums.proto";
+import "gateway/connections/private/v1/entities.proto";
+import "gateway/connections/private/v1/optionals.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/connections/private/v1;connectionspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+message CountArgument {
+    bool                                 cache = 1;
+    gateway.connections.private.v1.Query query = 2;
+}
+
+message CountRequest {
+    repeated gateway.connections.private.v1.CountArgument arguments = 1;
+}
+
+message CountResponse {
+    int64 total = 1;
+}
+
+message RangeArgument {
+    bool                                 cache = 1;
+    gateway.connections.private.v1.Query query = 2;
+}
+
+message RangeRequest {
+    repeated gateway.connections.private.v1.RangeArgument arguments = 1;
+}
+
+message RangeResponse {
+    repeated gateway.connections.private.v1.Chunk chunks = 1;
+}
+
+message SelectArgument {
+    bool                                 cache = 1;
+    gateway.connections.private.v1.Query query = 2;
+}
+
+message SelectRequest {
+    repeated gateway.connections.private.v1.SelectArgument arguments = 1;
+}
+
+message SelectResponse {
+    repeated gateway.connections.private.v1.Connection connections = 1;
+}
+
+message CreateArgument {
+    string                                id         = 1;
+    string                                sfu_id     = 2;
+    string                                user_id    = 3;
+    string                                room_id    = 4;
+    string                                session_id = 5;
+    gateway.connections.private.v1.Status status     = 6;
+}
+
+message CreateRequest {
+    repeated gateway.connections.private.v1.CreateArgument arguments = 1;
+}
+
+message CreateResponse {
+    repeated gateway.connections.private.v1.Connection connections = 1;
+}
+
+message CreateMutation {
+    gateway.connections.private.v1.CreateArgument     foundation      = 1;
+    repeated gateway.connections.private.v1.Transient transient       = 2;
+    int64                                             begin_timestamp = 3;
+    int64                                             close_timestamp = 4;
+}
+
+message CreateTransaction {
+    repeated gateway.connections.private.v1.CreateMutation mutations = 1;
+}
+
+message UpdateArgument {
+    gateway.connections.private.v1.Query                   query      = 1;
+    optional gateway.connections.private.v1.OptionalString sfu_id     = 2;
+    optional gateway.connections.private.v1.OptionalString user_id    = 3;
+    optional gateway.connections.private.v1.OptionalString room_id    = 4;
+    optional gateway.connections.private.v1.OptionalString session_id = 5;
+    optional gateway.connections.private.v1.OptionalStatus status     = 6;
+}
+
+message UpdateRequest {
+    repeated gateway.connections.private.v1.UpdateArgument arguments = 1;
+}
+
+message UpdateResponse {
+    repeated gateway.connections.private.v1.Connection connections = 1;
+}
+
+message UpdateMutation {
+    gateway.connections.private.v1.UpdateArgument     foundation      = 1;
+    repeated gateway.connections.private.v1.Transient transient       = 2;
+    int64                                             begin_timestamp = 3;
+    int64                                             close_timestamp = 4;
+}
+
+message UpdateTransaction {
+    repeated gateway.connections.private.v1.UpdateMutation mutations = 1;
+}
+
+message DeleteArgument {
+    gateway.connections.private.v1.Query query = 1;
+}
+
+message DeleteRequest {
+    repeated gateway.connections.private.v1.DeleteArgument arguments = 1;
+}
+
+message DeleteResponse {
+    repeated gateway.connections.private.v1.Connection connections = 1;
+}
+
+message DeleteMutation {
+    gateway.connections.private.v1.DeleteArgument     foundation      = 1;
+    repeated gateway.connections.private.v1.Transient transient       = 2;
+    int64                                             begin_timestamp = 3;
+    int64                                             close_timestamp = 4;
+}
+
+message DeleteTransaction {
+    repeated gateway.connections.private.v1.DeleteMutation mutations = 1;
+}

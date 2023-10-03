@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package gateway.connections.private.v1;
+
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/connections/private/v1;connectionspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+enum Order {
+    OrderUnknown    = 0;
+    OrderAscending  = 1;
+    OrderDescending = 2;
+}
+
+enum Status {
+    StatusUnknown      = 0;
+    StatusConnected    = 1;
+    StatusReconnecting = 2;
+}

@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package gateway.sfus.private.v1;
+
+import "gateway/sfus/private/v1/enums.proto";
+import "gateway/connections/private/v1/entities.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/sfus/private/v1;sfuspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+message Sfu {
+    string                         id          = 1;
+    gateway.sfus.private.v1.Kind   kind        = 2;
+    gateway.sfus.private.v1.Zone   zone        = 3;
+    gateway.sfus.private.v1.Status status      = 4;
+    string                         address     = 5;
+    int64                          access_time = 6;
+    int64                          create_time = 7;
+    int64                          update_time = 8;
+}
+
+message Chunk {
+    int64                                size     = 1;
+    int64                                index    = 2;
+    int64                                total    = 3;
+    repeated gateway.sfus.private.v1.Sfu entities = 4;
+}
+
+message Query {
+    gateway.sfus.private.v1.Order              order      = 1;
+    int64                                      limit      = 2;
+    int64                                      offset     = 3;
+    repeated gateway.sfus.private.v1.Condition conditions = 4;
+}
+
+message Condition {
+    repeated string                               ids          = 1;
+    repeated gateway.sfus.private.v1.Kind         kinds        = 2;
+    repeated gateway.sfus.private.v1.Zone         zones        = 3;
+    repeated gateway.sfus.private.v1.Status       statuses     = 4;
+    repeated string                               addresses    = 5;
+    repeated gateway.connections.private.v1.Query connections  = 6;
+}
+
+message Transient {
+    gateway.sfus.private.v1.Sfu future   = 1;
+    gateway.sfus.private.v1.Sfu current  = 2;
+    gateway.sfus.private.v1.Sfu previous = 3;
+}

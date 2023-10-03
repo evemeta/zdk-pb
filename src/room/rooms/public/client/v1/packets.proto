@@ -15,3 +15,5 @@ message EnterRoomPacket {
 message LeaveRoomPacket {
     string id = 1;
 }
+
+// todo; custom packet

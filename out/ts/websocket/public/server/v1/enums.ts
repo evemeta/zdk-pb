@@ -24,5 +24,9 @@ export enum Cause {
     /**
      * @generated from protobuf enum value: Disconnect = 4;
      */
-    Disconnect = 4
+    Disconnect = 4,
+    /**
+     * @generated from protobuf enum value: Reintegrate = 5;
+     */
+    Reintegrate = 5
 }
