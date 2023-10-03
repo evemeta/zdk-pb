@@ -16,5 +16,6 @@ enum Order {
 enum Status {
     StatusUnknown      = 0;
     StatusConnected    = 1;
-    StatusReconnecting = 2;
+    StatusConnecting   = 2;
+    StatusReconnecting = 3;
 }

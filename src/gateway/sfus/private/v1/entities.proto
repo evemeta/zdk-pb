@@ -14,7 +14,7 @@ message Sfu {
     gateway.sfus.private.v1.Kind   kind        = 2;
     gateway.sfus.private.v1.Zone   zone        = 3;
     gateway.sfus.private.v1.Status status      = 4;
-    string                         address     = 5;
+    string                         address     = 5; // todo; split into 'relay' / 'private'
     int64                          access_time = 6;
     int64                          create_time = 7;
     int64                          update_time = 8;

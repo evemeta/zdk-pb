@@ -9,6 +9,8 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 enum Kind {
     KindUnknown = 0;
+    KindGateway = 1;
+    KindRouter  = 2; // todo; replace in gateway
 }
 
 enum Zone {
@@ -32,4 +34,5 @@ enum Status {
     StatusInitiating  = 1;
     StatusInitiated   = 2;
     StatusTerminating = 3;
+    // todo; exhausted / unavailable
 }
