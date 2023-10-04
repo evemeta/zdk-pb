@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+package sfu.public.server.v1;
+
+import "protoc-gen-openapiv2/options/annotations.proto";
+import "sfu/public/client/v1/enums.proto";
+import "sfu/public/server/v1/enums.proto";
+import "sfu/public/server/v1/entities.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/sfu/public/server/v1;sfupb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+//WebSocket Packets
+
+//message ConnectionOfferPacket {
+//    bytes sdp_answer = 1;
+//    SfuType sfu_type = 3;
+//}
+
+//SFU Packets
+
+message ServerPacket {
+    string type = 1;
+    bytes  data = 2;
+}
+
+message StreamsAnswerPacket {
+    bytes               sdp_answer          = 1;
+    repeated StreamInfo add_requests        = 2;
+    repeated StreamInfo removal_requests    = 3;
+}
+
+message MigrationRequiredPacket {
+}
+
+message UnsupportedActionPacket {
+    sfu.public.client.v1.Action action = 1;
+}
+
+message DisconnectedPacket {
+    string reason = 1;
+}
+
+message ConferenceModePacket {
+    ConferenceMode mode = 1;
+}
+
+message PingPacket {
+    int64 timestamp = 1;
+    int32 rtt       = 2;
+}
+
+message SubscriptionRTTPacket {
+    string sub_id = 1;
+    int64  rtt    = 2;
+}
+
+message LocalInputReadyPacket {
+    StreamType streamType = 1;
+}
+
+message NoDataPacket {
+    StreamType streamType = 1;
+}
+
+message IceCandidatePacket {
+    IceCandidate ice_candidate = 1;
+}
+
+message ActiveStreamsResponsePacket {
+    repeated StreamInfo streams = 1;
+}

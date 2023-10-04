@@ -10,6 +10,14 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 service Service {
 
+    rpc Ping(PingRequest) returns (PingResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: Ping";
+            summary: "Ping";
+            operation_id: "Ping";
+        };
+    }
+
     rpc Connect(ConnectRequest) returns (ConnectResponse) {
         option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
             description: "Description: Connect";
@@ -23,6 +31,30 @@ service Service {
             description: "Description: Disconnect";
             summary: "Disconnect";
             operation_id: "Disconnect";
+        };
+    }
+
+    rpc GetCpuUsage(GetCpuUsageRequest) returns (GetCpuUsageResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: GetCpuUsage";
+            summary: "GetCpuUsage";
+            operation_id: "GetCpuUsage";
+        };
+    }
+
+    rpc AddIceCandidate(AddIceCandidateRequest) returns (AddIceCandidateResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: AddIceCandidate";
+            summary: "AddIceCandidate";
+            operation_id: "AddIceCandidate";
+        };
+    }
+
+    rpc GetConnectedUser(GetConnectedUserRequest) returns (GetConnectedUserResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: GetConnectedUser";
+            summary: "GetConnectedUser";
+            operation_id: "GetConnectedUser";
         };
     }
 }

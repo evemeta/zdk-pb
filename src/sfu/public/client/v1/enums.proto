@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package sfu.public.client.v1;
+
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/sfu/public/client/v1;sfupb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+
+enum ProtocolVersion {
+    ProtocolVersionUnknown  = 0;
+    ProtocolVersion1_1_0    = 1;
+}
+
+enum ClientType {
+    ClientTypeUnknown           = 0;
+    ClientTypeChromium          = 1;
+    ClientTypeMobileChromium    = 9;
+    ClientTypeFirefox           = 2;
+    ClientTypeMobileFirefox     = 10;
+    ClientTypeSafari            = 3;
+    ClientTypeMobileSafari      = 11;
+    ClientTypeMobileEdge        = 12;
+    ClientTypeEdge              = 13;
+    ClientTypeWindows           = 4;
+    ClientTypemacOS             = 5;
+    ClientTypeiOS               = 7;
+    ClientTypeAndroid           = 8;
+}
+
+enum SfuType {
+    SfyTypeUnknown = 0;
+    SfyTypeGateway = 1;
+    SfuTypeRouter  = 2;
+}
+
+enum Action {
+    ActionUnknown           = 0;
+    ActionConnect           = 1;
+    ActionDisconnect        = 3;
+    ActionPong              = 4;
+    ActionMcu               = 5;
+    ActionToggleStreams     = 6;
+    ActionNegotiateStreams  = 7;
+    ActionGetActiveStreams  = 8;
+}
+
+
+

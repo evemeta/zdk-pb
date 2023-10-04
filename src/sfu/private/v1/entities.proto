@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package sfu.private.v1;
+
+import "protoc-gen-openapiv2/options/annotations.proto";
+import "sfu/public/client/v1/enums.proto";
+import "sfu/public/server/v1/enums.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/sfu/private/v1;sfupb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+message SupportedCodecs {
+    repeated CodecInfo video_codecs = 1;
+    repeated CodecInfo audio_codecs = 2;
+}
+
+message CodecInfo {
+    string                      name = 1;
+    sfu.public.server.v1.Codec  codec       = 2;
+    map<string, string>         fmtp        = 3;
+    uint32                      payloadType = 4;
+}
+
+message Offer {
+    string                      session_id  = 1;
+    string                      user_id     = 2;
+    string                      room_id     = 3;
+    bytes                       sdp_answer  = 4;
+    sfu.public.client.v1.SfuType sfu_type   = 5;
+}
+
+message ConnectionUserInfo {
+    string session_id = 1;
+    string user_id    = 2;
+    string room_id    = 3;
+}

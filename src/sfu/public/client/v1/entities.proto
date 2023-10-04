@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package sfu.public.client.v1;
+
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/sfu/public/client/v1;sfupb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+message SfuConnectionOptions {
+    bool use_proto                      = 1;
+    bool use_compression                = 2;
+    bool use_tcp                        = 3;
+    bool ice_restart                    = 4;
+    bool mcu_embed_layout_in_frames     = 5;
+    bool exchange_candidates_async      = 6;
+}
