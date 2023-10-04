@@ -1,0 +1,136 @@
+syntax = "proto3";
+
+package mcu.private.v1;
+
+import "mcu/private/v1/procedures.proto";
+import "mcu/private/v1/packets.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/mcu/private/v1;mcupb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+service Service {
+
+    rpc AddRoom(AddRoomRequest) returns (AddRoomResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: AddRoom";
+            summary: "AddRoom";
+            operation_id: "AddRoom";
+        };
+    }
+
+    rpc RemoveRoom(RemoveRoomRequest) returns (RemoveRoomResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: RemoveRoom";
+            summary: "RemoveRoom";
+            operation_id: "RemoveRoom";
+        };
+    }
+
+    rpc StreamInput(stream InputPacket) returns (stream OutputPacket);
+    rpc StreamOutput(stream OutputStreamRequest) returns (stream OutputPacket);
+
+    rpc StartStreaming(StartStreamingRequest) returns (StartStreamingResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: StartStreaming";
+            summary: "StartStreaming";
+            operation_id: "StartStreaming";
+        };
+    }
+
+    rpc StopStreaming(StopStreamingRequest) returns (StopStreamingResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: StopStreaming";
+            summary: "StopStreaming";
+            operation_id: "StopStreaming";
+        };
+    }
+
+    rpc SetStreamer(SetStreamerRequest) returns (SetStreamerResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: SetStreamer";
+            summary: "SetStreamer";
+            operation_id: "SetStreamer";
+        };
+    }
+
+    rpc GetStreamer(GetStreamerRequest) returns (GetStreamerResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: GetStreamer";
+            summary: "GetStreamer";
+            operation_id: "GetStreamer";
+        };
+    }
+
+    rpc GetStreamers(GetStreamersRequest) returns (GetStreamersResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: GetStreamers";
+            summary: "GetStreamers";
+            operation_id: "GetStreamers";
+        };
+    }
+
+    rpc UpdateBroadcast(UpdateBroadcastRequest) returns (UpdateBroadcastResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: UpdateBroadcast";
+            summary: "UpdateBroadcast";
+            operation_id: "UpdateBroadcast";
+        };
+    }
+
+    rpc AddRooms(AddRoomsRequest) returns (AddRoomsResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: AddRooms";
+            summary: "AddRooms";
+            operation_id: "AddRooms";
+        };
+    }
+
+    rpc RemoveRooms(RemoveRoomsRequest) returns (RemoveRoomsResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: RemoveRooms";
+            summary: "RemoveRooms";
+            operation_id: "RemoveRooms";
+        };
+    }
+
+    rpc ListRooms(ListRoomsRequest) returns (ListRoomsResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: ListRooms";
+            summary: "ListRooms";
+            operation_id: "ListRooms";
+        };
+    }
+
+    rpc GetRoom(GetRoomRequest) returns (GetRoomResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: GetRoom";
+            summary: "GetRoom";
+            operation_id: "GetRoom";
+        };
+    }
+
+    rpc StartRoomEvents(StartRoomEventsRequest) returns (StartRoomEventsResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: StartRoomEvents";
+            summary: "StartRoomEvents";
+            operation_id: "StartRoomEvents";
+        };
+    }
+
+    rpc StopRoomEvents(StopRoomEventsRequest) returns (StopRoomEventsResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: StopRoomEvents";
+            summary: "StopRoomEvents";
+            operation_id: "StopRoomEvents";
+        };
+    }
+
+    rpc UpdateRooms(UpdateRoomsRequest) returns (UpdateRoomsResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: UpdateRooms";
+            summary: "UpdateRooms";
+            operation_id: "UpdateRooms";
+        };
+    }
+}

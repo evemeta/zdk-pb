@@ -1,0 +1,196 @@
+syntax = "proto3";
+
+package mcu.private.v1;
+
+import "protoc-gen-openapiv2/options/annotations.proto";
+import "mcu/public/server/v1/entities.proto";
+import "mcu/public/server/v1/enums.proto";
+import "mcu/private/v1/enums.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/mcu/private/v1;mcupb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+
+message UpdateRoomsRequest {
+    repeated UpdateRoom update_rooms = 1;
+}
+
+message UpdateRoomsResponse {
+    repeated mcu.public.server.v1.Room successful_room_updates = 1;
+    repeated mcu.public.server.v1.Room failed_room_updates = 2;
+}
+
+message UpdateRoom {
+    string room_id = 1;
+    UpdateRoomBroadcast room_broadcast = 2;
+    StringValue event_id = 3;
+}
+
+message StringValue {
+    string value = 1;
+}
+
+message UpdateRoomBroadcast {
+    UpdateBroadcastLayout update_broadcast_layout = 2;
+    UpdateBroadcastPerformers update_broadcast_performers = 3;
+    UpdateMixerType update_mixer_type = 4;
+    UpdateRoomGridOrder update_room_grid_order = 5;
+}
+
+message GetRoomRequest {
+    string room_id = 1;
+}
+
+message GetRoomResponse {
+    mcu.public.server.v1.Room room = 1;
+}
+
+message ListRoomsRequest {
+    repeated string room_ids = 1;
+}
+
+message ListRoomsResponse {
+    repeated mcu.public.server.v1.Room rooms = 1;
+}
+
+message StopRoomEventsRequest {
+    repeated string room_ids = 1;
+}
+
+message StopRoomEventsResponse {
+    repeated mcu.public.server.v1.Room rooms = 1;
+}
+
+message StartRoomEventsRequest {
+    repeated UpdateRoom update_rooms = 1;
+}
+
+message StartRoomEventsResponse {
+    repeated mcu.public.server.v1.Room rooms = 1;
+}
+
+message AddRoomsRequest {
+    repeated string room_ids = 1;
+}
+
+message AddRoomsResponse {
+    repeated string room_ids = 1;
+}
+
+message RemoveRoomsRequest {
+    repeated string room_ids = 1;
+}
+
+message RemoveRoomsResponse {
+    repeated string room_ids = 1;
+}
+
+message UpdateBroadcastRequest {
+    string room_id = 1;
+
+    UpdateBroadcastLayout update_broadcast_layout = 2;
+    UpdateBroadcastPerformers update_broadcast_performers = 3;
+    UpdateMixerType update_mixer_type = 4;
+    UpdateRoomGridOrder update_room_grid_order = 5;
+}
+
+message UpdateMixerType {
+    mcu.public.server.v1.MixerType mode = 1;
+}
+
+message UpdateRoomGridOrder {
+    repeated string order = 1;
+}
+
+message UpdateBroadcastResponse {
+    string room_id = 1;
+
+    UpdateBroadcastLayout update_broadcast_layout = 2;
+    UpdateBroadcastPerformers update_broadcast_performers = 3;
+    UpdateMixerType update_mixer_type = 4;
+    UpdateRoomGridOrder update_room_grid_order = 5;
+}
+
+message UpdateBroadcastPerformers {
+    map<int32, string> update_performers = 1;
+    repeated string delete_performers = 2;
+    repeated UpdateBroadcastSwapPerformers swap_performers = 3;
+}
+
+message UpdateBroadcastSwapPerformers {
+    string user_a = 1;
+    string user_b = 2;
+}
+
+message UpdateBroadcastLayout {
+    BroadcastLayout layout = 1;
+}
+
+message GetStreamersRequest {
+    string room_id = 1;
+}
+
+message GetStreamersResponse {
+    string room_id = 1;
+    map<int32, string> users = 2;
+}
+
+message GetStreamerRequest {
+    string room_id = 1;
+}
+
+message GetStreamerResponse {
+    string room_id = 1;
+    string user_id = 2;
+}
+
+message SetStreamerRequest {
+    string room_id = 1;
+    string user_id = 2;
+    int32 position = 3;
+}
+
+message SetStreamerResponse {
+    string room_id = 1;
+    string user_id = 2;
+}
+
+message StartStreamingRequest {
+    string room_id = 1;
+    string event_id = 2;
+    BroadcastLayout layout = 3;
+}
+
+message StartStreamingResponse {
+    string room_id = 1;
+}
+
+message StopStreamingRequest {
+    string room_id = 1;
+}
+
+message StopStreamingResponse {
+    string room_id = 1;
+}
+
+message AddRoomRequest {
+    string room_id = 1;
+}
+
+message AddRoomResponse {
+    string room_id = 1;
+}
+
+message RemoveRoomRequest {
+    string room_id = 1;
+}
+
+message RemoveRoomResponse {
+    string room_id = 1;
+}
+
+message OutputStreamRequest {
+    string room_id = 1;
+    string sfu_id = 2;
+    bool control_only = 3;
+}

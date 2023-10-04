@@ -3,7 +3,7 @@ export PATH=$PATH:$GOPATH/bin:$(pwd)/bin
 
 rm -r out 2>/dev/null ; true
 mkdir -p out/go out/ts
-rm -r out/java/lib/src
+rm -rf out/java/lib/src
 mkdir -p out/java/lib/src/main/kotlin/ out/java/lib/src/main/java/
 
 

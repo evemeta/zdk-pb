@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package mcu.private.v1;
+
+import "protoc-gen-openapiv2/options/annotations.proto";
+import "mcu/private/v1/entities.proto";
+import "mcu/private/v1/enums.proto";
+import "mcu/public/server/v1/packets.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/mcu/private/v1;mcupb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+
+message OutputPacket{
+    string room_id = 1;
+    Sample sample = 2;
+    mcu.public.server.v1.LayoutPacket layout_packet = 3;
+    KeyFrameRequest keyframe_request = 4;
+    bool has_media_player = 5;
+    bool end = 6;
+    DataType data_type = 7;
+    string output_name = 8;
+}
+
+message InputPacket{
+    DataType data_type = 6;
+    InputDescription input_description = 7;
+
+    Sample sample = 3;
+    ManagementCommand management_command = 4;
+    RTPPacket rtp_packet = 5;
+}
+
+message OutputControlPacket{
+    oneof request {
+        bool key_frame = 1;
+    }
+}
