@@ -30,8 +30,8 @@ enum ClientType {
 }
 
 enum SfuType {
-    SfyTypeUnknown = 0;
-    SfyTypeGateway = 1;
+    SfuTypeUnknown = 0;
+    SfuTypeGateway = 1;
     SfuTypeRouter  = 2;
 }
 
