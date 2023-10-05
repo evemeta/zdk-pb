@@ -26,9 +26,101 @@ public object ConnectPacketKt {
     @kotlin.jvm.JvmSynthetic
     @kotlin.PublishedApi
     internal fun _build(): sfu.public.client.v1.Packets.ConnectPacket = _builder.build()
+
+    /**
+     * `bytes sdp_offer = 1;`
+     */
+    public var sdpOffer: com.google.protobuf.ByteString
+      @JvmName("getSdpOffer")
+      get() = _builder.getSdpOffer()
+      @JvmName("setSdpOffer")
+      set(value) {
+        _builder.setSdpOffer(value)
+      }
+    /**
+     * `bytes sdp_offer = 1;`
+     */
+    public fun clearSdpOffer() {
+      _builder.clearSdpOffer()
+    }
+
+    /**
+     * `.sfu.public.client.v1.ClientType client_type = 2;`
+     */
+    public var clientType: sfu.public.client.v1.Enums.ClientType
+      @JvmName("getClientType")
+      get() = _builder.getClientType()
+      @JvmName("setClientType")
+      set(value) {
+        _builder.setClientType(value)
+      }
+    public var clientTypeValue: kotlin.Int
+      @JvmName("getClientTypeValue")
+      get() = _builder.getClientTypeValue()
+      @JvmName("setClientTypeValue")
+      set(value) {
+        _builder.setClientTypeValue(value)
+      }
+    /**
+     * `.sfu.public.client.v1.ClientType client_type = 2;`
+     */
+    public fun clearClientType() {
+      _builder.clearClientType()
+    }
+
+    /**
+     * `.sfu.public.client.v1.ProtocolVersion protocol_version = 3;`
+     */
+    public var protocolVersion: sfu.public.client.v1.Enums.ProtocolVersion
+      @JvmName("getProtocolVersion")
+      get() = _builder.getProtocolVersion()
+      @JvmName("setProtocolVersion")
+      set(value) {
+        _builder.setProtocolVersion(value)
+      }
+    public var protocolVersionValue: kotlin.Int
+      @JvmName("getProtocolVersionValue")
+      get() = _builder.getProtocolVersionValue()
+      @JvmName("setProtocolVersionValue")
+      set(value) {
+        _builder.setProtocolVersionValue(value)
+      }
+    /**
+     * `.sfu.public.client.v1.ProtocolVersion protocol_version = 3;`
+     */
+    public fun clearProtocolVersion() {
+      _builder.clearProtocolVersion()
+    }
+
+    /**
+     * `.sfu.public.client.v1.SfuConnectionOptions options = 4;`
+     */
+    public var options: sfu.public.client.v1.Entities.SfuConnectionOptions
+      @JvmName("getOptions")
+      get() = _builder.getOptions()
+      @JvmName("setOptions")
+      set(value) {
+        _builder.setOptions(value)
+      }
+    /**
+     * `.sfu.public.client.v1.SfuConnectionOptions options = 4;`
+     */
+    public fun clearOptions() {
+      _builder.clearOptions()
+    }
+    /**
+     * `.sfu.public.client.v1.SfuConnectionOptions options = 4;`
+     * @return Whether the options field is set.
+     */
+    public fun hasOptions(): kotlin.Boolean {
+      return _builder.hasOptions()
+    }
   }
 }
 @kotlin.jvm.JvmSynthetic
 public inline fun sfu.public.client.v1.Packets.ConnectPacket.copy(block: sfu.public.client.v1.ConnectPacketKt.Dsl.() -> kotlin.Unit): sfu.public.client.v1.Packets.ConnectPacket =
   sfu.public.client.v1.ConnectPacketKt.Dsl._create(this.toBuilder()).apply { block() }._build()
+
+public val sfu.public.client.v1.Packets.ConnectPacketOrBuilder.optionsOrNull: sfu.public.client.v1.Entities.SfuConnectionOptions?
+  get() = if (hasOptions()) getOptions() else null
 

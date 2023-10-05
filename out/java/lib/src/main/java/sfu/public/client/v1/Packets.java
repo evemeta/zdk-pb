@@ -17,6 +17,49 @@ public final class Packets {
   public interface ConnectPacketOrBuilder extends
       // @@protoc_insertion_point(interface_extends:sfu.public.client.v1.ConnectPacket)
       com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>bytes sdp_offer = 1;</code>
+     * @return The sdpOffer.
+     */
+    com.google.protobuf.ByteString getSdpOffer();
+
+    /**
+     * <code>.sfu.public.client.v1.ClientType client_type = 2;</code>
+     * @return The enum numeric value on the wire for clientType.
+     */
+    int getClientTypeValue();
+    /**
+     * <code>.sfu.public.client.v1.ClientType client_type = 2;</code>
+     * @return The clientType.
+     */
+    sfu.public.client.v1.Enums.ClientType getClientType();
+
+    /**
+     * <code>.sfu.public.client.v1.ProtocolVersion protocol_version = 3;</code>
+     * @return The enum numeric value on the wire for protocolVersion.
+     */
+    int getProtocolVersionValue();
+    /**
+     * <code>.sfu.public.client.v1.ProtocolVersion protocol_version = 3;</code>
+     * @return The protocolVersion.
+     */
+    sfu.public.client.v1.Enums.ProtocolVersion getProtocolVersion();
+
+    /**
+     * <code>.sfu.public.client.v1.SfuConnectionOptions options = 4;</code>
+     * @return Whether the options field is set.
+     */
+    boolean hasOptions();
+    /**
+     * <code>.sfu.public.client.v1.SfuConnectionOptions options = 4;</code>
+     * @return The options.
+     */
+    sfu.public.client.v1.Entities.SfuConnectionOptions getOptions();
+    /**
+     * <code>.sfu.public.client.v1.SfuConnectionOptions options = 4;</code>
+     */
+    sfu.public.client.v1.Entities.SfuConnectionOptionsOrBuilder getOptionsOrBuilder();
   }
   /**
    * Protobuf type {@code sfu.public.client.v1.ConnectPacket}
@@ -31,6 +74,9 @@ public final class Packets {
       super(builder);
     }
     private ConnectPacket() {
+      sdpOffer_ = com.google.protobuf.ByteString.EMPTY;
+      clientType_ = 0;
+      protocolVersion_ = 0;
     }
 
     @java.lang.Override
@@ -53,6 +99,80 @@ public final class Packets {
               sfu.public.client.v1.Packets.ConnectPacket.class, sfu.public.client.v1.Packets.ConnectPacket.Builder.class);
     }
 
+    private int bitField0_;
+    public static final int SDP_OFFER_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString sdpOffer_ = com.google.protobuf.ByteString.EMPTY;
+    /**
+     * <code>bytes sdp_offer = 1;</code>
+     * @return The sdpOffer.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getSdpOffer() {
+      return sdpOffer_;
+    }
+
+    public static final int CLIENT_TYPE_FIELD_NUMBER = 2;
+    private int clientType_ = 0;
+    /**
+     * <code>.sfu.public.client.v1.ClientType client_type = 2;</code>
+     * @return The enum numeric value on the wire for clientType.
+     */
+    @java.lang.Override public int getClientTypeValue() {
+      return clientType_;
+    }
+    /**
+     * <code>.sfu.public.client.v1.ClientType client_type = 2;</code>
+     * @return The clientType.
+     */
+    @java.lang.Override public sfu.public.client.v1.Enums.ClientType getClientType() {
+      sfu.public.client.v1.Enums.ClientType result = sfu.public.client.v1.Enums.ClientType.forNumber(clientType_);
+      return result == null ? sfu.public.client.v1.Enums.ClientType.UNRECOGNIZED : result;
+    }
+
+    public static final int PROTOCOL_VERSION_FIELD_NUMBER = 3;
+    private int protocolVersion_ = 0;
+    /**
+     * <code>.sfu.public.client.v1.ProtocolVersion protocol_version = 3;</code>
+     * @return The enum numeric value on the wire for protocolVersion.
+     */
+    @java.lang.Override public int getProtocolVersionValue() {
+      return protocolVersion_;
+    }
+    /**
+     * <code>.sfu.public.client.v1.ProtocolVersion protocol_version = 3;</code>
+     * @return The protocolVersion.
+     */
+    @java.lang.Override public sfu.public.client.v1.Enums.ProtocolVersion getProtocolVersion() {
+      sfu.public.client.v1.Enums.ProtocolVersion result = sfu.public.client.v1.Enums.ProtocolVersion.forNumber(protocolVersion_);
+      return result == null ? sfu.public.client.v1.Enums.ProtocolVersion.UNRECOGNIZED : result;
+    }
+
+    public static final int OPTIONS_FIELD_NUMBER = 4;
+    private sfu.public.client.v1.Entities.SfuConnectionOptions options_;
+    /**
+     * <code>.sfu.public.client.v1.SfuConnectionOptions options = 4;</code>
+     * @return Whether the options field is set.
+     */
+    @java.lang.Override
+    public boolean hasOptions() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>.sfu.public.client.v1.SfuConnectionOptions options = 4;</code>
+     * @return The options.
+     */
+    @java.lang.Override
+    public sfu.public.client.v1.Entities.SfuConnectionOptions getOptions() {
+      return options_ == null ? sfu.public.client.v1.Entities.SfuConnectionOptions.getDefaultInstance() : options_;
+    }
+    /**
+     * <code>.sfu.public.client.v1.SfuConnectionOptions options = 4;</code>
+     */
+    @java.lang.Override
+    public sfu.public.client.v1.Entities.SfuConnectionOptionsOrBuilder getOptionsOrBuilder() {
+      return options_ == null ? sfu.public.client.v1.Entities.SfuConnectionOptions.getDefaultInstance() : options_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -67,6 +187,18 @@ public final class Packets {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (!sdpOffer_.isEmpty()) {
+        output.writeBytes(1, sdpOffer_);
+      }
+      if (clientType_ != sfu.public.client.v1.Enums.ClientType.ClientTypeUnknown.getNumber()) {
+        output.writeEnum(2, clientType_);
+      }
+      if (protocolVersion_ != sfu.public.client.v1.Enums.ProtocolVersion.ProtocolVersionUnknown.getNumber()) {
+        output.writeEnum(3, protocolVersion_);
+      }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeMessage(4, getOptions());
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -76,6 +208,22 @@ public final class Packets {
       if (size != -1) return size;
 
       size = 0;
+      if (!sdpOffer_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, sdpOffer_);
+      }
+      if (clientType_ != sfu.public.client.v1.Enums.ClientType.ClientTypeUnknown.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(2, clientType_);
+      }
+      if (protocolVersion_ != sfu.public.client.v1.Enums.ProtocolVersion.ProtocolVersionUnknown.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, protocolVersion_);
+      }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getOptions());
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
@@ -91,6 +239,15 @@ public final class Packets {
       }
       sfu.public.client.v1.Packets.ConnectPacket other = (sfu.public.client.v1.Packets.ConnectPacket) obj;
 
+      if (!getSdpOffer()
+          .equals(other.getSdpOffer())) return false;
+      if (clientType_ != other.clientType_) return false;
+      if (protocolVersion_ != other.protocolVersion_) return false;
+      if (hasOptions() != other.hasOptions()) return false;
+      if (hasOptions()) {
+        if (!getOptions()
+            .equals(other.getOptions())) return false;
+      }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -102,6 +259,16 @@ public final class Packets {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SDP_OFFER_FIELD_NUMBER;
+      hash = (53 * hash) + getSdpOffer().hashCode();
+      hash = (37 * hash) + CLIENT_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + clientType_;
+      hash = (37 * hash) + PROTOCOL_VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + protocolVersion_;
+      if (hasOptions()) {
+        hash = (37 * hash) + OPTIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getOptions().hashCode();
+      }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -221,17 +388,32 @@ public final class Packets {
 
       // Construct using sfu.public.client.v1.Packets.ConnectPacket.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getOptionsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
+        sdpOffer_ = com.google.protobuf.ByteString.EMPTY;
+        clientType_ = 0;
+        protocolVersion_ = 0;
+        options_ = null;
+        if (optionsBuilder_ != null) {
+          optionsBuilder_.dispose();
+          optionsBuilder_ = null;
+        }
         return this;
       }
 
@@ -258,8 +440,30 @@ public final class Packets {
       @java.lang.Override
       public sfu.public.client.v1.Packets.ConnectPacket buildPartial() {
         sfu.public.client.v1.Packets.ConnectPacket result = new sfu.public.client.v1.Packets.ConnectPacket(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(sfu.public.client.v1.Packets.ConnectPacket result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.sdpOffer_ = sdpOffer_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.clientType_ = clientType_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.protocolVersion_ = protocolVersion_;
+        }
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.options_ = optionsBuilder_ == null
+              ? options_
+              : optionsBuilder_.build();
+          to_bitField0_ |= 0x00000001;
+        }
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -306,6 +510,18 @@ public final class Packets {
 
       public Builder mergeFrom(sfu.public.client.v1.Packets.ConnectPacket other) {
         if (other == sfu.public.client.v1.Packets.ConnectPacket.getDefaultInstance()) return this;
+        if (other.getSdpOffer() != com.google.protobuf.ByteString.EMPTY) {
+          setSdpOffer(other.getSdpOffer());
+        }
+        if (other.clientType_ != 0) {
+          setClientTypeValue(other.getClientTypeValue());
+        }
+        if (other.protocolVersion_ != 0) {
+          setProtocolVersionValue(other.getProtocolVersionValue());
+        }
+        if (other.hasOptions()) {
+          mergeOptions(other.getOptions());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -332,6 +548,28 @@ public final class Packets {
               case 0:
                 done = true;
                 break;
+              case 10: {
+                sdpOffer_ = input.readBytes();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                clientType_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                protocolVersion_ = input.readEnum();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 34: {
+                input.readMessage(
+                    getOptionsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -346,6 +584,266 @@ public final class Packets {
           onChanged();
         } // finally
         return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.ByteString sdpOffer_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes sdp_offer = 1;</code>
+       * @return The sdpOffer.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getSdpOffer() {
+        return sdpOffer_;
+      }
+      /**
+       * <code>bytes sdp_offer = 1;</code>
+       * @param value The sdpOffer to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSdpOffer(com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        sdpOffer_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes sdp_offer = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSdpOffer() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        sdpOffer_ = getDefaultInstance().getSdpOffer();
+        onChanged();
+        return this;
+      }
+
+      private int clientType_ = 0;
+      /**
+       * <code>.sfu.public.client.v1.ClientType client_type = 2;</code>
+       * @return The enum numeric value on the wire for clientType.
+       */
+      @java.lang.Override public int getClientTypeValue() {
+        return clientType_;
+      }
+      /**
+       * <code>.sfu.public.client.v1.ClientType client_type = 2;</code>
+       * @param value The enum numeric value on the wire for clientType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setClientTypeValue(int value) {
+        clientType_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.sfu.public.client.v1.ClientType client_type = 2;</code>
+       * @return The clientType.
+       */
+      @java.lang.Override
+      public sfu.public.client.v1.Enums.ClientType getClientType() {
+        sfu.public.client.v1.Enums.ClientType result = sfu.public.client.v1.Enums.ClientType.forNumber(clientType_);
+        return result == null ? sfu.public.client.v1.Enums.ClientType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.sfu.public.client.v1.ClientType client_type = 2;</code>
+       * @param value The clientType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setClientType(sfu.public.client.v1.Enums.ClientType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
+        clientType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.sfu.public.client.v1.ClientType client_type = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearClientType() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        clientType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int protocolVersion_ = 0;
+      /**
+       * <code>.sfu.public.client.v1.ProtocolVersion protocol_version = 3;</code>
+       * @return The enum numeric value on the wire for protocolVersion.
+       */
+      @java.lang.Override public int getProtocolVersionValue() {
+        return protocolVersion_;
+      }
+      /**
+       * <code>.sfu.public.client.v1.ProtocolVersion protocol_version = 3;</code>
+       * @param value The enum numeric value on the wire for protocolVersion to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProtocolVersionValue(int value) {
+        protocolVersion_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.sfu.public.client.v1.ProtocolVersion protocol_version = 3;</code>
+       * @return The protocolVersion.
+       */
+      @java.lang.Override
+      public sfu.public.client.v1.Enums.ProtocolVersion getProtocolVersion() {
+        sfu.public.client.v1.Enums.ProtocolVersion result = sfu.public.client.v1.Enums.ProtocolVersion.forNumber(protocolVersion_);
+        return result == null ? sfu.public.client.v1.Enums.ProtocolVersion.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.sfu.public.client.v1.ProtocolVersion protocol_version = 3;</code>
+       * @param value The protocolVersion to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProtocolVersion(sfu.public.client.v1.Enums.ProtocolVersion value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000004;
+        protocolVersion_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.sfu.public.client.v1.ProtocolVersion protocol_version = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProtocolVersion() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        protocolVersion_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private sfu.public.client.v1.Entities.SfuConnectionOptions options_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          sfu.public.client.v1.Entities.SfuConnectionOptions, sfu.public.client.v1.Entities.SfuConnectionOptions.Builder, sfu.public.client.v1.Entities.SfuConnectionOptionsOrBuilder> optionsBuilder_;
+      /**
+       * <code>.sfu.public.client.v1.SfuConnectionOptions options = 4;</code>
+       * @return Whether the options field is set.
+       */
+      public boolean hasOptions() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>.sfu.public.client.v1.SfuConnectionOptions options = 4;</code>
+       * @return The options.
+       */
+      public sfu.public.client.v1.Entities.SfuConnectionOptions getOptions() {
+        if (optionsBuilder_ == null) {
+          return options_ == null ? sfu.public.client.v1.Entities.SfuConnectionOptions.getDefaultInstance() : options_;
+        } else {
+          return optionsBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.sfu.public.client.v1.SfuConnectionOptions options = 4;</code>
+       */
+      public Builder setOptions(sfu.public.client.v1.Entities.SfuConnectionOptions value) {
+        if (optionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          options_ = value;
+        } else {
+          optionsBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.sfu.public.client.v1.SfuConnectionOptions options = 4;</code>
+       */
+      public Builder setOptions(
+          sfu.public.client.v1.Entities.SfuConnectionOptions.Builder builderForValue) {
+        if (optionsBuilder_ == null) {
+          options_ = builderForValue.build();
+        } else {
+          optionsBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.sfu.public.client.v1.SfuConnectionOptions options = 4;</code>
+       */
+      public Builder mergeOptions(sfu.public.client.v1.Entities.SfuConnectionOptions value) {
+        if (optionsBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) != 0) &&
+            options_ != null &&
+            options_ != sfu.public.client.v1.Entities.SfuConnectionOptions.getDefaultInstance()) {
+            getOptionsBuilder().mergeFrom(value);
+          } else {
+            options_ = value;
+          }
+        } else {
+          optionsBuilder_.mergeFrom(value);
+        }
+        if (options_ != null) {
+          bitField0_ |= 0x00000008;
+          onChanged();
+        }
+        return this;
+      }
+      /**
+       * <code>.sfu.public.client.v1.SfuConnectionOptions options = 4;</code>
+       */
+      public Builder clearOptions() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        options_ = null;
+        if (optionsBuilder_ != null) {
+          optionsBuilder_.dispose();
+          optionsBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.sfu.public.client.v1.SfuConnectionOptions options = 4;</code>
+       */
+      public sfu.public.client.v1.Entities.SfuConnectionOptions.Builder getOptionsBuilder() {
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return getOptionsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.sfu.public.client.v1.SfuConnectionOptions options = 4;</code>
+       */
+      public sfu.public.client.v1.Entities.SfuConnectionOptionsOrBuilder getOptionsOrBuilder() {
+        if (optionsBuilder_ != null) {
+          return optionsBuilder_.getMessageOrBuilder();
+        } else {
+          return options_ == null ?
+              sfu.public.client.v1.Entities.SfuConnectionOptions.getDefaultInstance() : options_;
+        }
+      }
+      /**
+       * <code>.sfu.public.client.v1.SfuConnectionOptions options = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          sfu.public.client.v1.Entities.SfuConnectionOptions, sfu.public.client.v1.Entities.SfuConnectionOptions.Builder, sfu.public.client.v1.Entities.SfuConnectionOptionsOrBuilder> 
+          getOptionsFieldBuilder() {
+        if (optionsBuilder_ == null) {
+          optionsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              sfu.public.client.v1.Entities.SfuConnectionOptions, sfu.public.client.v1.Entities.SfuConnectionOptions.Builder, sfu.public.client.v1.Entities.SfuConnectionOptionsOrBuilder>(
+                  getOptions(),
+                  getParentForChildren(),
+                  isClean());
+          options_ = null;
+        }
+        return optionsBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -5178,29 +5676,35 @@ public final class Packets {
       "\n\"sfu/public/client/v1/packets.proto\022\024sf" +
       "u.public.client.v1\032.protoc-gen-openapiv2" +
       "/options/annotations.proto\032 sfu/public/c" +
-      "lient/v1/enums.proto\032#sfu/public/server/" +
-      "v1/entities.proto\"\017\n\rConnectPacket\"D\n\006Pa" +
-      "cket\022,\n\006action\030\001 \001(\0162\034.sfu.public.client" +
-      ".v1.Action\022\014\n\004data\030\002 \001(\014\"\212\001\n\023StreamsTogg" +
-      "lePacket\0228\n\016enable_streams\030\001 \003(\0132 .sfu.p" +
-      "ublic.server.v1.StreamInfo\0229\n\017disable_st" +
-      "reams\030\002 \003(\0132 .sfu.public.server.v1.Strea" +
-      "mInfo\"\226\001\n\rStreamsPacket\0226\n\014add_requests\030" +
-      "\001 \003(\0132 .sfu.public.server.v1.StreamInfo\022" +
-      ":\n\020removal_requests\030\002 \003(\0132 .sfu.public.s" +
-      "erver.v1.StreamInfo\022\021\n\tsdp_offer\030\003 \001(\014\"\022" +
-      "\n\020DisconnectPacket\"%\n\rMCUTestPacket\022\024\n\014r" +
-      "esetEncoder\030\001 \001(\010\"\034\n\032ActiveStreamsReques" +
-      "tPacket\"&\n\nPongPacket\022\030\n\020server_timestam" +
-      "p\030\001 \001(\003B@Z;gitlab.com/evemeta/zdk/pb/out" +
-      "/go/sfu/public/client/v1;sfupb\222A\000b\006proto" +
-      "3"
+      "lient/v1/enums.proto\032#sfu/public/client/" +
+      "v1/entities.proto\032#sfu/public/server/v1/" +
+      "entities.proto\"\327\001\n\rConnectPacket\022\021\n\tsdp_" +
+      "offer\030\001 \001(\014\0225\n\013client_type\030\002 \001(\0162 .sfu.p" +
+      "ublic.client.v1.ClientType\022?\n\020protocol_v" +
+      "ersion\030\003 \001(\0162%.sfu.public.client.v1.Prot" +
+      "ocolVersion\022;\n\007options\030\004 \001(\0132*.sfu.publi" +
+      "c.client.v1.SfuConnectionOptions\"D\n\006Pack" +
+      "et\022,\n\006action\030\001 \001(\0162\034.sfu.public.client.v" +
+      "1.Action\022\014\n\004data\030\002 \001(\014\"\212\001\n\023StreamsToggle" +
+      "Packet\0228\n\016enable_streams\030\001 \003(\0132 .sfu.pub" +
+      "lic.server.v1.StreamInfo\0229\n\017disable_stre" +
+      "ams\030\002 \003(\0132 .sfu.public.server.v1.StreamI" +
+      "nfo\"\226\001\n\rStreamsPacket\0226\n\014add_requests\030\001 " +
+      "\003(\0132 .sfu.public.server.v1.StreamInfo\022:\n" +
+      "\020removal_requests\030\002 \003(\0132 .sfu.public.ser" +
+      "ver.v1.StreamInfo\022\021\n\tsdp_offer\030\003 \001(\014\"\022\n\020" +
+      "DisconnectPacket\"%\n\rMCUTestPacket\022\024\n\014res" +
+      "etEncoder\030\001 \001(\010\"\034\n\032ActiveStreamsRequestP" +
+      "acket\"&\n\nPongPacket\022\030\n\020server_timestamp\030" +
+      "\001 \001(\003B@Z;gitlab.com/evemeta/zdk/pb/out/g" +
+      "o/sfu/public/client/v1;sfupb\222A\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           grpc.gateway.protoc_gen_openapiv2.options.Annotations.getDescriptor(),
           sfu.public.client.v1.Enums.getDescriptor(),
+          sfu.public.client.v1.Entities.getDescriptor(),
           sfu.public.server.v1.Entities.getDescriptor(),
         });
     internal_static_sfu_public_client_v1_ConnectPacket_descriptor =
@@ -5208,7 +5712,7 @@ public final class Packets {
     internal_static_sfu_public_client_v1_ConnectPacket_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sfu_public_client_v1_ConnectPacket_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "SdpOffer", "ClientType", "ProtocolVersion", "Options", });
     internal_static_sfu_public_client_v1_Packet_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_sfu_public_client_v1_Packet_fieldAccessorTable = new
@@ -5258,6 +5762,7 @@ public final class Packets {
         .internalUpdateFileDescriptor(descriptor, registry);
     grpc.gateway.protoc_gen_openapiv2.options.Annotations.getDescriptor();
     sfu.public.client.v1.Enums.getDescriptor();
+    sfu.public.client.v1.Entities.getDescriptor();
     sfu.public.server.v1.Entities.getDescriptor();
   }
 

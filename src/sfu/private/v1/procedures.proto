@@ -30,7 +30,7 @@ message ConnectResponse {
 }
 
 message DisconnectArgument {
-    string session_id = 1;
+    repeated string connection_ids = 1;
 }
 
 message DisconnectRequest {
