@@ -70,3 +70,7 @@ message IceCandidatePacket {
 message ActiveStreamsResponsePacket {
     repeated StreamInfo streams = 1;
 }
+
+message VideoCodecChangeRequiredPacket {
+    Codec new_codec = 1;
+}

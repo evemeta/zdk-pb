@@ -617,6 +617,53 @@ func (x *ActiveStreamsResponsePacket) GetStreams() []*StreamInfo {
 	return nil
 }
 
+type VideoCodecChangeRequiredPacket struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	NewCodec Codec `protobuf:"varint,1,opt,name=new_codec,json=newCodec,proto3,enum=sfu.public.server.v1.Codec" json:"new_codec,omitempty"`
+}
+
+func (x *VideoCodecChangeRequiredPacket) Reset() {
+	*x = VideoCodecChangeRequiredPacket{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_sfu_public_server_v1_packets_proto_msgTypes[12]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *VideoCodecChangeRequiredPacket) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*VideoCodecChangeRequiredPacket) ProtoMessage() {}
+
+func (x *VideoCodecChangeRequiredPacket) ProtoReflect() protoreflect.Message {
+	mi := &file_sfu_public_server_v1_packets_proto_msgTypes[12]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use VideoCodecChangeRequiredPacket.ProtoReflect.Descriptor instead.
+func (*VideoCodecChangeRequiredPacket) Descriptor() ([]byte, []int) {
+	return file_sfu_public_server_v1_packets_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *VideoCodecChangeRequiredPacket) GetNewCodec() Codec {
+	if x != nil {
+		return x.NewCodec
+	}
+	return CodecUnknown
+}
+
 var File_sfu_public_server_v1_packets_proto protoreflect.FileDescriptor
 
 var file_sfu_public_server_v1_packets_proto_rawDesc = []byte{
@@ -694,12 +741,17 @@ var file_sfu_public_server_v1_packets_proto_rawDesc = []byte{
 	0x74, 0x72, 0x65, 0x61, 0x6d, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x20, 0x2e, 0x73,
 	0x66, 0x75, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72,
 	0x2e, 0x76, 0x31, 0x2e, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x07,
-	0x73, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x73, 0x42, 0x40, 0x5a, 0x3b, 0x67, 0x69, 0x74, 0x6c, 0x61,
-	0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x65, 0x76, 0x65, 0x6d, 0x65, 0x74, 0x61, 0x2f, 0x7a, 0x64,
-	0x6b, 0x2f, 0x70, 0x62, 0x2f, 0x6f, 0x75, 0x74, 0x2f, 0x67, 0x6f, 0x2f, 0x73, 0x66, 0x75, 0x2f,
-	0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2f, 0x76, 0x31,
-	0x3b, 0x73, 0x66, 0x75, 0x70, 0x62, 0x92, 0x41, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x33,
+	0x73, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x73, 0x22, 0x5a, 0x0a, 0x1e, 0x56, 0x69, 0x64, 0x65, 0x6f,
+	0x43, 0x6f, 0x64, 0x65, 0x63, 0x43, 0x68, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x69,
+	0x72, 0x65, 0x64, 0x50, 0x61, 0x63, 0x6b, 0x65, 0x74, 0x12, 0x38, 0x0a, 0x09, 0x6e, 0x65, 0x77,
+	0x5f, 0x63, 0x6f, 0x64, 0x65, 0x63, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x1b, 0x2e, 0x73,
+	0x66, 0x75, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72,
+	0x2e, 0x76, 0x31, 0x2e, 0x43, 0x6f, 0x64, 0x65, 0x63, 0x52, 0x08, 0x6e, 0x65, 0x77, 0x43, 0x6f,
+	0x64, 0x65, 0x63, 0x42, 0x40, 0x5a, 0x3b, 0x67, 0x69, 0x74, 0x6c, 0x61, 0x62, 0x2e, 0x63, 0x6f,
+	0x6d, 0x2f, 0x65, 0x76, 0x65, 0x6d, 0x65, 0x74, 0x61, 0x2f, 0x7a, 0x64, 0x6b, 0x2f, 0x70, 0x62,
+	0x2f, 0x6f, 0x75, 0x74, 0x2f, 0x67, 0x6f, 0x2f, 0x73, 0x66, 0x75, 0x2f, 0x70, 0x75, 0x62, 0x6c,
+	0x69, 0x63, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2f, 0x76, 0x31, 0x3b, 0x73, 0x66, 0x75,
+	0x70, 0x62, 0x92, 0x41, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -714,40 +766,43 @@ func file_sfu_public_server_v1_packets_proto_rawDescGZIP() []byte {
 	return file_sfu_public_server_v1_packets_proto_rawDescData
 }
 
-var file_sfu_public_server_v1_packets_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
+var file_sfu_public_server_v1_packets_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
 var file_sfu_public_server_v1_packets_proto_goTypes = []interface{}{
-	(*ServerPacket)(nil),                // 0: sfu.public.server.v1.ServerPacket
-	(*StreamsAnswerPacket)(nil),         // 1: sfu.public.server.v1.StreamsAnswerPacket
-	(*MigrationRequiredPacket)(nil),     // 2: sfu.public.server.v1.MigrationRequiredPacket
-	(*UnsupportedActionPacket)(nil),     // 3: sfu.public.server.v1.UnsupportedActionPacket
-	(*DisconnectedPacket)(nil),          // 4: sfu.public.server.v1.DisconnectedPacket
-	(*ConferenceModePacket)(nil),        // 5: sfu.public.server.v1.ConferenceModePacket
-	(*PingPacket)(nil),                  // 6: sfu.public.server.v1.PingPacket
-	(*SubscriptionRTTPacket)(nil),       // 7: sfu.public.server.v1.SubscriptionRTTPacket
-	(*LocalInputReadyPacket)(nil),       // 8: sfu.public.server.v1.LocalInputReadyPacket
-	(*NoDataPacket)(nil),                // 9: sfu.public.server.v1.NoDataPacket
-	(*IceCandidatePacket)(nil),          // 10: sfu.public.server.v1.IceCandidatePacket
-	(*ActiveStreamsResponsePacket)(nil), // 11: sfu.public.server.v1.ActiveStreamsResponsePacket
-	(*StreamInfo)(nil),                  // 12: sfu.public.server.v1.StreamInfo
-	(v1.Action)(0),                      // 13: sfu.public.client.v1.Action
-	(ConferenceMode)(0),                 // 14: sfu.public.server.v1.ConferenceMode
-	(StreamType)(0),                     // 15: sfu.public.server.v1.StreamType
-	(*IceCandidate)(nil),                // 16: sfu.public.server.v1.IceCandidate
+	(*ServerPacket)(nil),                   // 0: sfu.public.server.v1.ServerPacket
+	(*StreamsAnswerPacket)(nil),            // 1: sfu.public.server.v1.StreamsAnswerPacket
+	(*MigrationRequiredPacket)(nil),        // 2: sfu.public.server.v1.MigrationRequiredPacket
+	(*UnsupportedActionPacket)(nil),        // 3: sfu.public.server.v1.UnsupportedActionPacket
+	(*DisconnectedPacket)(nil),             // 4: sfu.public.server.v1.DisconnectedPacket
+	(*ConferenceModePacket)(nil),           // 5: sfu.public.server.v1.ConferenceModePacket
+	(*PingPacket)(nil),                     // 6: sfu.public.server.v1.PingPacket
+	(*SubscriptionRTTPacket)(nil),          // 7: sfu.public.server.v1.SubscriptionRTTPacket
+	(*LocalInputReadyPacket)(nil),          // 8: sfu.public.server.v1.LocalInputReadyPacket
+	(*NoDataPacket)(nil),                   // 9: sfu.public.server.v1.NoDataPacket
+	(*IceCandidatePacket)(nil),             // 10: sfu.public.server.v1.IceCandidatePacket
+	(*ActiveStreamsResponsePacket)(nil),    // 11: sfu.public.server.v1.ActiveStreamsResponsePacket
+	(*VideoCodecChangeRequiredPacket)(nil), // 12: sfu.public.server.v1.VideoCodecChangeRequiredPacket
+	(*StreamInfo)(nil),                     // 13: sfu.public.server.v1.StreamInfo
+	(v1.Action)(0),                         // 14: sfu.public.client.v1.Action
+	(ConferenceMode)(0),                    // 15: sfu.public.server.v1.ConferenceMode
+	(StreamType)(0),                        // 16: sfu.public.server.v1.StreamType
+	(*IceCandidate)(nil),                   // 17: sfu.public.server.v1.IceCandidate
+	(Codec)(0),                             // 18: sfu.public.server.v1.Codec
 }
 var file_sfu_public_server_v1_packets_proto_depIdxs = []int32{
-	12, // 0: sfu.public.server.v1.StreamsAnswerPacket.add_requests:type_name -> sfu.public.server.v1.StreamInfo
-	12, // 1: sfu.public.server.v1.StreamsAnswerPacket.removal_requests:type_name -> sfu.public.server.v1.StreamInfo
-	13, // 2: sfu.public.server.v1.UnsupportedActionPacket.action:type_name -> sfu.public.client.v1.Action
-	14, // 3: sfu.public.server.v1.ConferenceModePacket.mode:type_name -> sfu.public.server.v1.ConferenceMode
-	15, // 4: sfu.public.server.v1.LocalInputReadyPacket.streamType:type_name -> sfu.public.server.v1.StreamType
-	15, // 5: sfu.public.server.v1.NoDataPacket.streamType:type_name -> sfu.public.server.v1.StreamType
-	16, // 6: sfu.public.server.v1.IceCandidatePacket.ice_candidate:type_name -> sfu.public.server.v1.IceCandidate
-	12, // 7: sfu.public.server.v1.ActiveStreamsResponsePacket.streams:type_name -> sfu.public.server.v1.StreamInfo
-	8,  // [8:8] is the sub-list for method output_type
-	8,  // [8:8] is the sub-list for method input_type
-	8,  // [8:8] is the sub-list for extension type_name
-	8,  // [8:8] is the sub-list for extension extendee
-	0,  // [0:8] is the sub-list for field type_name
+	13, // 0: sfu.public.server.v1.StreamsAnswerPacket.add_requests:type_name -> sfu.public.server.v1.StreamInfo
+	13, // 1: sfu.public.server.v1.StreamsAnswerPacket.removal_requests:type_name -> sfu.public.server.v1.StreamInfo
+	14, // 2: sfu.public.server.v1.UnsupportedActionPacket.action:type_name -> sfu.public.client.v1.Action
+	15, // 3: sfu.public.server.v1.ConferenceModePacket.mode:type_name -> sfu.public.server.v1.ConferenceMode
+	16, // 4: sfu.public.server.v1.LocalInputReadyPacket.streamType:type_name -> sfu.public.server.v1.StreamType
+	16, // 5: sfu.public.server.v1.NoDataPacket.streamType:type_name -> sfu.public.server.v1.StreamType
+	17, // 6: sfu.public.server.v1.IceCandidatePacket.ice_candidate:type_name -> sfu.public.server.v1.IceCandidate
+	13, // 7: sfu.public.server.v1.ActiveStreamsResponsePacket.streams:type_name -> sfu.public.server.v1.StreamInfo
+	18, // 8: sfu.public.server.v1.VideoCodecChangeRequiredPacket.new_codec:type_name -> sfu.public.server.v1.Codec
+	9,  // [9:9] is the sub-list for method output_type
+	9,  // [9:9] is the sub-list for method input_type
+	9,  // [9:9] is the sub-list for extension type_name
+	9,  // [9:9] is the sub-list for extension extendee
+	0,  // [0:9] is the sub-list for field type_name
 }
 
 func init() { file_sfu_public_server_v1_packets_proto_init() }
@@ -902,6 +957,18 @@ func file_sfu_public_server_v1_packets_proto_init() {
 				return nil
 			}
 		}
+		file_sfu_public_server_v1_packets_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*VideoCodecChangeRequiredPacket); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -909,7 +976,7 @@ func file_sfu_public_server_v1_packets_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_sfu_public_server_v1_packets_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   12,
+			NumMessages:   13,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
