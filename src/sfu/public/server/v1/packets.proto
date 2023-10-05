@@ -24,7 +24,7 @@ message ServerPacket {
     bytes  data = 2;
 }
 
-message StreamsAnswerPacket {
+message StreamsPacket {
     bytes               sdp_answer          = 1;
     repeated StreamInfo add_requests        = 2;
     repeated StreamInfo removal_requests    = 3;
@@ -67,7 +67,7 @@ message IceCandidatePacket {
     IceCandidate ice_candidate = 1;
 }
 
-message ActiveStreamsResponsePacket {
+message ActiveStreamsPacket {
     repeated StreamInfo streams = 1;
 }
 

@@ -17,6 +17,12 @@ message ConnectPacket {
     ClientType           client_type       = 2;
     ProtocolVersion      protocol_version  = 3;
     SfuConnectionOptions options           = 4;
+    sfu.public.client.v1.SfuType sfu_type  = 5;
+}
+
+message AddIceCandidatePacket {
+    sfu.public.server.v1.IceCandidate ice_candidate = 1;
+    sfu.public.client.v1.SfuType      sfu_type      = 2;
 }
 
 //SFU Packets
@@ -45,7 +51,7 @@ message MCUTestPacket {
     bool resetEncoder = 1;
 }
 
-message ActiveStreamsRequestPacket {
+message ActiveStreamsPacket {
 }
 
 message PongPacket {

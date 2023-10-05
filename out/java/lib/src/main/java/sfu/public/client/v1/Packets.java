@@ -60,6 +60,17 @@ public final class Packets {
      * <code>.sfu.public.client.v1.SfuConnectionOptions options = 4;</code>
      */
     sfu.public.client.v1.Entities.SfuConnectionOptionsOrBuilder getOptionsOrBuilder();
+
+    /**
+     * <code>.sfu.public.client.v1.SfuType sfu_type = 5;</code>
+     * @return The enum numeric value on the wire for sfuType.
+     */
+    int getSfuTypeValue();
+    /**
+     * <code>.sfu.public.client.v1.SfuType sfu_type = 5;</code>
+     * @return The sfuType.
+     */
+    sfu.public.client.v1.Enums.SfuType getSfuType();
   }
   /**
    * Protobuf type {@code sfu.public.client.v1.ConnectPacket}
@@ -77,6 +88,7 @@ public final class Packets {
       sdpOffer_ = com.google.protobuf.ByteString.EMPTY;
       clientType_ = 0;
       protocolVersion_ = 0;
+      sfuType_ = 0;
     }
 
     @java.lang.Override
@@ -173,6 +185,24 @@ public final class Packets {
       return options_ == null ? sfu.public.client.v1.Entities.SfuConnectionOptions.getDefaultInstance() : options_;
     }
 
+    public static final int SFU_TYPE_FIELD_NUMBER = 5;
+    private int sfuType_ = 0;
+    /**
+     * <code>.sfu.public.client.v1.SfuType sfu_type = 5;</code>
+     * @return The enum numeric value on the wire for sfuType.
+     */
+    @java.lang.Override public int getSfuTypeValue() {
+      return sfuType_;
+    }
+    /**
+     * <code>.sfu.public.client.v1.SfuType sfu_type = 5;</code>
+     * @return The sfuType.
+     */
+    @java.lang.Override public sfu.public.client.v1.Enums.SfuType getSfuType() {
+      sfu.public.client.v1.Enums.SfuType result = sfu.public.client.v1.Enums.SfuType.forNumber(sfuType_);
+      return result == null ? sfu.public.client.v1.Enums.SfuType.UNRECOGNIZED : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -199,6 +229,9 @@ public final class Packets {
       if (((bitField0_ & 0x00000001) != 0)) {
         output.writeMessage(4, getOptions());
       }
+      if (sfuType_ != sfu.public.client.v1.Enums.SfuType.SfuTypeUnknown.getNumber()) {
+        output.writeEnum(5, sfuType_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -224,6 +257,10 @@ public final class Packets {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getOptions());
       }
+      if (sfuType_ != sfu.public.client.v1.Enums.SfuType.SfuTypeUnknown.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(5, sfuType_);
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
@@ -248,6 +285,7 @@ public final class Packets {
         if (!getOptions()
             .equals(other.getOptions())) return false;
       }
+      if (sfuType_ != other.sfuType_) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -269,6 +307,8 @@ public final class Packets {
         hash = (37 * hash) + OPTIONS_FIELD_NUMBER;
         hash = (53 * hash) + getOptions().hashCode();
       }
+      hash = (37 * hash) + SFU_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + sfuType_;
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -414,6 +454,7 @@ public final class Packets {
           optionsBuilder_.dispose();
           optionsBuilder_ = null;
         }
+        sfuType_ = 0;
         return this;
       }
 
@@ -462,6 +503,9 @@ public final class Packets {
               ? options_
               : optionsBuilder_.build();
           to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.sfuType_ = sfuType_;
         }
         result.bitField0_ |= to_bitField0_;
       }
@@ -522,6 +566,9 @@ public final class Packets {
         if (other.hasOptions()) {
           mergeOptions(other.getOptions());
         }
+        if (other.sfuType_ != 0) {
+          setSfuTypeValue(other.getSfuTypeValue());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -570,6 +617,11 @@ public final class Packets {
                 bitField0_ |= 0x00000008;
                 break;
               } // case 34
+              case 40: {
+                sfuType_ = input.readEnum();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -845,6 +897,59 @@ public final class Packets {
         }
         return optionsBuilder_;
       }
+
+      private int sfuType_ = 0;
+      /**
+       * <code>.sfu.public.client.v1.SfuType sfu_type = 5;</code>
+       * @return The enum numeric value on the wire for sfuType.
+       */
+      @java.lang.Override public int getSfuTypeValue() {
+        return sfuType_;
+      }
+      /**
+       * <code>.sfu.public.client.v1.SfuType sfu_type = 5;</code>
+       * @param value The enum numeric value on the wire for sfuType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSfuTypeValue(int value) {
+        sfuType_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.sfu.public.client.v1.SfuType sfu_type = 5;</code>
+       * @return The sfuType.
+       */
+      @java.lang.Override
+      public sfu.public.client.v1.Enums.SfuType getSfuType() {
+        sfu.public.client.v1.Enums.SfuType result = sfu.public.client.v1.Enums.SfuType.forNumber(sfuType_);
+        return result == null ? sfu.public.client.v1.Enums.SfuType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.sfu.public.client.v1.SfuType sfu_type = 5;</code>
+       * @param value The sfuType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSfuType(sfu.public.client.v1.Enums.SfuType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000010;
+        sfuType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.sfu.public.client.v1.SfuType sfu_type = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSfuType() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        sfuType_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -904,6 +1009,723 @@ public final class Packets {
 
     @java.lang.Override
     public sfu.public.client.v1.Packets.ConnectPacket getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface AddIceCandidatePacketOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:sfu.public.client.v1.AddIceCandidatePacket)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.sfu.public.server.v1.IceCandidate ice_candidate = 1;</code>
+     * @return Whether the iceCandidate field is set.
+     */
+    boolean hasIceCandidate();
+    /**
+     * <code>.sfu.public.server.v1.IceCandidate ice_candidate = 1;</code>
+     * @return The iceCandidate.
+     */
+    sfu.public.server.v1.Entities.IceCandidate getIceCandidate();
+    /**
+     * <code>.sfu.public.server.v1.IceCandidate ice_candidate = 1;</code>
+     */
+    sfu.public.server.v1.Entities.IceCandidateOrBuilder getIceCandidateOrBuilder();
+
+    /**
+     * <code>.sfu.public.client.v1.SfuType sfu_type = 2;</code>
+     * @return The enum numeric value on the wire for sfuType.
+     */
+    int getSfuTypeValue();
+    /**
+     * <code>.sfu.public.client.v1.SfuType sfu_type = 2;</code>
+     * @return The sfuType.
+     */
+    sfu.public.client.v1.Enums.SfuType getSfuType();
+  }
+  /**
+   * Protobuf type {@code sfu.public.client.v1.AddIceCandidatePacket}
+   */
+  public static final class AddIceCandidatePacket extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:sfu.public.client.v1.AddIceCandidatePacket)
+      AddIceCandidatePacketOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AddIceCandidatePacket.newBuilder() to construct.
+    private AddIceCandidatePacket(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AddIceCandidatePacket() {
+      sfuType_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AddIceCandidatePacket();
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return sfu.public.client.v1.Packets.internal_static_sfu_public_client_v1_AddIceCandidatePacket_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return sfu.public.client.v1.Packets.internal_static_sfu_public_client_v1_AddIceCandidatePacket_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              sfu.public.client.v1.Packets.AddIceCandidatePacket.class, sfu.public.client.v1.Packets.AddIceCandidatePacket.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int ICE_CANDIDATE_FIELD_NUMBER = 1;
+    private sfu.public.server.v1.Entities.IceCandidate iceCandidate_;
+    /**
+     * <code>.sfu.public.server.v1.IceCandidate ice_candidate = 1;</code>
+     * @return Whether the iceCandidate field is set.
+     */
+    @java.lang.Override
+    public boolean hasIceCandidate() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>.sfu.public.server.v1.IceCandidate ice_candidate = 1;</code>
+     * @return The iceCandidate.
+     */
+    @java.lang.Override
+    public sfu.public.server.v1.Entities.IceCandidate getIceCandidate() {
+      return iceCandidate_ == null ? sfu.public.server.v1.Entities.IceCandidate.getDefaultInstance() : iceCandidate_;
+    }
+    /**
+     * <code>.sfu.public.server.v1.IceCandidate ice_candidate = 1;</code>
+     */
+    @java.lang.Override
+    public sfu.public.server.v1.Entities.IceCandidateOrBuilder getIceCandidateOrBuilder() {
+      return iceCandidate_ == null ? sfu.public.server.v1.Entities.IceCandidate.getDefaultInstance() : iceCandidate_;
+    }
+
+    public static final int SFU_TYPE_FIELD_NUMBER = 2;
+    private int sfuType_ = 0;
+    /**
+     * <code>.sfu.public.client.v1.SfuType sfu_type = 2;</code>
+     * @return The enum numeric value on the wire for sfuType.
+     */
+    @java.lang.Override public int getSfuTypeValue() {
+      return sfuType_;
+    }
+    /**
+     * <code>.sfu.public.client.v1.SfuType sfu_type = 2;</code>
+     * @return The sfuType.
+     */
+    @java.lang.Override public sfu.public.client.v1.Enums.SfuType getSfuType() {
+      sfu.public.client.v1.Enums.SfuType result = sfu.public.client.v1.Enums.SfuType.forNumber(sfuType_);
+      return result == null ? sfu.public.client.v1.Enums.SfuType.UNRECOGNIZED : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeMessage(1, getIceCandidate());
+      }
+      if (sfuType_ != sfu.public.client.v1.Enums.SfuType.SfuTypeUnknown.getNumber()) {
+        output.writeEnum(2, sfuType_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getIceCandidate());
+      }
+      if (sfuType_ != sfu.public.client.v1.Enums.SfuType.SfuTypeUnknown.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(2, sfuType_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof sfu.public.client.v1.Packets.AddIceCandidatePacket)) {
+        return super.equals(obj);
+      }
+      sfu.public.client.v1.Packets.AddIceCandidatePacket other = (sfu.public.client.v1.Packets.AddIceCandidatePacket) obj;
+
+      if (hasIceCandidate() != other.hasIceCandidate()) return false;
+      if (hasIceCandidate()) {
+        if (!getIceCandidate()
+            .equals(other.getIceCandidate())) return false;
+      }
+      if (sfuType_ != other.sfuType_) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasIceCandidate()) {
+        hash = (37 * hash) + ICE_CANDIDATE_FIELD_NUMBER;
+        hash = (53 * hash) + getIceCandidate().hashCode();
+      }
+      hash = (37 * hash) + SFU_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + sfuType_;
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static sfu.public.client.v1.Packets.AddIceCandidatePacket parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static sfu.public.client.v1.Packets.AddIceCandidatePacket parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static sfu.public.client.v1.Packets.AddIceCandidatePacket parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static sfu.public.client.v1.Packets.AddIceCandidatePacket parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static sfu.public.client.v1.Packets.AddIceCandidatePacket parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static sfu.public.client.v1.Packets.AddIceCandidatePacket parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static sfu.public.client.v1.Packets.AddIceCandidatePacket parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static sfu.public.client.v1.Packets.AddIceCandidatePacket parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static sfu.public.client.v1.Packets.AddIceCandidatePacket parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static sfu.public.client.v1.Packets.AddIceCandidatePacket parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static sfu.public.client.v1.Packets.AddIceCandidatePacket parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static sfu.public.client.v1.Packets.AddIceCandidatePacket parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(sfu.public.client.v1.Packets.AddIceCandidatePacket prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code sfu.public.client.v1.AddIceCandidatePacket}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:sfu.public.client.v1.AddIceCandidatePacket)
+        sfu.public.client.v1.Packets.AddIceCandidatePacketOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return sfu.public.client.v1.Packets.internal_static_sfu_public_client_v1_AddIceCandidatePacket_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return sfu.public.client.v1.Packets.internal_static_sfu_public_client_v1_AddIceCandidatePacket_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                sfu.public.client.v1.Packets.AddIceCandidatePacket.class, sfu.public.client.v1.Packets.AddIceCandidatePacket.Builder.class);
+      }
+
+      // Construct using sfu.public.client.v1.Packets.AddIceCandidatePacket.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getIceCandidateFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        iceCandidate_ = null;
+        if (iceCandidateBuilder_ != null) {
+          iceCandidateBuilder_.dispose();
+          iceCandidateBuilder_ = null;
+        }
+        sfuType_ = 0;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return sfu.public.client.v1.Packets.internal_static_sfu_public_client_v1_AddIceCandidatePacket_descriptor;
+      }
+
+      @java.lang.Override
+      public sfu.public.client.v1.Packets.AddIceCandidatePacket getDefaultInstanceForType() {
+        return sfu.public.client.v1.Packets.AddIceCandidatePacket.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public sfu.public.client.v1.Packets.AddIceCandidatePacket build() {
+        sfu.public.client.v1.Packets.AddIceCandidatePacket result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public sfu.public.client.v1.Packets.AddIceCandidatePacket buildPartial() {
+        sfu.public.client.v1.Packets.AddIceCandidatePacket result = new sfu.public.client.v1.Packets.AddIceCandidatePacket(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(sfu.public.client.v1.Packets.AddIceCandidatePacket result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.iceCandidate_ = iceCandidateBuilder_ == null
+              ? iceCandidate_
+              : iceCandidateBuilder_.build();
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.sfuType_ = sfuType_;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof sfu.public.client.v1.Packets.AddIceCandidatePacket) {
+          return mergeFrom((sfu.public.client.v1.Packets.AddIceCandidatePacket)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(sfu.public.client.v1.Packets.AddIceCandidatePacket other) {
+        if (other == sfu.public.client.v1.Packets.AddIceCandidatePacket.getDefaultInstance()) return this;
+        if (other.hasIceCandidate()) {
+          mergeIceCandidate(other.getIceCandidate());
+        }
+        if (other.sfuType_ != 0) {
+          setSfuTypeValue(other.getSfuTypeValue());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getIceCandidateFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                sfuType_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private sfu.public.server.v1.Entities.IceCandidate iceCandidate_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          sfu.public.server.v1.Entities.IceCandidate, sfu.public.server.v1.Entities.IceCandidate.Builder, sfu.public.server.v1.Entities.IceCandidateOrBuilder> iceCandidateBuilder_;
+      /**
+       * <code>.sfu.public.server.v1.IceCandidate ice_candidate = 1;</code>
+       * @return Whether the iceCandidate field is set.
+       */
+      public boolean hasIceCandidate() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>.sfu.public.server.v1.IceCandidate ice_candidate = 1;</code>
+       * @return The iceCandidate.
+       */
+      public sfu.public.server.v1.Entities.IceCandidate getIceCandidate() {
+        if (iceCandidateBuilder_ == null) {
+          return iceCandidate_ == null ? sfu.public.server.v1.Entities.IceCandidate.getDefaultInstance() : iceCandidate_;
+        } else {
+          return iceCandidateBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.sfu.public.server.v1.IceCandidate ice_candidate = 1;</code>
+       */
+      public Builder setIceCandidate(sfu.public.server.v1.Entities.IceCandidate value) {
+        if (iceCandidateBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          iceCandidate_ = value;
+        } else {
+          iceCandidateBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.sfu.public.server.v1.IceCandidate ice_candidate = 1;</code>
+       */
+      public Builder setIceCandidate(
+          sfu.public.server.v1.Entities.IceCandidate.Builder builderForValue) {
+        if (iceCandidateBuilder_ == null) {
+          iceCandidate_ = builderForValue.build();
+        } else {
+          iceCandidateBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.sfu.public.server.v1.IceCandidate ice_candidate = 1;</code>
+       */
+      public Builder mergeIceCandidate(sfu.public.server.v1.Entities.IceCandidate value) {
+        if (iceCandidateBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0) &&
+            iceCandidate_ != null &&
+            iceCandidate_ != sfu.public.server.v1.Entities.IceCandidate.getDefaultInstance()) {
+            getIceCandidateBuilder().mergeFrom(value);
+          } else {
+            iceCandidate_ = value;
+          }
+        } else {
+          iceCandidateBuilder_.mergeFrom(value);
+        }
+        if (iceCandidate_ != null) {
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        return this;
+      }
+      /**
+       * <code>.sfu.public.server.v1.IceCandidate ice_candidate = 1;</code>
+       */
+      public Builder clearIceCandidate() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        iceCandidate_ = null;
+        if (iceCandidateBuilder_ != null) {
+          iceCandidateBuilder_.dispose();
+          iceCandidateBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.sfu.public.server.v1.IceCandidate ice_candidate = 1;</code>
+       */
+      public sfu.public.server.v1.Entities.IceCandidate.Builder getIceCandidateBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getIceCandidateFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.sfu.public.server.v1.IceCandidate ice_candidate = 1;</code>
+       */
+      public sfu.public.server.v1.Entities.IceCandidateOrBuilder getIceCandidateOrBuilder() {
+        if (iceCandidateBuilder_ != null) {
+          return iceCandidateBuilder_.getMessageOrBuilder();
+        } else {
+          return iceCandidate_ == null ?
+              sfu.public.server.v1.Entities.IceCandidate.getDefaultInstance() : iceCandidate_;
+        }
+      }
+      /**
+       * <code>.sfu.public.server.v1.IceCandidate ice_candidate = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          sfu.public.server.v1.Entities.IceCandidate, sfu.public.server.v1.Entities.IceCandidate.Builder, sfu.public.server.v1.Entities.IceCandidateOrBuilder> 
+          getIceCandidateFieldBuilder() {
+        if (iceCandidateBuilder_ == null) {
+          iceCandidateBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              sfu.public.server.v1.Entities.IceCandidate, sfu.public.server.v1.Entities.IceCandidate.Builder, sfu.public.server.v1.Entities.IceCandidateOrBuilder>(
+                  getIceCandidate(),
+                  getParentForChildren(),
+                  isClean());
+          iceCandidate_ = null;
+        }
+        return iceCandidateBuilder_;
+      }
+
+      private int sfuType_ = 0;
+      /**
+       * <code>.sfu.public.client.v1.SfuType sfu_type = 2;</code>
+       * @return The enum numeric value on the wire for sfuType.
+       */
+      @java.lang.Override public int getSfuTypeValue() {
+        return sfuType_;
+      }
+      /**
+       * <code>.sfu.public.client.v1.SfuType sfu_type = 2;</code>
+       * @param value The enum numeric value on the wire for sfuType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSfuTypeValue(int value) {
+        sfuType_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.sfu.public.client.v1.SfuType sfu_type = 2;</code>
+       * @return The sfuType.
+       */
+      @java.lang.Override
+      public sfu.public.client.v1.Enums.SfuType getSfuType() {
+        sfu.public.client.v1.Enums.SfuType result = sfu.public.client.v1.Enums.SfuType.forNumber(sfuType_);
+        return result == null ? sfu.public.client.v1.Enums.SfuType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.sfu.public.client.v1.SfuType sfu_type = 2;</code>
+       * @param value The sfuType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSfuType(sfu.public.client.v1.Enums.SfuType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
+        sfuType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.sfu.public.client.v1.SfuType sfu_type = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSfuType() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        sfuType_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:sfu.public.client.v1.AddIceCandidatePacket)
+    }
+
+    // @@protoc_insertion_point(class_scope:sfu.public.client.v1.AddIceCandidatePacket)
+    private static final sfu.public.client.v1.Packets.AddIceCandidatePacket DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new sfu.public.client.v1.Packets.AddIceCandidatePacket();
+    }
+
+    public static sfu.public.client.v1.Packets.AddIceCandidatePacket getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<AddIceCandidatePacket>
+        PARSER = new com.google.protobuf.AbstractParser<AddIceCandidatePacket>() {
+      @java.lang.Override
+      public AddIceCandidatePacket parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<AddIceCandidatePacket> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AddIceCandidatePacket> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public sfu.public.client.v1.Packets.AddIceCandidatePacket getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -4750,43 +5572,43 @@ public final class Packets {
 
   }
 
-  public interface ActiveStreamsRequestPacketOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:sfu.public.client.v1.ActiveStreamsRequestPacket)
+  public interface ActiveStreamsPacketOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:sfu.public.client.v1.ActiveStreamsPacket)
       com.google.protobuf.MessageOrBuilder {
   }
   /**
-   * Protobuf type {@code sfu.public.client.v1.ActiveStreamsRequestPacket}
+   * Protobuf type {@code sfu.public.client.v1.ActiveStreamsPacket}
    */
-  public static final class ActiveStreamsRequestPacket extends
+  public static final class ActiveStreamsPacket extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:sfu.public.client.v1.ActiveStreamsRequestPacket)
-      ActiveStreamsRequestPacketOrBuilder {
+      // @@protoc_insertion_point(message_implements:sfu.public.client.v1.ActiveStreamsPacket)
+      ActiveStreamsPacketOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use ActiveStreamsRequestPacket.newBuilder() to construct.
-    private ActiveStreamsRequestPacket(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use ActiveStreamsPacket.newBuilder() to construct.
+    private ActiveStreamsPacket(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private ActiveStreamsRequestPacket() {
+    private ActiveStreamsPacket() {
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new ActiveStreamsRequestPacket();
+      return new ActiveStreamsPacket();
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return sfu.public.client.v1.Packets.internal_static_sfu_public_client_v1_ActiveStreamsRequestPacket_descriptor;
+      return sfu.public.client.v1.Packets.internal_static_sfu_public_client_v1_ActiveStreamsPacket_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return sfu.public.client.v1.Packets.internal_static_sfu_public_client_v1_ActiveStreamsRequestPacket_fieldAccessorTable
+      return sfu.public.client.v1.Packets.internal_static_sfu_public_client_v1_ActiveStreamsPacket_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              sfu.public.client.v1.Packets.ActiveStreamsRequestPacket.class, sfu.public.client.v1.Packets.ActiveStreamsRequestPacket.Builder.class);
+              sfu.public.client.v1.Packets.ActiveStreamsPacket.class, sfu.public.client.v1.Packets.ActiveStreamsPacket.Builder.class);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4822,10 +5644,10 @@ public final class Packets {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof sfu.public.client.v1.Packets.ActiveStreamsRequestPacket)) {
+      if (!(obj instanceof sfu.public.client.v1.Packets.ActiveStreamsPacket)) {
         return super.equals(obj);
       }
-      sfu.public.client.v1.Packets.ActiveStreamsRequestPacket other = (sfu.public.client.v1.Packets.ActiveStreamsRequestPacket) obj;
+      sfu.public.client.v1.Packets.ActiveStreamsPacket other = (sfu.public.client.v1.Packets.ActiveStreamsPacket) obj;
 
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
@@ -4843,44 +5665,44 @@ public final class Packets {
       return hash;
     }
 
-    public static sfu.public.client.v1.Packets.ActiveStreamsRequestPacket parseFrom(
+    public static sfu.public.client.v1.Packets.ActiveStreamsPacket parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static sfu.public.client.v1.Packets.ActiveStreamsRequestPacket parseFrom(
+    public static sfu.public.client.v1.Packets.ActiveStreamsPacket parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static sfu.public.client.v1.Packets.ActiveStreamsRequestPacket parseFrom(
+    public static sfu.public.client.v1.Packets.ActiveStreamsPacket parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static sfu.public.client.v1.Packets.ActiveStreamsRequestPacket parseFrom(
+    public static sfu.public.client.v1.Packets.ActiveStreamsPacket parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static sfu.public.client.v1.Packets.ActiveStreamsRequestPacket parseFrom(byte[] data)
+    public static sfu.public.client.v1.Packets.ActiveStreamsPacket parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static sfu.public.client.v1.Packets.ActiveStreamsRequestPacket parseFrom(
+    public static sfu.public.client.v1.Packets.ActiveStreamsPacket parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static sfu.public.client.v1.Packets.ActiveStreamsRequestPacket parseFrom(java.io.InputStream input)
+    public static sfu.public.client.v1.Packets.ActiveStreamsPacket parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static sfu.public.client.v1.Packets.ActiveStreamsRequestPacket parseFrom(
+    public static sfu.public.client.v1.Packets.ActiveStreamsPacket parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -4888,26 +5710,26 @@ public final class Packets {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static sfu.public.client.v1.Packets.ActiveStreamsRequestPacket parseDelimitedFrom(java.io.InputStream input)
+    public static sfu.public.client.v1.Packets.ActiveStreamsPacket parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
 
-    public static sfu.public.client.v1.Packets.ActiveStreamsRequestPacket parseDelimitedFrom(
+    public static sfu.public.client.v1.Packets.ActiveStreamsPacket parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static sfu.public.client.v1.Packets.ActiveStreamsRequestPacket parseFrom(
+    public static sfu.public.client.v1.Packets.ActiveStreamsPacket parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static sfu.public.client.v1.Packets.ActiveStreamsRequestPacket parseFrom(
+    public static sfu.public.client.v1.Packets.ActiveStreamsPacket parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -4920,7 +5742,7 @@ public final class Packets {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(sfu.public.client.v1.Packets.ActiveStreamsRequestPacket prototype) {
+    public static Builder newBuilder(sfu.public.client.v1.Packets.ActiveStreamsPacket prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -4936,26 +5758,26 @@ public final class Packets {
       return builder;
     }
     /**
-     * Protobuf type {@code sfu.public.client.v1.ActiveStreamsRequestPacket}
+     * Protobuf type {@code sfu.public.client.v1.ActiveStreamsPacket}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:sfu.public.client.v1.ActiveStreamsRequestPacket)
-        sfu.public.client.v1.Packets.ActiveStreamsRequestPacketOrBuilder {
+        // @@protoc_insertion_point(builder_implements:sfu.public.client.v1.ActiveStreamsPacket)
+        sfu.public.client.v1.Packets.ActiveStreamsPacketOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return sfu.public.client.v1.Packets.internal_static_sfu_public_client_v1_ActiveStreamsRequestPacket_descriptor;
+        return sfu.public.client.v1.Packets.internal_static_sfu_public_client_v1_ActiveStreamsPacket_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return sfu.public.client.v1.Packets.internal_static_sfu_public_client_v1_ActiveStreamsRequestPacket_fieldAccessorTable
+        return sfu.public.client.v1.Packets.internal_static_sfu_public_client_v1_ActiveStreamsPacket_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                sfu.public.client.v1.Packets.ActiveStreamsRequestPacket.class, sfu.public.client.v1.Packets.ActiveStreamsRequestPacket.Builder.class);
+                sfu.public.client.v1.Packets.ActiveStreamsPacket.class, sfu.public.client.v1.Packets.ActiveStreamsPacket.Builder.class);
       }
 
-      // Construct using sfu.public.client.v1.Packets.ActiveStreamsRequestPacket.newBuilder()
+      // Construct using sfu.public.client.v1.Packets.ActiveStreamsPacket.newBuilder()
       private Builder() {
 
       }
@@ -4974,17 +5796,17 @@ public final class Packets {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return sfu.public.client.v1.Packets.internal_static_sfu_public_client_v1_ActiveStreamsRequestPacket_descriptor;
+        return sfu.public.client.v1.Packets.internal_static_sfu_public_client_v1_ActiveStreamsPacket_descriptor;
       }
 
       @java.lang.Override
-      public sfu.public.client.v1.Packets.ActiveStreamsRequestPacket getDefaultInstanceForType() {
-        return sfu.public.client.v1.Packets.ActiveStreamsRequestPacket.getDefaultInstance();
+      public sfu.public.client.v1.Packets.ActiveStreamsPacket getDefaultInstanceForType() {
+        return sfu.public.client.v1.Packets.ActiveStreamsPacket.getDefaultInstance();
       }
 
       @java.lang.Override
-      public sfu.public.client.v1.Packets.ActiveStreamsRequestPacket build() {
-        sfu.public.client.v1.Packets.ActiveStreamsRequestPacket result = buildPartial();
+      public sfu.public.client.v1.Packets.ActiveStreamsPacket build() {
+        sfu.public.client.v1.Packets.ActiveStreamsPacket result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -4992,8 +5814,8 @@ public final class Packets {
       }
 
       @java.lang.Override
-      public sfu.public.client.v1.Packets.ActiveStreamsRequestPacket buildPartial() {
-        sfu.public.client.v1.Packets.ActiveStreamsRequestPacket result = new sfu.public.client.v1.Packets.ActiveStreamsRequestPacket(this);
+      public sfu.public.client.v1.Packets.ActiveStreamsPacket buildPartial() {
+        sfu.public.client.v1.Packets.ActiveStreamsPacket result = new sfu.public.client.v1.Packets.ActiveStreamsPacket(this);
         onBuilt();
         return result;
       }
@@ -5032,16 +5854,16 @@ public final class Packets {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof sfu.public.client.v1.Packets.ActiveStreamsRequestPacket) {
-          return mergeFrom((sfu.public.client.v1.Packets.ActiveStreamsRequestPacket)other);
+        if (other instanceof sfu.public.client.v1.Packets.ActiveStreamsPacket) {
+          return mergeFrom((sfu.public.client.v1.Packets.ActiveStreamsPacket)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(sfu.public.client.v1.Packets.ActiveStreamsRequestPacket other) {
-        if (other == sfu.public.client.v1.Packets.ActiveStreamsRequestPacket.getDefaultInstance()) return this;
+      public Builder mergeFrom(sfu.public.client.v1.Packets.ActiveStreamsPacket other) {
+        if (other == sfu.public.client.v1.Packets.ActiveStreamsPacket.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -5096,23 +5918,23 @@ public final class Packets {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:sfu.public.client.v1.ActiveStreamsRequestPacket)
+      // @@protoc_insertion_point(builder_scope:sfu.public.client.v1.ActiveStreamsPacket)
     }
 
-    // @@protoc_insertion_point(class_scope:sfu.public.client.v1.ActiveStreamsRequestPacket)
-    private static final sfu.public.client.v1.Packets.ActiveStreamsRequestPacket DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:sfu.public.client.v1.ActiveStreamsPacket)
+    private static final sfu.public.client.v1.Packets.ActiveStreamsPacket DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new sfu.public.client.v1.Packets.ActiveStreamsRequestPacket();
+      DEFAULT_INSTANCE = new sfu.public.client.v1.Packets.ActiveStreamsPacket();
     }
 
-    public static sfu.public.client.v1.Packets.ActiveStreamsRequestPacket getDefaultInstance() {
+    public static sfu.public.client.v1.Packets.ActiveStreamsPacket getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<ActiveStreamsRequestPacket>
-        PARSER = new com.google.protobuf.AbstractParser<ActiveStreamsRequestPacket>() {
+    private static final com.google.protobuf.Parser<ActiveStreamsPacket>
+        PARSER = new com.google.protobuf.AbstractParser<ActiveStreamsPacket>() {
       @java.lang.Override
-      public ActiveStreamsRequestPacket parsePartialFrom(
+      public ActiveStreamsPacket parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
@@ -5131,17 +5953,17 @@ public final class Packets {
       }
     };
 
-    public static com.google.protobuf.Parser<ActiveStreamsRequestPacket> parser() {
+    public static com.google.protobuf.Parser<ActiveStreamsPacket> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ActiveStreamsRequestPacket> getParserForType() {
+    public com.google.protobuf.Parser<ActiveStreamsPacket> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public sfu.public.client.v1.Packets.ActiveStreamsRequestPacket getDefaultInstanceForType() {
+    public sfu.public.client.v1.Packets.ActiveStreamsPacket getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -5630,6 +6452,11 @@ public final class Packets {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_sfu_public_client_v1_ConnectPacket_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sfu_public_client_v1_AddIceCandidatePacket_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sfu_public_client_v1_AddIceCandidatePacket_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_sfu_public_client_v1_Packet_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -5655,10 +6482,10 @@ public final class Packets {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_sfu_public_client_v1_MCUTestPacket_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sfu_public_client_v1_ActiveStreamsRequestPacket_descriptor;
+    internal_static_sfu_public_client_v1_ActiveStreamsPacket_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sfu_public_client_v1_ActiveStreamsRequestPacket_fieldAccessorTable;
+      internal_static_sfu_public_client_v1_ActiveStreamsPacket_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_sfu_public_client_v1_PongPacket_descriptor;
   private static final 
@@ -5678,26 +6505,31 @@ public final class Packets {
       "/options/annotations.proto\032 sfu/public/c" +
       "lient/v1/enums.proto\032#sfu/public/client/" +
       "v1/entities.proto\032#sfu/public/server/v1/" +
-      "entities.proto\"\327\001\n\rConnectPacket\022\021\n\tsdp_" +
+      "entities.proto\"\210\002\n\rConnectPacket\022\021\n\tsdp_" +
       "offer\030\001 \001(\014\0225\n\013client_type\030\002 \001(\0162 .sfu.p" +
       "ublic.client.v1.ClientType\022?\n\020protocol_v" +
       "ersion\030\003 \001(\0162%.sfu.public.client.v1.Prot" +
       "ocolVersion\022;\n\007options\030\004 \001(\0132*.sfu.publi" +
-      "c.client.v1.SfuConnectionOptions\"D\n\006Pack" +
-      "et\022,\n\006action\030\001 \001(\0162\034.sfu.public.client.v" +
-      "1.Action\022\014\n\004data\030\002 \001(\014\"\212\001\n\023StreamsToggle" +
-      "Packet\0228\n\016enable_streams\030\001 \003(\0132 .sfu.pub" +
-      "lic.server.v1.StreamInfo\0229\n\017disable_stre" +
-      "ams\030\002 \003(\0132 .sfu.public.server.v1.StreamI" +
-      "nfo\"\226\001\n\rStreamsPacket\0226\n\014add_requests\030\001 " +
-      "\003(\0132 .sfu.public.server.v1.StreamInfo\022:\n" +
-      "\020removal_requests\030\002 \003(\0132 .sfu.public.ser" +
-      "ver.v1.StreamInfo\022\021\n\tsdp_offer\030\003 \001(\014\"\022\n\020" +
-      "DisconnectPacket\"%\n\rMCUTestPacket\022\024\n\014res" +
-      "etEncoder\030\001 \001(\010\"\034\n\032ActiveStreamsRequestP" +
-      "acket\"&\n\nPongPacket\022\030\n\020server_timestamp\030" +
-      "\001 \001(\003B@Z;gitlab.com/evemeta/zdk/pb/out/g" +
-      "o/sfu/public/client/v1;sfupb\222A\000b\006proto3"
+      "c.client.v1.SfuConnectionOptions\022/\n\010sfu_" +
+      "type\030\005 \001(\0162\035.sfu.public.client.v1.SfuTyp" +
+      "e\"\203\001\n\025AddIceCandidatePacket\0229\n\rice_candi" +
+      "date\030\001 \001(\0132\".sfu.public.server.v1.IceCan" +
+      "didate\022/\n\010sfu_type\030\002 \001(\0162\035.sfu.public.cl" +
+      "ient.v1.SfuType\"D\n\006Packet\022,\n\006action\030\001 \001(" +
+      "\0162\034.sfu.public.client.v1.Action\022\014\n\004data\030" +
+      "\002 \001(\014\"\212\001\n\023StreamsTogglePacket\0228\n\016enable_" +
+      "streams\030\001 \003(\0132 .sfu.public.server.v1.Str" +
+      "eamInfo\0229\n\017disable_streams\030\002 \003(\0132 .sfu.p" +
+      "ublic.server.v1.StreamInfo\"\226\001\n\rStreamsPa" +
+      "cket\0226\n\014add_requests\030\001 \003(\0132 .sfu.public." +
+      "server.v1.StreamInfo\022:\n\020removal_requests" +
+      "\030\002 \003(\0132 .sfu.public.server.v1.StreamInfo" +
+      "\022\021\n\tsdp_offer\030\003 \001(\014\"\022\n\020DisconnectPacket\"" +
+      "%\n\rMCUTestPacket\022\024\n\014resetEncoder\030\001 \001(\010\"\025" +
+      "\n\023ActiveStreamsPacket\"&\n\nPongPacket\022\030\n\020s" +
+      "erver_timestamp\030\001 \001(\003B@Z;gitlab.com/evem" +
+      "eta/zdk/pb/out/go/sfu/public/client/v1;s" +
+      "fupb\222A\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -5712,45 +6544,51 @@ public final class Packets {
     internal_static_sfu_public_client_v1_ConnectPacket_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sfu_public_client_v1_ConnectPacket_descriptor,
-        new java.lang.String[] { "SdpOffer", "ClientType", "ProtocolVersion", "Options", });
-    internal_static_sfu_public_client_v1_Packet_descriptor =
+        new java.lang.String[] { "SdpOffer", "ClientType", "ProtocolVersion", "Options", "SfuType", });
+    internal_static_sfu_public_client_v1_AddIceCandidatePacket_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_sfu_public_client_v1_AddIceCandidatePacket_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sfu_public_client_v1_AddIceCandidatePacket_descriptor,
+        new java.lang.String[] { "IceCandidate", "SfuType", });
+    internal_static_sfu_public_client_v1_Packet_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_sfu_public_client_v1_Packet_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sfu_public_client_v1_Packet_descriptor,
         new java.lang.String[] { "Action", "Data", });
     internal_static_sfu_public_client_v1_StreamsTogglePacket_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_sfu_public_client_v1_StreamsTogglePacket_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sfu_public_client_v1_StreamsTogglePacket_descriptor,
         new java.lang.String[] { "EnableStreams", "DisableStreams", });
     internal_static_sfu_public_client_v1_StreamsPacket_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_sfu_public_client_v1_StreamsPacket_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sfu_public_client_v1_StreamsPacket_descriptor,
         new java.lang.String[] { "AddRequests", "RemovalRequests", "SdpOffer", });
     internal_static_sfu_public_client_v1_DisconnectPacket_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_sfu_public_client_v1_DisconnectPacket_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sfu_public_client_v1_DisconnectPacket_descriptor,
         new java.lang.String[] { });
     internal_static_sfu_public_client_v1_MCUTestPacket_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_sfu_public_client_v1_MCUTestPacket_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sfu_public_client_v1_MCUTestPacket_descriptor,
         new java.lang.String[] { "ResetEncoder", });
-    internal_static_sfu_public_client_v1_ActiveStreamsRequestPacket_descriptor =
-      getDescriptor().getMessageTypes().get(6);
-    internal_static_sfu_public_client_v1_ActiveStreamsRequestPacket_fieldAccessorTable = new
+    internal_static_sfu_public_client_v1_ActiveStreamsPacket_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_sfu_public_client_v1_ActiveStreamsPacket_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sfu_public_client_v1_ActiveStreamsRequestPacket_descriptor,
+        internal_static_sfu_public_client_v1_ActiveStreamsPacket_descriptor,
         new java.lang.String[] { });
     internal_static_sfu_public_client_v1_PongPacket_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_sfu_public_client_v1_PongPacket_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sfu_public_client_v1_PongPacket_descriptor,

@@ -13,6 +13,8 @@ import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
 import { StreamInfo } from "../../server/v1/entities";
 import { Action } from "./enums";
+import { IceCandidate } from "../../server/v1/entities";
+import { SfuType } from "./enums";
 import { SfuConnectionOptions } from "./entities";
 import { ProtocolVersion } from "./enums";
 import { ClientType } from "./enums";
@@ -38,6 +40,23 @@ export interface ConnectPacket {
      * @generated from protobuf field: sfu.public.client.v1.SfuConnectionOptions options = 4;
      */
     options?: SfuConnectionOptions;
+    /**
+     * @generated from protobuf field: sfu.public.client.v1.SfuType sfu_type = 5;
+     */
+    sfuType: SfuType;
+}
+/**
+ * @generated from protobuf message sfu.public.client.v1.AddIceCandidatePacket
+ */
+export interface AddIceCandidatePacket {
+    /**
+     * @generated from protobuf field: sfu.public.server.v1.IceCandidate ice_candidate = 1;
+     */
+    iceCandidate?: IceCandidate;
+    /**
+     * @generated from protobuf field: sfu.public.client.v1.SfuType sfu_type = 2;
+     */
+    sfuType: SfuType;
 }
 // SFU Packets
 
@@ -99,9 +118,9 @@ export interface MCUTestPacket {
     resetEncoder: boolean;
 }
 /**
- * @generated from protobuf message sfu.public.client.v1.ActiveStreamsRequestPacket
+ * @generated from protobuf message sfu.public.client.v1.ActiveStreamsPacket
  */
-export interface ActiveStreamsRequestPacket {
+export interface ActiveStreamsPacket {
 }
 /**
  * @generated from protobuf message sfu.public.client.v1.PongPacket
@@ -119,11 +138,12 @@ class ConnectPacket$Type extends MessageType<ConnectPacket> {
             { no: 1, name: "sdp_offer", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
             { no: 2, name: "client_type", kind: "enum", T: () => ["sfu.public.client.v1.ClientType", ClientType] },
             { no: 3, name: "protocol_version", kind: "enum", T: () => ["sfu.public.client.v1.ProtocolVersion", ProtocolVersion] },
-            { no: 4, name: "options", kind: "message", T: () => SfuConnectionOptions }
+            { no: 4, name: "options", kind: "message", T: () => SfuConnectionOptions },
+            { no: 5, name: "sfu_type", kind: "enum", T: () => ["sfu.public.client.v1.SfuType", SfuType] }
         ]);
     }
     create(value?: PartialMessage<ConnectPacket>): ConnectPacket {
-        const message = { sdpOffer: new Uint8Array(0), clientType: 0, protocolVersion: 0 };
+        const message = { sdpOffer: new Uint8Array(0), clientType: 0, protocolVersion: 0, sfuType: 0 };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<ConnectPacket>(this, message, value);
@@ -145,6 +165,9 @@ class ConnectPacket$Type extends MessageType<ConnectPacket> {
                     break;
                 case /* sfu.public.client.v1.SfuConnectionOptions options */ 4:
                     message.options = SfuConnectionOptions.internalBinaryRead(reader, reader.uint32(), options, message.options);
+                    break;
+                case /* sfu.public.client.v1.SfuType sfu_type */ 5:
+                    message.sfuType = reader.int32();
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -170,6 +193,9 @@ class ConnectPacket$Type extends MessageType<ConnectPacket> {
         /* sfu.public.client.v1.SfuConnectionOptions options = 4; */
         if (message.options)
             SfuConnectionOptions.internalBinaryWrite(message.options, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
+        /* sfu.public.client.v1.SfuType sfu_type = 5; */
+        if (message.sfuType !== 0)
+            writer.tag(5, WireType.Varint).int32(message.sfuType);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -180,6 +206,60 @@ class ConnectPacket$Type extends MessageType<ConnectPacket> {
  * @generated MessageType for protobuf message sfu.public.client.v1.ConnectPacket
  */
 export const ConnectPacket = new ConnectPacket$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class AddIceCandidatePacket$Type extends MessageType<AddIceCandidatePacket> {
+    constructor() {
+        super("sfu.public.client.v1.AddIceCandidatePacket", [
+            { no: 1, name: "ice_candidate", kind: "message", T: () => IceCandidate },
+            { no: 2, name: "sfu_type", kind: "enum", T: () => ["sfu.public.client.v1.SfuType", SfuType] }
+        ]);
+    }
+    create(value?: PartialMessage<AddIceCandidatePacket>): AddIceCandidatePacket {
+        const message = { sfuType: 0 };
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<AddIceCandidatePacket>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: AddIceCandidatePacket): AddIceCandidatePacket {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* sfu.public.server.v1.IceCandidate ice_candidate */ 1:
+                    message.iceCandidate = IceCandidate.internalBinaryRead(reader, reader.uint32(), options, message.iceCandidate);
+                    break;
+                case /* sfu.public.client.v1.SfuType sfu_type */ 2:
+                    message.sfuType = reader.int32();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: AddIceCandidatePacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* sfu.public.server.v1.IceCandidate ice_candidate = 1; */
+        if (message.iceCandidate)
+            IceCandidate.internalBinaryWrite(message.iceCandidate, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
+        /* sfu.public.client.v1.SfuType sfu_type = 2; */
+        if (message.sfuType !== 0)
+            writer.tag(2, WireType.Varint).int32(message.sfuType);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message sfu.public.client.v1.AddIceCandidatePacket
+ */
+export const AddIceCandidatePacket = new AddIceCandidatePacket$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class Packet$Type extends MessageType<Packet> {
     constructor() {
@@ -423,21 +503,21 @@ class MCUTestPacket$Type extends MessageType<MCUTestPacket> {
  */
 export const MCUTestPacket = new MCUTestPacket$Type();
 // @generated message type with reflection information, may provide speed optimized methods
-class ActiveStreamsRequestPacket$Type extends MessageType<ActiveStreamsRequestPacket> {
+class ActiveStreamsPacket$Type extends MessageType<ActiveStreamsPacket> {
     constructor() {
-        super("sfu.public.client.v1.ActiveStreamsRequestPacket", []);
+        super("sfu.public.client.v1.ActiveStreamsPacket", []);
     }
-    create(value?: PartialMessage<ActiveStreamsRequestPacket>): ActiveStreamsRequestPacket {
+    create(value?: PartialMessage<ActiveStreamsPacket>): ActiveStreamsPacket {
         const message = {};
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
-            reflectionMergePartial<ActiveStreamsRequestPacket>(this, message, value);
+            reflectionMergePartial<ActiveStreamsPacket>(this, message, value);
         return message;
     }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ActiveStreamsRequestPacket): ActiveStreamsRequestPacket {
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ActiveStreamsPacket): ActiveStreamsPacket {
         return target ?? this.create();
     }
-    internalBinaryWrite(message: ActiveStreamsRequestPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+    internalBinaryWrite(message: ActiveStreamsPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -445,9 +525,9 @@ class ActiveStreamsRequestPacket$Type extends MessageType<ActiveStreamsRequestPa
     }
 }
 /**
- * @generated MessageType for protobuf message sfu.public.client.v1.ActiveStreamsRequestPacket
+ * @generated MessageType for protobuf message sfu.public.client.v1.ActiveStreamsPacket
  */
-export const ActiveStreamsRequestPacket = new ActiveStreamsRequestPacket$Type();
+export const ActiveStreamsPacket = new ActiveStreamsPacket$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class PongPacket$Type extends MessageType<PongPacket> {
     constructor() {
