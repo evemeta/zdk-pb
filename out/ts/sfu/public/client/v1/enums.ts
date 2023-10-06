@@ -6,9 +6,9 @@
  */
 export enum ProtocolVersion {
     /**
-     * @generated from protobuf enum value: Unknown = 0;
+     * @generated from protobuf enum value: ProtocolVersionUnknown = 0;
      */
-    Unknown = 0,
+    ProtocolVersionUnknown = 0,
     /**
      * @generated from protobuf enum value: ProtocolVersion1_1_0 = 1;
      */
@@ -19,45 +19,45 @@ export enum ProtocolVersion {
  */
 export enum ClientType {
     /**
-     * @generated from protobuf enum value: Unknown = 0;
+     * @generated from protobuf enum value: ClientTypeUnknown = 0;
      */
-    Unknown = 0,
+    ClientTypeUnknown = 0,
     /**
-     * @generated from protobuf enum value: Chromium = 1;
+     * @generated from protobuf enum value: ClientTypeChromium = 1;
      */
-    Chromium = 1,
+    ClientTypeChromium = 1,
     /**
-     * @generated from protobuf enum value: MobileChromium = 9;
+     * @generated from protobuf enum value: ClientTypeMobileChromium = 9;
      */
-    MobileChromium = 9,
+    ClientTypeMobileChromium = 9,
     /**
-     * @generated from protobuf enum value: Firefox = 2;
+     * @generated from protobuf enum value: ClientTypeFirefox = 2;
      */
-    Firefox = 2,
+    ClientTypeFirefox = 2,
     /**
-     * @generated from protobuf enum value: MobileFirefox = 10;
+     * @generated from protobuf enum value: ClientTypeMobileFirefox = 10;
      */
-    MobileFirefox = 10,
+    ClientTypeMobileFirefox = 10,
     /**
-     * @generated from protobuf enum value: Safari = 3;
+     * @generated from protobuf enum value: ClientTypeSafari = 3;
      */
-    Safari = 3,
+    ClientTypeSafari = 3,
     /**
-     * @generated from protobuf enum value: MobileSafari = 11;
+     * @generated from protobuf enum value: ClientTypeMobileSafari = 11;
      */
-    MobileSafari = 11,
+    ClientTypeMobileSafari = 11,
     /**
-     * @generated from protobuf enum value: MobileEdge = 12;
+     * @generated from protobuf enum value: ClientTypeMobileEdge = 12;
      */
-    MobileEdge = 12,
+    ClientTypeMobileEdge = 12,
     /**
-     * @generated from protobuf enum value: Edge = 13;
+     * @generated from protobuf enum value: ClientTypeEdge = 13;
      */
-    Edge = 13,
+    ClientTypeEdge = 13,
     /**
-     * @generated from protobuf enum value: Windows = 4;
+     * @generated from protobuf enum value: ClientTypeWindows = 4;
      */
-    Windows = 4,
+    ClientTypeWindows = 4,
     /**
      * @generated from protobuf enum value: ClientTypemacOS = 5;
      */
@@ -67,7 +67,7 @@ export enum ClientType {
      */
     ClientTypeiOS = 7,
     /**
-     * @generated from protobuf enum value: Android = 8;
+     * @generated from protobuf enum value: ClientTypeAndroid = 8;
      */
-    Android = 8
+    ClientTypeAndroid = 8
 }

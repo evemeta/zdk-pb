@@ -6,135 +6,135 @@
  */
 export enum ConferenceMode {
     /**
-     * @generated from protobuf enum value: Unknown = 0;
+     * @generated from protobuf enum value: ConferenceModeUnknown = 0;
      */
-    Unknown = 0,
+    ConferenceModeUnknown = 0,
     /**
-     * @generated from protobuf enum value: Sfu = 1;
+     * @generated from protobuf enum value: ConferenceModeSfu = 1;
      */
-    Sfu = 1,
+    ConferenceModeSfu = 1,
     /**
-     * @generated from protobuf enum value: Hybrid = 2;
+     * @generated from protobuf enum value: ConferenceModeHybrid = 2;
      */
-    Hybrid = 2
+    ConferenceModeHybrid = 2
 }
 /**
  * @generated from protobuf enum sfu.public.server.v1.Codec
  */
 export enum Codec {
     /**
-     * @generated from protobuf enum value: Unknown = 0;
+     * @generated from protobuf enum value: CodecUnknown = 0;
      */
-    Unknown = 0,
+    CodecUnknown = 0,
     /**
-     * @generated from protobuf enum value: H264 = 1;
+     * @generated from protobuf enum value: CodecH264 = 1;
      */
-    H264 = 1,
+    CodecH264 = 1,
     /**
-     * @generated from protobuf enum value: VP8 = 2;
+     * @generated from protobuf enum value: CodecVP8 = 2;
      */
-    VP8 = 2,
+    CodecVP8 = 2,
     /**
-     * @generated from protobuf enum value: VP9 = 3;
+     * @generated from protobuf enum value: CodecVP9 = 3;
      */
-    VP9 = 3,
+    CodecVP9 = 3,
     /**
-     * @generated from protobuf enum value: H265 = 4;
+     * @generated from protobuf enum value: CodecH265 = 4;
      */
-    H265 = 4,
+    CodecH265 = 4,
     /**
-     * @generated from protobuf enum value: AV1 = 5;
+     * @generated from protobuf enum value: CodecAV1 = 5;
      */
-    AV1 = 5,
+    CodecAV1 = 5,
     /**
-     * @generated from protobuf enum value: OPUS = 6;
+     * @generated from protobuf enum value: CodecOPUS = 6;
      */
-    OPUS = 6
+    CodecOPUS = 6
 }
 /**
  * @generated from protobuf enum sfu.public.server.v1.StreamType
  */
 export enum StreamType {
     /**
-     * @generated from protobuf enum value: Unknown = 0;
+     * @generated from protobuf enum value: StreamTypeUnknown = 0;
      */
-    Unknown = 0,
+    StreamTypeUnknown = 0,
     /**
-     * @generated from protobuf enum value: Camera = 1;
+     * @generated from protobuf enum value: StreamTypeCamera = 1;
      */
-    Camera = 1,
+    StreamTypeCamera = 1,
     /**
-     * @generated from protobuf enum value: Audio = 2;
+     * @generated from protobuf enum value: StreamTypeAudio = 2;
      */
-    Audio = 2,
+    StreamTypeAudio = 2,
     /**
-     * @generated from protobuf enum value: Screen = 3;
+     * @generated from protobuf enum value: StreamTypeScreen = 3;
      */
-    Screen = 3,
+    StreamTypeScreen = 3,
     /**
-     * @generated from protobuf enum value: ScreenAudio = 4;
+     * @generated from protobuf enum value: StreamTypeScreenAudio = 4;
      */
-    ScreenAudio = 4,
+    StreamTypeScreenAudio = 4,
     /**
-     * @generated from protobuf enum value: McuVideo = 5;
+     * @generated from protobuf enum value: StreamTypeMcuVideo = 5;
      */
-    McuVideo = 5,
+    StreamTypeMcuVideo = 5,
     /**
-     * @generated from protobuf enum value: McuVideoIs = 6;
+     * @generated from protobuf enum value: StreamTypeMcuVideoIs = 6;
      */
-    McuVideoIs = 6
+    StreamTypeMcuVideoIs = 6
 }
 /**
  * @generated from protobuf enum sfu.public.server.v1.Action
  */
 export enum Action {
     /**
-     * @generated from protobuf enum value: Unknown = 0;
+     * @generated from protobuf enum value: ActionUnknown = 0;
      */
-    Unknown = 0,
+    ActionUnknown = 0,
     /**
-     * @generated from protobuf enum value: Connect = 1;
+     * @generated from protobuf enum value: ActionConnect = 1;
      */
-    Connect = 1,
+    ActionConnect = 1,
     /**
-     * @generated from protobuf enum value: Disconnect = 3;
+     * @generated from protobuf enum value: ActionDisconnect = 3;
      */
-    Disconnect = 3,
+    ActionDisconnect = 3,
     /**
-     * @generated from protobuf enum value: Pong = 4;
+     * @generated from protobuf enum value: ActionPong = 4;
      */
-    Pong = 4,
+    ActionPong = 4,
     /**
-     * @generated from protobuf enum value: Mcu = 5;
+     * @generated from protobuf enum value: ActionMcu = 5;
      */
-    Mcu = 5,
+    ActionMcu = 5,
     /**
-     * @generated from protobuf enum value: ToggleStreams = 6;
+     * @generated from protobuf enum value: ActionToggleStreams = 6;
      */
-    ToggleStreams = 6,
+    ActionToggleStreams = 6,
     /**
-     * @generated from protobuf enum value: NegotiateStreams = 7;
+     * @generated from protobuf enum value: ActionNegotiateStreams = 7;
      */
-    NegotiateStreams = 7,
+    ActionNegotiateStreams = 7,
     /**
-     * @generated from protobuf enum value: GetActiveStreams = 8;
+     * @generated from protobuf enum value: ActionGetActiveStreams = 8;
      */
-    GetActiveStreams = 8
+    ActionGetActiveStreams = 8
 }
 /**
  * @generated from protobuf enum sfu.public.server.v1.SfuType
  */
 export enum SfuType {
     /**
-     * @generated from protobuf enum value: Unknown = 0;
+     * @generated from protobuf enum value: SfuTypeUnknown = 0;
      */
-    Unknown = 0,
+    SfuTypeUnknown = 0,
     /**
-     * @generated from protobuf enum value: Gateway = 1;
+     * @generated from protobuf enum value: SfuTypeGateway = 1;
      */
-    Gateway = 1,
+    SfuTypeGateway = 1,
     /**
-     * @generated from protobuf enum value: Router = 2;
+     * @generated from protobuf enum value: SfuTypeRouter = 2;
      */
-    Router = 2
+    SfuTypeRouter = 2
 }

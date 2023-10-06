@@ -66,7 +66,7 @@ func (x *OptionalZone) GetValue() Zone {
 	if x != nil {
 		return x.Value
 	}
-	return ZoneUnknown
+	return Zone_ZoneUnknown
 }
 
 // OptionalStatus todo;

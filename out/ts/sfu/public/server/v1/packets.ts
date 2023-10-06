@@ -77,9 +77,9 @@ export interface DisconnectedPacket {
     reason: string;
 }
 /**
- * @generated from protobuf message sfu.public.server.v1.Packet
+ * @generated from protobuf message sfu.public.server.v1.ConferenceModePacket
  */
-export interface Packet {
+export interface ConferenceModePacket {
     /**
      * @generated from protobuf field: sfu.public.server.v1.ConferenceMode mode = 1;
      */
@@ -392,20 +392,20 @@ class DisconnectedPacket$Type extends MessageType<DisconnectedPacket> {
  */
 export const DisconnectedPacket = new DisconnectedPacket$Type();
 // @generated message type with reflection information, may provide speed optimized methods
-class Packet$Type extends MessageType<Packet> {
+class ConferenceModePacket$Type extends MessageType<ConferenceModePacket> {
     constructor() {
-        super("sfu.public.server.v1.Packet", [
+        super("sfu.public.server.v1.ConferenceModePacket", [
             { no: 1, name: "mode", kind: "enum", T: () => ["sfu.public.server.v1.ConferenceMode", ConferenceMode] }
         ]);
     }
-    create(value?: PartialMessage<Packet>): Packet {
+    create(value?: PartialMessage<ConferenceModePacket>): ConferenceModePacket {
         const message = { mode: 0 };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
-            reflectionMergePartial<Packet>(this, message, value);
+            reflectionMergePartial<ConferenceModePacket>(this, message, value);
         return message;
     }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Packet): Packet {
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ConferenceModePacket): ConferenceModePacket {
         let message = target ?? this.create(), end = reader.pos + length;
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
@@ -424,7 +424,7 @@ class Packet$Type extends MessageType<Packet> {
         }
         return message;
     }
-    internalBinaryWrite(message: Packet, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+    internalBinaryWrite(message: ConferenceModePacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
         /* sfu.public.server.v1.ConferenceMode mode = 1; */
         if (message.mode !== 0)
             writer.tag(1, WireType.Varint).int32(message.mode);
@@ -435,9 +435,9 @@ class Packet$Type extends MessageType<Packet> {
     }
 }
 /**
- * @generated MessageType for protobuf message sfu.public.server.v1.Packet
+ * @generated MessageType for protobuf message sfu.public.server.v1.ConferenceModePacket
  */
-export const Packet = new Packet$Type();
+export const ConferenceModePacket = new ConferenceModePacket$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class PingPacket$Type extends MessageType<PingPacket> {
     constructor() {

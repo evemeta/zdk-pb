@@ -134,13 +134,13 @@ func (Codec) EnumDescriptor() ([]byte, []int) {
 type StreamType int32
 
 const (
-	StreamTypeUnknown     StreamType = 0
-	StreamTypeCamera      StreamType = 1
-	StreamTypeAudio       StreamType = 2
-	StreamTypeScreen      StreamType = 3
-	StreamTypeScreenAudio StreamType = 4
-	StreamTypeMcuVideo    StreamType = 5
-	StreamTypeMcuVideoIs  StreamType = 6
+	StreamType_StreamTypeUnknown     StreamType = 0
+	StreamType_StreamTypeCamera      StreamType = 1
+	StreamType_StreamTypeAudio       StreamType = 2
+	StreamType_StreamTypeScreen      StreamType = 3
+	StreamType_StreamTypeScreenAudio StreamType = 4
+	StreamType_StreamTypeMcuVideo    StreamType = 5
+	StreamType_StreamTypeMcuVideoIs  StreamType = 6
 )
 
 // Enum value maps for StreamType.

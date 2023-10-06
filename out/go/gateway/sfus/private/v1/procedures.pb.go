@@ -531,7 +531,7 @@ func (x *CreateArgument) GetZone() Zone {
 	if x != nil {
 		return x.Zone
 	}
-	return ZoneUnknown
+	return Zone_ZoneUnknown
 }
 
 func (x *CreateArgument) GetStatus() Status {

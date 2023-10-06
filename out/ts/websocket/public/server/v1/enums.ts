@@ -6,27 +6,27 @@
  */
 export enum Cause {
     /**
-     * @generated from protobuf enum value: Unknown = 0;
+     * @generated from protobuf enum value: CauseUnknown = 0;
      */
-    Unknown = 0,
+    CauseUnknown = 0,
     /**
-     * @generated from protobuf enum value: Failure = 1;
+     * @generated from protobuf enum value: CauseFailure = 1;
      */
-    Failure = 1,
+    CauseFailure = 1,
     /**
-     * @generated from protobuf enum value: Timeout = 2;
+     * @generated from protobuf enum value: CauseTimeout = 2;
      */
-    Timeout = 2,
+    CauseTimeout = 2,
     /**
-     * @generated from protobuf enum value: Relocate = 3;
+     * @generated from protobuf enum value: CauseRelocate = 3;
      */
-    Relocate = 3,
+    CauseRelocate = 3,
     /**
-     * @generated from protobuf enum value: Disconnect = 4;
+     * @generated from protobuf enum value: CauseDisconnect = 4;
      */
-    Disconnect = 4,
+    CauseDisconnect = 4,
     /**
-     * @generated from protobuf enum value: Reintegrate = 5;
+     * @generated from protobuf enum value: CauseReintegrate = 5;
      */
-    Reintegrate = 5
+    CauseReintegrate = 5
 }
