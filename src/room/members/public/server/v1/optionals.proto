@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package room.members.public.server.v1;
 
-import "room/members/public/server/v1/enums.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/members/public/server/v1;memberspb";
@@ -12,14 +11,4 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 // It allows for explicit control over the presence or absence of the map, accommodating scenarios where the map might be optional or intentionally omitted.
 message OptionalMap {
     map<string, string> value = 1;
-}
-
-// OptionalStreamState todo;
-message OptionalStreamState {
-    members.public.server.v1.StreamState value = 1;
-}
-
-// OptionalConnectionState todo;
-message OptionalConnectionState {
-    members.public.server.v1.ConnectionState value = 1;
 }

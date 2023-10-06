@@ -43,31 +43,12 @@ message Member {
     string user_id = 2;
     // Represents the unique identifier of the room in which this member exists.
     string room_id = 3;
-    // todo;
-    repeated room.members.public.server.v1.Stream streams = 4;
     // Represents a collection of key-value pairs providing additional context or information about this member.
-    map<string, string> metadata = 5;
-    // todo;
-    repeated room.members.public.server.v1.Connection connections = 6;
-    // todo;
-    repeated room.members.public.server.v1.Restriction restrictions = 7;
+    map<string, string> metadata = 4;
     // Represents the timestamp indicating when this member was created or added to the room.
-    int64 create_time = 8;
+    int64 create_time = 5;
     // Represents the timestamp of the last update associated with this member.
-    int64 update_time = 9;
-}
-
-// Stream represents a specific kind of media (e.g., video, audio) that a member is sharing in a room.
-// It provides information on the kind of stream, its current state, and timestamps reflecting its creation and last alteration.
-message Stream {
-    // Represents the kind of the stream, such as video or audio.
-    room.members.public.server.v1.StreamKind kind = 1;
-    // Represents the current state of the stream, indicating whether data is actively being transmitted or is muted locally.
-    room.members.public.server.v1.StreamState state = 2;
-    // Represents the timestamp indicating when this stream was created.
-    int64 create_time = 3;
-    // Represents the timestamp of the last update associated with this stream.
-    int64 update_time = 4;
+    int64 update_time = 6;
 }
 
 // Condition represents a set of criteria designed to filter data during retrieval.
@@ -86,29 +67,4 @@ message Timeframe {
     int64 commence = 1;
     // Represents the timestamp indicating when the activity or retrieve of data completed.
     int64 complete = 2;
-}
-
-// Connection todo;
-message Connection {
-    // todo;
-    room.members.public.server.v1.ConnectionKind kind = 1;
-    // todo;
-    room.members.public.server.v1.ConnectionState state = 2;
-    // Represents the timestamp indicating when this connection was created.
-    int64 create_time = 3;
-    // Represents the timestamp of the last update associated with this connection.
-    int64 update_time = 4;
-}
-
-// Restriction represents a particular limitation applied to a member.
-// It provides insight into the kind, reason, and duration of the restriction.
-message Restriction {
-    // Represents the kind or category of the restriction.
-    room.members.public.server.v1.RestrictionKind kind = 1;
-    // Represents a brief explanation or reason behind the application of this restriction.
-    string reason = 2;
-    // Represents the timestamp indicating when this restriction was put into place.
-    int64 create_time = 3;
-    // Represents the timestamp indicating when this restriction will end or expire.
-    int64 expire_time = 4;
 }

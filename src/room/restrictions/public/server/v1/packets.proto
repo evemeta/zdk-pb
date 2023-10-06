@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package room.restrictions.public.server.v1;
+
+import "room/restrictions/public/server/v1/entities.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/restrictions/public/server/v1;restrictionspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+// CreateRestrictionPacket todo;
+message CreateRestrictionPacket {
+    // Represents the comprehensive details of the newly created restriction.
+    room.restrictions.public.server.v1.Restriction restriction = 3;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+    room.restrictions.public.server.v1.Timeframe timeframe = 4;
+}
+
+// DeleteRestrictionPacket todo;
+message DeleteRestrictionPacket {
+    // todo;
+    string id = 1;
+    // todo;
+    string room_id = 2;
+    // todo;
+    room.restrictions.public.server.v1.Timeframe timeframe = 4;
+}

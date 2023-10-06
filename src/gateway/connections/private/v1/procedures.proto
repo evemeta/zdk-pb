@@ -55,7 +55,8 @@ message CreateArgument {
     string                                user_id    = 3;
     string                                room_id    = 4;
     string                                session_id = 5;
-    gateway.connections.private.v1.Status status     = 6;
+    gateway.connections.private.v1.Kind   kind       = 6;
+    gateway.connections.private.v1.Status status     = 7;
 }
 
 message CreateRequest {

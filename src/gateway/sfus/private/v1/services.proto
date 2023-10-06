@@ -145,4 +145,50 @@ service Service {
             operation_id: "RollbackDeleteMutations";
         };
     }
+
+    //
+
+    rpc Connect(ConnectRequest) returns (ConnectResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: Connect";
+            summary: "Connect";
+            operation_id: "Connect";
+        };
+    }
+
+    //
+
+    rpc Candidate(CandidateRequest) returns (CandidateResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: Candidate";
+            summary: "Candidate";
+            operation_id: "Candidate";
+        };
+    }
+
+    //
+
+    rpc Disconnect(DisconnectRequest) returns (DisconnectResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: Disconnect";
+            summary: "Disconnect";
+            operation_id: "Disconnect";
+        };
+    }
+
+    rpc InitiateDisconnectMutations(DisconnectTransaction) returns (DisconnectTransaction) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: InitiateDisconnectMutations";
+            summary: "InitiateDisconnectMutations";
+            operation_id: "InitiateDisconnectMutations";
+        };
+    }
+
+    rpc FinalizeDisconnectMutations(DisconnectTransaction) returns (DisconnectTransaction) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: FinalizeDisconnectMutations";
+            summary: "FinalizeDisconnectMutations";
+            operation_id: "FinalizeDisconnectMutations";
+        };
+    }
 }

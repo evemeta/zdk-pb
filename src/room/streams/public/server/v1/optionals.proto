@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package room.streams.public.server.v1;
+
+import "room/streams/public/server/v1/enums.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/streams/public/server/v1;streamspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+// OptionalStatus todo;
+message OptionalStatus {
+    room.streams.public.server.v1.Status value = 1;
+}

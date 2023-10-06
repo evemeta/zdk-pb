@@ -5,6 +5,7 @@ package gateway.sfus.private.v1;
 import "gateway/sfus/private/v1/enums.proto";
 import "gateway/sfus/private/v1/entities.proto";
 import "gateway/sfus/private/v1/optionals.proto";
+import "gateway/connections/private/v1/entities.proto";
 import "gateway/connections/private/v1/procedures.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
@@ -79,10 +80,9 @@ message CreateTransaction {
 
 message UpdateArgument {
     gateway.sfus.private.v1.Query                   query   = 1;
-    optional gateway.sfus.private.v1.OptionalKind   kind    = 2;
-    optional gateway.sfus.private.v1.OptionalZone   zone    = 3;
-    optional gateway.sfus.private.v1.OptionalStatus status  = 4;
-    optional gateway.sfus.private.v1.OptionalString address = 5;
+    optional gateway.sfus.private.v1.OptionalZone   zone    = 2;
+    optional gateway.sfus.private.v1.OptionalStatus status  = 3;
+    optional gateway.sfus.private.v1.OptionalString address = 4;
 }
 
 message UpdateRequest {
@@ -130,4 +130,60 @@ message DeleteCondition {
 
 message DeleteTransaction {
     repeated gateway.sfus.private.v1.DeleteMutation mutations = 1;
+}
+
+//
+
+message ConnectArgument {
+    string user_id    = 1;
+    string room_id    = 2;
+    string session_id = 3;
+}
+
+message ConnectRequest {
+    repeated gateway.sfus.private.v1.ConnectArgument arguments = 1;
+}
+
+message ConnectResponse {}
+
+//
+
+message CandidateArgument {
+    string user_id    = 1;
+    string room_id    = 2;
+    string session_id = 3;
+}
+
+message CandidateRequest {
+    repeated gateway.sfus.private.v1.CandidateArgument arguments = 1;
+}
+
+message CandidateResponse {}
+
+//
+
+message DisconnectArgument {
+    gateway.connections.private.v1.Query query = 1;
+}
+
+message DisconnectRequest {
+    repeated gateway.sfus.private.v1.DisconnectArgument arguments = 1;
+}
+
+message DisconnectResponse {}
+
+message DisconnectMutation {
+    gateway.sfus.private.v1.DisconnectArgument  foundation      = 1;
+    gateway.sfus.private.v1.DisconnectCondition condition       = 2;
+    int64                                       begin_timestamp = 3;
+    int64                                       close_timestamp = 4;
+}
+
+message DisconnectCondition {
+    repeated gateway.sfus.private.v1.Sfu               sfus        = 1;
+    repeated gateway.connections.private.v1.Connection connections = 2;
+}
+
+message DisconnectTransaction {
+    repeated gateway.sfus.private.v1.DisconnectMutation mutations = 1;
 }

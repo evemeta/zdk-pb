@@ -10,7 +10,7 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 enum Kind {
     KindUnknown = 0;
     KindGateway = 1;
-    KindRouter  = 2; // todo; replace in gateway
+    KindRouter  = 2;
 }
 
 enum Zone {

@@ -14,36 +14,8 @@ enum Order {
     OrderDescending = 2;
 }
 
-// StreamKind todo;
-enum StreamKind {
-    StreamKindUnknown = 0;
-    StreamKindAudio   = 1;
-    StreamKindVideo   = 2;
-}
-
-// StreamState todo;
-enum StreamState {
-    StreamStateUnknown  = 0;
-    StreamStateEnabled  = 1;
-    StreamStateDisabled = 2;
-}
-
-// ConnectionKind todo;
-enum ConnectionKind {
-    ConnectionKindUnknown  = 0;
-    ConnectionKindReceive  = 1;
-    ConnectionKindTransmit = 2;
-}
-
-// ConnectionState todo;
-enum ConnectionState {
-    ConnectionStateUnknown      = 0;
-    ConnectionStateConnected    = 1;
-    ConnectionStateConnecting   = 2;
-    ConnectionStateReconnecting = 3;
-}
-
-// RestrictionKind represents an enumeration that specifies the kinds of restrictions or actions that can be applied to a member.
-enum RestrictionKind {
-    RestrictionKindUnknown = 0;
+enum Status {
+    StatusUnknown      = 0;
+    StatusConnected    = 1;
+    StatusDisconnected = 2;
 }
