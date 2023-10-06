@@ -842,15 +842,15 @@ public final class Entities {
     com.google.protobuf.ByteString getCandidate();
 
     /**
-     * <code>.sfu.public.client.v1.SfuType sfu_type = 4;</code>
+     * <code>.sfu.public.server.v1.SfuType sfu_type = 4;</code>
      * @return The enum numeric value on the wire for sfuType.
      */
     int getSfuTypeValue();
     /**
-     * <code>.sfu.public.client.v1.SfuType sfu_type = 4;</code>
+     * <code>.sfu.public.server.v1.SfuType sfu_type = 4;</code>
      * @return The sfuType.
      */
-    sfu.public.client.v1.Enums.SfuType getSfuType();
+    sfu.public.server.v1.Enums.SfuType getSfuType();
   }
   /**
    * Protobuf type {@code sfu.public.server.v1.IceCandidate}
@@ -943,19 +943,19 @@ public final class Entities {
     public static final int SFU_TYPE_FIELD_NUMBER = 4;
     private int sfuType_ = 0;
     /**
-     * <code>.sfu.public.client.v1.SfuType sfu_type = 4;</code>
+     * <code>.sfu.public.server.v1.SfuType sfu_type = 4;</code>
      * @return The enum numeric value on the wire for sfuType.
      */
     @java.lang.Override public int getSfuTypeValue() {
       return sfuType_;
     }
     /**
-     * <code>.sfu.public.client.v1.SfuType sfu_type = 4;</code>
+     * <code>.sfu.public.server.v1.SfuType sfu_type = 4;</code>
      * @return The sfuType.
      */
-    @java.lang.Override public sfu.public.client.v1.Enums.SfuType getSfuType() {
-      sfu.public.client.v1.Enums.SfuType result = sfu.public.client.v1.Enums.SfuType.forNumber(sfuType_);
-      return result == null ? sfu.public.client.v1.Enums.SfuType.UNRECOGNIZED : result;
+    @java.lang.Override public sfu.public.server.v1.Enums.SfuType getSfuType() {
+      sfu.public.server.v1.Enums.SfuType result = sfu.public.server.v1.Enums.SfuType.forNumber(sfuType_);
+      return result == null ? sfu.public.server.v1.Enums.SfuType.UNRECOGNIZED : result;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -978,7 +978,7 @@ public final class Entities {
       if (!candidate_.isEmpty()) {
         output.writeBytes(3, candidate_);
       }
-      if (sfuType_ != sfu.public.client.v1.Enums.SfuType.SfuTypeUnknown.getNumber()) {
+      if (sfuType_ != sfu.public.server.v1.Enums.SfuType.SfuTypeUnknown.getNumber()) {
         output.writeEnum(4, sfuType_);
       }
       getUnknownFields().writeTo(output);
@@ -997,7 +997,7 @@ public final class Entities {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(3, candidate_);
       }
-      if (sfuType_ != sfu.public.client.v1.Enums.SfuType.SfuTypeUnknown.getNumber()) {
+      if (sfuType_ != sfu.public.server.v1.Enums.SfuType.SfuTypeUnknown.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(4, sfuType_);
       }
@@ -1435,14 +1435,14 @@ public final class Entities {
 
       private int sfuType_ = 0;
       /**
-       * <code>.sfu.public.client.v1.SfuType sfu_type = 4;</code>
+       * <code>.sfu.public.server.v1.SfuType sfu_type = 4;</code>
        * @return The enum numeric value on the wire for sfuType.
        */
       @java.lang.Override public int getSfuTypeValue() {
         return sfuType_;
       }
       /**
-       * <code>.sfu.public.client.v1.SfuType sfu_type = 4;</code>
+       * <code>.sfu.public.server.v1.SfuType sfu_type = 4;</code>
        * @param value The enum numeric value on the wire for sfuType to set.
        * @return This builder for chaining.
        */
@@ -1453,20 +1453,20 @@ public final class Entities {
         return this;
       }
       /**
-       * <code>.sfu.public.client.v1.SfuType sfu_type = 4;</code>
+       * <code>.sfu.public.server.v1.SfuType sfu_type = 4;</code>
        * @return The sfuType.
        */
       @java.lang.Override
-      public sfu.public.client.v1.Enums.SfuType getSfuType() {
-        sfu.public.client.v1.Enums.SfuType result = sfu.public.client.v1.Enums.SfuType.forNumber(sfuType_);
-        return result == null ? sfu.public.client.v1.Enums.SfuType.UNRECOGNIZED : result;
+      public sfu.public.server.v1.Enums.SfuType getSfuType() {
+        sfu.public.server.v1.Enums.SfuType result = sfu.public.server.v1.Enums.SfuType.forNumber(sfuType_);
+        return result == null ? sfu.public.server.v1.Enums.SfuType.UNRECOGNIZED : result;
       }
       /**
-       * <code>.sfu.public.client.v1.SfuType sfu_type = 4;</code>
+       * <code>.sfu.public.server.v1.SfuType sfu_type = 4;</code>
        * @param value The sfuType to set.
        * @return This builder for chaining.
        */
-      public Builder setSfuType(sfu.public.client.v1.Enums.SfuType value) {
+      public Builder setSfuType(sfu.public.server.v1.Enums.SfuType value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -1476,7 +1476,7 @@ public final class Entities {
         return this;
       }
       /**
-       * <code>.sfu.public.client.v1.SfuType sfu_type = 4;</code>
+       * <code>.sfu.public.server.v1.SfuType sfu_type = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearSfuType() {
@@ -1571,22 +1571,20 @@ public final class Entities {
       "\n#sfu/public/server/v1/entities.proto\022\024s" +
       "fu.public.server.v1\032.protoc-gen-openapiv" +
       "2/options/annotations.proto\032 sfu/public/" +
-      "server/v1/enums.proto\032 sfu/public/client" +
-      "/v1/enums.proto\"Z\n\nStreamInfo\022.\n\004type\030\001 " +
-      "\001(\0162 .sfu.public.server.v1.StreamType\022\017\n" +
-      "\007user_id\030\002 \001(\t\022\013\n\003mid\030\003 \001(\t\"c\n\014IceCandid" +
-      "ate\022\017\n\007room_id\030\002 \001(\t\022\021\n\tcandidate\030\003 \001(\014\022" +
-      "/\n\010sfu_type\030\004 \001(\0162\035.sfu.public.client.v1" +
-      ".SfuTypeB@Z;gitlab.com/evemeta/zdk/pb/ou" +
-      "t/go/sfu/public/server/v1;sfupb\222A\000b\006prot" +
-      "o3"
+      "server/v1/enums.proto\"Z\n\nStreamInfo\022.\n\004t" +
+      "ype\030\001 \001(\0162 .sfu.public.server.v1.StreamT" +
+      "ype\022\017\n\007user_id\030\002 \001(\t\022\013\n\003mid\030\003 \001(\t\"c\n\014Ice" +
+      "Candidate\022\017\n\007room_id\030\002 \001(\t\022\021\n\tcandidate\030" +
+      "\003 \001(\014\022/\n\010sfu_type\030\004 \001(\0162\035.sfu.public.ser" +
+      "ver.v1.SfuTypeB@Z;gitlab.com/evemeta/zdk" +
+      "/pb/out/go/sfu/public/server/v1;sfupb\222A\000" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           grpc.gateway.protoc_gen_openapiv2.options.Annotations.getDescriptor(),
           sfu.public.server.v1.Enums.getDescriptor(),
-          sfu.public.client.v1.Enums.getDescriptor(),
         });
     internal_static_sfu_public_server_v1_StreamInfo_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -1607,7 +1605,6 @@ public final class Entities {
         .internalUpdateFileDescriptor(descriptor, registry);
     grpc.gateway.protoc_gen_openapiv2.options.Annotations.getDescriptor();
     sfu.public.server.v1.Enums.getDescriptor();
-    sfu.public.client.v1.Enums.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

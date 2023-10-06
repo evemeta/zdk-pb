@@ -3,7 +3,6 @@ syntax = "proto3";
 package sfu.private.v1;
 
 import "protoc-gen-openapiv2/options/annotations.proto";
-import "sfu/public/client/v1/enums.proto";
 import "sfu/public/server/v1/enums.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/sfu/private/v1;sfupb";
@@ -26,7 +25,7 @@ message Offer {
     string                      user_id     = 2;
     string                      room_id     = 3;
     bytes                       sdp_answer  = 4;
-    sfu.public.client.v1.SfuType sfu_type   = 5;
+    sfu.public.server.v1.SfuType sfu_type   = 5;
 }
 
 message ConnectionUserInfo {

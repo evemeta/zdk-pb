@@ -15,7 +15,7 @@ import { Codec } from "./enums";
 import { IceCandidate } from "./entities";
 import { StreamType } from "./enums";
 import { ConferenceMode } from "./enums";
-import { Action } from "../../client/v1/enums";
+import { Action } from "./enums";
 import { StreamInfo } from "./entities";
 // WebSocket Packets
 
@@ -40,9 +40,9 @@ export interface ServerPacket {
     data: Uint8Array;
 }
 /**
- * @generated from protobuf message sfu.public.server.v1.StreamsAnswerPacket
+ * @generated from protobuf message sfu.public.server.v1.StreamsPacket
  */
-export interface StreamsAnswerPacket {
+export interface StreamsPacket {
     /**
      * @generated from protobuf field: bytes sdp_answer = 1;
      */
@@ -66,7 +66,7 @@ export interface MigrationRequiredPacket {
  */
 export interface UnsupportedActionPacket {
     /**
-     * @generated from protobuf field: sfu.public.client.v1.Action action = 1;
+     * @generated from protobuf field: sfu.public.server.v1.Action action = 1;
      */
     action: Action;
 }
@@ -142,9 +142,9 @@ export interface IceCandidatePacket {
     iceCandidate?: IceCandidate;
 }
 /**
- * @generated from protobuf message sfu.public.server.v1.ActiveStreamsResponsePacket
+ * @generated from protobuf message sfu.public.server.v1.ActiveStreamsPacket
  */
-export interface ActiveStreamsResponsePacket {
+export interface ActiveStreamsPacket {
     /**
      * @generated from protobuf field: repeated sfu.public.server.v1.StreamInfo streams = 1;
      */
@@ -214,22 +214,22 @@ class ServerPacket$Type extends MessageType<ServerPacket> {
  */
 export const ServerPacket = new ServerPacket$Type();
 // @generated message type with reflection information, may provide speed optimized methods
-class StreamsAnswerPacket$Type extends MessageType<StreamsAnswerPacket> {
+class StreamsPacket$Type extends MessageType<StreamsPacket> {
     constructor() {
-        super("sfu.public.server.v1.StreamsAnswerPacket", [
+        super("sfu.public.server.v1.StreamsPacket", [
             { no: 1, name: "sdp_answer", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
             { no: 2, name: "add_requests", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => StreamInfo },
             { no: 3, name: "removal_requests", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => StreamInfo }
         ]);
     }
-    create(value?: PartialMessage<StreamsAnswerPacket>): StreamsAnswerPacket {
+    create(value?: PartialMessage<StreamsPacket>): StreamsPacket {
         const message = { sdpAnswer: new Uint8Array(0), addRequests: [], removalRequests: [] };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
-            reflectionMergePartial<StreamsAnswerPacket>(this, message, value);
+            reflectionMergePartial<StreamsPacket>(this, message, value);
         return message;
     }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: StreamsAnswerPacket): StreamsAnswerPacket {
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: StreamsPacket): StreamsPacket {
         let message = target ?? this.create(), end = reader.pos + length;
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
@@ -254,7 +254,7 @@ class StreamsAnswerPacket$Type extends MessageType<StreamsAnswerPacket> {
         }
         return message;
     }
-    internalBinaryWrite(message: StreamsAnswerPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+    internalBinaryWrite(message: StreamsPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
         /* bytes sdp_answer = 1; */
         if (message.sdpAnswer.length)
             writer.tag(1, WireType.LengthDelimited).bytes(message.sdpAnswer);
@@ -271,9 +271,9 @@ class StreamsAnswerPacket$Type extends MessageType<StreamsAnswerPacket> {
     }
 }
 /**
- * @generated MessageType for protobuf message sfu.public.server.v1.StreamsAnswerPacket
+ * @generated MessageType for protobuf message sfu.public.server.v1.StreamsPacket
  */
-export const StreamsAnswerPacket = new StreamsAnswerPacket$Type();
+export const StreamsPacket = new StreamsPacket$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class MigrationRequiredPacket$Type extends MessageType<MigrationRequiredPacket> {
     constructor() {
@@ -304,7 +304,7 @@ export const MigrationRequiredPacket = new MigrationRequiredPacket$Type();
 class UnsupportedActionPacket$Type extends MessageType<UnsupportedActionPacket> {
     constructor() {
         super("sfu.public.server.v1.UnsupportedActionPacket", [
-            { no: 1, name: "action", kind: "enum", T: () => ["sfu.public.client.v1.Action", Action] }
+            { no: 1, name: "action", kind: "enum", T: () => ["sfu.public.server.v1.Action", Action] }
         ]);
     }
     create(value?: PartialMessage<UnsupportedActionPacket>): UnsupportedActionPacket {
@@ -319,7 +319,7 @@ class UnsupportedActionPacket$Type extends MessageType<UnsupportedActionPacket> 
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* sfu.public.client.v1.Action action */ 1:
+                case /* sfu.public.server.v1.Action action */ 1:
                     message.action = reader.int32();
                     break;
                 default:
@@ -334,7 +334,7 @@ class UnsupportedActionPacket$Type extends MessageType<UnsupportedActionPacket> 
         return message;
     }
     internalBinaryWrite(message: UnsupportedActionPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* sfu.public.client.v1.Action action = 1; */
+        /* sfu.public.server.v1.Action action = 1; */
         if (message.action !== 0)
             writer.tag(1, WireType.Varint).int32(message.action);
         let u = options.writeUnknownFields;
@@ -691,20 +691,20 @@ class IceCandidatePacket$Type extends MessageType<IceCandidatePacket> {
  */
 export const IceCandidatePacket = new IceCandidatePacket$Type();
 // @generated message type with reflection information, may provide speed optimized methods
-class ActiveStreamsResponsePacket$Type extends MessageType<ActiveStreamsResponsePacket> {
+class ActiveStreamsPacket$Type extends MessageType<ActiveStreamsPacket> {
     constructor() {
-        super("sfu.public.server.v1.ActiveStreamsResponsePacket", [
+        super("sfu.public.server.v1.ActiveStreamsPacket", [
             { no: 1, name: "streams", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => StreamInfo }
         ]);
     }
-    create(value?: PartialMessage<ActiveStreamsResponsePacket>): ActiveStreamsResponsePacket {
+    create(value?: PartialMessage<ActiveStreamsPacket>): ActiveStreamsPacket {
         const message = { streams: [] };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
-            reflectionMergePartial<ActiveStreamsResponsePacket>(this, message, value);
+            reflectionMergePartial<ActiveStreamsPacket>(this, message, value);
         return message;
     }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ActiveStreamsResponsePacket): ActiveStreamsResponsePacket {
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ActiveStreamsPacket): ActiveStreamsPacket {
         let message = target ?? this.create(), end = reader.pos + length;
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
@@ -723,7 +723,7 @@ class ActiveStreamsResponsePacket$Type extends MessageType<ActiveStreamsResponse
         }
         return message;
     }
-    internalBinaryWrite(message: ActiveStreamsResponsePacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+    internalBinaryWrite(message: ActiveStreamsPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
         /* repeated sfu.public.server.v1.StreamInfo streams = 1; */
         for (let i = 0; i < message.streams.length; i++)
             StreamInfo.internalBinaryWrite(message.streams[i], writer.tag(1, WireType.LengthDelimited).fork(), options).join();
@@ -734,9 +734,9 @@ class ActiveStreamsResponsePacket$Type extends MessageType<ActiveStreamsResponse
     }
 }
 /**
- * @generated MessageType for protobuf message sfu.public.server.v1.ActiveStreamsResponsePacket
+ * @generated MessageType for protobuf message sfu.public.server.v1.ActiveStreamsPacket
  */
-export const ActiveStreamsResponsePacket = new ActiveStreamsResponsePacket$Type();
+export const ActiveStreamsPacket = new ActiveStreamsPacket$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class VideoCodecChangeRequiredPacket$Type extends MessageType<VideoCodecChangeRequiredPacket> {
     constructor() {

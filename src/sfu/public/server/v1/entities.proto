@@ -4,7 +4,6 @@ package sfu.public.server.v1;
 
 import "protoc-gen-openapiv2/options/annotations.proto";
 import "sfu/public/server/v1/enums.proto";
-import "sfu/public/client/v1/enums.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/sfu/public/server/v1;sfupb";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
@@ -18,5 +17,5 @@ message StreamInfo {
 message IceCandidate {
     string  room_id     = 2;
     bytes   candidate   = 3;
-    sfu.public.client.v1.SfuType sfu_type    = 4;
+    SfuType sfu_type    = 4;
 }

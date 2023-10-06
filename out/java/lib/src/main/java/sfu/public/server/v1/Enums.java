@@ -437,6 +437,285 @@ public final class Enums {
     // @@protoc_insertion_point(enum_scope:sfu.public.server.v1.StreamType)
   }
 
+  /**
+   * Protobuf enum {@code sfu.public.server.v1.Action}
+   */
+  public enum Action
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>ActionUnknown = 0;</code>
+     */
+    ActionUnknown(0),
+    /**
+     * <code>ActionConnect = 1;</code>
+     */
+    ActionConnect(1),
+    /**
+     * <code>ActionDisconnect = 3;</code>
+     */
+    ActionDisconnect(3),
+    /**
+     * <code>ActionPong = 4;</code>
+     */
+    ActionPong(4),
+    /**
+     * <code>ActionMcu = 5;</code>
+     */
+    ActionMcu(5),
+    /**
+     * <code>ActionToggleStreams = 6;</code>
+     */
+    ActionToggleStreams(6),
+    /**
+     * <code>ActionNegotiateStreams = 7;</code>
+     */
+    ActionNegotiateStreams(7),
+    /**
+     * <code>ActionGetActiveStreams = 8;</code>
+     */
+    ActionGetActiveStreams(8),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>ActionUnknown = 0;</code>
+     */
+    public static final int ActionUnknown_VALUE = 0;
+    /**
+     * <code>ActionConnect = 1;</code>
+     */
+    public static final int ActionConnect_VALUE = 1;
+    /**
+     * <code>ActionDisconnect = 3;</code>
+     */
+    public static final int ActionDisconnect_VALUE = 3;
+    /**
+     * <code>ActionPong = 4;</code>
+     */
+    public static final int ActionPong_VALUE = 4;
+    /**
+     * <code>ActionMcu = 5;</code>
+     */
+    public static final int ActionMcu_VALUE = 5;
+    /**
+     * <code>ActionToggleStreams = 6;</code>
+     */
+    public static final int ActionToggleStreams_VALUE = 6;
+    /**
+     * <code>ActionNegotiateStreams = 7;</code>
+     */
+    public static final int ActionNegotiateStreams_VALUE = 7;
+    /**
+     * <code>ActionGetActiveStreams = 8;</code>
+     */
+    public static final int ActionGetActiveStreams_VALUE = 8;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static Action valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static Action forNumber(int value) {
+      switch (value) {
+        case 0: return ActionUnknown;
+        case 1: return ActionConnect;
+        case 3: return ActionDisconnect;
+        case 4: return ActionPong;
+        case 5: return ActionMcu;
+        case 6: return ActionToggleStreams;
+        case 7: return ActionNegotiateStreams;
+        case 8: return ActionGetActiveStreams;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<Action>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        Action> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<Action>() {
+            public Action findValueByNumber(int number) {
+              return Action.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return sfu.public.server.v1.Enums.getDescriptor().getEnumTypes().get(3);
+    }
+
+    private static final Action[] VALUES = values();
+
+    public static Action valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private Action(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:sfu.public.server.v1.Action)
+  }
+
+  /**
+   * Protobuf enum {@code sfu.public.server.v1.SfuType}
+   */
+  public enum SfuType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>SfuTypeUnknown = 0;</code>
+     */
+    SfuTypeUnknown(0),
+    /**
+     * <code>SfuTypeGateway = 1;</code>
+     */
+    SfuTypeGateway(1),
+    /**
+     * <code>SfuTypeRouter = 2;</code>
+     */
+    SfuTypeRouter(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>SfuTypeUnknown = 0;</code>
+     */
+    public static final int SfuTypeUnknown_VALUE = 0;
+    /**
+     * <code>SfuTypeGateway = 1;</code>
+     */
+    public static final int SfuTypeGateway_VALUE = 1;
+    /**
+     * <code>SfuTypeRouter = 2;</code>
+     */
+    public static final int SfuTypeRouter_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static SfuType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static SfuType forNumber(int value) {
+      switch (value) {
+        case 0: return SfuTypeUnknown;
+        case 1: return SfuTypeGateway;
+        case 2: return SfuTypeRouter;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<SfuType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        SfuType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<SfuType>() {
+            public SfuType findValueByNumber(int number) {
+              return SfuType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return sfu.public.server.v1.Enums.getDescriptor().getEnumTypes().get(4);
+    }
+
+    private static final SfuType[] VALUES = values();
+
+    public static SfuType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private SfuType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:sfu.public.server.v1.SfuType)
+  }
+
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -458,9 +737,15 @@ public final class Enums {
       "TypeCamera\020\001\022\023\n\017StreamTypeAudio\020\002\022\024\n\020Str" +
       "eamTypeScreen\020\003\022\031\n\025StreamTypeScreenAudio" +
       "\020\004\022\026\n\022StreamTypeMcuVideo\020\005\022\030\n\024StreamType" +
-      "McuVideoIs\020\006B@Z;gitlab.com/evemeta/zdk/p" +
-      "b/out/go/sfu/public/server/v1;sfupb\222A\000b\006" +
-      "proto3"
+      "McuVideoIs\020\006*\264\001\n\006Action\022\021\n\rActionUnknown" +
+      "\020\000\022\021\n\rActionConnect\020\001\022\024\n\020ActionDisconnec" +
+      "t\020\003\022\016\n\nActionPong\020\004\022\r\n\tActionMcu\020\005\022\027\n\023Ac" +
+      "tionToggleStreams\020\006\022\032\n\026ActionNegotiateSt" +
+      "reams\020\007\022\032\n\026ActionGetActiveStreams\020\010*D\n\007S" +
+      "fuType\022\022\n\016SfuTypeUnknown\020\000\022\022\n\016SfuTypeGat" +
+      "eway\020\001\022\021\n\rSfuTypeRouter\020\002B@Z;gitlab.com/" +
+      "evemeta/zdk/pb/out/go/sfu/public/server/" +
+      "v1;sfupb\222A\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

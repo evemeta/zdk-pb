@@ -28,9 +28,9 @@ public object UnsupportedActionPacketKt {
     internal fun _build(): sfu.public.server.v1.Packets.UnsupportedActionPacket = _builder.build()
 
     /**
-     * `.sfu.public.client.v1.Action action = 1;`
+     * `.sfu.public.server.v1.Action action = 1;`
      */
-    public var action: sfu.public.client.v1.Enums.Action
+    public var action: sfu.public.server.v1.Enums.Action
       @JvmName("getAction")
       get() = _builder.getAction()
       @JvmName("setAction")
@@ -45,7 +45,7 @@ public object UnsupportedActionPacketKt {
         _builder.setActionValue(value)
       }
     /**
-     * `.sfu.public.client.v1.Action action = 1;`
+     * `.sfu.public.server.v1.Action action = 1;`
      */
     public fun clearAction() {
       _builder.clearAction()

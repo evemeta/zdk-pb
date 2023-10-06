@@ -62,15 +62,15 @@ public final class Packets {
     sfu.public.client.v1.Entities.SfuConnectionOptionsOrBuilder getOptionsOrBuilder();
 
     /**
-     * <code>.sfu.public.client.v1.SfuType sfu_type = 5;</code>
+     * <code>.sfu.public.server.v1.SfuType sfu_type = 5;</code>
      * @return The enum numeric value on the wire for sfuType.
      */
     int getSfuTypeValue();
     /**
-     * <code>.sfu.public.client.v1.SfuType sfu_type = 5;</code>
+     * <code>.sfu.public.server.v1.SfuType sfu_type = 5;</code>
      * @return The sfuType.
      */
-    sfu.public.client.v1.Enums.SfuType getSfuType();
+    sfu.public.server.v1.Enums.SfuType getSfuType();
   }
   /**
    * Protobuf type {@code sfu.public.client.v1.ConnectPacket}
@@ -188,19 +188,19 @@ public final class Packets {
     public static final int SFU_TYPE_FIELD_NUMBER = 5;
     private int sfuType_ = 0;
     /**
-     * <code>.sfu.public.client.v1.SfuType sfu_type = 5;</code>
+     * <code>.sfu.public.server.v1.SfuType sfu_type = 5;</code>
      * @return The enum numeric value on the wire for sfuType.
      */
     @java.lang.Override public int getSfuTypeValue() {
       return sfuType_;
     }
     /**
-     * <code>.sfu.public.client.v1.SfuType sfu_type = 5;</code>
+     * <code>.sfu.public.server.v1.SfuType sfu_type = 5;</code>
      * @return The sfuType.
      */
-    @java.lang.Override public sfu.public.client.v1.Enums.SfuType getSfuType() {
-      sfu.public.client.v1.Enums.SfuType result = sfu.public.client.v1.Enums.SfuType.forNumber(sfuType_);
-      return result == null ? sfu.public.client.v1.Enums.SfuType.UNRECOGNIZED : result;
+    @java.lang.Override public sfu.public.server.v1.Enums.SfuType getSfuType() {
+      sfu.public.server.v1.Enums.SfuType result = sfu.public.server.v1.Enums.SfuType.forNumber(sfuType_);
+      return result == null ? sfu.public.server.v1.Enums.SfuType.UNRECOGNIZED : result;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -229,7 +229,7 @@ public final class Packets {
       if (((bitField0_ & 0x00000001) != 0)) {
         output.writeMessage(4, getOptions());
       }
-      if (sfuType_ != sfu.public.client.v1.Enums.SfuType.SfuTypeUnknown.getNumber()) {
+      if (sfuType_ != sfu.public.server.v1.Enums.SfuType.SfuTypeUnknown.getNumber()) {
         output.writeEnum(5, sfuType_);
       }
       getUnknownFields().writeTo(output);
@@ -257,7 +257,7 @@ public final class Packets {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getOptions());
       }
-      if (sfuType_ != sfu.public.client.v1.Enums.SfuType.SfuTypeUnknown.getNumber()) {
+      if (sfuType_ != sfu.public.server.v1.Enums.SfuType.SfuTypeUnknown.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(5, sfuType_);
       }
@@ -900,14 +900,14 @@ public final class Packets {
 
       private int sfuType_ = 0;
       /**
-       * <code>.sfu.public.client.v1.SfuType sfu_type = 5;</code>
+       * <code>.sfu.public.server.v1.SfuType sfu_type = 5;</code>
        * @return The enum numeric value on the wire for sfuType.
        */
       @java.lang.Override public int getSfuTypeValue() {
         return sfuType_;
       }
       /**
-       * <code>.sfu.public.client.v1.SfuType sfu_type = 5;</code>
+       * <code>.sfu.public.server.v1.SfuType sfu_type = 5;</code>
        * @param value The enum numeric value on the wire for sfuType to set.
        * @return This builder for chaining.
        */
@@ -918,20 +918,20 @@ public final class Packets {
         return this;
       }
       /**
-       * <code>.sfu.public.client.v1.SfuType sfu_type = 5;</code>
+       * <code>.sfu.public.server.v1.SfuType sfu_type = 5;</code>
        * @return The sfuType.
        */
       @java.lang.Override
-      public sfu.public.client.v1.Enums.SfuType getSfuType() {
-        sfu.public.client.v1.Enums.SfuType result = sfu.public.client.v1.Enums.SfuType.forNumber(sfuType_);
-        return result == null ? sfu.public.client.v1.Enums.SfuType.UNRECOGNIZED : result;
+      public sfu.public.server.v1.Enums.SfuType getSfuType() {
+        sfu.public.server.v1.Enums.SfuType result = sfu.public.server.v1.Enums.SfuType.forNumber(sfuType_);
+        return result == null ? sfu.public.server.v1.Enums.SfuType.UNRECOGNIZED : result;
       }
       /**
-       * <code>.sfu.public.client.v1.SfuType sfu_type = 5;</code>
+       * <code>.sfu.public.server.v1.SfuType sfu_type = 5;</code>
        * @param value The sfuType to set.
        * @return This builder for chaining.
        */
-      public Builder setSfuType(sfu.public.client.v1.Enums.SfuType value) {
+      public Builder setSfuType(sfu.public.server.v1.Enums.SfuType value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -941,7 +941,7 @@ public final class Packets {
         return this;
       }
       /**
-       * <code>.sfu.public.client.v1.SfuType sfu_type = 5;</code>
+       * <code>.sfu.public.server.v1.SfuType sfu_type = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearSfuType() {
@@ -1034,15 +1034,15 @@ public final class Packets {
     sfu.public.server.v1.Entities.IceCandidateOrBuilder getIceCandidateOrBuilder();
 
     /**
-     * <code>.sfu.public.client.v1.SfuType sfu_type = 2;</code>
+     * <code>.sfu.public.server.v1.SfuType sfu_type = 2;</code>
      * @return The enum numeric value on the wire for sfuType.
      */
     int getSfuTypeValue();
     /**
-     * <code>.sfu.public.client.v1.SfuType sfu_type = 2;</code>
+     * <code>.sfu.public.server.v1.SfuType sfu_type = 2;</code>
      * @return The sfuType.
      */
-    sfu.public.client.v1.Enums.SfuType getSfuType();
+    sfu.public.server.v1.Enums.SfuType getSfuType();
   }
   /**
    * Protobuf type {@code sfu.public.client.v1.AddIceCandidatePacket}
@@ -1110,19 +1110,19 @@ public final class Packets {
     public static final int SFU_TYPE_FIELD_NUMBER = 2;
     private int sfuType_ = 0;
     /**
-     * <code>.sfu.public.client.v1.SfuType sfu_type = 2;</code>
+     * <code>.sfu.public.server.v1.SfuType sfu_type = 2;</code>
      * @return The enum numeric value on the wire for sfuType.
      */
     @java.lang.Override public int getSfuTypeValue() {
       return sfuType_;
     }
     /**
-     * <code>.sfu.public.client.v1.SfuType sfu_type = 2;</code>
+     * <code>.sfu.public.server.v1.SfuType sfu_type = 2;</code>
      * @return The sfuType.
      */
-    @java.lang.Override public sfu.public.client.v1.Enums.SfuType getSfuType() {
-      sfu.public.client.v1.Enums.SfuType result = sfu.public.client.v1.Enums.SfuType.forNumber(sfuType_);
-      return result == null ? sfu.public.client.v1.Enums.SfuType.UNRECOGNIZED : result;
+    @java.lang.Override public sfu.public.server.v1.Enums.SfuType getSfuType() {
+      sfu.public.server.v1.Enums.SfuType result = sfu.public.server.v1.Enums.SfuType.forNumber(sfuType_);
+      return result == null ? sfu.public.server.v1.Enums.SfuType.UNRECOGNIZED : result;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1142,7 +1142,7 @@ public final class Packets {
       if (((bitField0_ & 0x00000001) != 0)) {
         output.writeMessage(1, getIceCandidate());
       }
-      if (sfuType_ != sfu.public.client.v1.Enums.SfuType.SfuTypeUnknown.getNumber()) {
+      if (sfuType_ != sfu.public.server.v1.Enums.SfuType.SfuTypeUnknown.getNumber()) {
         output.writeEnum(2, sfuType_);
       }
       getUnknownFields().writeTo(output);
@@ -1158,7 +1158,7 @@ public final class Packets {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getIceCandidate());
       }
-      if (sfuType_ != sfu.public.client.v1.Enums.SfuType.SfuTypeUnknown.getNumber()) {
+      if (sfuType_ != sfu.public.server.v1.Enums.SfuType.SfuTypeUnknown.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, sfuType_);
       }
@@ -1617,14 +1617,14 @@ public final class Packets {
 
       private int sfuType_ = 0;
       /**
-       * <code>.sfu.public.client.v1.SfuType sfu_type = 2;</code>
+       * <code>.sfu.public.server.v1.SfuType sfu_type = 2;</code>
        * @return The enum numeric value on the wire for sfuType.
        */
       @java.lang.Override public int getSfuTypeValue() {
         return sfuType_;
       }
       /**
-       * <code>.sfu.public.client.v1.SfuType sfu_type = 2;</code>
+       * <code>.sfu.public.server.v1.SfuType sfu_type = 2;</code>
        * @param value The enum numeric value on the wire for sfuType to set.
        * @return This builder for chaining.
        */
@@ -1635,20 +1635,20 @@ public final class Packets {
         return this;
       }
       /**
-       * <code>.sfu.public.client.v1.SfuType sfu_type = 2;</code>
+       * <code>.sfu.public.server.v1.SfuType sfu_type = 2;</code>
        * @return The sfuType.
        */
       @java.lang.Override
-      public sfu.public.client.v1.Enums.SfuType getSfuType() {
-        sfu.public.client.v1.Enums.SfuType result = sfu.public.client.v1.Enums.SfuType.forNumber(sfuType_);
-        return result == null ? sfu.public.client.v1.Enums.SfuType.UNRECOGNIZED : result;
+      public sfu.public.server.v1.Enums.SfuType getSfuType() {
+        sfu.public.server.v1.Enums.SfuType result = sfu.public.server.v1.Enums.SfuType.forNumber(sfuType_);
+        return result == null ? sfu.public.server.v1.Enums.SfuType.UNRECOGNIZED : result;
       }
       /**
-       * <code>.sfu.public.client.v1.SfuType sfu_type = 2;</code>
+       * <code>.sfu.public.server.v1.SfuType sfu_type = 2;</code>
        * @param value The sfuType to set.
        * @return This builder for chaining.
        */
-      public Builder setSfuType(sfu.public.client.v1.Enums.SfuType value) {
+      public Builder setSfuType(sfu.public.server.v1.Enums.SfuType value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -1658,7 +1658,7 @@ public final class Packets {
         return this;
       }
       /**
-       * <code>.sfu.public.client.v1.SfuType sfu_type = 2;</code>
+       * <code>.sfu.public.server.v1.SfuType sfu_type = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearSfuType() {
@@ -1736,15 +1736,15 @@ public final class Packets {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.sfu.public.client.v1.Action action = 1;</code>
+     * <code>.sfu.public.server.v1.Action action = 1;</code>
      * @return The enum numeric value on the wire for action.
      */
     int getActionValue();
     /**
-     * <code>.sfu.public.client.v1.Action action = 1;</code>
+     * <code>.sfu.public.server.v1.Action action = 1;</code>
      * @return The action.
      */
-    sfu.public.client.v1.Enums.Action getAction();
+    sfu.public.server.v1.Enums.Action getAction();
 
     /**
      * <code>bytes data = 2;</code>
@@ -1792,19 +1792,19 @@ public final class Packets {
     public static final int ACTION_FIELD_NUMBER = 1;
     private int action_ = 0;
     /**
-     * <code>.sfu.public.client.v1.Action action = 1;</code>
+     * <code>.sfu.public.server.v1.Action action = 1;</code>
      * @return The enum numeric value on the wire for action.
      */
     @java.lang.Override public int getActionValue() {
       return action_;
     }
     /**
-     * <code>.sfu.public.client.v1.Action action = 1;</code>
+     * <code>.sfu.public.server.v1.Action action = 1;</code>
      * @return The action.
      */
-    @java.lang.Override public sfu.public.client.v1.Enums.Action getAction() {
-      sfu.public.client.v1.Enums.Action result = sfu.public.client.v1.Enums.Action.forNumber(action_);
-      return result == null ? sfu.public.client.v1.Enums.Action.UNRECOGNIZED : result;
+    @java.lang.Override public sfu.public.server.v1.Enums.Action getAction() {
+      sfu.public.server.v1.Enums.Action result = sfu.public.server.v1.Enums.Action.forNumber(action_);
+      return result == null ? sfu.public.server.v1.Enums.Action.UNRECOGNIZED : result;
     }
 
     public static final int DATA_FIELD_NUMBER = 2;
@@ -1832,7 +1832,7 @@ public final class Packets {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (action_ != sfu.public.client.v1.Enums.Action.ActionUnknown.getNumber()) {
+      if (action_ != sfu.public.server.v1.Enums.Action.ActionUnknown.getNumber()) {
         output.writeEnum(1, action_);
       }
       if (!data_.isEmpty()) {
@@ -1847,7 +1847,7 @@ public final class Packets {
       if (size != -1) return size;
 
       size = 0;
-      if (action_ != sfu.public.client.v1.Enums.Action.ActionUnknown.getNumber()) {
+      if (action_ != sfu.public.server.v1.Enums.Action.ActionUnknown.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, action_);
       }
@@ -2167,14 +2167,14 @@ public final class Packets {
 
       private int action_ = 0;
       /**
-       * <code>.sfu.public.client.v1.Action action = 1;</code>
+       * <code>.sfu.public.server.v1.Action action = 1;</code>
        * @return The enum numeric value on the wire for action.
        */
       @java.lang.Override public int getActionValue() {
         return action_;
       }
       /**
-       * <code>.sfu.public.client.v1.Action action = 1;</code>
+       * <code>.sfu.public.server.v1.Action action = 1;</code>
        * @param value The enum numeric value on the wire for action to set.
        * @return This builder for chaining.
        */
@@ -2185,20 +2185,20 @@ public final class Packets {
         return this;
       }
       /**
-       * <code>.sfu.public.client.v1.Action action = 1;</code>
+       * <code>.sfu.public.server.v1.Action action = 1;</code>
        * @return The action.
        */
       @java.lang.Override
-      public sfu.public.client.v1.Enums.Action getAction() {
-        sfu.public.client.v1.Enums.Action result = sfu.public.client.v1.Enums.Action.forNumber(action_);
-        return result == null ? sfu.public.client.v1.Enums.Action.UNRECOGNIZED : result;
+      public sfu.public.server.v1.Enums.Action getAction() {
+        sfu.public.server.v1.Enums.Action result = sfu.public.server.v1.Enums.Action.forNumber(action_);
+        return result == null ? sfu.public.server.v1.Enums.Action.UNRECOGNIZED : result;
       }
       /**
-       * <code>.sfu.public.client.v1.Action action = 1;</code>
+       * <code>.sfu.public.server.v1.Action action = 1;</code>
        * @param value The action to set.
        * @return This builder for chaining.
        */
-      public Builder setAction(sfu.public.client.v1.Enums.Action value) {
+      public Builder setAction(sfu.public.server.v1.Enums.Action value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -2208,7 +2208,7 @@ public final class Packets {
         return this;
       }
       /**
-       * <code>.sfu.public.client.v1.Action action = 1;</code>
+       * <code>.sfu.public.server.v1.Action action = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearAction() {
@@ -6503,39 +6503,41 @@ public final class Packets {
       "\n\"sfu/public/client/v1/packets.proto\022\024sf" +
       "u.public.client.v1\032.protoc-gen-openapiv2" +
       "/options/annotations.proto\032 sfu/public/c" +
-      "lient/v1/enums.proto\032#sfu/public/client/" +
-      "v1/entities.proto\032#sfu/public/server/v1/" +
-      "entities.proto\"\210\002\n\rConnectPacket\022\021\n\tsdp_" +
-      "offer\030\001 \001(\014\0225\n\013client_type\030\002 \001(\0162 .sfu.p" +
-      "ublic.client.v1.ClientType\022?\n\020protocol_v" +
-      "ersion\030\003 \001(\0162%.sfu.public.client.v1.Prot" +
-      "ocolVersion\022;\n\007options\030\004 \001(\0132*.sfu.publi" +
-      "c.client.v1.SfuConnectionOptions\022/\n\010sfu_" +
-      "type\030\005 \001(\0162\035.sfu.public.client.v1.SfuTyp" +
-      "e\"\203\001\n\025AddIceCandidatePacket\0229\n\rice_candi" +
-      "date\030\001 \001(\0132\".sfu.public.server.v1.IceCan" +
-      "didate\022/\n\010sfu_type\030\002 \001(\0162\035.sfu.public.cl" +
-      "ient.v1.SfuType\"D\n\006Packet\022,\n\006action\030\001 \001(" +
-      "\0162\034.sfu.public.client.v1.Action\022\014\n\004data\030" +
-      "\002 \001(\014\"\212\001\n\023StreamsTogglePacket\0228\n\016enable_" +
-      "streams\030\001 \003(\0132 .sfu.public.server.v1.Str" +
-      "eamInfo\0229\n\017disable_streams\030\002 \003(\0132 .sfu.p" +
-      "ublic.server.v1.StreamInfo\"\226\001\n\rStreamsPa" +
-      "cket\0226\n\014add_requests\030\001 \003(\0132 .sfu.public." +
-      "server.v1.StreamInfo\022:\n\020removal_requests" +
-      "\030\002 \003(\0132 .sfu.public.server.v1.StreamInfo" +
-      "\022\021\n\tsdp_offer\030\003 \001(\014\"\022\n\020DisconnectPacket\"" +
-      "%\n\rMCUTestPacket\022\024\n\014resetEncoder\030\001 \001(\010\"\025" +
-      "\n\023ActiveStreamsPacket\"&\n\nPongPacket\022\030\n\020s" +
-      "erver_timestamp\030\001 \001(\003B@Z;gitlab.com/evem" +
-      "eta/zdk/pb/out/go/sfu/public/client/v1;s" +
-      "fupb\222A\000b\006proto3"
+      "lient/v1/enums.proto\032 sfu/public/server/" +
+      "v1/enums.proto\032#sfu/public/client/v1/ent" +
+      "ities.proto\032#sfu/public/server/v1/entiti" +
+      "es.proto\"\210\002\n\rConnectPacket\022\021\n\tsdp_offer\030" +
+      "\001 \001(\014\0225\n\013client_type\030\002 \001(\0162 .sfu.public." +
+      "client.v1.ClientType\022?\n\020protocol_version" +
+      "\030\003 \001(\0162%.sfu.public.client.v1.ProtocolVe" +
+      "rsion\022;\n\007options\030\004 \001(\0132*.sfu.public.clie" +
+      "nt.v1.SfuConnectionOptions\022/\n\010sfu_type\030\005" +
+      " \001(\0162\035.sfu.public.server.v1.SfuType\"\203\001\n\025" +
+      "AddIceCandidatePacket\0229\n\rice_candidate\030\001" +
+      " \001(\0132\".sfu.public.server.v1.IceCandidate" +
+      "\022/\n\010sfu_type\030\002 \001(\0162\035.sfu.public.server.v" +
+      "1.SfuType\"D\n\006Packet\022,\n\006action\030\001 \001(\0162\034.sf" +
+      "u.public.server.v1.Action\022\014\n\004data\030\002 \001(\014\"" +
+      "\212\001\n\023StreamsTogglePacket\0228\n\016enable_stream" +
+      "s\030\001 \003(\0132 .sfu.public.server.v1.StreamInf" +
+      "o\0229\n\017disable_streams\030\002 \003(\0132 .sfu.public." +
+      "server.v1.StreamInfo\"\226\001\n\rStreamsPacket\0226" +
+      "\n\014add_requests\030\001 \003(\0132 .sfu.public.server" +
+      ".v1.StreamInfo\022:\n\020removal_requests\030\002 \003(\013" +
+      "2 .sfu.public.server.v1.StreamInfo\022\021\n\tsd" +
+      "p_offer\030\003 \001(\014\"\022\n\020DisconnectPacket\"%\n\rMCU" +
+      "TestPacket\022\024\n\014resetEncoder\030\001 \001(\010\"\025\n\023Acti" +
+      "veStreamsPacket\"&\n\nPongPacket\022\030\n\020server_" +
+      "timestamp\030\001 \001(\003B@Z;gitlab.com/evemeta/zd" +
+      "k/pb/out/go/sfu/public/client/v1;sfupb\222A" +
+      "\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           grpc.gateway.protoc_gen_openapiv2.options.Annotations.getDescriptor(),
           sfu.public.client.v1.Enums.getDescriptor(),
+          sfu.public.server.v1.Enums.getDescriptor(),
           sfu.public.client.v1.Entities.getDescriptor(),
           sfu.public.server.v1.Entities.getDescriptor(),
         });
@@ -6600,6 +6602,7 @@ public final class Packets {
         .internalUpdateFileDescriptor(descriptor, registry);
     grpc.gateway.protoc_gen_openapiv2.options.Annotations.getDescriptor();
     sfu.public.client.v1.Enums.getDescriptor();
+    sfu.public.server.v1.Enums.getDescriptor();
     sfu.public.client.v1.Entities.getDescriptor();
     sfu.public.server.v1.Entities.getDescriptor();
   }

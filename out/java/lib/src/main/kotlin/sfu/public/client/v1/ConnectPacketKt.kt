@@ -115,6 +115,30 @@ public object ConnectPacketKt {
     public fun hasOptions(): kotlin.Boolean {
       return _builder.hasOptions()
     }
+
+    /**
+     * `.sfu.public.server.v1.SfuType sfu_type = 5;`
+     */
+    public var sfuType: sfu.public.server.v1.Enums.SfuType
+      @JvmName("getSfuType")
+      get() = _builder.getSfuType()
+      @JvmName("setSfuType")
+      set(value) {
+        _builder.setSfuType(value)
+      }
+    public var sfuTypeValue: kotlin.Int
+      @JvmName("getSfuTypeValue")
+      get() = _builder.getSfuTypeValue()
+      @JvmName("setSfuTypeValue")
+      set(value) {
+        _builder.setSfuTypeValue(value)
+      }
+    /**
+     * `.sfu.public.server.v1.SfuType sfu_type = 5;`
+     */
+    public fun clearSfuType() {
+      _builder.clearSfuType()
+    }
   }
 }
 @kotlin.jvm.JvmSynthetic
