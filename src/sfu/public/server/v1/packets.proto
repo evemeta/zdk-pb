@@ -3,7 +3,6 @@ syntax = "proto3";
 package sfu.public.server.v1;
 
 import "protoc-gen-openapiv2/options/annotations.proto";
-import "sfu/public/client/v1/enums.proto";
 import "sfu/public/server/v1/enums.proto";
 import "sfu/public/server/v1/entities.proto";
 
@@ -34,7 +33,7 @@ message MigrationRequiredPacket {
 }
 
 message UnsupportedActionPacket {
-    sfu.public.client.v1.Action action = 1;
+    Action action = 1;
 }
 
 message DisconnectedPacket {

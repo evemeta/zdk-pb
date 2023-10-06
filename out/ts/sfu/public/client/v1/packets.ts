@@ -12,9 +12,9 @@ import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
 import { StreamInfo } from "../../server/v1/entities";
-import { Action } from "./enums";
+import { Action } from "../../server/v1/enums";
 import { IceCandidate } from "../../server/v1/entities";
-import { SfuType } from "./enums";
+import { SfuType } from "../../server/v1/enums";
 import { SfuConnectionOptions } from "./entities";
 import { ProtocolVersion } from "./enums";
 import { ClientType } from "./enums";
@@ -41,7 +41,7 @@ export interface ConnectPacket {
      */
     options?: SfuConnectionOptions;
     /**
-     * @generated from protobuf field: sfu.public.client.v1.SfuType sfu_type = 5;
+     * @generated from protobuf field: sfu.public.server.v1.SfuType sfu_type = 5;
      */
     sfuType: SfuType;
 }
@@ -54,7 +54,7 @@ export interface AddIceCandidatePacket {
      */
     iceCandidate?: IceCandidate;
     /**
-     * @generated from protobuf field: sfu.public.client.v1.SfuType sfu_type = 2;
+     * @generated from protobuf field: sfu.public.server.v1.SfuType sfu_type = 2;
      */
     sfuType: SfuType;
 }
@@ -65,7 +65,7 @@ export interface AddIceCandidatePacket {
  */
 export interface Packet {
     /**
-     * @generated from protobuf field: sfu.public.client.v1.Action action = 1;
+     * @generated from protobuf field: sfu.public.server.v1.Action action = 1;
      */
     action: Action;
     /**
@@ -139,7 +139,7 @@ class ConnectPacket$Type extends MessageType<ConnectPacket> {
             { no: 2, name: "client_type", kind: "enum", T: () => ["sfu.public.client.v1.ClientType", ClientType] },
             { no: 3, name: "protocol_version", kind: "enum", T: () => ["sfu.public.client.v1.ProtocolVersion", ProtocolVersion] },
             { no: 4, name: "options", kind: "message", T: () => SfuConnectionOptions },
-            { no: 5, name: "sfu_type", kind: "enum", T: () => ["sfu.public.client.v1.SfuType", SfuType] }
+            { no: 5, name: "sfu_type", kind: "enum", T: () => ["sfu.public.server.v1.SfuType", SfuType] }
         ]);
     }
     create(value?: PartialMessage<ConnectPacket>): ConnectPacket {
@@ -166,7 +166,7 @@ class ConnectPacket$Type extends MessageType<ConnectPacket> {
                 case /* sfu.public.client.v1.SfuConnectionOptions options */ 4:
                     message.options = SfuConnectionOptions.internalBinaryRead(reader, reader.uint32(), options, message.options);
                     break;
-                case /* sfu.public.client.v1.SfuType sfu_type */ 5:
+                case /* sfu.public.server.v1.SfuType sfu_type */ 5:
                     message.sfuType = reader.int32();
                     break;
                 default:
@@ -193,7 +193,7 @@ class ConnectPacket$Type extends MessageType<ConnectPacket> {
         /* sfu.public.client.v1.SfuConnectionOptions options = 4; */
         if (message.options)
             SfuConnectionOptions.internalBinaryWrite(message.options, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
-        /* sfu.public.client.v1.SfuType sfu_type = 5; */
+        /* sfu.public.server.v1.SfuType sfu_type = 5; */
         if (message.sfuType !== 0)
             writer.tag(5, WireType.Varint).int32(message.sfuType);
         let u = options.writeUnknownFields;
@@ -211,7 +211,7 @@ class AddIceCandidatePacket$Type extends MessageType<AddIceCandidatePacket> {
     constructor() {
         super("sfu.public.client.v1.AddIceCandidatePacket", [
             { no: 1, name: "ice_candidate", kind: "message", T: () => IceCandidate },
-            { no: 2, name: "sfu_type", kind: "enum", T: () => ["sfu.public.client.v1.SfuType", SfuType] }
+            { no: 2, name: "sfu_type", kind: "enum", T: () => ["sfu.public.server.v1.SfuType", SfuType] }
         ]);
     }
     create(value?: PartialMessage<AddIceCandidatePacket>): AddIceCandidatePacket {
@@ -229,7 +229,7 @@ class AddIceCandidatePacket$Type extends MessageType<AddIceCandidatePacket> {
                 case /* sfu.public.server.v1.IceCandidate ice_candidate */ 1:
                     message.iceCandidate = IceCandidate.internalBinaryRead(reader, reader.uint32(), options, message.iceCandidate);
                     break;
-                case /* sfu.public.client.v1.SfuType sfu_type */ 2:
+                case /* sfu.public.server.v1.SfuType sfu_type */ 2:
                     message.sfuType = reader.int32();
                     break;
                 default:
@@ -247,7 +247,7 @@ class AddIceCandidatePacket$Type extends MessageType<AddIceCandidatePacket> {
         /* sfu.public.server.v1.IceCandidate ice_candidate = 1; */
         if (message.iceCandidate)
             IceCandidate.internalBinaryWrite(message.iceCandidate, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* sfu.public.client.v1.SfuType sfu_type = 2; */
+        /* sfu.public.server.v1.SfuType sfu_type = 2; */
         if (message.sfuType !== 0)
             writer.tag(2, WireType.Varint).int32(message.sfuType);
         let u = options.writeUnknownFields;
@@ -264,7 +264,7 @@ export const AddIceCandidatePacket = new AddIceCandidatePacket$Type();
 class Packet$Type extends MessageType<Packet> {
     constructor() {
         super("sfu.public.client.v1.Packet", [
-            { no: 1, name: "action", kind: "enum", T: () => ["sfu.public.client.v1.Action", Action] },
+            { no: 1, name: "action", kind: "enum", T: () => ["sfu.public.server.v1.Action", Action] },
             { no: 2, name: "data", kind: "scalar", T: 12 /*ScalarType.BYTES*/ }
         ]);
     }
@@ -280,7 +280,7 @@ class Packet$Type extends MessageType<Packet> {
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* sfu.public.client.v1.Action action */ 1:
+                case /* sfu.public.server.v1.Action action */ 1:
                     message.action = reader.int32();
                     break;
                 case /* bytes data */ 2:
@@ -298,7 +298,7 @@ class Packet$Type extends MessageType<Packet> {
         return message;
     }
     internalBinaryWrite(message: Packet, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* sfu.public.client.v1.Action action = 1; */
+        /* sfu.public.server.v1.Action action = 1; */
         if (message.action !== 0)
             writer.tag(1, WireType.Varint).int32(message.action);
         /* bytes data = 2; */

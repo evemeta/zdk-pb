@@ -15,7 +15,7 @@ import { Codec } from "./enums";
 import { IceCandidate } from "./entities";
 import { StreamType } from "./enums";
 import { ConferenceMode } from "./enums";
-import { Action } from "../../client/v1/enums";
+import { Action } from "./enums";
 import { StreamInfo } from "./entities";
 // WebSocket Packets
 
@@ -63,7 +63,7 @@ export interface MigrationRequiredPacket {
  */
 export interface UnsupportedActionPacket {
     /**
-     * @generated from protobuf field: sfu.public.client.v1.Action action = 1;
+     * @generated from protobuf field: sfu.public.server.v1.Action action = 1;
      */
     action: Action;
 }
@@ -301,7 +301,7 @@ export const MigrationRequiredPacket = new MigrationRequiredPacket$Type();
 class UnsupportedActionPacket$Type extends MessageType<UnsupportedActionPacket> {
     constructor() {
         super("sfu.public.server.v1.UnsupportedActionPacket", [
-            { no: 1, name: "action", kind: "enum", T: () => ["sfu.public.client.v1.Action", Action] }
+            { no: 1, name: "action", kind: "enum", T: () => ["sfu.public.server.v1.Action", Action] }
         ]);
     }
     create(value?: PartialMessage<UnsupportedActionPacket>): UnsupportedActionPacket {
@@ -316,7 +316,7 @@ class UnsupportedActionPacket$Type extends MessageType<UnsupportedActionPacket> 
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* sfu.public.client.v1.Action action */ 1:
+                case /* sfu.public.server.v1.Action action */ 1:
                     message.action = reader.int32();
                     break;
                 default:
@@ -331,7 +331,7 @@ class UnsupportedActionPacket$Type extends MessageType<UnsupportedActionPacket> 
         return message;
     }
     internalBinaryWrite(message: UnsupportedActionPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* sfu.public.client.v1.Action action = 1; */
+        /* sfu.public.server.v1.Action action = 1; */
         if (message.action !== 0)
             writer.tag(1, WireType.Varint).int32(message.action);
         let u = options.writeUnknownFields;

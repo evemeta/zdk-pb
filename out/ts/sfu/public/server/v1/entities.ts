@@ -11,7 +11,7 @@ import type { PartialMessage } from "@protobuf-ts/runtime";
 import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
-import { SfuType } from "../../client/v1/enums";
+import { SfuType } from "./enums";
 import { StreamType } from "./enums";
 /**
  * @generated from protobuf message sfu.public.server.v1.StreamInfo
@@ -43,7 +43,7 @@ export interface IceCandidate {
      */
     candidate: Uint8Array;
     /**
-     * @generated from protobuf field: sfu.public.client.v1.SfuType sfu_type = 4;
+     * @generated from protobuf field: sfu.public.server.v1.SfuType sfu_type = 4;
      */
     sfuType: SfuType;
 }
@@ -114,7 +114,7 @@ class IceCandidate$Type extends MessageType<IceCandidate> {
         super("sfu.public.server.v1.IceCandidate", [
             { no: 2, name: "room_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 3, name: "candidate", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
-            { no: 4, name: "sfu_type", kind: "enum", T: () => ["sfu.public.client.v1.SfuType", SfuType] }
+            { no: 4, name: "sfu_type", kind: "enum", T: () => ["sfu.public.server.v1.SfuType", SfuType] }
         ]);
     }
     create(value?: PartialMessage<IceCandidate>): IceCandidate {
@@ -135,7 +135,7 @@ class IceCandidate$Type extends MessageType<IceCandidate> {
                 case /* bytes candidate */ 3:
                     message.candidate = reader.bytes();
                     break;
-                case /* sfu.public.client.v1.SfuType sfu_type */ 4:
+                case /* sfu.public.server.v1.SfuType sfu_type */ 4:
                     message.sfuType = reader.int32();
                     break;
                 default:
@@ -156,7 +156,7 @@ class IceCandidate$Type extends MessageType<IceCandidate> {
         /* bytes candidate = 3; */
         if (message.candidate.length)
             writer.tag(3, WireType.LengthDelimited).bytes(message.candidate);
-        /* sfu.public.client.v1.SfuType sfu_type = 4; */
+        /* sfu.public.server.v1.SfuType sfu_type = 4; */
         if (message.sfuType !== 0)
             writer.tag(4, WireType.Varint).int32(message.sfuType);
         let u = options.writeUnknownFields;

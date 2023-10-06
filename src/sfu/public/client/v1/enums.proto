@@ -29,22 +29,5 @@ enum ClientType {
     ClientTypeAndroid           = 8;
 }
 
-enum SfuType {
-    SfuTypeUnknown = 0;
-    SfuTypeGateway = 1;
-    SfuTypeRouter  = 2;
-}
-
-enum Action {
-    ActionUnknown           = 0;
-    ActionConnect           = 1;
-    ActionDisconnect        = 3;
-    ActionPong              = 4;
-    ActionMcu               = 5;
-    ActionToggleStreams     = 6;
-    ActionNegotiateStreams  = 7;
-    ActionGetActiveStreams  = 8;
-}
-
 
 
