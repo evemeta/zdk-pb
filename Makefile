@@ -50,7 +50,7 @@ endif
 
 ifeq ($(OS),WINDOWS)
 gen::
-	@dos2unix --quiet generate.sh
+	@dos2unix --quiet generate.sh transform.sh
 	@printf $(TITLE) "+" "Generating.."
 	@./generate.sh
 	@printf $(TITLE) "+" "Transforming.."

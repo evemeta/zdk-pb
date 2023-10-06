@@ -5,6 +5,9 @@ package room.rooms.public.server.v1;
 import "room/rooms/public/server/v1/enums.proto";
 import "chat/chats/public/server/v1/entities.proto";
 import "room/members/public/server/v1/entities.proto";
+import "room/streams/public/server/v1/entities.proto";
+import "room/connections/public/server/v1/entities.proto";
+import "room/restrictions/public/server/v1/entities.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/rooms/public/server/v1;roomspb";
@@ -70,6 +73,18 @@ message Context {
     repeated room.members.public.server.v1.Member members = 7;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the retrieval of members from the database.
     room.rooms.public.server.v1.Timeframe members_timeframe = 8;
+    // todo;
+    repeated room.streams.public.server.v1.Stream streams = 9;
+    // todo;
+    room.rooms.public.server.v1.Timeframe streams_timeframe = 10;
+    // todo;
+    repeated room.connections.public.server.v1.Connection connections = 11;
+    // todo;
+    room.rooms.public.server.v1.Timeframe connections_timeframe = 12;
+    // todo;
+    repeated room.streams.public.server.v1.Stream restrictions = 13;
+    // todo;
+    room.restrictions.public.server.v1.Timeframe restrictions_timeframe = 14;
 }
 
 // Condition represents a set of criteria designed to filter data during retrieval.

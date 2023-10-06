@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+package room.restrictions.public.server.v1;
+
+import "room/restrictions/public/server/v1/enums.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/restrictions/public/server/v1;restrictionspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+// Chunk represents a segmented portion of restrictions used for pagination or segmented data retrieval.
+// It provides insights about the desired chunk size, its position within the overall dataset, and the actual restrictions it contains.
+message Chunk {
+    // Represents the desired size of the chunk, not necessarily the actual number of entities it contains.
+    int64 size = 1;
+    // Represents the position of this chunk within the context of pagination.
+    int64 index = 2;
+    // Represents the total count of entities across all chunks.
+    int64 total = 3;
+    // Represents the actual restrictions included in this chunk.
+    repeated room.restrictions.public.server.v1.Restriction entities = 4;
+}
+
+// Query represents a structure designed to facilitate specific and conditional data retrieval.
+// It contains order specifications, limitations on the number of results, and conditions to filter data.
+message Query {
+    // Represents the order in which results should be retrieved.
+    room.restrictions.public.server.v1.Order order = 1;
+    // Represents the maximum number of results to be fetched.
+    int64 limit = 2;
+    // Represents the starting point from which to retrieve results.
+    int64 offset = 3;
+    // Represents the set of conditions that filter the data retrieval process.
+    room.restrictions.public.server.v1.Condition condition = 4;
+}
+
+// Timeframe represents a specific span or duration marked by its commencement and completion times.
+// It provides a clear boundary to understand when a particular activity began and when it ended.
+message Timeframe {
+    // Represents the timestamp indicating when the activity or retrieve of data commenced.
+    int64 commence = 1;
+    // Represents the timestamp indicating when the activity or retrieve of data completed.
+    int64 complete = 2;
+}
+
+// Condition represents a set of criteria designed to filter data during retrieval.
+// It provides mechanisms to specifically target restrictions based on identifiers or room affiliations.
+message Condition {
+    // Represents a list of restriction identifiers for targeted data retrieval.
+    repeated string ids = 1;
+    // todo;
+    repeated string user_ids = 2;
+    // Represents a list of room identifiers to filter restrictions based on their association.
+    repeated string room_ids = 3;
+}
+
+// Restriction todo;
+message Restriction {
+    // Represents the unique identifier for this restriction.
+    string id = 1;
+    string user_id = 2;
+    string room_id = 3;
+    room.restrictions.public.server.v1.Kind kind = 4;
+    string reason = 5;
+    int64 create_time = 6;
+    int64 update_time = 7;
+    int64 expire_time = 8;
+}

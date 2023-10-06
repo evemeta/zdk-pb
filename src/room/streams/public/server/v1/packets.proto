@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package room.streams.public.server.v1;
+
+import "room/streams/public/server/v1/entities.proto";
+import "room/streams/public/server/v1/optionals.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/streams/public/server/v1;streamspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+// CreateStreamPacket todo;
+message CreateStreamPacket {
+    // Represents the comprehensive details of the newly created stream.
+    room.streams.public.server.v1.Stream stream = 3;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+    room.streams.public.server.v1.Timeframe timeframe = 4;
+}
+
+// UpdateStreamPacket todo;
+message UpdateStreamPacket {
+    // todo;
+    string id = 1;
+    // todo;
+    string room_id = 2;
+    // todo;
+    room.streams.public.server.v1.OptionalStatus status = 3;
+    // todo;
+    room.streams.public.server.v1.Timeframe timeframe = 4;
+}
+
+// DeleteStreamPacket todo;
+message DeleteStreamPacket {
+    // todo;
+    string id = 1;
+    // todo;
+    string room_id = 2;
+    // todo;
+    room.streams.public.server.v1.Timeframe timeframe = 4;
+}

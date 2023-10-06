@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package room.streams.public.server.v1;
+
+import "room/streams/public/server/v1/procedures.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/streams/public/server/v1;streamspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+service Service {
+
+    // Count represents a procedure that retrieves the total number of streams based on a specific query.
+    rpc Count(CountRequest) returns (CountResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: Count";
+            summary: "Count";
+            operation_id: "Count";
+        };
+    }
+
+    // Range represents a procedure that retrieves a chunk of streams based on a specific query.
+    rpc Range(RangeRequest) returns (RangeResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: Range";
+            summary: "Range";
+            operation_id: "Range";
+        };
+    }
+
+    // Select represents a procedure that retrieves specific streams based on a specific query.
+    rpc Select(SelectRequest) returns (SelectResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: Select";
+            summary: "Select";
+            operation_id: "Select";
+        };
+    }
+}

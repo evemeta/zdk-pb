@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package room.members.public.server.v1;
 
-import "room/members/public/server/v1/enums.proto";
 import "room/members/public/server/v1/entities.proto";
 import "room/members/public/server/v1/optionals.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
@@ -53,108 +52,5 @@ message KickMemberPacket {
     // Represents an optional reason or cause for kicking the member.
     string reason = 3;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
-    room.members.public.server.v1.Timeframe timeframe = 4;
-}
-
-// CreateMemberStreamPacket is a notification sent to clients when a new stream has been created for a member.
-// It provides the details of the stream, identifiers for the associated user and room, and the relevant timeframe associated with the event.
-message CreateMemberStreamPacket {
-    // Represents the unique identifier of the user associated with the new stream.
-    string user_id = 1;
-    // Represents the unique identifier of the room in which the new stream was created.
-    string room_id = 2;
-    // Represents the comprehensive details of the newly created stream.
-    room.members.public.server.v1.Stream stream = 3;
-    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
-    room.members.public.server.v1.Timeframe timeframe = 4;
-}
-
-// UpdateMemberStreamPacket todo;
-message UpdateMemberStreamPacket {
-    // todo;
-    string user_id = 1;
-    // todo;
-    string room_id = 2;
-    // todo;
-    members.public.server.v1.StreamKind kind = 3;
-    // todo;
-    members.public.server.v1.OptionalStreamState state = 4;
-    // todo;
-    room.members.public.server.v1.Timeframe timeframe = 5;
-}
-
-// DeleteMemberStreamPacket todo;
-message DeleteMemberStreamPacket {
-    // todo;
-    string user_id = 1;
-    // todo;
-    string room_id = 2;
-    // todo;
-    members.public.server.v1.StreamKind kind = 3;
-    // todo;
-    room.members.public.server.v1.Timeframe timeframe = 4;
-}
-
-// CreateMemberConnectionPacket is a notification sent to clients when a new connection has been established for a member.
-// It provides the details of the connection, identifiers for the associated user and room, and the relevant timeframe associated with the event.
-message CreateMemberConnectionPacket {
-    // Represents the unique identifier of the user associated with the new connection.
-    string user_id = 1;
-    // Represents the unique identifier of the room in which the new connection was established.
-    string room_id = 2;
-    // Represents the comprehensive details of the newly established connection.
-    room.members.public.server.v1.Connection connection = 3;
-    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
-    room.members.public.server.v1.Timeframe timeframe = 4;
-}
-
-// DeleteMemberConnectionPacket todo;
-message DeleteMemberConnectionPacket {
-    // todo;
-    string user_id = 1;
-    // todo;
-    string room_id = 2;
-    // todo;
-    members.public.server.v1.ConnectionKind kind = 3;
-    // todo;
-    room.members.public.server.v1.Timeframe timeframe = 4;
-}
-
-// CreateMemberRestrictionPacket is a notification sent to clients when a new restriction has been applied to a member.
-// It provides the details of the restriction, identifiers for the associated user and room, and the relevant timeframe associated with the event.
-message CreateMemberRestrictionPacket {
-    // Represents the unique identifier of the user associated with the new restriction.
-    string user_id = 1;
-    // Represents the unique identifier of the room in which the new restriction was applied.
-    string room_id = 2;
-    // Represents the comprehensive details of the newly applied restriction.
-    room.members.public.server.v1.Restriction restriction = 3;
-    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
-    room.members.public.server.v1.Timeframe timeframe = 4;
-}
-
-// UpdateMemberConnectionPacket todo;
-message UpdateMemberConnectionPacket {
-    // todo;
-    string user_id = 1;
-    // todo;
-    string room_id = 2;
-    // todo;
-    members.public.server.v1.ConnectionKind kind = 3;
-    // todo;
-    members.public.server.v1.OptionalConnectionState state = 4;
-    // todo;
-    room.members.public.server.v1.Timeframe timeframe = 5;
-}
-
-// DeleteMemberRestrictionPacket todo;
-message DeleteMemberRestrictionPacket {
-    // todo;
-    string user_id = 1;
-    // todo;
-    string room_id = 2;
-    // todo;
-    members.public.server.v1.RestrictionKind kind = 3;
-    // todo;
     room.members.public.server.v1.Timeframe timeframe = 4;
 }

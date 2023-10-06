@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package room.streams.private.v1;
+
+import "room/streams/private/v1/enums.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/streams/private/v1;streamspb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+message Chunk {
+    int64                                   size     = 1;
+    int64                                   index    = 2;
+    int64                                   total    = 3;
+    repeated room.streams.private.v1.Stream entities = 4;
+}
+
+message Query {
+    room.streams.private.v1.Order              order      = 1;
+    int64                                      limit      = 2;
+    int64                                      offset     = 3;
+    repeated room.streams.private.v1.Condition conditions = 4;
+}
+
+message Stream {
+    string                         id           = 1;
+    string                         user_id      = 2;
+    string                         room_id      = 3;
+    room.streams.private.v1.Kind   kind         = 4;
+    room.streams.private.v1.Status status       = 5;
+    int64                          access_time  = 6;
+    int64                          create_time  = 7;
+    int64                          update_time  = 8;
+}
+
+message Condition {
+    repeated string                         ids      = 1;
+    repeated string                         user_ids = 2;
+    repeated string                         room_ids = 3;
+    repeated room.streams.private.v1.Kind   kinds    = 4;
+    repeated room.streams.private.v1.Status statuses = 5;
+}
+
+message Transient {
+    room.streams.private.v1.Stream future   = 1;
+    room.streams.private.v1.Stream current  = 2;
+    room.streams.private.v1.Stream previous = 3;
+}

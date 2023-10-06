@@ -38,13 +38,14 @@ message Transient {
 }
 
 message Connection {
-    string                                id           = 1;
-    string                                sfu_id       = 2;
-    string                                user_id      = 3;
-    string                                room_id      = 4;
-    string                                session_id   = 5;
-    gateway.connections.private.v1.Status status       = 6;
-    int64                                 access_time  = 7;
-    int64                                 create_time  = 8;
-    int64                                 update_time  = 9;
+    string                                id          = 1;
+    string                                sfu_id      = 2;
+    string                                user_id     = 3;
+    string                                room_id     = 4;
+    string                                session_id  = 5;
+    gateway.connections.private.v1.Kind   kind        = 6;
+    gateway.connections.private.v1.Status status      = 7;
+    int64                                 access_time = 8;
+    int64                                 create_time = 9;
+    int64                                 update_time = 10;
 }
