@@ -73,13 +73,13 @@ func (Kind) EnumDescriptor() ([]byte, []int) {
 type Zone int32
 
 const (
-	Zone_ZoneUnknown      Zone = 0
-	Zone_ZoneAsia         Zone = 1
-	Zone_ZoneAfrica       Zone = 2
-	Zone_ZoneEurope       Zone = 3
-	Zone_ZoneOceania      Zone = 4
-	Zone_ZoneNorthAmerica Zone = 5
-	Zone_ZoneSouthAmerica Zone = 6
+	ZoneUnknown      Zone = 0
+	ZoneAsia         Zone = 1
+	ZoneAfrica       Zone = 2
+	ZoneEurope       Zone = 3
+	ZoneOceania      Zone = 4
+	ZoneNorthAmerica Zone = 5
+	ZoneSouthAmerica Zone = 6
 )
 
 // Enum value maps for Zone.

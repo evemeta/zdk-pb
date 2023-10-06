@@ -242,7 +242,7 @@ func (x *Stream) GetStatus() Status {
 	if x != nil {
 		return x.Status
 	}
-	return Status_StatusUnknown
+	return StatusUnknown
 }
 
 func (x *Stream) GetAccessTime() int64 {

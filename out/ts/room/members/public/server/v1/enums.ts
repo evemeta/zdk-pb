@@ -8,32 +8,32 @@
  */
 export enum Order {
     /**
-     * @generated from protobuf enum value: OrderUnknown = 0;
+     * @generated from protobuf enum value: Unknown = 0;
      */
-    OrderUnknown = 0,
+    Unknown = 0,
     /**
-     * @generated from protobuf enum value: OrderAscending = 1;
+     * @generated from protobuf enum value: Ascending = 1;
      */
-    OrderAscending = 1,
+    Ascending = 1,
     /**
-     * @generated from protobuf enum value: OrderDescending = 2;
+     * @generated from protobuf enum value: Descending = 2;
      */
-    OrderDescending = 2
+    Descending = 2
 }
 /**
  * @generated from protobuf enum room.members.public.server.v1.Status
  */
 export enum Status {
     /**
-     * @generated from protobuf enum value: StatusUnknown = 0;
+     * @generated from protobuf enum value: Unknown = 0;
      */
-    StatusUnknown = 0,
+    Unknown = 0,
     /**
-     * @generated from protobuf enum value: StatusConnected = 1;
+     * @generated from protobuf enum value: Connected = 1;
      */
-    StatusConnected = 1,
+    Connected = 1,
     /**
-     * @generated from protobuf enum value: StatusDisconnected = 2;
+     * @generated from protobuf enum value: Disconnected = 2;
      */
-    StatusDisconnected = 2
+    Disconnected = 2
 }

@@ -6,15 +6,15 @@
  */
 export enum MixerType {
     /**
-     * @generated from protobuf enum value: MixerTypeUnknown = 0;
+     * @generated from protobuf enum value: Unknown = 0;
      */
-    MixerTypeUnknown = 0,
+    Unknown = 0,
     /**
-     * @generated from protobuf enum value: MixerTypeSimpleGrid = 1;
+     * @generated from protobuf enum value: SimpleGrid = 1;
      */
-    MixerTypeSimpleGrid = 1,
+    SimpleGrid = 1,
     /**
-     * @generated from protobuf enum value: MixerTypeRoomGrid = 2;
+     * @generated from protobuf enum value: RoomGrid = 2;
      */
-    MixerTypeRoomGrid = 2
+    RoomGrid = 2
 }

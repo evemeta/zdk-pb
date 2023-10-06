@@ -87,7 +87,7 @@ func (x *Sfu) GetZone() Zone {
 	if x != nil {
 		return x.Zone
 	}
-	return Zone_ZoneUnknown
+	return ZoneUnknown
 }
 
 func (x *Sfu) GetStatus() Status {

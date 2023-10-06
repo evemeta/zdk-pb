@@ -8,17 +8,17 @@
  */
 export enum Order {
     /**
-     * @generated from protobuf enum value: OrderUnknown = 0;
+     * @generated from protobuf enum value: Unknown = 0;
      */
-    OrderUnknown = 0,
+    Unknown = 0,
     /**
-     * @generated from protobuf enum value: OrderAscending = 1;
+     * @generated from protobuf enum value: Ascending = 1;
      */
-    OrderAscending = 1,
+    Ascending = 1,
     /**
-     * @generated from protobuf enum value: OrderDescending = 2;
+     * @generated from protobuf enum value: Descending = 2;
      */
-    OrderDescending = 2
+    Descending = 2
 }
 /**
  * RestrictionKind represents an enumeration that specifies the kinds of restrictions or actions that can be applied to a member.
@@ -27,15 +27,15 @@ export enum Order {
  */
 export enum RestrictionKind {
     /**
-     * @generated from protobuf enum value: RestrictionKindUnknown = 0;
+     * @generated from protobuf enum value: Unknown = 0;
      */
-    RestrictionKindUnknown = 0,
+    Unknown = 0,
     /**
-     * @generated from protobuf enum value: RestrictionKindMute = 1;
+     * @generated from protobuf enum value: Mute = 1;
      */
-    RestrictionKindMute = 1,
+    Mute = 1,
     /**
-     * @generated from protobuf enum value: RestrictionKindBlock = 2;
+     * @generated from protobuf enum value: Block = 2;
      */
-    RestrictionKindBlock = 2
+    Block = 2
 }

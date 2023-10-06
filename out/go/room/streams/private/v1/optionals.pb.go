@@ -66,7 +66,7 @@ func (x *OptionalStatus) GetValue() Status {
 	if x != nil {
 		return x.Value
 	}
-	return Status_StatusUnknown
+	return StatusUnknown
 }
 
 // OptionalString represents a string value that can be intentionally left unset or null.

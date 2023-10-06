@@ -6,9 +6,9 @@
  */
 export enum Kind {
     /**
-     * @generated from protobuf enum value: KindUnknown = 0;
+     * @generated from protobuf enum value: Unknown = 0;
      */
-    KindUnknown = 0
+    Unknown = 0
 }
 /**
  * Order represents an enumeration that specifies the sort order for data retrieval, particularly in the context of querying.
@@ -17,15 +17,15 @@ export enum Kind {
  */
 export enum Order {
     /**
-     * @generated from protobuf enum value: OrderUnknown = 0;
+     * @generated from protobuf enum value: Unknown = 0;
      */
-    OrderUnknown = 0,
+    Unknown = 0,
     /**
-     * @generated from protobuf enum value: OrderAscending = 1;
+     * @generated from protobuf enum value: Ascending = 1;
      */
-    OrderAscending = 1,
+    Ascending = 1,
     /**
-     * @generated from protobuf enum value: OrderDescending = 2;
+     * @generated from protobuf enum value: Descending = 2;
      */
-    OrderDescending = 2
+    Descending = 2
 }

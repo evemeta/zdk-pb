@@ -66,7 +66,7 @@ func (x *OptionalStatus) GetValue() Status {
 	if x != nil {
 		return x.Value
 	}
-	return Status_StatusUnknown
+	return StatusUnknown
 }
 
 var File_room_streams_public_server_v1_optionals_proto protoreflect.FileDescriptor

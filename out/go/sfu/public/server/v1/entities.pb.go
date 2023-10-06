@@ -67,7 +67,7 @@ func (x *StreamInfo) GetType() StreamType {
 	if x != nil {
 		return x.Type
 	}
-	return StreamType_StreamTypeUnknown
+	return StreamTypeUnknown
 }
 
 func (x *StreamInfo) GetUserId() string {

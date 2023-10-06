@@ -472,7 +472,7 @@ func (x *LocalInputReadyPacket) GetStreamType() StreamType {
 	if x != nil {
 		return x.StreamType
 	}
-	return StreamType_StreamTypeUnknown
+	return StreamTypeUnknown
 }
 
 type NoDataPacket struct {
@@ -519,7 +519,7 @@ func (x *NoDataPacket) GetStreamType() StreamType {
 	if x != nil {
 		return x.StreamType
 	}
-	return StreamType_StreamTypeUnknown
+	return StreamTypeUnknown
 }
 
 type IceCandidatePacket struct {

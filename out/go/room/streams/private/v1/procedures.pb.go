@@ -544,7 +544,7 @@ func (x *CreateArgument) GetStatus() Status {
 	if x != nil {
 		return x.Status
 	}
-	return Status_StatusUnknown
+	return StatusUnknown
 }
 
 type CreateRequest struct {

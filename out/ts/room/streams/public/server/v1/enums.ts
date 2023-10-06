@@ -6,17 +6,17 @@
  */
 export enum Kind {
     /**
-     * @generated from protobuf enum value: KindUnknown = 0;
+     * @generated from protobuf enum value: Unknown = 0;
      */
-    KindUnknown = 0,
+    Unknown = 0,
     /**
-     * @generated from protobuf enum value: KindAudio = 1;
+     * @generated from protobuf enum value: Audio = 1;
      */
-    KindAudio = 1,
+    Audio = 1,
     /**
-     * @generated from protobuf enum value: KindVideo = 2;
+     * @generated from protobuf enum value: Video = 2;
      */
-    KindVideo = 2
+    Video = 2
 }
 /**
  * Order represents an enumeration that specifies the sort order for data retrieval, particularly in the context of querying.
@@ -25,32 +25,32 @@ export enum Kind {
  */
 export enum Order {
     /**
-     * @generated from protobuf enum value: OrderUnknown = 0;
+     * @generated from protobuf enum value: Unknown = 0;
      */
-    OrderUnknown = 0,
+    Unknown = 0,
     /**
-     * @generated from protobuf enum value: OrderAscending = 1;
+     * @generated from protobuf enum value: Ascending = 1;
      */
-    OrderAscending = 1,
+    Ascending = 1,
     /**
-     * @generated from protobuf enum value: OrderDescending = 2;
+     * @generated from protobuf enum value: Descending = 2;
      */
-    OrderDescending = 2
+    Descending = 2
 }
 /**
  * @generated from protobuf enum room.streams.public.server.v1.Status
  */
 export enum Status {
     /**
-     * @generated from protobuf enum value: StatusUnknown = 0;
+     * @generated from protobuf enum value: Unknown = 0;
      */
-    StatusUnknown = 0,
+    Unknown = 0,
     /**
-     * @generated from protobuf enum value: StatusEnabled = 1;
+     * @generated from protobuf enum value: Enabled = 1;
      */
-    StatusEnabled = 1,
+    Enabled = 1,
     /**
-     * @generated from protobuf enum value: StatusDisabled = 2;
+     * @generated from protobuf enum value: Disabled = 2;
      */
-    StatusDisabled = 2
+    Disabled = 2
 }

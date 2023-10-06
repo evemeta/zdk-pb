@@ -418,7 +418,7 @@ func (x *Websocket) GetZone() Zone {
 	if x != nil {
 		return x.Zone
 	}
-	return Zone_ZoneUnknown
+	return ZoneUnknown
 }
 
 func (x *Websocket) GetStatus() Status {

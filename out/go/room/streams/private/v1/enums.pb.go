@@ -122,9 +122,9 @@ func (Order) EnumDescriptor() ([]byte, []int) {
 type Status int32
 
 const (
-	Status_StatusUnknown  Status = 0
-	Status_StatusEnabled  Status = 1
-	Status_StatusDisabled Status = 2
+	StatusUnknown  Status = 0
+	StatusEnabled  Status = 1
+	StatusDisabled Status = 2
 )
 
 // Enum value maps for Status.
