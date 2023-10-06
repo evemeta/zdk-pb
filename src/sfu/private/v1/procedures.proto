@@ -65,7 +65,7 @@ message GetCpuUsageResponse {
 }
 
 message GetConnectedUserArgument {
-    string session_id = 1;
+    repeated string connection_ids = 1;
 }
 
 message GetConnectedUserRequest {
