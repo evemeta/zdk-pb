@@ -82,7 +82,7 @@ message Context {
     // todo;
     room.rooms.public.server.v1.Timeframe connections_timeframe = 12;
     // todo;
-    repeated room.streams.public.server.v1.Stream restrictions = 13;
+    repeated room.restrictions.public.server.v1.Restriction restrictions = 13;
     // todo;
     room.restrictions.public.server.v1.Timeframe restrictions_timeframe = 14;
 }
