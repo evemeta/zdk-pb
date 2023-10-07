@@ -7,6 +7,9 @@ import "room/rooms/private/v1/entities.proto";
 import "room/rooms/private/v1/optionals.proto";
 import "chat/chats/private/v1/procedures.proto";
 import "room/members/private/v1/procedures.proto";
+import "room/streams/private/v1/procedures.proto";
+import "room/connections/private/v1/procedures.proto";
+import "room/restrictions/private/v1/procedures.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 import "gateway/transponders/private/v1/procedures.proto";
 
@@ -131,7 +134,10 @@ message DeleteMutation {
 message DeleteCondition {
     repeated chat.chats.private.v1.DeleteMutation           delete_chat_mutations        = 1;
     repeated room.members.private.v1.DeleteMutation         delete_member_mutations      = 2;
-    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 3;
+    repeated room.streams.private.v1.DeleteMutation         delete_stream_mutations      = 3;
+    repeated room.connections.private.v1.DeleteMutation     delete_connection_mutations  = 4;
+    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 5;
+    repeated room.restrictions.private.v1.DeleteMutation    delete_restriction_mutations = 6;
 }
 
 message DeleteTransaction {

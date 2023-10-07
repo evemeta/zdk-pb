@@ -84,7 +84,7 @@ message Context {
     // todo;
     repeated room.restrictions.public.server.v1.Restriction restrictions = 13;
     // todo;
-    room.restrictions.public.server.v1.Timeframe restrictions_timeframe = 14;
+    room.rooms.public.server.v1.Timeframe restrictions_timeframe = 14;
 }
 
 // Condition represents a set of criteria designed to filter data during retrieval.

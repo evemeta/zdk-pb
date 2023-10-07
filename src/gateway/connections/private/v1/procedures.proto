@@ -5,6 +5,7 @@ package gateway.connections.private.v1;
 import "gateway/connections/private/v1/enums.proto";
 import "gateway/connections/private/v1/entities.proto";
 import "gateway/connections/private/v1/optionals.proto";
+import "room/connections/private/v1/procedures.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/connections/private/v1;connectionspb";
@@ -69,9 +70,14 @@ message CreateResponse {
 
 message CreateMutation {
     gateway.connections.private.v1.CreateArgument     foundation      = 1;
-    repeated gateway.connections.private.v1.Transient transient       = 2;
-    int64                                             begin_timestamp = 3;
-    int64                                             close_timestamp = 4;
+    gateway.connections.private.v1.CreateCondition    condition       = 2;
+    repeated gateway.connections.private.v1.Transient transient       = 3;
+    int64                                             begin_timestamp = 4;
+    int64                                             close_timestamp = 5;
+}
+
+message CreateCondition {
+    repeated room.connections.private.v1.CreateMutation create_connection_mutations = 1;
 }
 
 message CreateTransaction {
@@ -97,9 +103,14 @@ message UpdateResponse {
 
 message UpdateMutation {
     gateway.connections.private.v1.UpdateArgument     foundation      = 1;
-    repeated gateway.connections.private.v1.Transient transient       = 2;
-    int64                                             begin_timestamp = 3;
-    int64                                             close_timestamp = 4;
+    gateway.connections.private.v1.UpdateCondition    condition       = 2;
+    repeated gateway.connections.private.v1.Transient transient       = 3;
+    int64                                             begin_timestamp = 4;
+    int64                                             close_timestamp = 5;
+}
+
+message UpdateCondition {
+    repeated room.connections.private.v1.UpdateMutation update_connection_mutations = 1;
 }
 
 message UpdateTransaction {
@@ -120,9 +131,14 @@ message DeleteResponse {
 
 message DeleteMutation {
     gateway.connections.private.v1.DeleteArgument     foundation      = 1;
-    repeated gateway.connections.private.v1.Transient transient       = 2;
-    int64                                             begin_timestamp = 3;
-    int64                                             close_timestamp = 4;
+    gateway.connections.private.v1.DeleteCondition    condition       = 2;
+    repeated gateway.connections.private.v1.Transient transient       = 3;
+    int64                                             begin_timestamp = 4;
+    int64                                             close_timestamp = 5;
+}
+
+message DeleteCondition {
+    repeated room.connections.private.v1.DeleteMutation delete_connection_mutations = 1;
 }
 
 message DeleteTransaction {
