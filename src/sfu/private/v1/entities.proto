@@ -20,14 +20,6 @@ message CodecInfo {
     uint32                      payloadType = 4;
 }
 
-message Offer {
-    string                      session_id  = 1;
-    string                      user_id     = 2;
-    string                      room_id     = 3;
-    bytes                       sdp_answer  = 4;
-    sfu.public.server.v1.SfuType sfu_type   = 5;
-}
-
 message ConnectionUserInfo {
     string session_id = 1;
     string user_id    = 2;

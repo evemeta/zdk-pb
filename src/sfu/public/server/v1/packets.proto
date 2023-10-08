@@ -11,6 +11,10 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 //WebSocket Packets
 
+message IceCandidatePacket {
+    IceCandidate ice_candidate = 1;
+}
+
 //message ConnectionOfferPacket {
 //    bytes sdp_answer = 1;
 //    SfuType sfu_type = 3;
@@ -60,10 +64,6 @@ message LocalInputReadyPacket {
 
 message NoDataPacket {
     StreamType streamType = 1;
-}
-
-message IceCandidatePacket {
-    IceCandidate ice_candidate = 1;
 }
 
 message ActiveStreamsPacket {

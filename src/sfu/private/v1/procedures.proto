@@ -26,7 +26,7 @@ message ConnectRequest {
 }
 
 message ConnectResponse {
-    repeated Offer offers = 1;
+    repeated sfu.public.server.v1.Offer offers = 1;
 }
 
 message DisconnectArgument {
