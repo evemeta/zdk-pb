@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package gateway.sfus.private.v1;
 
+import "sfu/public/client/v1/entities.proto";
+import "sfu/public/server/v1/entities.proto";
 import "gateway/sfus/private/v1/enums.proto";
 import "gateway/sfus/private/v1/entities.proto";
 import "gateway/sfus/private/v1/optionals.proto";
@@ -133,9 +135,11 @@ message DeleteTransaction {
 }
 
 message ConnectArgument {
-    string user_id    = 1;
-    string room_id    = 2;
-    string session_id = 3;
+    string                       user_id    = 1;
+    string                       room_id    = 2;
+    string                       session_id = 3;
+    gateway.sfus.private.v1.Kind kind       = 4;
+    sfu.public.client.v1.Offer   offer      = 5;
 }
 
 message ConnectRequest {
@@ -155,9 +159,11 @@ message ConnectTransaction {
 }
 
 message CandidateArgument {
-    string user_id    = 1;
-    string room_id    = 2;
-    string session_id = 3;
+    string                            user_id    = 1;
+    string                            room_id    = 2;
+    string                            session_id = 3;
+    gateway.sfus.private.v1.Kind      kind       = 4;
+    sfu.public.server.v1.IceCandidate candidate  = 5;
 }
 
 message CandidateRequest {
