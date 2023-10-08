@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package gateway.sessions.private.v1;
 
+import "gateway/sfus/private/v1/procedures.proto";
 import "chat/chats/private/v1/procedures.proto";
 import "room/rooms/private/v1/procedures.proto";
 import "gateway/sessions/private/v1/enums.proto";
@@ -131,10 +132,11 @@ message DeleteMutation {
 }
 
 message DeleteCondition {
-    repeated chat.chats.private.v1.LeaveMutation            leave_chat_mutations         = 1;
-    repeated room.rooms.private.v1.LeaveMutation            leave_room_mutations         = 2;
-    repeated gateway.connections.private.v1.DeleteMutation  delete_connection_mutations  = 3;
-    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 4;
+    repeated chat.chats.private.v1.LeaveMutation            leave_chat_mutations            = 1;
+    repeated room.rooms.private.v1.LeaveMutation            leave_room_mutations            = 2;
+    repeated gateway.connections.private.v1.DeleteMutation  delete_connection_mutations     = 3;
+    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations    = 4;
+    repeated gateway.sfus.private.v1.DisconnectMutation     disconnect_connection_mutations = 5;
 }
 
 message DeleteTransaction {

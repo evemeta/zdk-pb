@@ -146,8 +146,6 @@ service Service {
         };
     }
 
-    //
-
     rpc Connect(ConnectRequest) returns (ConnectResponse) {
         option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
             description: "Description: Connect";
@@ -156,7 +154,21 @@ service Service {
         };
     }
 
-    //
+    rpc InitiateConnectMutations(ConnectTransaction) returns (ConnectTransaction) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: InitiateConnectMutations";
+            summary: "InitiateConnectMutations";
+            operation_id: "InitiateConnectMutations";
+        };
+    }
+
+    rpc FinalizeConnectMutations(ConnectTransaction) returns (ConnectTransaction) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: FinalizeConnectMutations";
+            summary: "FinalizeConnectMutations";
+            operation_id: "FinalizeConnectMutations";
+        };
+    }
 
     rpc Candidate(CandidateRequest) returns (CandidateResponse) {
         option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
@@ -166,7 +178,21 @@ service Service {
         };
     }
 
-    //
+    rpc InitiateCandidateMutations(CandidateTransaction) returns (CandidateTransaction) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: InitiateCandidateMutations";
+            summary: "InitiateCandidateMutations";
+            operation_id: "InitiateCandidateMutations";
+        };
+    }
+
+    rpc FinalizeCandidateMutations(CandidateTransaction) returns (CandidateTransaction) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: FinalizeCandidateMutations";
+            summary: "FinalizeCandidateMutations";
+            operation_id: "FinalizeCandidateMutations";
+        };
+    }
 
     rpc Disconnect(DisconnectRequest) returns (DisconnectResponse) {
         option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {

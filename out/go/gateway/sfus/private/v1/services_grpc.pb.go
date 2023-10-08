@@ -37,7 +37,11 @@ const (
 	Service_FinalizeDeleteMutations_FullMethodName     = "/gateway.sfus.private.v1.Service/FinalizeDeleteMutations"
 	Service_RollbackDeleteMutations_FullMethodName     = "/gateway.sfus.private.v1.Service/RollbackDeleteMutations"
 	Service_Connect_FullMethodName                     = "/gateway.sfus.private.v1.Service/Connect"
+	Service_InitiateConnectMutations_FullMethodName    = "/gateway.sfus.private.v1.Service/InitiateConnectMutations"
+	Service_FinalizeConnectMutations_FullMethodName    = "/gateway.sfus.private.v1.Service/FinalizeConnectMutations"
 	Service_Candidate_FullMethodName                   = "/gateway.sfus.private.v1.Service/Candidate"
+	Service_InitiateCandidateMutations_FullMethodName  = "/gateway.sfus.private.v1.Service/InitiateCandidateMutations"
+	Service_FinalizeCandidateMutations_FullMethodName  = "/gateway.sfus.private.v1.Service/FinalizeCandidateMutations"
 	Service_Disconnect_FullMethodName                  = "/gateway.sfus.private.v1.Service/Disconnect"
 	Service_InitiateDisconnectMutations_FullMethodName = "/gateway.sfus.private.v1.Service/InitiateDisconnectMutations"
 	Service_FinalizeDisconnectMutations_FullMethodName = "/gateway.sfus.private.v1.Service/FinalizeDisconnectMutations"
@@ -65,7 +69,11 @@ type ServiceClient interface {
 	FinalizeDeleteMutations(ctx context.Context, in *DeleteTransaction, opts ...grpc.CallOption) (*DeleteTransaction, error)
 	RollbackDeleteMutations(ctx context.Context, in *DeleteTransaction, opts ...grpc.CallOption) (*DeleteTransaction, error)
 	Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error)
+	InitiateConnectMutations(ctx context.Context, in *ConnectTransaction, opts ...grpc.CallOption) (*ConnectTransaction, error)
+	FinalizeConnectMutations(ctx context.Context, in *ConnectTransaction, opts ...grpc.CallOption) (*ConnectTransaction, error)
 	Candidate(ctx context.Context, in *CandidateRequest, opts ...grpc.CallOption) (*CandidateResponse, error)
+	InitiateCandidateMutations(ctx context.Context, in *CandidateTransaction, opts ...grpc.CallOption) (*CandidateTransaction, error)
+	FinalizeCandidateMutations(ctx context.Context, in *CandidateTransaction, opts ...grpc.CallOption) (*CandidateTransaction, error)
 	Disconnect(ctx context.Context, in *DisconnectRequest, opts ...grpc.CallOption) (*DisconnectResponse, error)
 	InitiateDisconnectMutations(ctx context.Context, in *DisconnectTransaction, opts ...grpc.CallOption) (*DisconnectTransaction, error)
 	FinalizeDisconnectMutations(ctx context.Context, in *DisconnectTransaction, opts ...grpc.CallOption) (*DisconnectTransaction, error)
@@ -241,9 +249,45 @@ func (c *serviceClient) Connect(ctx context.Context, in *ConnectRequest, opts ..
 	return out, nil
 }
 
+func (c *serviceClient) InitiateConnectMutations(ctx context.Context, in *ConnectTransaction, opts ...grpc.CallOption) (*ConnectTransaction, error) {
+	out := new(ConnectTransaction)
+	err := c.cc.Invoke(ctx, Service_InitiateConnectMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) FinalizeConnectMutations(ctx context.Context, in *ConnectTransaction, opts ...grpc.CallOption) (*ConnectTransaction, error) {
+	out := new(ConnectTransaction)
+	err := c.cc.Invoke(ctx, Service_FinalizeConnectMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *serviceClient) Candidate(ctx context.Context, in *CandidateRequest, opts ...grpc.CallOption) (*CandidateResponse, error) {
 	out := new(CandidateResponse)
 	err := c.cc.Invoke(ctx, Service_Candidate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) InitiateCandidateMutations(ctx context.Context, in *CandidateTransaction, opts ...grpc.CallOption) (*CandidateTransaction, error) {
+	out := new(CandidateTransaction)
+	err := c.cc.Invoke(ctx, Service_InitiateCandidateMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) FinalizeCandidateMutations(ctx context.Context, in *CandidateTransaction, opts ...grpc.CallOption) (*CandidateTransaction, error) {
+	out := new(CandidateTransaction)
+	err := c.cc.Invoke(ctx, Service_FinalizeCandidateMutations_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -299,7 +343,11 @@ type ServiceServer interface {
 	FinalizeDeleteMutations(context.Context, *DeleteTransaction) (*DeleteTransaction, error)
 	RollbackDeleteMutations(context.Context, *DeleteTransaction) (*DeleteTransaction, error)
 	Connect(context.Context, *ConnectRequest) (*ConnectResponse, error)
+	InitiateConnectMutations(context.Context, *ConnectTransaction) (*ConnectTransaction, error)
+	FinalizeConnectMutations(context.Context, *ConnectTransaction) (*ConnectTransaction, error)
 	Candidate(context.Context, *CandidateRequest) (*CandidateResponse, error)
+	InitiateCandidateMutations(context.Context, *CandidateTransaction) (*CandidateTransaction, error)
+	FinalizeCandidateMutations(context.Context, *CandidateTransaction) (*CandidateTransaction, error)
 	Disconnect(context.Context, *DisconnectRequest) (*DisconnectResponse, error)
 	InitiateDisconnectMutations(context.Context, *DisconnectTransaction) (*DisconnectTransaction, error)
 	FinalizeDisconnectMutations(context.Context, *DisconnectTransaction) (*DisconnectTransaction, error)
@@ -364,8 +412,20 @@ func (UnimplementedServiceServer) RollbackDeleteMutations(context.Context, *Dele
 func (UnimplementedServiceServer) Connect(context.Context, *ConnectRequest) (*ConnectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Connect not implemented")
 }
+func (UnimplementedServiceServer) InitiateConnectMutations(context.Context, *ConnectTransaction) (*ConnectTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InitiateConnectMutations not implemented")
+}
+func (UnimplementedServiceServer) FinalizeConnectMutations(context.Context, *ConnectTransaction) (*ConnectTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FinalizeConnectMutations not implemented")
+}
 func (UnimplementedServiceServer) Candidate(context.Context, *CandidateRequest) (*CandidateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Candidate not implemented")
+}
+func (UnimplementedServiceServer) InitiateCandidateMutations(context.Context, *CandidateTransaction) (*CandidateTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InitiateCandidateMutations not implemented")
+}
+func (UnimplementedServiceServer) FinalizeCandidateMutations(context.Context, *CandidateTransaction) (*CandidateTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FinalizeCandidateMutations not implemented")
 }
 func (UnimplementedServiceServer) Disconnect(context.Context, *DisconnectRequest) (*DisconnectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Disconnect not implemented")
@@ -713,6 +773,42 @@ func _Service_Connect_Handler(srv interface{}, ctx context.Context, dec func(int
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Service_InitiateConnectMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ConnectTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).InitiateConnectMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_InitiateConnectMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).InitiateConnectMutations(ctx, req.(*ConnectTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_FinalizeConnectMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ConnectTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).FinalizeConnectMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_FinalizeConnectMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).FinalizeConnectMutations(ctx, req.(*ConnectTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _Service_Candidate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CandidateRequest)
 	if err := dec(in); err != nil {
@@ -727,6 +823,42 @@ func _Service_Candidate_Handler(srv interface{}, ctx context.Context, dec func(i
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ServiceServer).Candidate(ctx, req.(*CandidateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_InitiateCandidateMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CandidateTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).InitiateCandidateMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_InitiateCandidateMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).InitiateCandidateMutations(ctx, req.(*CandidateTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_FinalizeCandidateMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CandidateTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).FinalizeCandidateMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_FinalizeCandidateMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).FinalizeCandidateMutations(ctx, req.(*CandidateTransaction))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -865,8 +997,24 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Service_Connect_Handler,
 		},
 		{
+			MethodName: "InitiateConnectMutations",
+			Handler:    _Service_InitiateConnectMutations_Handler,
+		},
+		{
+			MethodName: "FinalizeConnectMutations",
+			Handler:    _Service_FinalizeConnectMutations_Handler,
+		},
+		{
 			MethodName: "Candidate",
 			Handler:    _Service_Candidate_Handler,
+		},
+		{
+			MethodName: "InitiateCandidateMutations",
+			Handler:    _Service_InitiateCandidateMutations_Handler,
+		},
+		{
+			MethodName: "FinalizeCandidateMutations",
+			Handler:    _Service_FinalizeCandidateMutations_Handler,
 		},
 		{
 			MethodName: "Disconnect",

@@ -156,11 +156,7 @@ export interface Restriction {
      */
     createTime: bigint;
     /**
-     * @generated from protobuf field: int64 update_time = 7;
-     */
-    updateTime: bigint;
-    /**
-     * @generated from protobuf field: int64 expire_time = 8;
+     * @generated from protobuf field: int64 expire_time = 7;
      */
     expireTime: bigint;
 }
@@ -425,12 +421,11 @@ class Restriction$Type extends MessageType<Restriction> {
             { no: 4, name: "kind", kind: "enum", T: () => ["room.restrictions.public.server.v1.Kind", Kind] },
             { no: 5, name: "reason", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 6, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 7, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 8, name: "expire_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 7, name: "expire_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value?: PartialMessage<Restriction>): Restriction {
-        const message = { id: "", userId: "", roomId: "", kind: 0, reason: "", createTime: 0n, updateTime: 0n, expireTime: 0n };
+        const message = { id: "", userId: "", roomId: "", kind: 0, reason: "", createTime: 0n, expireTime: 0n };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<Restriction>(this, message, value);
@@ -459,10 +454,7 @@ class Restriction$Type extends MessageType<Restriction> {
                 case /* int64 create_time */ 6:
                     message.createTime = reader.int64().toBigInt();
                     break;
-                case /* int64 update_time */ 7:
-                    message.updateTime = reader.int64().toBigInt();
-                    break;
-                case /* int64 expire_time */ 8:
+                case /* int64 expire_time */ 7:
                     message.expireTime = reader.int64().toBigInt();
                     break;
                 default:
@@ -495,12 +487,9 @@ class Restriction$Type extends MessageType<Restriction> {
         /* int64 create_time = 6; */
         if (message.createTime !== 0n)
             writer.tag(6, WireType.Varint).int64(message.createTime);
-        /* int64 update_time = 7; */
-        if (message.updateTime !== 0n)
-            writer.tag(7, WireType.Varint).int64(message.updateTime);
-        /* int64 expire_time = 8; */
+        /* int64 expire_time = 7; */
         if (message.expireTime !== 0n)
-            writer.tag(8, WireType.Varint).int64(message.expireTime);
+            writer.tag(7, WireType.Varint).int64(message.expireTime);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

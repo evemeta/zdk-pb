@@ -194,7 +194,8 @@ message LeaveMutation {
 
 message LeaveCondition {
     repeated room.members.private.v1.UpdateMutation         update_member_mutations      = 1;
-    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 2;
+    repeated room.streams.private.v1.DeleteMutation         delete_stream_mutations      = 2;
+    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 3;
 }
 
 message LeaveTransaction {
