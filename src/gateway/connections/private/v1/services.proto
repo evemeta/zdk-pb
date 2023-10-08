@@ -66,6 +66,14 @@ service Service {
         };
     }
 
+    rpc AnnounceCreateMutations(CreateTransaction) returns (CreateTransaction) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: AnnounceCreateMutations";
+            summary: "AnnounceCreateMutations";
+            operation_id: "AnnounceCreateMutations";
+        };
+    }
+
     rpc RollbackCreateMutations(CreateTransaction) returns (CreateTransaction) {
         option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
             description: "Description: RollbackCreateMutations";
@@ -106,6 +114,14 @@ service Service {
         };
     }
 
+    rpc AnnounceUpdateMutations(UpdateTransaction) returns (UpdateTransaction) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: AnnounceUpdateMutations";
+            summary: "AnnounceUpdateMutations";
+            operation_id: "AnnounceUpdateMutations";
+        };
+    }
+
     rpc RollbackUpdateMutations(UpdateTransaction) returns (UpdateTransaction) {
         option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
             description: "Description: RollbackUpdateMutations";
@@ -135,6 +151,14 @@ service Service {
             description: "Description: FinalizeDeleteMutations";
             summary: "FinalizeDeleteMutations";
             operation_id: "FinalizeDeleteMutations";
+        };
+    }
+
+    rpc AnnounceDeleteMutations(DeleteTransaction) returns (DeleteTransaction) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: AnnounceDeleteMutations";
+            summary: "AnnounceDeleteMutations";
+            operation_id: "AnnounceDeleteMutations";
         };
     }
 

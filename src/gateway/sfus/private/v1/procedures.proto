@@ -132,8 +132,6 @@ message DeleteTransaction {
     repeated gateway.sfus.private.v1.DeleteMutation mutations = 1;
 }
 
-//
-
 message ConnectArgument {
     string user_id    = 1;
     string room_id    = 2;
@@ -146,7 +144,15 @@ message ConnectRequest {
 
 message ConnectResponse {}
 
-//
+message ConnectMutation {
+    gateway.sfus.private.v1.ConnectArgument  foundation      = 1;
+    int64                                    begin_timestamp = 2;
+    int64                                    close_timestamp = 3;
+}
+
+message ConnectTransaction {
+    repeated gateway.sfus.private.v1.ConnectMutation mutations = 1;
+}
 
 message CandidateArgument {
     string user_id    = 1;
@@ -160,7 +166,15 @@ message CandidateRequest {
 
 message CandidateResponse {}
 
-//
+message CandidateMutation {
+    gateway.sfus.private.v1.CandidateArgument  foundation      = 1;
+    int64                                      begin_timestamp = 2;
+    int64                                      close_timestamp = 3;
+}
+
+message CandidateTransaction {
+    repeated gateway.sfus.private.v1.CandidateMutation mutations = 1;
+}
 
 message DisconnectArgument {
     gateway.connections.private.v1.Query query = 1;
