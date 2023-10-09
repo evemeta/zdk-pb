@@ -150,8 +150,13 @@ message ConnectResponse {}
 
 message ConnectMutation {
     gateway.sfus.private.v1.ConnectArgument  foundation      = 1;
-    int64                                    begin_timestamp = 2;
-    int64                                    close_timestamp = 3;
+    gateway.sfus.private.v1.ConnectCondition condition       = 2;
+    int64                                    begin_timestamp = 3;
+    int64                                    close_timestamp = 4;
+}
+
+message ConnectCondition {
+    repeated gateway.sfus.private.v1.Sfu sfus = 1;
 }
 
 message ConnectTransaction {
@@ -174,8 +179,13 @@ message CandidateResponse {}
 
 message CandidateMutation {
     gateway.sfus.private.v1.CandidateArgument  foundation      = 1;
-    int64                                      begin_timestamp = 2;
-    int64                                      close_timestamp = 3;
+    gateway.sfus.private.v1.CandidateCondition condition       = 2;
+    int64                                      begin_timestamp = 3;
+    int64                                      close_timestamp = 4;
+}
+
+message CandidateCondition {
+    repeated gateway.sfus.private.v1.Sfu sfus = 1;
 }
 
 message CandidateTransaction {
