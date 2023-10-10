@@ -9,7 +9,11 @@ import "sfu/public/server/v1/entities.proto";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/sfu/public/server/v1;sfupb";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
-//WebSocket Packets
+//WebSocket packets
+
+message ConnectPacket {
+    Offer offer = 1;
+}
 
 message IceCandidatePacket {
     IceCandidate ice_candidate = 1;
