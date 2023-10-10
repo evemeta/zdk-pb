@@ -17,4 +17,12 @@ service Service {
             operation_id: "Select";
         };
     }
+
+    rpc Ensure(EnsureRequest) returns (EnsureResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: Ensure";
+            summary: "Ensure";
+            operation_id: "Ensure";
+        };
+    }
 }

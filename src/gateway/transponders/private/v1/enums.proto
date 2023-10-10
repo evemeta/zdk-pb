@@ -14,7 +14,9 @@ enum Order {
 }
 
 enum Direction {
-    DirectionUnknown = 0;
-    DirectionUp      = 1;
-    DirectionDown    = 2;
+    DirectionUnknown        = 0;
+    DirectionUpward         = 1;
+    DirectionDownward       = 2;
+    DirectionUpwardDownward = 3;
+    DirectionDownwardUpward = 4;
 }

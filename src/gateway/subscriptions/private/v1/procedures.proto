@@ -18,3 +18,16 @@ message SelectRequest {
 message SelectResponse {
     repeated string subjects = 1;
 }
+
+message EnsureArgument {
+    string          subject = 1;
+    repeated string targets = 2;
+}
+
+message EnsureRequest {
+    repeated gateway.subscriptions.private.v1.EnsureArgument arguments = 1;
+}
+
+message EnsureResponse {
+    bool result = 1;
+}
