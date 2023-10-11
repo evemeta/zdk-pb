@@ -4,6 +4,7 @@ package chat.chats.private.v1;
 
 import "chat/chats/private/v1/entities.proto";
 import "chat/chats/private/v1/optionals.proto";
+import "chat/chats/private/v1/enums.proto";
 import "chat/members/private/v1/procedures.proto";
 import "chat/messages/private/v1/procedures.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
@@ -52,8 +53,9 @@ message SelectResponse {
 }
 
 message CreateArgument {
-    string              id       = 1;
-    map<string, string> metadata = 2;
+    string              id          = 1;
+    chat.chats.private.v1.Kind kind = 2;
+    map<string, string> metadata    = 3;
 }
 
 message CreateRequest {
@@ -76,8 +78,9 @@ message CreateTransaction {
 }
 
 message UpdateArgument {
-    chat.chats.private.v1.Query                query    = 1;
-    optional chat.chats.private.v1.OptionalMap metadata = 2;
+    chat.chats.private.v1.Query                 query    = 1;
+    optional chat.chats.private.v1.OptionalKind kind     = 2;
+    optional chat.chats.private.v1.OptionalMap  metadata = 3;
 }
 
 message UpdateRequest {

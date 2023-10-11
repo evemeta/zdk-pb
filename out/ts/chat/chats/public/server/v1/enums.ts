@@ -2,6 +2,15 @@
 // @generated from protobuf file "chat/chats/public/server/v1/enums.proto" (package "chat.chats.public.server.v1", syntax proto3)
 // tslint:disable
 /**
+ * @generated from protobuf enum chat.chats.public.server.v1.Kind
+ */
+export enum Kind {
+    /**
+     * @generated from protobuf enum value: Unknown = 0;
+     */
+    Unknown = 0
+}
+/**
  * Order represents an enumeration that specifies the sort order for data retrieval, particularly in the context of querying.
  *
  * @generated from protobuf enum chat.chats.public.server.v1.Order
