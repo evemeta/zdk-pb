@@ -14,6 +14,7 @@ import { MessageType } from "@protobuf-ts/runtime";
 import { Chunk as Chunk$ } from "../../../../messages/public/server/v1/entities";
 import { Member } from "../../../../members/public/server/v1/entities";
 import { Order } from "./enums";
+import { Kind } from "./enums";
 /**
  * Chat represents a conversation environment.
  * It contains details for identification, associated metadata, and timestamps reflecting its creation and last alteration.
@@ -28,9 +29,15 @@ export interface Chat {
      */
     id: string;
     /**
+     * todo;
+     *
+     * @generated from protobuf field: chat.chats.public.server.v1.Kind kind = 2;
+     */
+    kind: Kind;
+    /**
      * Represents a collection of key-value pairs providing additional context or information about this chat.
      *
-     * @generated from protobuf field: map<string, string> metadata = 2;
+     * @generated from protobuf field: map<string, string> metadata = 3;
      */
     metadata: {
         [key: string]: string;
@@ -38,13 +45,13 @@ export interface Chat {
     /**
      * Represents the timestamp indicating when this chat was created.
      *
-     * @generated from protobuf field: int64 create_time = 3;
+     * @generated from protobuf field: int64 create_time = 4;
      */
     createTime: bigint;
     /**
      * Represents the timestamp of the last update associated with this chat.
      *
-     * @generated from protobuf field: int64 update_time = 4;
+     * @generated from protobuf field: int64 update_time = 5;
      */
     updateTime: bigint;
 }
@@ -207,13 +214,14 @@ class Chat$Type extends MessageType<Chat> {
     constructor() {
         super("chat.chats.public.server.v1.Chat", [
             { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 2, name: "metadata", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } },
-            { no: 3, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 4, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 2, name: "kind", kind: "enum", T: () => ["chat.chats.public.server.v1.Kind", Kind] },
+            { no: 3, name: "metadata", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } },
+            { no: 4, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 5, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value?: PartialMessage<Chat>): Chat {
-        const message = { id: "", metadata: {}, createTime: 0n, updateTime: 0n };
+        const message = { id: "", kind: 0, metadata: {}, createTime: 0n, updateTime: 0n };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<Chat>(this, message, value);
@@ -227,13 +235,16 @@ class Chat$Type extends MessageType<Chat> {
                 case /* string id */ 1:
                     message.id = reader.string();
                     break;
-                case /* map<string, string> metadata */ 2:
-                    this.binaryReadMap2(message.metadata, reader, options);
+                case /* chat.chats.public.server.v1.Kind kind */ 2:
+                    message.kind = reader.int32();
                     break;
-                case /* int64 create_time */ 3:
+                case /* map<string, string> metadata */ 3:
+                    this.binaryReadMap3(message.metadata, reader, options);
+                    break;
+                case /* int64 create_time */ 4:
                     message.createTime = reader.int64().toBigInt();
                     break;
-                case /* int64 update_time */ 4:
+                case /* int64 update_time */ 5:
                     message.updateTime = reader.int64().toBigInt();
                     break;
                 default:
@@ -247,7 +258,7 @@ class Chat$Type extends MessageType<Chat> {
         }
         return message;
     }
-    private binaryReadMap2(map: Chat["metadata"], reader: IBinaryReader, options: BinaryReadOptions): void {
+    private binaryReadMap3(map: Chat["metadata"], reader: IBinaryReader, options: BinaryReadOptions): void {
         let len = reader.uint32(), end = reader.pos + len, key: keyof Chat["metadata"] | undefined, val: Chat["metadata"][any] | undefined;
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
@@ -267,15 +278,18 @@ class Chat$Type extends MessageType<Chat> {
         /* string id = 1; */
         if (message.id !== "")
             writer.tag(1, WireType.LengthDelimited).string(message.id);
-        /* map<string, string> metadata = 2; */
+        /* chat.chats.public.server.v1.Kind kind = 2; */
+        if (message.kind !== 0)
+            writer.tag(2, WireType.Varint).int32(message.kind);
+        /* map<string, string> metadata = 3; */
         for (let k of Object.keys(message.metadata))
-            writer.tag(2, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.metadata[k]).join();
-        /* int64 create_time = 3; */
+            writer.tag(3, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.metadata[k]).join();
+        /* int64 create_time = 4; */
         if (message.createTime !== 0n)
-            writer.tag(3, WireType.Varint).int64(message.createTime);
-        /* int64 update_time = 4; */
+            writer.tag(4, WireType.Varint).int64(message.createTime);
+        /* int64 update_time = 5; */
         if (message.updateTime !== 0n)
-            writer.tag(4, WireType.Varint).int64(message.updateTime);
+            writer.tag(5, WireType.Varint).int64(message.updateTime);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
