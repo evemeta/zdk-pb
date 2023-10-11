@@ -10,14 +10,15 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/sfus/private/v1;sf
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 message Sfu {
-    string                         id          = 1;
-    gateway.sfus.private.v1.Kind   kind        = 2;
-    gateway.sfus.private.v1.Zone   zone        = 3;
-    gateway.sfus.private.v1.Status status      = 4;
-    string                         address     = 5; // todo; split into 'relay' / 'private'
-    int64                          access_time = 6;
-    int64                          create_time = 7;
-    int64                          update_time = 8;
+    string                         id             = 1;
+    gateway.sfus.private.v1.Kind   kind           = 2;
+    gateway.sfus.private.v1.Zone   zone           = 3;
+    gateway.sfus.private.v1.Status status         = 4;
+    string                         address        = 5;
+    string                         relay_address  = 6;
+    int64                          access_time    = 7;
+    int64                          create_time    = 8;
+    int64                          update_time    = 9;
 }
 
 message Chunk {

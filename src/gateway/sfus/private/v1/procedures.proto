@@ -54,11 +54,12 @@ message SelectResponse {
 }
 
 message CreateArgument {
-    string                         id      = 1;
-    gateway.sfus.private.v1.Kind   kind    = 2;
-    gateway.sfus.private.v1.Zone   zone    = 3;
-    gateway.sfus.private.v1.Status status  = 4;
-    string                         address = 5;
+    string                         id            = 1;
+    gateway.sfus.private.v1.Kind   kind          = 2;
+    gateway.sfus.private.v1.Zone   zone          = 3;
+    gateway.sfus.private.v1.Status status        = 4;
+    string                         address       = 5;
+    string                         relay_address = 6;
 }
 
 message CreateRequest {
@@ -81,10 +82,11 @@ message CreateTransaction {
 }
 
 message UpdateArgument {
-    gateway.sfus.private.v1.Query                   query   = 1;
-    optional gateway.sfus.private.v1.OptionalZone   zone    = 2;
-    optional gateway.sfus.private.v1.OptionalStatus status  = 3;
-    optional gateway.sfus.private.v1.OptionalString address = 4;
+    gateway.sfus.private.v1.Query                   query         = 1;
+    optional gateway.sfus.private.v1.OptionalZone   zone          = 2;
+    optional gateway.sfus.private.v1.OptionalStatus status        = 3;
+    optional gateway.sfus.private.v1.OptionalString address       = 4;
+    optional gateway.sfus.private.v1.OptionalString relay_address = 5;
 }
 
 message UpdateRequest {
