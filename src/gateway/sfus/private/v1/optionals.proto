@@ -8,11 +8,6 @@ import "protoc-gen-openapiv2/options/annotations.proto";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/sfus/private/v1;sfuspb";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
-// OptionalKind todo;
-message OptionalKind {
-    gateway.sfus.private.v1.Kind value = 1;
-}
-
 // OptionalZone todo;
 message OptionalZone {
     gateway.sfus.private.v1.Zone value = 1;

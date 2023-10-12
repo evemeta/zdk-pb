@@ -21,54 +21,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// OptionalKind todo;
-type OptionalKind struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Value Kind `protobuf:"varint,1,opt,name=value,proto3,enum=gateway.sfus.private.v1.Kind" json:"value,omitempty"`
-}
-
-func (x *OptionalKind) Reset() {
-	*x = OptionalKind{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sfus_private_v1_optionals_proto_msgTypes[0]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *OptionalKind) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OptionalKind) ProtoMessage() {}
-
-func (x *OptionalKind) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sfus_private_v1_optionals_proto_msgTypes[0]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OptionalKind.ProtoReflect.Descriptor instead.
-func (*OptionalKind) Descriptor() ([]byte, []int) {
-	return file_gateway_sfus_private_v1_optionals_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *OptionalKind) GetValue() Kind {
-	if x != nil {
-		return x.Value
-	}
-	return KindUnknown
-}
-
 // OptionalZone todo;
 type OptionalZone struct {
 	state         protoimpl.MessageState
@@ -81,7 +33,7 @@ type OptionalZone struct {
 func (x *OptionalZone) Reset() {
 	*x = OptionalZone{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sfus_private_v1_optionals_proto_msgTypes[1]
+		mi := &file_gateway_sfus_private_v1_optionals_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -94,7 +46,7 @@ func (x *OptionalZone) String() string {
 func (*OptionalZone) ProtoMessage() {}
 
 func (x *OptionalZone) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sfus_private_v1_optionals_proto_msgTypes[1]
+	mi := &file_gateway_sfus_private_v1_optionals_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -107,7 +59,7 @@ func (x *OptionalZone) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OptionalZone.ProtoReflect.Descriptor instead.
 func (*OptionalZone) Descriptor() ([]byte, []int) {
-	return file_gateway_sfus_private_v1_optionals_proto_rawDescGZIP(), []int{1}
+	return file_gateway_sfus_private_v1_optionals_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *OptionalZone) GetValue() Zone {
@@ -129,7 +81,7 @@ type OptionalStatus struct {
 func (x *OptionalStatus) Reset() {
 	*x = OptionalStatus{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sfus_private_v1_optionals_proto_msgTypes[2]
+		mi := &file_gateway_sfus_private_v1_optionals_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -142,7 +94,7 @@ func (x *OptionalStatus) String() string {
 func (*OptionalStatus) ProtoMessage() {}
 
 func (x *OptionalStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sfus_private_v1_optionals_proto_msgTypes[2]
+	mi := &file_gateway_sfus_private_v1_optionals_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -155,7 +107,7 @@ func (x *OptionalStatus) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OptionalStatus.ProtoReflect.Descriptor instead.
 func (*OptionalStatus) Descriptor() ([]byte, []int) {
-	return file_gateway_sfus_private_v1_optionals_proto_rawDescGZIP(), []int{2}
+	return file_gateway_sfus_private_v1_optionals_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *OptionalStatus) GetValue() Status {
@@ -178,7 +130,7 @@ type OptionalString struct {
 func (x *OptionalString) Reset() {
 	*x = OptionalString{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gateway_sfus_private_v1_optionals_proto_msgTypes[3]
+		mi := &file_gateway_sfus_private_v1_optionals_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -191,7 +143,7 @@ func (x *OptionalString) String() string {
 func (*OptionalString) ProtoMessage() {}
 
 func (x *OptionalString) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_sfus_private_v1_optionals_proto_msgTypes[3]
+	mi := &file_gateway_sfus_private_v1_optionals_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -204,7 +156,7 @@ func (x *OptionalString) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OptionalString.ProtoReflect.Descriptor instead.
 func (*OptionalString) Descriptor() ([]byte, []int) {
-	return file_gateway_sfus_private_v1_optionals_proto_rawDescGZIP(), []int{3}
+	return file_gateway_sfus_private_v1_optionals_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *OptionalString) GetValue() string {
@@ -227,26 +179,22 @@ var file_gateway_sfus_private_v1_optionals_proto_rawDesc = []byte{
 	0x67, 0x65, 0x6e, 0x2d, 0x6f, 0x70, 0x65, 0x6e, 0x61, 0x70, 0x69, 0x76, 0x32, 0x2f, 0x6f, 0x70,
 	0x74, 0x69, 0x6f, 0x6e, 0x73, 0x2f, 0x61, 0x6e, 0x6e, 0x6f, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e,
 	0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x43, 0x0a, 0x0c, 0x4f, 0x70, 0x74, 0x69, 0x6f,
-	0x6e, 0x61, 0x6c, 0x4b, 0x69, 0x6e, 0x64, 0x12, 0x33, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x6e, 0x61, 0x6c, 0x5a, 0x6f, 0x6e, 0x65, 0x12, 0x33, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
 	0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x1d, 0x2e, 0x67, 0x61, 0x74, 0x65, 0x77, 0x61, 0x79,
 	0x2e, 0x73, 0x66, 0x75, 0x73, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31,
-	0x2e, 0x4b, 0x69, 0x6e, 0x64, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x43, 0x0a, 0x0c,
-	0x4f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x61, 0x6c, 0x5a, 0x6f, 0x6e, 0x65, 0x12, 0x33, 0x0a, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x1d, 0x2e, 0x67, 0x61,
-	0x74, 0x65, 0x77, 0x61, 0x79, 0x2e, 0x73, 0x66, 0x75, 0x73, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61,
-	0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x5a, 0x6f, 0x6e, 0x65, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x22, 0x47, 0x0a, 0x0e, 0x4f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x61, 0x6c, 0x53, 0x74, 0x61,
-	0x74, 0x75, 0x73, 0x12, 0x35, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x0e, 0x32, 0x1f, 0x2e, 0x67, 0x61, 0x74, 0x65, 0x77, 0x61, 0x79, 0x2e, 0x73, 0x66, 0x75,
-	0x73, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x53, 0x74, 0x61,
-	0x74, 0x75, 0x73, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x26, 0x0a, 0x0e, 0x4f, 0x70,
-	0x74, 0x69, 0x6f, 0x6e, 0x61, 0x6c, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x12, 0x14, 0x0a, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x42, 0x44, 0x5a, 0x3f, 0x67, 0x69, 0x74, 0x6c, 0x61, 0x62, 0x2e, 0x63, 0x6f, 0x6d,
-	0x2f, 0x65, 0x76, 0x65, 0x6d, 0x65, 0x74, 0x61, 0x2f, 0x7a, 0x64, 0x6b, 0x2f, 0x70, 0x62, 0x2f,
-	0x6f, 0x75, 0x74, 0x2f, 0x67, 0x6f, 0x2f, 0x67, 0x61, 0x74, 0x65, 0x77, 0x61, 0x79, 0x2f, 0x73,
-	0x66, 0x75, 0x73, 0x2f, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2f, 0x76, 0x31, 0x3b, 0x73,
-	0x66, 0x75, 0x73, 0x70, 0x62, 0x92, 0x41, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x2e, 0x5a, 0x6f, 0x6e, 0x65, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x47, 0x0a, 0x0e,
+	0x4f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x61, 0x6c, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x35,
+	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x1f, 0x2e,
+	0x67, 0x61, 0x74, 0x65, 0x77, 0x61, 0x79, 0x2e, 0x73, 0x66, 0x75, 0x73, 0x2e, 0x70, 0x72, 0x69,
+	0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x26, 0x0a, 0x0e, 0x4f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x61,
+	0x6c, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x42, 0x44, 0x5a,
+	0x3f, 0x67, 0x69, 0x74, 0x6c, 0x61, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x65, 0x76, 0x65, 0x6d,
+	0x65, 0x74, 0x61, 0x2f, 0x7a, 0x64, 0x6b, 0x2f, 0x70, 0x62, 0x2f, 0x6f, 0x75, 0x74, 0x2f, 0x67,
+	0x6f, 0x2f, 0x67, 0x61, 0x74, 0x65, 0x77, 0x61, 0x79, 0x2f, 0x73, 0x66, 0x75, 0x73, 0x2f, 0x70,
+	0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2f, 0x76, 0x31, 0x3b, 0x73, 0x66, 0x75, 0x73, 0x70, 0x62,
+	0x92, 0x41, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -261,25 +209,22 @@ func file_gateway_sfus_private_v1_optionals_proto_rawDescGZIP() []byte {
 	return file_gateway_sfus_private_v1_optionals_proto_rawDescData
 }
 
-var file_gateway_sfus_private_v1_optionals_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_gateway_sfus_private_v1_optionals_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_gateway_sfus_private_v1_optionals_proto_goTypes = []interface{}{
-	(*OptionalKind)(nil),   // 0: gateway.sfus.private.v1.OptionalKind
-	(*OptionalZone)(nil),   // 1: gateway.sfus.private.v1.OptionalZone
-	(*OptionalStatus)(nil), // 2: gateway.sfus.private.v1.OptionalStatus
-	(*OptionalString)(nil), // 3: gateway.sfus.private.v1.OptionalString
-	(Kind)(0),              // 4: gateway.sfus.private.v1.Kind
-	(Zone)(0),              // 5: gateway.sfus.private.v1.Zone
-	(Status)(0),            // 6: gateway.sfus.private.v1.Status
+	(*OptionalZone)(nil),   // 0: gateway.sfus.private.v1.OptionalZone
+	(*OptionalStatus)(nil), // 1: gateway.sfus.private.v1.OptionalStatus
+	(*OptionalString)(nil), // 2: gateway.sfus.private.v1.OptionalString
+	(Zone)(0),              // 3: gateway.sfus.private.v1.Zone
+	(Status)(0),            // 4: gateway.sfus.private.v1.Status
 }
 var file_gateway_sfus_private_v1_optionals_proto_depIdxs = []int32{
-	4, // 0: gateway.sfus.private.v1.OptionalKind.value:type_name -> gateway.sfus.private.v1.Kind
-	5, // 1: gateway.sfus.private.v1.OptionalZone.value:type_name -> gateway.sfus.private.v1.Zone
-	6, // 2: gateway.sfus.private.v1.OptionalStatus.value:type_name -> gateway.sfus.private.v1.Status
-	3, // [3:3] is the sub-list for method output_type
-	3, // [3:3] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	3, // 0: gateway.sfus.private.v1.OptionalZone.value:type_name -> gateway.sfus.private.v1.Zone
+	4, // 1: gateway.sfus.private.v1.OptionalStatus.value:type_name -> gateway.sfus.private.v1.Status
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_gateway_sfus_private_v1_optionals_proto_init() }
@@ -290,18 +235,6 @@ func file_gateway_sfus_private_v1_optionals_proto_init() {
 	file_gateway_sfus_private_v1_enums_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_gateway_sfus_private_v1_optionals_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*OptionalKind); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_gateway_sfus_private_v1_optionals_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*OptionalZone); i {
 			case 0:
 				return &v.state
@@ -313,7 +246,7 @@ func file_gateway_sfus_private_v1_optionals_proto_init() {
 				return nil
 			}
 		}
-		file_gateway_sfus_private_v1_optionals_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_gateway_sfus_private_v1_optionals_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*OptionalStatus); i {
 			case 0:
 				return &v.state
@@ -325,7 +258,7 @@ func file_gateway_sfus_private_v1_optionals_proto_init() {
 				return nil
 			}
 		}
-		file_gateway_sfus_private_v1_optionals_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_gateway_sfus_private_v1_optionals_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*OptionalString); i {
 			case 0:
 				return &v.state
@@ -344,7 +277,7 @@ func file_gateway_sfus_private_v1_optionals_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_gateway_sfus_private_v1_optionals_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
