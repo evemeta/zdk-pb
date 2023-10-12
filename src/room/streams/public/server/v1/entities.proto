@@ -38,11 +38,17 @@ message Query {
 message Stream {
     // Represents the unique identifier for this stream.
     string id = 1;
+    // Represents the unique identifier of the user associated with this stream.
     string user_id = 2;
+    // Represents the unique identifier of the room in which this message exists.
     string room_id = 3;
+    // todo;
     room.streams.public.server.v1.Kind kind = 4;
+    // todo;
     room.streams.public.server.v1.Status status = 5;
+    // Represents the timestamp indicating when this stream was created.
     int64 create_time = 6;
+    // Represents the timestamp of the last update associated with this stream.
     int64 update_time = 7;
 }
 

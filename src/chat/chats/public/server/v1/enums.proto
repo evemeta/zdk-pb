@@ -8,7 +8,9 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/chats/public/server/v
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 enum Kind {
-    KindUnknown = 0;
+    KindUnknown     = 0;
+    KindDependent   = 1;
+    KindIndependent = 2;
 }
 
 // Order represents an enumeration that specifies the sort order for data retrieval, particularly in the context of querying.

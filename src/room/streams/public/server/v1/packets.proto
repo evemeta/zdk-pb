@@ -9,7 +9,8 @@ import "protoc-gen-openapiv2/options/annotations.proto";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/streams/public/server/v1;streamspb";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
-// CreateStreamPacket todo;
+// CreateStreamPacket is a notification sent to clients when a new stream has been created.
+// It provides the details of the stream and the relevant timeframe associated with the event.
 message CreateStreamPacket {
     // Represents the comprehensive details of the newly created stream.
     room.streams.public.server.v1.Stream stream = 3;
@@ -17,24 +18,26 @@ message CreateStreamPacket {
     room.streams.public.server.v1.Timeframe timeframe = 4;
 }
 
-// UpdateStreamPacket todo;
+// UpdateStreamPacket is a notification sent to clients when a stream has been updated.
+// It provides the identifier of the stream and its associated room, updated details, and the relevant timeframe of the update.
 message UpdateStreamPacket {
-    // todo;
+    // Represents the unique identifier of the stream.
     string id = 1;
-    // todo;
+    // Represents the unique identifier of the room in which the stream was updated.
     string room_id = 2;
-    // todo;
-    room.streams.public.server.v1.OptionalStatus status = 3;
-    // todo;
+    // Represents a new or updated status associated with the stream. It may be absent if no status changes occurred.
+    optional room.streams.public.server.v1.OptionalStatus status = 3;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
     room.streams.public.server.v1.Timeframe timeframe = 4;
 }
 
-// DeleteStreamPacket todo;
+// DeleteStreamPacket is a notification sent to clients when a stream has been deleted.
+// It provides the identifier of the stream and its associated room, and the relevant timeframe associated with the deletion.
 message DeleteStreamPacket {
-    // todo;
+    // Represents the unique identifier of the stream.
     string id = 1;
-    // todo;
+    // Represents the unique identifier of the room in which the stream was deleted.
     string room_id = 2;
-    // todo;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
     room.streams.public.server.v1.Timeframe timeframe = 4;
 }

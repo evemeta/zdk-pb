@@ -24,7 +24,7 @@ message UpdateConnectionPacket {
     // todo;
     string room_id = 2;
     // todo;
-    room.connections.public.server.v1.OptionalStatus status = 3;
+    optional room.connections.public.server.v1.OptionalStatus status = 3;
     // todo;
     room.connections.public.server.v1.Timeframe timeframe = 4;
 }

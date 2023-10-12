@@ -78,9 +78,8 @@ message CreateTransaction {
 }
 
 message UpdateArgument {
-    chat.chats.private.v1.Query                 query    = 1;
-    optional chat.chats.private.v1.OptionalKind kind     = 2;
-    optional chat.chats.private.v1.OptionalMap  metadata = 3;
+    chat.chats.private.v1.Query                query    = 1;
+    optional chat.chats.private.v1.OptionalMap metadata = 2;
 }
 
 message UpdateRequest {

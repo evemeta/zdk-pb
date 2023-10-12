@@ -36,4 +36,31 @@ service Service {
             operation_id: "Select";
         };
     }
+
+    // Create represents a procedure that creates a new stream.
+    rpc Create(CreateRequest) returns (CreateResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: Create";
+            summary: "Create";
+            operation_id: "Create";
+        };
+    }
+
+    // Update represents a procedure that updates a specific stream based on its unique identifier.
+    rpc Update(UpdateRequest) returns (UpdateResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: Update";
+            summary: "Update";
+            operation_id: "Update";
+        };
+    }
+
+    // Delete represents a procedure that deletes a specific stream based on its unique identifier.
+    rpc Delete(DeleteRequest) returns (DeleteResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: Delete";
+            summary: "Delete";
+            operation_id: "Delete";
+        };
+    }
 }

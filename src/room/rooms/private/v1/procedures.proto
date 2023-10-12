@@ -88,9 +88,8 @@ message CreateTransaction {
 }
 
 message UpdateArgument {
-    room.rooms.private.v1.Query                 query    = 1;
-    optional room.rooms.private.v1.OptionalKind kind     = 2;
-    optional room.rooms.private.v1.OptionalMap  metadata = 3;
+    room.rooms.private.v1.Query                query    = 1;
+    optional room.rooms.private.v1.OptionalMap metadata = 2;
 }
 
 message UpdateRequest {

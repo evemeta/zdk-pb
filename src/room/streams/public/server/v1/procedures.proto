@@ -2,7 +2,9 @@ syntax = "proto3";
 
 package room.streams.public.server.v1;
 
+import "room/streams/public/server/v1/enums.proto";
 import "room/streams/public/server/v1/entities.proto";
+import "room/streams/public/server/v1/optionals.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/streams/public/server/v1;streamspb";
@@ -42,4 +44,46 @@ message RangeRequest {
 message RangeResponse {
     // Represents a chunk of streams that match the criteria of the given query.
     room.streams.public.server.v1.Chunk chunk = 1;
+}
+
+// CreateRequest represents a stream designed to create a new stream.
+message CreateRequest {
+    // Represents the unique identifier of the room in which the stream will be created.
+    string room_id = 1;
+    // todo;
+    room.streams.public.server.v1.Kind kind = 2;
+    // todo;
+    room.streams.public.server.v1.Status status = 3;
+}
+
+// RangeResponse represents a stream that provides the result of the create procedure.
+message CreateResponse {
+    // Represents the comprehensive details of the created stream.
+    room.streams.public.server.v1.Stream stream = 1;
+}
+
+// UpdateRequest represents a stream designed to update a specific stream based on its unique identifier.
+message UpdateRequest {
+    // Represents the unique identifier of the stream intended to be updated.
+    string id = 1;
+    // Represents a new status associated with the stream. It may be absent if no status changes are necessary.
+    optional room.streams.public.server.v1.OptionalStatus status = 2;
+}
+
+// RangeResponse represents a stream that provides the result of the update procedure.
+message UpdateResponse {
+    // Represents the comprehensive details of the updated stream.
+    room.streams.public.server.v1.Stream stream = 1;
+}
+
+// DeleteRequest represents a stream designed to delete a specific stream based on its unique identifier.
+message DeleteRequest {
+    // Represents the unique identifier of the stream intended to be deleted.
+    string id = 1;
+}
+
+// RangeResponse represents a stream that provides the result of the delete procedure.
+message DeleteResponse {
+    // Represents the comprehensive details of the deleted stream.
+    room.streams.public.server.v1.Stream stream = 1;
 }
