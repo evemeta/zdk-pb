@@ -10,7 +10,15 @@ export enum Kind {
     /**
      * @generated from protobuf enum value: Unknown = 0;
      */
-    Unknown = 0
+    Unknown = 0,
+    /**
+     * @generated from protobuf enum value: Dependent = 1;
+     */
+    Dependent = 1,
+    /**
+     * @generated from protobuf enum value: Independent = 2;
+     */
+    Independent = 2
 }
 /**
  * Order represents an enumeration that specifies the sort order for data retrieval, particularly in the context of querying.

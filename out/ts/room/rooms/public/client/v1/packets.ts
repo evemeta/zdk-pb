@@ -18,7 +18,8 @@ export interface EnterRoomPacket {
     /**
      * @generated from protobuf field: string id = 1;
      */
-    id: string; // streams}
+    id: string;
+}
 /**
  * @generated from protobuf message room.rooms.public.client.v1.LeaveRoomPacket
  */

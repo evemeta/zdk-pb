@@ -8,11 +8,19 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/rooms/private/v1;room
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 enum Kind {
-    KindUnknown = 0;
+    KindUnknown     = 0;
+    KindDependent   = 1;
+    KindIndependent = 2;
 }
 
 enum Order {
     OrderUnknown    = 0;
     OrderAscending  = 1;
     OrderDescending = 2;
+}
+
+enum Retention {
+    RetentionUnknown   = 0;
+    RetentionPermanent = 1;
+    RetentionTransient = 2;
 }

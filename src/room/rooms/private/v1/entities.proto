@@ -10,13 +10,14 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/rooms/private/v1;room
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 message Room {
-    string                     id          = 1;
-    string                     chat_id     = 2;
-    room.rooms.private.v1.Kind kind        = 3;
-    map<string, string>        metadata    = 4;
-    int64                      access_time = 5;
-    int64                      create_time = 6;
-    int64                      update_time = 7;
+    string                          id          = 1;
+    string                          chat_id     = 2;
+    room.rooms.private.v1.Kind      kind        = 3;
+    map<string, string>             metadata    = 4;
+    room.rooms.private.v1.Retention retention   = 5;
+    int64                           access_time = 6;
+    int64                           create_time = 7;
+    int64                           update_time = 8;
 }
 
 message Chunk {
