@@ -29,4 +29,22 @@ enum Permission {
     PermissionChatMessageUpdateContent = 304;
     PermissionChatMessageOwnDelete     = 305;
     PermissionChatMessageAnyDelete     = 306;
+    PermissionRoom                     = 400;
+    PermissionRoomSelect               = 401;
+    PermissionRoomEnter                = 402;
+    PermissionRoomLeave                = 403;
+    PermissionRoomMember               = 500;
+    PermissionRoomMemberSelect         = 501;
+    PermissionRoomMemberKick           = 502;
+    PermissionRoomConnection           = 600;
+    PermissionRoomConnectionSelect     = 601;
+    PermissionRoomStream               = 700;
+    PermissionRoomStreamSelect         = 701;
+    PermissionRoomStreamCreate         = 702;
+    PermissionRoomStreamUpdate         = 703;
+    PermissionRoomStreamDelete         = 704;
+    PermissionRoomRestriction          = 800;
+    PermissionRoomRestrictionSelect    = 801;
+    PermissionRoomRestrictionCreate    = 802;
+    PermissionRoomRestrictionDelete    = 803;
 }
