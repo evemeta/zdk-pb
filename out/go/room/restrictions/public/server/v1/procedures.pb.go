@@ -315,6 +315,238 @@ func (x *RangeResponse) GetChunk() *Chunk {
 	return nil
 }
 
+// CreateRequest represents a restriction designed to create a new restriction.
+type CreateRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// todo;
+	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	// Represents the unique identifier of the room in which the restriction will be created.
+	RoomId string `protobuf:"bytes,2,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
+	// todo;
+	Kind Kind `protobuf:"varint,3,opt,name=kind,proto3,enum=room.restrictions.public.server.v1.Kind" json:"kind,omitempty"`
+	// todo;
+	Reason string `protobuf:"bytes,4,opt,name=reason,proto3" json:"reason,omitempty"`
+	// todo;
+	Duration int64 `protobuf:"varint,5,opt,name=duration,proto3" json:"duration,omitempty"`
+}
+
+func (x *CreateRequest) Reset() {
+	*x = CreateRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_room_restrictions_public_server_v1_procedures_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CreateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateRequest) ProtoMessage() {}
+
+func (x *CreateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_room_restrictions_public_server_v1_procedures_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateRequest.ProtoReflect.Descriptor instead.
+func (*CreateRequest) Descriptor() ([]byte, []int) {
+	return file_room_restrictions_public_server_v1_procedures_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *CreateRequest) GetUserId() string {
+	if x != nil {
+		return x.UserId
+	}
+	return ""
+}
+
+func (x *CreateRequest) GetRoomId() string {
+	if x != nil {
+		return x.RoomId
+	}
+	return ""
+}
+
+func (x *CreateRequest) GetKind() Kind {
+	if x != nil {
+		return x.Kind
+	}
+	return KindUnknown
+}
+
+func (x *CreateRequest) GetReason() string {
+	if x != nil {
+		return x.Reason
+	}
+	return ""
+}
+
+func (x *CreateRequest) GetDuration() int64 {
+	if x != nil {
+		return x.Duration
+	}
+	return 0
+}
+
+// RangeResponse represents a restriction that provides the result of the create procedure.
+type CreateResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Represents the comprehensive details of the created restriction.
+	Restriction *Restriction `protobuf:"bytes,1,opt,name=restriction,proto3" json:"restriction,omitempty"`
+}
+
+func (x *CreateResponse) Reset() {
+	*x = CreateResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_room_restrictions_public_server_v1_procedures_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CreateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateResponse) ProtoMessage() {}
+
+func (x *CreateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_room_restrictions_public_server_v1_procedures_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateResponse.ProtoReflect.Descriptor instead.
+func (*CreateResponse) Descriptor() ([]byte, []int) {
+	return file_room_restrictions_public_server_v1_procedures_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *CreateResponse) GetRestriction() *Restriction {
+	if x != nil {
+		return x.Restriction
+	}
+	return nil
+}
+
+// DeleteRequest represents a restriction designed to delete a specific restriction based on its unique identifier.
+type DeleteRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Represents the unique identifier of the restriction intended to be deleted.
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (x *DeleteRequest) Reset() {
+	*x = DeleteRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_room_restrictions_public_server_v1_procedures_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *DeleteRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteRequest) ProtoMessage() {}
+
+func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_room_restrictions_public_server_v1_procedures_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteRequest.ProtoReflect.Descriptor instead.
+func (*DeleteRequest) Descriptor() ([]byte, []int) {
+	return file_room_restrictions_public_server_v1_procedures_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *DeleteRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+// RangeResponse represents a restriction that provides the result of the delete procedure.
+type DeleteResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Represents the comprehensive details of the deleted restriction.
+	Restriction *Restriction `protobuf:"bytes,1,opt,name=restriction,proto3" json:"restriction,omitempty"`
+}
+
+func (x *DeleteResponse) Reset() {
+	*x = DeleteResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_room_restrictions_public_server_v1_procedures_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *DeleteResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteResponse) ProtoMessage() {}
+
+func (x *DeleteResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_room_restrictions_public_server_v1_procedures_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteResponse.ProtoReflect.Descriptor instead.
+func (*DeleteResponse) Descriptor() ([]byte, []int) {
+	return file_room_restrictions_public_server_v1_procedures_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *DeleteResponse) GetRestriction() *Restriction {
+	if x != nil {
+		return x.Restriction
+	}
+	return nil
+}
+
 var File_room_restrictions_public_server_v1_procedures_proto protoreflect.FileDescriptor
 
 var file_room_restrictions_public_server_v1_procedures_proto_rawDesc = []byte{
@@ -323,7 +555,10 @@ var file_room_restrictions_public_server_v1_procedures_proto_rawDesc = []byte{
 	0x72, 0x2f, 0x76, 0x31, 0x2f, 0x70, 0x72, 0x6f, 0x63, 0x65, 0x64, 0x75, 0x72, 0x65, 0x73, 0x2e,
 	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x22, 0x72, 0x6f, 0x6f, 0x6d, 0x2e, 0x72, 0x65, 0x73, 0x74,
 	0x72, 0x69, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e,
-	0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x1a, 0x31, 0x72, 0x6f, 0x6f, 0x6d, 0x2f,
+	0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x1a, 0x2e, 0x72, 0x6f, 0x6f, 0x6d, 0x2f,
+	0x72, 0x65, 0x73, 0x74, 0x72, 0x69, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x2f, 0x70, 0x75, 0x62,
+	0x6c, 0x69, 0x63, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2f, 0x76, 0x31, 0x2f, 0x65, 0x6e,
+	0x75, 0x6d, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x31, 0x72, 0x6f, 0x6f, 0x6d, 0x2f,
 	0x72, 0x65, 0x73, 0x74, 0x72, 0x69, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x2f, 0x70, 0x75, 0x62,
 	0x6c, 0x69, 0x63, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2f, 0x76, 0x31, 0x2f, 0x65, 0x6e,
 	0x74, 0x69, 0x74, 0x69, 0x65, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x2e, 0x70, 0x72,
@@ -359,13 +594,39 @@ var file_room_restrictions_public_server_v1_procedures_proto_rawDesc = []byte{
 	0x2e, 0x72, 0x6f, 0x6f, 0x6d, 0x2e, 0x72, 0x65, 0x73, 0x74, 0x72, 0x69, 0x63, 0x74, 0x69, 0x6f,
 	0x6e, 0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72,
 	0x2e, 0x76, 0x31, 0x2e, 0x43, 0x68, 0x75, 0x6e, 0x6b, 0x52, 0x05, 0x63, 0x68, 0x75, 0x6e, 0x6b,
-	0x42, 0x57, 0x5a, 0x52, 0x67, 0x69, 0x74, 0x6c, 0x61, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x65,
-	0x76, 0x65, 0x6d, 0x65, 0x74, 0x61, 0x2f, 0x7a, 0x64, 0x6b, 0x2f, 0x70, 0x62, 0x2f, 0x6f, 0x75,
-	0x74, 0x2f, 0x67, 0x6f, 0x2f, 0x72, 0x6f, 0x6f, 0x6d, 0x2f, 0x72, 0x65, 0x73, 0x74, 0x72, 0x69,
-	0x63, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x2f, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2f, 0x73, 0x65,
-	0x72, 0x76, 0x65, 0x72, 0x2f, 0x76, 0x31, 0x3b, 0x72, 0x65, 0x73, 0x74, 0x72, 0x69, 0x63, 0x74,
-	0x69, 0x6f, 0x6e, 0x73, 0x70, 0x62, 0x92, 0x41, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x33,
+	0x22, 0xb3, 0x01, 0x0a, 0x0d, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x17, 0x0a, 0x07, 0x72,
+	0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x72, 0x6f,
+	0x6f, 0x6d, 0x49, 0x64, 0x12, 0x3c, 0x0a, 0x04, 0x6b, 0x69, 0x6e, 0x64, 0x18, 0x03, 0x20, 0x01,
+	0x28, 0x0e, 0x32, 0x28, 0x2e, 0x72, 0x6f, 0x6f, 0x6d, 0x2e, 0x72, 0x65, 0x73, 0x74, 0x72, 0x69,
+	0x63, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e, 0x73, 0x65,
+	0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x4b, 0x69, 0x6e, 0x64, 0x52, 0x04, 0x6b, 0x69,
+	0x6e, 0x64, 0x12, 0x16, 0x0a, 0x06, 0x72, 0x65, 0x61, 0x73, 0x6f, 0x6e, 0x18, 0x04, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x06, 0x72, 0x65, 0x61, 0x73, 0x6f, 0x6e, 0x12, 0x1a, 0x0a, 0x08, 0x64, 0x75,
+	0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x05, 0x20, 0x01, 0x28, 0x03, 0x52, 0x08, 0x64, 0x75,
+	0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x22, 0x63, 0x0a, 0x0e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x51, 0x0a, 0x0b, 0x72, 0x65, 0x73, 0x74,
+	0x72, 0x69, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2f, 0x2e,
+	0x72, 0x6f, 0x6f, 0x6d, 0x2e, 0x72, 0x65, 0x73, 0x74, 0x72, 0x69, 0x63, 0x74, 0x69, 0x6f, 0x6e,
+	0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e,
+	0x76, 0x31, 0x2e, 0x52, 0x65, 0x73, 0x74, 0x72, 0x69, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x0b,
+	0x72, 0x65, 0x73, 0x74, 0x72, 0x69, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x22, 0x1f, 0x0a, 0x0d, 0x44,
+	0x65, 0x6c, 0x65, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02,
+	0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x63, 0x0a, 0x0e,
+	0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x51,
+	0x0a, 0x0b, 0x72, 0x65, 0x73, 0x74, 0x72, 0x69, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x0b, 0x32, 0x2f, 0x2e, 0x72, 0x6f, 0x6f, 0x6d, 0x2e, 0x72, 0x65, 0x73, 0x74, 0x72,
+	0x69, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e, 0x73,
+	0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x52, 0x65, 0x73, 0x74, 0x72, 0x69, 0x63,
+	0x74, 0x69, 0x6f, 0x6e, 0x52, 0x0b, 0x72, 0x65, 0x73, 0x74, 0x72, 0x69, 0x63, 0x74, 0x69, 0x6f,
+	0x6e, 0x42, 0x57, 0x5a, 0x52, 0x67, 0x69, 0x74, 0x6c, 0x61, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f,
+	0x65, 0x76, 0x65, 0x6d, 0x65, 0x74, 0x61, 0x2f, 0x7a, 0x64, 0x6b, 0x2f, 0x70, 0x62, 0x2f, 0x6f,
+	0x75, 0x74, 0x2f, 0x67, 0x6f, 0x2f, 0x72, 0x6f, 0x6f, 0x6d, 0x2f, 0x72, 0x65, 0x73, 0x74, 0x72,
+	0x69, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x2f, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2f, 0x73,
+	0x65, 0x72, 0x76, 0x65, 0x72, 0x2f, 0x76, 0x31, 0x3b, 0x72, 0x65, 0x73, 0x74, 0x72, 0x69, 0x63,
+	0x74, 0x69, 0x6f, 0x6e, 0x73, 0x70, 0x62, 0x92, 0x41, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x33,
 }
 
 var (
@@ -380,7 +641,7 @@ func file_room_restrictions_public_server_v1_procedures_proto_rawDescGZIP() []by
 	return file_room_restrictions_public_server_v1_procedures_proto_rawDescData
 }
 
-var file_room_restrictions_public_server_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_room_restrictions_public_server_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_room_restrictions_public_server_v1_procedures_proto_goTypes = []interface{}{
 	(*CountRequest)(nil),   // 0: room.restrictions.public.server.v1.CountRequest
 	(*CountResponse)(nil),  // 1: room.restrictions.public.server.v1.CountResponse
@@ -388,21 +649,29 @@ var file_room_restrictions_public_server_v1_procedures_proto_goTypes = []interfa
 	(*SelectResponse)(nil), // 3: room.restrictions.public.server.v1.SelectResponse
 	(*RangeRequest)(nil),   // 4: room.restrictions.public.server.v1.RangeRequest
 	(*RangeResponse)(nil),  // 5: room.restrictions.public.server.v1.RangeResponse
-	(*Query)(nil),          // 6: room.restrictions.public.server.v1.Query
-	(*Restriction)(nil),    // 7: room.restrictions.public.server.v1.Restriction
-	(*Chunk)(nil),          // 8: room.restrictions.public.server.v1.Chunk
+	(*CreateRequest)(nil),  // 6: room.restrictions.public.server.v1.CreateRequest
+	(*CreateResponse)(nil), // 7: room.restrictions.public.server.v1.CreateResponse
+	(*DeleteRequest)(nil),  // 8: room.restrictions.public.server.v1.DeleteRequest
+	(*DeleteResponse)(nil), // 9: room.restrictions.public.server.v1.DeleteResponse
+	(*Query)(nil),          // 10: room.restrictions.public.server.v1.Query
+	(*Restriction)(nil),    // 11: room.restrictions.public.server.v1.Restriction
+	(*Chunk)(nil),          // 12: room.restrictions.public.server.v1.Chunk
+	(Kind)(0),              // 13: room.restrictions.public.server.v1.Kind
 }
 var file_room_restrictions_public_server_v1_procedures_proto_depIdxs = []int32{
-	6, // 0: room.restrictions.public.server.v1.CountRequest.query:type_name -> room.restrictions.public.server.v1.Query
-	6, // 1: room.restrictions.public.server.v1.SelectRequest.query:type_name -> room.restrictions.public.server.v1.Query
-	7, // 2: room.restrictions.public.server.v1.SelectResponse.restrictions:type_name -> room.restrictions.public.server.v1.Restriction
-	6, // 3: room.restrictions.public.server.v1.RangeRequest.query:type_name -> room.restrictions.public.server.v1.Query
-	8, // 4: room.restrictions.public.server.v1.RangeResponse.chunk:type_name -> room.restrictions.public.server.v1.Chunk
-	5, // [5:5] is the sub-list for method output_type
-	5, // [5:5] is the sub-list for method input_type
-	5, // [5:5] is the sub-list for extension type_name
-	5, // [5:5] is the sub-list for extension extendee
-	0, // [0:5] is the sub-list for field type_name
+	10, // 0: room.restrictions.public.server.v1.CountRequest.query:type_name -> room.restrictions.public.server.v1.Query
+	10, // 1: room.restrictions.public.server.v1.SelectRequest.query:type_name -> room.restrictions.public.server.v1.Query
+	11, // 2: room.restrictions.public.server.v1.SelectResponse.restrictions:type_name -> room.restrictions.public.server.v1.Restriction
+	10, // 3: room.restrictions.public.server.v1.RangeRequest.query:type_name -> room.restrictions.public.server.v1.Query
+	12, // 4: room.restrictions.public.server.v1.RangeResponse.chunk:type_name -> room.restrictions.public.server.v1.Chunk
+	13, // 5: room.restrictions.public.server.v1.CreateRequest.kind:type_name -> room.restrictions.public.server.v1.Kind
+	11, // 6: room.restrictions.public.server.v1.CreateResponse.restriction:type_name -> room.restrictions.public.server.v1.Restriction
+	11, // 7: room.restrictions.public.server.v1.DeleteResponse.restriction:type_name -> room.restrictions.public.server.v1.Restriction
+	8,  // [8:8] is the sub-list for method output_type
+	8,  // [8:8] is the sub-list for method input_type
+	8,  // [8:8] is the sub-list for extension type_name
+	8,  // [8:8] is the sub-list for extension extendee
+	0,  // [0:8] is the sub-list for field type_name
 }
 
 func init() { file_room_restrictions_public_server_v1_procedures_proto_init() }
@@ -410,6 +679,7 @@ func file_room_restrictions_public_server_v1_procedures_proto_init() {
 	if File_room_restrictions_public_server_v1_procedures_proto != nil {
 		return
 	}
+	file_room_restrictions_public_server_v1_enums_proto_init()
 	file_room_restrictions_public_server_v1_entities_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_room_restrictions_public_server_v1_procedures_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
@@ -484,6 +754,54 @@ func file_room_restrictions_public_server_v1_procedures_proto_init() {
 				return nil
 			}
 		}
+		file_room_restrictions_public_server_v1_procedures_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CreateRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_room_restrictions_public_server_v1_procedures_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CreateResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_room_restrictions_public_server_v1_procedures_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DeleteRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_room_restrictions_public_server_v1_procedures_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DeleteResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -491,7 +809,7 @@ func file_room_restrictions_public_server_v1_procedures_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_room_restrictions_public_server_v1_procedures_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

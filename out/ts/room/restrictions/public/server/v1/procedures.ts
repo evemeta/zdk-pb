@@ -11,6 +11,7 @@ import type { PartialMessage } from "@protobuf-ts/runtime";
 import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
+import { Kind } from "./enums";
 import { Chunk } from "./entities";
 import { Restriction } from "./entities";
 import { Query } from "./entities";
@@ -91,6 +92,82 @@ export interface RangeResponse {
      * @generated from protobuf field: room.restrictions.public.server.v1.Chunk chunk = 1;
      */
     chunk?: Chunk;
+}
+/**
+ * CreateRequest represents a restriction designed to create a new restriction.
+ *
+ * @generated from protobuf message room.restrictions.public.server.v1.CreateRequest
+ */
+export interface CreateRequest {
+    /**
+     * todo;
+     *
+     * @generated from protobuf field: string user_id = 1;
+     */
+    userId: string;
+    /**
+     * Represents the unique identifier of the room in which the restriction will be created.
+     *
+     * @generated from protobuf field: string room_id = 2;
+     */
+    roomId: string;
+    /**
+     * todo;
+     *
+     * @generated from protobuf field: room.restrictions.public.server.v1.Kind kind = 3;
+     */
+    kind: Kind;
+    /**
+     * todo;
+     *
+     * @generated from protobuf field: string reason = 4;
+     */
+    reason: string;
+    /**
+     * todo;
+     *
+     * @generated from protobuf field: int64 duration = 5;
+     */
+    duration: bigint;
+}
+/**
+ * RangeResponse represents a restriction that provides the result of the create procedure.
+ *
+ * @generated from protobuf message room.restrictions.public.server.v1.CreateResponse
+ */
+export interface CreateResponse {
+    /**
+     * Represents the comprehensive details of the created restriction.
+     *
+     * @generated from protobuf field: room.restrictions.public.server.v1.Restriction restriction = 1;
+     */
+    restriction?: Restriction;
+}
+/**
+ * DeleteRequest represents a restriction designed to delete a specific restriction based on its unique identifier.
+ *
+ * @generated from protobuf message room.restrictions.public.server.v1.DeleteRequest
+ */
+export interface DeleteRequest {
+    /**
+     * Represents the unique identifier of the restriction intended to be deleted.
+     *
+     * @generated from protobuf field: string id = 1;
+     */
+    id: string;
+}
+/**
+ * RangeResponse represents a restriction that provides the result of the delete procedure.
+ *
+ * @generated from protobuf message room.restrictions.public.server.v1.DeleteResponse
+ */
+export interface DeleteResponse {
+    /**
+     * Represents the comprehensive details of the deleted restriction.
+     *
+     * @generated from protobuf field: room.restrictions.public.server.v1.Restriction restriction = 1;
+     */
+    restriction?: Restriction;
 }
 // @generated message type with reflection information, may provide speed optimized methods
 class CountRequest$Type extends MessageType<CountRequest> {
@@ -374,3 +451,219 @@ class RangeResponse$Type extends MessageType<RangeResponse> {
  * @generated MessageType for protobuf message room.restrictions.public.server.v1.RangeResponse
  */
 export const RangeResponse = new RangeResponse$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class CreateRequest$Type extends MessageType<CreateRequest> {
+    constructor() {
+        super("room.restrictions.public.server.v1.CreateRequest", [
+            { no: 1, name: "user_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "room_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 3, name: "kind", kind: "enum", T: () => ["room.restrictions.public.server.v1.Kind", Kind] },
+            { no: 4, name: "reason", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 5, name: "duration", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+        ]);
+    }
+    create(value?: PartialMessage<CreateRequest>): CreateRequest {
+        const message = { userId: "", roomId: "", kind: 0, reason: "", duration: 0n };
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<CreateRequest>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: CreateRequest): CreateRequest {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string user_id */ 1:
+                    message.userId = reader.string();
+                    break;
+                case /* string room_id */ 2:
+                    message.roomId = reader.string();
+                    break;
+                case /* room.restrictions.public.server.v1.Kind kind */ 3:
+                    message.kind = reader.int32();
+                    break;
+                case /* string reason */ 4:
+                    message.reason = reader.string();
+                    break;
+                case /* int64 duration */ 5:
+                    message.duration = reader.int64().toBigInt();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: CreateRequest, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string user_id = 1; */
+        if (message.userId !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.userId);
+        /* string room_id = 2; */
+        if (message.roomId !== "")
+            writer.tag(2, WireType.LengthDelimited).string(message.roomId);
+        /* room.restrictions.public.server.v1.Kind kind = 3; */
+        if (message.kind !== 0)
+            writer.tag(3, WireType.Varint).int32(message.kind);
+        /* string reason = 4; */
+        if (message.reason !== "")
+            writer.tag(4, WireType.LengthDelimited).string(message.reason);
+        /* int64 duration = 5; */
+        if (message.duration !== 0n)
+            writer.tag(5, WireType.Varint).int64(message.duration);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message room.restrictions.public.server.v1.CreateRequest
+ */
+export const CreateRequest = new CreateRequest$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class CreateResponse$Type extends MessageType<CreateResponse> {
+    constructor() {
+        super("room.restrictions.public.server.v1.CreateResponse", [
+            { no: 1, name: "restriction", kind: "message", T: () => Restriction }
+        ]);
+    }
+    create(value?: PartialMessage<CreateResponse>): CreateResponse {
+        const message = {};
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<CreateResponse>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: CreateResponse): CreateResponse {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* room.restrictions.public.server.v1.Restriction restriction */ 1:
+                    message.restriction = Restriction.internalBinaryRead(reader, reader.uint32(), options, message.restriction);
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: CreateResponse, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* room.restrictions.public.server.v1.Restriction restriction = 1; */
+        if (message.restriction)
+            Restriction.internalBinaryWrite(message.restriction, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message room.restrictions.public.server.v1.CreateResponse
+ */
+export const CreateResponse = new CreateResponse$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class DeleteRequest$Type extends MessageType<DeleteRequest> {
+    constructor() {
+        super("room.restrictions.public.server.v1.DeleteRequest", [
+            { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
+        ]);
+    }
+    create(value?: PartialMessage<DeleteRequest>): DeleteRequest {
+        const message = { id: "" };
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<DeleteRequest>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: DeleteRequest): DeleteRequest {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string id */ 1:
+                    message.id = reader.string();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: DeleteRequest, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string id = 1; */
+        if (message.id !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.id);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message room.restrictions.public.server.v1.DeleteRequest
+ */
+export const DeleteRequest = new DeleteRequest$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class DeleteResponse$Type extends MessageType<DeleteResponse> {
+    constructor() {
+        super("room.restrictions.public.server.v1.DeleteResponse", [
+            { no: 1, name: "restriction", kind: "message", T: () => Restriction }
+        ]);
+    }
+    create(value?: PartialMessage<DeleteResponse>): DeleteResponse {
+        const message = {};
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<DeleteResponse>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: DeleteResponse): DeleteResponse {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* room.restrictions.public.server.v1.Restriction restriction */ 1:
+                    message.restriction = Restriction.internalBinaryRead(reader, reader.uint32(), options, message.restriction);
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: DeleteResponse, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* room.restrictions.public.server.v1.Restriction restriction = 1; */
+        if (message.restriction)
+            Restriction.internalBinaryWrite(message.restriction, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message room.restrictions.public.server.v1.DeleteResponse
+ */
+export const DeleteResponse = new DeleteResponse$Type();

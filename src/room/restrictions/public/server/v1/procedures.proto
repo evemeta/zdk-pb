@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package room.restrictions.public.server.v1;
 
+import "room/restrictions/public/server/v1/enums.proto";
 import "room/restrictions/public/server/v1/entities.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
@@ -42,4 +43,36 @@ message RangeRequest {
 message RangeResponse {
     // Represents a chunk of restrictions that match the criteria of the given query.
     room.restrictions.public.server.v1.Chunk chunk = 1;
+}
+
+// CreateRequest represents a restriction designed to create a new restriction.
+message CreateRequest {
+    // todo;
+    string user_id = 1;
+    // Represents the unique identifier of the room in which the restriction will be created.
+    string room_id = 2;
+    // todo;
+    room.restrictions.public.server.v1.Kind kind = 3;
+    // todo;
+    string reason = 4;
+    // todo;
+    int64 duration = 5;
+}
+
+// RangeResponse represents a restriction that provides the result of the create procedure.
+message CreateResponse {
+    // Represents the comprehensive details of the created restriction.
+    room.restrictions.public.server.v1.Restriction restriction = 1;
+}
+
+// DeleteRequest represents a restriction designed to delete a specific restriction based on its unique identifier.
+message DeleteRequest {
+    // Represents the unique identifier of the restriction intended to be deleted.
+    string id = 1;
+}
+
+// RangeResponse represents a restriction that provides the result of the delete procedure.
+message DeleteResponse {
+    // Represents the comprehensive details of the deleted restriction.
+    room.restrictions.public.server.v1.Restriction restriction = 1;
 }

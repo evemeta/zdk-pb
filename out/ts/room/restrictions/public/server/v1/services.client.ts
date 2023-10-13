@@ -4,6 +4,10 @@
 import type { RpcTransport } from "@protobuf-ts/runtime-rpc";
 import type { ServiceInfo } from "@protobuf-ts/runtime-rpc";
 import { Service } from "./services";
+import type { DeleteResponse } from "./procedures";
+import type { DeleteRequest } from "./procedures";
+import type { CreateResponse } from "./procedures";
+import type { CreateRequest } from "./procedures";
 import type { SelectResponse } from "./procedures";
 import type { SelectRequest } from "./procedures";
 import type { RangeResponse } from "./procedures";
@@ -35,6 +39,18 @@ export interface IServiceClient {
      * @generated from protobuf rpc: Select(room.restrictions.public.server.v1.SelectRequest) returns (room.restrictions.public.server.v1.SelectResponse);
      */
     select(input: SelectRequest, options?: RpcOptions): UnaryCall<SelectRequest, SelectResponse>;
+    /**
+     * Create represents a procedure that creates a new restriction.
+     *
+     * @generated from protobuf rpc: Create(room.restrictions.public.server.v1.CreateRequest) returns (room.restrictions.public.server.v1.CreateResponse);
+     */
+    create(input: CreateRequest, options?: RpcOptions): UnaryCall<CreateRequest, CreateResponse>;
+    /**
+     * Delete represents a procedure that deletes a specific restriction based on its unique identifier.
+     *
+     * @generated from protobuf rpc: Delete(room.restrictions.public.server.v1.DeleteRequest) returns (room.restrictions.public.server.v1.DeleteResponse);
+     */
+    delete(input: DeleteRequest, options?: RpcOptions): UnaryCall<DeleteRequest, DeleteResponse>;
 }
 /**
  * @generated from protobuf service room.restrictions.public.server.v1.Service
@@ -71,5 +87,23 @@ export class ServiceClient implements IServiceClient, ServiceInfo {
     select(input: SelectRequest, options?: RpcOptions): UnaryCall<SelectRequest, SelectResponse> {
         const method = this.methods[2], opt = this._transport.mergeOptions(options);
         return stackIntercept<SelectRequest, SelectResponse>("unary", this._transport, method, opt, input);
+    }
+    /**
+     * Create represents a procedure that creates a new restriction.
+     *
+     * @generated from protobuf rpc: Create(room.restrictions.public.server.v1.CreateRequest) returns (room.restrictions.public.server.v1.CreateResponse);
+     */
+    create(input: CreateRequest, options?: RpcOptions): UnaryCall<CreateRequest, CreateResponse> {
+        const method = this.methods[3], opt = this._transport.mergeOptions(options);
+        return stackIntercept<CreateRequest, CreateResponse>("unary", this._transport, method, opt, input);
+    }
+    /**
+     * Delete represents a procedure that deletes a specific restriction based on its unique identifier.
+     *
+     * @generated from protobuf rpc: Delete(room.restrictions.public.server.v1.DeleteRequest) returns (room.restrictions.public.server.v1.DeleteResponse);
+     */
+    delete(input: DeleteRequest, options?: RpcOptions): UnaryCall<DeleteRequest, DeleteResponse> {
+        const method = this.methods[4], opt = this._transport.mergeOptions(options);
+        return stackIntercept<DeleteRequest, DeleteResponse>("unary", this._transport, method, opt, input);
     }
 }

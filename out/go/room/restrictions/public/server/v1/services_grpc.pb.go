@@ -22,6 +22,8 @@ const (
 	Service_Count_FullMethodName  = "/room.restrictions.public.server.v1.Service/Count"
 	Service_Range_FullMethodName  = "/room.restrictions.public.server.v1.Service/Range"
 	Service_Select_FullMethodName = "/room.restrictions.public.server.v1.Service/Select"
+	Service_Create_FullMethodName = "/room.restrictions.public.server.v1.Service/Create"
+	Service_Delete_FullMethodName = "/room.restrictions.public.server.v1.Service/Delete"
 )
 
 // ServiceClient is the client API for Service service.
@@ -34,6 +36,10 @@ type ServiceClient interface {
 	Range(ctx context.Context, in *RangeRequest, opts ...grpc.CallOption) (*RangeResponse, error)
 	// Select represents a procedure that retrieves specific restrictions based on a specific query.
 	Select(ctx context.Context, in *SelectRequest, opts ...grpc.CallOption) (*SelectResponse, error)
+	// Create represents a procedure that creates a new restriction.
+	Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error)
+	// Delete represents a procedure that deletes a specific restriction based on its unique identifier.
+	Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error)
 }
 
 type serviceClient struct {
@@ -71,6 +77,24 @@ func (c *serviceClient) Select(ctx context.Context, in *SelectRequest, opts ...g
 	return out, nil
 }
 
+func (c *serviceClient) Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error) {
+	out := new(CreateResponse)
+	err := c.cc.Invoke(ctx, Service_Create_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error) {
+	out := new(DeleteResponse)
+	err := c.cc.Invoke(ctx, Service_Delete_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ServiceServer is the server API for Service service.
 // All implementations must embed UnimplementedServiceServer
 // for forward compatibility
@@ -81,6 +105,10 @@ type ServiceServer interface {
 	Range(context.Context, *RangeRequest) (*RangeResponse, error)
 	// Select represents a procedure that retrieves specific restrictions based on a specific query.
 	Select(context.Context, *SelectRequest) (*SelectResponse, error)
+	// Create represents a procedure that creates a new restriction.
+	Create(context.Context, *CreateRequest) (*CreateResponse, error)
+	// Delete represents a procedure that deletes a specific restriction based on its unique identifier.
+	Delete(context.Context, *DeleteRequest) (*DeleteResponse, error)
 	mustEmbedUnimplementedServiceServer()
 }
 
@@ -96,6 +124,12 @@ func (UnimplementedServiceServer) Range(context.Context, *RangeRequest) (*RangeR
 }
 func (UnimplementedServiceServer) Select(context.Context, *SelectRequest) (*SelectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Select not implemented")
+}
+func (UnimplementedServiceServer) Create(context.Context, *CreateRequest) (*CreateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
+}
+func (UnimplementedServiceServer) Delete(context.Context, *DeleteRequest) (*DeleteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
 }
 func (UnimplementedServiceServer) mustEmbedUnimplementedServiceServer() {}
 
@@ -164,6 +198,42 @@ func _Service_Select_Handler(srv interface{}, ctx context.Context, dec func(inte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Service_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).Create(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_Create_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).Create(ctx, req.(*CreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).Delete(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_Delete_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).Delete(ctx, req.(*DeleteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Service_ServiceDesc is the grpc.ServiceDesc for Service service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -182,6 +252,14 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Select",
 			Handler:    _Service_Select_Handler,
+		},
+		{
+			MethodName: "Create",
+			Handler:    _Service_Create_Handler,
+		},
+		{
+			MethodName: "Delete",
+			Handler:    _Service_Delete_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
