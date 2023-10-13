@@ -2,13 +2,19 @@
 // @generated from protobuf file "room/restrictions/public/server/v1/enums.proto" (package "room.restrictions.public.server.v1", syntax proto3)
 // tslint:disable
 /**
+ * Kind todo;
+ *
  * @generated from protobuf enum room.restrictions.public.server.v1.Kind
  */
 export enum Kind {
     /**
      * @generated from protobuf enum value: Unknown = 0;
      */
-    Unknown = 0
+    Unknown = 0,
+    /**
+     * @generated from protobuf enum value: Enter = 1;
+     */
+    Enter = 1
 }
 /**
  * Order represents an enumeration that specifies the sort order for data retrieval, particularly in the context of querying.

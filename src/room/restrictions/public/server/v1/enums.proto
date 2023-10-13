@@ -7,8 +7,10 @@ import "protoc-gen-openapiv2/options/annotations.proto";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/restrictions/public/server/v1;restrictionspb";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
+// Kind todo;
 enum Kind {
     KindUnknown = 0;
+    KindEnter   = 1;
 }
 
 // Order represents an enumeration that specifies the sort order for data retrieval, particularly in the context of querying.

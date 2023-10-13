@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package room.restrictions.private.v1;
 
+import "room/members/private/v1/procedures.proto";
 import "room/restrictions/private/v1/enums.proto";
 import "room/restrictions/private/v1/entities.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
@@ -67,9 +68,14 @@ message CreateResponse {
 
 message CreateMutation {
     room.restrictions.private.v1.CreateArgument     foundation      = 1;
-    repeated room.restrictions.private.v1.Transient transient       = 2;
-    int64                                           begin_timestamp = 3;
-    int64                                           close_timestamp = 4;
+    room.restrictions.private.v1.CreateCondition    condition       = 2;
+    repeated room.restrictions.private.v1.Transient transient       = 3;
+    int64                                           begin_timestamp = 4;
+    int64                                           close_timestamp = 5;
+}
+
+message CreateCondition {
+    repeated room.members.private.v1.KickMutation kick_member_mutations = 1;
 }
 
 message CreateTransaction {
@@ -91,8 +97,8 @@ message DeleteResponse {
 message DeleteMutation {
     room.restrictions.private.v1.DeleteArgument     foundation      = 1;
     repeated room.restrictions.private.v1.Transient transient       = 2;
-    int64                                      begin_timestamp = 3;
-    int64                                      close_timestamp = 4;
+    int64                                           begin_timestamp = 3;
+    int64                                           close_timestamp = 4;
 }
 
 message DeleteTransaction {

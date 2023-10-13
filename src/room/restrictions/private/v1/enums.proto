@@ -9,6 +9,7 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 enum Kind {
     KindUnknown = 0;
+    KindEnter   = 1;
 }
 
 enum Order {

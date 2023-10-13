@@ -21,6 +21,25 @@ export enum Order {
     Descending = 2
 }
 /**
+ * Status todo;
+ *
+ * @generated from protobuf enum chat.members.public.server.v1.Status
+ */
+export enum Status {
+    /**
+     * @generated from protobuf enum value: Unknown = 0;
+     */
+    Unknown = 0,
+    /**
+     * @generated from protobuf enum value: Connected = 1;
+     */
+    Connected = 1,
+    /**
+     * @generated from protobuf enum value: Disconnected = 2;
+     */
+    Disconnected = 2
+}
+/**
  * RestrictionKind represents an enumeration that specifies the kinds of restrictions or actions that can be applied to a member.
  *
  * @generated from protobuf enum chat.members.public.server.v1.RestrictionKind

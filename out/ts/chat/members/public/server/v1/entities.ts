@@ -12,6 +12,7 @@ import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
 import { RestrictionKind } from "./enums";
+import { Status } from "./enums";
 import { Order } from "./enums";
 /**
  * Chunk represents a segmented portion of members used for pagination or segmented data retrieval.
@@ -148,6 +149,12 @@ export interface Condition {
      * @generated from protobuf field: repeated string chat_ids = 2;
      */
     chatIds: string[];
+    /**
+     * todo;
+     *
+     * @generated from protobuf field: repeated chat.members.public.server.v1.Status statuses = 3;
+     */
+    statuses: Status[];
 }
 /**
  * Timeframe represents a specific span or duration marked by its commencement and completion times.
@@ -447,11 +454,12 @@ class Condition$Type extends MessageType<Condition> {
     constructor() {
         super("chat.members.public.server.v1.Condition", [
             { no: 1, name: "ids", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 9 /*ScalarType.STRING*/ },
-            { no: 2, name: "chat_ids", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 9 /*ScalarType.STRING*/ }
+            { no: 2, name: "chat_ids", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 9 /*ScalarType.STRING*/ },
+            { no: 3, name: "statuses", kind: "enum", repeat: 1 /*RepeatType.PACKED*/, T: () => ["chat.members.public.server.v1.Status", Status] }
         ]);
     }
     create(value?: PartialMessage<Condition>): Condition {
-        const message = { ids: [], chatIds: [] };
+        const message = { ids: [], chatIds: [], statuses: [] };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<Condition>(this, message, value);
@@ -467,6 +475,13 @@ class Condition$Type extends MessageType<Condition> {
                     break;
                 case /* repeated string chat_ids */ 2:
                     message.chatIds.push(reader.string());
+                    break;
+                case /* repeated chat.members.public.server.v1.Status statuses */ 3:
+                    if (wireType === WireType.LengthDelimited)
+                        for (let e = reader.int32() + reader.pos; reader.pos < e;)
+                            message.statuses.push(reader.int32());
+                    else
+                        message.statuses.push(reader.int32());
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -486,6 +501,13 @@ class Condition$Type extends MessageType<Condition> {
         /* repeated string chat_ids = 2; */
         for (let i = 0; i < message.chatIds.length; i++)
             writer.tag(2, WireType.LengthDelimited).string(message.chatIds[i]);
+        /* repeated chat.members.public.server.v1.Status statuses = 3; */
+        if (message.statuses.length) {
+            writer.tag(3, WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.statuses.length; i++)
+                writer.int32(message.statuses[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

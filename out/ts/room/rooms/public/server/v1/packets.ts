@@ -122,15 +122,27 @@ export interface DeleteRoomPacket {
     timeframe?: Timeframe;
 }
 /**
+ * CustomRoomPacket todo;
+ *
  * @generated from protobuf message room.rooms.public.server.v1.CustomRoomPacket
  */
 export interface CustomRoomPacket {
     /**
-     * @generated from protobuf field: string name = 1;
+     * Represents the unique identifier of the room.
+     *
+     * @generated from protobuf field: string id = 1;
+     */
+    id: string;
+    /**
+     * todo;
+     *
+     * @generated from protobuf field: string name = 2;
      */
     name: string;
     /**
-     * @generated from protobuf field: map<string, string> data = 2;
+     * todo;
+     *
+     * @generated from protobuf field: map<string, string> data = 3;
      */
     data: {
         [key: string]: string;
@@ -417,12 +429,13 @@ export const DeleteRoomPacket = new DeleteRoomPacket$Type();
 class CustomRoomPacket$Type extends MessageType<CustomRoomPacket> {
     constructor() {
         super("room.rooms.public.server.v1.CustomRoomPacket", [
-            { no: 1, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 2, name: "data", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } }
+            { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 3, name: "data", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } }
         ]);
     }
     create(value?: PartialMessage<CustomRoomPacket>): CustomRoomPacket {
-        const message = { name: "", data: {} };
+        const message = { id: "", name: "", data: {} };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<CustomRoomPacket>(this, message, value);
@@ -433,11 +446,14 @@ class CustomRoomPacket$Type extends MessageType<CustomRoomPacket> {
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* string name */ 1:
+                case /* string id */ 1:
+                    message.id = reader.string();
+                    break;
+                case /* string name */ 2:
                     message.name = reader.string();
                     break;
-                case /* map<string, string> data */ 2:
-                    this.binaryReadMap2(message.data, reader, options);
+                case /* map<string, string> data */ 3:
+                    this.binaryReadMap3(message.data, reader, options);
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -450,7 +466,7 @@ class CustomRoomPacket$Type extends MessageType<CustomRoomPacket> {
         }
         return message;
     }
-    private binaryReadMap2(map: CustomRoomPacket["data"], reader: IBinaryReader, options: BinaryReadOptions): void {
+    private binaryReadMap3(map: CustomRoomPacket["data"], reader: IBinaryReader, options: BinaryReadOptions): void {
         let len = reader.uint32(), end = reader.pos + len, key: keyof CustomRoomPacket["data"] | undefined, val: CustomRoomPacket["data"][any] | undefined;
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
@@ -467,12 +483,15 @@ class CustomRoomPacket$Type extends MessageType<CustomRoomPacket> {
         map[key ?? ""] = val ?? "";
     }
     internalBinaryWrite(message: CustomRoomPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* string name = 1; */
+        /* string id = 1; */
+        if (message.id !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.id);
+        /* string name = 2; */
         if (message.name !== "")
-            writer.tag(1, WireType.LengthDelimited).string(message.name);
-        /* map<string, string> data = 2; */
+            writer.tag(2, WireType.LengthDelimited).string(message.name);
+        /* map<string, string> data = 3; */
         for (let k of Object.keys(message.data))
-            writer.tag(2, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.data[k]).join();
+            writer.tag(3, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.data[k]).join();
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

@@ -29,6 +29,25 @@ export interface LeaveRoomPacket {
      */
     id: string;
 }
+/**
+ * @generated from protobuf message room.rooms.public.client.v1.CustomRoomPacket
+ */
+export interface CustomRoomPacket {
+    /**
+     * @generated from protobuf field: string id = 1;
+     */
+    id: string;
+    /**
+     * @generated from protobuf field: string name = 2;
+     */
+    name: string;
+    /**
+     * @generated from protobuf field: map<string, string> data = 3;
+     */
+    data: {
+        [key: string]: string;
+    };
+}
 // @generated message type with reflection information, may provide speed optimized methods
 class EnterRoomPacket$Type extends MessageType<EnterRoomPacket> {
     constructor() {
@@ -123,3 +142,80 @@ class LeaveRoomPacket$Type extends MessageType<LeaveRoomPacket> {
  * @generated MessageType for protobuf message room.rooms.public.client.v1.LeaveRoomPacket
  */
 export const LeaveRoomPacket = new LeaveRoomPacket$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class CustomRoomPacket$Type extends MessageType<CustomRoomPacket> {
+    constructor() {
+        super("room.rooms.public.client.v1.CustomRoomPacket", [
+            { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 3, name: "data", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } }
+        ]);
+    }
+    create(value?: PartialMessage<CustomRoomPacket>): CustomRoomPacket {
+        const message = { id: "", name: "", data: {} };
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<CustomRoomPacket>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: CustomRoomPacket): CustomRoomPacket {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string id */ 1:
+                    message.id = reader.string();
+                    break;
+                case /* string name */ 2:
+                    message.name = reader.string();
+                    break;
+                case /* map<string, string> data */ 3:
+                    this.binaryReadMap3(message.data, reader, options);
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    private binaryReadMap3(map: CustomRoomPacket["data"], reader: IBinaryReader, options: BinaryReadOptions): void {
+        let len = reader.uint32(), end = reader.pos + len, key: keyof CustomRoomPacket["data"] | undefined, val: CustomRoomPacket["data"][any] | undefined;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case 1:
+                    key = reader.string();
+                    break;
+                case 2:
+                    val = reader.string();
+                    break;
+                default: throw new globalThis.Error("unknown map entry field for field room.rooms.public.client.v1.CustomRoomPacket.data");
+            }
+        }
+        map[key ?? ""] = val ?? "";
+    }
+    internalBinaryWrite(message: CustomRoomPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string id = 1; */
+        if (message.id !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.id);
+        /* string name = 2; */
+        if (message.name !== "")
+            writer.tag(2, WireType.LengthDelimited).string(message.name);
+        /* map<string, string> data = 3; */
+        for (let k of Object.keys(message.data))
+            writer.tag(3, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.data[k]).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message room.rooms.public.client.v1.CustomRoomPacket
+ */
+export const CustomRoomPacket = new CustomRoomPacket$Type();
