@@ -71,6 +71,7 @@ func (Order) EnumDescriptor() ([]byte, []int) {
 	return file_room_members_public_server_v1_enums_proto_rawDescGZIP(), []int{0}
 }
 
+// Status todo;
 type Status int32
 
 const (

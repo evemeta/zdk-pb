@@ -14,6 +14,7 @@ enum Order {
     OrderDescending = 2;
 }
 
+// Status todo;
 enum Status {
     StatusUnknown      = 0;
     StatusConnected    = 1;

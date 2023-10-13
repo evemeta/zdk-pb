@@ -57,7 +57,12 @@ message DeleteRoomPacket {
     room.rooms.public.server.v1.Timeframe timeframe = 2;
 }
 
+// CustomRoomPacket todo;
 message CustomRoomPacket {
-    string name = 1;
-    map<string, string> data = 2;
+    // Represents the unique identifier of the room.
+    string id = 1;
+    // todo;
+    string name = 2;
+    // todo;
+    map<string, string> data = 3;
 }

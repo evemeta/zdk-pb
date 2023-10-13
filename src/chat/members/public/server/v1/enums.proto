@@ -16,6 +16,13 @@ enum Order {
     OrderDescending = 2;
 }
 
+// Status todo;
+enum Status {
+    StatusUnknown      = 0;
+    StatusConnected    = 1;
+    StatusDisconnected = 2;
+}
+
 // RestrictionKind represents an enumeration that specifies the kinds of restrictions or actions that can be applied to a member.
 enum RestrictionKind {
     RestrictionKindUnknown = 0;

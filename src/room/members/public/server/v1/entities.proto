@@ -58,6 +58,8 @@ message Condition {
     repeated string ids = 1;
     // Represents a list of room identifiers to filter members based on their association.
     repeated string room_ids = 2;
+    // todo;
+    repeated room.members.public.server.v1.Status statuses = 3;
 }
 
 // Timeframe represents a specific span or duration marked by its commencement and completion times.

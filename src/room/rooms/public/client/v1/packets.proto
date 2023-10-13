@@ -15,4 +15,10 @@ message LeaveRoomPacket {
     string id = 1;
 }
 
+message CustomRoomPacket {
+    string id = 1;
+    string name = 2;
+    map<string, string> data = 3;
+}
+
 // todo; custom packet
