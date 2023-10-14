@@ -21,9 +21,10 @@ message IceCandidate {
 }
 
 message Offer {
-    string                       session_id  = 1;
-    string                       user_id     = 2;
-    string                       room_id     = 3;
-    bytes                        sdp         = 4;
-    sfu.public.server.v1.SfuType sfu_type    = 5;
+    string                       session_id   = 1;
+    string                       user_id      = 2;
+    string                       room_id      = 3;
+    bytes                        sdp          = 4;
+    sfu.public.server.v1.SfuType sfu_type     = 5;
+    map<int32, string>           packet_types = 6;
 }

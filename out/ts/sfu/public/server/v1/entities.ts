@@ -71,6 +71,12 @@ export interface Offer {
      * @generated from protobuf field: sfu.public.server.v1.SfuType sfu_type = 5;
      */
     sfuType: SfuType;
+    /**
+     * @generated from protobuf field: map<int32, string> packet_types = 6;
+     */
+    packetTypes: {
+        [key: number]: string;
+    };
 }
 // @generated message type with reflection information, may provide speed optimized methods
 class StreamInfo$Type extends MessageType<StreamInfo> {
@@ -202,11 +208,12 @@ class Offer$Type extends MessageType<Offer> {
             { no: 2, name: "user_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 3, name: "room_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 4, name: "sdp", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
-            { no: 5, name: "sfu_type", kind: "enum", T: () => ["sfu.public.server.v1.SfuType", SfuType] }
+            { no: 5, name: "sfu_type", kind: "enum", T: () => ["sfu.public.server.v1.SfuType", SfuType] },
+            { no: 6, name: "packet_types", kind: "map", K: 5 /*ScalarType.INT32*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } }
         ]);
     }
     create(value?: PartialMessage<Offer>): Offer {
-        const message = { sessionId: "", userId: "", roomId: "", sdp: new Uint8Array(0), sfuType: 0 };
+        const message = { sessionId: "", userId: "", roomId: "", sdp: new Uint8Array(0), sfuType: 0, packetTypes: {} };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<Offer>(this, message, value);
@@ -232,6 +239,9 @@ class Offer$Type extends MessageType<Offer> {
                 case /* sfu.public.server.v1.SfuType sfu_type */ 5:
                     message.sfuType = reader.int32();
                     break;
+                case /* map<int32, string> packet_types */ 6:
+                    this.binaryReadMap6(message.packetTypes, reader, options);
+                    break;
                 default:
                     let u = options.readUnknownField;
                     if (u === "throw")
@@ -242,6 +252,22 @@ class Offer$Type extends MessageType<Offer> {
             }
         }
         return message;
+    }
+    private binaryReadMap6(map: Offer["packetTypes"], reader: IBinaryReader, options: BinaryReadOptions): void {
+        let len = reader.uint32(), end = reader.pos + len, key: keyof Offer["packetTypes"] | undefined, val: Offer["packetTypes"][any] | undefined;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case 1:
+                    key = reader.int32();
+                    break;
+                case 2:
+                    val = reader.string();
+                    break;
+                default: throw new globalThis.Error("unknown map entry field for field sfu.public.server.v1.Offer.packet_types");
+            }
+        }
+        map[key ?? 0] = val ?? "";
     }
     internalBinaryWrite(message: Offer, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
         /* string session_id = 1; */
@@ -259,6 +285,9 @@ class Offer$Type extends MessageType<Offer> {
         /* sfu.public.server.v1.SfuType sfu_type = 5; */
         if (message.sfuType !== 0)
             writer.tag(5, WireType.Varint).int32(message.sfuType);
+        /* map<int32, string> packet_types = 6; */
+        for (let k of Object.keys(message.packetTypes))
+            writer.tag(6, WireType.LengthDelimited).fork().tag(1, WireType.Varint).int32(parseInt(k)).tag(2, WireType.LengthDelimited).string(message.packetTypes[k as any]).join();
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

@@ -85,43 +85,6 @@ export enum StreamType {
     McuVideoIs = 6
 }
 /**
- * @generated from protobuf enum sfu.public.server.v1.Action
- */
-export enum Action {
-    /**
-     * @generated from protobuf enum value: Unknown = 0;
-     */
-    Unknown = 0,
-    /**
-     * @generated from protobuf enum value: Connect = 1;
-     */
-    Connect = 1,
-    /**
-     * @generated from protobuf enum value: Disconnect = 3;
-     */
-    Disconnect = 3,
-    /**
-     * @generated from protobuf enum value: Pong = 4;
-     */
-    Pong = 4,
-    /**
-     * @generated from protobuf enum value: Mcu = 5;
-     */
-    Mcu = 5,
-    /**
-     * @generated from protobuf enum value: ToggleStreams = 6;
-     */
-    ToggleStreams = 6,
-    /**
-     * @generated from protobuf enum value: NegotiateStreams = 7;
-     */
-    NegotiateStreams = 7,
-    /**
-     * @generated from protobuf enum value: GetActiveStreams = 8;
-     */
-    GetActiveStreams = 8
-}
-/**
  * @generated from protobuf enum sfu.public.server.v1.SfuType
  */
 export enum SfuType {

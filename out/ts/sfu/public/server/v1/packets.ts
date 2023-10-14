@@ -14,7 +14,6 @@ import { MessageType } from "@protobuf-ts/runtime";
 import { Codec } from "./enums";
 import { StreamType } from "./enums";
 import { ConferenceMode } from "./enums";
-import { Action } from "./enums";
 import { StreamInfo } from "./entities";
 import { IceCandidate } from "./entities";
 import { Offer } from "./entities";
@@ -46,13 +45,13 @@ export interface IceCandidatePacket {
 // SFU Packets
 
 /**
- * @generated from protobuf message sfu.public.server.v1.ServerPacket
+ * @generated from protobuf message sfu.public.server.v1.Packet
  */
-export interface ServerPacket {
+export interface Packet {
     /**
-     * @generated from protobuf field: string type = 1;
+     * @generated from protobuf field: int32 actionId = 1;
      */
-    type: string;
+    actionId: number;
     /**
      * @generated from protobuf field: bytes data = 2;
      */
@@ -85,9 +84,9 @@ export interface MigrationRequiredPacket {
  */
 export interface UnsupportedActionPacket {
     /**
-     * @generated from protobuf field: sfu.public.server.v1.Action action = 1;
+     * @generated from protobuf field: int32 typeId = 1;
      */
-    action: Action;
+    typeId: number;
 }
 /**
  * @generated from protobuf message sfu.public.server.v1.DisconnectedPacket
@@ -264,27 +263,27 @@ class IceCandidatePacket$Type extends MessageType<IceCandidatePacket> {
  */
 export const IceCandidatePacket = new IceCandidatePacket$Type();
 // @generated message type with reflection information, may provide speed optimized methods
-class ServerPacket$Type extends MessageType<ServerPacket> {
+class Packet$Type extends MessageType<Packet> {
     constructor() {
-        super("sfu.public.server.v1.ServerPacket", [
-            { no: 1, name: "type", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+        super("sfu.public.server.v1.Packet", [
+            { no: 1, name: "actionId", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
             { no: 2, name: "data", kind: "scalar", T: 12 /*ScalarType.BYTES*/ }
         ]);
     }
-    create(value?: PartialMessage<ServerPacket>): ServerPacket {
-        const message = { type: "", data: new Uint8Array(0) };
+    create(value?: PartialMessage<Packet>): Packet {
+        const message = { actionId: 0, data: new Uint8Array(0) };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
-            reflectionMergePartial<ServerPacket>(this, message, value);
+            reflectionMergePartial<Packet>(this, message, value);
         return message;
     }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ServerPacket): ServerPacket {
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Packet): Packet {
         let message = target ?? this.create(), end = reader.pos + length;
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* string type */ 1:
-                    message.type = reader.string();
+                case /* int32 actionId */ 1:
+                    message.actionId = reader.int32();
                     break;
                 case /* bytes data */ 2:
                     message.data = reader.bytes();
@@ -300,10 +299,10 @@ class ServerPacket$Type extends MessageType<ServerPacket> {
         }
         return message;
     }
-    internalBinaryWrite(message: ServerPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* string type = 1; */
-        if (message.type !== "")
-            writer.tag(1, WireType.LengthDelimited).string(message.type);
+    internalBinaryWrite(message: Packet, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* int32 actionId = 1; */
+        if (message.actionId !== 0)
+            writer.tag(1, WireType.Varint).int32(message.actionId);
         /* bytes data = 2; */
         if (message.data.length)
             writer.tag(2, WireType.LengthDelimited).bytes(message.data);
@@ -314,9 +313,9 @@ class ServerPacket$Type extends MessageType<ServerPacket> {
     }
 }
 /**
- * @generated MessageType for protobuf message sfu.public.server.v1.ServerPacket
+ * @generated MessageType for protobuf message sfu.public.server.v1.Packet
  */
-export const ServerPacket = new ServerPacket$Type();
+export const Packet = new Packet$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class StreamsPacket$Type extends MessageType<StreamsPacket> {
     constructor() {
@@ -408,11 +407,11 @@ export const MigrationRequiredPacket = new MigrationRequiredPacket$Type();
 class UnsupportedActionPacket$Type extends MessageType<UnsupportedActionPacket> {
     constructor() {
         super("sfu.public.server.v1.UnsupportedActionPacket", [
-            { no: 1, name: "action", kind: "enum", T: () => ["sfu.public.server.v1.Action", Action] }
+            { no: 1, name: "typeId", kind: "scalar", T: 5 /*ScalarType.INT32*/ }
         ]);
     }
     create(value?: PartialMessage<UnsupportedActionPacket>): UnsupportedActionPacket {
-        const message = { action: 0 };
+        const message = { typeId: 0 };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<UnsupportedActionPacket>(this, message, value);
@@ -423,8 +422,8 @@ class UnsupportedActionPacket$Type extends MessageType<UnsupportedActionPacket> 
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* sfu.public.server.v1.Action action */ 1:
-                    message.action = reader.int32();
+                case /* int32 typeId */ 1:
+                    message.typeId = reader.int32();
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -438,9 +437,9 @@ class UnsupportedActionPacket$Type extends MessageType<UnsupportedActionPacket> 
         return message;
     }
     internalBinaryWrite(message: UnsupportedActionPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* sfu.public.server.v1.Action action = 1; */
-        if (message.action !== 0)
-            writer.tag(1, WireType.Varint).int32(message.action);
+        /* int32 typeId = 1; */
+        if (message.typeId !== 0)
+            writer.tag(1, WireType.Varint).int32(message.typeId);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

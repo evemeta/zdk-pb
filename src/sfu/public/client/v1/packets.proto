@@ -3,7 +3,6 @@ syntax = "proto3";
 package sfu.public.client.v1;
 
 import "protoc-gen-openapiv2/options/annotations.proto";
-import "sfu/public/server/v1/enums.proto";
 import "sfu/public/client/v1/entities.proto";
 import "sfu/public/server/v1/entities.proto";
 
@@ -23,8 +22,8 @@ message AddIceCandidatePacket {
 //SFU Packets
 
 message Packet {
-    sfu.public.server.v1.Action action   = 1;
-    bytes                       data     = 2;
+    int32 actionId = 1;
+    bytes data     = 2;
 }
 
 message StreamsTogglePacket {
