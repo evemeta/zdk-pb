@@ -48,7 +48,7 @@ message DisconnectedPacket {
     string reason = 1;
 }
 
-message ConferenceModePacket {
+message ConferencePacket {
     ConferenceMode mode = 1;
 }
 
