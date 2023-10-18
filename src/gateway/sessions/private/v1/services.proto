@@ -226,6 +226,14 @@ service Service {
         };
     }
 
+    rpc AnnounceDetachMutations(DetachTransaction) returns (DetachTransaction) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: AnnounceDetachMutations";
+            summary: "AnnounceDetachMutations";
+            operation_id: "AnnounceDetachMutations";
+        };
+    }
+
     rpc RollbackDetachMutations(DetachTransaction) returns (DetachTransaction) {
         option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
             description: "Description: RollbackDetachMutations";

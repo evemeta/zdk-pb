@@ -46,6 +46,7 @@ const (
 	Service_InitiateDetachMutations_FullMethodName = "/gateway.sessions.private.v1.Service/InitiateDetachMutations"
 	Service_ValidateDetachMutations_FullMethodName = "/gateway.sessions.private.v1.Service/ValidateDetachMutations"
 	Service_FinalizeDetachMutations_FullMethodName = "/gateway.sessions.private.v1.Service/FinalizeDetachMutations"
+	Service_AnnounceDetachMutations_FullMethodName = "/gateway.sessions.private.v1.Service/AnnounceDetachMutations"
 	Service_RollbackDetachMutations_FullMethodName = "/gateway.sessions.private.v1.Service/RollbackDetachMutations"
 )
 
@@ -80,6 +81,7 @@ type ServiceClient interface {
 	InitiateDetachMutations(ctx context.Context, in *DetachTransaction, opts ...grpc.CallOption) (*DetachTransaction, error)
 	ValidateDetachMutations(ctx context.Context, in *DetachTransaction, opts ...grpc.CallOption) (*DetachTransaction, error)
 	FinalizeDetachMutations(ctx context.Context, in *DetachTransaction, opts ...grpc.CallOption) (*DetachTransaction, error)
+	AnnounceDetachMutations(ctx context.Context, in *DetachTransaction, opts ...grpc.CallOption) (*DetachTransaction, error)
 	RollbackDetachMutations(ctx context.Context, in *DetachTransaction, opts ...grpc.CallOption) (*DetachTransaction, error)
 }
 
@@ -334,6 +336,15 @@ func (c *serviceClient) FinalizeDetachMutations(ctx context.Context, in *DetachT
 	return out, nil
 }
 
+func (c *serviceClient) AnnounceDetachMutations(ctx context.Context, in *DetachTransaction, opts ...grpc.CallOption) (*DetachTransaction, error) {
+	out := new(DetachTransaction)
+	err := c.cc.Invoke(ctx, Service_AnnounceDetachMutations_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *serviceClient) RollbackDetachMutations(ctx context.Context, in *DetachTransaction, opts ...grpc.CallOption) (*DetachTransaction, error) {
 	out := new(DetachTransaction)
 	err := c.cc.Invoke(ctx, Service_RollbackDetachMutations_FullMethodName, in, out, opts...)
@@ -374,6 +385,7 @@ type ServiceServer interface {
 	InitiateDetachMutations(context.Context, *DetachTransaction) (*DetachTransaction, error)
 	ValidateDetachMutations(context.Context, *DetachTransaction) (*DetachTransaction, error)
 	FinalizeDetachMutations(context.Context, *DetachTransaction) (*DetachTransaction, error)
+	AnnounceDetachMutations(context.Context, *DetachTransaction) (*DetachTransaction, error)
 	RollbackDetachMutations(context.Context, *DetachTransaction) (*DetachTransaction, error)
 	mustEmbedUnimplementedServiceServer()
 }
@@ -462,6 +474,9 @@ func (UnimplementedServiceServer) ValidateDetachMutations(context.Context, *Deta
 }
 func (UnimplementedServiceServer) FinalizeDetachMutations(context.Context, *DetachTransaction) (*DetachTransaction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FinalizeDetachMutations not implemented")
+}
+func (UnimplementedServiceServer) AnnounceDetachMutations(context.Context, *DetachTransaction) (*DetachTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AnnounceDetachMutations not implemented")
 }
 func (UnimplementedServiceServer) RollbackDetachMutations(context.Context, *DetachTransaction) (*DetachTransaction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RollbackDetachMutations not implemented")
@@ -965,6 +980,24 @@ func _Service_FinalizeDetachMutations_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Service_AnnounceDetachMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DetachTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).AnnounceDetachMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_AnnounceDetachMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).AnnounceDetachMutations(ctx, req.(*DetachTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _Service_RollbackDetachMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DetachTransaction)
 	if err := dec(in); err != nil {
@@ -1097,6 +1130,10 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "FinalizeDetachMutations",
 			Handler:    _Service_FinalizeDetachMutations_Handler,
+		},
+		{
+			MethodName: "AnnounceDetachMutations",
+			Handler:    _Service_AnnounceDetachMutations_Handler,
 		},
 		{
 			MethodName: "RollbackDetachMutations",
