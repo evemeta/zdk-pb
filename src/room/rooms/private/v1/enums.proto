@@ -18,9 +18,3 @@ enum Order {
     OrderAscending  = 1;
     OrderDescending = 2;
 }
-
-enum Retention {
-    RetentionUnknown   = 0;
-    RetentionPermanent = 1;
-    RetentionTransient = 2;
-}

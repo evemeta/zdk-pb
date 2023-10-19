@@ -57,10 +57,10 @@ message SelectResponse {
 }
 
 message CreateArgument {
-    string                     id        = 1;
-    rooms.private.v1.Kind      kind      = 2;
-    map<string, string>        metadata  = 3;
-    rooms.private.v1.Retention retention = 4;
+    string                id        = 1;
+    rooms.private.v1.Kind kind      = 2;
+    map<string, string>   metadata  = 3;
+    int64                 retention = 4;
 }
 
 message CreateRequest {
