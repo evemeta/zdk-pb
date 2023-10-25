@@ -56,6 +56,20 @@ message SelectResponse {
     repeated room.rooms.private.v1.Room rooms = 1;
 }
 
+message InvokeArgument {
+    string              id         = 1;
+    string              user_id    = 2;
+    string              session_id = 3;
+    string              name       = 4;
+    map<string, string> data       = 5;
+}
+
+message InvokeRequest {
+    repeated room.rooms.private.v1.InvokeArgument arguments = 1;
+}
+
+message InvokeResponse {}
+
 message CreateArgument {
     string                id        = 1;
     rooms.private.v1.Kind kind      = 2;

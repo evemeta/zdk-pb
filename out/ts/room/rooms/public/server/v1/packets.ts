@@ -122,13 +122,13 @@ export interface DeleteRoomPacket {
     timeframe?: Timeframe;
 }
 /**
- * CustomRoomPacket todo;
+ * InvokeRoomActionPacket todo;
  *
- * @generated from protobuf message room.rooms.public.server.v1.CustomRoomPacket
+ * @generated from protobuf message room.rooms.public.server.v1.InvokeRoomActionPacket
  */
-export interface CustomRoomPacket {
+export interface InvokeRoomActionPacket {
     /**
-     * Represents the unique identifier of the room.
+     * todo;
      *
      * @generated from protobuf field: string id = 1;
      */
@@ -136,13 +136,19 @@ export interface CustomRoomPacket {
     /**
      * todo;
      *
-     * @generated from protobuf field: string name = 2;
+     * @generated from protobuf field: string user_id = 2;
+     */
+    userId: string;
+    /**
+     * todo;
+     *
+     * @generated from protobuf field: string name = 3;
      */
     name: string;
     /**
      * todo;
      *
-     * @generated from protobuf field: map<string, string> data = 3;
+     * @generated from protobuf field: map<string, string> data = 4;
      */
     data: {
         [key: string]: string;
@@ -426,22 +432,23 @@ class DeleteRoomPacket$Type extends MessageType<DeleteRoomPacket> {
  */
 export const DeleteRoomPacket = new DeleteRoomPacket$Type();
 // @generated message type with reflection information, may provide speed optimized methods
-class CustomRoomPacket$Type extends MessageType<CustomRoomPacket> {
+class InvokeRoomActionPacket$Type extends MessageType<InvokeRoomActionPacket> {
     constructor() {
-        super("room.rooms.public.server.v1.CustomRoomPacket", [
+        super("room.rooms.public.server.v1.InvokeRoomActionPacket", [
             { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 2, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 3, name: "data", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } }
+            { no: 2, name: "user_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 3, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 4, name: "data", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } }
         ]);
     }
-    create(value?: PartialMessage<CustomRoomPacket>): CustomRoomPacket {
-        const message = { id: "", name: "", data: {} };
+    create(value?: PartialMessage<InvokeRoomActionPacket>): InvokeRoomActionPacket {
+        const message = { id: "", userId: "", name: "", data: {} };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
-            reflectionMergePartial<CustomRoomPacket>(this, message, value);
+            reflectionMergePartial<InvokeRoomActionPacket>(this, message, value);
         return message;
     }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: CustomRoomPacket): CustomRoomPacket {
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: InvokeRoomActionPacket): InvokeRoomActionPacket {
         let message = target ?? this.create(), end = reader.pos + length;
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
@@ -449,11 +456,14 @@ class CustomRoomPacket$Type extends MessageType<CustomRoomPacket> {
                 case /* string id */ 1:
                     message.id = reader.string();
                     break;
-                case /* string name */ 2:
+                case /* string user_id */ 2:
+                    message.userId = reader.string();
+                    break;
+                case /* string name */ 3:
                     message.name = reader.string();
                     break;
-                case /* map<string, string> data */ 3:
-                    this.binaryReadMap3(message.data, reader, options);
+                case /* map<string, string> data */ 4:
+                    this.binaryReadMap4(message.data, reader, options);
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -466,8 +476,8 @@ class CustomRoomPacket$Type extends MessageType<CustomRoomPacket> {
         }
         return message;
     }
-    private binaryReadMap3(map: CustomRoomPacket["data"], reader: IBinaryReader, options: BinaryReadOptions): void {
-        let len = reader.uint32(), end = reader.pos + len, key: keyof CustomRoomPacket["data"] | undefined, val: CustomRoomPacket["data"][any] | undefined;
+    private binaryReadMap4(map: InvokeRoomActionPacket["data"], reader: IBinaryReader, options: BinaryReadOptions): void {
+        let len = reader.uint32(), end = reader.pos + len, key: keyof InvokeRoomActionPacket["data"] | undefined, val: InvokeRoomActionPacket["data"][any] | undefined;
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
@@ -477,21 +487,24 @@ class CustomRoomPacket$Type extends MessageType<CustomRoomPacket> {
                 case 2:
                     val = reader.string();
                     break;
-                default: throw new globalThis.Error("unknown map entry field for field room.rooms.public.server.v1.CustomRoomPacket.data");
+                default: throw new globalThis.Error("unknown map entry field for field room.rooms.public.server.v1.InvokeRoomActionPacket.data");
             }
         }
         map[key ?? ""] = val ?? "";
     }
-    internalBinaryWrite(message: CustomRoomPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+    internalBinaryWrite(message: InvokeRoomActionPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
         /* string id = 1; */
         if (message.id !== "")
             writer.tag(1, WireType.LengthDelimited).string(message.id);
-        /* string name = 2; */
+        /* string user_id = 2; */
+        if (message.userId !== "")
+            writer.tag(2, WireType.LengthDelimited).string(message.userId);
+        /* string name = 3; */
         if (message.name !== "")
-            writer.tag(2, WireType.LengthDelimited).string(message.name);
-        /* map<string, string> data = 3; */
+            writer.tag(3, WireType.LengthDelimited).string(message.name);
+        /* map<string, string> data = 4; */
         for (let k of Object.keys(message.data))
-            writer.tag(3, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.data[k]).join();
+            writer.tag(4, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.data[k]).join();
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -499,6 +512,6 @@ class CustomRoomPacket$Type extends MessageType<CustomRoomPacket> {
     }
 }
 /**
- * @generated MessageType for protobuf message room.rooms.public.server.v1.CustomRoomPacket
+ * @generated MessageType for protobuf message room.rooms.public.server.v1.InvokeRoomActionPacket
  */
-export const CustomRoomPacket = new CustomRoomPacket$Type();
+export const InvokeRoomActionPacket = new InvokeRoomActionPacket$Type();

@@ -22,6 +22,7 @@ const (
 	Service_Count_FullMethodName                   = "/room.rooms.private.v1.Service/Count"
 	Service_Range_FullMethodName                   = "/room.rooms.private.v1.Service/Range"
 	Service_Select_FullMethodName                  = "/room.rooms.private.v1.Service/Select"
+	Service_Invoke_FullMethodName                  = "/room.rooms.private.v1.Service/Invoke"
 	Service_Create_FullMethodName                  = "/room.rooms.private.v1.Service/Create"
 	Service_InitiateCreateMutations_FullMethodName = "/room.rooms.private.v1.Service/InitiateCreateMutations"
 	Service_ValidateCreateMutations_FullMethodName = "/room.rooms.private.v1.Service/ValidateCreateMutations"
@@ -60,6 +61,7 @@ type ServiceClient interface {
 	Count(ctx context.Context, in *CountRequest, opts ...grpc.CallOption) (*CountResponse, error)
 	Range(ctx context.Context, in *RangeRequest, opts ...grpc.CallOption) (*RangeResponse, error)
 	Select(ctx context.Context, in *SelectRequest, opts ...grpc.CallOption) (*SelectResponse, error)
+	Invoke(ctx context.Context, in *InvokeRequest, opts ...grpc.CallOption) (*InvokeResponse, error)
 	Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error)
 	InitiateCreateMutations(ctx context.Context, in *CreateTransaction, opts ...grpc.CallOption) (*CreateTransaction, error)
 	ValidateCreateMutations(ctx context.Context, in *CreateTransaction, opts ...grpc.CallOption) (*CreateTransaction, error)
@@ -120,6 +122,15 @@ func (c *serviceClient) Range(ctx context.Context, in *RangeRequest, opts ...grp
 func (c *serviceClient) Select(ctx context.Context, in *SelectRequest, opts ...grpc.CallOption) (*SelectResponse, error) {
 	out := new(SelectResponse)
 	err := c.cc.Invoke(ctx, Service_Select_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) Invoke(ctx context.Context, in *InvokeRequest, opts ...grpc.CallOption) (*InvokeResponse, error) {
+	out := new(InvokeResponse)
+	err := c.cc.Invoke(ctx, Service_Invoke_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -394,6 +405,7 @@ type ServiceServer interface {
 	Count(context.Context, *CountRequest) (*CountResponse, error)
 	Range(context.Context, *RangeRequest) (*RangeResponse, error)
 	Select(context.Context, *SelectRequest) (*SelectResponse, error)
+	Invoke(context.Context, *InvokeRequest) (*InvokeResponse, error)
 	Create(context.Context, *CreateRequest) (*CreateResponse, error)
 	InitiateCreateMutations(context.Context, *CreateTransaction) (*CreateTransaction, error)
 	ValidateCreateMutations(context.Context, *CreateTransaction) (*CreateTransaction, error)
@@ -438,6 +450,9 @@ func (UnimplementedServiceServer) Range(context.Context, *RangeRequest) (*RangeR
 }
 func (UnimplementedServiceServer) Select(context.Context, *SelectRequest) (*SelectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Select not implemented")
+}
+func (UnimplementedServiceServer) Invoke(context.Context, *InvokeRequest) (*InvokeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Invoke not implemented")
 }
 func (UnimplementedServiceServer) Create(context.Context, *CreateRequest) (*CreateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
@@ -589,6 +604,24 @@ func _Service_Select_Handler(srv interface{}, ctx context.Context, dec func(inte
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ServiceServer).Select(ctx, req.(*SelectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_Invoke_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InvokeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).Invoke(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_Invoke_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).Invoke(ctx, req.(*InvokeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1133,6 +1166,10 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Select",
 			Handler:    _Service_Select_Handler,
+		},
+		{
+			MethodName: "Invoke",
+			Handler:    _Service_Invoke_Handler,
 		},
 		{
 			MethodName: "Create",

@@ -34,6 +34,14 @@ service Service {
         };
     }
 
+    rpc Invoke(InvokeRequest) returns (InvokeResponse) {
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Description: Invoke";
+            summary: "Invoke";
+            operation_id: "Invoke";
+        };
+    }
+
     rpc Create(CreateRequest) returns (CreateResponse) {
         option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
             description: "Description: Create";

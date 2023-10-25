@@ -12,37 +12,50 @@ import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
 /**
+ * EnterRoomPacket is a directive sent from the client to the server when the client intends to enter a specific room.
+ * It contains the unique identifier of the room that the client wishes to enter.
+ *
  * @generated from protobuf message room.rooms.public.client.v1.EnterRoomPacket
  */
 export interface EnterRoomPacket {
     /**
+     * Represents the unique identifier of the room the client is attempting to enter.
+     *
      * @generated from protobuf field: string id = 1;
      */
     id: string;
 }
 /**
+ * LeaveRoomPacket is a directive sent from the client to the server when the client intends to leave from a specific room.
+ * It contains the unique identifier of the room that the client wishes to leave.
+ *
  * @generated from protobuf message room.rooms.public.client.v1.LeaveRoomPacket
  */
 export interface LeaveRoomPacket {
     /**
+     * Represents the unique identifier of the room the client is attempting to leave.
+     *
      * @generated from protobuf field: string id = 1;
      */
     id: string;
 }
 /**
- * @generated from protobuf message room.rooms.public.client.v1.CustomRoomPacket
+ * InvokeRoomActionPacket is a directive sent from the client to the server when the client intends to broadcast a custom action to other clients within a room.
+ * It contains the name of the action, which identifies what kind of action clients should recognize and process, and may include additional data as needed.
+ *
+ * @generated from protobuf message room.rooms.public.client.v1.InvokeRoomActionPacket
  */
-export interface CustomRoomPacket {
+export interface InvokeRoomActionPacket {
     /**
-     * @generated from protobuf field: string id = 1;
-     */
-    id: string;
-    /**
-     * @generated from protobuf field: string name = 2;
+     * Represents the specific action's name to be recognized and handled by other clients in the room.
+     *
+     * @generated from protobuf field: string name = 1;
      */
     name: string;
     /**
-     * @generated from protobuf field: map<string, string> data = 3;
+     * Represents additional data as key-value pairs, providing further context or parameters for the action, depending on client logic.
+     *
+     * @generated from protobuf field: map<string, string> data = 2;
      */
     data: {
         [key: string]: string;
@@ -143,34 +156,30 @@ class LeaveRoomPacket$Type extends MessageType<LeaveRoomPacket> {
  */
 export const LeaveRoomPacket = new LeaveRoomPacket$Type();
 // @generated message type with reflection information, may provide speed optimized methods
-class CustomRoomPacket$Type extends MessageType<CustomRoomPacket> {
+class InvokeRoomActionPacket$Type extends MessageType<InvokeRoomActionPacket> {
     constructor() {
-        super("room.rooms.public.client.v1.CustomRoomPacket", [
-            { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 2, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 3, name: "data", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } }
+        super("room.rooms.public.client.v1.InvokeRoomActionPacket", [
+            { no: 1, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "data", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } }
         ]);
     }
-    create(value?: PartialMessage<CustomRoomPacket>): CustomRoomPacket {
-        const message = { id: "", name: "", data: {} };
+    create(value?: PartialMessage<InvokeRoomActionPacket>): InvokeRoomActionPacket {
+        const message = { name: "", data: {} };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
-            reflectionMergePartial<CustomRoomPacket>(this, message, value);
+            reflectionMergePartial<InvokeRoomActionPacket>(this, message, value);
         return message;
     }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: CustomRoomPacket): CustomRoomPacket {
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: InvokeRoomActionPacket): InvokeRoomActionPacket {
         let message = target ?? this.create(), end = reader.pos + length;
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* string id */ 1:
-                    message.id = reader.string();
-                    break;
-                case /* string name */ 2:
+                case /* string name */ 1:
                     message.name = reader.string();
                     break;
-                case /* map<string, string> data */ 3:
-                    this.binaryReadMap3(message.data, reader, options);
+                case /* map<string, string> data */ 2:
+                    this.binaryReadMap2(message.data, reader, options);
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -183,8 +192,8 @@ class CustomRoomPacket$Type extends MessageType<CustomRoomPacket> {
         }
         return message;
     }
-    private binaryReadMap3(map: CustomRoomPacket["data"], reader: IBinaryReader, options: BinaryReadOptions): void {
-        let len = reader.uint32(), end = reader.pos + len, key: keyof CustomRoomPacket["data"] | undefined, val: CustomRoomPacket["data"][any] | undefined;
+    private binaryReadMap2(map: InvokeRoomActionPacket["data"], reader: IBinaryReader, options: BinaryReadOptions): void {
+        let len = reader.uint32(), end = reader.pos + len, key: keyof InvokeRoomActionPacket["data"] | undefined, val: InvokeRoomActionPacket["data"][any] | undefined;
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
@@ -194,21 +203,18 @@ class CustomRoomPacket$Type extends MessageType<CustomRoomPacket> {
                 case 2:
                     val = reader.string();
                     break;
-                default: throw new globalThis.Error("unknown map entry field for field room.rooms.public.client.v1.CustomRoomPacket.data");
+                default: throw new globalThis.Error("unknown map entry field for field room.rooms.public.client.v1.InvokeRoomActionPacket.data");
             }
         }
         map[key ?? ""] = val ?? "";
     }
-    internalBinaryWrite(message: CustomRoomPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* string id = 1; */
-        if (message.id !== "")
-            writer.tag(1, WireType.LengthDelimited).string(message.id);
-        /* string name = 2; */
+    internalBinaryWrite(message: InvokeRoomActionPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string name = 1; */
         if (message.name !== "")
-            writer.tag(2, WireType.LengthDelimited).string(message.name);
-        /* map<string, string> data = 3; */
+            writer.tag(1, WireType.LengthDelimited).string(message.name);
+        /* map<string, string> data = 2; */
         for (let k of Object.keys(message.data))
-            writer.tag(3, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.data[k]).join();
+            writer.tag(2, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.data[k]).join();
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -216,6 +222,6 @@ class CustomRoomPacket$Type extends MessageType<CustomRoomPacket> {
     }
 }
 /**
- * @generated MessageType for protobuf message room.rooms.public.client.v1.CustomRoomPacket
+ * @generated MessageType for protobuf message room.rooms.public.client.v1.InvokeRoomActionPacket
  */
-export const CustomRoomPacket = new CustomRoomPacket$Type();
+export const InvokeRoomActionPacket = new InvokeRoomActionPacket$Type();
