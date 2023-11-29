@@ -1,7 +1,8 @@
 #!/bin/bash
 export PATH=$PATH:$GOPATH/bin:$(pwd)/bin
 
-rm -r out 2>/dev/null ; true
+rm -r out/go 2>/dev/null ; true
+rm -r out/ts 2>/dev/null ; true
 mkdir -p out/go out/ts
 
 if [ "$(which "protoc-gen-grpc-java")" != "" ]; then
@@ -40,6 +41,23 @@ if [ "$(which "protoc-gen-grpc-java")" != "" ]; then
     --grpc-java_out="./out/java/lib/src/main/java" \
     --java_out="./out/java/lib/src/main/java" \
     --kotlin_out="./out/java/lib/src/main/kotlin" \
+    --experimental_allow_proto3_optional \
+    $(find "./src" -iname "*.proto" -not -regex ".*private.*")
+fi
+
+if [ "$(which "protoc-gen-swift")" != "" ] && [ "$(which "protoc-gen-grpc-swift")" != "" ]
+then
+  rm -rf out/swift
+  mkdir -p out/swift
+  protoc \
+    --proto_path="./src" \
+    --proto_path="./lib" \
+    --swift_opt=FileNaming=PathToUnderscores \
+    --grpc-swift_opt=Client=true,Server=false,FileNaming=PathToUnderscores \
+    --swift_out="./out/swift" \
+    --swift_opt=Visibility=Public \
+    --grpc-swift_out="./out/swift" \
+    --grpc-swift_opt=Visibility=Public \
     --experimental_allow_proto3_optional \
     $(find "./src" -iname "*.proto" -not -regex ".*private.*")
 fi

@@ -15,4 +15,10 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   if [ "$(which "gfind")" == "" ]; then
     brew install findutils
   fi
+  if [ "$(which "protoc-gen-swift")" == "" ]; then
+    brew install swift-protobuf
+  fi
+  if [ "$(which "protoc-gen-grpc-swift")" == "" ]; then
+    brew install grpc-swift
+  fi
 fi
