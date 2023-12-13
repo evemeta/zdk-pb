@@ -12,6 +12,7 @@ import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
 import { OptionalMap } from "./optionals";
+import { OptionalInt64 } from "./optionals";
 import { Room } from "./entities";
 import { Timeframe } from "./entities";
 import { Member } from "../../../../members/public/server/v1/entities";
@@ -89,15 +90,21 @@ export interface UpdateRoomPacket {
      */
     id: string;
     /**
+     * todo;
+     *
+     * @generated from protobuf field: optional room.rooms.public.server.v1.OptionalInt64 capacity = 2;
+     */
+    capacity?: OptionalInt64;
+    /**
      * Represents a new or updated metadata associated with the room. It may be absent if no metadata changes occurred.
      *
-     * @generated from protobuf field: optional room.rooms.public.server.v1.OptionalMap metadata = 2;
+     * @generated from protobuf field: optional room.rooms.public.server.v1.OptionalMap metadata = 3;
      */
     metadata?: OptionalMap;
     /**
      * Represents the specific span of time, containing the commence and complete timestamps associated with the event.
      *
-     * @generated from protobuf field: room.rooms.public.server.v1.Timeframe timeframe = 3;
+     * @generated from protobuf field: room.rooms.public.server.v1.Timeframe timeframe = 4;
      */
     timeframe?: Timeframe;
 }
@@ -321,8 +328,9 @@ class UpdateRoomPacket$Type extends MessageType<UpdateRoomPacket> {
     constructor() {
         super("room.rooms.public.server.v1.UpdateRoomPacket", [
             { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 2, name: "metadata", kind: "message", T: () => OptionalMap },
-            { no: 3, name: "timeframe", kind: "message", T: () => Timeframe }
+            { no: 2, name: "capacity", kind: "message", T: () => OptionalInt64 },
+            { no: 3, name: "metadata", kind: "message", T: () => OptionalMap },
+            { no: 4, name: "timeframe", kind: "message", T: () => Timeframe }
         ]);
     }
     create(value?: PartialMessage<UpdateRoomPacket>): UpdateRoomPacket {
@@ -340,10 +348,13 @@ class UpdateRoomPacket$Type extends MessageType<UpdateRoomPacket> {
                 case /* string id */ 1:
                     message.id = reader.string();
                     break;
-                case /* optional room.rooms.public.server.v1.OptionalMap metadata */ 2:
+                case /* optional room.rooms.public.server.v1.OptionalInt64 capacity */ 2:
+                    message.capacity = OptionalInt64.internalBinaryRead(reader, reader.uint32(), options, message.capacity);
+                    break;
+                case /* optional room.rooms.public.server.v1.OptionalMap metadata */ 3:
                     message.metadata = OptionalMap.internalBinaryRead(reader, reader.uint32(), options, message.metadata);
                     break;
-                case /* room.rooms.public.server.v1.Timeframe timeframe */ 3:
+                case /* room.rooms.public.server.v1.Timeframe timeframe */ 4:
                     message.timeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.timeframe);
                     break;
                 default:
@@ -361,12 +372,15 @@ class UpdateRoomPacket$Type extends MessageType<UpdateRoomPacket> {
         /* string id = 1; */
         if (message.id !== "")
             writer.tag(1, WireType.LengthDelimited).string(message.id);
-        /* optional room.rooms.public.server.v1.OptionalMap metadata = 2; */
+        /* optional room.rooms.public.server.v1.OptionalInt64 capacity = 2; */
+        if (message.capacity)
+            OptionalInt64.internalBinaryWrite(message.capacity, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
+        /* optional room.rooms.public.server.v1.OptionalMap metadata = 3; */
         if (message.metadata)
-            OptionalMap.internalBinaryWrite(message.metadata, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        /* room.rooms.public.server.v1.Timeframe timeframe = 3; */
+            OptionalMap.internalBinaryWrite(message.metadata, writer.tag(3, WireType.LengthDelimited).fork(), options).join();
+        /* room.rooms.public.server.v1.Timeframe timeframe = 4; */
         if (message.timeframe)
-            Timeframe.internalBinaryWrite(message.timeframe, writer.tag(3, WireType.LengthDelimited).fork(), options).join();
+            Timeframe.internalBinaryWrite(message.timeframe, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

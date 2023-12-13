@@ -13,11 +13,12 @@ message Room {
     string                     id          = 1;
     string                     chat_id     = 2;
     room.rooms.private.v1.Kind kind        = 3;
-    map<string, string>        metadata    = 4;
-    int64                      retention   = 5;
-    int64                      access_time = 6;
-    int64                      create_time = 7;
-    int64                      update_time = 8;
+    int64                      capacity    = 4;
+    map<string, string>        metadata    = 5;
+    int64                      retention   = 6;
+    int64                      access_time = 7;
+    int64                      create_time = 8;
+    int64                      update_time = 9;
 }
 
 message Chunk {

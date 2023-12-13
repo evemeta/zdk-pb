@@ -25,6 +25,17 @@ export interface OptionalMap {
         [key: string]: string;
     };
 }
+/**
+ * OptionalInt64 todo;
+ *
+ * @generated from protobuf message room.rooms.public.server.v1.OptionalInt64
+ */
+export interface OptionalInt64 {
+    /**
+     * @generated from protobuf field: int64 value = 1;
+     */
+    value: bigint;
+}
 // @generated message type with reflection information, may provide speed optimized methods
 class OptionalMap$Type extends MessageType<OptionalMap> {
     constructor() {
@@ -88,3 +99,50 @@ class OptionalMap$Type extends MessageType<OptionalMap> {
  * @generated MessageType for protobuf message room.rooms.public.server.v1.OptionalMap
  */
 export const OptionalMap = new OptionalMap$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class OptionalInt64$Type extends MessageType<OptionalInt64> {
+    constructor() {
+        super("room.rooms.public.server.v1.OptionalInt64", [
+            { no: 1, name: "value", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+        ]);
+    }
+    create(value?: PartialMessage<OptionalInt64>): OptionalInt64 {
+        const message = { value: 0n };
+        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            reflectionMergePartial<OptionalInt64>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: OptionalInt64): OptionalInt64 {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* int64 value */ 1:
+                    message.value = reader.int64().toBigInt();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: OptionalInt64, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* int64 value = 1; */
+        if (message.value !== 0n)
+            writer.tag(1, WireType.Varint).int64(message.value);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message room.rooms.public.server.v1.OptionalInt64
+ */
+export const OptionalInt64 = new OptionalInt64$Type();

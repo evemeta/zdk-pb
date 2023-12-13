@@ -42,10 +42,12 @@ message CreateRoomPacket {
 message UpdateRoomPacket {
     // Represents the unique identifier of the room.
     string id = 1;
+    // todo;
+    optional room.rooms.public.server.v1.OptionalInt64 capacity = 2;
     // Represents a new or updated metadata associated with the room. It may be absent if no metadata changes occurred.
-    optional room.rooms.public.server.v1.OptionalMap metadata = 2;
+    optional room.rooms.public.server.v1.OptionalMap metadata = 3;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
-    room.rooms.public.server.v1.Timeframe timeframe = 3;
+    room.rooms.public.server.v1.Timeframe timeframe = 4;
 }
 
 // DeleteRoomPacket is a notification sent to clients when a room has been deleted.

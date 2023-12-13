@@ -12,3 +12,8 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 message OptionalMap {
     map<string, string> value = 1;
 }
+
+// OptionalInt64 todo;
+message OptionalInt64 {
+    int64 value = 1;
+}

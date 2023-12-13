@@ -38,9 +38,15 @@ export interface Room {
      */
     kind: Kind;
     /**
+     * capacity todo;
+     *
+     * @generated from protobuf field: int64 capacity = 3;
+     */
+    capacity: bigint;
+    /**
      * Represents a collection of key-value pairs providing additional context or information about this room.
      *
-     * @generated from protobuf field: map<string, string> metadata = 3;
+     * @generated from protobuf field: map<string, string> metadata = 4;
      */
     metadata: {
         [key: string]: string;
@@ -48,13 +54,13 @@ export interface Room {
     /**
      * Represents the timestamp indicating when this room was created.
      *
-     * @generated from protobuf field: int64 create_time = 4;
+     * @generated from protobuf field: int64 create_time = 5;
      */
     createTime: bigint;
     /**
      * Represents the timestamp of the last update associated with this room.
      *
-     * @generated from protobuf field: int64 update_time = 5;
+     * @generated from protobuf field: int64 update_time = 6;
      */
     updateTime: bigint;
 }
@@ -254,13 +260,14 @@ class Room$Type extends MessageType<Room> {
         super("room.rooms.public.server.v1.Room", [
             { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 2, name: "kind", kind: "enum", T: () => ["room.rooms.public.server.v1.Kind", Kind] },
-            { no: 3, name: "metadata", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } },
-            { no: 4, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 5, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 3, name: "capacity", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 4, name: "metadata", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } },
+            { no: 5, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 6, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value?: PartialMessage<Room>): Room {
-        const message = { id: "", kind: 0, metadata: {}, createTime: 0n, updateTime: 0n };
+        const message = { id: "", kind: 0, capacity: 0n, metadata: {}, createTime: 0n, updateTime: 0n };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<Room>(this, message, value);
@@ -277,13 +284,16 @@ class Room$Type extends MessageType<Room> {
                 case /* room.rooms.public.server.v1.Kind kind */ 2:
                     message.kind = reader.int32();
                     break;
-                case /* map<string, string> metadata */ 3:
-                    this.binaryReadMap3(message.metadata, reader, options);
+                case /* int64 capacity */ 3:
+                    message.capacity = reader.int64().toBigInt();
                     break;
-                case /* int64 create_time */ 4:
+                case /* map<string, string> metadata */ 4:
+                    this.binaryReadMap4(message.metadata, reader, options);
+                    break;
+                case /* int64 create_time */ 5:
                     message.createTime = reader.int64().toBigInt();
                     break;
-                case /* int64 update_time */ 5:
+                case /* int64 update_time */ 6:
                     message.updateTime = reader.int64().toBigInt();
                     break;
                 default:
@@ -297,7 +307,7 @@ class Room$Type extends MessageType<Room> {
         }
         return message;
     }
-    private binaryReadMap3(map: Room["metadata"], reader: IBinaryReader, options: BinaryReadOptions): void {
+    private binaryReadMap4(map: Room["metadata"], reader: IBinaryReader, options: BinaryReadOptions): void {
         let len = reader.uint32(), end = reader.pos + len, key: keyof Room["metadata"] | undefined, val: Room["metadata"][any] | undefined;
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
@@ -320,15 +330,18 @@ class Room$Type extends MessageType<Room> {
         /* room.rooms.public.server.v1.Kind kind = 2; */
         if (message.kind !== 0)
             writer.tag(2, WireType.Varint).int32(message.kind);
-        /* map<string, string> metadata = 3; */
+        /* int64 capacity = 3; */
+        if (message.capacity !== 0n)
+            writer.tag(3, WireType.Varint).int64(message.capacity);
+        /* map<string, string> metadata = 4; */
         for (let k of Object.keys(message.metadata))
-            writer.tag(3, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.metadata[k]).join();
-        /* int64 create_time = 4; */
+            writer.tag(4, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.metadata[k]).join();
+        /* int64 create_time = 5; */
         if (message.createTime !== 0n)
-            writer.tag(4, WireType.Varint).int64(message.createTime);
-        /* int64 update_time = 5; */
+            writer.tag(5, WireType.Varint).int64(message.createTime);
+        /* int64 update_time = 6; */
         if (message.updateTime !== 0n)
-            writer.tag(5, WireType.Varint).int64(message.updateTime);
+            writer.tag(6, WireType.Varint).int64(message.updateTime);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

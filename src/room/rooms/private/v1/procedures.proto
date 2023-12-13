@@ -73,8 +73,9 @@ message InvokeResponse {}
 message CreateArgument {
     string                id        = 1;
     rooms.private.v1.Kind kind      = 2;
-    map<string, string>   metadata  = 3;
-    int64                 retention = 4;
+    int64                 capacity  = 3;
+    map<string, string>   metadata  = 4;
+    int64                 retention = 5;
 }
 
 message CreateRequest {
@@ -103,8 +104,9 @@ message CreateTransaction {
 }
 
 message UpdateArgument {
-    room.rooms.private.v1.Query                query    = 1;
-    optional room.rooms.private.v1.OptionalMap metadata = 2;
+    room.rooms.private.v1.Query                  query    = 1;
+    optional room.rooms.private.v1.OptionalInt64 capacity = 2;
+    optional room.rooms.private.v1.OptionalMap   metadata = 3;
 }
 
 message UpdateRequest {
