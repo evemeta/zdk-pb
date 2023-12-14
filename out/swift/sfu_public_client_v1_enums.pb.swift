@@ -24,6 +24,7 @@ public enum Sfu_Public_Client_V1_ProtocolVersion: SwiftProtobuf.Enum {
   public typealias RawValue = Int
   case unknown // = 0
   case protocolVersion110 // = 1
+  case protocolVersion111 // = 2
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -34,6 +35,7 @@ public enum Sfu_Public_Client_V1_ProtocolVersion: SwiftProtobuf.Enum {
     switch rawValue {
     case 0: self = .unknown
     case 1: self = .protocolVersion110
+    case 2: self = .protocolVersion111
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -42,6 +44,7 @@ public enum Sfu_Public_Client_V1_ProtocolVersion: SwiftProtobuf.Enum {
     switch self {
     case .unknown: return 0
     case .protocolVersion110: return 1
+    case .protocolVersion111: return 2
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -55,6 +58,7 @@ extension Sfu_Public_Client_V1_ProtocolVersion: CaseIterable {
   public static let allCases: [Sfu_Public_Client_V1_ProtocolVersion] = [
     .unknown,
     .protocolVersion110,
+    .protocolVersion111,
   ]
 }
 
@@ -155,6 +159,7 @@ extension Sfu_Public_Client_V1_ProtocolVersion: SwiftProtobuf._ProtoNameProvidin
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ProtocolVersionUnknown"),
     1: .same(proto: "ProtocolVersion1_1_0"),
+    2: .same(proto: "ProtocolVersion1_1_1"),
   ]
 }
 

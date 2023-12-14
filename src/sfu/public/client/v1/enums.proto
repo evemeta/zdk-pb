@@ -11,6 +11,7 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 enum ProtocolVersion {
     ProtocolVersionUnknown  = 0;
     ProtocolVersion1_1_0    = 1;
+    ProtocolVersion1_1_1    = 2;
 }
 
 enum ClientType {

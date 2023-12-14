@@ -33,6 +33,9 @@ public struct Room_Rooms_Public_Server_V1_Room {
   /// todo;
   public var kind: Room_Rooms_Public_Server_V1_Kind = .unknown
 
+  /// capacity todo;
+  public var capacity: Int64 = 0
+
   /// Represents a collection of key-value pairs providing additional context or information about this room.
   public var metadata: Dictionary<String,String> = [:]
 
@@ -293,9 +296,10 @@ extension Room_Rooms_Public_Server_V1_Room: SwiftProtobuf.Message, SwiftProtobuf
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
     2: .same(proto: "kind"),
-    3: .same(proto: "metadata"),
-    4: .standard(proto: "create_time"),
-    5: .standard(proto: "update_time"),
+    3: .same(proto: "capacity"),
+    4: .same(proto: "metadata"),
+    5: .standard(proto: "create_time"),
+    6: .standard(proto: "update_time"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -306,9 +310,10 @@ extension Room_Rooms_Public_Server_V1_Room: SwiftProtobuf.Message, SwiftProtobuf
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.id) }()
       case 2: try { try decoder.decodeSingularEnumField(value: &self.kind) }()
-      case 3: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &self.metadata) }()
-      case 4: try { try decoder.decodeSingularInt64Field(value: &self.createTime) }()
-      case 5: try { try decoder.decodeSingularInt64Field(value: &self.updateTime) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.capacity) }()
+      case 4: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &self.metadata) }()
+      case 5: try { try decoder.decodeSingularInt64Field(value: &self.createTime) }()
+      case 6: try { try decoder.decodeSingularInt64Field(value: &self.updateTime) }()
       default: break
       }
     }
@@ -321,14 +326,17 @@ extension Room_Rooms_Public_Server_V1_Room: SwiftProtobuf.Message, SwiftProtobuf
     if self.kind != .unknown {
       try visitor.visitSingularEnumField(value: self.kind, fieldNumber: 2)
     }
+    if self.capacity != 0 {
+      try visitor.visitSingularInt64Field(value: self.capacity, fieldNumber: 3)
+    }
     if !self.metadata.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: self.metadata, fieldNumber: 3)
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: self.metadata, fieldNumber: 4)
     }
     if self.createTime != 0 {
-      try visitor.visitSingularInt64Field(value: self.createTime, fieldNumber: 4)
+      try visitor.visitSingularInt64Field(value: self.createTime, fieldNumber: 5)
     }
     if self.updateTime != 0 {
-      try visitor.visitSingularInt64Field(value: self.updateTime, fieldNumber: 5)
+      try visitor.visitSingularInt64Field(value: self.updateTime, fieldNumber: 6)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -336,6 +344,7 @@ extension Room_Rooms_Public_Server_V1_Room: SwiftProtobuf.Message, SwiftProtobuf
   public static func ==(lhs: Room_Rooms_Public_Server_V1_Room, rhs: Room_Rooms_Public_Server_V1_Room) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.kind != rhs.kind {return false}
+    if lhs.capacity != rhs.capacity {return false}
     if lhs.metadata != rhs.metadata {return false}
     if lhs.createTime != rhs.createTime {return false}
     if lhs.updateTime != rhs.updateTime {return false}

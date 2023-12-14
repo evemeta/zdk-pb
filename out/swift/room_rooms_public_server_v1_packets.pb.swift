@@ -135,6 +135,16 @@ public struct Room_Rooms_Public_Server_V1_UpdateRoomPacket {
   /// Represents the unique identifier of the room.
   public var id: String = String()
 
+  /// todo;
+  public var capacity: Room_Rooms_Public_Server_V1_OptionalInt64 {
+    get {return _capacity ?? Room_Rooms_Public_Server_V1_OptionalInt64()}
+    set {_capacity = newValue}
+  }
+  /// Returns true if `capacity` has been explicitly set.
+  public var hasCapacity: Bool {return self._capacity != nil}
+  /// Clears the value of `capacity`. Subsequent reads from it will return its default value.
+  public mutating func clearCapacity() {self._capacity = nil}
+
   /// Represents a new or updated metadata associated with the room. It may be absent if no metadata changes occurred.
   public var metadata: Room_Rooms_Public_Server_V1_OptionalMap {
     get {return _metadata ?? Room_Rooms_Public_Server_V1_OptionalMap()}
@@ -159,6 +169,7 @@ public struct Room_Rooms_Public_Server_V1_UpdateRoomPacket {
 
   public init() {}
 
+  fileprivate var _capacity: Room_Rooms_Public_Server_V1_OptionalInt64? = nil
   fileprivate var _metadata: Room_Rooms_Public_Server_V1_OptionalMap? = nil
   fileprivate var _timeframe: Room_Rooms_Public_Server_V1_Timeframe? = nil
 }
@@ -356,8 +367,9 @@ extension Room_Rooms_Public_Server_V1_UpdateRoomPacket: SwiftProtobuf.Message, S
   public static let protoMessageName: String = _protobuf_package + ".UpdateRoomPacket"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
-    2: .same(proto: "metadata"),
-    3: .same(proto: "timeframe"),
+    2: .same(proto: "capacity"),
+    3: .same(proto: "metadata"),
+    4: .same(proto: "timeframe"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -367,8 +379,9 @@ extension Room_Rooms_Public_Server_V1_UpdateRoomPacket: SwiftProtobuf.Message, S
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.id) }()
-      case 2: try { try decoder.decodeSingularMessageField(value: &self._metadata) }()
-      case 3: try { try decoder.decodeSingularMessageField(value: &self._timeframe) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._capacity) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._metadata) }()
+      case 4: try { try decoder.decodeSingularMessageField(value: &self._timeframe) }()
       default: break
       }
     }
@@ -382,17 +395,21 @@ extension Room_Rooms_Public_Server_V1_UpdateRoomPacket: SwiftProtobuf.Message, S
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
-    try { if let v = self._metadata {
+    try { if let v = self._capacity {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
     } }()
-    try { if let v = self._timeframe {
+    try { if let v = self._metadata {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
+    try { if let v = self._timeframe {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
     } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Room_Rooms_Public_Server_V1_UpdateRoomPacket, rhs: Room_Rooms_Public_Server_V1_UpdateRoomPacket) -> Bool {
     if lhs.id != rhs.id {return false}
+    if lhs._capacity != rhs._capacity {return false}
     if lhs._metadata != rhs._metadata {return false}
     if lhs._timeframe != rhs._timeframe {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
