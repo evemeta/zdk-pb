@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package nsfw.private.v1;
+
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/nsfw/private/v1;nsfwpb";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
+
+enum ImageType {
+    ImageTypeUnknown     = 0;
+    ImageTypeH264        = 1;
+    ImageTypeH265        = 2;
+    ImageTypeVP8         = 3;
+    ImageTypeVP9         = 4;
+    ImageTypeAV1         = 5;
+    ImageTypeAVIF        = 6;
+    ImageTypeJPG         = 7;
+    ImageTypeWEBP        = 8;
+    ImageTypePNG         = 9;
+}
