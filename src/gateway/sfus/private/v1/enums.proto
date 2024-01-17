@@ -33,6 +33,6 @@ enum Status {
     StatusUnknown     = 0;
     StatusInitiating  = 1;
     StatusInitiated   = 2;
-    StatusTerminating = 3;
-    // todo; exhausted / unavailable
+    StatusExhausted   = 3;
+    StatusTerminating = 4;
 }
