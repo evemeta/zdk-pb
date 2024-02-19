@@ -23,6 +23,12 @@ export interface EnterRoomPacket {
      * @generated from protobuf field: string id = 1;
      */
     id: string;
+    /**
+     * Represents a control mechanism that automatically disconnects any other sessions from any room linked to the user, allowing a new session to enter without issues.
+     *
+     * @generated from protobuf field: bool override = 2;
+     */
+    override: boolean;
 }
 /**
  * LeaveRoomPacket is a directive sent from the client to the server when the client intends to leave from a specific room.
@@ -64,12 +70,14 @@ export interface InvokeRoomActionPacket {
 class EnterRoomPacket$Type extends MessageType<EnterRoomPacket> {
     constructor() {
         super("room.rooms.public.client.v1.EnterRoomPacket", [
-            { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
+            { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "override", kind: "scalar", T: 8 /*ScalarType.BOOL*/ }
         ]);
     }
     create(value?: PartialMessage<EnterRoomPacket>): EnterRoomPacket {
         const message = globalThis.Object.create((this.messagePrototype!));
         message.id = "";
+        message.override = false;
         if (value !== undefined)
             reflectionMergePartial<EnterRoomPacket>(this, message, value);
         return message;
@@ -81,6 +89,9 @@ class EnterRoomPacket$Type extends MessageType<EnterRoomPacket> {
             switch (fieldNo) {
                 case /* string id */ 1:
                     message.id = reader.string();
+                    break;
+                case /* bool override */ 2:
+                    message.override = reader.bool();
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -97,6 +108,9 @@ class EnterRoomPacket$Type extends MessageType<EnterRoomPacket> {
         /* string id = 1; */
         if (message.id !== "")
             writer.tag(1, WireType.LengthDelimited).string(message.id);
+        /* bool override = 2; */
+        if (message.override !== false)
+            writer.tag(2, WireType.Varint).bool(message.override);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

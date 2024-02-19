@@ -12,6 +12,8 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 message EnterRoomPacket {
     // Represents the unique identifier of the room the client is attempting to enter.
     string id = 1;
+    // Represents a control mechanism that automatically disconnects any other sessions from any room linked to the user, allowing a new session to enter without issues.
+    bool override = 2;
 }
 
 // LeaveRoomPacket is a directive sent from the client to the server when the client intends to leave from a specific room.

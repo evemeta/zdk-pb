@@ -167,6 +167,7 @@ message EnterArgument {
     string              user_id    = 2;
     string              session_id = 3;
     map<string, string> metadata   = 4;
+    bool                override   = 5;
 }
 
 message EnterRequest {
