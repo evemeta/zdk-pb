@@ -3,26 +3,12 @@ syntax = "proto3";
 package websocket.private.v1;
 
 import "websocket/private/v1/procedures.proto";
-import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/websocket/private/v1;websocketpb";
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 service Service {
 
-    rpc Broadcast(BroadcastRequest) returns (BroadcastResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Broadcast";
-            summary: "Broadcast";
-            operation_id: "Broadcast";
-        };
-    }
+    rpc Broadcast(BroadcastRequest) returns (BroadcastResponse);
 
-    rpc Disconnect(DisconnectRequest) returns (DisconnectResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Disconnect";
-            summary: "Disconnect";
-            operation_id: "Disconnect";
-        };
-    }
+    rpc Disconnect(DisconnectRequest) returns (DisconnectResponse);
 }

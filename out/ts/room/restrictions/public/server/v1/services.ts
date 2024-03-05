@@ -16,9 +16,9 @@ import { ServiceType } from "@protobuf-ts/runtime-rpc";
  * @generated ServiceType for protobuf service room.restrictions.public.server.v1.Service
  */
 export const Service = new ServiceType("room.restrictions.public.server.v1.Service", [
-    { name: "Count", options: { "grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation": { summary: "Count", description: "Description: Count", operationId: "Count" } }, I: CountRequest, O: CountResponse },
-    { name: "Range", options: { "grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation": { summary: "Range", description: "Description: Range", operationId: "Range" } }, I: RangeRequest, O: RangeResponse },
-    { name: "Select", options: { "grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation": { summary: "Select", description: "Description: Select", operationId: "Select" } }, I: SelectRequest, O: SelectResponse },
-    { name: "Create", options: { "grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation": { summary: "Create", description: "Description: Create", operationId: "Create" } }, I: CreateRequest, O: CreateResponse },
-    { name: "Delete", options: { "grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation": { summary: "Delete", description: "Description: Delete", operationId: "Delete" } }, I: DeleteRequest, O: DeleteResponse }
+    { name: "Count", options: {}, I: CountRequest, O: CountResponse },
+    { name: "Range", options: {}, I: RangeRequest, O: RangeResponse },
+    { name: "Select", options: {}, I: SelectRequest, O: SelectResponse },
+    { name: "Create", options: {}, I: CreateRequest, O: CreateResponse },
+    { name: "Delete", options: {}, I: DeleteRequest, O: DeleteResponse }
 ]);

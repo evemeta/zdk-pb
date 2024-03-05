@@ -1,0 +1,418 @@
+package com.evemeta.zdk.pb.chat.server.members
+
+import com.evemeta.zdk.pb.chat.server.members.ServiceGrpc.getServiceDescriptor
+import io.grpc.CallOptions
+import io.grpc.CallOptions.DEFAULT
+import io.grpc.Channel
+import io.grpc.Metadata
+import io.grpc.MethodDescriptor
+import io.grpc.ServerServiceDefinition
+import io.grpc.ServerServiceDefinition.builder
+import io.grpc.ServiceDescriptor
+import io.grpc.Status.UNIMPLEMENTED
+import io.grpc.StatusException
+import io.grpc.kotlin.AbstractCoroutineServerImpl
+import io.grpc.kotlin.AbstractCoroutineStub
+import io.grpc.kotlin.ClientCalls.unaryRpc
+import io.grpc.kotlin.ServerCalls.unaryServerMethodDefinition
+import io.grpc.kotlin.StubFor
+import kotlin.String
+import kotlin.coroutines.CoroutineContext
+import kotlin.coroutines.EmptyCoroutineContext
+import kotlin.jvm.JvmOverloads
+import kotlin.jvm.JvmStatic
+
+/**
+ * Holder for Kotlin coroutine-based client and server APIs for
+ * chat.members.public.server.v1.Service.
+ */
+public object ServiceGrpcKt {
+  public const val SERVICE_NAME: String = ServiceGrpc.SERVICE_NAME
+
+  @JvmStatic
+  public val serviceDescriptor: ServiceDescriptor
+    get() = getServiceDescriptor()
+
+  public val countMethod: MethodDescriptor<CountRequest, CountResponse>
+    @JvmStatic
+    get() = ServiceGrpc.getCountMethod()
+
+  public val rangeMethod: MethodDescriptor<RangeRequest, RangeResponse>
+    @JvmStatic
+    get() = ServiceGrpc.getRangeMethod()
+
+  public val selectMethod: MethodDescriptor<SelectRequest, SelectResponse>
+    @JvmStatic
+    get() = ServiceGrpc.getSelectMethod()
+
+  public val kickMethod: MethodDescriptor<KickRequest, KickResponse>
+    @JvmStatic
+    get() = ServiceGrpc.getKickMethod()
+
+  public val muteMethod: MethodDescriptor<MuteRequest, MuteResponse>
+    @JvmStatic
+    get() = ServiceGrpc.getMuteMethod()
+
+  public val unmuteMethod: MethodDescriptor<UnmuteRequest, UnmuteResponse>
+    @JvmStatic
+    get() = ServiceGrpc.getUnmuteMethod()
+
+  public val blockMethod: MethodDescriptor<BlockRequest, BlockResponse>
+    @JvmStatic
+    get() = ServiceGrpc.getBlockMethod()
+
+  public val unblockMethod: MethodDescriptor<UnblockRequest, UnblockResponse>
+    @JvmStatic
+    get() = ServiceGrpc.getUnblockMethod()
+
+  /**
+   * A stub for issuing RPCs to a(n) chat.members.public.server.v1.Service service as suspending
+   * coroutines.
+   */
+  @StubFor(ServiceGrpc::class)
+  public class ServiceCoroutineStub @JvmOverloads constructor(
+    channel: Channel,
+    callOptions: CallOptions = DEFAULT,
+  ) : AbstractCoroutineStub<ServiceCoroutineStub>(channel, callOptions) {
+    override fun build(channel: Channel, callOptions: CallOptions): ServiceCoroutineStub =
+        ServiceCoroutineStub(channel, callOptions)
+
+    /**
+     * Executes this RPC and returns the response message, suspending until the RPC completes
+     * with [`Status.OK`][io.grpc.Status].  If the RPC completes with another status, a
+     * corresponding
+     * [StatusException] is thrown.  If this coroutine is cancelled, the RPC is also cancelled
+     * with the corresponding exception as a cause.
+     *
+     * @param request The request message to send to the server.
+     *
+     * @param headers Metadata to attach to the request.  Most users will not need this.
+     *
+     * @return The single response from the server.
+     */
+    public suspend fun count(request: CountRequest, headers: Metadata = Metadata()): CountResponse =
+        unaryRpc(
+      channel,
+      ServiceGrpc.getCountMethod(),
+      request,
+      callOptions,
+      headers
+    )
+
+    /**
+     * Executes this RPC and returns the response message, suspending until the RPC completes
+     * with [`Status.OK`][io.grpc.Status].  If the RPC completes with another status, a
+     * corresponding
+     * [StatusException] is thrown.  If this coroutine is cancelled, the RPC is also cancelled
+     * with the corresponding exception as a cause.
+     *
+     * @param request The request message to send to the server.
+     *
+     * @param headers Metadata to attach to the request.  Most users will not need this.
+     *
+     * @return The single response from the server.
+     */
+    public suspend fun range(request: RangeRequest, headers: Metadata = Metadata()): RangeResponse =
+        unaryRpc(
+      channel,
+      ServiceGrpc.getRangeMethod(),
+      request,
+      callOptions,
+      headers
+    )
+
+    /**
+     * Executes this RPC and returns the response message, suspending until the RPC completes
+     * with [`Status.OK`][io.grpc.Status].  If the RPC completes with another status, a
+     * corresponding
+     * [StatusException] is thrown.  If this coroutine is cancelled, the RPC is also cancelled
+     * with the corresponding exception as a cause.
+     *
+     * @param request The request message to send to the server.
+     *
+     * @param headers Metadata to attach to the request.  Most users will not need this.
+     *
+     * @return The single response from the server.
+     */
+    public suspend fun select(request: SelectRequest, headers: Metadata = Metadata()):
+        SelectResponse = unaryRpc(
+      channel,
+      ServiceGrpc.getSelectMethod(),
+      request,
+      callOptions,
+      headers
+    )
+
+    /**
+     * Executes this RPC and returns the response message, suspending until the RPC completes
+     * with [`Status.OK`][io.grpc.Status].  If the RPC completes with another status, a
+     * corresponding
+     * [StatusException] is thrown.  If this coroutine is cancelled, the RPC is also cancelled
+     * with the corresponding exception as a cause.
+     *
+     * @param request The request message to send to the server.
+     *
+     * @param headers Metadata to attach to the request.  Most users will not need this.
+     *
+     * @return The single response from the server.
+     */
+    public suspend fun kick(request: KickRequest, headers: Metadata = Metadata()): KickResponse =
+        unaryRpc(
+      channel,
+      ServiceGrpc.getKickMethod(),
+      request,
+      callOptions,
+      headers
+    )
+
+    /**
+     * Executes this RPC and returns the response message, suspending until the RPC completes
+     * with [`Status.OK`][io.grpc.Status].  If the RPC completes with another status, a
+     * corresponding
+     * [StatusException] is thrown.  If this coroutine is cancelled, the RPC is also cancelled
+     * with the corresponding exception as a cause.
+     *
+     * @param request The request message to send to the server.
+     *
+     * @param headers Metadata to attach to the request.  Most users will not need this.
+     *
+     * @return The single response from the server.
+     */
+    public suspend fun mute(request: MuteRequest, headers: Metadata = Metadata()): MuteResponse =
+        unaryRpc(
+      channel,
+      ServiceGrpc.getMuteMethod(),
+      request,
+      callOptions,
+      headers
+    )
+
+    /**
+     * Executes this RPC and returns the response message, suspending until the RPC completes
+     * with [`Status.OK`][io.grpc.Status].  If the RPC completes with another status, a
+     * corresponding
+     * [StatusException] is thrown.  If this coroutine is cancelled, the RPC is also cancelled
+     * with the corresponding exception as a cause.
+     *
+     * @param request The request message to send to the server.
+     *
+     * @param headers Metadata to attach to the request.  Most users will not need this.
+     *
+     * @return The single response from the server.
+     */
+    public suspend fun unmute(request: UnmuteRequest, headers: Metadata = Metadata()):
+        UnmuteResponse = unaryRpc(
+      channel,
+      ServiceGrpc.getUnmuteMethod(),
+      request,
+      callOptions,
+      headers
+    )
+
+    /**
+     * Executes this RPC and returns the response message, suspending until the RPC completes
+     * with [`Status.OK`][io.grpc.Status].  If the RPC completes with another status, a
+     * corresponding
+     * [StatusException] is thrown.  If this coroutine is cancelled, the RPC is also cancelled
+     * with the corresponding exception as a cause.
+     *
+     * @param request The request message to send to the server.
+     *
+     * @param headers Metadata to attach to the request.  Most users will not need this.
+     *
+     * @return The single response from the server.
+     */
+    public suspend fun block(request: BlockRequest, headers: Metadata = Metadata()): BlockResponse =
+        unaryRpc(
+      channel,
+      ServiceGrpc.getBlockMethod(),
+      request,
+      callOptions,
+      headers
+    )
+
+    /**
+     * Executes this RPC and returns the response message, suspending until the RPC completes
+     * with [`Status.OK`][io.grpc.Status].  If the RPC completes with another status, a
+     * corresponding
+     * [StatusException] is thrown.  If this coroutine is cancelled, the RPC is also cancelled
+     * with the corresponding exception as a cause.
+     *
+     * @param request The request message to send to the server.
+     *
+     * @param headers Metadata to attach to the request.  Most users will not need this.
+     *
+     * @return The single response from the server.
+     */
+    public suspend fun unblock(request: UnblockRequest, headers: Metadata = Metadata()):
+        UnblockResponse = unaryRpc(
+      channel,
+      ServiceGrpc.getUnblockMethod(),
+      request,
+      callOptions,
+      headers
+    )
+  }
+
+  /**
+   * Skeletal implementation of the chat.members.public.server.v1.Service service based on Kotlin
+   * coroutines.
+   */
+  public abstract class ServiceCoroutineImplBase(
+    coroutineContext: CoroutineContext = EmptyCoroutineContext,
+  ) : AbstractCoroutineServerImpl(coroutineContext) {
+    /**
+     * Returns the response to an RPC for chat.members.public.server.v1.Service.Count.
+     *
+     * If this method fails with a [StatusException], the RPC will fail with the corresponding
+     * [io.grpc.Status].  If this method fails with a [java.util.concurrent.CancellationException],
+     * the RPC will fail
+     * with status `Status.CANCELLED`.  If this method fails for any other reason, the RPC will
+     * fail with `Status.UNKNOWN` with the exception as a cause.
+     *
+     * @param request The request from the client.
+     */
+    public open suspend fun count(request: CountRequest): CountResponse = throw
+        StatusException(UNIMPLEMENTED.withDescription("Method chat.members.public.server.v1.Service.Count is unimplemented"))
+
+    /**
+     * Returns the response to an RPC for chat.members.public.server.v1.Service.Range.
+     *
+     * If this method fails with a [StatusException], the RPC will fail with the corresponding
+     * [io.grpc.Status].  If this method fails with a [java.util.concurrent.CancellationException],
+     * the RPC will fail
+     * with status `Status.CANCELLED`.  If this method fails for any other reason, the RPC will
+     * fail with `Status.UNKNOWN` with the exception as a cause.
+     *
+     * @param request The request from the client.
+     */
+    public open suspend fun range(request: RangeRequest): RangeResponse = throw
+        StatusException(UNIMPLEMENTED.withDescription("Method chat.members.public.server.v1.Service.Range is unimplemented"))
+
+    /**
+     * Returns the response to an RPC for chat.members.public.server.v1.Service.Select.
+     *
+     * If this method fails with a [StatusException], the RPC will fail with the corresponding
+     * [io.grpc.Status].  If this method fails with a [java.util.concurrent.CancellationException],
+     * the RPC will fail
+     * with status `Status.CANCELLED`.  If this method fails for any other reason, the RPC will
+     * fail with `Status.UNKNOWN` with the exception as a cause.
+     *
+     * @param request The request from the client.
+     */
+    public open suspend fun select(request: SelectRequest): SelectResponse = throw
+        StatusException(UNIMPLEMENTED.withDescription("Method chat.members.public.server.v1.Service.Select is unimplemented"))
+
+    /**
+     * Returns the response to an RPC for chat.members.public.server.v1.Service.Kick.
+     *
+     * If this method fails with a [StatusException], the RPC will fail with the corresponding
+     * [io.grpc.Status].  If this method fails with a [java.util.concurrent.CancellationException],
+     * the RPC will fail
+     * with status `Status.CANCELLED`.  If this method fails for any other reason, the RPC will
+     * fail with `Status.UNKNOWN` with the exception as a cause.
+     *
+     * @param request The request from the client.
+     */
+    public open suspend fun kick(request: KickRequest): KickResponse = throw
+        StatusException(UNIMPLEMENTED.withDescription("Method chat.members.public.server.v1.Service.Kick is unimplemented"))
+
+    /**
+     * Returns the response to an RPC for chat.members.public.server.v1.Service.Mute.
+     *
+     * If this method fails with a [StatusException], the RPC will fail with the corresponding
+     * [io.grpc.Status].  If this method fails with a [java.util.concurrent.CancellationException],
+     * the RPC will fail
+     * with status `Status.CANCELLED`.  If this method fails for any other reason, the RPC will
+     * fail with `Status.UNKNOWN` with the exception as a cause.
+     *
+     * @param request The request from the client.
+     */
+    public open suspend fun mute(request: MuteRequest): MuteResponse = throw
+        StatusException(UNIMPLEMENTED.withDescription("Method chat.members.public.server.v1.Service.Mute is unimplemented"))
+
+    /**
+     * Returns the response to an RPC for chat.members.public.server.v1.Service.Unmute.
+     *
+     * If this method fails with a [StatusException], the RPC will fail with the corresponding
+     * [io.grpc.Status].  If this method fails with a [java.util.concurrent.CancellationException],
+     * the RPC will fail
+     * with status `Status.CANCELLED`.  If this method fails for any other reason, the RPC will
+     * fail with `Status.UNKNOWN` with the exception as a cause.
+     *
+     * @param request The request from the client.
+     */
+    public open suspend fun unmute(request: UnmuteRequest): UnmuteResponse = throw
+        StatusException(UNIMPLEMENTED.withDescription("Method chat.members.public.server.v1.Service.Unmute is unimplemented"))
+
+    /**
+     * Returns the response to an RPC for chat.members.public.server.v1.Service.Block.
+     *
+     * If this method fails with a [StatusException], the RPC will fail with the corresponding
+     * [io.grpc.Status].  If this method fails with a [java.util.concurrent.CancellationException],
+     * the RPC will fail
+     * with status `Status.CANCELLED`.  If this method fails for any other reason, the RPC will
+     * fail with `Status.UNKNOWN` with the exception as a cause.
+     *
+     * @param request The request from the client.
+     */
+    public open suspend fun block(request: BlockRequest): BlockResponse = throw
+        StatusException(UNIMPLEMENTED.withDescription("Method chat.members.public.server.v1.Service.Block is unimplemented"))
+
+    /**
+     * Returns the response to an RPC for chat.members.public.server.v1.Service.Unblock.
+     *
+     * If this method fails with a [StatusException], the RPC will fail with the corresponding
+     * [io.grpc.Status].  If this method fails with a [java.util.concurrent.CancellationException],
+     * the RPC will fail
+     * with status `Status.CANCELLED`.  If this method fails for any other reason, the RPC will
+     * fail with `Status.UNKNOWN` with the exception as a cause.
+     *
+     * @param request The request from the client.
+     */
+    public open suspend fun unblock(request: UnblockRequest): UnblockResponse = throw
+        StatusException(UNIMPLEMENTED.withDescription("Method chat.members.public.server.v1.Service.Unblock is unimplemented"))
+
+    final override fun bindService(): ServerServiceDefinition = builder(getServiceDescriptor())
+      .addMethod(unaryServerMethodDefinition(
+      context = this.context,
+      descriptor = ServiceGrpc.getCountMethod(),
+      implementation = ::count
+    ))
+      .addMethod(unaryServerMethodDefinition(
+      context = this.context,
+      descriptor = ServiceGrpc.getRangeMethod(),
+      implementation = ::range
+    ))
+      .addMethod(unaryServerMethodDefinition(
+      context = this.context,
+      descriptor = ServiceGrpc.getSelectMethod(),
+      implementation = ::select
+    ))
+      .addMethod(unaryServerMethodDefinition(
+      context = this.context,
+      descriptor = ServiceGrpc.getKickMethod(),
+      implementation = ::kick
+    ))
+      .addMethod(unaryServerMethodDefinition(
+      context = this.context,
+      descriptor = ServiceGrpc.getMuteMethod(),
+      implementation = ::mute
+    ))
+      .addMethod(unaryServerMethodDefinition(
+      context = this.context,
+      descriptor = ServiceGrpc.getUnmuteMethod(),
+      implementation = ::unmute
+    ))
+      .addMethod(unaryServerMethodDefinition(
+      context = this.context,
+      descriptor = ServiceGrpc.getBlockMethod(),
+      implementation = ::block
+    ))
+      .addMethod(unaryServerMethodDefinition(
+      context = this.context,
+      descriptor = ServiceGrpc.getUnblockMethod(),
+      implementation = ::unblock
+    )).build()
+  }
+}

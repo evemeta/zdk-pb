@@ -10,6 +10,6 @@ import { ServiceType } from "@protobuf-ts/runtime-rpc";
  * @generated ServiceType for protobuf service user.tokens.public.server.v1.Service
  */
 export const Service = new ServiceType("user.tokens.public.server.v1.Service", [
-    { name: "Extract", options: { "grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation": { summary: "Extract", description: "Description: Extract", operationId: "Extract" } }, I: ExtractRequest, O: ExtractResponse },
-    { name: "Refresh", options: { "grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation": { summary: "Refresh", description: "Description: Refresh", operationId: "Refresh" } }, I: RefreshRequest, O: RefreshResponse }
+    { name: "Extract", options: {}, I: ExtractRequest, O: ExtractResponse },
+    { name: "Refresh", options: {}, I: RefreshRequest, O: RefreshResponse }
 ]);

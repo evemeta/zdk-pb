@@ -2,10 +2,8 @@ syntax = "proto3";
 
 package gateway.sessions.private.v1;
 
-import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/sessions/private/v1;sessionspb";
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 enum Order {
     OrderUnknown    = 0;

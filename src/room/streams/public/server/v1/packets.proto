@@ -4,10 +4,10 @@ package room.streams.public.server.v1;
 
 import "room/streams/public/server/v1/entities.proto";
 import "room/streams/public/server/v1/optionals.proto";
-import "protoc-gen-openapiv2/options/annotations.proto";
 
+option java_multiple_files = true;
+option java_package = "com.evemeta.zdk.pb.room.server.streams";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/streams/public/server/v1;streamspb";
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 // CreateStreamPacket is a notification sent to clients when a new stream has been created.
 // It provides the details of the stream and the relevant timeframe associated with the event.

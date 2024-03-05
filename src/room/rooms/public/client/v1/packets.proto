@@ -2,10 +2,10 @@ syntax = "proto3";
 
 package room.rooms.public.client.v1;
 
-import "protoc-gen-openapiv2/options/annotations.proto";
 
+option java_multiple_files = true;
+option java_package = "com.evemeta.zdk.pb.room.client.rooms";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/rooms/public/client/v1;roomspb";
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 // EnterRoomPacket is a directive sent from the client to the server when the client intends to enter a specific room.
 // It contains the unique identifier of the room that the client wishes to enter.

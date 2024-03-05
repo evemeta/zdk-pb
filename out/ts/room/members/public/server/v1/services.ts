@@ -14,8 +14,8 @@ import { ServiceType } from "@protobuf-ts/runtime-rpc";
  * @generated ServiceType for protobuf service room.members.public.server.v1.Service
  */
 export const Service = new ServiceType("room.members.public.server.v1.Service", [
-    { name: "Count", options: { "grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation": { summary: "Count", description: "Description: Count", operationId: "Count" } }, I: CountRequest, O: CountResponse },
-    { name: "Range", options: { "grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation": { summary: "Range", description: "Description: Range", operationId: "Range" } }, I: RangeRequest, O: RangeResponse },
-    { name: "Select", options: { "grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation": { summary: "Select", description: "Description: Select", operationId: "Select" } }, I: SelectRequest, O: SelectResponse },
-    { name: "Kick", options: { "grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation": { summary: "Kick", description: "Description: Kick", operationId: "Kick" } }, I: KickRequest, O: KickResponse }
+    { name: "Count", options: {}, I: CountRequest, O: CountResponse },
+    { name: "Range", options: {}, I: RangeRequest, O: RangeResponse },
+    { name: "Select", options: {}, I: SelectRequest, O: SelectResponse },
+    { name: "Kick", options: {}, I: KickRequest, O: KickResponse }
 ]);

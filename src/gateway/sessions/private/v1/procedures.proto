@@ -10,10 +10,8 @@ import "gateway/sessions/private/v1/entities.proto";
 import "gateway/sessions/private/v1/optionals.proto";
 import "gateway/connections/private/v1/procedures.proto";
 import "gateway/transponders/private/v1/procedures.proto";
-import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/sessions/private/v1;sessionspb";
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 message CountArgument {
     bool                              cache = 1;

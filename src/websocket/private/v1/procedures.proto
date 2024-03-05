@@ -4,10 +4,8 @@ package websocket.private.v1;
 
 import "websocket/private/v1/enums.proto";
 import "websocket/private/v1/entities.proto";
-import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/websocket/private/v1;websocketpb";
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 message BroadcastArgument {
     websocket.private.v1.Message message     = 1;
