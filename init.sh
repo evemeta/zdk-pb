@@ -21,4 +21,7 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   if [ "$(which "protoc-gen-grpc-swift")" == "" ]; then
     brew install grpc-swift
   fi
+  if [ "$(which "parallel")" == "" ]; then
+    brew install parallel
+  fi
 fi

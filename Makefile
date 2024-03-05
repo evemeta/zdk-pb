@@ -77,9 +77,9 @@ gen::
 endif
 
 gen2:
-	@dos2unix --quiet adapter.sh generate2.sh transform2.sh
+	@dos2unix --quiet adapter.sh generate2.sh transform2.sh || true
 	@printf $(TITLE) "+" "Generating.."
-	@./generate2.sh
+	@chmod +x generate2.sh && ./generate2.sh
 	@printf $(TITLE) "+" "Transforming.."
-	@./transform2.sh
+	@chmod +x transform2.sh && ./transform2.sh
 	@printf $(TITLE) "+" "Done"
