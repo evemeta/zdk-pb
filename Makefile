@@ -82,4 +82,6 @@ gen2:
 	@chmod +x generate2.sh && ./generate2.sh
 	@printf $(TITLE) "+" "Transforming.."
 	@chmod +x transform2.sh && ./transform2.sh
+	@printf $(TITLE) "+" "Assembling.."
+	@chmod +x assemble2.sh && ./assemble2.sh
 	@printf $(TITLE) "+" "Done"
