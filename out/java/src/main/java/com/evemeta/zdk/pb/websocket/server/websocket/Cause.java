@@ -10,56 +10,56 @@ package com.evemeta.zdk.pb.websocket.server.websocket;
 public enum Cause
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>Unknown = 0;</code>
+   * <code>CauseUnknown = 0;</code>
    */
-  Unknown(0),
+  CauseUnknown(0),
   /**
-   * <code>Failure = 1;</code>
+   * <code>CauseFailure = 1;</code>
    */
-  Failure(1),
+  CauseFailure(1),
   /**
-   * <code>Timeout = 2;</code>
+   * <code>CauseTimeout = 2;</code>
    */
-  Timeout(2),
+  CauseTimeout(2),
   /**
-   * <code>Relocate = 3;</code>
+   * <code>CauseRelocate = 3;</code>
    */
-  Relocate(3),
+  CauseRelocate(3),
   /**
-   * <code>Disconnect = 4;</code>
+   * <code>CauseDisconnect = 4;</code>
    */
-  Disconnect(4),
+  CauseDisconnect(4),
   /**
-   * <code>Reintegrate = 5;</code>
+   * <code>CauseReintegrate = 5;</code>
    */
-  Reintegrate(5),
+  CauseReintegrate(5),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>Unknown = 0;</code>
+   * <code>CauseUnknown = 0;</code>
    */
-  public static final int Unknown_VALUE = 0;
+  public static final int CauseUnknown_VALUE = 0;
   /**
-   * <code>Failure = 1;</code>
+   * <code>CauseFailure = 1;</code>
    */
-  public static final int Failure_VALUE = 1;
+  public static final int CauseFailure_VALUE = 1;
   /**
-   * <code>Timeout = 2;</code>
+   * <code>CauseTimeout = 2;</code>
    */
-  public static final int Timeout_VALUE = 2;
+  public static final int CauseTimeout_VALUE = 2;
   /**
-   * <code>Relocate = 3;</code>
+   * <code>CauseRelocate = 3;</code>
    */
-  public static final int Relocate_VALUE = 3;
+  public static final int CauseRelocate_VALUE = 3;
   /**
-   * <code>Disconnect = 4;</code>
+   * <code>CauseDisconnect = 4;</code>
    */
-  public static final int Disconnect_VALUE = 4;
+  public static final int CauseDisconnect_VALUE = 4;
   /**
-   * <code>Reintegrate = 5;</code>
+   * <code>CauseReintegrate = 5;</code>
    */
-  public static final int Reintegrate_VALUE = 5;
+  public static final int CauseReintegrate_VALUE = 5;
 
 
   public final int getNumber() {
@@ -86,12 +86,12 @@ public enum Cause
    */
   public static Cause forNumber(int value) {
     switch (value) {
-      case 0: return Unknown;
-      case 1: return Failure;
-      case 2: return Timeout;
-      case 3: return Relocate;
-      case 4: return Disconnect;
-      case 5: return Reintegrate;
+      case 0: return CauseUnknown;
+      case 1: return CauseFailure;
+      case 2: return CauseTimeout;
+      case 3: return CauseRelocate;
+      case 4: return CauseDisconnect;
+      case 5: return CauseReintegrate;
       default: return null;
     }
   }

@@ -10,40 +10,40 @@ package com.evemeta.zdk.pb.room.server.connections;
 public enum Status
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>Unknown = 0;</code>
+   * <code>StatusUnknown = 0;</code>
    */
-  Unknown(0),
+  StatusUnknown(0),
   /**
-   * <code>Connecting = 1;</code>
+   * <code>StatusConnecting = 1;</code>
    */
-  Connecting(1),
+  StatusConnecting(1),
   /**
-   * <code>Connected = 2;</code>
+   * <code>StatusConnected = 2;</code>
    */
-  Connected(2),
+  StatusConnected(2),
   /**
-   * <code>Reconnecting = 3;</code>
+   * <code>StatusReconnecting = 3;</code>
    */
-  Reconnecting(3),
+  StatusReconnecting(3),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>Unknown = 0;</code>
+   * <code>StatusUnknown = 0;</code>
    */
-  public static final int Unknown_VALUE = 0;
+  public static final int StatusUnknown_VALUE = 0;
   /**
-   * <code>Connecting = 1;</code>
+   * <code>StatusConnecting = 1;</code>
    */
-  public static final int Connecting_VALUE = 1;
+  public static final int StatusConnecting_VALUE = 1;
   /**
-   * <code>Connected = 2;</code>
+   * <code>StatusConnected = 2;</code>
    */
-  public static final int Connected_VALUE = 2;
+  public static final int StatusConnected_VALUE = 2;
   /**
-   * <code>Reconnecting = 3;</code>
+   * <code>StatusReconnecting = 3;</code>
    */
-  public static final int Reconnecting_VALUE = 3;
+  public static final int StatusReconnecting_VALUE = 3;
 
 
   public final int getNumber() {
@@ -70,10 +70,10 @@ public enum Status
    */
   public static Status forNumber(int value) {
     switch (value) {
-      case 0: return Unknown;
-      case 1: return Connecting;
-      case 2: return Connected;
-      case 3: return Reconnecting;
+      case 0: return StatusUnknown;
+      case 1: return StatusConnecting;
+      case 2: return StatusConnected;
+      case 3: return StatusReconnecting;
       default: return null;
     }
   }

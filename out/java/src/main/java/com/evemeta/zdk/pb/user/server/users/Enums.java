@@ -39,7 +39,7 @@ public final class Enums {
       "lect\020\255\002\022 \n\033PermissionChatMessageCreate\020\256" +
       "\002\022 \n\033PermissionChatMessageUpdate\020\257\002\022\'\n\"P" +
       "ermissionChatMessageUpdateContent\020\260\002\022#\n\036" +
-      "ChatMessageOwnDelete\020\261\002\022#\n\036Per" +
+      "PermissionChatMessageOwnDelete\020\261\002\022#\n\036Per" +
       "missionChatMessageAnyDelete\020\262\002\022\023\n\016Permis" +
       "sionRoom\020\220\003\022\031\n\024PermissionRoomSelect\020\221\003\022\030" +
       "\n\023PermissionRoomEnter\020\222\003\022\030\n\023PermissionRo" +
@@ -48,13 +48,13 @@ public final class Enums {
       "sionRoomMemberKick\020\366\003\022\035\n\030PermissionRoomC" +
       "onnection\020\330\004\022#\n\036PermissionRoomConnection" +
       "Select\020\331\004\022\031\n\024PermissionRoomStream\020\274\005\022\037\n\032" +
-      "RoomStreamSelect\020\275\005\022\037\n\032Permiss" +
+      "PermissionRoomStreamSelect\020\275\005\022\037\n\032Permiss" +
       "ionRoomStreamCreate\020\276\005\022\037\n\032PermissionRoom" +
       "StreamUpdate\020\277\005\022\037\n\032PermissionRoomStreamD" +
       "elete\020\300\005\022\036\n\031PermissionRoomRestriction\020\240\006" +
       "\022$\n\037PermissionRoomRestrictionSelect\020\241\006\022$" +
       "\n\037PermissionRoomRestrictionCreate\020\242\006\022$\n\037" +
-      "RoomRestrictionDelete\020\243\006Bn\n$co" +
+      "PermissionRoomRestrictionDelete\020\243\006Bn\n$co" +
       "m.evemeta.zdk.pb.user.server.usersP\001ZDgi" +
       "tlab.com/evemeta/zdk/pb/out/go/user/user" +
       "s/public/server/v1;userspbb\006proto3"

@@ -10,32 +10,32 @@ package com.evemeta.zdk.pb.room.server.streams;
 public enum Status
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>Unknown = 0;</code>
+   * <code>StatusUnknown = 0;</code>
    */
-  Unknown(0),
+  StatusUnknown(0),
   /**
-   * <code>Enabled = 1;</code>
+   * <code>StatusEnabled = 1;</code>
    */
-  Enabled(1),
+  StatusEnabled(1),
   /**
-   * <code>Disabled = 2;</code>
+   * <code>StatusDisabled = 2;</code>
    */
-  Disabled(2),
+  StatusDisabled(2),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>Unknown = 0;</code>
+   * <code>StatusUnknown = 0;</code>
    */
-  public static final int Unknown_VALUE = 0;
+  public static final int StatusUnknown_VALUE = 0;
   /**
-   * <code>Enabled = 1;</code>
+   * <code>StatusEnabled = 1;</code>
    */
-  public static final int Enabled_VALUE = 1;
+  public static final int StatusEnabled_VALUE = 1;
   /**
-   * <code>Disabled = 2;</code>
+   * <code>StatusDisabled = 2;</code>
    */
-  public static final int Disabled_VALUE = 2;
+  public static final int StatusDisabled_VALUE = 2;
 
 
   public final int getNumber() {
@@ -62,9 +62,9 @@ public enum Status
    */
   public static Status forNumber(int value) {
     switch (value) {
-      case 0: return Unknown;
-      case 1: return Enabled;
-      case 2: return Disabled;
+      case 0: return StatusUnknown;
+      case 1: return StatusEnabled;
+      case 2: return StatusDisabled;
       default: return null;
     }
   }

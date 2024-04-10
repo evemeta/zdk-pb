@@ -152,16 +152,16 @@ private static final long serialVersionUID = 0L;
     if (!sdp_.isEmpty()) {
       output.writeBytes(1, sdp_);
     }
-    if (clientType_ != com.evemeta.zdk.pb.sfu.client.sfu.ClientType.Unknown.getNumber()) {
+    if (clientType_ != com.evemeta.zdk.pb.sfu.client.sfu.ClientType.ClientTypeUnknown.getNumber()) {
       output.writeEnum(2, clientType_);
     }
-    if (protocolVersion_ != com.evemeta.zdk.pb.sfu.client.sfu.ProtocolVersion.Unknown.getNumber()) {
+    if (protocolVersion_ != com.evemeta.zdk.pb.sfu.client.sfu.ProtocolVersion.ProtocolVersionUnknown.getNumber()) {
       output.writeEnum(3, protocolVersion_);
     }
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeMessage(4, getOptions());
     }
-    if (sfuType_ != com.evemeta.zdk.pb.sfu.server.sfu.SfuType.Unknown.getNumber()) {
+    if (sfuType_ != com.evemeta.zdk.pb.sfu.server.sfu.SfuType.SfuTypeUnknown.getNumber()) {
       output.writeEnum(5, sfuType_);
     }
     getUnknownFields().writeTo(output);
@@ -177,11 +177,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBytesSize(1, sdp_);
     }
-    if (clientType_ != com.evemeta.zdk.pb.sfu.client.sfu.ClientType.Unknown.getNumber()) {
+    if (clientType_ != com.evemeta.zdk.pb.sfu.client.sfu.ClientType.ClientTypeUnknown.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(2, clientType_);
     }
-    if (protocolVersion_ != com.evemeta.zdk.pb.sfu.client.sfu.ProtocolVersion.Unknown.getNumber()) {
+    if (protocolVersion_ != com.evemeta.zdk.pb.sfu.client.sfu.ProtocolVersion.ProtocolVersionUnknown.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, protocolVersion_);
     }
@@ -189,7 +189,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getOptions());
     }
-    if (sfuType_ != com.evemeta.zdk.pb.sfu.server.sfu.SfuType.Unknown.getNumber()) {
+    if (sfuType_ != com.evemeta.zdk.pb.sfu.server.sfu.SfuType.SfuTypeUnknown.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(5, sfuType_);
     }

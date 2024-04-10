@@ -10,64 +10,64 @@ package com.evemeta.zdk.pb.sfu.server.sfu;
 public enum Codec
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>Unknown = 0;</code>
+   * <code>CodecUnknown = 0;</code>
    */
-  Unknown(0),
+  CodecUnknown(0),
   /**
-   * <code>H264 = 1;</code>
+   * <code>CodecH264 = 1;</code>
    */
-  H264(1),
+  CodecH264(1),
   /**
-   * <code>VP8 = 2;</code>
+   * <code>CodecVP8 = 2;</code>
    */
-  VP8(2),
+  CodecVP8(2),
   /**
-   * <code>VP9 = 3;</code>
+   * <code>CodecVP9 = 3;</code>
    */
-  VP9(3),
+  CodecVP9(3),
   /**
-   * <code>H265 = 4;</code>
+   * <code>CodecH265 = 4;</code>
    */
-  H265(4),
+  CodecH265(4),
   /**
-   * <code>AV1 = 5;</code>
+   * <code>CodecAV1 = 5;</code>
    */
-  AV1(5),
+  CodecAV1(5),
   /**
-   * <code>OPUS = 6;</code>
+   * <code>CodecOPUS = 6;</code>
    */
-  OPUS(6),
+  CodecOPUS(6),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>Unknown = 0;</code>
+   * <code>CodecUnknown = 0;</code>
    */
-  public static final int Unknown_VALUE = 0;
+  public static final int CodecUnknown_VALUE = 0;
   /**
-   * <code>H264 = 1;</code>
+   * <code>CodecH264 = 1;</code>
    */
-  public static final int H264_VALUE = 1;
+  public static final int CodecH264_VALUE = 1;
   /**
-   * <code>VP8 = 2;</code>
+   * <code>CodecVP8 = 2;</code>
    */
-  public static final int VP8_VALUE = 2;
+  public static final int CodecVP8_VALUE = 2;
   /**
-   * <code>VP9 = 3;</code>
+   * <code>CodecVP9 = 3;</code>
    */
-  public static final int VP9_VALUE = 3;
+  public static final int CodecVP9_VALUE = 3;
   /**
-   * <code>H265 = 4;</code>
+   * <code>CodecH265 = 4;</code>
    */
-  public static final int H265_VALUE = 4;
+  public static final int CodecH265_VALUE = 4;
   /**
-   * <code>AV1 = 5;</code>
+   * <code>CodecAV1 = 5;</code>
    */
-  public static final int AV1_VALUE = 5;
+  public static final int CodecAV1_VALUE = 5;
   /**
-   * <code>OPUS = 6;</code>
+   * <code>CodecOPUS = 6;</code>
    */
-  public static final int OPUS_VALUE = 6;
+  public static final int CodecOPUS_VALUE = 6;
 
 
   public final int getNumber() {
@@ -94,13 +94,13 @@ public enum Codec
    */
   public static Codec forNumber(int value) {
     switch (value) {
-      case 0: return Unknown;
-      case 1: return H264;
-      case 2: return VP8;
-      case 3: return VP9;
-      case 4: return H265;
-      case 5: return AV1;
-      case 6: return OPUS;
+      case 0: return CodecUnknown;
+      case 1: return CodecH264;
+      case 2: return CodecVP8;
+      case 3: return CodecVP9;
+      case 4: return CodecH265;
+      case 5: return CodecAV1;
+      case 6: return CodecOPUS;
       default: return null;
     }
   }

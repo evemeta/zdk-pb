@@ -1,7 +1,6 @@
 plugins {
     id("java")
-    id("maven-publish")
-    kotlin("jvm") version "1.9.22"
+    kotlin("jvm") version "1.7.20"
 }
 
 group = "com.evemeta.zdk"
@@ -29,3 +28,5 @@ dependencies {
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
 }
+
+apply(from = "publishing.gradle.kts")

@@ -249,7 +249,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(roomId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, roomId_);
     }
-    if (kind_ != com.evemeta.zdk.pb.room.server.restrictions.Kind.Unknown.getNumber()) {
+    if (kind_ != com.evemeta.zdk.pb.room.server.restrictions.Kind.KindUnknown.getNumber()) {
       output.writeEnum(3, kind_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reason_)) {
@@ -273,7 +273,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(roomId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, roomId_);
     }
-    if (kind_ != com.evemeta.zdk.pb.room.server.restrictions.Kind.Unknown.getNumber()) {
+    if (kind_ != com.evemeta.zdk.pb.room.server.restrictions.Kind.KindUnknown.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, kind_);
     }

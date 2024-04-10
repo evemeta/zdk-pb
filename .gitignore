@@ -3,3 +3,4 @@ node_modules
 out/java/.gradle
 out/java/build
 package-lock.json
+local.properties

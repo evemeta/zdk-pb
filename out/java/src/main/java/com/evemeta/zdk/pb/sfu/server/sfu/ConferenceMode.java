@@ -10,32 +10,32 @@ package com.evemeta.zdk.pb.sfu.server.sfu;
 public enum ConferenceMode
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>Unknown = 0;</code>
+   * <code>ConferenceModeUnknown = 0;</code>
    */
-  Unknown(0),
+  ConferenceModeUnknown(0),
   /**
-   * <code>Sfu = 1;</code>
+   * <code>ConferenceModeSfu = 1;</code>
    */
-  Sfu(1),
+  ConferenceModeSfu(1),
   /**
-   * <code>Hybrid = 2;</code>
+   * <code>ConferenceModeHybrid = 2;</code>
    */
-  Hybrid(2),
+  ConferenceModeHybrid(2),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>Unknown = 0;</code>
+   * <code>ConferenceModeUnknown = 0;</code>
    */
-  public static final int Unknown_VALUE = 0;
+  public static final int ConferenceModeUnknown_VALUE = 0;
   /**
-   * <code>Sfu = 1;</code>
+   * <code>ConferenceModeSfu = 1;</code>
    */
-  public static final int Sfu_VALUE = 1;
+  public static final int ConferenceModeSfu_VALUE = 1;
   /**
-   * <code>Hybrid = 2;</code>
+   * <code>ConferenceModeHybrid = 2;</code>
    */
-  public static final int Hybrid_VALUE = 2;
+  public static final int ConferenceModeHybrid_VALUE = 2;
 
 
   public final int getNumber() {
@@ -62,9 +62,9 @@ public enum ConferenceMode
    */
   public static ConferenceMode forNumber(int value) {
     switch (value) {
-      case 0: return Unknown;
-      case 1: return Sfu;
-      case 2: return Hybrid;
+      case 0: return ConferenceModeUnknown;
+      case 1: return ConferenceModeSfu;
+      case 2: return ConferenceModeHybrid;
       default: return null;
     }
   }

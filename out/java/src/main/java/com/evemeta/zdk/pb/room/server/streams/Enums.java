@@ -28,7 +28,7 @@ public final class Enums {
       "oto\022\035room.streams.public.server.v1*5\n\004Ki" +
       "nd\022\017\n\013KindUnknown\020\000\022\r\n\tKindAudio\020\001\022\r\n\tKi" +
       "ndVideo\020\002*B\n\005Order\022\020\n\014OrderUnknown\020\000\022\022\n\016" +
-      "Ascending\020\001\022\023\n\017OrderDescending\020\002*B\n" +
+      "OrderAscending\020\001\022\023\n\017OrderDescending\020\002*B\n" +
       "\006Status\022\021\n\rStatusUnknown\020\000\022\021\n\rStatusEnab" +
       "led\020\001\022\022\n\016StatusDisabled\020\002Bt\n&com.evemeta" +
       ".zdk.pb.room.server.streamsP\001ZHgitlab.co" +

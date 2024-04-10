@@ -76,7 +76,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (value_ != com.evemeta.zdk.pb.room.server.streams.Status.Unknown.getNumber()) {
+    if (value_ != com.evemeta.zdk.pb.room.server.streams.Status.StatusUnknown.getNumber()) {
       output.writeEnum(1, value_);
     }
     getUnknownFields().writeTo(output);
@@ -88,7 +88,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (value_ != com.evemeta.zdk.pb.room.server.streams.Status.Unknown.getNumber()) {
+    if (value_ != com.evemeta.zdk.pb.room.server.streams.Status.StatusUnknown.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, value_);
     }

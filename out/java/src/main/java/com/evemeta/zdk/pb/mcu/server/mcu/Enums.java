@@ -27,7 +27,7 @@ public final class Enums {
       "\n mcu/public/server/v1/enums.proto\022\024mcu." +
       "public.server.v1*Q\n\tMixerType\022\024\n\020MixerTy" +
       "peUnknown\020\000\022\027\n\023MixerTypeSimpleGrid\020\001\022\025\n\021" +
-      "RoomGrid\020\002Bb\n!com.evemeta.zdk.p" +
+      "MixerTypeRoomGrid\020\002Bb\n!com.evemeta.zdk.p" +
       "b.mcu.server.mcuP\001Z;gitlab.com/evemeta/z" +
       "dk/pb/out/go/mcu/public/server/v1;mcupbb" +
       "\006proto3"

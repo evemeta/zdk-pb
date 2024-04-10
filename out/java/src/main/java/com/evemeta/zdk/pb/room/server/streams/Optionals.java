@@ -33,7 +33,7 @@ public final class Optionals {
       "s.proto\022\035room.streams.public.server.v1\032)" +
       "room/streams/public/server/v1/enums.prot" +
       "o\"F\n\016OptionalStatus\0224\n\005value\030\001 \001(\0162%.roo" +
-      "m.streams.public.server.v1.Bt\n&com" +
+      "m.streams.public.server.v1.StatusBt\n&com" +
       ".evemeta.zdk.pb.room.server.streamsP\001ZHg" +
       "itlab.com/evemeta/zdk/pb/out/go/room/str" +
       "eams/public/server/v1;streamspbb\006proto3"

@@ -14,24 +14,24 @@ package com.evemeta.zdk.pb.room.server.restrictions;
 public enum Kind
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>Unknown = 0;</code>
+   * <code>KindUnknown = 0;</code>
    */
-  Unknown(0),
+  KindUnknown(0),
   /**
-   * <code>Enter = 1;</code>
+   * <code>KindEnter = 1;</code>
    */
-  Enter(1),
+  KindEnter(1),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>Unknown = 0;</code>
+   * <code>KindUnknown = 0;</code>
    */
-  public static final int Unknown_VALUE = 0;
+  public static final int KindUnknown_VALUE = 0;
   /**
-   * <code>Enter = 1;</code>
+   * <code>KindEnter = 1;</code>
    */
-  public static final int Enter_VALUE = 1;
+  public static final int KindEnter_VALUE = 1;
 
 
   public final int getNumber() {
@@ -58,8 +58,8 @@ public enum Kind
    */
   public static Kind forNumber(int value) {
     switch (value) {
-      case 0: return Unknown;
-      case 1: return Enter;
+      case 0: return KindUnknown;
+      case 1: return KindEnter;
       default: return null;
     }
   }

@@ -152,7 +152,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (type_ != com.evemeta.zdk.pb.sfu.server.sfu.StreamType.Unknown.getNumber()) {
+    if (type_ != com.evemeta.zdk.pb.sfu.server.sfu.StreamType.StreamTypeUnknown.getNumber()) {
       output.writeEnum(1, type_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
@@ -170,7 +170,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (type_ != com.evemeta.zdk.pb.sfu.server.sfu.StreamType.Unknown.getNumber()) {
+    if (type_ != com.evemeta.zdk.pb.sfu.server.sfu.StreamType.StreamTypeUnknown.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, type_);
     }

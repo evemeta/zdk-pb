@@ -72,7 +72,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (newCodec_ != com.evemeta.zdk.pb.sfu.server.sfu.Codec.Unknown.getNumber()) {
+    if (newCodec_ != com.evemeta.zdk.pb.sfu.server.sfu.Codec.CodecUnknown.getNumber()) {
       output.writeEnum(1, newCodec_);
     }
     getUnknownFields().writeTo(output);
@@ -84,7 +84,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (newCodec_ != com.evemeta.zdk.pb.sfu.server.sfu.Codec.Unknown.getNumber()) {
+    if (newCodec_ != com.evemeta.zdk.pb.sfu.server.sfu.Codec.CodecUnknown.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, newCodec_);
     }

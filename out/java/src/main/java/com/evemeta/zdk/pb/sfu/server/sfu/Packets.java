@@ -120,7 +120,7 @@ public final class Packets {
       "1\n\007streams\030\001 \003(\0132 .sfu.public.server.v1." +
       "StreamInfo\"P\n\036VideoCodecChangeRequiredPa" +
       "cket\022.\n\tnew_codec\030\001 \001(\0162\033.sfu.public.ser" +
-      "ver.v1.Bb\n!com.evemeta.zdk.pb.sfu.s" +
+      "ver.v1.CodecBb\n!com.evemeta.zdk.pb.sfu.s" +
       "erver.sfuP\001Z;gitlab.com/evemeta/zdk/pb/o" +
       "ut/go/sfu/public/server/v1;sfupbb\006proto3"
     };

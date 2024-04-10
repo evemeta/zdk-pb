@@ -14,32 +14,32 @@ package com.evemeta.zdk.pb.room.server.connections;
 public enum Order
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>Unknown = 0;</code>
+   * <code>OrderUnknown = 0;</code>
    */
-  Unknown(0),
+  OrderUnknown(0),
   /**
-   * <code>Ascending = 1;</code>
+   * <code>OrderAscending = 1;</code>
    */
-  Ascending(1),
+  OrderAscending(1),
   /**
-   * <code>Descending = 2;</code>
+   * <code>OrderDescending = 2;</code>
    */
-  Descending(2),
+  OrderDescending(2),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>Unknown = 0;</code>
+   * <code>OrderUnknown = 0;</code>
    */
-  public static final int Unknown_VALUE = 0;
+  public static final int OrderUnknown_VALUE = 0;
   /**
-   * <code>Ascending = 1;</code>
+   * <code>OrderAscending = 1;</code>
    */
-  public static final int Ascending_VALUE = 1;
+  public static final int OrderAscending_VALUE = 1;
   /**
-   * <code>Descending = 2;</code>
+   * <code>OrderDescending = 2;</code>
    */
-  public static final int Descending_VALUE = 2;
+  public static final int OrderDescending_VALUE = 2;
 
 
   public final int getNumber() {
@@ -66,9 +66,9 @@ public enum Order
    */
   public static Order forNumber(int value) {
     switch (value) {
-      case 0: return Unknown;
-      case 1: return Ascending;
-      case 2: return Descending;
+      case 0: return OrderUnknown;
+      case 1: return OrderAscending;
+      case 2: return OrderDescending;
       default: return null;
     }
   }

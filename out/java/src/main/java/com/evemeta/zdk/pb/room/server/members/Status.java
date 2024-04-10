@@ -14,32 +14,32 @@ package com.evemeta.zdk.pb.room.server.members;
 public enum Status
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>Unknown = 0;</code>
+   * <code>StatusUnknown = 0;</code>
    */
-  Unknown(0),
+  StatusUnknown(0),
   /**
-   * <code>Connected = 1;</code>
+   * <code>StatusConnected = 1;</code>
    */
-  Connected(1),
+  StatusConnected(1),
   /**
-   * <code>Disconnected = 2;</code>
+   * <code>StatusDisconnected = 2;</code>
    */
-  Disconnected(2),
+  StatusDisconnected(2),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>Unknown = 0;</code>
+   * <code>StatusUnknown = 0;</code>
    */
-  public static final int Unknown_VALUE = 0;
+  public static final int StatusUnknown_VALUE = 0;
   /**
-   * <code>Connected = 1;</code>
+   * <code>StatusConnected = 1;</code>
    */
-  public static final int Connected_VALUE = 1;
+  public static final int StatusConnected_VALUE = 1;
   /**
-   * <code>Disconnected = 2;</code>
+   * <code>StatusDisconnected = 2;</code>
    */
-  public static final int Disconnected_VALUE = 2;
+  public static final int StatusDisconnected_VALUE = 2;
 
 
   public final int getNumber() {
@@ -66,9 +66,9 @@ public enum Status
    */
   public static Status forNumber(int value) {
     switch (value) {
-      case 0: return Unknown;
-      case 1: return Connected;
-      case 2: return Disconnected;
+      case 0: return StatusUnknown;
+      case 1: return StatusConnected;
+      case 2: return StatusDisconnected;
       default: return null;
     }
   }

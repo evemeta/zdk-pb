@@ -307,7 +307,7 @@ java.lang.String defaultValue) {
     if (!sdp_.isEmpty()) {
       output.writeBytes(4, sdp_);
     }
-    if (sfuType_ != com.evemeta.zdk.pb.sfu.server.sfu.SfuType.Unknown.getNumber()) {
+    if (sfuType_ != com.evemeta.zdk.pb.sfu.server.sfu.SfuType.SfuTypeUnknown.getNumber()) {
       output.writeEnum(5, sfuType_);
     }
     com.google.protobuf.GeneratedMessageV3
@@ -338,7 +338,7 @@ java.lang.String defaultValue) {
       size += com.google.protobuf.CodedOutputStream
         .computeBytesSize(4, sdp_);
     }
-    if (sfuType_ != com.evemeta.zdk.pb.sfu.server.sfu.SfuType.Unknown.getNumber()) {
+    if (sfuType_ != com.evemeta.zdk.pb.sfu.server.sfu.SfuType.SfuTypeUnknown.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(5, sfuType_);
     }

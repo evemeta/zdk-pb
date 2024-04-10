@@ -153,5 +153,3 @@ generate_kotlin() {
 trap 'kill $(jobs -p)' SIGINT
 
 generate_go & generate_ts & generate_java & generate_swift & generate_kotlin & wait
-
-# 0m12.834s

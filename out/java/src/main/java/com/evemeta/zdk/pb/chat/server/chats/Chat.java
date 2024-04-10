@@ -273,7 +273,7 @@ java.lang.String defaultValue) {
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
     }
-    if (kind_ != com.evemeta.zdk.pb.chat.server.chats.Kind.Unknown.getNumber()) {
+    if (kind_ != com.evemeta.zdk.pb.chat.server.chats.Kind.KindUnknown.getNumber()) {
       output.writeEnum(2, kind_);
     }
     com.google.protobuf.GeneratedMessageV3
@@ -300,7 +300,7 @@ java.lang.String defaultValue) {
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
     }
-    if (kind_ != com.evemeta.zdk.pb.chat.server.chats.Kind.Unknown.getNumber()) {
+    if (kind_ != com.evemeta.zdk.pb.chat.server.chats.Kind.KindUnknown.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(2, kind_);
     }
