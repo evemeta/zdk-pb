@@ -33,6 +33,8 @@ object Registry {
 
     private val parsers: MutableMap<String, com.google.protobuf.Parser<out com.google.protobuf.Message>> = mutableMapOf()
 
+    private val builders: MutableMap<String, com.google.protobuf.Message.Builder> = mutableMapOf()
+
     init {
 $content
     }
@@ -40,9 +42,21 @@ $content
     private fun <T : com.google.protobuf.Message> registerMessage(message: kotlin.reflect.KClass<T>) {
 
         val name = (message.java.getMethod("getDescriptor").invoke(null) as com.google.protobuf.Descriptors.Descriptor).fullName
+
         val parser = message.java.getMethod("parser").invoke(null) as com.google.protobuf.Parser<out com.google.protobuf.Message>
 
+        val builder = message.java.getMethod("newBuilder").invoke(null) as com.google.protobuf.Message.Builder
+
         parsers[name] = parser
+
+        builders[name] = builder
+    }
+
+    fun parseFrom(name: String, data: String): com.google.protobuf.Message? {
+        return builders[name]?.clone()?.run {
+            com.google.protobuf.util.JsonFormat.parser().merge(data, this)
+            build()
+        }
     }
 
     fun parseFrom(name: String, data: ByteArray): com.google.protobuf.Message? {

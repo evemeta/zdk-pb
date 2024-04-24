@@ -4,6 +4,8 @@ object Registry {
 
     private val parsers: MutableMap<String, com.google.protobuf.Parser<out com.google.protobuf.Message>> = mutableMapOf()
 
+    private val builders: MutableMap<String, com.google.protobuf.Message.Builder> = mutableMapOf()
+
     init {
         registerMessage(com.evemeta.zdk.pb.chat.client.chats.EnterChatPacket::class)
         registerMessage(com.evemeta.zdk.pb.chat.client.chats.LeaveChatPacket::class)
@@ -30,8 +32,8 @@ object Registry {
         registerMessage(com.evemeta.zdk.pb.chat.server.members.BlockMemberPacket::class)
         registerMessage(com.evemeta.zdk.pb.chat.server.members.BlockRequest::class)
         registerMessage(com.evemeta.zdk.pb.chat.server.members.BlockResponse::class)
-        registerMessage(com.evemeta.zdk.pb.chat.server.members.Chunk::class)
         registerMessage(com.evemeta.zdk.pb.chat.server.members.Condition::class)
+        registerMessage(com.evemeta.zdk.pb.chat.server.members.Chunk::class)
         registerMessage(com.evemeta.zdk.pb.chat.server.members.CountRequest::class)
         registerMessage(com.evemeta.zdk.pb.chat.server.members.CountResponse::class)
         registerMessage(com.evemeta.zdk.pb.chat.server.members.CreateMemberPacket::class)
@@ -61,8 +63,8 @@ object Registry {
         registerMessage(com.evemeta.zdk.pb.chat.server.messages.Chunk::class)
         registerMessage(com.evemeta.zdk.pb.chat.server.messages.Condition::class)
         registerMessage(com.evemeta.zdk.pb.chat.server.messages.CountRequest::class)
-        registerMessage(com.evemeta.zdk.pb.chat.server.messages.CreateMessagePacket::class)
         registerMessage(com.evemeta.zdk.pb.chat.server.messages.CountResponse::class)
+        registerMessage(com.evemeta.zdk.pb.chat.server.messages.CreateMessagePacket::class)
         registerMessage(com.evemeta.zdk.pb.chat.server.messages.CreateRequest::class)
         registerMessage(com.evemeta.zdk.pb.chat.server.messages.CreateResponse::class)
         registerMessage(com.evemeta.zdk.pb.chat.server.messages.DeleteMessagePacket::class)
@@ -78,8 +80,8 @@ object Registry {
         registerMessage(com.evemeta.zdk.pb.chat.server.messages.SelectResponse::class)
         registerMessage(com.evemeta.zdk.pb.chat.server.messages.Timeframe::class)
         registerMessage(com.evemeta.zdk.pb.chat.server.messages.UpdateMessagePacket::class)
-        registerMessage(com.evemeta.zdk.pb.chat.server.messages.UpdateRequest::class)
         registerMessage(com.evemeta.zdk.pb.chat.server.messages.UpdateResponse::class)
+        registerMessage(com.evemeta.zdk.pb.chat.server.messages.UpdateRequest::class)
         registerMessage(com.evemeta.zdk.pb.mcu.server.mcu.CellConfig::class)
         registerMessage(com.evemeta.zdk.pb.mcu.server.mcu.Empty::class)
         registerMessage(com.evemeta.zdk.pb.mcu.server.mcu.Layout::class)
@@ -195,44 +197,56 @@ object Registry {
         registerMessage(com.evemeta.zdk.pb.sfu.client.sfu.StreamsPacket::class)
         registerMessage(com.evemeta.zdk.pb.sfu.client.sfu.StreamsTogglePacket::class)
         registerMessage(com.evemeta.zdk.pb.sfu.server.sfu.ActiveStreamsPacket::class)
-        registerMessage(com.evemeta.zdk.pb.sfu.server.sfu.ConferencePacket::class)
         registerMessage(com.evemeta.zdk.pb.sfu.server.sfu.ConnectPacket::class)
+        registerMessage(com.evemeta.zdk.pb.sfu.server.sfu.ConferencePacket::class)
         registerMessage(com.evemeta.zdk.pb.sfu.server.sfu.DisconnectedPacket::class)
         registerMessage(com.evemeta.zdk.pb.sfu.server.sfu.IceCandidate::class)
         registerMessage(com.evemeta.zdk.pb.sfu.server.sfu.IceCandidatePacket::class)
         registerMessage(com.evemeta.zdk.pb.sfu.server.sfu.LocalInputReadyPacket::class)
-        registerMessage(com.evemeta.zdk.pb.sfu.server.sfu.MigrationRequiredPacket::class)
         registerMessage(com.evemeta.zdk.pb.sfu.server.sfu.NoDataPacket::class)
+        registerMessage(com.evemeta.zdk.pb.sfu.server.sfu.MigrationRequiredPacket::class)
         registerMessage(com.evemeta.zdk.pb.sfu.server.sfu.Offer::class)
         registerMessage(com.evemeta.zdk.pb.sfu.server.sfu.Packet::class)
         registerMessage(com.evemeta.zdk.pb.sfu.server.sfu.PingPacket::class)
         registerMessage(com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo::class)
         registerMessage(com.evemeta.zdk.pb.sfu.server.sfu.StreamsPacket::class)
-        registerMessage(com.evemeta.zdk.pb.sfu.server.sfu.SubscriptionRTTPacket::class)
         registerMessage(com.evemeta.zdk.pb.sfu.server.sfu.UnsupportedActionPacket::class)
+        registerMessage(com.evemeta.zdk.pb.sfu.server.sfu.SubscriptionRTTPacket::class)
         registerMessage(com.evemeta.zdk.pb.sfu.server.sfu.VideoCodecChangeRequiredPacket::class)
         registerMessage(com.evemeta.zdk.pb.user.server.tokens.ExtractRequest::class)
         registerMessage(com.evemeta.zdk.pb.user.server.tokens.ExtractResponse::class)
         registerMessage(com.evemeta.zdk.pb.user.server.tokens.RefreshRequest::class)
         registerMessage(com.evemeta.zdk.pb.user.server.tokens.RefreshResponse::class)
         registerMessage(com.evemeta.zdk.pb.user.server.users.User::class)
-        registerMessage(com.evemeta.zdk.pb.websocket.client.websocket.HeartbeatPacket::class)
         registerMessage(com.evemeta.zdk.pb.websocket.client.websocket.DisconnectPacket::class)
+        registerMessage(com.evemeta.zdk.pb.websocket.client.websocket.HeartbeatPacket::class)
         registerMessage(com.evemeta.zdk.pb.websocket.client.websocket.Message::class)
-        registerMessage(com.evemeta.zdk.pb.websocket.server.websocket.AcknowledgePacket::class)
         registerMessage(com.evemeta.zdk.pb.websocket.server.websocket.DisconnectPacket::class)
+        registerMessage(com.evemeta.zdk.pb.websocket.server.websocket.AcknowledgePacket::class)
         registerMessage(com.evemeta.zdk.pb.websocket.server.websocket.HandshakePacket::class)
         registerMessage(com.evemeta.zdk.pb.websocket.server.websocket.HeartbeatPacket::class)
-        registerMessage(com.evemeta.zdk.pb.websocket.server.websocket.Session::class)
         registerMessage(com.evemeta.zdk.pb.websocket.server.websocket.Message::class)
+        registerMessage(com.evemeta.zdk.pb.websocket.server.websocket.Session::class)
     }
 
     private fun <T : com.google.protobuf.Message> registerMessage(message: kotlin.reflect.KClass<T>) {
 
         val name = (message.java.getMethod("getDescriptor").invoke(null) as com.google.protobuf.Descriptors.Descriptor).fullName
+
         val parser = message.java.getMethod("parser").invoke(null) as com.google.protobuf.Parser<out com.google.protobuf.Message>
 
+        val builder = message.java.getMethod("newBuilder").invoke(null) as com.google.protobuf.Message.Builder
+
         parsers[name] = parser
+
+        builders[name] = builder
+    }
+
+    fun parseFrom(name: String, data: String): com.google.protobuf.Message? {
+        return builders[name]?.clone()?.run {
+            com.google.protobuf.util.JsonFormat.parser().merge(data, this)
+            build()
+        }
     }
 
     fun parseFrom(name: String, data: ByteArray): com.google.protobuf.Message? {

@@ -1,15 +1,15 @@
 apply<org.gradle.api.publish.maven.plugins.MavenPublishPlugin>()
 
-val localProperties = java.util.Properties().also { rootProject.file("local.properties").takeIf { it.exists() }?.inputStream()?.use(it::load) }
+val localProperties = java.util.Properties().apply { load(file("local.properties").inputStream()) }
 
 configure<PublishingExtension> {
     publications {
         create<MavenPublication>("release") {
             groupId = "com.evemeta.zdk"
             artifactId = "pb"
-            version = "1.0.0"
+            version = "1.0.1"
 
-            artifact(file("build/libs/pb-1.0.0.jar"))
+            artifact(file("build/libs/pb.jar"))
         }
     }
     repositories {
