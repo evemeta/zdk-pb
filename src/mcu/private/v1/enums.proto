@@ -2,11 +2,9 @@ syntax = "proto3";
 
 package mcu.private.v1;
 
-import "protoc-gen-openapiv2/options/annotations.proto";
 //import "sfu/public/client/v1/enums.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/mcu/private/v1;mcupb";
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 enum SampleType {
     SampleTypeUnknown = 0;

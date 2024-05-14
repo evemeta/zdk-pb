@@ -3,146 +3,42 @@ syntax = "proto3";
 package gateway.transponders.private.v1;
 
 import "gateway/transponders/private/v1/procedures.proto";
-import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/transponders/private/v1;transponderspb";
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 service Service {
 
-    rpc Count(CountRequest) returns (CountResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Count";
-            summary: "Count";
-            operation_id: "Count";
-        };
-    }
+    rpc Count(CountRequest) returns (CountResponse);
 
-    rpc Range(RangeRequest) returns (RangeResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Range";
-            summary: "Range";
-            operation_id: "Range";
-        };
-    }
+    rpc Range(RangeRequest) returns (RangeResponse);
     
-    rpc Select(SelectRequest) returns (SelectResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Select";
-            summary: "Select";
-            operation_id: "Select";
-        };
-    }
+    rpc Select(SelectRequest) returns (SelectResponse);
     
-    rpc Create(CreateRequest) returns (CreateResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Create";
-            summary: "Create";
-            operation_id: "Create";
-        };
-    }
+    rpc Create(CreateRequest) returns (CreateResponse);
     
-    rpc InitiateCreateMutations(CreateTransaction) returns (CreateTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: InitiateCreateMutations";
-            summary: "InitiateCreateMutations";
-            operation_id: "InitiateCreateMutations";
-        };
-    }
+    rpc InitiateCreateMutations(CreateTransaction) returns (CreateTransaction);
     
-    rpc ValidateCreateMutations(CreateTransaction) returns (CreateTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: ValidateCreateMutations";
-            summary: "ValidateCreateMutations";
-            operation_id: "ValidateCreateMutations";
-        };
-    }
+    rpc ValidateCreateMutations(CreateTransaction) returns (CreateTransaction);
     
-    rpc FinalizeCreateMutations(CreateTransaction) returns (CreateTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: FinalizeCreateMutations";
-            summary: "FinalizeCreateMutations";
-            operation_id: "FinalizeCreateMutations";
-        };
-    }
+    rpc FinalizeCreateMutations(CreateTransaction) returns (CreateTransaction);
 
-    rpc RollbackCreateMutations(CreateTransaction) returns (CreateTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: RollbackCreateMutations";
-            summary: "RollbackCreateMutations";
-            operation_id: "RollbackCreateMutations";
-        };
-    }
+    rpc RollbackCreateMutations(CreateTransaction) returns (CreateTransaction);
     
-    rpc Update(UpdateRequest) returns (UpdateResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Update";
-            summary: "Update";
-            operation_id: "Update";
-        };
-    }
+    rpc Update(UpdateRequest) returns (UpdateResponse);
 
-    rpc InitiateUpdateMutations(UpdateTransaction) returns (UpdateTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: InitiateUpdateMutations";
-            summary: "InitiateUpdateMutations";
-            operation_id: "InitiateUpdateMutations";
-        };
-    }
+    rpc InitiateUpdateMutations(UpdateTransaction) returns (UpdateTransaction);
 
-    rpc ValidateUpdateMutations(UpdateTransaction) returns (UpdateTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: ValidateUpdateMutations";
-            summary: "ValidateUpdateMutations";
-            operation_id: "ValidateUpdateMutations";
-        };
-    }
+    rpc ValidateUpdateMutations(UpdateTransaction) returns (UpdateTransaction);
 
-    rpc FinalizeUpdateMutations(UpdateTransaction) returns (UpdateTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: FinalizeUpdateMutations";
-            summary: "FinalizeUpdateMutations";
-            operation_id: "FinalizeUpdateMutations";
-        };
-    }
+    rpc FinalizeUpdateMutations(UpdateTransaction) returns (UpdateTransaction);
 
-    rpc RollbackUpdateMutations(UpdateTransaction) returns (UpdateTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: RollbackUpdateMutations";
-            summary: "RollbackUpdateMutations";
-            operation_id: "RollbackUpdateMutations";
-        };
-    }
+    rpc RollbackUpdateMutations(UpdateTransaction) returns (UpdateTransaction);
     
-    rpc Delete(DeleteRequest) returns (DeleteResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Delete";
-            summary: "Delete";
-            operation_id: "Delete";
-        };
-    }
+    rpc Delete(DeleteRequest) returns (DeleteResponse);
 
-    rpc InitiateDeleteMutations(DeleteTransaction) returns (DeleteTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: InitiateDeleteMutations";
-            summary: "InitiateDeleteMutations";
-            operation_id: "InitiateDeleteMutations";
-        };
-    }
+    rpc InitiateDeleteMutations(DeleteTransaction) returns (DeleteTransaction);
 
-    rpc FinalizeDeleteMutations(DeleteTransaction) returns (DeleteTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: FinalizeDeleteMutations";
-            summary: "FinalizeDeleteMutations";
-            operation_id: "FinalizeDeleteMutations";
-        };
-    }
+    rpc FinalizeDeleteMutations(DeleteTransaction) returns (DeleteTransaction);
 
-    rpc RollbackDeleteMutations(DeleteTransaction) returns (DeleteTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: RollbackDeleteMutations";
-            summary: "RollbackDeleteMutations";
-            operation_id: "RollbackDeleteMutations";
-        };
-    }
+    rpc RollbackDeleteMutations(DeleteTransaction) returns (DeleteTransaction);
 }

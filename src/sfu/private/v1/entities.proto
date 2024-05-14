@@ -2,11 +2,9 @@ syntax = "proto3";
 
 package sfu.private.v1;
 
-import "protoc-gen-openapiv2/options/annotations.proto";
 import "sfu/public/server/v1/enums.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/sfu/private/v1;sfupb";
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 message SupportedCodecs {
     repeated CodecInfo video_codecs = 1;

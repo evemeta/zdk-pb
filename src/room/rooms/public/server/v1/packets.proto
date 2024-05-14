@@ -5,10 +5,10 @@ package room.rooms.public.server.v1;
 import "room/rooms/public/server/v1/entities.proto";
 import "room/rooms/public/server/v1/optionals.proto";
 import "room/members/public/server/v1/entities.proto";
-import "protoc-gen-openapiv2/options/annotations.proto";
 
+option java_multiple_files = true;
+option java_package = "com.evemeta.zdk.pb.room.server.rooms";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/rooms/public/server/v1;roomspb";
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 // EnterRoomPacket is a notification sent to clients when a member has entered a room.
 // It provides the details of the member entering and the relevant timeframe associated with the event.

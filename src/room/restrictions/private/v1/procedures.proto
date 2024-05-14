@@ -5,10 +5,8 @@ package room.restrictions.private.v1;
 import "room/members/private/v1/procedures.proto";
 import "room/restrictions/private/v1/enums.proto";
 import "room/restrictions/private/v1/entities.proto";
-import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/restrictions/private/v1;restrictionspb";
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 message CountArgument {
     bool                               cache = 1;

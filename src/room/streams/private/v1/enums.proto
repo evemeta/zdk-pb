@@ -2,10 +2,8 @@ syntax = "proto3";
 
 package room.streams.private.v1;
 
-import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/streams/private/v1;streamspb";
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 enum Kind {
     KindUnknown = 0;

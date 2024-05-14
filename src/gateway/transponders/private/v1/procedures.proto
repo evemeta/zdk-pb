@@ -4,10 +4,8 @@ package gateway.transponders.private.v1;
 
 import "gateway/transponders/private/v1/entities.proto";
 import "gateway/transponders/private/v1/optionals.proto";
-import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/transponders/private/v1;transponderspb";
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 message CountArgument {
     bool                                  cache = 1;

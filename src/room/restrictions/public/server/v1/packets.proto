@@ -3,10 +3,10 @@ syntax = "proto3";
 package room.restrictions.public.server.v1;
 
 import "room/restrictions/public/server/v1/entities.proto";
-import "protoc-gen-openapiv2/options/annotations.proto";
 
+option java_multiple_files = true;
+option java_package = "com.evemeta.zdk.pb.room.server.restrictions";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/restrictions/public/server/v1;restrictionspb";
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 // CreateRestrictionPacket todo;
 message CreateRestrictionPacket {

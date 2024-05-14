@@ -2,12 +2,12 @@ syntax = "proto3";
 
 package sfu.public.client.v1;
 
-import "protoc-gen-openapiv2/options/annotations.proto";
 import "sfu/public/client/v1/entities.proto";
 import "sfu/public/server/v1/entities.proto";
 
+option java_multiple_files = true;
+option java_package = "com.evemeta.zdk.pb.sfu.client.sfu";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/sfu/public/client/v1;sfupb";
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 //WebSocket packets
 

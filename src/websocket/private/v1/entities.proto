@@ -2,10 +2,7 @@ syntax = "proto3";
 
 package websocket.private.v1;
 
-import "protoc-gen-openapiv2/options/annotations.proto";
-
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/websocket/private/v1;websocketpb";
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 message Message {
     string name = 1;

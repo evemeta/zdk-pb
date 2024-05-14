@@ -3,58 +3,20 @@ syntax = "proto3";
 package sfu.private.v1;
 
 import "sfu/private/v1/procedures.proto";
-import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/sfu/private/v1;sfupb";
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 service Service {
 
-    rpc Ping(PingRequest) returns (PingResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Ping";
-            summary: "Ping";
-            operation_id: "Ping";
-        };
-    }
+    rpc Ping(PingRequest) returns (PingResponse);
 
-    rpc Connect(ConnectRequest) returns (ConnectResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Connect";
-            summary: "Connect";
-            operation_id: "Connect";
-        };
-    }
+    rpc Connect(ConnectRequest) returns (ConnectResponse);
 
-    rpc Disconnect(DisconnectRequest) returns (DisconnectResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Disconnect";
-            summary: "Disconnect";
-            operation_id: "Disconnect";
-        };
-    }
+    rpc Disconnect(DisconnectRequest) returns (DisconnectResponse);
 
-    rpc GetCpuUsage(GetCpuUsageRequest) returns (GetCpuUsageResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: GetCpuUsage";
-            summary: "GetCpuUsage";
-            operation_id: "GetCpuUsage";
-        };
-    }
+    rpc GetCpuUsage(GetCpuUsageRequest) returns (GetCpuUsageResponse);
 
-    rpc AddIceCandidate(AddIceCandidateRequest) returns (AddIceCandidateResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: AddIceCandidate";
-            summary: "AddIceCandidate";
-            operation_id: "AddIceCandidate";
-        };
-    }
+    rpc AddIceCandidate(AddIceCandidateRequest) returns (AddIceCandidateResponse);
 
-    rpc GetConnectedUser(GetConnectedUserRequest) returns (GetConnectedUserResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: GetConnectedUser";
-            summary: "GetConnectedUser";
-            operation_id: "GetConnectedUser";
-        };
-    }
+    rpc GetConnectedUser(GetConnectedUserRequest) returns (GetConnectedUserResponse);
 }

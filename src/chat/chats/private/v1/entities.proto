@@ -5,10 +5,8 @@ package chat.chats.private.v1;
 import "chat/chats/private/v1/enums.proto";
 import "chat/members/private/v1/entities.proto";
 import "chat/messages/private/v1/entities.proto";
-import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/chats/private/v1;chatspb";
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 message Chat {
     string                     id          = 1;

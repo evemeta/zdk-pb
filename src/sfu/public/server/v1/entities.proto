@@ -2,11 +2,11 @@ syntax = "proto3";
 
 package sfu.public.server.v1;
 
-import "protoc-gen-openapiv2/options/annotations.proto";
 import "sfu/public/server/v1/enums.proto";
 
+option java_multiple_files = true;
+option java_package = "com.evemeta.zdk.pb.sfu.server.sfu";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/sfu/public/server/v1;sfupb";
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 message StreamInfo {
     StreamType type     = 1;

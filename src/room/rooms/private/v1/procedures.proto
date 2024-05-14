@@ -11,11 +11,9 @@ import "room/streams/private/v1/procedures.proto";
 import "gateway/sfus/private/v1/procedures.proto";
 import "room/connections/private/v1/procedures.proto";
 import "room/restrictions/private/v1/procedures.proto";
-import "protoc-gen-openapiv2/options/annotations.proto";
 import "gateway/transponders/private/v1/procedures.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/rooms/private/v1;roomspb";
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 message CountArgument {
     bool                        cache = 1;

@@ -3,46 +3,22 @@ syntax = "proto3";
 package room.members.public.server.v1;
 
 import "room/members/public/server/v1/procedures.proto";
-import "protoc-gen-openapiv2/options/annotations.proto";
 
+option java_multiple_files = true;
+option java_package = "com.evemeta.zdk.pb.room.server.members";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/members/public/server/v1;memberspb";
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 service Service {
 
     // Count represents a procedure that retrieves the total number of members based on a specific query.
-    rpc Count(CountRequest) returns (CountResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Count";
-            summary: "Count";
-            operation_id: "Count";
-        };
-    }
+    rpc Count(CountRequest) returns (CountResponse);
 
     // Range represents a procedure that retrieves a chunk of members based on a specific query.
-    rpc Range(RangeRequest) returns (RangeResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Range";
-            summary: "Range";
-            operation_id: "Range";
-        };
-    }
+    rpc Range(RangeRequest) returns (RangeResponse);
 
     // Select represents a procedure that retrieves specific members based on a specific query.
-    rpc Select(SelectRequest) returns (SelectResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Select";
-            summary: "Select";
-            operation_id: "Select";
-        };
-    }
+    rpc Select(SelectRequest) returns (SelectResponse);
 
     // Kick represents a procedure that forcefully removes a member from a room for a specific reason.
-    rpc Kick(KickRequest) returns (KickResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Kick";
-            summary: "Kick";
-            operation_id: "Kick";
-        };
-    }
+    rpc Kick(KickRequest) returns (KickResponse);
 }

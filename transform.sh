@@ -11,3 +11,11 @@ for name in "${ts_names[@]}"; do
     escaped=$(echo "$name" | sed 's/[^a-zA-Z0-9_]/\\&/g')
     find "out/ts" -type f | xargs sed -i'' -e "s/\b${escaped}\([A-Z]\)/\1/g"
 done
+
+mapfile -t java_names < <(grep -rohP '^\s*(public\s+)?enum \K[a-zA-Z0-9_]+' "out/java/src/main/java" | sort -u)
+for name in "${java_names[@]}"; do
+    escaped=$(echo "$name" | sed 's/[^a-zA-Z0-9_]/\\&/g')
+    find "out/java/src/main/java" -type f | xargs sed -i'' -e "s/\b${escaped}\([A-Z]\)/\1/g"
+done
+
+# 1m36.244s

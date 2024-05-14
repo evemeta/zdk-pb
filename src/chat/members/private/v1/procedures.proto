@@ -5,11 +5,9 @@ package chat.members.private.v1;
 import "chat/members/private/v1/enums.proto";
 import "chat/members/private/v1/entities.proto";
 import "chat/members/private/v1/optionals.proto";
-import "protoc-gen-openapiv2/options/annotations.proto";
 import "gateway/transponders/private/v1/procedures.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/members/private/v1;memberspb";
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 message CountArgument {
     bool                          cache = 1;

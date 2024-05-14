@@ -3,370 +3,98 @@ syntax = "proto3";
 package chat.members.private.v1;
 
 import "chat/members/private/v1/procedures.proto";
-import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/members/private/v1;memberspb";
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 service Service {
 
-    rpc Count(CountRequest) returns (CountResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Count";
-            summary: "Count";
-            operation_id: "Count";
-        };
-    }
+    rpc Count(CountRequest) returns (CountResponse);
 
-    rpc Range(RangeRequest) returns (RangeResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Range";
-            summary: "Range";
-            operation_id: "Range";
-        };
-    }
+    rpc Range(RangeRequest) returns (RangeResponse);
 
-    rpc Select(SelectRequest) returns (SelectResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Select";
-            summary: "Select";
-            operation_id: "Select";
-        };
-    }
+    rpc Select(SelectRequest) returns (SelectResponse);
 
-    rpc Create(CreateRequest) returns (CreateResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Create";
-            summary: "Create";
-            operation_id: "Create";
-        };
-    }
+    rpc Create(CreateRequest) returns (CreateResponse);
 
-    rpc InitiateCreateMutations(CreateTransaction) returns (CreateTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: InitiateCreateMutations";
-            summary: "InitiateCreateMutations";
-            operation_id: "InitiateCreateMutations";
-        };
-    }
+    rpc InitiateCreateMutations(CreateTransaction) returns (CreateTransaction);
 
-    rpc ValidateCreateMutations(CreateTransaction) returns (CreateTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: ValidateCreateMutations";
-            summary: "ValidateCreateMutations";
-            operation_id: "ValidateCreateMutations";
-        };
-    }
+    rpc ValidateCreateMutations(CreateTransaction) returns (CreateTransaction);
 
-    rpc FinalizeCreateMutations(CreateTransaction) returns (CreateTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: FinalizeCreateMutations";
-            summary: "FinalizeCreateMutations";
-            operation_id: "FinalizeCreateMutations";
-        };
-    }
+    rpc FinalizeCreateMutations(CreateTransaction) returns (CreateTransaction);
     
-    rpc AnnounceCreateMutations(CreateTransaction) returns (CreateTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: AnnounceCreateMutations";
-            summary: "AnnounceCreateMutations";
-            operation_id: "AnnounceCreateMutations";
-        };
-    }
+    rpc AnnounceCreateMutations(CreateTransaction) returns (CreateTransaction);
 
-    rpc RollbackCreateMutations(CreateTransaction) returns (CreateTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: RollbackCreateMutations";
-            summary: "RollbackCreateMutations";
-            operation_id: "RollbackCreateMutations";
-        };
-    }
+    rpc RollbackCreateMutations(CreateTransaction) returns (CreateTransaction);
 
-    rpc Update(UpdateRequest) returns (UpdateResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Update";
-            summary: "Update";
-            operation_id: "Update";
-        };
-    }
+    rpc Update(UpdateRequest) returns (UpdateResponse);
 
-    rpc InitiateUpdateMutations(UpdateTransaction) returns (UpdateTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: InitiateUpdateMutations";
-            summary: "InitiateUpdateMutations";
-            operation_id: "InitiateUpdateMutations";
-        };
-    }
+    rpc InitiateUpdateMutations(UpdateTransaction) returns (UpdateTransaction);
 
-    rpc ValidateUpdateMutations(UpdateTransaction) returns (UpdateTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: ValidateUpdateMutations";
-            summary: "ValidateUpdateMutations";
-            operation_id: "ValidateUpdateMutations";
-        };
-    }
+    rpc ValidateUpdateMutations(UpdateTransaction) returns (UpdateTransaction);
 
-    rpc FinalizeUpdateMutations(UpdateTransaction) returns (UpdateTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: FinalizeUpdateMutations";
-            summary: "FinalizeUpdateMutations";
-            operation_id: "FinalizeUpdateMutations";
-        };
-    }
+    rpc FinalizeUpdateMutations(UpdateTransaction) returns (UpdateTransaction);
     
-    rpc AnnounceUpdateMutations(UpdateTransaction) returns (UpdateTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: AnnounceUpdateMutations";
-            summary: "AnnounceUpdateMutations";
-            operation_id: "AnnounceUpdateMutations";
-        };
-    }
+    rpc AnnounceUpdateMutations(UpdateTransaction) returns (UpdateTransaction);
 
-    rpc RollbackUpdateMutations(UpdateTransaction) returns (UpdateTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: RollbackUpdateMutations";
-            summary: "RollbackUpdateMutations";
-            operation_id: "RollbackUpdateMutations";
-        };
-    }
+    rpc RollbackUpdateMutations(UpdateTransaction) returns (UpdateTransaction);
 
-    rpc Delete(DeleteRequest) returns (DeleteResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Delete";
-            summary: "Delete";
-            operation_id: "Delete";
-        };
-    }
+    rpc Delete(DeleteRequest) returns (DeleteResponse);
 
-    rpc InitiateDeleteMutations(DeleteTransaction) returns (DeleteTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: InitiateDeleteMutations";
-            summary: "InitiateDeleteMutations";
-            operation_id: "InitiateDeleteMutations";
-        };
-    }
+    rpc InitiateDeleteMutations(DeleteTransaction) returns (DeleteTransaction);
 
-    rpc FinalizeDeleteMutations(DeleteTransaction) returns (DeleteTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: FinalizeDeleteMutations";
-            summary: "FinalizeDeleteMutations";
-            operation_id: "FinalizeDeleteMutations";
-        };
-    }
+    rpc FinalizeDeleteMutations(DeleteTransaction) returns (DeleteTransaction);
     
-    rpc AnnounceDeleteMutations(DeleteTransaction) returns (DeleteTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: AnnounceDeleteMutations";
-            summary: "AnnounceDeleteMutations";
-            operation_id: "AnnounceDeleteMutations";
-        };
-    }
+    rpc AnnounceDeleteMutations(DeleteTransaction) returns (DeleteTransaction);
 
-    rpc RollbackDeleteMutations(DeleteTransaction) returns (DeleteTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: RollbackDeleteMutations";
-            summary: "RollbackDeleteMutations";
-            operation_id: "RollbackDeleteMutations";
-        };
-    }
+    rpc RollbackDeleteMutations(DeleteTransaction) returns (DeleteTransaction);
 
-    rpc Kick(KickRequest) returns (KickResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Kick";
-            summary: "Kick";
-            operation_id: "Kick";
-        };
-    }
+    rpc Kick(KickRequest) returns (KickResponse);
 
-    rpc InitiateKickMutations(KickTransaction) returns (KickTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: InitiateKickMutations";
-            summary: "InitiateKickMutations";
-            operation_id: "InitiateKickMutations";
-        };
-    }
+    rpc InitiateKickMutations(KickTransaction) returns (KickTransaction);
 
-    rpc FinalizeKickMutations(KickTransaction) returns (KickTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: FinalizeKickMutations";
-            summary: "FinalizeKickMutations";
-            operation_id: "FinalizeKickMutations";
-        };
-    }
+    rpc FinalizeKickMutations(KickTransaction) returns (KickTransaction);
 
-    rpc AnnounceKickMutations(KickTransaction) returns (KickTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: AnnounceKickMutations";
-            summary: "AnnounceKickMutations";
-            operation_id: "AnnounceKickMutations";
-        };
-    }
+    rpc AnnounceKickMutations(KickTransaction) returns (KickTransaction);
 
-    rpc RollbackKickMutations(KickTransaction) returns (KickTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: RollbackKickMutations";
-            summary: "RollbackKickMutations";
-            operation_id: "RollbackKickMutations";
-        };
-    }
+    rpc RollbackKickMutations(KickTransaction) returns (KickTransaction);
 
-    rpc Mute(MuteRequest) returns (MuteResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Mute";
-            summary: "Mute";
-            operation_id: "Mute";
-        };
-    }
+    rpc Mute(MuteRequest) returns (MuteResponse);
 
-    rpc InitiateMuteMutations(MuteTransaction) returns (MuteTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: InitiateMuteMutations";
-            summary: "InitiateMuteMutations";
-            operation_id: "InitiateMuteMutations";
-        };
-    }
+    rpc InitiateMuteMutations(MuteTransaction) returns (MuteTransaction);
 
-    rpc FinalizeMuteMutations(MuteTransaction) returns (MuteTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: FinalizeMuteMutations";
-            summary: "FinalizeMuteMutations";
-            operation_id: "FinalizeMuteMutations";
-        };
-    }
+    rpc FinalizeMuteMutations(MuteTransaction) returns (MuteTransaction);
 
-    rpc AnnounceMuteMutations(MuteTransaction) returns (MuteTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: AnnounceMuteMutations";
-            summary: "AnnounceMuteMutations";
-            operation_id: "AnnounceMuteMutations";
-        };
-    }
+    rpc AnnounceMuteMutations(MuteTransaction) returns (MuteTransaction);
 
-    rpc RollbackMuteMutations(MuteTransaction) returns (MuteTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: RollbackMuteMutations";
-            summary: "RollbackMuteMutations";
-            operation_id: "RollbackMuteMutations";
-        };
-    }
+    rpc RollbackMuteMutations(MuteTransaction) returns (MuteTransaction);
 
-    rpc Unmute(UnmuteRequest) returns (UnmuteResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Unmute";
-            summary: "Unmute";
-            operation_id: "Unmute";
-        };
-    }
+    rpc Unmute(UnmuteRequest) returns (UnmuteResponse);
 
-    rpc InitiateUnmuteMutations(UnmuteTransaction) returns (UnmuteTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: InitiateUnmuteMutations";
-            summary: "InitiateUnmuteMutations";
-            operation_id: "InitiateUnmuteMutations";
-        };
-    }
+    rpc InitiateUnmuteMutations(UnmuteTransaction) returns (UnmuteTransaction);
 
-    rpc FinalizeUnmuteMutations(UnmuteTransaction) returns (UnmuteTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: FinalizeUnmuteMutations";
-            summary: "FinalizeUnmuteMutations";
-            operation_id: "FinalizeUnmuteMutations";
-        };
-    }
+    rpc FinalizeUnmuteMutations(UnmuteTransaction) returns (UnmuteTransaction);
 
-    rpc AnnounceUnmuteMutations(UnmuteTransaction) returns (UnmuteTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: AnnounceUnmuteMutations";
-            summary: "AnnounceUnmuteMutations";
-            operation_id: "AnnounceUnmuteMutations";
-        };
-    }
+    rpc AnnounceUnmuteMutations(UnmuteTransaction) returns (UnmuteTransaction);
 
-    rpc RollbackUnmuteMutations(UnmuteTransaction) returns (UnmuteTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: RollbackUnmuteMutations";
-            summary: "RollbackUnmuteMutations";
-            operation_id: "RollbackUnmuteMutations";
-        };
-    }
+    rpc RollbackUnmuteMutations(UnmuteTransaction) returns (UnmuteTransaction);
 
-    rpc Block(BlockRequest) returns (BlockResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Block";
-            summary: "Block";
-            operation_id: "Block";
-        };
-    }
+    rpc Block(BlockRequest) returns (BlockResponse);
 
-    rpc InitiateBlockMutations(BlockTransaction) returns (BlockTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: InitiateBlockMutations";
-            summary: "InitiateBlockMutations";
-            operation_id: "InitiateBlockMutations";
-        };
-    }
+    rpc InitiateBlockMutations(BlockTransaction) returns (BlockTransaction);
 
-    rpc FinalizeBlockMutations(BlockTransaction) returns (BlockTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: FinalizeBlockMutations";
-            summary: "FinalizeBlockMutations";
-            operation_id: "FinalizeBlockMutations";
-        };
-    }
+    rpc FinalizeBlockMutations(BlockTransaction) returns (BlockTransaction);
 
-    rpc AnnounceBlockMutations(BlockTransaction) returns (BlockTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: AnnounceBlockMutations";
-            summary: "AnnounceBlockMutations";
-            operation_id: "AnnounceBlockMutations";
-        };
-    }
+    rpc AnnounceBlockMutations(BlockTransaction) returns (BlockTransaction);
 
-    rpc RollbackBlockMutations(BlockTransaction) returns (BlockTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: RollbackBlockMutations";
-            summary: "RollbackBlockMutations";
-            operation_id: "RollbackBlockMutations";
-        };
-    }
+    rpc RollbackBlockMutations(BlockTransaction) returns (BlockTransaction);
 
-    rpc Unblock(UnblockRequest) returns (UnblockResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Unblock";
-            summary: "Unblock";
-            operation_id: "Unblock";
-        };
-    }
+    rpc Unblock(UnblockRequest) returns (UnblockResponse);
 
-    rpc InitiateUnblockMutations(UnblockTransaction) returns (UnblockTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: InitiateUnblockMutations";
-            summary: "InitiateUnblockMutations";
-            operation_id: "InitiateUnblockMutations";
-        };
-    }
+    rpc InitiateUnblockMutations(UnblockTransaction) returns (UnblockTransaction);
 
-    rpc FinalizeUnblockMutations(UnblockTransaction) returns (UnblockTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: FinalizeUnblockMutations";
-            summary: "FinalizeUnblockMutations";
-            operation_id: "FinalizeUnblockMutations";
-        };
-    }
+    rpc FinalizeUnblockMutations(UnblockTransaction) returns (UnblockTransaction);
 
-    rpc AnnounceUnblockMutations(UnblockTransaction) returns (UnblockTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: AnnounceUnblockMutations";
-            summary: "AnnounceUnblockMutations";
-            operation_id: "AnnounceUnblockMutations";
-        };
-    }
+    rpc AnnounceUnblockMutations(UnblockTransaction) returns (UnblockTransaction);
 
-    rpc RollbackUnblockMutations(UnblockTransaction) returns (UnblockTransaction) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: RollbackUnblockMutations";
-            summary: "RollbackUnblockMutations";
-            operation_id: "RollbackUnblockMutations";
-        };
-    }
+    rpc RollbackUnblockMutations(UnblockTransaction) returns (UnblockTransaction);
 }

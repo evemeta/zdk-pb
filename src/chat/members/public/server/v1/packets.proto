@@ -4,12 +4,10 @@ package chat.members.public.server.v1;
 
 import "chat/members/public/server/v1/entities.proto";
 import "chat/members/public/server/v1/optionals.proto";
-import "protoc-gen-openapiv2/options/annotations.proto";
 
 option java_multiple_files = true;
 option java_package = "com.evemeta.zdk.pb.chat.server.members";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/members/public/server/v1;memberspb";
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 // CreateMemberPacket is a notification sent to clients when a new member has been created.
 // It provides the details of the new member and the relevant timeframe associated with the event.

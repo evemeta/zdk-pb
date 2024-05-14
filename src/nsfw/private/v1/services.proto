@@ -3,18 +3,10 @@ syntax = "proto3";
 package nsfw.private.v1;
 
 import "nsfw/private/v1/procedures.proto";
-import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/nsfw/private/v1;nsfwpb";
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
 
 service Service {
 
-    rpc Predict(PredictRequest) returns (PredictResponse) {
-        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-            description: "Description: Predict";
-            summary: "Predict";
-            operation_id: "Predict";
-        };
-    }
+    rpc Predict(PredictRequest) returns (PredictResponse);
 }

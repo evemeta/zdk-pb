@@ -2,11 +2,10 @@ syntax = "proto3";
 
 package mcu.public.server.v1;
 
-import "protoc-gen-openapiv2/options/annotations.proto";
 
+option java_multiple_files = true;
+option java_package = "com.evemeta.zdk.pb.mcu.server.mcu";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/mcu/public/server/v1;mcupb";
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {};
-
 
 enum MixerType {
     MixerTypeUnknown = 0;
