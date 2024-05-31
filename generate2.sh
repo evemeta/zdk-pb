@@ -25,7 +25,7 @@ generate_go() {
         --grpc-gateway_opt="paths=source_relative"
         --grpc-gateway_opt="generate_unbound_methods=true"
         --experimental_allow_proto3_optional
-        $(cfind "./src" -iname "*.proto" -not -regex ".*private.*")
+        $(cfind "./src" -iname "*.proto")
     )
 
     if protoc "${arguments[@]}"; then
