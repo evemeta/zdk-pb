@@ -14,7 +14,6 @@ message CreateConnectionPacket {
     gateway.connections.private.v1.Timeframe  timeframe  = 2;
 }
 
-// todo tylko tyle w UpdateConnectionPacket ??? a inne argumenty
 message UpdateConnectionPacket {
     string                                                 id         = 1;
     string                                                 sfu_id     = 2;
