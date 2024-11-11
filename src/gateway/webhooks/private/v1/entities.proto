@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package gateway.webhooks.private.v1;
+
+import "gateway/webhooks/private/v1/enums.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/webhooks/private/v1;webhookspb";
+
+message Chunk {
+    int64                                        size     = 1;
+    int64                                        index    = 2;
+    int64                                        total    = 3;
+    repeated gateway.webhooks.private.v1.Webhook entities = 4;
+}
+
+message Query {
+    gateway.webhooks.private.v1.Order              order      = 1;
+    int64                                          limit      = 2;
+    int64                                          offset     = 3;
+    repeated gateway.webhooks.private.v1.Condition conditions = 4;
+}
+
+message Condition {
+    repeated string                               ids       = 1;
+    repeated string                               urls      = 2;
+    repeated gateway.webhooks.private.v1.Protocol protocols = 3;
+    map <string, string>                          headers   = 4;
+}
+
+message Transient {
+    gateway.webhooks.private.v1.Webhook future   = 1;
+    gateway.webhooks.private.v1.Webhook current  = 2;
+    gateway.webhooks.private.v1.Webhook previous = 3;
+}
+
+message Webhook {
+    string                               id          = 1;
+    string                               url         = 2;
+    gateway.webhooks.private.v1.Protocol protocol    = 3;
+    map<string, string>                  headers     = 4;
+    int64                                access_time = 5;
+    int64                                create_time = 6;
+    int64                                update_time = 7;
+}
+
+// Timeframe represents a specific span or duration marked by its commencement and completion times.
+// It provides a clear boundary to understand when a particular activity began and when it ended.
+message Timeframe {
+    // Represents the timestamp indicating when the activity or retrieve of data commenced.
+    int64 commence = 1;
+    // Represents the timestamp indicating when the activity or retrieve of data completed.
+    int64 complete = 2;
+}

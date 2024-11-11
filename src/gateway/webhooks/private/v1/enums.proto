@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package gateway.webhooks.private.v1;
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/webhooks/private/v1;webhookspb";
+
+enum Order {
+    OrderUnknown    = 0;
+    OrderAscending  = 1;
+    OrderDescending = 2;
+}
+
+enum Protocol {
+    ProtocolUnknown = 0;
+    ProtocolText    = 1;
+    ProtocolBinary  = 2;
+}

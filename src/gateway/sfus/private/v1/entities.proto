@@ -47,3 +47,12 @@ message Transient {
     gateway.sfus.private.v1.Sfu current  = 2;
     gateway.sfus.private.v1.Sfu previous = 3;
 }
+
+// Timeframe represents a specific span or duration marked by its commencement and completion times.
+// It provides a clear boundary to understand when a particular activity began and when it ended.
+message Timeframe {
+    // Represents the timestamp indicating when the activity or retrieve of data commenced.
+    int64 commence = 1;
+    // Represents the timestamp indicating when the activity or retrieve of data completed.
+    int64 complete = 2;
+}

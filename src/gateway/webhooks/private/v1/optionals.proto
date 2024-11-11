@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package gateway.webhooks.private.v1;
+
+import "gateway/webhooks/private/v1/enums.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/webhooks/private/v1;webhookspb";
+
+message OptionalString {
+    string value = 1;
+}
+
+message OptionalProtocol {
+    gateway.webhooks.private.v1.Protocol value = 1;
+}
+
+message OptionalMap {
+    map<string, string> value = 1;
+}

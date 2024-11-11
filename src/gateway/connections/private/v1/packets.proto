@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package gateway.connections.private.v1;
+
+import "gateway/connections/private/v1/entities.proto";
+import "gateway/connections/private/v1/optionals.proto";
+
+option java_multiple_files = true;
+option java_package = "com.evemeta.zdk.pb.gateway.connections";
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/connections/private/v1;connectionspb";
+
+message CreateConnectionPacket {
+    gateway.connections.private.v1.Connection connection = 1;
+    gateway.connections.private.v1.Timeframe  timeframe  = 2;
+}
+
+// todo tylko tyle w UpdateConnectionPacket ??? a inne argumenty
+message UpdateConnectionPacket {
+    string                                                 id         = 1;
+    string                                                 sfu_id     = 2;
+    optional gateway.connections.private.v1.OptionalStatus status     = 3;
+    gateway.connections.private.v1.Timeframe               timeframe  = 4;
+}
+
+message DeleteConnectionPacket {
+    string                                   id         = 1;
+    string                                   sfu_id     = 2;
+    gateway.connections.private.v1.Timeframe timeframe  = 3;
+}

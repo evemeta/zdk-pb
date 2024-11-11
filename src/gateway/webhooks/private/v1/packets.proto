@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package gateway.webhooks.private.v1;
+
+import "gateway/webhooks/private/v1/entities.proto";
+import "gateway/webhooks/private/v1/optionals.proto";
+
+option java_multiple_files = true;
+option java_package = "com.evemeta.zdk.pb.gateway.webhooks";
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/webhooks/private/v1;webhookspb";
+
+message CreateWebhookPacket {
+    gateway.webhooks.private.v1.Webhook   webhook   = 1;
+    gateway.webhooks.private.v1.Timeframe timeframe = 2;
+}
+
+message UpdateWebhookPacket {
+    string                                                id        = 1;
+    optional gateway.webhooks.private.v1.OptionalString   url       = 2;
+    optional gateway.webhooks.private.v1.OptionalProtocol protocol  = 3;
+    optional gateway.webhooks.private.v1.OptionalMap      headers   = 4;
+    gateway.webhooks.private.v1.Timeframe                 timeframe = 5;
+}
+
+message DeleteWebhookPacket {
+    string                                id        = 1;
+    gateway.webhooks.private.v1.Timeframe timeframe = 2;
+}
+
+

@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package gateway.sessions.private.v1;
+
+import "gateway/sessions/private/v1/entities.proto";
+import "gateway/sessions/private/v1/optionals.proto";
+
+option java_multiple_files = true;
+option java_package = "com.evemeta.zdk.pb.gateway.sessions";
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/sessions/private/v1;sessionspb";
+
+
+message CreateSessionPacket {
+    gateway.sessions.private.v1.Session   session   = 1;
+    gateway.sessions.private.v1.Timeframe timeframe = 2;
+}
+
+message UpdateSessionPacket {
+    string                                              id           = 1;
+    string                                              websocket_id = 2;
+    optional gateway.sessions.private.v1.OptionalStatus status       = 3;
+    gateway.sessions.private.v1.Timeframe               timeframe    = 4;
+}
+
+message DeleteSessionPacket {
+    string                                id           = 1;
+    string                                websocket_id = 2;
+    gateway.sessions.private.v1.Timeframe timeframe    = 3;
+}
+
+message AttachSessionPacket {
+    string                                id           = 1;
+    string                                websocket_id = 2;
+    gateway.sessions.private.v1.Timeframe timeframe    = 3;
+}
+
+message DetachSessionPacket {
+    string                                id        = 1;
+    bool                                  conscious = 2;
+    gateway.sessions.private.v1.Timeframe timeframe = 3;
+}
+
+
+
+

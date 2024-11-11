@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package gateway.websockets.private.v1;
+
+import "gateway/websockets/private/v1/entities.proto";
+import "gateway/websockets/private/v1/optionals.proto";
+
+option java_multiple_files = true;
+option java_package = "com.evemeta.zdk.pb.gateway.websockets";
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/websockets/private/v1;websocketspb";
+
+message CreateWebsocketPacket {
+    gateway.websockets.private.v1.Websocket websocket = 1;
+    gateway.websockets.private.v1.Timeframe timeframe = 2;
+}
+
+message UpdateWebsocketPacket {
+    string                                                id        = 1;
+    optional gateway.websockets.private.v1.OptionalZone   zone      = 2;
+    optional gateway.websockets.private.v1.OptionalStatus status    = 3;
+    optional gateway.websockets.private.v1.OptionalString address   = 4;
+    gateway.websockets.private.v1.Timeframe               timeframe = 5;
+}
+
+message DeleteWebsocketPacket {
+    string                                  id         = 1;
+    gateway.websockets.private.v1.Timeframe timeframe  = 2;
+}
