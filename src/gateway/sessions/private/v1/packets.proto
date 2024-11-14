@@ -5,10 +5,7 @@ package gateway.sessions.private.v1;
 import "gateway/sessions/private/v1/entities.proto";
 import "gateway/sessions/private/v1/optionals.proto";
 
-option java_multiple_files = true;
-option java_package = "com.evemeta.zdk.pb.gateway.sessions";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/sessions/private/v1;sessionspb";
-
 
 message CreateSessionPacket {
     gateway.sessions.private.v1.Session   session   = 1;
@@ -35,11 +32,7 @@ message AttachSessionPacket {
 }
 
 message DetachSessionPacket {
-    string                                id        = 1;
-    bool                                  conscious = 2;
-    gateway.sessions.private.v1.Timeframe timeframe = 3;
+    string                                id           = 1;
+    string                                websocket_id = 2;
+    gateway.sessions.private.v1.Timeframe timeframe    = 3;
 }
-
-
-
-

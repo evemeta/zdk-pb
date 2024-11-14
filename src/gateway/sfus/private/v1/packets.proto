@@ -5,8 +5,6 @@ package gateway.sfus.private.v1;
 import "gateway/sfus/private/v1/entities.proto";
 import "gateway/sfus/private/v1/optionals.proto";
 
-option java_multiple_files = true;
-option java_package = "com.evemeta.zdk.pb.gateway.sfus";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/sfus/private/v1;sfuspb";
 
 message CreateSfuPacket {
@@ -27,8 +25,3 @@ message DeleteSfuPacket {
     string                            id        = 1;
     gateway.sfus.private.v1.Timeframe timeframe = 2;
 }
-
-
-
-
-

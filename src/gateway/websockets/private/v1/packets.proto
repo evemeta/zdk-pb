@@ -5,8 +5,6 @@ package gateway.websockets.private.v1;
 import "gateway/websockets/private/v1/entities.proto";
 import "gateway/websockets/private/v1/optionals.proto";
 
-option java_multiple_files = true;
-option java_package = "com.evemeta.zdk.pb.gateway.websockets";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/websockets/private/v1;websocketspb";
 
 message CreateWebsocketPacket {
