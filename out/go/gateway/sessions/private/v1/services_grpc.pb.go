@@ -26,11 +26,13 @@ const (
 	Service_InitiateCreateMutations_FullMethodName = "/gateway.sessions.private.v1.Service/InitiateCreateMutations"
 	Service_ValidateCreateMutations_FullMethodName = "/gateway.sessions.private.v1.Service/ValidateCreateMutations"
 	Service_FinalizeCreateMutations_FullMethodName = "/gateway.sessions.private.v1.Service/FinalizeCreateMutations"
+	Service_AnnounceCreateMutations_FullMethodName = "/gateway.sessions.private.v1.Service/AnnounceCreateMutations"
 	Service_RollbackCreateMutations_FullMethodName = "/gateway.sessions.private.v1.Service/RollbackCreateMutations"
 	Service_Update_FullMethodName                  = "/gateway.sessions.private.v1.Service/Update"
 	Service_InitiateUpdateMutations_FullMethodName = "/gateway.sessions.private.v1.Service/InitiateUpdateMutations"
 	Service_ValidateUpdateMutations_FullMethodName = "/gateway.sessions.private.v1.Service/ValidateUpdateMutations"
 	Service_FinalizeUpdateMutations_FullMethodName = "/gateway.sessions.private.v1.Service/FinalizeUpdateMutations"
+	Service_AnnounceUpdateMutations_FullMethodName = "/gateway.sessions.private.v1.Service/AnnounceUpdateMutations"
 	Service_RollbackUpdateMutations_FullMethodName = "/gateway.sessions.private.v1.Service/RollbackUpdateMutations"
 	Service_Delete_FullMethodName                  = "/gateway.sessions.private.v1.Service/Delete"
 	Service_InitiateDeleteMutations_FullMethodName = "/gateway.sessions.private.v1.Service/InitiateDeleteMutations"
@@ -41,6 +43,7 @@ const (
 	Service_InitiateAttachMutations_FullMethodName = "/gateway.sessions.private.v1.Service/InitiateAttachMutations"
 	Service_ValidateAttachMutations_FullMethodName = "/gateway.sessions.private.v1.Service/ValidateAttachMutations"
 	Service_FinalizeAttachMutations_FullMethodName = "/gateway.sessions.private.v1.Service/FinalizeAttachMutations"
+	Service_AnnounceAttachMutations_FullMethodName = "/gateway.sessions.private.v1.Service/AnnounceAttachMutations"
 	Service_RollbackAttachMutations_FullMethodName = "/gateway.sessions.private.v1.Service/RollbackAttachMutations"
 	Service_Detach_FullMethodName                  = "/gateway.sessions.private.v1.Service/Detach"
 	Service_InitiateDetachMutations_FullMethodName = "/gateway.sessions.private.v1.Service/InitiateDetachMutations"
@@ -61,11 +64,13 @@ type ServiceClient interface {
 	InitiateCreateMutations(ctx context.Context, in *CreateTransaction, opts ...grpc.CallOption) (*CreateTransaction, error)
 	ValidateCreateMutations(ctx context.Context, in *CreateTransaction, opts ...grpc.CallOption) (*CreateTransaction, error)
 	FinalizeCreateMutations(ctx context.Context, in *CreateTransaction, opts ...grpc.CallOption) (*CreateTransaction, error)
+	AnnounceCreateMutations(ctx context.Context, in *CreateTransaction, opts ...grpc.CallOption) (*CreateTransaction, error)
 	RollbackCreateMutations(ctx context.Context, in *CreateTransaction, opts ...grpc.CallOption) (*CreateTransaction, error)
 	Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error)
 	InitiateUpdateMutations(ctx context.Context, in *UpdateTransaction, opts ...grpc.CallOption) (*UpdateTransaction, error)
 	ValidateUpdateMutations(ctx context.Context, in *UpdateTransaction, opts ...grpc.CallOption) (*UpdateTransaction, error)
 	FinalizeUpdateMutations(ctx context.Context, in *UpdateTransaction, opts ...grpc.CallOption) (*UpdateTransaction, error)
+	AnnounceUpdateMutations(ctx context.Context, in *UpdateTransaction, opts ...grpc.CallOption) (*UpdateTransaction, error)
 	RollbackUpdateMutations(ctx context.Context, in *UpdateTransaction, opts ...grpc.CallOption) (*UpdateTransaction, error)
 	Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error)
 	InitiateDeleteMutations(ctx context.Context, in *DeleteTransaction, opts ...grpc.CallOption) (*DeleteTransaction, error)
@@ -76,6 +81,7 @@ type ServiceClient interface {
 	InitiateAttachMutations(ctx context.Context, in *AttachTransaction, opts ...grpc.CallOption) (*AttachTransaction, error)
 	ValidateAttachMutations(ctx context.Context, in *AttachTransaction, opts ...grpc.CallOption) (*AttachTransaction, error)
 	FinalizeAttachMutations(ctx context.Context, in *AttachTransaction, opts ...grpc.CallOption) (*AttachTransaction, error)
+	AnnounceAttachMutations(ctx context.Context, in *AttachTransaction, opts ...grpc.CallOption) (*AttachTransaction, error)
 	RollbackAttachMutations(ctx context.Context, in *AttachTransaction, opts ...grpc.CallOption) (*AttachTransaction, error)
 	Detach(ctx context.Context, in *DetachRequest, opts ...grpc.CallOption) (*DetachResponse, error)
 	InitiateDetachMutations(ctx context.Context, in *DetachTransaction, opts ...grpc.CallOption) (*DetachTransaction, error)
@@ -163,6 +169,16 @@ func (c *serviceClient) FinalizeCreateMutations(ctx context.Context, in *CreateT
 	return out, nil
 }
 
+func (c *serviceClient) AnnounceCreateMutations(ctx context.Context, in *CreateTransaction, opts ...grpc.CallOption) (*CreateTransaction, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateTransaction)
+	err := c.cc.Invoke(ctx, Service_AnnounceCreateMutations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *serviceClient) RollbackCreateMutations(ctx context.Context, in *CreateTransaction, opts ...grpc.CallOption) (*CreateTransaction, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CreateTransaction)
@@ -207,6 +223,16 @@ func (c *serviceClient) FinalizeUpdateMutations(ctx context.Context, in *UpdateT
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UpdateTransaction)
 	err := c.cc.Invoke(ctx, Service_FinalizeUpdateMutations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) AnnounceUpdateMutations(ctx context.Context, in *UpdateTransaction, opts ...grpc.CallOption) (*UpdateTransaction, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateTransaction)
+	err := c.cc.Invoke(ctx, Service_AnnounceUpdateMutations_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -313,6 +339,16 @@ func (c *serviceClient) FinalizeAttachMutations(ctx context.Context, in *AttachT
 	return out, nil
 }
 
+func (c *serviceClient) AnnounceAttachMutations(ctx context.Context, in *AttachTransaction, opts ...grpc.CallOption) (*AttachTransaction, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AttachTransaction)
+	err := c.cc.Invoke(ctx, Service_AnnounceAttachMutations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *serviceClient) RollbackAttachMutations(ctx context.Context, in *AttachTransaction, opts ...grpc.CallOption) (*AttachTransaction, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AttachTransaction)
@@ -394,11 +430,13 @@ type ServiceServer interface {
 	InitiateCreateMutations(context.Context, *CreateTransaction) (*CreateTransaction, error)
 	ValidateCreateMutations(context.Context, *CreateTransaction) (*CreateTransaction, error)
 	FinalizeCreateMutations(context.Context, *CreateTransaction) (*CreateTransaction, error)
+	AnnounceCreateMutations(context.Context, *CreateTransaction) (*CreateTransaction, error)
 	RollbackCreateMutations(context.Context, *CreateTransaction) (*CreateTransaction, error)
 	Update(context.Context, *UpdateRequest) (*UpdateResponse, error)
 	InitiateUpdateMutations(context.Context, *UpdateTransaction) (*UpdateTransaction, error)
 	ValidateUpdateMutations(context.Context, *UpdateTransaction) (*UpdateTransaction, error)
 	FinalizeUpdateMutations(context.Context, *UpdateTransaction) (*UpdateTransaction, error)
+	AnnounceUpdateMutations(context.Context, *UpdateTransaction) (*UpdateTransaction, error)
 	RollbackUpdateMutations(context.Context, *UpdateTransaction) (*UpdateTransaction, error)
 	Delete(context.Context, *DeleteRequest) (*DeleteResponse, error)
 	InitiateDeleteMutations(context.Context, *DeleteTransaction) (*DeleteTransaction, error)
@@ -409,6 +447,7 @@ type ServiceServer interface {
 	InitiateAttachMutations(context.Context, *AttachTransaction) (*AttachTransaction, error)
 	ValidateAttachMutations(context.Context, *AttachTransaction) (*AttachTransaction, error)
 	FinalizeAttachMutations(context.Context, *AttachTransaction) (*AttachTransaction, error)
+	AnnounceAttachMutations(context.Context, *AttachTransaction) (*AttachTransaction, error)
 	RollbackAttachMutations(context.Context, *AttachTransaction) (*AttachTransaction, error)
 	Detach(context.Context, *DetachRequest) (*DetachResponse, error)
 	InitiateDetachMutations(context.Context, *DetachTransaction) (*DetachTransaction, error)
@@ -447,6 +486,9 @@ func (UnimplementedServiceServer) ValidateCreateMutations(context.Context, *Crea
 func (UnimplementedServiceServer) FinalizeCreateMutations(context.Context, *CreateTransaction) (*CreateTransaction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FinalizeCreateMutations not implemented")
 }
+func (UnimplementedServiceServer) AnnounceCreateMutations(context.Context, *CreateTransaction) (*CreateTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AnnounceCreateMutations not implemented")
+}
 func (UnimplementedServiceServer) RollbackCreateMutations(context.Context, *CreateTransaction) (*CreateTransaction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RollbackCreateMutations not implemented")
 }
@@ -461,6 +503,9 @@ func (UnimplementedServiceServer) ValidateUpdateMutations(context.Context, *Upda
 }
 func (UnimplementedServiceServer) FinalizeUpdateMutations(context.Context, *UpdateTransaction) (*UpdateTransaction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FinalizeUpdateMutations not implemented")
+}
+func (UnimplementedServiceServer) AnnounceUpdateMutations(context.Context, *UpdateTransaction) (*UpdateTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AnnounceUpdateMutations not implemented")
 }
 func (UnimplementedServiceServer) RollbackUpdateMutations(context.Context, *UpdateTransaction) (*UpdateTransaction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RollbackUpdateMutations not implemented")
@@ -491,6 +536,9 @@ func (UnimplementedServiceServer) ValidateAttachMutations(context.Context, *Atta
 }
 func (UnimplementedServiceServer) FinalizeAttachMutations(context.Context, *AttachTransaction) (*AttachTransaction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FinalizeAttachMutations not implemented")
+}
+func (UnimplementedServiceServer) AnnounceAttachMutations(context.Context, *AttachTransaction) (*AttachTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AnnounceAttachMutations not implemented")
 }
 func (UnimplementedServiceServer) RollbackAttachMutations(context.Context, *AttachTransaction) (*AttachTransaction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RollbackAttachMutations not implemented")
@@ -660,6 +708,24 @@ func _Service_FinalizeCreateMutations_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Service_AnnounceCreateMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).AnnounceCreateMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_AnnounceCreateMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).AnnounceCreateMutations(ctx, req.(*CreateTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _Service_RollbackCreateMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateTransaction)
 	if err := dec(in); err != nil {
@@ -746,6 +812,24 @@ func _Service_FinalizeUpdateMutations_Handler(srv interface{}, ctx context.Conte
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ServiceServer).FinalizeUpdateMutations(ctx, req.(*UpdateTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_AnnounceUpdateMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).AnnounceUpdateMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_AnnounceUpdateMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).AnnounceUpdateMutations(ctx, req.(*UpdateTransaction))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -930,6 +1014,24 @@ func _Service_FinalizeAttachMutations_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Service_AnnounceAttachMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AttachTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).AnnounceAttachMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_AnnounceAttachMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).AnnounceAttachMutations(ctx, req.(*AttachTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _Service_RollbackAttachMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AttachTransaction)
 	if err := dec(in); err != nil {
@@ -1092,6 +1194,10 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Service_FinalizeCreateMutations_Handler,
 		},
 		{
+			MethodName: "AnnounceCreateMutations",
+			Handler:    _Service_AnnounceCreateMutations_Handler,
+		},
+		{
 			MethodName: "RollbackCreateMutations",
 			Handler:    _Service_RollbackCreateMutations_Handler,
 		},
@@ -1110,6 +1216,10 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "FinalizeUpdateMutations",
 			Handler:    _Service_FinalizeUpdateMutations_Handler,
+		},
+		{
+			MethodName: "AnnounceUpdateMutations",
+			Handler:    _Service_AnnounceUpdateMutations_Handler,
 		},
 		{
 			MethodName: "RollbackUpdateMutations",
@@ -1150,6 +1260,10 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "FinalizeAttachMutations",
 			Handler:    _Service_FinalizeAttachMutations_Handler,
+		},
+		{
+			MethodName: "AnnounceAttachMutations",
+			Handler:    _Service_AnnounceAttachMutations_Handler,
 		},
 		{
 			MethodName: "RollbackAttachMutations",

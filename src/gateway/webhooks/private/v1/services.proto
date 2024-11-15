@@ -22,6 +22,8 @@ service Service {
 
     rpc FinalizeCreateMutations(CreateTransaction) returns (CreateTransaction);
 
+    rpc AnnounceCreateMutations(CreateTransaction) returns (CreateTransaction);
+
     rpc RollbackCreateMutations(CreateTransaction) returns (CreateTransaction);
 
     rpc Update(UpdateRequest) returns (UpdateResponse);
@@ -32,6 +34,8 @@ service Service {
 
     rpc FinalizeUpdateMutations(UpdateTransaction) returns (UpdateTransaction);
 
+    rpc AnnounceUpdateMutations(UpdateTransaction) returns (UpdateTransaction);
+
     rpc RollbackUpdateMutations(UpdateTransaction) returns (UpdateTransaction);
 
     rpc Delete(DeleteRequest) returns (DeleteResponse);
@@ -39,6 +43,8 @@ service Service {
     rpc InitiateDeleteMutations(DeleteTransaction) returns (DeleteTransaction);
 
     rpc FinalizeDeleteMutations(DeleteTransaction) returns (DeleteTransaction);
+
+    rpc AnnounceDeleteMutations(DeleteTransaction) returns (DeleteTransaction);
 
     rpc RollbackDeleteMutations(DeleteTransaction) returns (DeleteTransaction);
 }
