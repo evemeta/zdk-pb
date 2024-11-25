@@ -9,7 +9,7 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/websocket/private/v1;webso
 
 message BroadcastArgument {
     websocket.private.v1.Message message     = 1;
-    repeated string              session_ids = 2;
+    repeated string              subjects    = 2;
 }
 
 message BroadcastRequest {
