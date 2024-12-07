@@ -54,6 +54,12 @@ service Service {
 
     rpc FinalizeConnectMutations(ConnectTransaction) returns (ConnectTransaction);
 
+    rpc Broadcast(BroadcastRequest) returns (BroadcastResponse);
+
+    rpc InitiateBroadcastMutations(BroadcastTransaction) returns (BroadcastTransaction);
+
+    rpc FinalizeBroadcastMutations(BroadcastTransaction) returns (BroadcastTransaction);
+
     rpc Candidate(CandidateRequest) returns (CandidateResponse);
 
     rpc InitiateCandidateMutations(CandidateTransaction) returns (CandidateTransaction);

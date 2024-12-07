@@ -9,6 +9,7 @@ import "gateway/sfus/private/v1/entities.proto";
 import "gateway/sfus/private/v1/optionals.proto";
 import "gateway/connections/private/v1/entities.proto";
 import "gateway/connections/private/v1/procedures.proto";
+import "common/messages/public/v1/entities.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/sfus/private/v1;sfuspb";
 
@@ -161,6 +162,37 @@ message ConnectCondition {
 
 message ConnectTransaction {
     repeated gateway.sfus.private.v1.ConnectMutation mutations = 1;
+}
+
+message BroadcastArgument {
+    common.messages.public.v1.Message message  = 1;
+    repeated string                   subjects = 2;
+}
+
+message BroadcastRequest {
+    repeated gateway.sfus.private.v1.BroadcastArgument arguments = 1;
+}
+
+message BroadcastResponse {}
+
+message BroadcastCondition {
+    repeated gateway.sfus.private.v1.BroadcastDestination destinations = 1;
+}
+
+message BroadcastDestination {
+    gateway.sfus.private.v1.Sfu sfu = 1;
+    repeated string             subjects = 2;
+}
+
+message BroadcastMutation {
+    gateway.sfus.private.v1.BroadcastArgument  foundation      = 1;
+    gateway.sfus.private.v1.BroadcastCondition condition       = 2;
+    int64                                      begin_timestamp = 3;
+    int64                                      close_timestamp = 4;
+}
+
+message BroadcastTransaction {
+    repeated gateway.sfus.private.v1.BroadcastMutation mutations = 1;
 }
 
 message CandidateArgument {
