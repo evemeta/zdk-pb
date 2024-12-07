@@ -6,6 +6,7 @@ import "gateway/webhooks/private/v1/entities.proto";
 import "gateway/webhooks/private/v1/enums.proto";
 import "gateway/webhooks/private/v1/optionals.proto";
 import "gateway/transponders/private/v1/procedures.proto";
+import "common/messages/public/v1/entities.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/webhooks/private/v1;webhookspb";
 
@@ -52,7 +53,6 @@ message CreateArgument {
     string                               id       = 1;
     string                               url      = 2;
     gateway.webhooks.private.v1.Protocol protocol = 3;
-    map<string, string>                  headers  = 4;
 }
 
 message CreateRequest {
@@ -78,7 +78,6 @@ message UpdateArgument {
     gateway.webhooks.private.v1.Query                     query    = 1;
     optional gateway.webhooks.private.v1.OptionalString   url      = 2;
     optional gateway.webhooks.private.v1.OptionalProtocol protocol = 3;
-    optional gateway.webhooks.private.v1.OptionalMap      headers  = 4;
 }
 
 message UpdateRequest {
@@ -98,6 +97,32 @@ message UpdateMutation {
 
 message UpdateTransaction {
     repeated gateway.webhooks.private.v1.UpdateMutation mutations = 1;
+}
+
+message BroadcastArgument {
+    common.messages.public.v1.Message message  = 1;
+    repeated string                   subjects = 2;
+}
+
+message BroadcastRequest {
+    repeated gateway.webhooks.private.v1.BroadcastArgument arguments = 1;
+}
+
+message BroadcastResponse {}
+
+message BroadcastCondition {
+    repeated gateway.webhooks.private.v1.Webhook webhooks = 1;
+}
+
+message BroadcastMutation {
+    gateway.webhooks.private.v1.BroadcastArgument  foundation      = 1;
+    gateway.webhooks.private.v1.BroadcastCondition condition       = 2;
+    int64                                          begin_timestamp = 3;
+    int64                                          close_timestamp = 4;
+}
+
+message BroadcastTransaction {
+    repeated gateway.webhooks.private.v1.BroadcastMutation mutations = 1;
 }
 
 message DeleteArgument {

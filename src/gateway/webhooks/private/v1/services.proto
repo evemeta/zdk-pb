@@ -47,5 +47,12 @@ service Service {
     rpc AnnounceDeleteMutations(DeleteTransaction) returns (DeleteTransaction);
 
     rpc RollbackDeleteMutations(DeleteTransaction) returns (DeleteTransaction);
+
+    rpc Broadcast(BroadcastRequest) returns (BroadcastResponse);
+
+    rpc InitiateBroadcastMutations(BroadcastTransaction) returns (BroadcastTransaction);
+
+    rpc FinalizeBroadcastMutations(BroadcastTransaction) returns (BroadcastTransaction);
+
 }
 
