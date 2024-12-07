@@ -3,6 +3,7 @@ syntax = "proto3";
 package gateway.transponders.private.v1;
 
 import "gateway/transponders/private/v1/enums.proto";
+import "common/orders/public/v1/entities.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/transponders/private/v1;transponderspb";
 
@@ -14,7 +15,7 @@ message Chunk {
 }
 
 message Query {
-    gateway.transponders.private.v1.Order              order      = 1;
+    common.orders.public.v1.Order                      order      = 1;
     int64                                              depth      = 2;
     int64                                              limit      = 3;
     int64                                              offset     = 4;

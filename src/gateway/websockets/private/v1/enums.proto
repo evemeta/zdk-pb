@@ -15,12 +15,6 @@ enum Zone {
     ZoneSouthAmerica = 6;
 }
 
-enum Order {
-    OrderUnknown    = 0;
-    OrderAscending  = 1;
-    OrderDescending = 2;
-}
-
 enum Status {
     StatusUnknown     = 0;
     StatusInitiating  = 1;

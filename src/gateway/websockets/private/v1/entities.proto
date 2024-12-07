@@ -4,6 +4,7 @@ package gateway.websockets.private.v1;
 
 import "gateway/websockets/private/v1/enums.proto";
 import "gateway/sessions/private/v1/entities.proto";
+import "common/orders/public/v1/entities.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/websockets/private/v1;websocketspb";
 
@@ -15,15 +16,10 @@ message Chunk {
 }
 
 message Query {
-    gateway.websockets.private.v1.Order              order      = 1;
+    common.orders.public.v1.Order                    order      = 1;
     int64                                            limit      = 2;
     int64                                            offset     = 3;
     repeated gateway.websockets.private.v1.Condition conditions = 4;
-}
-
-message Message {
-    string name = 1;
-    bytes  data = 2;
 }
 
 message Condition {
@@ -48,13 +44,4 @@ message Websocket {
     int64                                access_time = 5;
     int64                                create_time = 6;
     int64                                update_time = 7;
-}
-
-// Timeframe represents a specific span or duration marked by its commencement and completion times.
-// It provides a clear boundary to understand when a particular activity began and when it ended.
-message Timeframe {
-    // Represents the timestamp indicating when the activity or retrieve of data commenced.
-    int64 commence = 1;
-    // Represents the timestamp indicating when the activity or retrieve of data completed.
-    int64 complete = 2;
 }

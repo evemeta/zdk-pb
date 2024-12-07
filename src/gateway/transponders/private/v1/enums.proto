@@ -5,12 +5,6 @@ package gateway.transponders.private.v1;
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/transponders/private/v1;transponderspb";
 
-enum Order {
-    OrderUnknown    = 0;
-    OrderAscending  = 1;
-    OrderDescending = 2;
-}
-
 enum Direction {
     DirectionUnknown        = 0;
     DirectionUpward         = 1;

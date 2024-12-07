@@ -13,7 +13,3 @@ message OptionalString {
 message OptionalProtocol {
     gateway.webhooks.private.v1.Protocol value = 1;
 }
-
-message OptionalMap {
-    map<string, string> value = 1;
-}

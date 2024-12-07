@@ -4,12 +4,13 @@ package gateway.websockets.private.v1;
 
 import "gateway/websockets/private/v1/entities.proto";
 import "gateway/websockets/private/v1/optionals.proto";
+import "common/timeframes/public/v1/entities.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/websockets/private/v1;websocketspb";
 
 message CreateWebsocketPacket {
     gateway.websockets.private.v1.Websocket websocket = 1;
-    gateway.websockets.private.v1.Timeframe timeframe = 2;
+    common.timeframes.public.v1.Timeframe   timeframe = 2;
 }
 
 message UpdateWebsocketPacket {
@@ -17,10 +18,10 @@ message UpdateWebsocketPacket {
     optional gateway.websockets.private.v1.OptionalZone   zone      = 2;
     optional gateway.websockets.private.v1.OptionalStatus status    = 3;
     optional gateway.websockets.private.v1.OptionalString address   = 4;
-    gateway.websockets.private.v1.Timeframe               timeframe = 5;
+    common.timeframes.public.v1.Timeframe                 timeframe = 5;
 }
 
 message DeleteWebsocketPacket {
-    string                                  id         = 1;
-    gateway.websockets.private.v1.Timeframe timeframe  = 2;
+    string                                id        = 1;
+    common.timeframes.public.v1.Timeframe timeframe = 2;
 }
