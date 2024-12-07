@@ -149,8 +149,12 @@ message BroadcastMutation {
 }
 
 message BroadcastCondition {
-    repeated gateway.sessions.private.v1.Session     sessions   = 1;
-    repeated gateway.websockets.private.v1.Websocket websockets = 2;
+    repeated gateway.websockets.private.v1.BroadcastDestination destinations = 1;
+}
+
+message BroadcastDestination {
+    gateway.websockets.private.v1.Websocket websocket = 1;
+    repeated string                         subjects  = 2;
 }
 
 message BroadcastTransaction {
