@@ -12,6 +12,8 @@ service Service {
 
     rpc Connect(ConnectRequest) returns (ConnectResponse);
 
+    rpc Broadcast(BroadcastRequest) returns (BroadcastResponse);
+
     rpc Disconnect(DisconnectRequest) returns (DisconnectResponse);
 
     rpc GetCpuUsage(GetCpuUsageRequest) returns (GetCpuUsageResponse);
