@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package common.messages.public.v1;
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/common/messages/public/v1;messagespb";
+
+// Message represents a packet with associated data
+message Message {
+    string name = 1;
+    bytes  data = 2;
+}
