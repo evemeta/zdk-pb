@@ -21,7 +21,7 @@ message UpdateConnectionPacket {
 }
 
 message DeleteConnectionPacket {
-    string                                   id         = 1;
-    string                                   sfu_id     = 2;
-    common.timeframes.public.v1.Timeframe    timeframe  = 3;
+    string                                id         = 1;
+    string                                sfu_id     = 2;
+    common.timeframes.public.v1.Timeframe timeframe  = 3;
 }

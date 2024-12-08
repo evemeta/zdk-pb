@@ -28,8 +28,8 @@ message BroadcastMutation {
 }
 
 message BroadcastCondition {
-    repeated gateway.sfus.private.v1.BroadcastMutation broadcast_sfu_mutations = 1;
-    repeated gateway.webhooks.private.v1.BroadcastMutation broadcast_webhook_mutations = 2;
+    repeated gateway.sfus.private.v1.BroadcastMutation       broadcast_sfu_mutations       = 1;
+    repeated gateway.webhooks.private.v1.BroadcastMutation   broadcast_webhook_mutations   = 2;
     repeated gateway.websockets.private.v1.BroadcastMutation broadcast_websocket_mutations = 3;
 }
 
