@@ -6,10 +6,14 @@ import "gateway/webhooks/private/v1/enums.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/webhooks/private/v1;webhookspb";
 
+// OptionalString represents a string value that can be intentionally left unset or null.
+// It allows for explicit control over the presence or absence of the string, accommodating scenarios where the string might be optional or intentionally omitted.
 message OptionalString {
     string value = 1;
 }
 
+// OptionalProtocol allows explicit control over the presence of a Protocol.
+// It supports scenarios where the protocol may be optional or intentionally unset.
 message OptionalProtocol {
     gateway.webhooks.private.v1.Protocol value = 1;
 }
