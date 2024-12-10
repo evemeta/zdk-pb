@@ -20,12 +20,12 @@ public object RoomKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.mcu.server.mcu.Room.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.mcu.server.mcu.Room = _builder.build()
 
     /**
@@ -155,6 +155,7 @@ public object RoomKt {
     public fun hasLayout(): kotlin.Boolean {
       return _builder.hasLayout()
     }
+
     public val RoomKt.Dsl.layoutOrNull: com.evemeta.zdk.pb.mcu.server.mcu.Layout?
       get() = _builder.layoutOrNull
 

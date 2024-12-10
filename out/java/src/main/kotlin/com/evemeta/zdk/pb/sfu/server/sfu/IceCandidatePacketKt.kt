@@ -20,12 +20,12 @@ public object IceCandidatePacketKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.sfu.server.sfu.IceCandidatePacket.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.sfu.server.sfu.IceCandidatePacket = _builder.build()
 
     /**
@@ -51,6 +51,7 @@ public object IceCandidatePacketKt {
     public fun hasIceCandidate(): kotlin.Boolean {
       return _builder.hasIceCandidate()
     }
+
     public val IceCandidatePacketKt.Dsl.iceCandidateOrNull: com.evemeta.zdk.pb.sfu.server.sfu.IceCandidate?
       get() = _builder.iceCandidateOrNull
   }

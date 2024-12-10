@@ -24,12 +24,12 @@ public object DeleteResponseKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.room.server.streams.DeleteResponse.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.room.server.streams.DeleteResponse = _builder.build()
 
     /**
@@ -67,6 +67,7 @@ public object DeleteResponseKt {
     public fun hasStream(): kotlin.Boolean {
       return _builder.hasStream()
     }
+
     public val DeleteResponseKt.Dsl.streamOrNull: com.evemeta.zdk.pb.room.server.streams.Stream?
       get() = _builder.streamOrNull
   }

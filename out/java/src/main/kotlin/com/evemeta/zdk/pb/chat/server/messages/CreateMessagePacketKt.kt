@@ -25,12 +25,12 @@ public object CreateMessagePacketKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.chat.server.messages.CreateMessagePacket.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.chat.server.messages.CreateMessagePacket = _builder.build()
 
     /**
@@ -68,6 +68,7 @@ public object CreateMessagePacketKt {
     public fun hasMessage(): kotlin.Boolean {
       return _builder.hasMessage()
     }
+
     public val CreateMessagePacketKt.Dsl.messageOrNull: com.evemeta.zdk.pb.chat.server.messages.Message?
       get() = _builder.messageOrNull
 
@@ -106,6 +107,7 @@ public object CreateMessagePacketKt {
     public fun hasTimeframe(): kotlin.Boolean {
       return _builder.hasTimeframe()
     }
+
     public val CreateMessagePacketKt.Dsl.timeframeOrNull: com.evemeta.zdk.pb.chat.server.messages.Timeframe?
       get() = _builder.timeframeOrNull
   }

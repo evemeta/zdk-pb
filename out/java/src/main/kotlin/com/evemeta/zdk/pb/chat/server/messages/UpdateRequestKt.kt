@@ -24,12 +24,12 @@ public object UpdateRequestKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.chat.server.messages.UpdateRequest.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.chat.server.messages.UpdateRequest = _builder.build()
 
     /**
@@ -92,6 +92,7 @@ public object UpdateRequestKt {
     public fun hasContent(): kotlin.Boolean {
       return _builder.hasContent()
     }
+
     public val UpdateRequestKt.Dsl.contentOrNull: com.evemeta.zdk.pb.chat.server.messages.OptionalString?
       get() = _builder.contentOrNull
   }

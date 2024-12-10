@@ -20,12 +20,12 @@ public object OfferKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.sfu.client.sfu.Offer.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.sfu.client.sfu.Offer = _builder.build()
 
     /**
@@ -116,6 +116,7 @@ public object OfferKt {
     public fun hasOptions(): kotlin.Boolean {
       return _builder.hasOptions()
     }
+
     public val OfferKt.Dsl.optionsOrNull: com.evemeta.zdk.pb.sfu.client.sfu.SfuConnectionOptions?
       get() = _builder.optionsOrNull
 

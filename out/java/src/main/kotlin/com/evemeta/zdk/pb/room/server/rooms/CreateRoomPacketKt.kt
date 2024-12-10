@@ -25,12 +25,12 @@ public object CreateRoomPacketKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.room.server.rooms.CreateRoomPacket.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.room.server.rooms.CreateRoomPacket = _builder.build()
 
     /**
@@ -68,6 +68,7 @@ public object CreateRoomPacketKt {
     public fun hasRoom(): kotlin.Boolean {
       return _builder.hasRoom()
     }
+
     public val CreateRoomPacketKt.Dsl.roomOrNull: com.evemeta.zdk.pb.room.server.rooms.Room?
       get() = _builder.roomOrNull
 
@@ -106,6 +107,7 @@ public object CreateRoomPacketKt {
     public fun hasTimeframe(): kotlin.Boolean {
       return _builder.hasTimeframe()
     }
+
     public val CreateRoomPacketKt.Dsl.timeframeOrNull: com.evemeta.zdk.pb.room.server.rooms.Timeframe?
       get() = _builder.timeframeOrNull
   }

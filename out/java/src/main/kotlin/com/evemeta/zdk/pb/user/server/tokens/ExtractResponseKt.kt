@@ -20,12 +20,12 @@ public object ExtractResponseKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.user.server.tokens.ExtractResponse.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.user.server.tokens.ExtractResponse = _builder.build()
 
     /**
@@ -51,6 +51,7 @@ public object ExtractResponseKt {
     public fun hasUser(): kotlin.Boolean {
       return _builder.hasUser()
     }
+
     public val ExtractResponseKt.Dsl.userOrNull: com.evemeta.zdk.pb.user.server.users.User?
       get() = _builder.userOrNull
   }

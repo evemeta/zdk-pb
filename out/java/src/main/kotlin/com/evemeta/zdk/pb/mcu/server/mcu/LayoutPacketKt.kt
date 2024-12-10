@@ -20,12 +20,12 @@ public object LayoutPacketKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.mcu.server.mcu.LayoutPacket.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.mcu.server.mcu.LayoutPacket = _builder.build()
 
     /**
@@ -51,6 +51,7 @@ public object LayoutPacketKt {
     public fun hasLayout(): kotlin.Boolean {
       return _builder.hasLayout()
     }
+
     public val LayoutPacketKt.Dsl.layoutOrNull: com.evemeta.zdk.pb.mcu.server.mcu.Layout?
       get() = _builder.layoutOrNull
   }

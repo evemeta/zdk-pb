@@ -24,12 +24,12 @@ public object DeleteResponseKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.room.server.restrictions.DeleteResponse.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.room.server.restrictions.DeleteResponse = _builder.build()
 
     /**
@@ -67,6 +67,7 @@ public object DeleteResponseKt {
     public fun hasRestriction(): kotlin.Boolean {
       return _builder.hasRestriction()
     }
+
     public val DeleteResponseKt.Dsl.restrictionOrNull: com.evemeta.zdk.pb.room.server.restrictions.Restriction?
       get() = _builder.restrictionOrNull
   }

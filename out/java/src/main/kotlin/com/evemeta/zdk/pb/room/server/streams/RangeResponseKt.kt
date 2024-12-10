@@ -24,12 +24,12 @@ public object RangeResponseKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.room.server.streams.RangeResponse.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.room.server.streams.RangeResponse = _builder.build()
 
     /**
@@ -67,6 +67,7 @@ public object RangeResponseKt {
     public fun hasChunk(): kotlin.Boolean {
       return _builder.hasChunk()
     }
+
     public val RangeResponseKt.Dsl.chunkOrNull: com.evemeta.zdk.pb.room.server.streams.Chunk?
       get() = _builder.chunkOrNull
   }

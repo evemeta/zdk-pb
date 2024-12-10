@@ -24,12 +24,12 @@ public object CreateResponseKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.room.server.restrictions.CreateResponse.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.room.server.restrictions.CreateResponse = _builder.build()
 
     /**
@@ -67,6 +67,7 @@ public object CreateResponseKt {
     public fun hasRestriction(): kotlin.Boolean {
       return _builder.hasRestriction()
     }
+
     public val CreateResponseKt.Dsl.restrictionOrNull: com.evemeta.zdk.pb.room.server.restrictions.Restriction?
       get() = _builder.restrictionOrNull
   }

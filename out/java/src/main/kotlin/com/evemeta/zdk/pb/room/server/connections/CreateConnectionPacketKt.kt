@@ -24,12 +24,12 @@ public object CreateConnectionPacketKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.room.server.connections.CreateConnectionPacket.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.room.server.connections.CreateConnectionPacket = _builder.build()
 
     /**
@@ -67,6 +67,7 @@ public object CreateConnectionPacketKt {
     public fun hasConnection(): kotlin.Boolean {
       return _builder.hasConnection()
     }
+
     public val CreateConnectionPacketKt.Dsl.connectionOrNull: com.evemeta.zdk.pb.room.server.connections.Connection?
       get() = _builder.connectionOrNull
 
@@ -105,6 +106,7 @@ public object CreateConnectionPacketKt {
     public fun hasTimeframe(): kotlin.Boolean {
       return _builder.hasTimeframe()
     }
+
     public val CreateConnectionPacketKt.Dsl.timeframeOrNull: com.evemeta.zdk.pb.room.server.connections.Timeframe?
       get() = _builder.timeframeOrNull
   }

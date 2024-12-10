@@ -24,12 +24,12 @@ public object RangeRequestKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.chat.server.members.RangeRequest.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.chat.server.members.RangeRequest = _builder.build()
 
     /**
@@ -67,6 +67,7 @@ public object RangeRequestKt {
     public fun hasQuery(): kotlin.Boolean {
       return _builder.hasQuery()
     }
+
     public val RangeRequestKt.Dsl.queryOrNull: com.evemeta.zdk.pb.chat.server.members.Query?
       get() = _builder.queryOrNull
   }

@@ -20,12 +20,12 @@ public object HandshakePacketKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.websocket.server.websocket.HandshakePacket.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.websocket.server.websocket.HandshakePacket = _builder.build()
 
     /**
@@ -51,6 +51,7 @@ public object HandshakePacketKt {
     public fun hasSession(): kotlin.Boolean {
       return _builder.hasSession()
     }
+
     public val HandshakePacketKt.Dsl.sessionOrNull: com.evemeta.zdk.pb.websocket.server.websocket.Session?
       get() = _builder.sessionOrNull
   }

@@ -24,12 +24,12 @@ public object UpdateResponseKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.room.server.streams.UpdateResponse.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.room.server.streams.UpdateResponse = _builder.build()
 
     /**
@@ -67,6 +67,7 @@ public object UpdateResponseKt {
     public fun hasStream(): kotlin.Boolean {
       return _builder.hasStream()
     }
+
     public val UpdateResponseKt.Dsl.streamOrNull: com.evemeta.zdk.pb.room.server.streams.Stream?
       get() = _builder.streamOrNull
   }

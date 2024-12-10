@@ -20,12 +20,12 @@ public object LayoutKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.mcu.server.mcu.Layout.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.mcu.server.mcu.Layout = _builder.build()
 
     /**
@@ -68,6 +68,7 @@ public object LayoutKt {
     public fun hasResolution(): kotlin.Boolean {
       return _builder.hasResolution()
     }
+
     public val LayoutKt.Dsl.resolutionOrNull: com.evemeta.zdk.pb.mcu.server.mcu.Resolution?
       get() = _builder.resolutionOrNull
 
@@ -166,6 +167,7 @@ public object LayoutKt {
     public fun hasCellConfig(): kotlin.Boolean {
       return _builder.hasCellConfig()
     }
+
     public val LayoutKt.Dsl.cellConfigOrNull: com.evemeta.zdk.pb.mcu.server.mcu.CellConfig?
       get() = _builder.cellConfigOrNull
 

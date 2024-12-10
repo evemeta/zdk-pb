@@ -25,12 +25,12 @@ public object ContextKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.chat.server.chats.Context.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.chat.server.chats.Context = _builder.build()
 
     /**
@@ -68,6 +68,7 @@ public object ContextKt {
     public fun hasChat(): kotlin.Boolean {
       return _builder.hasChat()
     }
+
     public val ContextKt.Dsl.chatOrNull: com.evemeta.zdk.pb.chat.server.chats.Chat?
       get() = _builder.chatOrNull
 
@@ -106,6 +107,7 @@ public object ContextKt {
     public fun hasChatTimeframe(): kotlin.Boolean {
       return _builder.hasChatTimeframe()
     }
+
     public val ContextKt.Dsl.chatTimeframeOrNull: com.evemeta.zdk.pb.chat.server.chats.Timeframe?
       get() = _builder.chatTimeframeOrNull
 
@@ -144,6 +146,7 @@ public object ContextKt {
     public fun hasMember(): kotlin.Boolean {
       return _builder.hasMember()
     }
+
     public val ContextKt.Dsl.memberOrNull: com.evemeta.zdk.pb.chat.server.members.Member?
       get() = _builder.memberOrNull
 
@@ -182,6 +185,7 @@ public object ContextKt {
     public fun hasMemberTimeframe(): kotlin.Boolean {
       return _builder.hasMemberTimeframe()
     }
+
     public val ContextKt.Dsl.memberTimeframeOrNull: com.evemeta.zdk.pb.chat.server.chats.Timeframe?
       get() = _builder.memberTimeframeOrNull
 
@@ -245,6 +249,7 @@ public object ContextKt {
     public fun hasMembersTimeframe(): kotlin.Boolean {
       return _builder.hasMembersTimeframe()
     }
+
     public val ContextKt.Dsl.membersTimeframeOrNull: com.evemeta.zdk.pb.chat.server.chats.Timeframe?
       get() = _builder.membersTimeframeOrNull
 
@@ -283,6 +288,7 @@ public object ContextKt {
     public fun hasMessages(): kotlin.Boolean {
       return _builder.hasMessages()
     }
+
     public val ContextKt.Dsl.messagesOrNull: com.evemeta.zdk.pb.chat.server.messages.Chunk?
       get() = _builder.messagesOrNull
 
@@ -321,6 +327,7 @@ public object ContextKt {
     public fun hasMessagesTimeframe(): kotlin.Boolean {
       return _builder.hasMessagesTimeframe()
     }
+
     public val ContextKt.Dsl.messagesTimeframeOrNull: com.evemeta.zdk.pb.chat.server.chats.Timeframe?
       get() = _builder.messagesTimeframeOrNull
   }

@@ -24,12 +24,12 @@ public object SelectRequestKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.chat.server.chats.SelectRequest.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.chat.server.chats.SelectRequest = _builder.build()
 
     /**
@@ -67,6 +67,7 @@ public object SelectRequestKt {
     public fun hasQuery(): kotlin.Boolean {
       return _builder.hasQuery()
     }
+
     public val SelectRequestKt.Dsl.queryOrNull: com.evemeta.zdk.pb.chat.server.chats.Query?
       get() = _builder.queryOrNull
   }

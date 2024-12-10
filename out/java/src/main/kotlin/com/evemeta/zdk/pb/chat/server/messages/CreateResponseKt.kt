@@ -24,12 +24,12 @@ public object CreateResponseKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.chat.server.messages.CreateResponse.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.chat.server.messages.CreateResponse = _builder.build()
 
     /**
@@ -67,6 +67,7 @@ public object CreateResponseKt {
     public fun hasMessage(): kotlin.Boolean {
       return _builder.hasMessage()
     }
+
     public val CreateResponseKt.Dsl.messageOrNull: com.evemeta.zdk.pb.chat.server.messages.Message?
       get() = _builder.messageOrNull
   }

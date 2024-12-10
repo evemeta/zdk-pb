@@ -20,12 +20,12 @@ public object SfuConnectionOptionsKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.sfu.client.sfu.SfuConnectionOptions.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.sfu.client.sfu.SfuConnectionOptions = _builder.build()
 
     /**

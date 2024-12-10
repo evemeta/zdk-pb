@@ -25,12 +25,12 @@ public object KickMemberPacketKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.room.server.members.KickMemberPacket.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.room.server.members.KickMemberPacket = _builder.build()
 
     /**
@@ -143,6 +143,7 @@ public object KickMemberPacketKt {
     public fun hasTimeframe(): kotlin.Boolean {
       return _builder.hasTimeframe()
     }
+
     public val KickMemberPacketKt.Dsl.timeframeOrNull: com.evemeta.zdk.pb.room.server.members.Timeframe?
       get() = _builder.timeframeOrNull
   }

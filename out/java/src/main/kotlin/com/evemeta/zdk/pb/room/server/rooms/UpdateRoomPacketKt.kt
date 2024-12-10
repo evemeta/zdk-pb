@@ -25,12 +25,12 @@ public object UpdateRoomPacketKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.room.server.rooms.UpdateRoomPacket.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.room.server.rooms.UpdateRoomPacket = _builder.build()
 
     /**
@@ -93,6 +93,7 @@ public object UpdateRoomPacketKt {
     public fun hasCapacity(): kotlin.Boolean {
       return _builder.hasCapacity()
     }
+
     public val UpdateRoomPacketKt.Dsl.capacityOrNull: com.evemeta.zdk.pb.room.server.rooms.OptionalInt64?
       get() = _builder.capacityOrNull
 
@@ -131,6 +132,7 @@ public object UpdateRoomPacketKt {
     public fun hasMetadata(): kotlin.Boolean {
       return _builder.hasMetadata()
     }
+
     public val UpdateRoomPacketKt.Dsl.metadataOrNull: com.evemeta.zdk.pb.room.server.rooms.OptionalMap?
       get() = _builder.metadataOrNull
 
@@ -169,6 +171,7 @@ public object UpdateRoomPacketKt {
     public fun hasTimeframe(): kotlin.Boolean {
       return _builder.hasTimeframe()
     }
+
     public val UpdateRoomPacketKt.Dsl.timeframeOrNull: com.evemeta.zdk.pb.room.server.rooms.Timeframe?
       get() = _builder.timeframeOrNull
   }

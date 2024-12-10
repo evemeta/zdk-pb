@@ -24,12 +24,12 @@ public object DeleteResponseKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.chat.server.messages.DeleteResponse.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.chat.server.messages.DeleteResponse = _builder.build()
 
     /**
@@ -67,6 +67,7 @@ public object DeleteResponseKt {
     public fun hasMessage(): kotlin.Boolean {
       return _builder.hasMessage()
     }
+
     public val DeleteResponseKt.Dsl.messageOrNull: com.evemeta.zdk.pb.chat.server.messages.Message?
       get() = _builder.messageOrNull
   }

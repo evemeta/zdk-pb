@@ -24,12 +24,12 @@ public object CountRequestKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.room.server.connections.CountRequest.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.room.server.connections.CountRequest = _builder.build()
 
     /**
@@ -67,6 +67,7 @@ public object CountRequestKt {
     public fun hasQuery(): kotlin.Boolean {
       return _builder.hasQuery()
     }
+
     public val CountRequestKt.Dsl.queryOrNull: com.evemeta.zdk.pb.room.server.connections.Query?
       get() = _builder.queryOrNull
   }

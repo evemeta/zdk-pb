@@ -25,12 +25,12 @@ public object UpdateStreamPacketKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.room.server.streams.UpdateStreamPacket.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.room.server.streams.UpdateStreamPacket = _builder.build()
 
     /**
@@ -118,6 +118,7 @@ public object UpdateStreamPacketKt {
     public fun hasStatus(): kotlin.Boolean {
       return _builder.hasStatus()
     }
+
     public val UpdateStreamPacketKt.Dsl.statusOrNull: com.evemeta.zdk.pb.room.server.streams.OptionalStatus?
       get() = _builder.statusOrNull
 
@@ -156,6 +157,7 @@ public object UpdateStreamPacketKt {
     public fun hasTimeframe(): kotlin.Boolean {
       return _builder.hasTimeframe()
     }
+
     public val UpdateStreamPacketKt.Dsl.timeframeOrNull: com.evemeta.zdk.pb.room.server.streams.Timeframe?
       get() = _builder.timeframeOrNull
   }

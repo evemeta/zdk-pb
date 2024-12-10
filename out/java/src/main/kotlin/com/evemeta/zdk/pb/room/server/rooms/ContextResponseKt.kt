@@ -24,12 +24,12 @@ public object ContextResponseKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.room.server.rooms.ContextResponse.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.room.server.rooms.ContextResponse = _builder.build()
 
     /**
@@ -67,6 +67,7 @@ public object ContextResponseKt {
     public fun hasContext(): kotlin.Boolean {
       return _builder.hasContext()
     }
+
     public val ContextResponseKt.Dsl.contextOrNull: com.evemeta.zdk.pb.room.server.rooms.Context?
       get() = _builder.contextOrNull
   }

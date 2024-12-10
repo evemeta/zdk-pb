@@ -25,12 +25,12 @@ public object QueryKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.room.server.connections.Query.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.room.server.connections.Query = _builder.build()
 
     /**
@@ -150,6 +150,7 @@ public object QueryKt {
     public fun hasCondition(): kotlin.Boolean {
       return _builder.hasCondition()
     }
+
     public val QueryKt.Dsl.conditionOrNull: com.evemeta.zdk.pb.room.server.connections.Condition?
       get() = _builder.conditionOrNull
   }

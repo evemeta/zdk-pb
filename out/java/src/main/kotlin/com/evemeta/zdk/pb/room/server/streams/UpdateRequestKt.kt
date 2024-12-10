@@ -24,12 +24,12 @@ public object UpdateRequestKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.room.server.streams.UpdateRequest.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.room.server.streams.UpdateRequest = _builder.build()
 
     /**
@@ -92,6 +92,7 @@ public object UpdateRequestKt {
     public fun hasStatus(): kotlin.Boolean {
       return _builder.hasStatus()
     }
+
     public val UpdateRequestKt.Dsl.statusOrNull: com.evemeta.zdk.pb.room.server.streams.OptionalStatus?
       get() = _builder.statusOrNull
   }

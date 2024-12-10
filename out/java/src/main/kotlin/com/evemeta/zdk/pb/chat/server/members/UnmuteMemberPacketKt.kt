@@ -25,12 +25,12 @@ public object UnmuteMemberPacketKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.chat.server.members.UnmuteMemberPacket.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.chat.server.members.UnmuteMemberPacket = _builder.build()
 
     /**
@@ -118,6 +118,7 @@ public object UnmuteMemberPacketKt {
     public fun hasTimeframe(): kotlin.Boolean {
       return _builder.hasTimeframe()
     }
+
     public val UnmuteMemberPacketKt.Dsl.timeframeOrNull: com.evemeta.zdk.pb.chat.server.members.Timeframe?
       get() = _builder.timeframeOrNull
   }

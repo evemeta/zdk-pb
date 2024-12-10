@@ -24,12 +24,12 @@ public object CreateRestrictionPacketKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.room.server.restrictions.CreateRestrictionPacket.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.room.server.restrictions.CreateRestrictionPacket = _builder.build()
 
     /**
@@ -67,6 +67,7 @@ public object CreateRestrictionPacketKt {
     public fun hasRestriction(): kotlin.Boolean {
       return _builder.hasRestriction()
     }
+
     public val CreateRestrictionPacketKt.Dsl.restrictionOrNull: com.evemeta.zdk.pb.room.server.restrictions.Restriction?
       get() = _builder.restrictionOrNull
 
@@ -105,6 +106,7 @@ public object CreateRestrictionPacketKt {
     public fun hasTimeframe(): kotlin.Boolean {
       return _builder.hasTimeframe()
     }
+
     public val CreateRestrictionPacketKt.Dsl.timeframeOrNull: com.evemeta.zdk.pb.room.server.restrictions.Timeframe?
       get() = _builder.timeframeOrNull
   }

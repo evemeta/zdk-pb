@@ -25,12 +25,12 @@ public object DeleteMessagePacketKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.chat.server.messages.DeleteMessagePacket.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.chat.server.messages.DeleteMessagePacket = _builder.build()
 
     /**
@@ -118,6 +118,7 @@ public object DeleteMessagePacketKt {
     public fun hasTimeframe(): kotlin.Boolean {
       return _builder.hasTimeframe()
     }
+
     public val DeleteMessagePacketKt.Dsl.timeframeOrNull: com.evemeta.zdk.pb.chat.server.messages.Timeframe?
       get() = _builder.timeframeOrNull
   }

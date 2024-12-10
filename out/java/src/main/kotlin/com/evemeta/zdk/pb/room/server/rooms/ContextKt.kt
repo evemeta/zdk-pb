@@ -25,12 +25,12 @@ public object ContextKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.room.server.rooms.Context.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.room.server.rooms.Context = _builder.build()
 
     /**
@@ -68,6 +68,7 @@ public object ContextKt {
     public fun hasRoom(): kotlin.Boolean {
       return _builder.hasRoom()
     }
+
     public val ContextKt.Dsl.roomOrNull: com.evemeta.zdk.pb.room.server.rooms.Room?
       get() = _builder.roomOrNull
 
@@ -106,6 +107,7 @@ public object ContextKt {
     public fun hasRoomTimeframe(): kotlin.Boolean {
       return _builder.hasRoomTimeframe()
     }
+
     public val ContextKt.Dsl.roomTimeframeOrNull: com.evemeta.zdk.pb.room.server.rooms.Timeframe?
       get() = _builder.roomTimeframeOrNull
 
@@ -144,6 +146,7 @@ public object ContextKt {
     public fun hasChat(): kotlin.Boolean {
       return _builder.hasChat()
     }
+
     public val ContextKt.Dsl.chatOrNull: com.evemeta.zdk.pb.chat.server.chats.Chat?
       get() = _builder.chatOrNull
 
@@ -182,6 +185,7 @@ public object ContextKt {
     public fun hasChatTimeframe(): kotlin.Boolean {
       return _builder.hasChatTimeframe()
     }
+
     public val ContextKt.Dsl.chatTimeframeOrNull: com.evemeta.zdk.pb.room.server.rooms.Timeframe?
       get() = _builder.chatTimeframeOrNull
 
@@ -220,6 +224,7 @@ public object ContextKt {
     public fun hasMember(): kotlin.Boolean {
       return _builder.hasMember()
     }
+
     public val ContextKt.Dsl.memberOrNull: com.evemeta.zdk.pb.room.server.members.Member?
       get() = _builder.memberOrNull
 
@@ -258,6 +263,7 @@ public object ContextKt {
     public fun hasMemberTimeframe(): kotlin.Boolean {
       return _builder.hasMemberTimeframe()
     }
+
     public val ContextKt.Dsl.memberTimeframeOrNull: com.evemeta.zdk.pb.room.server.rooms.Timeframe?
       get() = _builder.memberTimeframeOrNull
 
@@ -396,6 +402,7 @@ public object ContextKt {
     public fun hasMembersTimeframe(): kotlin.Boolean {
       return _builder.hasMembersTimeframe()
     }
+
     public val ContextKt.Dsl.membersTimeframeOrNull: com.evemeta.zdk.pb.room.server.rooms.Timeframe?
       get() = _builder.membersTimeframeOrNull
 
@@ -534,6 +541,7 @@ public object ContextKt {
     public fun hasStreamsTimeframe(): kotlin.Boolean {
       return _builder.hasStreamsTimeframe()
     }
+
     public val ContextKt.Dsl.streamsTimeframeOrNull: com.evemeta.zdk.pb.room.server.rooms.Timeframe?
       get() = _builder.streamsTimeframeOrNull
 
@@ -672,6 +680,7 @@ public object ContextKt {
     public fun hasConnectionsTimeframe(): kotlin.Boolean {
       return _builder.hasConnectionsTimeframe()
     }
+
     public val ContextKt.Dsl.connectionsTimeframeOrNull: com.evemeta.zdk.pb.room.server.rooms.Timeframe?
       get() = _builder.connectionsTimeframeOrNull
 
@@ -810,6 +819,7 @@ public object ContextKt {
     public fun hasRestrictionsTimeframe(): kotlin.Boolean {
       return _builder.hasRestrictionsTimeframe()
     }
+
     public val ContextKt.Dsl.restrictionsTimeframeOrNull: com.evemeta.zdk.pb.room.server.rooms.Timeframe?
       get() = _builder.restrictionsTimeframeOrNull
   }

@@ -25,12 +25,12 @@ public object BlockMemberPacketKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.chat.server.members.BlockMemberPacket.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.chat.server.members.BlockMemberPacket = _builder.build()
 
     /**
@@ -168,6 +168,7 @@ public object BlockMemberPacketKt {
     public fun hasTimeframe(): kotlin.Boolean {
       return _builder.hasTimeframe()
     }
+
     public val BlockMemberPacketKt.Dsl.timeframeOrNull: com.evemeta.zdk.pb.chat.server.members.Timeframe?
       get() = _builder.timeframeOrNull
   }

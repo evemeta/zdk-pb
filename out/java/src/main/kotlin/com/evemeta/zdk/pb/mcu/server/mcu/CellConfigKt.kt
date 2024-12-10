@@ -20,12 +20,12 @@ public object CellConfigKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.mcu.server.mcu.CellConfig.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.mcu.server.mcu.CellConfig = _builder.build()
 
     /**
@@ -68,6 +68,7 @@ public object CellConfigKt {
     public fun hasCellResolution(): kotlin.Boolean {
       return _builder.hasCellResolution()
     }
+
     public val CellConfigKt.Dsl.cellResolutionOrNull: com.evemeta.zdk.pb.mcu.server.mcu.Resolution?
       get() = _builder.cellResolutionOrNull
   }

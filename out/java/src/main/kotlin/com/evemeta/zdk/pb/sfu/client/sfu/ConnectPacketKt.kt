@@ -20,12 +20,12 @@ public object ConnectPacketKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.sfu.client.sfu.ConnectPacket.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.sfu.client.sfu.ConnectPacket = _builder.build()
 
     /**
@@ -51,6 +51,7 @@ public object ConnectPacketKt {
     public fun hasOffer(): kotlin.Boolean {
       return _builder.hasOffer()
     }
+
     public val ConnectPacketKt.Dsl.offerOrNull: com.evemeta.zdk.pb.sfu.client.sfu.Offer?
       get() = _builder.offerOrNull
   }

@@ -24,12 +24,12 @@ public object UpdateConnectionPacketKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.room.server.connections.UpdateConnectionPacket.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.room.server.connections.UpdateConnectionPacket = _builder.build()
 
     /**
@@ -117,6 +117,7 @@ public object UpdateConnectionPacketKt {
     public fun hasStatus(): kotlin.Boolean {
       return _builder.hasStatus()
     }
+
     public val UpdateConnectionPacketKt.Dsl.statusOrNull: com.evemeta.zdk.pb.room.server.connections.OptionalStatus?
       get() = _builder.statusOrNull
 
@@ -155,6 +156,7 @@ public object UpdateConnectionPacketKt {
     public fun hasTimeframe(): kotlin.Boolean {
       return _builder.hasTimeframe()
     }
+
     public val UpdateConnectionPacketKt.Dsl.timeframeOrNull: com.evemeta.zdk.pb.room.server.connections.Timeframe?
       get() = _builder.timeframeOrNull
   }

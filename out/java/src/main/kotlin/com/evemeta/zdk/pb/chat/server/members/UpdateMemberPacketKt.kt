@@ -25,12 +25,12 @@ public object UpdateMemberPacketKt {
   ) {
     public companion object {
       @kotlin.jvm.JvmSynthetic
-      @kotlin.PublishedApi
+    @kotlin.PublishedApi
       internal fun _create(builder: com.evemeta.zdk.pb.chat.server.members.UpdateMemberPacket.Builder): Dsl = Dsl(builder)
     }
 
     @kotlin.jvm.JvmSynthetic
-    @kotlin.PublishedApi
+  @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.chat.server.members.UpdateMemberPacket = _builder.build()
 
     /**
@@ -118,6 +118,7 @@ public object UpdateMemberPacketKt {
     public fun hasMetadata(): kotlin.Boolean {
       return _builder.hasMetadata()
     }
+
     public val UpdateMemberPacketKt.Dsl.metadataOrNull: com.evemeta.zdk.pb.chat.server.members.OptionalMap?
       get() = _builder.metadataOrNull
 
@@ -156,6 +157,7 @@ public object UpdateMemberPacketKt {
     public fun hasTimeframe(): kotlin.Boolean {
       return _builder.hasTimeframe()
     }
+
     public val UpdateMemberPacketKt.Dsl.timeframeOrNull: com.evemeta.zdk.pb.chat.server.members.Timeframe?
       get() = _builder.timeframeOrNull
   }
