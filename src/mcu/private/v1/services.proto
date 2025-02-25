@@ -10,35 +10,13 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/mcu/private/v1;mcupb";
 service Service {
 
     rpc AddRoom(AddRoomRequest) returns (AddRoomResponse);
-
     rpc RemoveRoom(RemoveRoomRequest) returns (RemoveRoomResponse);
 
     rpc StreamInput(stream InputPacket) returns (stream OutputPacket);
     rpc StreamOutput(stream OutputStreamRequest) returns (stream OutputPacket);
 
-    rpc StartStreaming(StartStreamingRequest) returns (StartStreamingResponse);
-
-    rpc StopStreaming(StopStreamingRequest) returns (StopStreamingResponse);
-
-    rpc SetStreamer(SetStreamerRequest) returns (SetStreamerResponse);
-
-    rpc GetStreamer(GetStreamerRequest) returns (GetStreamerResponse);
-
-    rpc GetStreamers(GetStreamersRequest) returns (GetStreamersResponse);
-
-    rpc UpdateBroadcast(UpdateBroadcastRequest) returns (UpdateBroadcastResponse);
-
     rpc AddRooms(AddRoomsRequest) returns (AddRoomsResponse);
-
     rpc RemoveRooms(RemoveRoomsRequest) returns (RemoveRoomsResponse);
-
     rpc ListRooms(ListRoomsRequest) returns (ListRoomsResponse);
-
     rpc GetRoom(GetRoomRequest) returns (GetRoomResponse);
-
-    rpc StartRoomEvents(StartRoomEventsRequest) returns (StartRoomEventsResponse);
-
-    rpc StopRoomEvents(StopRoomEventsRequest) returns (StopRoomEventsResponse);
-
-    rpc UpdateRooms(UpdateRoomsRequest) returns (UpdateRoomsResponse);
 }

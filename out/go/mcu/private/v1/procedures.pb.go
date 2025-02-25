@@ -21,171 +21,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type UpdateRoomsRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	UpdateRooms []*UpdateRoom `protobuf:"bytes,1,rep,name=update_rooms,json=updateRooms,proto3" json:"update_rooms,omitempty"`
-}
-
-func (x *UpdateRoomsRequest) Reset() {
-	*x = UpdateRoomsRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[0]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UpdateRoomsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateRoomsRequest) ProtoMessage() {}
-
-func (x *UpdateRoomsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[0]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateRoomsRequest.ProtoReflect.Descriptor instead.
-func (*UpdateRoomsRequest) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *UpdateRoomsRequest) GetUpdateRooms() []*UpdateRoom {
-	if x != nil {
-		return x.UpdateRooms
-	}
-	return nil
-}
-
-type UpdateRoomsResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	SuccessfulRoomUpdates []*v1.Room `protobuf:"bytes,1,rep,name=successful_room_updates,json=successfulRoomUpdates,proto3" json:"successful_room_updates,omitempty"`
-	FailedRoomUpdates     []*v1.Room `protobuf:"bytes,2,rep,name=failed_room_updates,json=failedRoomUpdates,proto3" json:"failed_room_updates,omitempty"`
-}
-
-func (x *UpdateRoomsResponse) Reset() {
-	*x = UpdateRoomsResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[1]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UpdateRoomsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateRoomsResponse) ProtoMessage() {}
-
-func (x *UpdateRoomsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[1]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateRoomsResponse.ProtoReflect.Descriptor instead.
-func (*UpdateRoomsResponse) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *UpdateRoomsResponse) GetSuccessfulRoomUpdates() []*v1.Room {
-	if x != nil {
-		return x.SuccessfulRoomUpdates
-	}
-	return nil
-}
-
-func (x *UpdateRoomsResponse) GetFailedRoomUpdates() []*v1.Room {
-	if x != nil {
-		return x.FailedRoomUpdates
-	}
-	return nil
-}
-
-type UpdateRoom struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	RoomId        string               `protobuf:"bytes,1,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
-	RoomBroadcast *UpdateRoomBroadcast `protobuf:"bytes,2,opt,name=room_broadcast,json=roomBroadcast,proto3" json:"room_broadcast,omitempty"`
-	EventId       *StringValue         `protobuf:"bytes,3,opt,name=event_id,json=eventId,proto3" json:"event_id,omitempty"`
-}
-
-func (x *UpdateRoom) Reset() {
-	*x = UpdateRoom{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[2]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UpdateRoom) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateRoom) ProtoMessage() {}
-
-func (x *UpdateRoom) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[2]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateRoom.ProtoReflect.Descriptor instead.
-func (*UpdateRoom) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *UpdateRoom) GetRoomId() string {
-	if x != nil {
-		return x.RoomId
-	}
-	return ""
-}
-
-func (x *UpdateRoom) GetRoomBroadcast() *UpdateRoomBroadcast {
-	if x != nil {
-		return x.RoomBroadcast
-	}
-	return nil
-}
-
-func (x *UpdateRoom) GetEventId() *StringValue {
-	if x != nil {
-		return x.EventId
-	}
-	return nil
-}
-
 type StringValue struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -197,7 +32,7 @@ type StringValue struct {
 func (x *StringValue) Reset() {
 	*x = StringValue{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[3]
+		mi := &file_mcu_private_v1_procedures_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -210,7 +45,7 @@ func (x *StringValue) String() string {
 func (*StringValue) ProtoMessage() {}
 
 func (x *StringValue) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[3]
+	mi := &file_mcu_private_v1_procedures_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -223,7 +58,7 @@ func (x *StringValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StringValue.ProtoReflect.Descriptor instead.
 func (*StringValue) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{3}
+	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *StringValue) GetValue() string {
@@ -231,77 +66,6 @@ func (x *StringValue) GetValue() string {
 		return x.Value
 	}
 	return ""
-}
-
-type UpdateRoomBroadcast struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	UpdateBroadcastLayout     *UpdateBroadcastLayout     `protobuf:"bytes,2,opt,name=update_broadcast_layout,json=updateBroadcastLayout,proto3" json:"update_broadcast_layout,omitempty"`
-	UpdateBroadcastPerformers *UpdateBroadcastPerformers `protobuf:"bytes,3,opt,name=update_broadcast_performers,json=updateBroadcastPerformers,proto3" json:"update_broadcast_performers,omitempty"`
-	UpdateMixerType           *UpdateMixerType           `protobuf:"bytes,4,opt,name=update_mixer_type,json=updateMixerType,proto3" json:"update_mixer_type,omitempty"`
-	UpdateRoomGridOrder       *UpdateRoomGridOrder       `protobuf:"bytes,5,opt,name=update_room_grid_order,json=updateRoomGridOrder,proto3" json:"update_room_grid_order,omitempty"`
-}
-
-func (x *UpdateRoomBroadcast) Reset() {
-	*x = UpdateRoomBroadcast{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[4]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UpdateRoomBroadcast) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateRoomBroadcast) ProtoMessage() {}
-
-func (x *UpdateRoomBroadcast) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[4]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateRoomBroadcast.ProtoReflect.Descriptor instead.
-func (*UpdateRoomBroadcast) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *UpdateRoomBroadcast) GetUpdateBroadcastLayout() *UpdateBroadcastLayout {
-	if x != nil {
-		return x.UpdateBroadcastLayout
-	}
-	return nil
-}
-
-func (x *UpdateRoomBroadcast) GetUpdateBroadcastPerformers() *UpdateBroadcastPerformers {
-	if x != nil {
-		return x.UpdateBroadcastPerformers
-	}
-	return nil
-}
-
-func (x *UpdateRoomBroadcast) GetUpdateMixerType() *UpdateMixerType {
-	if x != nil {
-		return x.UpdateMixerType
-	}
-	return nil
-}
-
-func (x *UpdateRoomBroadcast) GetUpdateRoomGridOrder() *UpdateRoomGridOrder {
-	if x != nil {
-		return x.UpdateRoomGridOrder
-	}
-	return nil
 }
 
 type GetRoomRequest struct {
@@ -315,7 +79,7 @@ type GetRoomRequest struct {
 func (x *GetRoomRequest) Reset() {
 	*x = GetRoomRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[5]
+		mi := &file_mcu_private_v1_procedures_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -328,7 +92,7 @@ func (x *GetRoomRequest) String() string {
 func (*GetRoomRequest) ProtoMessage() {}
 
 func (x *GetRoomRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[5]
+	mi := &file_mcu_private_v1_procedures_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -341,7 +105,7 @@ func (x *GetRoomRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRoomRequest.ProtoReflect.Descriptor instead.
 func (*GetRoomRequest) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{5}
+	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *GetRoomRequest) GetRoomId() string {
@@ -362,7 +126,7 @@ type GetRoomResponse struct {
 func (x *GetRoomResponse) Reset() {
 	*x = GetRoomResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[6]
+		mi := &file_mcu_private_v1_procedures_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -375,7 +139,7 @@ func (x *GetRoomResponse) String() string {
 func (*GetRoomResponse) ProtoMessage() {}
 
 func (x *GetRoomResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[6]
+	mi := &file_mcu_private_v1_procedures_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -388,7 +152,7 @@ func (x *GetRoomResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRoomResponse.ProtoReflect.Descriptor instead.
 func (*GetRoomResponse) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{6}
+	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *GetRoomResponse) GetRoom() *v1.Room {
@@ -409,7 +173,7 @@ type ListRoomsRequest struct {
 func (x *ListRoomsRequest) Reset() {
 	*x = ListRoomsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[7]
+		mi := &file_mcu_private_v1_procedures_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -422,7 +186,7 @@ func (x *ListRoomsRequest) String() string {
 func (*ListRoomsRequest) ProtoMessage() {}
 
 func (x *ListRoomsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[7]
+	mi := &file_mcu_private_v1_procedures_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -435,7 +199,7 @@ func (x *ListRoomsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListRoomsRequest.ProtoReflect.Descriptor instead.
 func (*ListRoomsRequest) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{7}
+	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *ListRoomsRequest) GetRoomIds() []string {
@@ -456,7 +220,7 @@ type ListRoomsResponse struct {
 func (x *ListRoomsResponse) Reset() {
 	*x = ListRoomsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[8]
+		mi := &file_mcu_private_v1_procedures_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -469,7 +233,7 @@ func (x *ListRoomsResponse) String() string {
 func (*ListRoomsResponse) ProtoMessage() {}
 
 func (x *ListRoomsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[8]
+	mi := &file_mcu_private_v1_procedures_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -482,198 +246,10 @@ func (x *ListRoomsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListRoomsResponse.ProtoReflect.Descriptor instead.
 func (*ListRoomsResponse) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{8}
+	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *ListRoomsResponse) GetRooms() []*v1.Room {
-	if x != nil {
-		return x.Rooms
-	}
-	return nil
-}
-
-type StopRoomEventsRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	RoomIds []string `protobuf:"bytes,1,rep,name=room_ids,json=roomIds,proto3" json:"room_ids,omitempty"`
-}
-
-func (x *StopRoomEventsRequest) Reset() {
-	*x = StopRoomEventsRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[9]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *StopRoomEventsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StopRoomEventsRequest) ProtoMessage() {}
-
-func (x *StopRoomEventsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[9]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StopRoomEventsRequest.ProtoReflect.Descriptor instead.
-func (*StopRoomEventsRequest) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{9}
-}
-
-func (x *StopRoomEventsRequest) GetRoomIds() []string {
-	if x != nil {
-		return x.RoomIds
-	}
-	return nil
-}
-
-type StopRoomEventsResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Rooms []*v1.Room `protobuf:"bytes,1,rep,name=rooms,proto3" json:"rooms,omitempty"`
-}
-
-func (x *StopRoomEventsResponse) Reset() {
-	*x = StopRoomEventsResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[10]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *StopRoomEventsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StopRoomEventsResponse) ProtoMessage() {}
-
-func (x *StopRoomEventsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[10]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StopRoomEventsResponse.ProtoReflect.Descriptor instead.
-func (*StopRoomEventsResponse) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{10}
-}
-
-func (x *StopRoomEventsResponse) GetRooms() []*v1.Room {
-	if x != nil {
-		return x.Rooms
-	}
-	return nil
-}
-
-type StartRoomEventsRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	UpdateRooms []*UpdateRoom `protobuf:"bytes,1,rep,name=update_rooms,json=updateRooms,proto3" json:"update_rooms,omitempty"`
-}
-
-func (x *StartRoomEventsRequest) Reset() {
-	*x = StartRoomEventsRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[11]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *StartRoomEventsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StartRoomEventsRequest) ProtoMessage() {}
-
-func (x *StartRoomEventsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[11]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StartRoomEventsRequest.ProtoReflect.Descriptor instead.
-func (*StartRoomEventsRequest) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{11}
-}
-
-func (x *StartRoomEventsRequest) GetUpdateRooms() []*UpdateRoom {
-	if x != nil {
-		return x.UpdateRooms
-	}
-	return nil
-}
-
-type StartRoomEventsResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Rooms []*v1.Room `protobuf:"bytes,1,rep,name=rooms,proto3" json:"rooms,omitempty"`
-}
-
-func (x *StartRoomEventsResponse) Reset() {
-	*x = StartRoomEventsResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[12]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *StartRoomEventsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StartRoomEventsResponse) ProtoMessage() {}
-
-func (x *StartRoomEventsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[12]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StartRoomEventsResponse.ProtoReflect.Descriptor instead.
-func (*StartRoomEventsResponse) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{12}
-}
-
-func (x *StartRoomEventsResponse) GetRooms() []*v1.Room {
 	if x != nil {
 		return x.Rooms
 	}
@@ -691,7 +267,7 @@ type AddRoomsRequest struct {
 func (x *AddRoomsRequest) Reset() {
 	*x = AddRoomsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[13]
+		mi := &file_mcu_private_v1_procedures_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -704,7 +280,7 @@ func (x *AddRoomsRequest) String() string {
 func (*AddRoomsRequest) ProtoMessage() {}
 
 func (x *AddRoomsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[13]
+	mi := &file_mcu_private_v1_procedures_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -717,7 +293,7 @@ func (x *AddRoomsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddRoomsRequest.ProtoReflect.Descriptor instead.
 func (*AddRoomsRequest) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{13}
+	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *AddRoomsRequest) GetRoomIds() []string {
@@ -738,7 +314,7 @@ type AddRoomsResponse struct {
 func (x *AddRoomsResponse) Reset() {
 	*x = AddRoomsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[14]
+		mi := &file_mcu_private_v1_procedures_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -751,7 +327,7 @@ func (x *AddRoomsResponse) String() string {
 func (*AddRoomsResponse) ProtoMessage() {}
 
 func (x *AddRoomsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[14]
+	mi := &file_mcu_private_v1_procedures_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -764,7 +340,7 @@ func (x *AddRoomsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddRoomsResponse.ProtoReflect.Descriptor instead.
 func (*AddRoomsResponse) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{14}
+	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *AddRoomsResponse) GetRoomIds() []string {
@@ -785,7 +361,7 @@ type RemoveRoomsRequest struct {
 func (x *RemoveRoomsRequest) Reset() {
 	*x = RemoveRoomsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[15]
+		mi := &file_mcu_private_v1_procedures_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -798,7 +374,7 @@ func (x *RemoveRoomsRequest) String() string {
 func (*RemoveRoomsRequest) ProtoMessage() {}
 
 func (x *RemoveRoomsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[15]
+	mi := &file_mcu_private_v1_procedures_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -811,7 +387,7 @@ func (x *RemoveRoomsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveRoomsRequest.ProtoReflect.Descriptor instead.
 func (*RemoveRoomsRequest) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{15}
+	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *RemoveRoomsRequest) GetRoomIds() []string {
@@ -832,7 +408,7 @@ type RemoveRoomsResponse struct {
 func (x *RemoveRoomsResponse) Reset() {
 	*x = RemoveRoomsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[16]
+		mi := &file_mcu_private_v1_procedures_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -845,7 +421,7 @@ func (x *RemoveRoomsResponse) String() string {
 func (*RemoveRoomsResponse) ProtoMessage() {}
 
 func (x *RemoveRoomsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[16]
+	mi := &file_mcu_private_v1_procedures_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -858,7 +434,7 @@ func (x *RemoveRoomsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveRoomsResponse.ProtoReflect.Descriptor instead.
 func (*RemoveRoomsResponse) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{16}
+	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *RemoveRoomsResponse) GetRoomIds() []string {
@@ -866,949 +442,6 @@ func (x *RemoveRoomsResponse) GetRoomIds() []string {
 		return x.RoomIds
 	}
 	return nil
-}
-
-type UpdateBroadcastRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	RoomId                    string                     `protobuf:"bytes,1,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
-	UpdateBroadcastLayout     *UpdateBroadcastLayout     `protobuf:"bytes,2,opt,name=update_broadcast_layout,json=updateBroadcastLayout,proto3" json:"update_broadcast_layout,omitempty"`
-	UpdateBroadcastPerformers *UpdateBroadcastPerformers `protobuf:"bytes,3,opt,name=update_broadcast_performers,json=updateBroadcastPerformers,proto3" json:"update_broadcast_performers,omitempty"`
-	UpdateMixerType           *UpdateMixerType           `protobuf:"bytes,4,opt,name=update_mixer_type,json=updateMixerType,proto3" json:"update_mixer_type,omitempty"`
-	UpdateRoomGridOrder       *UpdateRoomGridOrder       `protobuf:"bytes,5,opt,name=update_room_grid_order,json=updateRoomGridOrder,proto3" json:"update_room_grid_order,omitempty"`
-}
-
-func (x *UpdateBroadcastRequest) Reset() {
-	*x = UpdateBroadcastRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[17]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UpdateBroadcastRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateBroadcastRequest) ProtoMessage() {}
-
-func (x *UpdateBroadcastRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[17]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateBroadcastRequest.ProtoReflect.Descriptor instead.
-func (*UpdateBroadcastRequest) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{17}
-}
-
-func (x *UpdateBroadcastRequest) GetRoomId() string {
-	if x != nil {
-		return x.RoomId
-	}
-	return ""
-}
-
-func (x *UpdateBroadcastRequest) GetUpdateBroadcastLayout() *UpdateBroadcastLayout {
-	if x != nil {
-		return x.UpdateBroadcastLayout
-	}
-	return nil
-}
-
-func (x *UpdateBroadcastRequest) GetUpdateBroadcastPerformers() *UpdateBroadcastPerformers {
-	if x != nil {
-		return x.UpdateBroadcastPerformers
-	}
-	return nil
-}
-
-func (x *UpdateBroadcastRequest) GetUpdateMixerType() *UpdateMixerType {
-	if x != nil {
-		return x.UpdateMixerType
-	}
-	return nil
-}
-
-func (x *UpdateBroadcastRequest) GetUpdateRoomGridOrder() *UpdateRoomGridOrder {
-	if x != nil {
-		return x.UpdateRoomGridOrder
-	}
-	return nil
-}
-
-type UpdateMixerType struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Mode v1.MixerType `protobuf:"varint,1,opt,name=mode,proto3,enum=mcu.public.server.v1.MixerType" json:"mode,omitempty"`
-}
-
-func (x *UpdateMixerType) Reset() {
-	*x = UpdateMixerType{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[18]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UpdateMixerType) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateMixerType) ProtoMessage() {}
-
-func (x *UpdateMixerType) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[18]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateMixerType.ProtoReflect.Descriptor instead.
-func (*UpdateMixerType) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{18}
-}
-
-func (x *UpdateMixerType) GetMode() v1.MixerType {
-	if x != nil {
-		return x.Mode
-	}
-	return v1.MixerType(0)
-}
-
-type UpdateRoomGridOrder struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Order []string `protobuf:"bytes,1,rep,name=order,proto3" json:"order,omitempty"`
-}
-
-func (x *UpdateRoomGridOrder) Reset() {
-	*x = UpdateRoomGridOrder{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[19]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UpdateRoomGridOrder) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateRoomGridOrder) ProtoMessage() {}
-
-func (x *UpdateRoomGridOrder) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[19]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateRoomGridOrder.ProtoReflect.Descriptor instead.
-func (*UpdateRoomGridOrder) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{19}
-}
-
-func (x *UpdateRoomGridOrder) GetOrder() []string {
-	if x != nil {
-		return x.Order
-	}
-	return nil
-}
-
-type UpdateBroadcastResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	RoomId                    string                     `protobuf:"bytes,1,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
-	UpdateBroadcastLayout     *UpdateBroadcastLayout     `protobuf:"bytes,2,opt,name=update_broadcast_layout,json=updateBroadcastLayout,proto3" json:"update_broadcast_layout,omitempty"`
-	UpdateBroadcastPerformers *UpdateBroadcastPerformers `protobuf:"bytes,3,opt,name=update_broadcast_performers,json=updateBroadcastPerformers,proto3" json:"update_broadcast_performers,omitempty"`
-	UpdateMixerType           *UpdateMixerType           `protobuf:"bytes,4,opt,name=update_mixer_type,json=updateMixerType,proto3" json:"update_mixer_type,omitempty"`
-	UpdateRoomGridOrder       *UpdateRoomGridOrder       `protobuf:"bytes,5,opt,name=update_room_grid_order,json=updateRoomGridOrder,proto3" json:"update_room_grid_order,omitempty"`
-}
-
-func (x *UpdateBroadcastResponse) Reset() {
-	*x = UpdateBroadcastResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[20]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UpdateBroadcastResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateBroadcastResponse) ProtoMessage() {}
-
-func (x *UpdateBroadcastResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[20]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateBroadcastResponse.ProtoReflect.Descriptor instead.
-func (*UpdateBroadcastResponse) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{20}
-}
-
-func (x *UpdateBroadcastResponse) GetRoomId() string {
-	if x != nil {
-		return x.RoomId
-	}
-	return ""
-}
-
-func (x *UpdateBroadcastResponse) GetUpdateBroadcastLayout() *UpdateBroadcastLayout {
-	if x != nil {
-		return x.UpdateBroadcastLayout
-	}
-	return nil
-}
-
-func (x *UpdateBroadcastResponse) GetUpdateBroadcastPerformers() *UpdateBroadcastPerformers {
-	if x != nil {
-		return x.UpdateBroadcastPerformers
-	}
-	return nil
-}
-
-func (x *UpdateBroadcastResponse) GetUpdateMixerType() *UpdateMixerType {
-	if x != nil {
-		return x.UpdateMixerType
-	}
-	return nil
-}
-
-func (x *UpdateBroadcastResponse) GetUpdateRoomGridOrder() *UpdateRoomGridOrder {
-	if x != nil {
-		return x.UpdateRoomGridOrder
-	}
-	return nil
-}
-
-type UpdateBroadcastPerformers struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	UpdatePerformers map[int32]string                 `protobuf:"bytes,1,rep,name=update_performers,json=updatePerformers,proto3" json:"update_performers,omitempty" protobuf_key:"varint,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
-	DeletePerformers []string                         `protobuf:"bytes,2,rep,name=delete_performers,json=deletePerformers,proto3" json:"delete_performers,omitempty"`
-	SwapPerformers   []*UpdateBroadcastSwapPerformers `protobuf:"bytes,3,rep,name=swap_performers,json=swapPerformers,proto3" json:"swap_performers,omitempty"`
-}
-
-func (x *UpdateBroadcastPerformers) Reset() {
-	*x = UpdateBroadcastPerformers{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[21]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UpdateBroadcastPerformers) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateBroadcastPerformers) ProtoMessage() {}
-
-func (x *UpdateBroadcastPerformers) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[21]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateBroadcastPerformers.ProtoReflect.Descriptor instead.
-func (*UpdateBroadcastPerformers) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{21}
-}
-
-func (x *UpdateBroadcastPerformers) GetUpdatePerformers() map[int32]string {
-	if x != nil {
-		return x.UpdatePerformers
-	}
-	return nil
-}
-
-func (x *UpdateBroadcastPerformers) GetDeletePerformers() []string {
-	if x != nil {
-		return x.DeletePerformers
-	}
-	return nil
-}
-
-func (x *UpdateBroadcastPerformers) GetSwapPerformers() []*UpdateBroadcastSwapPerformers {
-	if x != nil {
-		return x.SwapPerformers
-	}
-	return nil
-}
-
-type UpdateBroadcastSwapPerformers struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	UserA string `protobuf:"bytes,1,opt,name=user_a,json=userA,proto3" json:"user_a,omitempty"`
-	UserB string `protobuf:"bytes,2,opt,name=user_b,json=userB,proto3" json:"user_b,omitempty"`
-}
-
-func (x *UpdateBroadcastSwapPerformers) Reset() {
-	*x = UpdateBroadcastSwapPerformers{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[22]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UpdateBroadcastSwapPerformers) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateBroadcastSwapPerformers) ProtoMessage() {}
-
-func (x *UpdateBroadcastSwapPerformers) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[22]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateBroadcastSwapPerformers.ProtoReflect.Descriptor instead.
-func (*UpdateBroadcastSwapPerformers) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{22}
-}
-
-func (x *UpdateBroadcastSwapPerformers) GetUserA() string {
-	if x != nil {
-		return x.UserA
-	}
-	return ""
-}
-
-func (x *UpdateBroadcastSwapPerformers) GetUserB() string {
-	if x != nil {
-		return x.UserB
-	}
-	return ""
-}
-
-type UpdateBroadcastLayout struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Layout BroadcastLayout `protobuf:"varint,1,opt,name=layout,proto3,enum=mcu.private.v1.BroadcastLayout" json:"layout,omitempty"`
-}
-
-func (x *UpdateBroadcastLayout) Reset() {
-	*x = UpdateBroadcastLayout{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[23]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UpdateBroadcastLayout) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateBroadcastLayout) ProtoMessage() {}
-
-func (x *UpdateBroadcastLayout) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[23]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateBroadcastLayout.ProtoReflect.Descriptor instead.
-func (*UpdateBroadcastLayout) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{23}
-}
-
-func (x *UpdateBroadcastLayout) GetLayout() BroadcastLayout {
-	if x != nil {
-		return x.Layout
-	}
-	return BroadcastLayoutUnknown
-}
-
-type GetStreamersRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	RoomId string `protobuf:"bytes,1,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
-}
-
-func (x *GetStreamersRequest) Reset() {
-	*x = GetStreamersRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[24]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GetStreamersRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetStreamersRequest) ProtoMessage() {}
-
-func (x *GetStreamersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[24]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetStreamersRequest.ProtoReflect.Descriptor instead.
-func (*GetStreamersRequest) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{24}
-}
-
-func (x *GetStreamersRequest) GetRoomId() string {
-	if x != nil {
-		return x.RoomId
-	}
-	return ""
-}
-
-type GetStreamersResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	RoomId string           `protobuf:"bytes,1,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
-	Users  map[int32]string `protobuf:"bytes,2,rep,name=users,proto3" json:"users,omitempty" protobuf_key:"varint,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
-}
-
-func (x *GetStreamersResponse) Reset() {
-	*x = GetStreamersResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[25]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GetStreamersResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetStreamersResponse) ProtoMessage() {}
-
-func (x *GetStreamersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[25]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetStreamersResponse.ProtoReflect.Descriptor instead.
-func (*GetStreamersResponse) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{25}
-}
-
-func (x *GetStreamersResponse) GetRoomId() string {
-	if x != nil {
-		return x.RoomId
-	}
-	return ""
-}
-
-func (x *GetStreamersResponse) GetUsers() map[int32]string {
-	if x != nil {
-		return x.Users
-	}
-	return nil
-}
-
-type GetStreamerRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	RoomId string `protobuf:"bytes,1,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
-}
-
-func (x *GetStreamerRequest) Reset() {
-	*x = GetStreamerRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[26]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GetStreamerRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetStreamerRequest) ProtoMessage() {}
-
-func (x *GetStreamerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[26]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetStreamerRequest.ProtoReflect.Descriptor instead.
-func (*GetStreamerRequest) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{26}
-}
-
-func (x *GetStreamerRequest) GetRoomId() string {
-	if x != nil {
-		return x.RoomId
-	}
-	return ""
-}
-
-type GetStreamerResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	RoomId string `protobuf:"bytes,1,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
-	UserId string `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-}
-
-func (x *GetStreamerResponse) Reset() {
-	*x = GetStreamerResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[27]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GetStreamerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetStreamerResponse) ProtoMessage() {}
-
-func (x *GetStreamerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[27]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetStreamerResponse.ProtoReflect.Descriptor instead.
-func (*GetStreamerResponse) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{27}
-}
-
-func (x *GetStreamerResponse) GetRoomId() string {
-	if x != nil {
-		return x.RoomId
-	}
-	return ""
-}
-
-func (x *GetStreamerResponse) GetUserId() string {
-	if x != nil {
-		return x.UserId
-	}
-	return ""
-}
-
-type SetStreamerRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	RoomId   string `protobuf:"bytes,1,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
-	UserId   string `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	Position int32  `protobuf:"varint,3,opt,name=position,proto3" json:"position,omitempty"`
-}
-
-func (x *SetStreamerRequest) Reset() {
-	*x = SetStreamerRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[28]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *SetStreamerRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetStreamerRequest) ProtoMessage() {}
-
-func (x *SetStreamerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[28]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetStreamerRequest.ProtoReflect.Descriptor instead.
-func (*SetStreamerRequest) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{28}
-}
-
-func (x *SetStreamerRequest) GetRoomId() string {
-	if x != nil {
-		return x.RoomId
-	}
-	return ""
-}
-
-func (x *SetStreamerRequest) GetUserId() string {
-	if x != nil {
-		return x.UserId
-	}
-	return ""
-}
-
-func (x *SetStreamerRequest) GetPosition() int32 {
-	if x != nil {
-		return x.Position
-	}
-	return 0
-}
-
-type SetStreamerResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	RoomId string `protobuf:"bytes,1,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
-	UserId string `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-}
-
-func (x *SetStreamerResponse) Reset() {
-	*x = SetStreamerResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[29]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *SetStreamerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetStreamerResponse) ProtoMessage() {}
-
-func (x *SetStreamerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[29]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetStreamerResponse.ProtoReflect.Descriptor instead.
-func (*SetStreamerResponse) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{29}
-}
-
-func (x *SetStreamerResponse) GetRoomId() string {
-	if x != nil {
-		return x.RoomId
-	}
-	return ""
-}
-
-func (x *SetStreamerResponse) GetUserId() string {
-	if x != nil {
-		return x.UserId
-	}
-	return ""
-}
-
-type StartStreamingRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	RoomId  string          `protobuf:"bytes,1,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
-	EventId string          `protobuf:"bytes,2,opt,name=event_id,json=eventId,proto3" json:"event_id,omitempty"`
-	Layout  BroadcastLayout `protobuf:"varint,3,opt,name=layout,proto3,enum=mcu.private.v1.BroadcastLayout" json:"layout,omitempty"`
-}
-
-func (x *StartStreamingRequest) Reset() {
-	*x = StartStreamingRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[30]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *StartStreamingRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StartStreamingRequest) ProtoMessage() {}
-
-func (x *StartStreamingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[30]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StartStreamingRequest.ProtoReflect.Descriptor instead.
-func (*StartStreamingRequest) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{30}
-}
-
-func (x *StartStreamingRequest) GetRoomId() string {
-	if x != nil {
-		return x.RoomId
-	}
-	return ""
-}
-
-func (x *StartStreamingRequest) GetEventId() string {
-	if x != nil {
-		return x.EventId
-	}
-	return ""
-}
-
-func (x *StartStreamingRequest) GetLayout() BroadcastLayout {
-	if x != nil {
-		return x.Layout
-	}
-	return BroadcastLayoutUnknown
-}
-
-type StartStreamingResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	RoomId string `protobuf:"bytes,1,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
-}
-
-func (x *StartStreamingResponse) Reset() {
-	*x = StartStreamingResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[31]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *StartStreamingResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StartStreamingResponse) ProtoMessage() {}
-
-func (x *StartStreamingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[31]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StartStreamingResponse.ProtoReflect.Descriptor instead.
-func (*StartStreamingResponse) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{31}
-}
-
-func (x *StartStreamingResponse) GetRoomId() string {
-	if x != nil {
-		return x.RoomId
-	}
-	return ""
-}
-
-type StopStreamingRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	RoomId string `protobuf:"bytes,1,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
-}
-
-func (x *StopStreamingRequest) Reset() {
-	*x = StopStreamingRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[32]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *StopStreamingRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StopStreamingRequest) ProtoMessage() {}
-
-func (x *StopStreamingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[32]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StopStreamingRequest.ProtoReflect.Descriptor instead.
-func (*StopStreamingRequest) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{32}
-}
-
-func (x *StopStreamingRequest) GetRoomId() string {
-	if x != nil {
-		return x.RoomId
-	}
-	return ""
-}
-
-type StopStreamingResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	RoomId string `protobuf:"bytes,1,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
-}
-
-func (x *StopStreamingResponse) Reset() {
-	*x = StopStreamingResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[33]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *StopStreamingResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StopStreamingResponse) ProtoMessage() {}
-
-func (x *StopStreamingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[33]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StopStreamingResponse.ProtoReflect.Descriptor instead.
-func (*StopStreamingResponse) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{33}
-}
-
-func (x *StopStreamingResponse) GetRoomId() string {
-	if x != nil {
-		return x.RoomId
-	}
-	return ""
 }
 
 type AddRoomRequest struct {
@@ -1822,7 +455,7 @@ type AddRoomRequest struct {
 func (x *AddRoomRequest) Reset() {
 	*x = AddRoomRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[34]
+		mi := &file_mcu_private_v1_procedures_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1835,7 +468,7 @@ func (x *AddRoomRequest) String() string {
 func (*AddRoomRequest) ProtoMessage() {}
 
 func (x *AddRoomRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[34]
+	mi := &file_mcu_private_v1_procedures_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1848,7 +481,7 @@ func (x *AddRoomRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddRoomRequest.ProtoReflect.Descriptor instead.
 func (*AddRoomRequest) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{34}
+	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *AddRoomRequest) GetRoomId() string {
@@ -1869,7 +502,7 @@ type AddRoomResponse struct {
 func (x *AddRoomResponse) Reset() {
 	*x = AddRoomResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[35]
+		mi := &file_mcu_private_v1_procedures_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1882,7 +515,7 @@ func (x *AddRoomResponse) String() string {
 func (*AddRoomResponse) ProtoMessage() {}
 
 func (x *AddRoomResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[35]
+	mi := &file_mcu_private_v1_procedures_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1895,7 +528,7 @@ func (x *AddRoomResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddRoomResponse.ProtoReflect.Descriptor instead.
 func (*AddRoomResponse) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{35}
+	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *AddRoomResponse) GetRoomId() string {
@@ -1916,7 +549,7 @@ type RemoveRoomRequest struct {
 func (x *RemoveRoomRequest) Reset() {
 	*x = RemoveRoomRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[36]
+		mi := &file_mcu_private_v1_procedures_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1929,7 +562,7 @@ func (x *RemoveRoomRequest) String() string {
 func (*RemoveRoomRequest) ProtoMessage() {}
 
 func (x *RemoveRoomRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[36]
+	mi := &file_mcu_private_v1_procedures_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1942,7 +575,7 @@ func (x *RemoveRoomRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveRoomRequest.ProtoReflect.Descriptor instead.
 func (*RemoveRoomRequest) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{36}
+	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *RemoveRoomRequest) GetRoomId() string {
@@ -1963,7 +596,7 @@ type RemoveRoomResponse struct {
 func (x *RemoveRoomResponse) Reset() {
 	*x = RemoveRoomResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[37]
+		mi := &file_mcu_private_v1_procedures_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1976,7 +609,7 @@ func (x *RemoveRoomResponse) String() string {
 func (*RemoveRoomResponse) ProtoMessage() {}
 
 func (x *RemoveRoomResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[37]
+	mi := &file_mcu_private_v1_procedures_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1989,7 +622,7 @@ func (x *RemoveRoomResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveRoomResponse.ProtoReflect.Descriptor instead.
 func (*RemoveRoomResponse) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{37}
+	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *RemoveRoomResponse) GetRoomId() string {
@@ -2012,7 +645,7 @@ type OutputStreamRequest struct {
 func (x *OutputStreamRequest) Reset() {
 	*x = OutputStreamRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_mcu_private_v1_procedures_proto_msgTypes[38]
+		mi := &file_mcu_private_v1_procedures_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2025,7 +658,7 @@ func (x *OutputStreamRequest) String() string {
 func (*OutputStreamRequest) ProtoMessage() {}
 
 func (x *OutputStreamRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_private_v1_procedures_proto_msgTypes[38]
+	mi := &file_mcu_private_v1_procedures_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2038,7 +671,7 @@ func (x *OutputStreamRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OutputStreamRequest.ProtoReflect.Descriptor instead.
 func (*OutputStreamRequest) Descriptor() ([]byte, []int) {
-	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{38}
+	return file_mcu_private_v1_procedures_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *OutputStreamRequest) GetRoomId() string {
@@ -2074,269 +707,57 @@ var file_mcu_private_v1_procedures_proto_rawDesc = []byte{
 	0x69, 0x63, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2f, 0x76, 0x31, 0x2f, 0x65, 0x6e, 0x75,
 	0x6d, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x1a, 0x6d, 0x63, 0x75, 0x2f, 0x70, 0x72,
 	0x69, 0x76, 0x61, 0x74, 0x65, 0x2f, 0x76, 0x31, 0x2f, 0x65, 0x6e, 0x75, 0x6d, 0x73, 0x2e, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x22, 0x53, 0x0a, 0x12, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x6f,
-	0x6f, 0x6d, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x3d, 0x0a, 0x0c, 0x75, 0x70,
-	0x64, 0x61, 0x74, 0x65, 0x5f, 0x72, 0x6f, 0x6f, 0x6d, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b,
-	0x32, 0x1a, 0x2e, 0x6d, 0x63, 0x75, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76,
-	0x31, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x6f, 0x6f, 0x6d, 0x52, 0x0b, 0x75, 0x70,
-	0x64, 0x61, 0x74, 0x65, 0x52, 0x6f, 0x6f, 0x6d, 0x73, 0x22, 0xb5, 0x01, 0x0a, 0x13, 0x55, 0x70,
-	0x64, 0x61, 0x74, 0x65, 0x52, 0x6f, 0x6f, 0x6d, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x12, 0x52, 0x0a, 0x17, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x66, 0x75, 0x6c, 0x5f,
-	0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03,
-	0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x6d, 0x63, 0x75, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e,
-	0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x52, 0x6f, 0x6f, 0x6d, 0x52, 0x15,
-	0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x66, 0x75, 0x6c, 0x52, 0x6f, 0x6f, 0x6d, 0x55, 0x70,
-	0x64, 0x61, 0x74, 0x65, 0x73, 0x12, 0x4a, 0x0a, 0x13, 0x66, 0x61, 0x69, 0x6c, 0x65, 0x64, 0x5f,
-	0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x73, 0x18, 0x02, 0x20, 0x03,
-	0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x6d, 0x63, 0x75, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e,
-	0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x52, 0x6f, 0x6f, 0x6d, 0x52, 0x11,
-	0x66, 0x61, 0x69, 0x6c, 0x65, 0x64, 0x52, 0x6f, 0x6f, 0x6d, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65,
-	0x73, 0x22, 0xa9, 0x01, 0x0a, 0x0a, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x6f, 0x6f, 0x6d,
-	0x12, 0x17, 0x0a, 0x07, 0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x06, 0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x12, 0x4a, 0x0a, 0x0e, 0x72, 0x6f, 0x6f,
-	0x6d, 0x5f, 0x62, 0x72, 0x6f, 0x61, 0x64, 0x63, 0x61, 0x73, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28,
-	0x0b, 0x32, 0x23, 0x2e, 0x6d, 0x63, 0x75, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e,
-	0x76, 0x31, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x6f, 0x6f, 0x6d, 0x42, 0x72, 0x6f,
-	0x61, 0x64, 0x63, 0x61, 0x73, 0x74, 0x52, 0x0d, 0x72, 0x6f, 0x6f, 0x6d, 0x42, 0x72, 0x6f, 0x61,
-	0x64, 0x63, 0x61, 0x73, 0x74, 0x12, 0x36, 0x0a, 0x08, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x5f, 0x69,
-	0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1b, 0x2e, 0x6d, 0x63, 0x75, 0x2e, 0x70, 0x72,
-	0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x56,
-	0x61, 0x6c, 0x75, 0x65, 0x52, 0x07, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x49, 0x64, 0x22, 0x23, 0x0a,
-	0x0b, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x12, 0x14, 0x0a, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x22, 0x86, 0x03, 0x0a, 0x13, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x6f, 0x6f,
-	0x6d, 0x42, 0x72, 0x6f, 0x61, 0x64, 0x63, 0x61, 0x73, 0x74, 0x12, 0x5d, 0x0a, 0x17, 0x75, 0x70,
-	0x64, 0x61, 0x74, 0x65, 0x5f, 0x62, 0x72, 0x6f, 0x61, 0x64, 0x63, 0x61, 0x73, 0x74, 0x5f, 0x6c,
-	0x61, 0x79, 0x6f, 0x75, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x25, 0x2e, 0x6d, 0x63,
-	0x75, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x55, 0x70, 0x64,
-	0x61, 0x74, 0x65, 0x42, 0x72, 0x6f, 0x61, 0x64, 0x63, 0x61, 0x73, 0x74, 0x4c, 0x61, 0x79, 0x6f,
-	0x75, 0x74, 0x52, 0x15, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x42, 0x72, 0x6f, 0x61, 0x64, 0x63,
-	0x61, 0x73, 0x74, 0x4c, 0x61, 0x79, 0x6f, 0x75, 0x74, 0x12, 0x69, 0x0a, 0x1b, 0x75, 0x70, 0x64,
-	0x61, 0x74, 0x65, 0x5f, 0x62, 0x72, 0x6f, 0x61, 0x64, 0x63, 0x61, 0x73, 0x74, 0x5f, 0x70, 0x65,
-	0x72, 0x66, 0x6f, 0x72, 0x6d, 0x65, 0x72, 0x73, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x29,
-	0x2e, 0x6d, 0x63, 0x75, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e,
-	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x42, 0x72, 0x6f, 0x61, 0x64, 0x63, 0x61, 0x73, 0x74, 0x50,
-	0x65, 0x72, 0x66, 0x6f, 0x72, 0x6d, 0x65, 0x72, 0x73, 0x52, 0x19, 0x75, 0x70, 0x64, 0x61, 0x74,
-	0x65, 0x42, 0x72, 0x6f, 0x61, 0x64, 0x63, 0x61, 0x73, 0x74, 0x50, 0x65, 0x72, 0x66, 0x6f, 0x72,
-	0x6d, 0x65, 0x72, 0x73, 0x12, 0x4b, 0x0a, 0x11, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x5f, 0x6d,
-	0x69, 0x78, 0x65, 0x72, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0b, 0x32,
-	0x1f, 0x2e, 0x6d, 0x63, 0x75, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31,
-	0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4d, 0x69, 0x78, 0x65, 0x72, 0x54, 0x79, 0x70, 0x65,
-	0x52, 0x0f, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4d, 0x69, 0x78, 0x65, 0x72, 0x54, 0x79, 0x70,
-	0x65, 0x12, 0x58, 0x0a, 0x16, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x5f, 0x72, 0x6f, 0x6f, 0x6d,
-	0x5f, 0x67, 0x72, 0x69, 0x64, 0x5f, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x18, 0x05, 0x20, 0x01, 0x28,
-	0x0b, 0x32, 0x23, 0x2e, 0x6d, 0x63, 0x75, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e,
-	0x76, 0x31, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x6f, 0x6f, 0x6d, 0x47, 0x72, 0x69,
-	0x64, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x52, 0x13, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x6f,
-	0x6f, 0x6d, 0x47, 0x72, 0x69, 0x64, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x22, 0x29, 0x0a, 0x0e, 0x47,
-	0x65, 0x74, 0x52, 0x6f, 0x6f, 0x6d, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x17, 0x0a,
-	0x07, 0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06,
-	0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x22, 0x41, 0x0a, 0x0f, 0x47, 0x65, 0x74, 0x52, 0x6f, 0x6f,
-	0x6d, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2e, 0x0a, 0x04, 0x72, 0x6f, 0x6f,
-	0x6d, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x6d, 0x63, 0x75, 0x2e, 0x70, 0x75,
-	0x62, 0x6c, 0x69, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x52,
-	0x6f, 0x6f, 0x6d, 0x52, 0x04, 0x72, 0x6f, 0x6f, 0x6d, 0x22, 0x2d, 0x0a, 0x10, 0x4c, 0x69, 0x73,
-	0x74, 0x52, 0x6f, 0x6f, 0x6d, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x19, 0x0a,
-	0x08, 0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x09, 0x52,
-	0x07, 0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x73, 0x22, 0x45, 0x0a, 0x11, 0x4c, 0x69, 0x73, 0x74,
-	0x52, 0x6f, 0x6f, 0x6d, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x30, 0x0a,
-	0x05, 0x72, 0x6f, 0x6f, 0x6d, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x6d,
-	0x63, 0x75, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72,
-	0x2e, 0x76, 0x31, 0x2e, 0x52, 0x6f, 0x6f, 0x6d, 0x52, 0x05, 0x72, 0x6f, 0x6f, 0x6d, 0x73, 0x22,
-	0x32, 0x0a, 0x15, 0x53, 0x74, 0x6f, 0x70, 0x52, 0x6f, 0x6f, 0x6d, 0x45, 0x76, 0x65, 0x6e, 0x74,
-	0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x19, 0x0a, 0x08, 0x72, 0x6f, 0x6f, 0x6d,
-	0x5f, 0x69, 0x64, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x09, 0x52, 0x07, 0x72, 0x6f, 0x6f, 0x6d,
-	0x49, 0x64, 0x73, 0x22, 0x4a, 0x0a, 0x16, 0x53, 0x74, 0x6f, 0x70, 0x52, 0x6f, 0x6f, 0x6d, 0x45,
-	0x76, 0x65, 0x6e, 0x74, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x30, 0x0a,
-	0x05, 0x72, 0x6f, 0x6f, 0x6d, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x6d,
-	0x63, 0x75, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72,
-	0x2e, 0x76, 0x31, 0x2e, 0x52, 0x6f, 0x6f, 0x6d, 0x52, 0x05, 0x72, 0x6f, 0x6f, 0x6d, 0x73, 0x22,
-	0x57, 0x0a, 0x16, 0x53, 0x74, 0x61, 0x72, 0x74, 0x52, 0x6f, 0x6f, 0x6d, 0x45, 0x76, 0x65, 0x6e,
-	0x74, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x3d, 0x0a, 0x0c, 0x75, 0x70, 0x64,
-	0x61, 0x74, 0x65, 0x5f, 0x72, 0x6f, 0x6f, 0x6d, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32,
-	0x1a, 0x2e, 0x6d, 0x63, 0x75, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31,
-	0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x6f, 0x6f, 0x6d, 0x52, 0x0b, 0x75, 0x70, 0x64,
-	0x61, 0x74, 0x65, 0x52, 0x6f, 0x6f, 0x6d, 0x73, 0x22, 0x4b, 0x0a, 0x17, 0x53, 0x74, 0x61, 0x72,
-	0x74, 0x52, 0x6f, 0x6f, 0x6d, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f,
-	0x6e, 0x73, 0x65, 0x12, 0x30, 0x0a, 0x05, 0x72, 0x6f, 0x6f, 0x6d, 0x73, 0x18, 0x01, 0x20, 0x03,
-	0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x6d, 0x63, 0x75, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e,
-	0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x52, 0x6f, 0x6f, 0x6d, 0x52, 0x05,
-	0x72, 0x6f, 0x6f, 0x6d, 0x73, 0x22, 0x2c, 0x0a, 0x0f, 0x41, 0x64, 0x64, 0x52, 0x6f, 0x6f, 0x6d,
-	0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x19, 0x0a, 0x08, 0x72, 0x6f, 0x6f, 0x6d,
-	0x5f, 0x69, 0x64, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x09, 0x52, 0x07, 0x72, 0x6f, 0x6f, 0x6d,
-	0x49, 0x64, 0x73, 0x22, 0x2d, 0x0a, 0x10, 0x41, 0x64, 0x64, 0x52, 0x6f, 0x6f, 0x6d, 0x73, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x19, 0x0a, 0x08, 0x72, 0x6f, 0x6f, 0x6d, 0x5f,
-	0x69, 0x64, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x09, 0x52, 0x07, 0x72, 0x6f, 0x6f, 0x6d, 0x49,
-	0x64, 0x73, 0x22, 0x2f, 0x0a, 0x12, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x52, 0x6f, 0x6f, 0x6d,
-	0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x19, 0x0a, 0x08, 0x72, 0x6f, 0x6f, 0x6d,
-	0x5f, 0x69, 0x64, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x09, 0x52, 0x07, 0x72, 0x6f, 0x6f, 0x6d,
-	0x49, 0x64, 0x73, 0x22, 0x30, 0x0a, 0x13, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x52, 0x6f, 0x6f,
-	0x6d, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x19, 0x0a, 0x08, 0x72, 0x6f,
-	0x6f, 0x6d, 0x5f, 0x69, 0x64, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x09, 0x52, 0x07, 0x72, 0x6f,
-	0x6f, 0x6d, 0x49, 0x64, 0x73, 0x22, 0xa2, 0x03, 0x0a, 0x16, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65,
-	0x42, 0x72, 0x6f, 0x61, 0x64, 0x63, 0x61, 0x73, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x12, 0x17, 0x0a, 0x07, 0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x06, 0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x12, 0x5d, 0x0a, 0x17, 0x75, 0x70, 0x64,
-	0x61, 0x74, 0x65, 0x5f, 0x62, 0x72, 0x6f, 0x61, 0x64, 0x63, 0x61, 0x73, 0x74, 0x5f, 0x6c, 0x61,
-	0x79, 0x6f, 0x75, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x25, 0x2e, 0x6d, 0x63, 0x75,
-	0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x55, 0x70, 0x64, 0x61,
-	0x74, 0x65, 0x42, 0x72, 0x6f, 0x61, 0x64, 0x63, 0x61, 0x73, 0x74, 0x4c, 0x61, 0x79, 0x6f, 0x75,
-	0x74, 0x52, 0x15, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x42, 0x72, 0x6f, 0x61, 0x64, 0x63, 0x61,
-	0x73, 0x74, 0x4c, 0x61, 0x79, 0x6f, 0x75, 0x74, 0x12, 0x69, 0x0a, 0x1b, 0x75, 0x70, 0x64, 0x61,
-	0x74, 0x65, 0x5f, 0x62, 0x72, 0x6f, 0x61, 0x64, 0x63, 0x61, 0x73, 0x74, 0x5f, 0x70, 0x65, 0x72,
-	0x66, 0x6f, 0x72, 0x6d, 0x65, 0x72, 0x73, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x29, 0x2e,
-	0x6d, 0x63, 0x75, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x55,
-	0x70, 0x64, 0x61, 0x74, 0x65, 0x42, 0x72, 0x6f, 0x61, 0x64, 0x63, 0x61, 0x73, 0x74, 0x50, 0x65,
-	0x72, 0x66, 0x6f, 0x72, 0x6d, 0x65, 0x72, 0x73, 0x52, 0x19, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65,
-	0x42, 0x72, 0x6f, 0x61, 0x64, 0x63, 0x61, 0x73, 0x74, 0x50, 0x65, 0x72, 0x66, 0x6f, 0x72, 0x6d,
-	0x65, 0x72, 0x73, 0x12, 0x4b, 0x0a, 0x11, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x5f, 0x6d, 0x69,
-	0x78, 0x65, 0x72, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1f,
-	0x2e, 0x6d, 0x63, 0x75, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e,
-	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4d, 0x69, 0x78, 0x65, 0x72, 0x54, 0x79, 0x70, 0x65, 0x52,
-	0x0f, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4d, 0x69, 0x78, 0x65, 0x72, 0x54, 0x79, 0x70, 0x65,
-	0x12, 0x58, 0x0a, 0x16, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x5f, 0x72, 0x6f, 0x6f, 0x6d, 0x5f,
-	0x67, 0x72, 0x69, 0x64, 0x5f, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x18, 0x05, 0x20, 0x01, 0x28, 0x0b,
-	0x32, 0x23, 0x2e, 0x6d, 0x63, 0x75, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76,
-	0x31, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x6f, 0x6f, 0x6d, 0x47, 0x72, 0x69, 0x64,
-	0x4f, 0x72, 0x64, 0x65, 0x72, 0x52, 0x13, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x6f, 0x6f,
-	0x6d, 0x47, 0x72, 0x69, 0x64, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x22, 0x46, 0x0a, 0x0f, 0x55, 0x70,
-	0x64, 0x61, 0x74, 0x65, 0x4d, 0x69, 0x78, 0x65, 0x72, 0x54, 0x79, 0x70, 0x65, 0x12, 0x33, 0x0a,
-	0x04, 0x6d, 0x6f, 0x64, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x1f, 0x2e, 0x6d, 0x63,
-	0x75, 0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e,
-	0x76, 0x31, 0x2e, 0x4d, 0x69, 0x78, 0x65, 0x72, 0x54, 0x79, 0x70, 0x65, 0x52, 0x04, 0x6d, 0x6f,
-	0x64, 0x65, 0x22, 0x2b, 0x0a, 0x13, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x6f, 0x6f, 0x6d,
-	0x47, 0x72, 0x69, 0x64, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x12, 0x14, 0x0a, 0x05, 0x6f, 0x72, 0x64,
-	0x65, 0x72, 0x18, 0x01, 0x20, 0x03, 0x28, 0x09, 0x52, 0x05, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x22,
-	0xa3, 0x03, 0x0a, 0x17, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x42, 0x72, 0x6f, 0x61, 0x64, 0x63,
-	0x61, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x17, 0x0a, 0x07, 0x72,
+	0x72, 0x6f, 0x74, 0x6f, 0x22, 0x23, 0x0a, 0x0b, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x56, 0x61,
+	0x6c, 0x75, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x29, 0x0a, 0x0e, 0x47, 0x65, 0x74,
+	0x52, 0x6f, 0x6f, 0x6d, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x17, 0x0a, 0x07, 0x72,
 	0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x72, 0x6f,
-	0x6f, 0x6d, 0x49, 0x64, 0x12, 0x5d, 0x0a, 0x17, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x5f, 0x62,
-	0x72, 0x6f, 0x61, 0x64, 0x63, 0x61, 0x73, 0x74, 0x5f, 0x6c, 0x61, 0x79, 0x6f, 0x75, 0x74, 0x18,
-	0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x25, 0x2e, 0x6d, 0x63, 0x75, 0x2e, 0x70, 0x72, 0x69, 0x76,
-	0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x42, 0x72, 0x6f,
-	0x61, 0x64, 0x63, 0x61, 0x73, 0x74, 0x4c, 0x61, 0x79, 0x6f, 0x75, 0x74, 0x52, 0x15, 0x75, 0x70,
-	0x64, 0x61, 0x74, 0x65, 0x42, 0x72, 0x6f, 0x61, 0x64, 0x63, 0x61, 0x73, 0x74, 0x4c, 0x61, 0x79,
-	0x6f, 0x75, 0x74, 0x12, 0x69, 0x0a, 0x1b, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x5f, 0x62, 0x72,
-	0x6f, 0x61, 0x64, 0x63, 0x61, 0x73, 0x74, 0x5f, 0x70, 0x65, 0x72, 0x66, 0x6f, 0x72, 0x6d, 0x65,
-	0x72, 0x73, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x29, 0x2e, 0x6d, 0x63, 0x75, 0x2e, 0x70,
-	0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65,
-	0x42, 0x72, 0x6f, 0x61, 0x64, 0x63, 0x61, 0x73, 0x74, 0x50, 0x65, 0x72, 0x66, 0x6f, 0x72, 0x6d,
-	0x65, 0x72, 0x73, 0x52, 0x19, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x42, 0x72, 0x6f, 0x61, 0x64,
-	0x63, 0x61, 0x73, 0x74, 0x50, 0x65, 0x72, 0x66, 0x6f, 0x72, 0x6d, 0x65, 0x72, 0x73, 0x12, 0x4b,
-	0x0a, 0x11, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x5f, 0x6d, 0x69, 0x78, 0x65, 0x72, 0x5f, 0x74,
-	0x79, 0x70, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1f, 0x2e, 0x6d, 0x63, 0x75, 0x2e,
-	0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74,
-	0x65, 0x4d, 0x69, 0x78, 0x65, 0x72, 0x54, 0x79, 0x70, 0x65, 0x52, 0x0f, 0x75, 0x70, 0x64, 0x61,
-	0x74, 0x65, 0x4d, 0x69, 0x78, 0x65, 0x72, 0x54, 0x79, 0x70, 0x65, 0x12, 0x58, 0x0a, 0x16, 0x75,
-	0x70, 0x64, 0x61, 0x74, 0x65, 0x5f, 0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x67, 0x72, 0x69, 0x64, 0x5f,
-	0x6f, 0x72, 0x64, 0x65, 0x72, 0x18, 0x05, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x23, 0x2e, 0x6d, 0x63,
-	0x75, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x55, 0x70, 0x64,
-	0x61, 0x74, 0x65, 0x52, 0x6f, 0x6f, 0x6d, 0x47, 0x72, 0x69, 0x64, 0x4f, 0x72, 0x64, 0x65, 0x72,
-	0x52, 0x13, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x6f, 0x6f, 0x6d, 0x47, 0x72, 0x69, 0x64,
-	0x4f, 0x72, 0x64, 0x65, 0x72, 0x22, 0xd3, 0x02, 0x0a, 0x19, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65,
-	0x42, 0x72, 0x6f, 0x61, 0x64, 0x63, 0x61, 0x73, 0x74, 0x50, 0x65, 0x72, 0x66, 0x6f, 0x72, 0x6d,
-	0x65, 0x72, 0x73, 0x12, 0x6c, 0x0a, 0x11, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x5f, 0x70, 0x65,
-	0x72, 0x66, 0x6f, 0x72, 0x6d, 0x65, 0x72, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x3f,
-	0x2e, 0x6d, 0x63, 0x75, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e,
-	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x42, 0x72, 0x6f, 0x61, 0x64, 0x63, 0x61, 0x73, 0x74, 0x50,
-	0x65, 0x72, 0x66, 0x6f, 0x72, 0x6d, 0x65, 0x72, 0x73, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65,
-	0x50, 0x65, 0x72, 0x66, 0x6f, 0x72, 0x6d, 0x65, 0x72, 0x73, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x52,
-	0x10, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x65, 0x72, 0x66, 0x6f, 0x72, 0x6d, 0x65, 0x72,
-	0x73, 0x12, 0x2b, 0x0a, 0x11, 0x64, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x5f, 0x70, 0x65, 0x72, 0x66,
-	0x6f, 0x72, 0x6d, 0x65, 0x72, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x09, 0x52, 0x10, 0x64, 0x65,
-	0x6c, 0x65, 0x74, 0x65, 0x50, 0x65, 0x72, 0x66, 0x6f, 0x72, 0x6d, 0x65, 0x72, 0x73, 0x12, 0x56,
-	0x0a, 0x0f, 0x73, 0x77, 0x61, 0x70, 0x5f, 0x70, 0x65, 0x72, 0x66, 0x6f, 0x72, 0x6d, 0x65, 0x72,
-	0x73, 0x18, 0x03, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x2d, 0x2e, 0x6d, 0x63, 0x75, 0x2e, 0x70, 0x72,
-	0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x42,
-	0x72, 0x6f, 0x61, 0x64, 0x63, 0x61, 0x73, 0x74, 0x53, 0x77, 0x61, 0x70, 0x50, 0x65, 0x72, 0x66,
-	0x6f, 0x72, 0x6d, 0x65, 0x72, 0x73, 0x52, 0x0e, 0x73, 0x77, 0x61, 0x70, 0x50, 0x65, 0x72, 0x66,
-	0x6f, 0x72, 0x6d, 0x65, 0x72, 0x73, 0x1a, 0x43, 0x0a, 0x15, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65,
-	0x50, 0x65, 0x72, 0x66, 0x6f, 0x72, 0x6d, 0x65, 0x72, 0x73, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x12,
-	0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x03, 0x6b, 0x65,
-	0x79, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x3a, 0x02, 0x38, 0x01, 0x22, 0x4d, 0x0a, 0x1d, 0x55,
-	0x70, 0x64, 0x61, 0x74, 0x65, 0x42, 0x72, 0x6f, 0x61, 0x64, 0x63, 0x61, 0x73, 0x74, 0x53, 0x77,
-	0x61, 0x70, 0x50, 0x65, 0x72, 0x66, 0x6f, 0x72, 0x6d, 0x65, 0x72, 0x73, 0x12, 0x15, 0x0a, 0x06,
-	0x75, 0x73, 0x65, 0x72, 0x5f, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x75, 0x73,
-	0x65, 0x72, 0x41, 0x12, 0x15, 0x0a, 0x06, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x62, 0x18, 0x02, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x05, 0x75, 0x73, 0x65, 0x72, 0x42, 0x22, 0x50, 0x0a, 0x15, 0x55, 0x70,
-	0x64, 0x61, 0x74, 0x65, 0x42, 0x72, 0x6f, 0x61, 0x64, 0x63, 0x61, 0x73, 0x74, 0x4c, 0x61, 0x79,
-	0x6f, 0x75, 0x74, 0x12, 0x37, 0x0a, 0x06, 0x6c, 0x61, 0x79, 0x6f, 0x75, 0x74, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x0e, 0x32, 0x1f, 0x2e, 0x6d, 0x63, 0x75, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74,
-	0x65, 0x2e, 0x76, 0x31, 0x2e, 0x42, 0x72, 0x6f, 0x61, 0x64, 0x63, 0x61, 0x73, 0x74, 0x4c, 0x61,
-	0x79, 0x6f, 0x75, 0x74, 0x52, 0x06, 0x6c, 0x61, 0x79, 0x6f, 0x75, 0x74, 0x22, 0x2e, 0x0a, 0x13,
-	0x47, 0x65, 0x74, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x65, 0x72, 0x73, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x12, 0x17, 0x0a, 0x07, 0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x22, 0xb0, 0x01, 0x0a,
-	0x14, 0x47, 0x65, 0x74, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x65, 0x72, 0x73, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x17, 0x0a, 0x07, 0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x12, 0x45,
-	0x0a, 0x05, 0x75, 0x73, 0x65, 0x72, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x2f, 0x2e,
-	0x6d, 0x63, 0x75, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x47,
-	0x65, 0x74, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x65, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f,
-	0x6e, 0x73, 0x65, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x73, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x52, 0x05,
-	0x75, 0x73, 0x65, 0x72, 0x73, 0x1a, 0x38, 0x0a, 0x0a, 0x55, 0x73, 0x65, 0x72, 0x73, 0x45, 0x6e,
-	0x74, 0x72, 0x79, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
-	0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x02,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x3a, 0x02, 0x38, 0x01, 0x22,
-	0x2d, 0x0a, 0x12, 0x47, 0x65, 0x74, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x65, 0x72, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x17, 0x0a, 0x07, 0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x22, 0x47,
-	0x0a, 0x13, 0x47, 0x65, 0x74, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x65, 0x72, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x17, 0x0a, 0x07, 0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x12, 0x17,
-	0x0a, 0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x22, 0x62, 0x0a, 0x12, 0x53, 0x65, 0x74, 0x53, 0x74,
-	0x72, 0x65, 0x61, 0x6d, 0x65, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x17, 0x0a,
-	0x07, 0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06,
-	0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69,
-	0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12,
-	0x1a, 0x0a, 0x08, 0x70, 0x6f, 0x73, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x03, 0x20, 0x01, 0x28,
-	0x05, 0x52, 0x08, 0x70, 0x6f, 0x73, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x22, 0x47, 0x0a, 0x13, 0x53,
-	0x65, 0x74, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x12, 0x17, 0x0a, 0x07, 0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x06, 0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x12, 0x17, 0x0a, 0x07, 0x75,
-	0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x75, 0x73,
-	0x65, 0x72, 0x49, 0x64, 0x22, 0x84, 0x01, 0x0a, 0x15, 0x53, 0x74, 0x61, 0x72, 0x74, 0x53, 0x74,
-	0x72, 0x65, 0x61, 0x6d, 0x69, 0x6e, 0x67, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x17,
-	0x0a, 0x07, 0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x06, 0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x12, 0x19, 0x0a, 0x08, 0x65, 0x76, 0x65, 0x6e, 0x74,
-	0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x65, 0x76, 0x65, 0x6e, 0x74,
-	0x49, 0x64, 0x12, 0x37, 0x0a, 0x06, 0x6c, 0x61, 0x79, 0x6f, 0x75, 0x74, 0x18, 0x03, 0x20, 0x01,
-	0x28, 0x0e, 0x32, 0x1f, 0x2e, 0x6d, 0x63, 0x75, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65,
-	0x2e, 0x76, 0x31, 0x2e, 0x42, 0x72, 0x6f, 0x61, 0x64, 0x63, 0x61, 0x73, 0x74, 0x4c, 0x61, 0x79,
-	0x6f, 0x75, 0x74, 0x52, 0x06, 0x6c, 0x61, 0x79, 0x6f, 0x75, 0x74, 0x22, 0x31, 0x0a, 0x16, 0x53,
-	0x74, 0x61, 0x72, 0x74, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x69, 0x6e, 0x67, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x17, 0x0a, 0x07, 0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x22, 0x2f,
-	0x0a, 0x14, 0x53, 0x74, 0x6f, 0x70, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x69, 0x6e, 0x67, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x17, 0x0a, 0x07, 0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69,
-	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x22,
-	0x30, 0x0a, 0x15, 0x53, 0x74, 0x6f, 0x70, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x69, 0x6e, 0x67,
+	0x6f, 0x6d, 0x49, 0x64, 0x22, 0x41, 0x0a, 0x0f, 0x47, 0x65, 0x74, 0x52, 0x6f, 0x6f, 0x6d, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2e, 0x0a, 0x04, 0x72, 0x6f, 0x6f, 0x6d, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x6d, 0x63, 0x75, 0x2e, 0x70, 0x75, 0x62, 0x6c,
+	0x69, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x52, 0x6f, 0x6f,
+	0x6d, 0x52, 0x04, 0x72, 0x6f, 0x6f, 0x6d, 0x22, 0x2d, 0x0a, 0x10, 0x4c, 0x69, 0x73, 0x74, 0x52,
+	0x6f, 0x6f, 0x6d, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x19, 0x0a, 0x08, 0x72,
+	0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x09, 0x52, 0x07, 0x72,
+	0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x73, 0x22, 0x45, 0x0a, 0x11, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x6f,
+	0x6f, 0x6d, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x30, 0x0a, 0x05, 0x72,
+	0x6f, 0x6f, 0x6d, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x6d, 0x63, 0x75,
+	0x2e, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76,
+	0x31, 0x2e, 0x52, 0x6f, 0x6f, 0x6d, 0x52, 0x05, 0x72, 0x6f, 0x6f, 0x6d, 0x73, 0x22, 0x2c, 0x0a,
+	0x0f, 0x41, 0x64, 0x64, 0x52, 0x6f, 0x6f, 0x6d, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x12, 0x19, 0x0a, 0x08, 0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64, 0x73, 0x18, 0x01, 0x20, 0x03,
+	0x28, 0x09, 0x52, 0x07, 0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x73, 0x22, 0x2d, 0x0a, 0x10, 0x41,
+	0x64, 0x64, 0x52, 0x6f, 0x6f, 0x6d, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x19, 0x0a, 0x08, 0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28,
+	0x09, 0x52, 0x07, 0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x73, 0x22, 0x2f, 0x0a, 0x12, 0x52, 0x65,
+	0x6d, 0x6f, 0x76, 0x65, 0x52, 0x6f, 0x6f, 0x6d, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x12, 0x19, 0x0a, 0x08, 0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64, 0x73, 0x18, 0x01, 0x20, 0x03,
+	0x28, 0x09, 0x52, 0x07, 0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x73, 0x22, 0x30, 0x0a, 0x13, 0x52,
+	0x65, 0x6d, 0x6f, 0x76, 0x65, 0x52, 0x6f, 0x6f, 0x6d, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x12, 0x19, 0x0a, 0x08, 0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64, 0x73, 0x18, 0x01,
+	0x20, 0x03, 0x28, 0x09, 0x52, 0x07, 0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x73, 0x22, 0x29, 0x0a,
+	0x0e, 0x41, 0x64, 0x64, 0x52, 0x6f, 0x6f, 0x6d, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
+	0x17, 0x0a, 0x07, 0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x06, 0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x22, 0x2a, 0x0a, 0x0f, 0x41, 0x64, 0x64, 0x52,
+	0x6f, 0x6f, 0x6d, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x17, 0x0a, 0x07, 0x72,
+	0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x72, 0x6f,
+	0x6f, 0x6d, 0x49, 0x64, 0x22, 0x2c, 0x0a, 0x11, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x52, 0x6f,
+	0x6f, 0x6d, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x17, 0x0a, 0x07, 0x72, 0x6f, 0x6f,
+	0x6d, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x72, 0x6f, 0x6f, 0x6d,
+	0x49, 0x64, 0x22, 0x2d, 0x0a, 0x12, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x52, 0x6f, 0x6f, 0x6d,
 	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x17, 0x0a, 0x07, 0x72, 0x6f, 0x6f, 0x6d,
 	0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x72, 0x6f, 0x6f, 0x6d, 0x49,
-	0x64, 0x22, 0x29, 0x0a, 0x0e, 0x41, 0x64, 0x64, 0x52, 0x6f, 0x6f, 0x6d, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x12, 0x17, 0x0a, 0x07, 0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x22, 0x2a, 0x0a, 0x0f,
-	0x41, 0x64, 0x64, 0x52, 0x6f, 0x6f, 0x6d, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
-	0x17, 0x0a, 0x07, 0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x06, 0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x22, 0x2c, 0x0a, 0x11, 0x52, 0x65, 0x6d, 0x6f,
-	0x76, 0x65, 0x52, 0x6f, 0x6f, 0x6d, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x17, 0x0a,
-	0x07, 0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06,
-	0x72, 0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x22, 0x2d, 0x0a, 0x12, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65,
-	0x52, 0x6f, 0x6f, 0x6d, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x17, 0x0a, 0x07,
-	0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x72,
-	0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x22, 0x68, 0x0a, 0x13, 0x4f, 0x75, 0x74, 0x70, 0x75, 0x74, 0x53,
-	0x74, 0x72, 0x65, 0x61, 0x6d, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x17, 0x0a, 0x07,
-	0x72, 0x6f, 0x6f, 0x6d, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x72,
-	0x6f, 0x6f, 0x6d, 0x49, 0x64, 0x12, 0x15, 0x0a, 0x06, 0x73, 0x66, 0x75, 0x5f, 0x69, 0x64, 0x18,
-	0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x73, 0x66, 0x75, 0x49, 0x64, 0x12, 0x21, 0x0a, 0x0c,
-	0x63, 0x6f, 0x6e, 0x74, 0x72, 0x6f, 0x6c, 0x5f, 0x6f, 0x6e, 0x6c, 0x79, 0x18, 0x03, 0x20, 0x01,
-	0x28, 0x08, 0x52, 0x0b, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x6f, 0x6c, 0x4f, 0x6e, 0x6c, 0x79, 0x42,
-	0x37, 0x5a, 0x35, 0x67, 0x69, 0x74, 0x6c, 0x61, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x65, 0x76,
-	0x65, 0x6d, 0x65, 0x74, 0x61, 0x2f, 0x7a, 0x64, 0x6b, 0x2f, 0x70, 0x62, 0x2f, 0x6f, 0x75, 0x74,
-	0x2f, 0x67, 0x6f, 0x2f, 0x6d, 0x63, 0x75, 0x2f, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2f,
-	0x76, 0x31, 0x3b, 0x6d, 0x63, 0x75, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x64, 0x22, 0x68, 0x0a, 0x13, 0x4f, 0x75, 0x74, 0x70, 0x75, 0x74, 0x53, 0x74, 0x72, 0x65, 0x61,
+	0x6d, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x17, 0x0a, 0x07, 0x72, 0x6f, 0x6f, 0x6d,
+	0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x72, 0x6f, 0x6f, 0x6d, 0x49,
+	0x64, 0x12, 0x15, 0x0a, 0x06, 0x73, 0x66, 0x75, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x05, 0x73, 0x66, 0x75, 0x49, 0x64, 0x12, 0x21, 0x0a, 0x0c, 0x63, 0x6f, 0x6e, 0x74,
+	0x72, 0x6f, 0x6c, 0x5f, 0x6f, 0x6e, 0x6c, 0x79, 0x18, 0x03, 0x20, 0x01, 0x28, 0x08, 0x52, 0x0b,
+	0x63, 0x6f, 0x6e, 0x74, 0x72, 0x6f, 0x6c, 0x4f, 0x6e, 0x6c, 0x79, 0x42, 0x37, 0x5a, 0x35, 0x67,
+	0x69, 0x74, 0x6c, 0x61, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x65, 0x76, 0x65, 0x6d, 0x65, 0x74,
+	0x61, 0x2f, 0x7a, 0x64, 0x6b, 0x2f, 0x70, 0x62, 0x2f, 0x6f, 0x75, 0x74, 0x2f, 0x67, 0x6f, 0x2f,
+	0x6d, 0x63, 0x75, 0x2f, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2f, 0x76, 0x31, 0x3b, 0x6d,
+	0x63, 0x75, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -2351,87 +772,32 @@ func file_mcu_private_v1_procedures_proto_rawDescGZIP() []byte {
 	return file_mcu_private_v1_procedures_proto_rawDescData
 }
 
-var file_mcu_private_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 41)
+var file_mcu_private_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 14)
 var file_mcu_private_v1_procedures_proto_goTypes = []interface{}{
-	(*UpdateRoomsRequest)(nil),            // 0: mcu.private.v1.UpdateRoomsRequest
-	(*UpdateRoomsResponse)(nil),           // 1: mcu.private.v1.UpdateRoomsResponse
-	(*UpdateRoom)(nil),                    // 2: mcu.private.v1.UpdateRoom
-	(*StringValue)(nil),                   // 3: mcu.private.v1.StringValue
-	(*UpdateRoomBroadcast)(nil),           // 4: mcu.private.v1.UpdateRoomBroadcast
-	(*GetRoomRequest)(nil),                // 5: mcu.private.v1.GetRoomRequest
-	(*GetRoomResponse)(nil),               // 6: mcu.private.v1.GetRoomResponse
-	(*ListRoomsRequest)(nil),              // 7: mcu.private.v1.ListRoomsRequest
-	(*ListRoomsResponse)(nil),             // 8: mcu.private.v1.ListRoomsResponse
-	(*StopRoomEventsRequest)(nil),         // 9: mcu.private.v1.StopRoomEventsRequest
-	(*StopRoomEventsResponse)(nil),        // 10: mcu.private.v1.StopRoomEventsResponse
-	(*StartRoomEventsRequest)(nil),        // 11: mcu.private.v1.StartRoomEventsRequest
-	(*StartRoomEventsResponse)(nil),       // 12: mcu.private.v1.StartRoomEventsResponse
-	(*AddRoomsRequest)(nil),               // 13: mcu.private.v1.AddRoomsRequest
-	(*AddRoomsResponse)(nil),              // 14: mcu.private.v1.AddRoomsResponse
-	(*RemoveRoomsRequest)(nil),            // 15: mcu.private.v1.RemoveRoomsRequest
-	(*RemoveRoomsResponse)(nil),           // 16: mcu.private.v1.RemoveRoomsResponse
-	(*UpdateBroadcastRequest)(nil),        // 17: mcu.private.v1.UpdateBroadcastRequest
-	(*UpdateMixerType)(nil),               // 18: mcu.private.v1.UpdateMixerType
-	(*UpdateRoomGridOrder)(nil),           // 19: mcu.private.v1.UpdateRoomGridOrder
-	(*UpdateBroadcastResponse)(nil),       // 20: mcu.private.v1.UpdateBroadcastResponse
-	(*UpdateBroadcastPerformers)(nil),     // 21: mcu.private.v1.UpdateBroadcastPerformers
-	(*UpdateBroadcastSwapPerformers)(nil), // 22: mcu.private.v1.UpdateBroadcastSwapPerformers
-	(*UpdateBroadcastLayout)(nil),         // 23: mcu.private.v1.UpdateBroadcastLayout
-	(*GetStreamersRequest)(nil),           // 24: mcu.private.v1.GetStreamersRequest
-	(*GetStreamersResponse)(nil),          // 25: mcu.private.v1.GetStreamersResponse
-	(*GetStreamerRequest)(nil),            // 26: mcu.private.v1.GetStreamerRequest
-	(*GetStreamerResponse)(nil),           // 27: mcu.private.v1.GetStreamerResponse
-	(*SetStreamerRequest)(nil),            // 28: mcu.private.v1.SetStreamerRequest
-	(*SetStreamerResponse)(nil),           // 29: mcu.private.v1.SetStreamerResponse
-	(*StartStreamingRequest)(nil),         // 30: mcu.private.v1.StartStreamingRequest
-	(*StartStreamingResponse)(nil),        // 31: mcu.private.v1.StartStreamingResponse
-	(*StopStreamingRequest)(nil),          // 32: mcu.private.v1.StopStreamingRequest
-	(*StopStreamingResponse)(nil),         // 33: mcu.private.v1.StopStreamingResponse
-	(*AddRoomRequest)(nil),                // 34: mcu.private.v1.AddRoomRequest
-	(*AddRoomResponse)(nil),               // 35: mcu.private.v1.AddRoomResponse
-	(*RemoveRoomRequest)(nil),             // 36: mcu.private.v1.RemoveRoomRequest
-	(*RemoveRoomResponse)(nil),            // 37: mcu.private.v1.RemoveRoomResponse
-	(*OutputStreamRequest)(nil),           // 38: mcu.private.v1.OutputStreamRequest
-	nil,                                   // 39: mcu.private.v1.UpdateBroadcastPerformers.UpdatePerformersEntry
-	nil,                                   // 40: mcu.private.v1.GetStreamersResponse.UsersEntry
-	(*v1.Room)(nil),                       // 41: mcu.public.server.v1.Room
-	(v1.MixerType)(0),                     // 42: mcu.public.server.v1.MixerType
-	(BroadcastLayout)(0),                  // 43: mcu.private.v1.BroadcastLayout
+	(*StringValue)(nil),         // 0: mcu.private.v1.StringValue
+	(*GetRoomRequest)(nil),      // 1: mcu.private.v1.GetRoomRequest
+	(*GetRoomResponse)(nil),     // 2: mcu.private.v1.GetRoomResponse
+	(*ListRoomsRequest)(nil),    // 3: mcu.private.v1.ListRoomsRequest
+	(*ListRoomsResponse)(nil),   // 4: mcu.private.v1.ListRoomsResponse
+	(*AddRoomsRequest)(nil),     // 5: mcu.private.v1.AddRoomsRequest
+	(*AddRoomsResponse)(nil),    // 6: mcu.private.v1.AddRoomsResponse
+	(*RemoveRoomsRequest)(nil),  // 7: mcu.private.v1.RemoveRoomsRequest
+	(*RemoveRoomsResponse)(nil), // 8: mcu.private.v1.RemoveRoomsResponse
+	(*AddRoomRequest)(nil),      // 9: mcu.private.v1.AddRoomRequest
+	(*AddRoomResponse)(nil),     // 10: mcu.private.v1.AddRoomResponse
+	(*RemoveRoomRequest)(nil),   // 11: mcu.private.v1.RemoveRoomRequest
+	(*RemoveRoomResponse)(nil),  // 12: mcu.private.v1.RemoveRoomResponse
+	(*OutputStreamRequest)(nil), // 13: mcu.private.v1.OutputStreamRequest
+	(*v1.Room)(nil),             // 14: mcu.public.server.v1.Room
 }
 var file_mcu_private_v1_procedures_proto_depIdxs = []int32{
-	2,  // 0: mcu.private.v1.UpdateRoomsRequest.update_rooms:type_name -> mcu.private.v1.UpdateRoom
-	41, // 1: mcu.private.v1.UpdateRoomsResponse.successful_room_updates:type_name -> mcu.public.server.v1.Room
-	41, // 2: mcu.private.v1.UpdateRoomsResponse.failed_room_updates:type_name -> mcu.public.server.v1.Room
-	4,  // 3: mcu.private.v1.UpdateRoom.room_broadcast:type_name -> mcu.private.v1.UpdateRoomBroadcast
-	3,  // 4: mcu.private.v1.UpdateRoom.event_id:type_name -> mcu.private.v1.StringValue
-	23, // 5: mcu.private.v1.UpdateRoomBroadcast.update_broadcast_layout:type_name -> mcu.private.v1.UpdateBroadcastLayout
-	21, // 6: mcu.private.v1.UpdateRoomBroadcast.update_broadcast_performers:type_name -> mcu.private.v1.UpdateBroadcastPerformers
-	18, // 7: mcu.private.v1.UpdateRoomBroadcast.update_mixer_type:type_name -> mcu.private.v1.UpdateMixerType
-	19, // 8: mcu.private.v1.UpdateRoomBroadcast.update_room_grid_order:type_name -> mcu.private.v1.UpdateRoomGridOrder
-	41, // 9: mcu.private.v1.GetRoomResponse.room:type_name -> mcu.public.server.v1.Room
-	41, // 10: mcu.private.v1.ListRoomsResponse.rooms:type_name -> mcu.public.server.v1.Room
-	41, // 11: mcu.private.v1.StopRoomEventsResponse.rooms:type_name -> mcu.public.server.v1.Room
-	2,  // 12: mcu.private.v1.StartRoomEventsRequest.update_rooms:type_name -> mcu.private.v1.UpdateRoom
-	41, // 13: mcu.private.v1.StartRoomEventsResponse.rooms:type_name -> mcu.public.server.v1.Room
-	23, // 14: mcu.private.v1.UpdateBroadcastRequest.update_broadcast_layout:type_name -> mcu.private.v1.UpdateBroadcastLayout
-	21, // 15: mcu.private.v1.UpdateBroadcastRequest.update_broadcast_performers:type_name -> mcu.private.v1.UpdateBroadcastPerformers
-	18, // 16: mcu.private.v1.UpdateBroadcastRequest.update_mixer_type:type_name -> mcu.private.v1.UpdateMixerType
-	19, // 17: mcu.private.v1.UpdateBroadcastRequest.update_room_grid_order:type_name -> mcu.private.v1.UpdateRoomGridOrder
-	42, // 18: mcu.private.v1.UpdateMixerType.mode:type_name -> mcu.public.server.v1.MixerType
-	23, // 19: mcu.private.v1.UpdateBroadcastResponse.update_broadcast_layout:type_name -> mcu.private.v1.UpdateBroadcastLayout
-	21, // 20: mcu.private.v1.UpdateBroadcastResponse.update_broadcast_performers:type_name -> mcu.private.v1.UpdateBroadcastPerformers
-	18, // 21: mcu.private.v1.UpdateBroadcastResponse.update_mixer_type:type_name -> mcu.private.v1.UpdateMixerType
-	19, // 22: mcu.private.v1.UpdateBroadcastResponse.update_room_grid_order:type_name -> mcu.private.v1.UpdateRoomGridOrder
-	39, // 23: mcu.private.v1.UpdateBroadcastPerformers.update_performers:type_name -> mcu.private.v1.UpdateBroadcastPerformers.UpdatePerformersEntry
-	22, // 24: mcu.private.v1.UpdateBroadcastPerformers.swap_performers:type_name -> mcu.private.v1.UpdateBroadcastSwapPerformers
-	43, // 25: mcu.private.v1.UpdateBroadcastLayout.layout:type_name -> mcu.private.v1.BroadcastLayout
-	40, // 26: mcu.private.v1.GetStreamersResponse.users:type_name -> mcu.private.v1.GetStreamersResponse.UsersEntry
-	43, // 27: mcu.private.v1.StartStreamingRequest.layout:type_name -> mcu.private.v1.BroadcastLayout
-	28, // [28:28] is the sub-list for method output_type
-	28, // [28:28] is the sub-list for method input_type
-	28, // [28:28] is the sub-list for extension type_name
-	28, // [28:28] is the sub-list for extension extendee
-	0,  // [0:28] is the sub-list for field type_name
+	14, // 0: mcu.private.v1.GetRoomResponse.room:type_name -> mcu.public.server.v1.Room
+	14, // 1: mcu.private.v1.ListRoomsResponse.rooms:type_name -> mcu.public.server.v1.Room
+	2,  // [2:2] is the sub-list for method output_type
+	2,  // [2:2] is the sub-list for method input_type
+	2,  // [2:2] is the sub-list for extension type_name
+	2,  // [2:2] is the sub-list for extension extendee
+	0,  // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_mcu_private_v1_procedures_proto_init() }
@@ -2442,42 +808,6 @@ func file_mcu_private_v1_procedures_proto_init() {
 	file_mcu_private_v1_enums_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_mcu_private_v1_procedures_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateRoomsRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mcu_private_v1_procedures_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateRoomsResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mcu_private_v1_procedures_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateRoom); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mcu_private_v1_procedures_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*StringValue); i {
 			case 0:
 				return &v.state
@@ -2489,19 +819,7 @@ func file_mcu_private_v1_procedures_proto_init() {
 				return nil
 			}
 		}
-		file_mcu_private_v1_procedures_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateRoomBroadcast); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mcu_private_v1_procedures_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_mcu_private_v1_procedures_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetRoomRequest); i {
 			case 0:
 				return &v.state
@@ -2513,7 +831,7 @@ func file_mcu_private_v1_procedures_proto_init() {
 				return nil
 			}
 		}
-		file_mcu_private_v1_procedures_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_mcu_private_v1_procedures_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetRoomResponse); i {
 			case 0:
 				return &v.state
@@ -2525,7 +843,7 @@ func file_mcu_private_v1_procedures_proto_init() {
 				return nil
 			}
 		}
-		file_mcu_private_v1_procedures_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_mcu_private_v1_procedures_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListRoomsRequest); i {
 			case 0:
 				return &v.state
@@ -2537,7 +855,7 @@ func file_mcu_private_v1_procedures_proto_init() {
 				return nil
 			}
 		}
-		file_mcu_private_v1_procedures_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_mcu_private_v1_procedures_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListRoomsResponse); i {
 			case 0:
 				return &v.state
@@ -2549,55 +867,7 @@ func file_mcu_private_v1_procedures_proto_init() {
 				return nil
 			}
 		}
-		file_mcu_private_v1_procedures_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*StopRoomEventsRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mcu_private_v1_procedures_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*StopRoomEventsResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mcu_private_v1_procedures_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*StartRoomEventsRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mcu_private_v1_procedures_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*StartRoomEventsResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mcu_private_v1_procedures_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+		file_mcu_private_v1_procedures_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*AddRoomsRequest); i {
 			case 0:
 				return &v.state
@@ -2609,7 +879,7 @@ func file_mcu_private_v1_procedures_proto_init() {
 				return nil
 			}
 		}
-		file_mcu_private_v1_procedures_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
+		file_mcu_private_v1_procedures_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*AddRoomsResponse); i {
 			case 0:
 				return &v.state
@@ -2621,7 +891,7 @@ func file_mcu_private_v1_procedures_proto_init() {
 				return nil
 			}
 		}
-		file_mcu_private_v1_procedures_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
+		file_mcu_private_v1_procedures_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*RemoveRoomsRequest); i {
 			case 0:
 				return &v.state
@@ -2633,7 +903,7 @@ func file_mcu_private_v1_procedures_proto_init() {
 				return nil
 			}
 		}
-		file_mcu_private_v1_procedures_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
+		file_mcu_private_v1_procedures_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*RemoveRoomsResponse); i {
 			case 0:
 				return &v.state
@@ -2645,211 +915,7 @@ func file_mcu_private_v1_procedures_proto_init() {
 				return nil
 			}
 		}
-		file_mcu_private_v1_procedures_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateBroadcastRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mcu_private_v1_procedures_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateMixerType); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mcu_private_v1_procedures_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateRoomGridOrder); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mcu_private_v1_procedures_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateBroadcastResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mcu_private_v1_procedures_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateBroadcastPerformers); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mcu_private_v1_procedures_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateBroadcastSwapPerformers); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mcu_private_v1_procedures_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateBroadcastLayout); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mcu_private_v1_procedures_proto_msgTypes[24].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetStreamersRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mcu_private_v1_procedures_proto_msgTypes[25].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetStreamersResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mcu_private_v1_procedures_proto_msgTypes[26].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetStreamerRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mcu_private_v1_procedures_proto_msgTypes[27].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetStreamerResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mcu_private_v1_procedures_proto_msgTypes[28].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*SetStreamerRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mcu_private_v1_procedures_proto_msgTypes[29].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*SetStreamerResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mcu_private_v1_procedures_proto_msgTypes[30].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*StartStreamingRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mcu_private_v1_procedures_proto_msgTypes[31].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*StartStreamingResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mcu_private_v1_procedures_proto_msgTypes[32].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*StopStreamingRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mcu_private_v1_procedures_proto_msgTypes[33].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*StopStreamingResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_mcu_private_v1_procedures_proto_msgTypes[34].Exporter = func(v interface{}, i int) interface{} {
+		file_mcu_private_v1_procedures_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*AddRoomRequest); i {
 			case 0:
 				return &v.state
@@ -2861,7 +927,7 @@ func file_mcu_private_v1_procedures_proto_init() {
 				return nil
 			}
 		}
-		file_mcu_private_v1_procedures_proto_msgTypes[35].Exporter = func(v interface{}, i int) interface{} {
+		file_mcu_private_v1_procedures_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*AddRoomResponse); i {
 			case 0:
 				return &v.state
@@ -2873,7 +939,7 @@ func file_mcu_private_v1_procedures_proto_init() {
 				return nil
 			}
 		}
-		file_mcu_private_v1_procedures_proto_msgTypes[36].Exporter = func(v interface{}, i int) interface{} {
+		file_mcu_private_v1_procedures_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*RemoveRoomRequest); i {
 			case 0:
 				return &v.state
@@ -2885,7 +951,7 @@ func file_mcu_private_v1_procedures_proto_init() {
 				return nil
 			}
 		}
-		file_mcu_private_v1_procedures_proto_msgTypes[37].Exporter = func(v interface{}, i int) interface{} {
+		file_mcu_private_v1_procedures_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*RemoveRoomResponse); i {
 			case 0:
 				return &v.state
@@ -2897,7 +963,7 @@ func file_mcu_private_v1_procedures_proto_init() {
 				return nil
 			}
 		}
-		file_mcu_private_v1_procedures_proto_msgTypes[38].Exporter = func(v interface{}, i int) interface{} {
+		file_mcu_private_v1_procedures_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*OutputStreamRequest); i {
 			case 0:
 				return &v.state
@@ -2916,7 +982,7 @@ func file_mcu_private_v1_procedures_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_mcu_private_v1_procedures_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   41,
+			NumMessages:   14,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

@@ -26,19 +26,10 @@ type ServiceClient interface {
 	RemoveRoom(ctx context.Context, in *RemoveRoomRequest, opts ...grpc.CallOption) (*RemoveRoomResponse, error)
 	StreamInput(ctx context.Context, opts ...grpc.CallOption) (Service_StreamInputClient, error)
 	StreamOutput(ctx context.Context, opts ...grpc.CallOption) (Service_StreamOutputClient, error)
-	StartStreaming(ctx context.Context, in *StartStreamingRequest, opts ...grpc.CallOption) (*StartStreamingResponse, error)
-	StopStreaming(ctx context.Context, in *StopStreamingRequest, opts ...grpc.CallOption) (*StopStreamingResponse, error)
-	SetStreamer(ctx context.Context, in *SetStreamerRequest, opts ...grpc.CallOption) (*SetStreamerResponse, error)
-	GetStreamer(ctx context.Context, in *GetStreamerRequest, opts ...grpc.CallOption) (*GetStreamerResponse, error)
-	GetStreamers(ctx context.Context, in *GetStreamersRequest, opts ...grpc.CallOption) (*GetStreamersResponse, error)
-	UpdateBroadcast(ctx context.Context, in *UpdateBroadcastRequest, opts ...grpc.CallOption) (*UpdateBroadcastResponse, error)
 	AddRooms(ctx context.Context, in *AddRoomsRequest, opts ...grpc.CallOption) (*AddRoomsResponse, error)
 	RemoveRooms(ctx context.Context, in *RemoveRoomsRequest, opts ...grpc.CallOption) (*RemoveRoomsResponse, error)
 	ListRooms(ctx context.Context, in *ListRoomsRequest, opts ...grpc.CallOption) (*ListRoomsResponse, error)
 	GetRoom(ctx context.Context, in *GetRoomRequest, opts ...grpc.CallOption) (*GetRoomResponse, error)
-	StartRoomEvents(ctx context.Context, in *StartRoomEventsRequest, opts ...grpc.CallOption) (*StartRoomEventsResponse, error)
-	StopRoomEvents(ctx context.Context, in *StopRoomEventsRequest, opts ...grpc.CallOption) (*StopRoomEventsResponse, error)
-	UpdateRooms(ctx context.Context, in *UpdateRoomsRequest, opts ...grpc.CallOption) (*UpdateRoomsResponse, error)
 }
 
 type serviceClient struct {
@@ -129,60 +120,6 @@ func (x *serviceStreamOutputClient) Recv() (*OutputPacket, error) {
 	return m, nil
 }
 
-func (c *serviceClient) StartStreaming(ctx context.Context, in *StartStreamingRequest, opts ...grpc.CallOption) (*StartStreamingResponse, error) {
-	out := new(StartStreamingResponse)
-	err := c.cc.Invoke(ctx, "/mcu.private.v1.Service/StartStreaming", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceClient) StopStreaming(ctx context.Context, in *StopStreamingRequest, opts ...grpc.CallOption) (*StopStreamingResponse, error) {
-	out := new(StopStreamingResponse)
-	err := c.cc.Invoke(ctx, "/mcu.private.v1.Service/StopStreaming", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceClient) SetStreamer(ctx context.Context, in *SetStreamerRequest, opts ...grpc.CallOption) (*SetStreamerResponse, error) {
-	out := new(SetStreamerResponse)
-	err := c.cc.Invoke(ctx, "/mcu.private.v1.Service/SetStreamer", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceClient) GetStreamer(ctx context.Context, in *GetStreamerRequest, opts ...grpc.CallOption) (*GetStreamerResponse, error) {
-	out := new(GetStreamerResponse)
-	err := c.cc.Invoke(ctx, "/mcu.private.v1.Service/GetStreamer", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceClient) GetStreamers(ctx context.Context, in *GetStreamersRequest, opts ...grpc.CallOption) (*GetStreamersResponse, error) {
-	out := new(GetStreamersResponse)
-	err := c.cc.Invoke(ctx, "/mcu.private.v1.Service/GetStreamers", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceClient) UpdateBroadcast(ctx context.Context, in *UpdateBroadcastRequest, opts ...grpc.CallOption) (*UpdateBroadcastResponse, error) {
-	out := new(UpdateBroadcastResponse)
-	err := c.cc.Invoke(ctx, "/mcu.private.v1.Service/UpdateBroadcast", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *serviceClient) AddRooms(ctx context.Context, in *AddRoomsRequest, opts ...grpc.CallOption) (*AddRoomsResponse, error) {
 	out := new(AddRoomsResponse)
 	err := c.cc.Invoke(ctx, "/mcu.private.v1.Service/AddRooms", in, out, opts...)
@@ -219,33 +156,6 @@ func (c *serviceClient) GetRoom(ctx context.Context, in *GetRoomRequest, opts ..
 	return out, nil
 }
 
-func (c *serviceClient) StartRoomEvents(ctx context.Context, in *StartRoomEventsRequest, opts ...grpc.CallOption) (*StartRoomEventsResponse, error) {
-	out := new(StartRoomEventsResponse)
-	err := c.cc.Invoke(ctx, "/mcu.private.v1.Service/StartRoomEvents", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceClient) StopRoomEvents(ctx context.Context, in *StopRoomEventsRequest, opts ...grpc.CallOption) (*StopRoomEventsResponse, error) {
-	out := new(StopRoomEventsResponse)
-	err := c.cc.Invoke(ctx, "/mcu.private.v1.Service/StopRoomEvents", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceClient) UpdateRooms(ctx context.Context, in *UpdateRoomsRequest, opts ...grpc.CallOption) (*UpdateRoomsResponse, error) {
-	out := new(UpdateRoomsResponse)
-	err := c.cc.Invoke(ctx, "/mcu.private.v1.Service/UpdateRooms", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // ServiceServer is the server API for Service service.
 // All implementations must embed UnimplementedServiceServer
 // for forward compatibility
@@ -254,19 +164,10 @@ type ServiceServer interface {
 	RemoveRoom(context.Context, *RemoveRoomRequest) (*RemoveRoomResponse, error)
 	StreamInput(Service_StreamInputServer) error
 	StreamOutput(Service_StreamOutputServer) error
-	StartStreaming(context.Context, *StartStreamingRequest) (*StartStreamingResponse, error)
-	StopStreaming(context.Context, *StopStreamingRequest) (*StopStreamingResponse, error)
-	SetStreamer(context.Context, *SetStreamerRequest) (*SetStreamerResponse, error)
-	GetStreamer(context.Context, *GetStreamerRequest) (*GetStreamerResponse, error)
-	GetStreamers(context.Context, *GetStreamersRequest) (*GetStreamersResponse, error)
-	UpdateBroadcast(context.Context, *UpdateBroadcastRequest) (*UpdateBroadcastResponse, error)
 	AddRooms(context.Context, *AddRoomsRequest) (*AddRoomsResponse, error)
 	RemoveRooms(context.Context, *RemoveRoomsRequest) (*RemoveRoomsResponse, error)
 	ListRooms(context.Context, *ListRoomsRequest) (*ListRoomsResponse, error)
 	GetRoom(context.Context, *GetRoomRequest) (*GetRoomResponse, error)
-	StartRoomEvents(context.Context, *StartRoomEventsRequest) (*StartRoomEventsResponse, error)
-	StopRoomEvents(context.Context, *StopRoomEventsRequest) (*StopRoomEventsResponse, error)
-	UpdateRooms(context.Context, *UpdateRoomsRequest) (*UpdateRoomsResponse, error)
 	mustEmbedUnimplementedServiceServer()
 }
 
@@ -286,24 +187,6 @@ func (UnimplementedServiceServer) StreamInput(Service_StreamInputServer) error {
 func (UnimplementedServiceServer) StreamOutput(Service_StreamOutputServer) error {
 	return status.Errorf(codes.Unimplemented, "method StreamOutput not implemented")
 }
-func (UnimplementedServiceServer) StartStreaming(context.Context, *StartStreamingRequest) (*StartStreamingResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method StartStreaming not implemented")
-}
-func (UnimplementedServiceServer) StopStreaming(context.Context, *StopStreamingRequest) (*StopStreamingResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method StopStreaming not implemented")
-}
-func (UnimplementedServiceServer) SetStreamer(context.Context, *SetStreamerRequest) (*SetStreamerResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SetStreamer not implemented")
-}
-func (UnimplementedServiceServer) GetStreamer(context.Context, *GetStreamerRequest) (*GetStreamerResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetStreamer not implemented")
-}
-func (UnimplementedServiceServer) GetStreamers(context.Context, *GetStreamersRequest) (*GetStreamersResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetStreamers not implemented")
-}
-func (UnimplementedServiceServer) UpdateBroadcast(context.Context, *UpdateBroadcastRequest) (*UpdateBroadcastResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateBroadcast not implemented")
-}
 func (UnimplementedServiceServer) AddRooms(context.Context, *AddRoomsRequest) (*AddRoomsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddRooms not implemented")
 }
@@ -315,15 +198,6 @@ func (UnimplementedServiceServer) ListRooms(context.Context, *ListRoomsRequest) 
 }
 func (UnimplementedServiceServer) GetRoom(context.Context, *GetRoomRequest) (*GetRoomResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetRoom not implemented")
-}
-func (UnimplementedServiceServer) StartRoomEvents(context.Context, *StartRoomEventsRequest) (*StartRoomEventsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method StartRoomEvents not implemented")
-}
-func (UnimplementedServiceServer) StopRoomEvents(context.Context, *StopRoomEventsRequest) (*StopRoomEventsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method StopRoomEvents not implemented")
-}
-func (UnimplementedServiceServer) UpdateRooms(context.Context, *UpdateRoomsRequest) (*UpdateRoomsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateRooms not implemented")
 }
 func (UnimplementedServiceServer) mustEmbedUnimplementedServiceServer() {}
 
@@ -426,114 +300,6 @@ func (x *serviceStreamOutputServer) Recv() (*OutputStreamRequest, error) {
 	return m, nil
 }
 
-func _Service_StartStreaming_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartStreamingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).StartStreaming(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/mcu.private.v1.Service/StartStreaming",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).StartStreaming(ctx, req.(*StartStreamingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Service_StopStreaming_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StopStreamingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).StopStreaming(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/mcu.private.v1.Service/StopStreaming",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).StopStreaming(ctx, req.(*StopStreamingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Service_SetStreamer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetStreamerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).SetStreamer(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/mcu.private.v1.Service/SetStreamer",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).SetStreamer(ctx, req.(*SetStreamerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Service_GetStreamer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStreamerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).GetStreamer(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/mcu.private.v1.Service/GetStreamer",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).GetStreamer(ctx, req.(*GetStreamerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Service_GetStreamers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStreamersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).GetStreamers(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/mcu.private.v1.Service/GetStreamers",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).GetStreamers(ctx, req.(*GetStreamersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Service_UpdateBroadcast_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateBroadcastRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).UpdateBroadcast(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/mcu.private.v1.Service/UpdateBroadcast",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).UpdateBroadcast(ctx, req.(*UpdateBroadcastRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _Service_AddRooms_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AddRoomsRequest)
 	if err := dec(in); err != nil {
@@ -606,60 +372,6 @@ func _Service_GetRoom_Handler(srv interface{}, ctx context.Context, dec func(int
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Service_StartRoomEvents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartRoomEventsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).StartRoomEvents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/mcu.private.v1.Service/StartRoomEvents",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).StartRoomEvents(ctx, req.(*StartRoomEventsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Service_StopRoomEvents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StopRoomEventsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).StopRoomEvents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/mcu.private.v1.Service/StopRoomEvents",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).StopRoomEvents(ctx, req.(*StopRoomEventsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Service_UpdateRooms_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateRoomsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).UpdateRooms(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/mcu.private.v1.Service/UpdateRooms",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).UpdateRooms(ctx, req.(*UpdateRoomsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // Service_ServiceDesc is the grpc.ServiceDesc for Service service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -676,30 +388,6 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Service_RemoveRoom_Handler,
 		},
 		{
-			MethodName: "StartStreaming",
-			Handler:    _Service_StartStreaming_Handler,
-		},
-		{
-			MethodName: "StopStreaming",
-			Handler:    _Service_StopStreaming_Handler,
-		},
-		{
-			MethodName: "SetStreamer",
-			Handler:    _Service_SetStreamer_Handler,
-		},
-		{
-			MethodName: "GetStreamer",
-			Handler:    _Service_GetStreamer_Handler,
-		},
-		{
-			MethodName: "GetStreamers",
-			Handler:    _Service_GetStreamers_Handler,
-		},
-		{
-			MethodName: "UpdateBroadcast",
-			Handler:    _Service_UpdateBroadcast_Handler,
-		},
-		{
 			MethodName: "AddRooms",
 			Handler:    _Service_AddRooms_Handler,
 		},
@@ -714,18 +402,6 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetRoom",
 			Handler:    _Service_GetRoom_Handler,
-		},
-		{
-			MethodName: "StartRoomEvents",
-			Handler:    _Service_StartRoomEvents_Handler,
-		},
-		{
-			MethodName: "StopRoomEvents",
-			Handler:    _Service_StopRoomEvents_Handler,
-		},
-		{
-			MethodName: "UpdateRooms",
-			Handler:    _Service_UpdateRooms_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{

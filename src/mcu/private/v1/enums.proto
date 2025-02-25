@@ -31,11 +31,3 @@ enum InputType {
     InputTypeRTMP = 3;
     InputTypeWHIP = 4;
 }
-
-enum BroadcastLayout {
-    BroadcastLayoutUnknown = 0;
-    BroadcastLayoutRectOne = 1;
-    BroadcastLayoutSquareTwo = 2;
-    BroadcastLayoutSquareThree = 3;
-    BroadcastLayoutRectOneDynamic = 4;
-}
