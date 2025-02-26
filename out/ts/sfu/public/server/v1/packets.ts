@@ -13,6 +13,7 @@ import { MessageType } from "@protobuf-ts/runtime";
 import { Codec } from "./enums";
 import { StreamType } from "./enums";
 import { ConferenceMode } from "./enums";
+import { Channel } from "../../client/v1/enums";
 import { StreamInfo } from "./entities";
 import { IceCandidate } from "./entities";
 import { Offer } from "./entities";
@@ -72,6 +73,10 @@ export interface StreamsPacket {
      * @generated from protobuf field: repeated sfu.public.server.v1.StreamInfo removal_requests = 3;
      */
     removalRequests: StreamInfo[];
+    /**
+     * @generated from protobuf field: sfu.public.client.v1.Channel channel = 4;
+     */
+    channel: Channel;
 }
 /**
  * @generated from protobuf message sfu.public.server.v1.MigrationRequiredPacket
@@ -320,7 +325,8 @@ class StreamsPacket$Type extends MessageType<StreamsPacket> {
         super("sfu.public.server.v1.StreamsPacket", [
             { no: 1, name: "sdp_answer", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
             { no: 2, name: "add_requests", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => StreamInfo },
-            { no: 3, name: "removal_requests", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => StreamInfo }
+            { no: 3, name: "removal_requests", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => StreamInfo },
+            { no: 4, name: "channel", kind: "enum", T: () => ["sfu.public.client.v1.Channel", Channel] }
         ]);
     }
     create(value?: PartialMessage<StreamsPacket>): StreamsPacket {
@@ -328,6 +334,7 @@ class StreamsPacket$Type extends MessageType<StreamsPacket> {
         message.sdpAnswer = new Uint8Array(0);
         message.addRequests = [];
         message.removalRequests = [];
+        message.channel = 0;
         if (value !== undefined)
             reflectionMergePartial<StreamsPacket>(this, message, value);
         return message;
@@ -345,6 +352,9 @@ class StreamsPacket$Type extends MessageType<StreamsPacket> {
                     break;
                 case /* repeated sfu.public.server.v1.StreamInfo removal_requests */ 3:
                     message.removalRequests.push(StreamInfo.internalBinaryRead(reader, reader.uint32(), options));
+                    break;
+                case /* sfu.public.client.v1.Channel channel */ 4:
+                    message.channel = reader.int32();
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -367,6 +377,9 @@ class StreamsPacket$Type extends MessageType<StreamsPacket> {
         /* repeated sfu.public.server.v1.StreamInfo removal_requests = 3; */
         for (let i = 0; i < message.removalRequests.length; i++)
             StreamInfo.internalBinaryWrite(message.removalRequests[i], writer.tag(3, WireType.LengthDelimited).fork(), options).join();
+        /* sfu.public.client.v1.Channel channel = 4; */
+        if (message.channel !== 0)
+            writer.tag(4, WireType.Varint).int32(message.channel);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
