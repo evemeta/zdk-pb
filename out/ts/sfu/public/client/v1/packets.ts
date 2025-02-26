@@ -10,7 +10,7 @@ import { UnknownFieldHandler } from "@protobuf-ts/runtime";
 import type { PartialMessage } from "@protobuf-ts/runtime";
 import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
-import { Channel } from "./enums";
+import { Channel } from "../../server/v1/enums";
 import { StreamInfo } from "../../server/v1/entities";
 import { IceCandidate } from "../../server/v1/entities";
 import { Offer } from "./entities";
@@ -79,7 +79,7 @@ export interface StreamsPacket {
      */
     sdpOffer: Uint8Array;
     /**
-     * @generated from protobuf field: sfu.public.client.v1.Channel channel = 4;
+     * @generated from protobuf field: sfu.public.server.v1.Channel channel = 4;
      */
     channel: Channel;
 }
@@ -320,7 +320,7 @@ class StreamsPacket$Type extends MessageType<StreamsPacket> {
             { no: 1, name: "add_requests", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => StreamInfo },
             { no: 2, name: "removal_requests", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => StreamInfo },
             { no: 3, name: "sdp_offer", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
-            { no: 4, name: "channel", kind: "enum", T: () => ["sfu.public.client.v1.Channel", Channel] }
+            { no: 4, name: "channel", kind: "enum", T: () => ["sfu.public.server.v1.Channel", Channel] }
         ]);
     }
     create(value?: PartialMessage<StreamsPacket>): StreamsPacket {
@@ -347,7 +347,7 @@ class StreamsPacket$Type extends MessageType<StreamsPacket> {
                 case /* bytes sdp_offer */ 3:
                     message.sdpOffer = reader.bytes();
                     break;
-                case /* sfu.public.client.v1.Channel channel */ 4:
+                case /* sfu.public.server.v1.Channel channel */ 4:
                     message.channel = reader.int32();
                     break;
                 default:
@@ -371,7 +371,7 @@ class StreamsPacket$Type extends MessageType<StreamsPacket> {
         /* bytes sdp_offer = 3; */
         if (message.sdpOffer.length)
             writer.tag(3, WireType.LengthDelimited).bytes(message.sdpOffer);
-        /* sfu.public.client.v1.Channel channel = 4; */
+        /* sfu.public.server.v1.Channel channel = 4; */
         if (message.channel !== 0)
             writer.tag(4, WireType.Varint).int32(message.channel);
         let u = options.writeUnknownFields;

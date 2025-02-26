@@ -136,40 +136,6 @@ public enum Sfu_Public_Client_V1_ClientType: SwiftProtobuf.Enum, Swift.CaseItera
 
 }
 
-public enum Sfu_Public_Client_V1_Channel: SwiftProtobuf.Enum, Swift.CaseIterable {
-  public typealias RawValue = Int
-  case main // = 0
-  case screenshare // = 1
-  case UNRECOGNIZED(Int)
-
-  public init() {
-    self = .main
-  }
-
-  public init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .main
-    case 1: self = .screenshare
-    default: self = .UNRECOGNIZED(rawValue)
-    }
-  }
-
-  public var rawValue: Int {
-    switch self {
-    case .main: return 0
-    case .screenshare: return 1
-    case .UNRECOGNIZED(let i): return i
-    }
-  }
-
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Sfu_Public_Client_V1_Channel] = [
-    .main,
-    .screenshare,
-  ]
-
-}
-
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension Sfu_Public_Client_V1_ProtocolVersion: SwiftProtobuf._ProtoNameProviding {
@@ -195,12 +161,5 @@ extension Sfu_Public_Client_V1_ClientType: SwiftProtobuf._ProtoNameProviding {
     11: .same(proto: "ClientTypeMobileSafari"),
     12: .same(proto: "ClientTypeMobileEdge"),
     13: .same(proto: "ClientTypeEdge"),
-  ]
-}
-
-extension Sfu_Public_Client_V1_Channel: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "ChannelMain"),
-    1: .same(proto: "ChannelScreenshare"),
   ]
 }

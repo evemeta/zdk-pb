@@ -3,7 +3,7 @@ syntax = "proto3";
 package sfu.public.client.v1;
 
 import "sfu/public/client/v1/entities.proto";
-import "sfu/public/client/v1/enums.proto";
+import "sfu/public/server/v1/enums.proto";
 import "sfu/public/server/v1/entities.proto";
 
 option java_multiple_files = true;
@@ -36,7 +36,7 @@ message StreamsPacket {
     repeated sfu.public.server.v1.StreamInfo add_requests     = 1;
     repeated sfu.public.server.v1.StreamInfo removal_requests = 2;
     bytes                                    sdp_offer        = 3;
-    Channel                                  channel          = 4;
+    sfu.public.server.v1.Channel             channel          = 4;
 }
 
 message DisconnectPacket {

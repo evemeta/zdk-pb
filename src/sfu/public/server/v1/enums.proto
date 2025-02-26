@@ -38,3 +38,8 @@ enum SfuType {
     SfuTypeGateway = 1;
     SfuTypeRouter  = 2;
 }
+
+enum Channel {
+    ChannelMain         = 0;
+    ChannelScreenshare  = 1;
+}

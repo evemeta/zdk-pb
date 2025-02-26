@@ -101,3 +101,16 @@ export enum SfuType {
      */
     Router = 2
 }
+/**
+ * @generated from protobuf enum sfu.public.server.v1.Channel
+ */
+export enum Channel {
+    /**
+     * @generated from protobuf enum value: Main = 0;
+     */
+    Main = 0,
+    /**
+     * @generated from protobuf enum value: Screenshare = 1;
+     */
+    Screenshare = 1
+}

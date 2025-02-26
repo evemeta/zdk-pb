@@ -75,16 +75,3 @@ export enum ClientType {
      */
     Android = 8
 }
-/**
- * @generated from protobuf enum sfu.public.client.v1.Channel
- */
-export enum Channel {
-    /**
-     * @generated from protobuf enum value: Main = 0;
-     */
-    Main = 0,
-    /**
-     * @generated from protobuf enum value: Screenshare = 1;
-     */
-    Screenshare = 1
-}

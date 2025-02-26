@@ -88,7 +88,7 @@ public struct Sfu_Public_Server_V1_StreamsPacket: @unchecked Sendable {
 
   public var removalRequests: [Sfu_Public_Server_V1_StreamInfo] = []
 
-  public var channel: Sfu_Public_Client_V1_Channel = .main
+  public var channel: Sfu_Public_Server_V1_Channel = .main
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 

@@ -29,8 +29,3 @@ enum ClientType {
     ClientTypeAndroid           = 8;
 }
 
-enum Channel {
-    ChannelMain         = 0;
-    ChannelScreenshare  = 1;
-}
-
