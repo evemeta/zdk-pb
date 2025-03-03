@@ -14,32 +14,32 @@ package com.evemeta.zdk.pb.chat.server.members;
 public enum RestrictionKind
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>RestrictionKindUnknown = 0;</code>
+   * <code>Unknown = 0;</code>
    */
-  RestrictionKindUnknown(0),
+  Unknown(0),
   /**
-   * <code>RestrictionKindMute = 1;</code>
+   * <code>Mute = 1;</code>
    */
-  RestrictionKindMute(1),
+  Mute(1),
   /**
-   * <code>RestrictionKindBlock = 2;</code>
+   * <code>Block = 2;</code>
    */
-  RestrictionKindBlock(2),
+  Block(2),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>RestrictionKindUnknown = 0;</code>
+   * <code>Unknown = 0;</code>
    */
-  public static final int RestrictionKindUnknown_VALUE = 0;
+  public static final int Unknown_VALUE = 0;
   /**
-   * <code>RestrictionKindMute = 1;</code>
+   * <code>Mute = 1;</code>
    */
-  public static final int RestrictionKindMute_VALUE = 1;
+  public static final int Mute_VALUE = 1;
   /**
-   * <code>RestrictionKindBlock = 2;</code>
+   * <code>Block = 2;</code>
    */
-  public static final int RestrictionKindBlock_VALUE = 2;
+  public static final int Block_VALUE = 2;
 
 
   public final int getNumber() {
@@ -66,9 +66,9 @@ public enum RestrictionKind
    */
   public static RestrictionKind forNumber(int value) {
     switch (value) {
-      case 0: return RestrictionKindUnknown;
-      case 1: return RestrictionKindMute;
-      case 2: return RestrictionKindBlock;
+      case 0: return Unknown;
+      case 1: return Mute;
+      case 2: return Block;
       default: return null;
     }
   }

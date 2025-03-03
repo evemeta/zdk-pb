@@ -10,32 +10,32 @@ package com.evemeta.zdk.pb.sfu.server.sfu;
 public enum SfuType
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>SfuTypeUnknown = 0;</code>
+   * <code>Unknown = 0;</code>
    */
-  SfuTypeUnknown(0),
+  Unknown(0),
   /**
-   * <code>SfuTypeGateway = 1;</code>
+   * <code>Gateway = 1;</code>
    */
-  SfuTypeGateway(1),
+  Gateway(1),
   /**
-   * <code>SfuTypeRouter = 2;</code>
+   * <code>Router = 2;</code>
    */
-  SfuTypeRouter(2),
+  Router(2),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>SfuTypeUnknown = 0;</code>
+   * <code>Unknown = 0;</code>
    */
-  public static final int SfuTypeUnknown_VALUE = 0;
+  public static final int Unknown_VALUE = 0;
   /**
-   * <code>SfuTypeGateway = 1;</code>
+   * <code>Gateway = 1;</code>
    */
-  public static final int SfuTypeGateway_VALUE = 1;
+  public static final int Gateway_VALUE = 1;
   /**
-   * <code>SfuTypeRouter = 2;</code>
+   * <code>Router = 2;</code>
    */
-  public static final int SfuTypeRouter_VALUE = 2;
+  public static final int Router_VALUE = 2;
 
 
   public final int getNumber() {
@@ -62,9 +62,9 @@ public enum SfuType
    */
   public static SfuType forNumber(int value) {
     switch (value) {
-      case 0: return SfuTypeUnknown;
-      case 1: return SfuTypeGateway;
-      case 2: return SfuTypeRouter;
+      case 0: return Unknown;
+      case 1: return Gateway;
+      case 2: return Router;
       default: return null;
     }
   }

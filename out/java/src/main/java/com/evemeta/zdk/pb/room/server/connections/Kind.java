@@ -10,32 +10,32 @@ package com.evemeta.zdk.pb.room.server.connections;
 public enum Kind
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>KindUnknown = 0;</code>
+   * <code>Unknown = 0;</code>
    */
-  KindUnknown(0),
+  Unknown(0),
   /**
-   * <code>KindReceive = 1;</code>
+   * <code>Receive = 1;</code>
    */
-  KindReceive(1),
+  Receive(1),
   /**
-   * <code>KindTransmit = 2;</code>
+   * <code>Transmit = 2;</code>
    */
-  KindTransmit(2),
+  Transmit(2),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>KindUnknown = 0;</code>
+   * <code>Unknown = 0;</code>
    */
-  public static final int KindUnknown_VALUE = 0;
+  public static final int Unknown_VALUE = 0;
   /**
-   * <code>KindReceive = 1;</code>
+   * <code>Receive = 1;</code>
    */
-  public static final int KindReceive_VALUE = 1;
+  public static final int Receive_VALUE = 1;
   /**
-   * <code>KindTransmit = 2;</code>
+   * <code>Transmit = 2;</code>
    */
-  public static final int KindTransmit_VALUE = 2;
+  public static final int Transmit_VALUE = 2;
 
 
   public final int getNumber() {
@@ -62,9 +62,9 @@ public enum Kind
    */
   public static Kind forNumber(int value) {
     switch (value) {
-      case 0: return KindUnknown;
-      case 1: return KindReceive;
-      case 2: return KindTransmit;
+      case 0: return Unknown;
+      case 1: return Receive;
+      case 2: return Transmit;
       default: return null;
     }
   }

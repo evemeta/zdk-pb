@@ -61,4 +61,15 @@ public interface StreamsPacketOrBuilder extends
    * @return The sdpOffer.
    */
   com.google.protobuf.ByteString getSdpOffer();
+
+  /**
+   * <code>.sfu.public.server.v1.Channel channel = 4;</code>
+   * @return The enum numeric value on the wire for channel.
+   */
+  int getChannelValue();
+  /**
+   * <code>.sfu.public.server.v1.Channel channel = 4;</code>
+   * @return The channel.
+   */
+  com.evemeta.zdk.pb.sfu.server.sfu.Channel getChannel();
 }

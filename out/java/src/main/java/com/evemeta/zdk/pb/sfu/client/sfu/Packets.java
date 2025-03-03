@@ -71,31 +71,34 @@ public final class Packets {
     java.lang.String[] descriptorData = {
       "\n\"sfu/public/client/v1/packets.proto\022\024sf" +
       "u.public.client.v1\032#sfu/public/client/v1" +
-      "/entities.proto\032#sfu/public/server/v1/en" +
-      "tities.proto\";\n\rConnectPacket\022*\n\005offer\030\001" +
-      " \001(\0132\033.sfu.public.client.v1.Offer\"R\n\025Add" +
-      "IceCandidatePacket\0229\n\rice_candidate\030\001 \001(" +
-      "\0132\".sfu.public.server.v1.IceCandidate\"(\n" +
-      "\006Packet\022\020\n\010actionId\030\001 \001(\005\022\014\n\004data\030\002 \001(\014\"" +
-      "\212\001\n\023StreamsTogglePacket\0228\n\016enable_stream" +
-      "s\030\001 \003(\0132 .sfu.public.server.v1.StreamInf" +
-      "o\0229\n\017disable_streams\030\002 \003(\0132 .sfu.public." +
-      "server.v1.StreamInfo\"\226\001\n\rStreamsPacket\0226" +
-      "\n\014add_requests\030\001 \003(\0132 .sfu.public.server" +
-      ".v1.StreamInfo\022:\n\020removal_requests\030\002 \003(\013" +
-      "2 .sfu.public.server.v1.StreamInfo\022\021\n\tsd" +
-      "p_offer\030\003 \001(\014\"\022\n\020DisconnectPacket\"%\n\rMCU" +
-      "TestPacket\022\024\n\014resetEncoder\030\001 \001(\010\"\025\n\023Acti" +
-      "veStreamsPacket\"&\n\nPongPacket\022\030\n\020server_" +
-      "timestamp\030\001 \001(\003Bb\n!com.evemeta.zdk.pb.sf" +
-      "u.client.sfuP\001Z;gitlab.com/evemeta/zdk/p" +
-      "b/out/go/sfu/public/client/v1;sfupbb\006pro" +
-      "to3"
+      "/entities.proto\032 sfu/public/server/v1/en" +
+      "ums.proto\032#sfu/public/server/v1/entities" +
+      ".proto\";\n\rConnectPacket\022*\n\005offer\030\001 \001(\0132\033" +
+      ".sfu.public.client.v1.Offer\"R\n\025AddIceCan" +
+      "didatePacket\0229\n\rice_candidate\030\001 \001(\0132\".sf" +
+      "u.public.server.v1.IceCandidate\"(\n\006Packe" +
+      "t\022\020\n\010actionId\030\001 \001(\005\022\014\n\004data\030\002 \001(\014\"\212\001\n\023St" +
+      "reamsTogglePacket\0228\n\016enable_streams\030\001 \003(" +
+      "\0132 .sfu.public.server.v1.StreamInfo\0229\n\017d" +
+      "isable_streams\030\002 \003(\0132 .sfu.public.server" +
+      ".v1.StreamInfo\"\306\001\n\rStreamsPacket\0226\n\014add_" +
+      "requests\030\001 \003(\0132 .sfu.public.server.v1.St" +
+      "reamInfo\022:\n\020removal_requests\030\002 \003(\0132 .sfu" +
+      ".public.server.v1.StreamInfo\022\021\n\tsdp_offe" +
+      "r\030\003 \001(\014\022.\n\007channel\030\004 \001(\0162\035.sfu.public.se" +
+      "rver.v1.Channel\"\022\n\020DisconnectPacket\"%\n\rM" +
+      "CUTestPacket\022\024\n\014resetEncoder\030\001 \001(\010\"\025\n\023Ac" +
+      "tiveStreamsPacket\"&\n\nPongPacket\022\030\n\020serve" +
+      "r_timestamp\030\001 \001(\003Bb\n!com.evemeta.zdk.pb." +
+      "sfu.client.sfuP\001Z;gitlab.com/evemeta/zdk" +
+      "/pb/out/go/sfu/public/client/v1;sfupbb\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.evemeta.zdk.pb.sfu.client.sfu.Entities.getDescriptor(),
+          com.evemeta.zdk.pb.sfu.server.sfu.Enums.getDescriptor(),
           com.evemeta.zdk.pb.sfu.server.sfu.Entities.getDescriptor(),
         });
     internal_static_sfu_public_client_v1_ConnectPacket_descriptor =
@@ -127,7 +130,7 @@ public final class Packets {
     internal_static_sfu_public_client_v1_StreamsPacket_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sfu_public_client_v1_StreamsPacket_descriptor,
-        new java.lang.String[] { "AddRequests", "RemovalRequests", "SdpOffer", });
+        new java.lang.String[] { "AddRequests", "RemovalRequests", "SdpOffer", "Channel", });
     internal_static_sfu_public_client_v1_DisconnectPacket_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_sfu_public_client_v1_DisconnectPacket_fieldAccessorTable = new
@@ -153,6 +156,7 @@ public final class Packets {
         internal_static_sfu_public_client_v1_PongPacket_descriptor,
         new java.lang.String[] { "ServerTimestamp", });
     com.evemeta.zdk.pb.sfu.client.sfu.Entities.getDescriptor();
+    com.evemeta.zdk.pb.sfu.server.sfu.Enums.getDescriptor();
     com.evemeta.zdk.pb.sfu.server.sfu.Entities.getDescriptor();
   }
 

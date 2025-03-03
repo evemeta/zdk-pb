@@ -187,6 +187,30 @@ public object StreamsPacketKt {
       _builder.clearRemovalRequests()
     }
 
+
+    /**
+     * `.sfu.public.server.v1.Channel channel = 4;`
+     */
+    public var channel: com.evemeta.zdk.pb.sfu.server.sfu.Channel
+      @JvmName("getChannel")
+      get() = _builder.getChannel()
+      @JvmName("setChannel")
+      set(value) {
+        _builder.setChannel(value)
+      }
+    public var channelValue: kotlin.Int
+      @JvmName("getChannelValue")
+      get() = _builder.getChannelValue()
+      @JvmName("setChannelValue")
+      set(value) {
+        _builder.setChannelValue(value)
+      }
+    /**
+     * `.sfu.public.server.v1.Channel channel = 4;`
+     */
+    public fun clearChannel() {
+      _builder.clearChannel()
+    }
   }
 }
 @kotlin.jvm.JvmSynthetic

@@ -47,7 +47,7 @@ public final class Entities {
       "ion\030\003 \001(\0162%.sfu.public.client.v1.Protoco" +
       "lVersion\022;\n\007options\030\004 \001(\0132*.sfu.public.c" +
       "lient.v1.SfuConnectionOptions\022/\n\010sfu_typ" +
-      "e\030\005 \001(\0162\035.sfu.public.server.v1.SfuTypeBb" +
+      "e\030\005 \001(\0162\035.sfu.public.server.v1.Bb" +
       "\n!com.evemeta.zdk.pb.sfu.client.sfuP\001Z;g" +
       "itlab.com/evemeta/zdk/pb/out/go/sfu/publ" +
       "ic/client/v1;sfupbb\006proto3"

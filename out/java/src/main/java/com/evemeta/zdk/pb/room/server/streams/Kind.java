@@ -10,32 +10,48 @@ package com.evemeta.zdk.pb.room.server.streams;
 public enum Kind
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>KindUnknown = 0;</code>
+   * <code>Unknown = 0;</code>
    */
-  KindUnknown(0),
+  Unknown(0),
   /**
-   * <code>KindAudio = 1;</code>
+   * <code>Microphone = 1;</code>
    */
-  KindAudio(1),
+  Microphone(1),
   /**
-   * <code>KindVideo = 2;</code>
+   * <code>Camera = 2;</code>
    */
-  KindVideo(2),
+  Camera(2),
+  /**
+   * <code>Screen = 3;</code>
+   */
+  Screen(3),
+  /**
+   * <code>Speaker = 4;</code>
+   */
+  Speaker(4),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>KindUnknown = 0;</code>
+   * <code>Unknown = 0;</code>
    */
-  public static final int KindUnknown_VALUE = 0;
+  public static final int Unknown_VALUE = 0;
   /**
-   * <code>KindAudio = 1;</code>
+   * <code>Microphone = 1;</code>
    */
-  public static final int KindAudio_VALUE = 1;
+  public static final int Microphone_VALUE = 1;
   /**
-   * <code>KindVideo = 2;</code>
+   * <code>Camera = 2;</code>
    */
-  public static final int KindVideo_VALUE = 2;
+  public static final int Camera_VALUE = 2;
+  /**
+   * <code>Screen = 3;</code>
+   */
+  public static final int Screen_VALUE = 3;
+  /**
+   * <code>Speaker = 4;</code>
+   */
+  public static final int Speaker_VALUE = 4;
 
 
   public final int getNumber() {
@@ -62,9 +78,11 @@ public enum Kind
    */
   public static Kind forNumber(int value) {
     switch (value) {
-      case 0: return KindUnknown;
-      case 1: return KindAudio;
-      case 2: return KindVideo;
+      case 0: return Unknown;
+      case 1: return Microphone;
+      case 2: return Camera;
+      case 3: return Screen;
+      case 4: return Speaker;
       default: return null;
     }
   }

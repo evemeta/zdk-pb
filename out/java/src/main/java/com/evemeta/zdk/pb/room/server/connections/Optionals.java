@@ -34,7 +34,7 @@ public final class Optionals {
       "ver.v1\032-room/connections/public/server/v" +
       "1/enums.proto\"J\n\016OptionalStatus\0228\n\005value" +
       "\030\001 \001(\0162).room.connections.public.server." +
-      "v1.StatusB\200\001\n*com.evemeta.zdk.pb.room.se" +
+      "v1.B\200\001\n*com.evemeta.zdk.pb.room.se" +
       "rver.connectionsP\001ZPgitlab.com/evemeta/z" +
       "dk/pb/out/go/room/connections/public/ser" +
       "ver/v1;connectionspbb\006proto3"

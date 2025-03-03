@@ -130,7 +130,7 @@ private static final long serialVersionUID = 0L;
     if (!candidate_.isEmpty()) {
       output.writeBytes(3, candidate_);
     }
-    if (sfuType_ != com.evemeta.zdk.pb.sfu.server.sfu.SfuType.SfuTypeUnknown.getNumber()) {
+    if (sfuType_ != com.evemeta.zdk.pb.sfu.server.sfu.SfuType.Unknown.getNumber()) {
       output.writeEnum(4, sfuType_);
     }
     getUnknownFields().writeTo(output);
@@ -149,7 +149,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBytesSize(3, candidate_);
     }
-    if (sfuType_ != com.evemeta.zdk.pb.sfu.server.sfu.SfuType.SfuTypeUnknown.getNumber()) {
+    if (sfuType_ != com.evemeta.zdk.pb.sfu.server.sfu.SfuType.Unknown.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(4, sfuType_);
     }
