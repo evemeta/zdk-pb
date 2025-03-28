@@ -12,8 +12,7 @@ endif
 export TITLE = "\033[32m[%s]\033[0m %s\n"
 export ERROR = "\033[31m[%s]\033[0m %s\n"
 
-export PROTOC_GEN_GO_VER=1.30.0
-export PROTOC_GEN_WEB_VER=1.3.1
+export PROTOC_GEN_GO_VER=1.36.6
 export PROTOC_GEN_KOTLIN_VER=1.4.1
 export PROTOC_GEN_JAVA_VER=1.54.1
 
