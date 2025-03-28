@@ -6,9 +6,11 @@ package room.streams.private.v1;
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/streams/private/v1;streamspb";
 
 enum Kind {
-    KindUnknown = 0;
-    KindAudio   = 1;
-    KindVideo   = 2;
+    KindUnknown    = 0;
+    KindMicrophone = 1;
+    KindCamera     = 2;
+    KindScreen     = 3;
+    KindSpeaker    = 4;
 }
 
 enum Order {

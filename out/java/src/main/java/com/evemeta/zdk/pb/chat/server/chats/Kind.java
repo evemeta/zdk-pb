@@ -10,32 +10,32 @@ package com.evemeta.zdk.pb.chat.server.chats;
 public enum Kind
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>KindUnknown = 0;</code>
+   * <code>Unknown = 0;</code>
    */
-  KindUnknown(0),
+  Unknown(0),
   /**
-   * <code>KindDependent = 1;</code>
+   * <code>Dependent = 1;</code>
    */
-  KindDependent(1),
+  Dependent(1),
   /**
-   * <code>KindIndependent = 2;</code>
+   * <code>Independent = 2;</code>
    */
-  KindIndependent(2),
+  Independent(2),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>KindUnknown = 0;</code>
+   * <code>Unknown = 0;</code>
    */
-  public static final int KindUnknown_VALUE = 0;
+  public static final int Unknown_VALUE = 0;
   /**
-   * <code>KindDependent = 1;</code>
+   * <code>Dependent = 1;</code>
    */
-  public static final int KindDependent_VALUE = 1;
+  public static final int Dependent_VALUE = 1;
   /**
-   * <code>KindIndependent = 2;</code>
+   * <code>Independent = 2;</code>
    */
-  public static final int KindIndependent_VALUE = 2;
+  public static final int Independent_VALUE = 2;
 
 
   public final int getNumber() {
@@ -62,9 +62,9 @@ public enum Kind
    */
   public static Kind forNumber(int value) {
     switch (value) {
-      case 0: return KindUnknown;
-      case 1: return KindDependent;
-      case 2: return KindIndependent;
+      case 0: return Unknown;
+      case 1: return Dependent;
+      case 2: return Independent;
       default: return null;
     }
   }

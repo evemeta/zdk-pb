@@ -101,28 +101,30 @@ public final class Packets {
       "\0132\033.sfu.public.server.v1.Offer\"O\n\022IceCan" +
       "didatePacket\0229\n\rice_candidate\030\001 \001(\0132\".sf" +
       "u.public.server.v1.IceCandidate\"(\n\006Packe" +
-      "t\022\020\n\010actionId\030\001 \001(\005\022\014\n\004data\030\002 \001(\014\"\227\001\n\rSt" +
+      "t\022\020\n\010actionId\030\001 \001(\005\022\014\n\004data\030\002 \001(\014\"\307\001\n\rSt" +
       "reamsPacket\022\022\n\nsdp_answer\030\001 \001(\014\0226\n\014add_r" +
       "equests\030\002 \003(\0132 .sfu.public.server.v1.Str" +
       "eamInfo\022:\n\020removal_requests\030\003 \003(\0132 .sfu." +
-      "public.server.v1.StreamInfo\"\031\n\027Migration" +
-      "RequiredPacket\")\n\027UnsupportedActionPacke" +
-      "t\022\016\n\006typeId\030\001 \001(\005\"$\n\022DisconnectedPacket\022" +
-      "\016\n\006reason\030\001 \001(\t\"F\n\020ConferencePacket\0222\n\004m" +
-      "ode\030\001 \001(\0162$.sfu.public.server.v1.Confere" +
-      "nceMode\",\n\nPingPacket\022\021\n\ttimestamp\030\001 \001(\003" +
-      "\022\013\n\003rtt\030\002 \001(\005\"4\n\025SubscriptionRTTPacket\022\016" +
-      "\n\006sub_id\030\001 \001(\t\022\013\n\003rtt\030\002 \001(\003\"M\n\025LocalInpu" +
-      "tReadyPacket\0224\n\nstreamType\030\001 \001(\0162 .sfu.p" +
-      "ublic.server.v1.StreamType\"D\n\014NoDataPack" +
-      "et\0224\n\nstreamType\030\001 \001(\0162 .sfu.public.serv" +
-      "er.v1.StreamType\"H\n\023ActiveStreamsPacket\022" +
-      "1\n\007streams\030\001 \003(\0132 .sfu.public.server.v1." +
-      "StreamInfo\"P\n\036VideoCodecChangeRequiredPa" +
-      "cket\022.\n\tnew_codec\030\001 \001(\0162\033.sfu.public.ser" +
-      "ver.v1.CodecBb\n!com.evemeta.zdk.pb.sfu.s" +
-      "erver.sfuP\001Z;gitlab.com/evemeta/zdk/pb/o" +
-      "ut/go/sfu/public/server/v1;sfupbb\006proto3"
+      "public.server.v1.StreamInfo\022.\n\007channel\030\004" +
+      " \001(\0162\035.sfu.public.server.v1.Channel\"\031\n\027M" +
+      "igrationRequiredPacket\")\n\027UnsupportedAct" +
+      "ionPacket\022\016\n\006typeId\030\001 \001(\005\"$\n\022Disconnecte" +
+      "dPacket\022\016\n\006reason\030\001 \001(\t\"F\n\020ConferencePac" +
+      "ket\0222\n\004mode\030\001 \001(\0162$.sfu.public.server.v1" +
+      ".ConferenceMode\",\n\nPingPacket\022\021\n\ttimesta" +
+      "mp\030\001 \001(\003\022\013\n\003rtt\030\002 \001(\005\"4\n\025SubscriptionRTT" +
+      "Packet\022\016\n\006sub_id\030\001 \001(\t\022\013\n\003rtt\030\002 \001(\003\"M\n\025L" +
+      "ocalInputReadyPacket\0224\n\nstreamType\030\001 \001(\016" +
+      "2 .sfu.public.server.v1.StreamType\"D\n\014No" +
+      "DataPacket\0224\n\nstreamType\030\001 \001(\0162 .sfu.pub" +
+      "lic.server.v1.StreamType\"H\n\023ActiveStream" +
+      "sPacket\0221\n\007streams\030\001 \003(\0132 .sfu.public.se" +
+      "rver.v1.StreamInfo\"P\n\036VideoCodecChangeRe" +
+      "quiredPacket\022.\n\tnew_codec\030\001 \001(\0162\033.sfu.pu" +
+      "blic.server.v1.Bb\n!com.evemeta.zdk." +
+      "pb.sfu.server.sfuP\001Z;gitlab.com/evemeta/" +
+      "zdk/pb/out/go/sfu/public/server/v1;sfupb" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -153,7 +155,7 @@ public final class Packets {
     internal_static_sfu_public_server_v1_StreamsPacket_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sfu_public_server_v1_StreamsPacket_descriptor,
-        new java.lang.String[] { "SdpAnswer", "AddRequests", "RemovalRequests", });
+        new java.lang.String[] { "SdpAnswer", "AddRequests", "RemovalRequests", "Channel", });
     internal_static_sfu_public_server_v1_MigrationRequiredPacket_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_sfu_public_server_v1_MigrationRequiredPacket_fieldAccessorTable = new

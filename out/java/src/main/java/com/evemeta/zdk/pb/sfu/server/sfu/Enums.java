@@ -36,10 +36,11 @@ public final class Enums {
       "creen\020\003\022\031\n\025StreamTypeScreenAudio\020\004\022\026\n\022St" +
       "reamTypeMcuVideo\020\005\022\030\n\024StreamTypeMcuVideo" +
       "Is\020\006*D\n\007SfuType\022\022\n\016SfuTypeUnknown\020\000\022\022\n\016S" +
-      "fuTypeGateway\020\001\022\021\n\rSfuTypeRouter\020\002Bb\n!co" +
-      "m.evemeta.zdk.pb.sfu.server.sfuP\001Z;gitla" +
-      "b.com/evemeta/zdk/pb/out/go/sfu/public/s" +
-      "erver/v1;sfupbb\006proto3"
+      "fuTypeGateway\020\001\022\021\n\rSfuTypeRouter\020\002*2\n\007Ch" +
+      "annel\022\017\n\013ChannelMain\020\000\022\026\n\022ChannelScreens" +
+      "hare\020\001Bb\n!com.evemeta.zdk.pb.sfu.server." +
+      "sfuP\001Z;gitlab.com/evemeta/zdk/pb/out/go/" +
+      "sfu/public/server/v1;sfupbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

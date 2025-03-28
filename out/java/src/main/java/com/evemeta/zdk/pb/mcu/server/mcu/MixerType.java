@@ -10,32 +10,32 @@ package com.evemeta.zdk.pb.mcu.server.mcu;
 public enum MixerType
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>MixerTypeUnknown = 0;</code>
+   * <code>Unknown = 0;</code>
    */
-  MixerTypeUnknown(0),
+  Unknown(0),
   /**
-   * <code>MixerTypeSimpleGrid = 1;</code>
+   * <code>SimpleGrid = 1;</code>
    */
-  MixerTypeSimpleGrid(1),
+  SimpleGrid(1),
   /**
-   * <code>MixerTypeRoomGrid = 2;</code>
+   * <code>RoomGrid = 2;</code>
    */
-  MixerTypeRoomGrid(2),
+  RoomGrid(2),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>MixerTypeUnknown = 0;</code>
+   * <code>Unknown = 0;</code>
    */
-  public static final int MixerTypeUnknown_VALUE = 0;
+  public static final int Unknown_VALUE = 0;
   /**
-   * <code>MixerTypeSimpleGrid = 1;</code>
+   * <code>SimpleGrid = 1;</code>
    */
-  public static final int MixerTypeSimpleGrid_VALUE = 1;
+  public static final int SimpleGrid_VALUE = 1;
   /**
-   * <code>MixerTypeRoomGrid = 2;</code>
+   * <code>RoomGrid = 2;</code>
    */
-  public static final int MixerTypeRoomGrid_VALUE = 2;
+  public static final int RoomGrid_VALUE = 2;
 
 
   public final int getNumber() {
@@ -62,9 +62,9 @@ public enum MixerType
    */
   public static MixerType forNumber(int value) {
     switch (value) {
-      case 0: return MixerTypeUnknown;
-      case 1: return MixerTypeSimpleGrid;
-      case 2: return MixerTypeRoomGrid;
+      case 0: return Unknown;
+      case 1: return SimpleGrid;
+      case 2: return RoomGrid;
       default: return null;
     }
   }

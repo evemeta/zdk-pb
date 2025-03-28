@@ -163,7 +163,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (kind_ != com.evemeta.zdk.pb.chat.server.members.RestrictionKind.RestrictionKindUnknown.getNumber()) {
+    if (kind_ != com.evemeta.zdk.pb.chat.server.members.RestrictionKind.Unknown.getNumber()) {
       output.writeEnum(1, kind_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reason_)) {
@@ -184,7 +184,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (kind_ != com.evemeta.zdk.pb.chat.server.members.RestrictionKind.RestrictionKindUnknown.getNumber()) {
+    if (kind_ != com.evemeta.zdk.pb.chat.server.members.RestrictionKind.Unknown.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, kind_);
     }

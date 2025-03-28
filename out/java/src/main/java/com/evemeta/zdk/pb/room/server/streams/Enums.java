@@ -25,15 +25,16 @@ public final class Enums {
   static {
     java.lang.String[] descriptorData = {
       "\n)room/streams/public/server/v1/enums.pr" +
-      "oto\022\035room.streams.public.server.v1*5\n\004Ki" +
-      "nd\022\017\n\013KindUnknown\020\000\022\r\n\tKindAudio\020\001\022\r\n\tKi" +
-      "ndVideo\020\002*B\n\005Order\022\020\n\014OrderUnknown\020\000\022\022\n\016" +
-      "OrderAscending\020\001\022\023\n\017OrderDescending\020\002*B\n" +
-      "\006Status\022\021\n\rStatusUnknown\020\000\022\021\n\rStatusEnab" +
-      "led\020\001\022\022\n\016StatusDisabled\020\002Bt\n&com.evemeta" +
-      ".zdk.pb.room.server.streamsP\001ZHgitlab.co" +
-      "m/evemeta/zdk/pb/out/go/room/streams/pub" +
-      "lic/server/v1;streamspbb\006proto3"
+      "oto\022\035room.streams.public.server.v1*\\\n\004Ki" +
+      "nd\022\017\n\013KindUnknown\020\000\022\022\n\016KindMicrophone\020\001\022" +
+      "\016\n\nKindCamera\020\002\022\016\n\nKindScreen\020\003\022\017\n\013KindS" +
+      "peaker\020\004*B\n\005Order\022\020\n\014OrderUnknown\020\000\022\022\n\016O" +
+      "rderAscending\020\001\022\023\n\017OrderDescending\020\002*B\n\006" +
+      "Status\022\021\n\rStatusUnknown\020\000\022\021\n\rStatusEnabl" +
+      "ed\020\001\022\022\n\016StatusDisabled\020\002Bt\n&com.evemeta." +
+      "zdk.pb.room.server.streamsP\001ZHgitlab.com" +
+      "/evemeta/zdk/pb/out/go/room/streams/publ" +
+      "ic/server/v1;streamspbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

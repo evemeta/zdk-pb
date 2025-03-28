@@ -154,7 +154,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (order_ != com.evemeta.zdk.pb.room.server.members.Order.OrderUnknown.getNumber()) {
+    if (order_ != com.evemeta.zdk.pb.room.server.members.Order.Unknown.getNumber()) {
       output.writeEnum(1, order_);
     }
     if (limit_ != 0L) {
@@ -175,7 +175,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (order_ != com.evemeta.zdk.pb.room.server.members.Order.OrderUnknown.getNumber()) {
+    if (order_ != com.evemeta.zdk.pb.room.server.members.Order.Unknown.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, order_);
     }

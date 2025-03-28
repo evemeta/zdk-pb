@@ -20,6 +20,7 @@ private static final long serialVersionUID = 0L;
     sdpAnswer_ = com.google.protobuf.ByteString.EMPTY;
     addRequests_ = java.util.Collections.emptyList();
     removalRequests_ = java.util.Collections.emptyList();
+    channel_ = 0;
   }
 
   @java.lang.Override
@@ -135,6 +136,24 @@ private static final long serialVersionUID = 0L;
     return removalRequests_.get(index);
   }
 
+  public static final int CHANNEL_FIELD_NUMBER = 4;
+  private int channel_ = 0;
+  /**
+   * <code>.sfu.public.server.v1.Channel channel = 4;</code>
+   * @return The enum numeric value on the wire for channel.
+   */
+  @java.lang.Override public int getChannelValue() {
+    return channel_;
+  }
+  /**
+   * <code>.sfu.public.server.v1.Channel channel = 4;</code>
+   * @return The channel.
+   */
+  @java.lang.Override public com.evemeta.zdk.pb.sfu.server.sfu.Channel getChannel() {
+    com.evemeta.zdk.pb.sfu.server.sfu.Channel result = com.evemeta.zdk.pb.sfu.server.sfu.Channel.forNumber(channel_);
+    return result == null ? com.evemeta.zdk.pb.sfu.server.sfu.Channel.UNRECOGNIZED : result;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -158,6 +177,9 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < removalRequests_.size(); i++) {
       output.writeMessage(3, removalRequests_.get(i));
     }
+    if (channel_ != com.evemeta.zdk.pb.sfu.server.sfu.Channel.Main.getNumber()) {
+      output.writeEnum(4, channel_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -178,6 +200,10 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < removalRequests_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, removalRequests_.get(i));
+    }
+    if (channel_ != com.evemeta.zdk.pb.sfu.server.sfu.Channel.Main.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(4, channel_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -200,6 +226,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getAddRequestsList())) return false;
     if (!getRemovalRequestsList()
         .equals(other.getRemovalRequestsList())) return false;
+    if (channel_ != other.channel_) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -221,6 +248,8 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + REMOVAL_REQUESTS_FIELD_NUMBER;
       hash = (53 * hash) + getRemovalRequestsList().hashCode();
     }
+    hash = (37 * hash) + CHANNEL_FIELD_NUMBER;
+    hash = (53 * hash) + channel_;
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -367,6 +396,7 @@ private static final long serialVersionUID = 0L;
         removalRequestsBuilder_.clear();
       }
       bitField0_ = (bitField0_ & ~0x00000004);
+      channel_ = 0;
       return this;
     }
 
@@ -424,6 +454,9 @@ private static final long serialVersionUID = 0L;
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.sdpAnswer_ = sdpAnswer_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.channel_ = channel_;
       }
     }
 
@@ -526,6 +559,9 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
+      if (other.channel_ != 0) {
+        setChannelValue(other.getChannelValue());
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -583,6 +619,11 @@ private static final long serialVersionUID = 0L;
               }
               break;
             } // case 26
+            case 32: {
+              channel_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1110,6 +1151,59 @@ private static final long serialVersionUID = 0L;
         removalRequests_ = null;
       }
       return removalRequestsBuilder_;
+    }
+
+    private int channel_ = 0;
+    /**
+     * <code>.sfu.public.server.v1.Channel channel = 4;</code>
+     * @return The enum numeric value on the wire for channel.
+     */
+    @java.lang.Override public int getChannelValue() {
+      return channel_;
+    }
+    /**
+     * <code>.sfu.public.server.v1.Channel channel = 4;</code>
+     * @param value The enum numeric value on the wire for channel to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChannelValue(int value) {
+      channel_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.sfu.public.server.v1.Channel channel = 4;</code>
+     * @return The channel.
+     */
+    @java.lang.Override
+    public com.evemeta.zdk.pb.sfu.server.sfu.Channel getChannel() {
+      com.evemeta.zdk.pb.sfu.server.sfu.Channel result = com.evemeta.zdk.pb.sfu.server.sfu.Channel.forNumber(channel_);
+      return result == null ? com.evemeta.zdk.pb.sfu.server.sfu.Channel.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.sfu.public.server.v1.Channel channel = 4;</code>
+     * @param value The channel to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChannel(com.evemeta.zdk.pb.sfu.server.sfu.Channel value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000008;
+      channel_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.sfu.public.server.v1.Channel channel = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearChannel() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      channel_ = 0;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

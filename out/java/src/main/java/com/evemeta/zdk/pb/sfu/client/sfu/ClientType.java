@@ -10,45 +10,45 @@ package com.evemeta.zdk.pb.sfu.client.sfu;
 public enum ClientType
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>ClientTypeUnknown = 0;</code>
+   * <code>Unknown = 0;</code>
    */
-  ClientTypeUnknown(0),
+  Unknown(0),
   /**
-   * <code>ClientTypeChromium = 1;</code>
+   * <code>Chromium = 1;</code>
    */
-  ClientTypeChromium(1),
+  Chromium(1),
   /**
-   * <code>ClientTypeMobileChromium = 9;</code>
+   * <code>MobileChromium = 9;</code>
    */
-  ClientTypeMobileChromium(9),
+  MobileChromium(9),
   /**
-   * <code>ClientTypeFirefox = 2;</code>
+   * <code>Firefox = 2;</code>
    */
-  ClientTypeFirefox(2),
+  Firefox(2),
   /**
-   * <code>ClientTypeMobileFirefox = 10;</code>
+   * <code>MobileFirefox = 10;</code>
    */
-  ClientTypeMobileFirefox(10),
+  MobileFirefox(10),
   /**
-   * <code>ClientTypeSafari = 3;</code>
+   * <code>Safari = 3;</code>
    */
-  ClientTypeSafari(3),
+  Safari(3),
   /**
-   * <code>ClientTypeMobileSafari = 11;</code>
+   * <code>MobileSafari = 11;</code>
    */
-  ClientTypeMobileSafari(11),
+  MobileSafari(11),
   /**
-   * <code>ClientTypeMobileEdge = 12;</code>
+   * <code>MobileEdge = 12;</code>
    */
-  ClientTypeMobileEdge(12),
+  MobileEdge(12),
   /**
-   * <code>ClientTypeEdge = 13;</code>
+   * <code>Edge = 13;</code>
    */
-  ClientTypeEdge(13),
+  Edge(13),
   /**
-   * <code>ClientTypeWindows = 4;</code>
+   * <code>Windows = 4;</code>
    */
-  ClientTypeWindows(4),
+  Windows(4),
   /**
    * <code>ClientTypemacOS = 5;</code>
    */
@@ -58,52 +58,52 @@ public enum ClientType
    */
   ClientTypeiOS(7),
   /**
-   * <code>ClientTypeAndroid = 8;</code>
+   * <code>Android = 8;</code>
    */
-  ClientTypeAndroid(8),
+  Android(8),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>ClientTypeUnknown = 0;</code>
+   * <code>Unknown = 0;</code>
    */
-  public static final int ClientTypeUnknown_VALUE = 0;
+  public static final int Unknown_VALUE = 0;
   /**
-   * <code>ClientTypeChromium = 1;</code>
+   * <code>Chromium = 1;</code>
    */
-  public static final int ClientTypeChromium_VALUE = 1;
+  public static final int Chromium_VALUE = 1;
   /**
-   * <code>ClientTypeMobileChromium = 9;</code>
+   * <code>MobileChromium = 9;</code>
    */
-  public static final int ClientTypeMobileChromium_VALUE = 9;
+  public static final int MobileChromium_VALUE = 9;
   /**
-   * <code>ClientTypeFirefox = 2;</code>
+   * <code>Firefox = 2;</code>
    */
-  public static final int ClientTypeFirefox_VALUE = 2;
+  public static final int Firefox_VALUE = 2;
   /**
-   * <code>ClientTypeMobileFirefox = 10;</code>
+   * <code>MobileFirefox = 10;</code>
    */
-  public static final int ClientTypeMobileFirefox_VALUE = 10;
+  public static final int MobileFirefox_VALUE = 10;
   /**
-   * <code>ClientTypeSafari = 3;</code>
+   * <code>Safari = 3;</code>
    */
-  public static final int ClientTypeSafari_VALUE = 3;
+  public static final int Safari_VALUE = 3;
   /**
-   * <code>ClientTypeMobileSafari = 11;</code>
+   * <code>MobileSafari = 11;</code>
    */
-  public static final int ClientTypeMobileSafari_VALUE = 11;
+  public static final int MobileSafari_VALUE = 11;
   /**
-   * <code>ClientTypeMobileEdge = 12;</code>
+   * <code>MobileEdge = 12;</code>
    */
-  public static final int ClientTypeMobileEdge_VALUE = 12;
+  public static final int MobileEdge_VALUE = 12;
   /**
-   * <code>ClientTypeEdge = 13;</code>
+   * <code>Edge = 13;</code>
    */
-  public static final int ClientTypeEdge_VALUE = 13;
+  public static final int Edge_VALUE = 13;
   /**
-   * <code>ClientTypeWindows = 4;</code>
+   * <code>Windows = 4;</code>
    */
-  public static final int ClientTypeWindows_VALUE = 4;
+  public static final int Windows_VALUE = 4;
   /**
    * <code>ClientTypemacOS = 5;</code>
    */
@@ -113,9 +113,9 @@ public enum ClientType
    */
   public static final int ClientTypeiOS_VALUE = 7;
   /**
-   * <code>ClientTypeAndroid = 8;</code>
+   * <code>Android = 8;</code>
    */
-  public static final int ClientTypeAndroid_VALUE = 8;
+  public static final int Android_VALUE = 8;
 
 
   public final int getNumber() {
@@ -142,19 +142,19 @@ public enum ClientType
    */
   public static ClientType forNumber(int value) {
     switch (value) {
-      case 0: return ClientTypeUnknown;
-      case 1: return ClientTypeChromium;
-      case 9: return ClientTypeMobileChromium;
-      case 2: return ClientTypeFirefox;
-      case 10: return ClientTypeMobileFirefox;
-      case 3: return ClientTypeSafari;
-      case 11: return ClientTypeMobileSafari;
-      case 12: return ClientTypeMobileEdge;
-      case 13: return ClientTypeEdge;
-      case 4: return ClientTypeWindows;
+      case 0: return Unknown;
+      case 1: return Chromium;
+      case 9: return MobileChromium;
+      case 2: return Firefox;
+      case 10: return MobileFirefox;
+      case 3: return Safari;
+      case 11: return MobileSafari;
+      case 12: return MobileEdge;
+      case 13: return Edge;
+      case 4: return Windows;
       case 5: return ClientTypemacOS;
       case 7: return ClientTypeiOS;
-      case 8: return ClientTypeAndroid;
+      case 8: return Android;
       default: return null;
     }
   }

@@ -10,304 +10,304 @@ package com.evemeta.zdk.pb.user.server.users;
 public enum Permission
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>PermissionUnknown = 0;</code>
+   * <code>Unknown = 0;</code>
    */
-  PermissionUnknown(0),
+  Unknown(0),
   /**
-   * <code>PermissionChat = 100;</code>
+   * <code>Chat = 100;</code>
    */
-  PermissionChat(100),
+  Chat(100),
   /**
-   * <code>PermissionChatSelect = 101;</code>
+   * <code>ChatSelect = 101;</code>
    */
-  PermissionChatSelect(101),
+  ChatSelect(101),
   /**
-   * <code>PermissionChatEnter = 102;</code>
+   * <code>ChatEnter = 102;</code>
    */
-  PermissionChatEnter(102),
+  ChatEnter(102),
   /**
-   * <code>PermissionChatLeave = 103;</code>
+   * <code>ChatLeave = 103;</code>
    */
-  PermissionChatLeave(103),
+  ChatLeave(103),
   /**
-   * <code>PermissionChatMember = 200;</code>
+   * <code>ChatMember = 200;</code>
    */
-  PermissionChatMember(200),
+  ChatMember(200),
   /**
-   * <code>PermissionChatMemberSelect = 201;</code>
+   * <code>ChatMemberSelect = 201;</code>
    */
-  PermissionChatMemberSelect(201),
+  ChatMemberSelect(201),
   /**
-   * <code>PermissionChatMemberKick = 202;</code>
+   * <code>ChatMemberKick = 202;</code>
    */
-  PermissionChatMemberKick(202),
+  ChatMemberKick(202),
   /**
-   * <code>PermissionChatMemberMute = 203;</code>
+   * <code>ChatMemberMute = 203;</code>
    */
-  PermissionChatMemberMute(203),
+  ChatMemberMute(203),
   /**
-   * <code>PermissionChatMemberUnmute = 204;</code>
+   * <code>ChatMemberUnmute = 204;</code>
    */
-  PermissionChatMemberUnmute(204),
+  ChatMemberUnmute(204),
   /**
-   * <code>PermissionChatMemberBlock = 205;</code>
+   * <code>ChatMemberBlock = 205;</code>
    */
-  PermissionChatMemberBlock(205),
+  ChatMemberBlock(205),
   /**
-   * <code>PermissionChatMemberUnblock = 206;</code>
+   * <code>ChatMemberUnblock = 206;</code>
    */
-  PermissionChatMemberUnblock(206),
+  ChatMemberUnblock(206),
   /**
-   * <code>PermissionChatMessage = 300;</code>
+   * <code>ChatMessage = 300;</code>
    */
-  PermissionChatMessage(300),
+  ChatMessage(300),
   /**
-   * <code>PermissionChatMessageSelect = 301;</code>
+   * <code>ChatMessageSelect = 301;</code>
    */
-  PermissionChatMessageSelect(301),
+  ChatMessageSelect(301),
   /**
-   * <code>PermissionChatMessageCreate = 302;</code>
+   * <code>ChatMessageCreate = 302;</code>
    */
-  PermissionChatMessageCreate(302),
+  ChatMessageCreate(302),
   /**
-   * <code>PermissionChatMessageUpdate = 303;</code>
+   * <code>ChatMessageUpdate = 303;</code>
    */
-  PermissionChatMessageUpdate(303),
+  ChatMessageUpdate(303),
   /**
-   * <code>PermissionChatMessageUpdateContent = 304;</code>
+   * <code>ChatMessageUpdateContent = 304;</code>
    */
-  PermissionChatMessageUpdateContent(304),
+  ChatMessageUpdateContent(304),
   /**
-   * <code>PermissionChatMessageOwnDelete = 305;</code>
+   * <code>ChatMessageOwnDelete = 305;</code>
    */
-  PermissionChatMessageOwnDelete(305),
+  ChatMessageOwnDelete(305),
   /**
-   * <code>PermissionChatMessageAnyDelete = 306;</code>
+   * <code>ChatMessageAnyDelete = 306;</code>
    */
-  PermissionChatMessageAnyDelete(306),
+  ChatMessageAnyDelete(306),
   /**
-   * <code>PermissionRoom = 400;</code>
+   * <code>Room = 400;</code>
    */
-  PermissionRoom(400),
+  Room(400),
   /**
-   * <code>PermissionRoomSelect = 401;</code>
+   * <code>RoomSelect = 401;</code>
    */
-  PermissionRoomSelect(401),
+  RoomSelect(401),
   /**
-   * <code>PermissionRoomEnter = 402;</code>
+   * <code>RoomEnter = 402;</code>
    */
-  PermissionRoomEnter(402),
+  RoomEnter(402),
   /**
-   * <code>PermissionRoomLeave = 403;</code>
+   * <code>RoomLeave = 403;</code>
    */
-  PermissionRoomLeave(403),
+  RoomLeave(403),
   /**
-   * <code>PermissionRoomMember = 500;</code>
+   * <code>RoomMember = 500;</code>
    */
-  PermissionRoomMember(500),
+  RoomMember(500),
   /**
-   * <code>PermissionRoomMemberSelect = 501;</code>
+   * <code>RoomMemberSelect = 501;</code>
    */
-  PermissionRoomMemberSelect(501),
+  RoomMemberSelect(501),
   /**
-   * <code>PermissionRoomMemberKick = 502;</code>
+   * <code>RoomMemberKick = 502;</code>
    */
-  PermissionRoomMemberKick(502),
+  RoomMemberKick(502),
   /**
-   * <code>PermissionRoomConnection = 600;</code>
+   * <code>RoomConnection = 600;</code>
    */
-  PermissionRoomConnection(600),
+  RoomConnection(600),
   /**
-   * <code>PermissionRoomConnectionSelect = 601;</code>
+   * <code>RoomConnectionSelect = 601;</code>
    */
-  PermissionRoomConnectionSelect(601),
+  RoomConnectionSelect(601),
   /**
-   * <code>PermissionRoomStream = 700;</code>
+   * <code>RoomStream = 700;</code>
    */
-  PermissionRoomStream(700),
+  RoomStream(700),
   /**
-   * <code>PermissionRoomStreamSelect = 701;</code>
+   * <code>RoomStreamSelect = 701;</code>
    */
-  PermissionRoomStreamSelect(701),
+  RoomStreamSelect(701),
   /**
-   * <code>PermissionRoomStreamCreate = 702;</code>
+   * <code>RoomStreamCreate = 702;</code>
    */
-  PermissionRoomStreamCreate(702),
+  RoomStreamCreate(702),
   /**
-   * <code>PermissionRoomStreamUpdate = 703;</code>
+   * <code>RoomStreamUpdate = 703;</code>
    */
-  PermissionRoomStreamUpdate(703),
+  RoomStreamUpdate(703),
   /**
-   * <code>PermissionRoomStreamDelete = 704;</code>
+   * <code>RoomStreamDelete = 704;</code>
    */
-  PermissionRoomStreamDelete(704),
+  RoomStreamDelete(704),
   /**
-   * <code>PermissionRoomRestriction = 800;</code>
+   * <code>RoomRestriction = 800;</code>
    */
-  PermissionRoomRestriction(800),
+  RoomRestriction(800),
   /**
-   * <code>PermissionRoomRestrictionSelect = 801;</code>
+   * <code>RoomRestrictionSelect = 801;</code>
    */
-  PermissionRoomRestrictionSelect(801),
+  RoomRestrictionSelect(801),
   /**
-   * <code>PermissionRoomRestrictionCreate = 802;</code>
+   * <code>RoomRestrictionCreate = 802;</code>
    */
-  PermissionRoomRestrictionCreate(802),
+  RoomRestrictionCreate(802),
   /**
-   * <code>PermissionRoomRestrictionDelete = 803;</code>
+   * <code>RoomRestrictionDelete = 803;</code>
    */
-  PermissionRoomRestrictionDelete(803),
+  RoomRestrictionDelete(803),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>PermissionUnknown = 0;</code>
+   * <code>Unknown = 0;</code>
    */
-  public static final int PermissionUnknown_VALUE = 0;
+  public static final int Unknown_VALUE = 0;
   /**
-   * <code>PermissionChat = 100;</code>
+   * <code>Chat = 100;</code>
    */
-  public static final int PermissionChat_VALUE = 100;
+  public static final int Chat_VALUE = 100;
   /**
-   * <code>PermissionChatSelect = 101;</code>
+   * <code>ChatSelect = 101;</code>
    */
-  public static final int PermissionChatSelect_VALUE = 101;
+  public static final int ChatSelect_VALUE = 101;
   /**
-   * <code>PermissionChatEnter = 102;</code>
+   * <code>ChatEnter = 102;</code>
    */
-  public static final int PermissionChatEnter_VALUE = 102;
+  public static final int ChatEnter_VALUE = 102;
   /**
-   * <code>PermissionChatLeave = 103;</code>
+   * <code>ChatLeave = 103;</code>
    */
-  public static final int PermissionChatLeave_VALUE = 103;
+  public static final int ChatLeave_VALUE = 103;
   /**
-   * <code>PermissionChatMember = 200;</code>
+   * <code>ChatMember = 200;</code>
    */
-  public static final int PermissionChatMember_VALUE = 200;
+  public static final int ChatMember_VALUE = 200;
   /**
-   * <code>PermissionChatMemberSelect = 201;</code>
+   * <code>ChatMemberSelect = 201;</code>
    */
-  public static final int PermissionChatMemberSelect_VALUE = 201;
+  public static final int ChatMemberSelect_VALUE = 201;
   /**
-   * <code>PermissionChatMemberKick = 202;</code>
+   * <code>ChatMemberKick = 202;</code>
    */
-  public static final int PermissionChatMemberKick_VALUE = 202;
+  public static final int ChatMemberKick_VALUE = 202;
   /**
-   * <code>PermissionChatMemberMute = 203;</code>
+   * <code>ChatMemberMute = 203;</code>
    */
-  public static final int PermissionChatMemberMute_VALUE = 203;
+  public static final int ChatMemberMute_VALUE = 203;
   /**
-   * <code>PermissionChatMemberUnmute = 204;</code>
+   * <code>ChatMemberUnmute = 204;</code>
    */
-  public static final int PermissionChatMemberUnmute_VALUE = 204;
+  public static final int ChatMemberUnmute_VALUE = 204;
   /**
-   * <code>PermissionChatMemberBlock = 205;</code>
+   * <code>ChatMemberBlock = 205;</code>
    */
-  public static final int PermissionChatMemberBlock_VALUE = 205;
+  public static final int ChatMemberBlock_VALUE = 205;
   /**
-   * <code>PermissionChatMemberUnblock = 206;</code>
+   * <code>ChatMemberUnblock = 206;</code>
    */
-  public static final int PermissionChatMemberUnblock_VALUE = 206;
+  public static final int ChatMemberUnblock_VALUE = 206;
   /**
-   * <code>PermissionChatMessage = 300;</code>
+   * <code>ChatMessage = 300;</code>
    */
-  public static final int PermissionChatMessage_VALUE = 300;
+  public static final int ChatMessage_VALUE = 300;
   /**
-   * <code>PermissionChatMessageSelect = 301;</code>
+   * <code>ChatMessageSelect = 301;</code>
    */
-  public static final int PermissionChatMessageSelect_VALUE = 301;
+  public static final int ChatMessageSelect_VALUE = 301;
   /**
-   * <code>PermissionChatMessageCreate = 302;</code>
+   * <code>ChatMessageCreate = 302;</code>
    */
-  public static final int PermissionChatMessageCreate_VALUE = 302;
+  public static final int ChatMessageCreate_VALUE = 302;
   /**
-   * <code>PermissionChatMessageUpdate = 303;</code>
+   * <code>ChatMessageUpdate = 303;</code>
    */
-  public static final int PermissionChatMessageUpdate_VALUE = 303;
+  public static final int ChatMessageUpdate_VALUE = 303;
   /**
-   * <code>PermissionChatMessageUpdateContent = 304;</code>
+   * <code>ChatMessageUpdateContent = 304;</code>
    */
-  public static final int PermissionChatMessageUpdateContent_VALUE = 304;
+  public static final int ChatMessageUpdateContent_VALUE = 304;
   /**
-   * <code>PermissionChatMessageOwnDelete = 305;</code>
+   * <code>ChatMessageOwnDelete = 305;</code>
    */
-  public static final int PermissionChatMessageOwnDelete_VALUE = 305;
+  public static final int ChatMessageOwnDelete_VALUE = 305;
   /**
-   * <code>PermissionChatMessageAnyDelete = 306;</code>
+   * <code>ChatMessageAnyDelete = 306;</code>
    */
-  public static final int PermissionChatMessageAnyDelete_VALUE = 306;
+  public static final int ChatMessageAnyDelete_VALUE = 306;
   /**
-   * <code>PermissionRoom = 400;</code>
+   * <code>Room = 400;</code>
    */
-  public static final int PermissionRoom_VALUE = 400;
+  public static final int Room_VALUE = 400;
   /**
-   * <code>PermissionRoomSelect = 401;</code>
+   * <code>RoomSelect = 401;</code>
    */
-  public static final int PermissionRoomSelect_VALUE = 401;
+  public static final int RoomSelect_VALUE = 401;
   /**
-   * <code>PermissionRoomEnter = 402;</code>
+   * <code>RoomEnter = 402;</code>
    */
-  public static final int PermissionRoomEnter_VALUE = 402;
+  public static final int RoomEnter_VALUE = 402;
   /**
-   * <code>PermissionRoomLeave = 403;</code>
+   * <code>RoomLeave = 403;</code>
    */
-  public static final int PermissionRoomLeave_VALUE = 403;
+  public static final int RoomLeave_VALUE = 403;
   /**
-   * <code>PermissionRoomMember = 500;</code>
+   * <code>RoomMember = 500;</code>
    */
-  public static final int PermissionRoomMember_VALUE = 500;
+  public static final int RoomMember_VALUE = 500;
   /**
-   * <code>PermissionRoomMemberSelect = 501;</code>
+   * <code>RoomMemberSelect = 501;</code>
    */
-  public static final int PermissionRoomMemberSelect_VALUE = 501;
+  public static final int RoomMemberSelect_VALUE = 501;
   /**
-   * <code>PermissionRoomMemberKick = 502;</code>
+   * <code>RoomMemberKick = 502;</code>
    */
-  public static final int PermissionRoomMemberKick_VALUE = 502;
+  public static final int RoomMemberKick_VALUE = 502;
   /**
-   * <code>PermissionRoomConnection = 600;</code>
+   * <code>RoomConnection = 600;</code>
    */
-  public static final int PermissionRoomConnection_VALUE = 600;
+  public static final int RoomConnection_VALUE = 600;
   /**
-   * <code>PermissionRoomConnectionSelect = 601;</code>
+   * <code>RoomConnectionSelect = 601;</code>
    */
-  public static final int PermissionRoomConnectionSelect_VALUE = 601;
+  public static final int RoomConnectionSelect_VALUE = 601;
   /**
-   * <code>PermissionRoomStream = 700;</code>
+   * <code>RoomStream = 700;</code>
    */
-  public static final int PermissionRoomStream_VALUE = 700;
+  public static final int RoomStream_VALUE = 700;
   /**
-   * <code>PermissionRoomStreamSelect = 701;</code>
+   * <code>RoomStreamSelect = 701;</code>
    */
-  public static final int PermissionRoomStreamSelect_VALUE = 701;
+  public static final int RoomStreamSelect_VALUE = 701;
   /**
-   * <code>PermissionRoomStreamCreate = 702;</code>
+   * <code>RoomStreamCreate = 702;</code>
    */
-  public static final int PermissionRoomStreamCreate_VALUE = 702;
+  public static final int RoomStreamCreate_VALUE = 702;
   /**
-   * <code>PermissionRoomStreamUpdate = 703;</code>
+   * <code>RoomStreamUpdate = 703;</code>
    */
-  public static final int PermissionRoomStreamUpdate_VALUE = 703;
+  public static final int RoomStreamUpdate_VALUE = 703;
   /**
-   * <code>PermissionRoomStreamDelete = 704;</code>
+   * <code>RoomStreamDelete = 704;</code>
    */
-  public static final int PermissionRoomStreamDelete_VALUE = 704;
+  public static final int RoomStreamDelete_VALUE = 704;
   /**
-   * <code>PermissionRoomRestriction = 800;</code>
+   * <code>RoomRestriction = 800;</code>
    */
-  public static final int PermissionRoomRestriction_VALUE = 800;
+  public static final int RoomRestriction_VALUE = 800;
   /**
-   * <code>PermissionRoomRestrictionSelect = 801;</code>
+   * <code>RoomRestrictionSelect = 801;</code>
    */
-  public static final int PermissionRoomRestrictionSelect_VALUE = 801;
+  public static final int RoomRestrictionSelect_VALUE = 801;
   /**
-   * <code>PermissionRoomRestrictionCreate = 802;</code>
+   * <code>RoomRestrictionCreate = 802;</code>
    */
-  public static final int PermissionRoomRestrictionCreate_VALUE = 802;
+  public static final int RoomRestrictionCreate_VALUE = 802;
   /**
-   * <code>PermissionRoomRestrictionDelete = 803;</code>
+   * <code>RoomRestrictionDelete = 803;</code>
    */
-  public static final int PermissionRoomRestrictionDelete_VALUE = 803;
+  public static final int RoomRestrictionDelete_VALUE = 803;
 
 
   public final int getNumber() {
@@ -334,43 +334,43 @@ public enum Permission
    */
   public static Permission forNumber(int value) {
     switch (value) {
-      case 0: return PermissionUnknown;
-      case 100: return PermissionChat;
-      case 101: return PermissionChatSelect;
-      case 102: return PermissionChatEnter;
-      case 103: return PermissionChatLeave;
-      case 200: return PermissionChatMember;
-      case 201: return PermissionChatMemberSelect;
-      case 202: return PermissionChatMemberKick;
-      case 203: return PermissionChatMemberMute;
-      case 204: return PermissionChatMemberUnmute;
-      case 205: return PermissionChatMemberBlock;
-      case 206: return PermissionChatMemberUnblock;
-      case 300: return PermissionChatMessage;
-      case 301: return PermissionChatMessageSelect;
-      case 302: return PermissionChatMessageCreate;
-      case 303: return PermissionChatMessageUpdate;
-      case 304: return PermissionChatMessageUpdateContent;
-      case 305: return PermissionChatMessageOwnDelete;
-      case 306: return PermissionChatMessageAnyDelete;
-      case 400: return PermissionRoom;
-      case 401: return PermissionRoomSelect;
-      case 402: return PermissionRoomEnter;
-      case 403: return PermissionRoomLeave;
-      case 500: return PermissionRoomMember;
-      case 501: return PermissionRoomMemberSelect;
-      case 502: return PermissionRoomMemberKick;
-      case 600: return PermissionRoomConnection;
-      case 601: return PermissionRoomConnectionSelect;
-      case 700: return PermissionRoomStream;
-      case 701: return PermissionRoomStreamSelect;
-      case 702: return PermissionRoomStreamCreate;
-      case 703: return PermissionRoomStreamUpdate;
-      case 704: return PermissionRoomStreamDelete;
-      case 800: return PermissionRoomRestriction;
-      case 801: return PermissionRoomRestrictionSelect;
-      case 802: return PermissionRoomRestrictionCreate;
-      case 803: return PermissionRoomRestrictionDelete;
+      case 0: return Unknown;
+      case 100: return Chat;
+      case 101: return ChatSelect;
+      case 102: return ChatEnter;
+      case 103: return ChatLeave;
+      case 200: return ChatMember;
+      case 201: return ChatMemberSelect;
+      case 202: return ChatMemberKick;
+      case 203: return ChatMemberMute;
+      case 204: return ChatMemberUnmute;
+      case 205: return ChatMemberBlock;
+      case 206: return ChatMemberUnblock;
+      case 300: return ChatMessage;
+      case 301: return ChatMessageSelect;
+      case 302: return ChatMessageCreate;
+      case 303: return ChatMessageUpdate;
+      case 304: return ChatMessageUpdateContent;
+      case 305: return ChatMessageOwnDelete;
+      case 306: return ChatMessageAnyDelete;
+      case 400: return Room;
+      case 401: return RoomSelect;
+      case 402: return RoomEnter;
+      case 403: return RoomLeave;
+      case 500: return RoomMember;
+      case 501: return RoomMemberSelect;
+      case 502: return RoomMemberKick;
+      case 600: return RoomConnection;
+      case 601: return RoomConnectionSelect;
+      case 700: return RoomStream;
+      case 701: return RoomStreamSelect;
+      case 702: return RoomStreamCreate;
+      case 703: return RoomStreamUpdate;
+      case 704: return RoomStreamDelete;
+      case 800: return RoomRestriction;
+      case 801: return RoomRestrictionSelect;
+      case 802: return RoomRestrictionCreate;
+      case 803: return RoomRestrictionDelete;
       default: return null;
     }
   }

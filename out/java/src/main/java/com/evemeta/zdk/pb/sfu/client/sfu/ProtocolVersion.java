@@ -10,9 +10,9 @@ package com.evemeta.zdk.pb.sfu.client.sfu;
 public enum ProtocolVersion
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>ProtocolVersionUnknown = 0;</code>
+   * <code>Unknown = 0;</code>
    */
-  ProtocolVersionUnknown(0),
+  Unknown(0),
   /**
    * <code>ProtocolVersion1_1_0 = 1;</code>
    */
@@ -25,9 +25,9 @@ public enum ProtocolVersion
   ;
 
   /**
-   * <code>ProtocolVersionUnknown = 0;</code>
+   * <code>Unknown = 0;</code>
    */
-  public static final int ProtocolVersionUnknown_VALUE = 0;
+  public static final int Unknown_VALUE = 0;
   /**
    * <code>ProtocolVersion1_1_0 = 1;</code>
    */
@@ -62,7 +62,7 @@ public enum ProtocolVersion
    */
   public static ProtocolVersion forNumber(int value) {
     switch (value) {
-      case 0: return ProtocolVersionUnknown;
+      case 0: return Unknown;
       case 1: return ProtocolVersion1_1_0;
       case 2: return ProtocolVersion1_1_1;
       default: return null;

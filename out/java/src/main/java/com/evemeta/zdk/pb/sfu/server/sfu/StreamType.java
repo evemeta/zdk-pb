@@ -10,64 +10,64 @@ package com.evemeta.zdk.pb.sfu.server.sfu;
 public enum StreamType
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>StreamTypeUnknown = 0;</code>
+   * <code>Unknown = 0;</code>
    */
-  StreamTypeUnknown(0),
+  Unknown(0),
   /**
-   * <code>StreamTypeCamera = 1;</code>
+   * <code>Camera = 1;</code>
    */
-  StreamTypeCamera(1),
+  Camera(1),
   /**
-   * <code>StreamTypeAudio = 2;</code>
+   * <code>Audio = 2;</code>
    */
-  StreamTypeAudio(2),
+  Audio(2),
   /**
-   * <code>StreamTypeScreen = 3;</code>
+   * <code>Screen = 3;</code>
    */
-  StreamTypeScreen(3),
+  Screen(3),
   /**
-   * <code>StreamTypeScreenAudio = 4;</code>
+   * <code>ScreenAudio = 4;</code>
    */
-  StreamTypeScreenAudio(4),
+  ScreenAudio(4),
   /**
-   * <code>StreamTypeMcuVideo = 5;</code>
+   * <code>McuVideo = 5;</code>
    */
-  StreamTypeMcuVideo(5),
+  McuVideo(5),
   /**
-   * <code>StreamTypeMcuVideoIs = 6;</code>
+   * <code>McuVideoIs = 6;</code>
    */
-  StreamTypeMcuVideoIs(6),
+  McuVideoIs(6),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>StreamTypeUnknown = 0;</code>
+   * <code>Unknown = 0;</code>
    */
-  public static final int StreamTypeUnknown_VALUE = 0;
+  public static final int Unknown_VALUE = 0;
   /**
-   * <code>StreamTypeCamera = 1;</code>
+   * <code>Camera = 1;</code>
    */
-  public static final int StreamTypeCamera_VALUE = 1;
+  public static final int Camera_VALUE = 1;
   /**
-   * <code>StreamTypeAudio = 2;</code>
+   * <code>Audio = 2;</code>
    */
-  public static final int StreamTypeAudio_VALUE = 2;
+  public static final int Audio_VALUE = 2;
   /**
-   * <code>StreamTypeScreen = 3;</code>
+   * <code>Screen = 3;</code>
    */
-  public static final int StreamTypeScreen_VALUE = 3;
+  public static final int Screen_VALUE = 3;
   /**
-   * <code>StreamTypeScreenAudio = 4;</code>
+   * <code>ScreenAudio = 4;</code>
    */
-  public static final int StreamTypeScreenAudio_VALUE = 4;
+  public static final int ScreenAudio_VALUE = 4;
   /**
-   * <code>StreamTypeMcuVideo = 5;</code>
+   * <code>McuVideo = 5;</code>
    */
-  public static final int StreamTypeMcuVideo_VALUE = 5;
+  public static final int McuVideo_VALUE = 5;
   /**
-   * <code>StreamTypeMcuVideoIs = 6;</code>
+   * <code>McuVideoIs = 6;</code>
    */
-  public static final int StreamTypeMcuVideoIs_VALUE = 6;
+  public static final int McuVideoIs_VALUE = 6;
 
 
   public final int getNumber() {
@@ -94,13 +94,13 @@ public enum StreamType
    */
   public static StreamType forNumber(int value) {
     switch (value) {
-      case 0: return StreamTypeUnknown;
-      case 1: return StreamTypeCamera;
-      case 2: return StreamTypeAudio;
-      case 3: return StreamTypeScreen;
-      case 4: return StreamTypeScreenAudio;
-      case 5: return StreamTypeMcuVideo;
-      case 6: return StreamTypeMcuVideoIs;
+      case 0: return Unknown;
+      case 1: return Camera;
+      case 2: return Audio;
+      case 3: return Screen;
+      case 4: return ScreenAudio;
+      case 5: return McuVideo;
+      case 6: return McuVideoIs;
       default: return null;
     }
   }
