@@ -194,17 +194,17 @@ public object StreamsPacketKt {
      */
     public var channel: com.evemeta.zdk.pb.sfu.server.sfu.Channel
       @JvmName("getChannel")
-      get() = _builder.getChannel()
+      get() = _builder.channel
       @JvmName("setChannel")
       set(value) {
-        _builder.setChannel(value)
+        _builder.channel = value
       }
     public var channelValue: kotlin.Int
       @JvmName("getChannelValue")
-      get() = _builder.getChannelValue()
+      get() = _builder.channelValue
       @JvmName("setChannelValue")
       set(value) {
-        _builder.setChannelValue(value)
+        _builder.channelValue = value
       }
     /**
      * `.sfu.public.server.v1.Channel channel = 4;`
