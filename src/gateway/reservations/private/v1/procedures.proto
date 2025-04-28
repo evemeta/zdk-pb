@@ -1,0 +1,131 @@
+syntax = "proto3";
+
+package gateway.reservations.private.v1;
+
+import "gateway/reservations/private/v1/entities.proto";
+import "gateway/reservations/private/v1/optionals.proto";
+import "gateway/transponders/private/v1/procedures.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/reservations/private/v1;reservationspb";
+
+message CountArgument {
+    bool                                  cache = 1;
+    gateway.reservations.private.v1.Query query = 2;
+}
+
+message CountRequest {
+    repeated gateway.reservations.private.v1.CountArgument arguments = 1;
+}
+
+message CountResponse {
+    int64 total = 1;
+}
+
+message RangeArgument {
+    bool                                  cache = 1;
+    gateway.reservations.private.v1.Query query = 2;
+}
+
+message RangeRequest {
+    repeated gateway.reservations.private.v1.RangeArgument arguments = 1;
+}
+
+message RangeResponse {
+    repeated gateway.reservations.private.v1.Chunk chunks = 1;
+}
+
+message SelectArgument {
+    bool                                  cache = 1;
+    gateway.reservations.private.v1.Query query = 2;
+}
+
+message SelectRequest {
+    repeated gateway.reservations.private.v1.SelectArgument arguments = 1;
+}
+
+message SelectResponse {
+    repeated gateway.reservations.private.v1.Reservation reservations = 1;
+}
+
+message CreateArgument {
+    string id      = 1;
+    string mcu_id  = 2;
+    string room_id = 3;
+}
+
+message CreateRequest {
+    repeated gateway.reservations.private.v1.CreateArgument arguments = 1;
+}
+
+message CreateResponse {
+    repeated gateway.reservations.private.v1.Reservation reservations = 1;
+}
+
+message CreateMutation {
+    gateway.reservations.private.v1.CreateArgument     foundation      = 1;
+    gateway.reservations.private.v1.CreateCondition    condition       = 2;
+    repeated gateway.reservations.private.v1.Transient transient       = 3;
+    int64                                              begin_timestamp = 4;
+    int64                                              close_timestamp = 5;
+}
+
+message CreateCondition {
+    repeated gateway.transponders.private.v1.CreateMutation create_transponder_mutations = 1;
+}
+
+message CreateTransaction {
+    repeated gateway.reservations.private.v1.CreateMutation mutations = 1;
+}
+
+message UpdateArgument {
+    gateway.reservations.private.v1.Query                   query   = 1;
+    optional gateway.reservations.private.v1.OptionalString mcu_id  = 2;
+    optional gateway.reservations.private.v1.OptionalString room_id = 3;
+}
+
+message UpdateRequest {
+    repeated gateway.reservations.private.v1.UpdateArgument arguments = 1;
+}
+
+message UpdateResponse {
+    repeated gateway.reservations.private.v1.Reservation reservations = 1;
+}
+
+message UpdateMutation {
+    gateway.reservations.private.v1.UpdateArgument     foundation      = 1;
+    repeated gateway.reservations.private.v1.Transient transient       = 2;
+    int64                                              begin_timestamp = 3;
+    int64                                              close_timestamp = 4;
+}
+
+message UpdateTransaction {
+    repeated gateway.reservations.private.v1.UpdateMutation mutations = 1;
+}
+
+message DeleteArgument {
+    gateway.reservations.private.v1.Query query = 1;
+}
+
+message DeleteRequest {
+    repeated gateway.reservations.private.v1.DeleteArgument arguments = 1;
+}
+
+message DeleteResponse {
+    repeated gateway.reservations.private.v1.Reservation reservations = 1;
+}
+
+message DeleteMutation {
+    gateway.reservations.private.v1.DeleteArgument     foundation      = 1;
+    gateway.reservations.private.v1.DeleteCondition    condition       = 2;
+    repeated gateway.reservations.private.v1.Transient transient       = 3;
+    int64                                              begin_timestamp = 4;
+    int64                                              close_timestamp = 5;
+}
+
+message DeleteCondition {
+    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 1;
+}
+
+message DeleteTransaction {
+    repeated gateway.reservations.private.v1.DeleteMutation mutations = 1;
+}

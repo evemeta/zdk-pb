@@ -1,0 +1,129 @@
+syntax = "proto3";
+
+package gateway.mcus.private.v1;
+
+import "gateway/mcus/private/v1/enums.proto";
+import "gateway/mcus/private/v1/entities.proto";
+import "gateway/mcus/private/v1/optionals.proto";
+import "gateway/reservations/private/v1/procedures.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/mcus/private/v1;mcuspb";
+
+message CountArgument {
+    bool                          cache = 1;
+    gateway.mcus.private.v1.Query query = 2;
+}
+
+message CountRequest {
+    repeated gateway.mcus.private.v1.CountArgument arguments = 1;
+}
+
+message CountResponse {
+    int64 total = 1;
+}
+
+message RangeArgument {
+    bool                          cache = 1;
+    gateway.mcus.private.v1.Query query = 2;
+}
+
+message RangeRequest {
+    repeated gateway.mcus.private.v1.RangeArgument arguments = 1;
+}
+
+message RangeResponse {
+    repeated gateway.mcus.private.v1.Chunk chunks = 1;
+}
+
+message SelectArgument {
+    bool                          cache = 1;
+    gateway.mcus.private.v1.Query query = 2;
+}
+
+message SelectRequest {
+    repeated gateway.mcus.private.v1.SelectArgument arguments = 1;
+}
+
+message SelectResponse {
+    repeated gateway.mcus.private.v1.Mcu mcus = 1;
+}
+
+message CreateArgument {
+    string                         id      = 1;
+    gateway.mcus.private.v1.Zone   zone    = 2;
+    gateway.mcus.private.v1.Status status  = 3;
+    string                         address = 4;
+}
+
+message CreateRequest {
+    repeated gateway.mcus.private.v1.CreateArgument arguments = 1;
+}
+
+message CreateResponse {
+    repeated gateway.mcus.private.v1.Mcu mcus = 1;
+}
+
+message CreateMutation {
+    gateway.mcus.private.v1.CreateArgument     foundation      = 1;
+    repeated gateway.mcus.private.v1.Transient transient       = 2;
+    int64                                      begin_timestamp = 3;
+    int64                                      close_timestamp = 4;
+}
+
+message CreateTransaction {
+    repeated gateway.mcus.private.v1.CreateMutation mutations = 1;
+}
+
+message UpdateArgument {
+    gateway.mcus.private.v1.Query                   query   = 1;
+    optional gateway.mcus.private.v1.OptionalZone   zone    = 2;
+    optional gateway.mcus.private.v1.OptionalStatus status  = 3;
+    optional gateway.mcus.private.v1.OptionalString address = 4;
+}
+
+message UpdateRequest {
+    repeated gateway.mcus.private.v1.UpdateArgument arguments = 1;
+}
+
+message UpdateResponse {
+    repeated gateway.mcus.private.v1.Mcu mcus = 1;
+}
+
+message UpdateMutation {
+    gateway.mcus.private.v1.UpdateArgument     foundation      = 1;
+    repeated gateway.mcus.private.v1.Transient transient       = 2;
+    int64                                      begin_timestamp = 3;
+    int64                                      close_timestamp = 4;
+}
+
+message UpdateTransaction {
+    repeated gateway.mcus.private.v1.UpdateMutation mutations = 1;
+}
+
+message DeleteArgument {
+    gateway.mcus.private.v1.Query query = 1;
+}
+
+message DeleteRequest {
+    repeated gateway.mcus.private.v1.DeleteArgument arguments = 1;
+}
+
+message DeleteResponse {
+    repeated gateway.mcus.private.v1.Mcu mcus = 1;
+}
+
+message DeleteMutation {
+    gateway.mcus.private.v1.DeleteArgument     foundation      = 1;
+    gateway.mcus.private.v1.DeleteCondition    condition       = 2;
+    repeated gateway.mcus.private.v1.Transient transient       = 3;
+    int64                                      begin_timestamp = 4;
+    int64                                      close_timestamp = 5;
+}
+
+message DeleteCondition {
+    repeated gateway.reservations.private.v1.DeleteMutation delete_reservation_mutations = 1;
+}
+
+message DeleteTransaction {
+    repeated gateway.mcus.private.v1.DeleteMutation mutations = 1;
+}

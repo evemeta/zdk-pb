@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package gateway.mcus.private.v1;
+
+import "gateway/mcus/private/v1/entities.proto";
+import "gateway/mcus/private/v1/optionals.proto";
+import "common/timeframes/public/v1/entities.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/mcus/private/v1;mcuspb";
+
+message CreateMcuPacket {
+    gateway.mcus.private.v1.Mcu           mcu = 1;
+    common.timeframes.public.v1.Timeframe timeframe = 2;
+}
+
+message UpdateMcuPacket {
+    string                                          id        = 1;
+    optional gateway.mcus.private.v1.OptionalZone   zone      = 2;
+    optional gateway.mcus.private.v1.OptionalStatus status    = 3;
+    optional gateway.mcus.private.v1.OptionalString address   = 4;
+    common.timeframes.public.v1.Timeframe           timeframe = 5;
+}
+
+message DeleteMcuPacket {
+    string                                id = 1;
+    common.timeframes.public.v1.Timeframe timeframe = 2;
+}
