@@ -2,14 +2,7 @@ syntax = "proto3";
 
 package gateway.sessions.private.v1;
 
-
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/sessions/private/v1;sessionspb";
-
-enum Order {
-    OrderUnknown    = 0;
-    OrderAscending  = 1;
-    OrderDescending = 2;
-}
 
 enum Status {
     StatusUnknown      = 0;

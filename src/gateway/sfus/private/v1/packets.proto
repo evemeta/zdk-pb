@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package gateway.sfus.private.v1;
+
+import "gateway/sfus/private/v1/entities.proto";
+import "gateway/sfus/private/v1/optionals.proto";
+import "common/timeframes/public/v1/entities.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/sfus/private/v1;sfuspb";
+
+message CreateSfuPacket {
+    gateway.sfus.private.v1.Sfu           sfu       = 1;
+    common.timeframes.public.v1.Timeframe timeframe = 2;
+}
+
+message UpdateSfuPacket {
+    string                                          id            = 1;
+    optional gateway.sfus.private.v1.OptionalZone   zone          = 2;
+    optional gateway.sfus.private.v1.OptionalStatus status        = 3;
+    optional gateway.sfus.private.v1.OptionalString address       = 4;
+    optional gateway.sfus.private.v1.OptionalString relay_address = 5;
+    common.timeframes.public.v1.Timeframe           timeframe     = 6;
+}
+
+message DeleteSfuPacket {
+    string                                id        = 1;
+    common.timeframes.public.v1.Timeframe timeframe = 2;
+}

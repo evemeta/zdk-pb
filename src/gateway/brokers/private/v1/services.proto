@@ -9,4 +9,9 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/brokers/private/v1
 service Service {
 
     rpc Broadcast(BroadcastRequest) returns (BroadcastResponse);
+
+    rpc InitiateBroadcastMutations(BroadcastTransaction) returns (BroadcastTransaction);
+
+    rpc FinalizeBroadcastMutations(BroadcastTransaction) returns (BroadcastTransaction);
+
 }

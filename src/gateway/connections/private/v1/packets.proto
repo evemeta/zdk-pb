@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package gateway.connections.private.v1;
+
+import "gateway/connections/private/v1/entities.proto";
+import "gateway/connections/private/v1/optionals.proto";
+import "common/timeframes/public/v1/entities.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/connections/private/v1;connectionspb";
+
+message CreateConnectionPacket {
+    gateway.connections.private.v1.Connection connection = 1;
+    common.timeframes.public.v1.Timeframe     timeframe  = 2;
+}
+
+message UpdateConnectionPacket {
+    string                                                 id         = 1;
+    string                                                 sfu_id     = 2;
+    optional gateway.connections.private.v1.OptionalStatus status     = 3;
+    common.timeframes.public.v1.Timeframe                  timeframe  = 4;
+}
+
+message DeleteConnectionPacket {
+    string                                id         = 1;
+    string                                sfu_id     = 2;
+    common.timeframes.public.v1.Timeframe timeframe  = 3;
+}

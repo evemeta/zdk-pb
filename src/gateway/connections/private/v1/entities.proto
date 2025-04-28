@@ -3,6 +3,7 @@ syntax = "proto3";
 package gateway.connections.private.v1;
 
 import "gateway/connections/private/v1/enums.proto";
+import "common/orders/public/v1/entities.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/connections/private/v1;connectionspb";
 
@@ -14,7 +15,7 @@ message Chunk {
 }
 
 message Query {
-    gateway.connections.private.v1.Order              order      = 1;
+    common.orders.public.v1.Order                     order      = 1;
     int64                                             limit      = 2;
     int64                                             offset     = 3;
     repeated gateway.connections.private.v1.Condition conditions = 4;

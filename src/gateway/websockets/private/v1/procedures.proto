@@ -7,6 +7,7 @@ import "gateway/websockets/private/v1/entities.proto";
 import "gateway/websockets/private/v1/optionals.proto";
 import "gateway/sessions/private/v1/entities.proto";
 import "gateway/sessions/private/v1/procedures.proto";
+import "common/messages/public/v1/entities.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/websockets/private/v1;websocketspb";
 
@@ -130,8 +131,8 @@ message DeleteTransaction {
 }
 
 message BroadcastArgument {
-    gateway.sessions.private.v1.Query     query   = 1;
-    gateway.websockets.private.v1.Message message = 2;
+    common.messages.public.v1.Message message  = 1;
+    repeated string                   subjects = 2;
 }
 
 message BroadcastRequest {
@@ -148,8 +149,12 @@ message BroadcastMutation {
 }
 
 message BroadcastCondition {
-    repeated gateway.sessions.private.v1.Session     sessions   = 1;
-    repeated gateway.websockets.private.v1.Websocket websockets = 2;
+    repeated gateway.websockets.private.v1.BroadcastDestination destinations = 1;
+}
+
+message BroadcastDestination {
+    gateway.websockets.private.v1.Websocket websocket = 1;
+    repeated string                         subjects  = 2;
 }
 
 message BroadcastTransaction {

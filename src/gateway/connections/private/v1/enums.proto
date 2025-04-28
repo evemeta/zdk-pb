@@ -2,19 +2,12 @@ syntax = "proto3";
 
 package gateway.connections.private.v1;
 
-
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/connections/private/v1;connectionspb";
 
 enum Kind {
     KindUnknown  = 0;
     KindReceive  = 1;
     KindTransmit = 2;
-}
-
-enum Order {
-    OrderUnknown    = 0;
-    OrderAscending  = 1;
-    OrderDescending = 2;
 }
 
 enum Status {

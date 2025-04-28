@@ -8,7 +8,7 @@ assemble_java() {
 
     local files;
 
-    files=($(cgrep -rl "\scom\.google\.protobuf\.GeneratedMessageV3\s" "out/java/src/main/java"))
+    files=($(cgrep -rl "\scom\.google\.protobuf\.GeneratedMessage\s" "out/java/src/main/java"))
 
     if [ -z "$files" ]; then exit 1; fi
 
