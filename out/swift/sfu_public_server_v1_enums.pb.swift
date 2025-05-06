@@ -204,6 +204,40 @@ public enum Sfu_Public_Server_V1_SfuType: SwiftProtobuf.Enum, Swift.CaseIterable
 
 }
 
+public enum Sfu_Public_Server_V1_Channel: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case main // = 0
+  case screenshare // = 1
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .main
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .main
+    case 1: self = .screenshare
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .main: return 0
+    case .screenshare: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [Sfu_Public_Server_V1_Channel] = [
+    .main,
+    .screenshare,
+  ]
+
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension Sfu_Public_Server_V1_ConferenceMode: SwiftProtobuf._ProtoNameProviding {
@@ -243,5 +277,12 @@ extension Sfu_Public_Server_V1_SfuType: SwiftProtobuf._ProtoNameProviding {
     0: .same(proto: "SfuTypeUnknown"),
     1: .same(proto: "SfuTypeGateway"),
     2: .same(proto: "SfuTypeRouter"),
+  ]
+}
+
+extension Sfu_Public_Server_V1_Channel: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "ChannelMain"),
+    1: .same(proto: "ChannelScreenshare"),
   ]
 }

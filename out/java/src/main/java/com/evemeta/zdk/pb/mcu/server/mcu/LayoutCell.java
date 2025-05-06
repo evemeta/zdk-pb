@@ -28,6 +28,7 @@ private static final long serialVersionUID = 0L;
   }
   private LayoutCell() {
     userId_ = "";
+    streamType_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -93,6 +94,45 @@ private static final long serialVersionUID = 0L;
     return position_;
   }
 
+  public static final int STREAM_TYPE_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object streamType_ = "";
+  /**
+   * <code>string stream_type = 3;</code>
+   * @return The streamType.
+   */
+  @java.lang.Override
+  public java.lang.String getStreamType() {
+    java.lang.Object ref = streamType_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      streamType_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string stream_type = 3;</code>
+   * @return The bytes for streamType.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getStreamTypeBytes() {
+    java.lang.Object ref = streamType_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      streamType_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -113,6 +153,9 @@ private static final long serialVersionUID = 0L;
     if (position_ != 0L) {
       output.writeInt64(2, position_);
     }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(streamType_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 3, streamType_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -128,6 +171,9 @@ private static final long serialVersionUID = 0L;
     if (position_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(2, position_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(streamType_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(3, streamType_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -148,6 +194,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getUserId())) return false;
     if (getPosition()
         != other.getPosition()) return false;
+    if (!getStreamType()
+        .equals(other.getStreamType())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -164,6 +212,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + POSITION_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getPosition());
+    hash = (37 * hash) + STREAM_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getStreamType().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -297,6 +347,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ = 0;
       userId_ = "";
       position_ = 0L;
+      streamType_ = "";
       return this;
     }
 
@@ -336,6 +387,9 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.position_ = position_;
       }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.streamType_ = streamType_;
+      }
     }
 
     @java.lang.Override
@@ -357,6 +411,11 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getPosition() != 0L) {
         setPosition(other.getPosition());
+      }
+      if (!other.getStreamType().isEmpty()) {
+        streamType_ = other.streamType_;
+        bitField0_ |= 0x00000004;
+        onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -394,6 +453,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000002;
               break;
             } // case 16
+            case 26: {
+              streamType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -511,6 +575,78 @@ private static final long serialVersionUID = 0L;
     public Builder clearPosition() {
       bitField0_ = (bitField0_ & ~0x00000002);
       position_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object streamType_ = "";
+    /**
+     * <code>string stream_type = 3;</code>
+     * @return The streamType.
+     */
+    public java.lang.String getStreamType() {
+      java.lang.Object ref = streamType_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        streamType_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string stream_type = 3;</code>
+     * @return The bytes for streamType.
+     */
+    public com.google.protobuf.ByteString
+        getStreamTypeBytes() {
+      java.lang.Object ref = streamType_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        streamType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string stream_type = 3;</code>
+     * @param value The streamType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStreamType(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      streamType_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string stream_type = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearStreamType() {
+      streamType_ = getDefaultInstance().getStreamType();
+      bitField0_ = (bitField0_ & ~0x00000004);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string stream_type = 3;</code>
+     * @param value The bytes for streamType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStreamTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      streamType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }

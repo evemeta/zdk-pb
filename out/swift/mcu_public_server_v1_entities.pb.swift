@@ -30,6 +30,31 @@ public struct Mcu_Public_Server_V1_Empty: Sendable {
   public init() {}
 }
 
+public struct Mcu_Public_Server_V1_Cell: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var id: UInt32 = 0
+
+  public var name: String = String()
+
+  public var resolution: Mcu_Public_Server_V1_Resolution {
+    get {return _resolution ?? Mcu_Public_Server_V1_Resolution()}
+    set {_resolution = newValue}
+  }
+  /// Returns true if `resolution` has been explicitly set.
+  public var hasResolution: Bool {return self._resolution != nil}
+  /// Clears the value of `resolution`. Subsequent reads from it will return its default value.
+  public mutating func clearResolution() {self._resolution = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _resolution: Mcu_Public_Server_V1_Resolution? = nil
+}
+
 public struct Mcu_Public_Server_V1_Resolution: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -53,6 +78,8 @@ public struct Mcu_Public_Server_V1_LayoutCell: Sendable {
 
   public var position: Int64 = 0
 
+  public var streamType: String = String()
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -65,20 +92,11 @@ public struct Mcu_Public_Server_V1_CellConfig: Sendable {
 
   public var count: Int32 = 0
 
-  public var cellResolution: Mcu_Public_Server_V1_Resolution {
-    get {return _cellResolution ?? Mcu_Public_Server_V1_Resolution()}
-    set {_cellResolution = newValue}
-  }
-  /// Returns true if `cellResolution` has been explicitly set.
-  public var hasCellResolution: Bool {return self._cellResolution != nil}
-  /// Clears the value of `cellResolution`. Subsequent reads from it will return its default value.
-  public mutating func clearCellResolution() {self._cellResolution = nil}
+  public var cells: [Mcu_Public_Server_V1_Cell] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
-
-  fileprivate var _cellResolution: Mcu_Public_Server_V1_Resolution? = nil
 }
 
 public struct Mcu_Public_Server_V1_Layout: Sendable {
@@ -172,6 +190,54 @@ extension Mcu_Public_Server_V1_Empty: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
+extension Mcu_Public_Server_V1_Cell: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".Cell"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "id"),
+    2: .same(proto: "name"),
+    3: .same(proto: "resolution"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.id) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._resolution) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if self.id != 0 {
+      try visitor.visitSingularUInt32Field(value: self.id, fieldNumber: 1)
+    }
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 2)
+    }
+    try { if let v = self._resolution {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Mcu_Public_Server_V1_Cell, rhs: Mcu_Public_Server_V1_Cell) -> Bool {
+    if lhs.id != rhs.id {return false}
+    if lhs.name != rhs.name {return false}
+    if lhs._resolution != rhs._resolution {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension Mcu_Public_Server_V1_Resolution: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Resolution"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -215,6 +281,7 @@ extension Mcu_Public_Server_V1_LayoutCell: SwiftProtobuf.Message, SwiftProtobuf.
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "user_id"),
     2: .same(proto: "position"),
+    3: .standard(proto: "stream_type"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -225,6 +292,7 @@ extension Mcu_Public_Server_V1_LayoutCell: SwiftProtobuf.Message, SwiftProtobuf.
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.userID) }()
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.position) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.streamType) }()
       default: break
       }
     }
@@ -237,12 +305,16 @@ extension Mcu_Public_Server_V1_LayoutCell: SwiftProtobuf.Message, SwiftProtobuf.
     if self.position != 0 {
       try visitor.visitSingularInt64Field(value: self.position, fieldNumber: 2)
     }
+    if !self.streamType.isEmpty {
+      try visitor.visitSingularStringField(value: self.streamType, fieldNumber: 3)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Mcu_Public_Server_V1_LayoutCell, rhs: Mcu_Public_Server_V1_LayoutCell) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.position != rhs.position {return false}
+    if lhs.streamType != rhs.streamType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -252,7 +324,7 @@ extension Mcu_Public_Server_V1_CellConfig: SwiftProtobuf.Message, SwiftProtobuf.
   public static let protoMessageName: String = _protobuf_package + ".CellConfig"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "count"),
-    2: .standard(proto: "cell_resolution"),
+    2: .same(proto: "cells"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -262,29 +334,25 @@ extension Mcu_Public_Server_V1_CellConfig: SwiftProtobuf.Message, SwiftProtobuf.
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.count) }()
-      case 2: try { try decoder.decodeSingularMessageField(value: &self._cellResolution) }()
+      case 2: try { try decoder.decodeRepeatedMessageField(value: &self.cells) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
     if self.count != 0 {
       try visitor.visitSingularInt32Field(value: self.count, fieldNumber: 1)
     }
-    try { if let v = self._cellResolution {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-    } }()
+    if !self.cells.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.cells, fieldNumber: 2)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Mcu_Public_Server_V1_CellConfig, rhs: Mcu_Public_Server_V1_CellConfig) -> Bool {
     if lhs.count != rhs.count {return false}
-    if lhs._cellResolution != rhs._cellResolution {return false}
+    if lhs.cells != rhs.cells {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

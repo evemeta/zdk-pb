@@ -57,6 +57,66 @@ func (*Empty) Descriptor() ([]byte, []int) {
 	return file_mcu_public_server_v1_entities_proto_rawDescGZIP(), []int{0}
 }
 
+type Cell struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Resolution    *Resolution            `protobuf:"bytes,3,opt,name=resolution,proto3" json:"resolution,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Cell) Reset() {
+	*x = Cell{}
+	mi := &file_mcu_public_server_v1_entities_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Cell) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Cell) ProtoMessage() {}
+
+func (x *Cell) ProtoReflect() protoreflect.Message {
+	mi := &file_mcu_public_server_v1_entities_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Cell.ProtoReflect.Descriptor instead.
+func (*Cell) Descriptor() ([]byte, []int) {
+	return file_mcu_public_server_v1_entities_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *Cell) GetId() uint32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *Cell) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *Cell) GetResolution() *Resolution {
+	if x != nil {
+		return x.Resolution
+	}
+	return nil
+}
+
 type Resolution struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Width         int32                  `protobuf:"varint,1,opt,name=width,proto3" json:"width,omitempty"`
@@ -67,7 +127,7 @@ type Resolution struct {
 
 func (x *Resolution) Reset() {
 	*x = Resolution{}
-	mi := &file_mcu_public_server_v1_entities_proto_msgTypes[1]
+	mi := &file_mcu_public_server_v1_entities_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -79,7 +139,7 @@ func (x *Resolution) String() string {
 func (*Resolution) ProtoMessage() {}
 
 func (x *Resolution) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_public_server_v1_entities_proto_msgTypes[1]
+	mi := &file_mcu_public_server_v1_entities_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -92,7 +152,7 @@ func (x *Resolution) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Resolution.ProtoReflect.Descriptor instead.
 func (*Resolution) Descriptor() ([]byte, []int) {
-	return file_mcu_public_server_v1_entities_proto_rawDescGZIP(), []int{1}
+	return file_mcu_public_server_v1_entities_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *Resolution) GetWidth() int32 {
@@ -113,13 +173,14 @@ type LayoutCell struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	UserId        string                 `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	Position      int64                  `protobuf:"varint,2,opt,name=position,proto3" json:"position,omitempty"`
+	StreamType    string                 `protobuf:"bytes,3,opt,name=stream_type,json=streamType,proto3" json:"stream_type,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *LayoutCell) Reset() {
 	*x = LayoutCell{}
-	mi := &file_mcu_public_server_v1_entities_proto_msgTypes[2]
+	mi := &file_mcu_public_server_v1_entities_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -131,7 +192,7 @@ func (x *LayoutCell) String() string {
 func (*LayoutCell) ProtoMessage() {}
 
 func (x *LayoutCell) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_public_server_v1_entities_proto_msgTypes[2]
+	mi := &file_mcu_public_server_v1_entities_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -144,7 +205,7 @@ func (x *LayoutCell) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LayoutCell.ProtoReflect.Descriptor instead.
 func (*LayoutCell) Descriptor() ([]byte, []int) {
-	return file_mcu_public_server_v1_entities_proto_rawDescGZIP(), []int{2}
+	return file_mcu_public_server_v1_entities_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *LayoutCell) GetUserId() string {
@@ -161,17 +222,24 @@ func (x *LayoutCell) GetPosition() int64 {
 	return 0
 }
 
+func (x *LayoutCell) GetStreamType() string {
+	if x != nil {
+		return x.StreamType
+	}
+	return ""
+}
+
 type CellConfig struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	Count          int32                  `protobuf:"varint,1,opt,name=count,proto3" json:"count,omitempty"`
-	CellResolution *Resolution            `protobuf:"bytes,2,opt,name=cell_resolution,json=cellResolution,proto3" json:"cell_resolution,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Count         int32                  `protobuf:"varint,1,opt,name=count,proto3" json:"count,omitempty"`
+	Cells         []*Cell                `protobuf:"bytes,2,rep,name=cells,proto3" json:"cells,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CellConfig) Reset() {
 	*x = CellConfig{}
-	mi := &file_mcu_public_server_v1_entities_proto_msgTypes[3]
+	mi := &file_mcu_public_server_v1_entities_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -183,7 +251,7 @@ func (x *CellConfig) String() string {
 func (*CellConfig) ProtoMessage() {}
 
 func (x *CellConfig) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_public_server_v1_entities_proto_msgTypes[3]
+	mi := &file_mcu_public_server_v1_entities_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -196,7 +264,7 @@ func (x *CellConfig) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CellConfig.ProtoReflect.Descriptor instead.
 func (*CellConfig) Descriptor() ([]byte, []int) {
-	return file_mcu_public_server_v1_entities_proto_rawDescGZIP(), []int{3}
+	return file_mcu_public_server_v1_entities_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *CellConfig) GetCount() int32 {
@@ -206,9 +274,9 @@ func (x *CellConfig) GetCount() int32 {
 	return 0
 }
 
-func (x *CellConfig) GetCellResolution() *Resolution {
+func (x *CellConfig) GetCells() []*Cell {
 	if x != nil {
-		return x.CellResolution
+		return x.Cells
 	}
 	return nil
 }
@@ -227,7 +295,7 @@ type Layout struct {
 
 func (x *Layout) Reset() {
 	*x = Layout{}
-	mi := &file_mcu_public_server_v1_entities_proto_msgTypes[4]
+	mi := &file_mcu_public_server_v1_entities_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -239,7 +307,7 @@ func (x *Layout) String() string {
 func (*Layout) ProtoMessage() {}
 
 func (x *Layout) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_public_server_v1_entities_proto_msgTypes[4]
+	mi := &file_mcu_public_server_v1_entities_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -252,7 +320,7 @@ func (x *Layout) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Layout.ProtoReflect.Descriptor instead.
 func (*Layout) Descriptor() ([]byte, []int) {
-	return file_mcu_public_server_v1_entities_proto_rawDescGZIP(), []int{4}
+	return file_mcu_public_server_v1_entities_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *Layout) GetName() string {
@@ -310,7 +378,7 @@ type Room struct {
 
 func (x *Room) Reset() {
 	*x = Room{}
-	mi := &file_mcu_public_server_v1_entities_proto_msgTypes[5]
+	mi := &file_mcu_public_server_v1_entities_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -322,7 +390,7 @@ func (x *Room) String() string {
 func (*Room) ProtoMessage() {}
 
 func (x *Room) ProtoReflect() protoreflect.Message {
-	mi := &file_mcu_public_server_v1_entities_proto_msgTypes[5]
+	mi := &file_mcu_public_server_v1_entities_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -335,7 +403,7 @@ func (x *Room) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Room.ProtoReflect.Descriptor instead.
 func (*Room) Descriptor() ([]byte, []int) {
-	return file_mcu_public_server_v1_entities_proto_rawDescGZIP(), []int{5}
+	return file_mcu_public_server_v1_entities_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *Room) GetId() string {
@@ -378,19 +446,27 @@ var File_mcu_public_server_v1_entities_proto protoreflect.FileDescriptor
 const file_mcu_public_server_v1_entities_proto_rawDesc = "" +
 	"\n" +
 	"#mcu/public/server/v1/entities.proto\x12\x14mcu.public.server.v1\"\a\n" +
-	"\x05Empty\":\n" +
+	"\x05Empty\"l\n" +
+	"\x04Cell\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12@\n" +
+	"\n" +
+	"resolution\x18\x03 \x01(\v2 .mcu.public.server.v1.ResolutionR\n" +
+	"resolution\":\n" +
 	"\n" +
 	"Resolution\x12\x14\n" +
 	"\x05width\x18\x01 \x01(\x05R\x05width\x12\x16\n" +
-	"\x06height\x18\x02 \x01(\x05R\x06height\"A\n" +
+	"\x06height\x18\x02 \x01(\x05R\x06height\"b\n" +
 	"\n" +
 	"LayoutCell\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x1a\n" +
-	"\bposition\x18\x02 \x01(\x03R\bposition\"m\n" +
+	"\bposition\x18\x02 \x01(\x03R\bposition\x12\x1f\n" +
+	"\vstream_type\x18\x03 \x01(\tR\n" +
+	"streamType\"T\n" +
 	"\n" +
 	"CellConfig\x12\x14\n" +
-	"\x05count\x18\x01 \x01(\x05R\x05count\x12I\n" +
-	"\x0fcell_resolution\x18\x02 \x01(\v2 .mcu.public.server.v1.ResolutionR\x0ecellResolution\"\x89\x02\n" +
+	"\x05count\x18\x01 \x01(\x05R\x05count\x120\n" +
+	"\x05cells\x18\x02 \x03(\v2\x1a.mcu.public.server.v1.CellR\x05cells\"\x89\x02\n" +
 	"\x06Layout\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12@\n" +
 	"\n" +
@@ -421,26 +497,28 @@ func file_mcu_public_server_v1_entities_proto_rawDescGZIP() []byte {
 	return file_mcu_public_server_v1_entities_proto_rawDescData
 }
 
-var file_mcu_public_server_v1_entities_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_mcu_public_server_v1_entities_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_mcu_public_server_v1_entities_proto_goTypes = []any{
 	(*Empty)(nil),      // 0: mcu.public.server.v1.Empty
-	(*Resolution)(nil), // 1: mcu.public.server.v1.Resolution
-	(*LayoutCell)(nil), // 2: mcu.public.server.v1.LayoutCell
-	(*CellConfig)(nil), // 3: mcu.public.server.v1.CellConfig
-	(*Layout)(nil),     // 4: mcu.public.server.v1.Layout
-	(*Room)(nil),       // 5: mcu.public.server.v1.Room
+	(*Cell)(nil),       // 1: mcu.public.server.v1.Cell
+	(*Resolution)(nil), // 2: mcu.public.server.v1.Resolution
+	(*LayoutCell)(nil), // 3: mcu.public.server.v1.LayoutCell
+	(*CellConfig)(nil), // 4: mcu.public.server.v1.CellConfig
+	(*Layout)(nil),     // 5: mcu.public.server.v1.Layout
+	(*Room)(nil),       // 6: mcu.public.server.v1.Room
 }
 var file_mcu_public_server_v1_entities_proto_depIdxs = []int32{
-	1, // 0: mcu.public.server.v1.CellConfig.cell_resolution:type_name -> mcu.public.server.v1.Resolution
-	1, // 1: mcu.public.server.v1.Layout.resolution:type_name -> mcu.public.server.v1.Resolution
-	2, // 2: mcu.public.server.v1.Layout.config:type_name -> mcu.public.server.v1.LayoutCell
-	3, // 3: mcu.public.server.v1.Layout.cell_config:type_name -> mcu.public.server.v1.CellConfig
-	4, // 4: mcu.public.server.v1.Room.layout:type_name -> mcu.public.server.v1.Layout
-	5, // [5:5] is the sub-list for method output_type
-	5, // [5:5] is the sub-list for method input_type
-	5, // [5:5] is the sub-list for extension type_name
-	5, // [5:5] is the sub-list for extension extendee
-	0, // [0:5] is the sub-list for field type_name
+	2, // 0: mcu.public.server.v1.Cell.resolution:type_name -> mcu.public.server.v1.Resolution
+	1, // 1: mcu.public.server.v1.CellConfig.cells:type_name -> mcu.public.server.v1.Cell
+	2, // 2: mcu.public.server.v1.Layout.resolution:type_name -> mcu.public.server.v1.Resolution
+	3, // 3: mcu.public.server.v1.Layout.config:type_name -> mcu.public.server.v1.LayoutCell
+	4, // 4: mcu.public.server.v1.Layout.cell_config:type_name -> mcu.public.server.v1.CellConfig
+	5, // 5: mcu.public.server.v1.Room.layout:type_name -> mcu.public.server.v1.Layout
+	6, // [6:6] is the sub-list for method output_type
+	6, // [6:6] is the sub-list for method input_type
+	6, // [6:6] is the sub-list for extension type_name
+	6, // [6:6] is the sub-list for extension extendee
+	0, // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_mcu_public_server_v1_entities_proto_init() }
@@ -454,7 +532,7 @@ func file_mcu_public_server_v1_entities_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_mcu_public_server_v1_entities_proto_rawDesc), len(file_mcu_public_server_v1_entities_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

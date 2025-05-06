@@ -9,19 +9,26 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/mcu/public/server/v1;mcupb
 
 message Empty {}
 
-message Resolution{
+message Cell {
+    uint32 id = 1;
+    string name = 2;
+    Resolution resolution = 3;
+}
+
+message Resolution {
     int32 width = 1;
     int32 height = 2;
 }
 
 message LayoutCell {
-    string user_id = 1;
-    int64  position = 2;
+    string user_id      = 1;
+    int64  position     = 2;
+    string stream_type  = 3;
 }
 
 message CellConfig {
     int32 count = 1;
-    Resolution cell_resolution = 2;
+    repeated Cell cells = 2;
 }
 
 message Layout {

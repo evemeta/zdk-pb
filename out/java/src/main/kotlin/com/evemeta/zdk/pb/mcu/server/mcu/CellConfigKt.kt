@@ -46,37 +46,79 @@ public object CellConfigKt {
     }
 
     /**
-     * `.mcu.public.server.v1.Resolution cell_resolution = 2;`
+     * An uninstantiable, behaviorless type to represent the field in
+     * generics.
      */
-    public var cellResolution: com.evemeta.zdk.pb.mcu.server.mcu.Resolution
-      @JvmName("getCellResolution")
-      get() = _builder.cellResolution
-      @JvmName("setCellResolution")
-      set(value) {
-        _builder.cellResolution = value
-      }
+    @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
+    public class CellsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
-     * `.mcu.public.server.v1.Resolution cell_resolution = 2;`
+     * `repeated .mcu.public.server.v1.Cell cells = 2;`
      */
-    public fun clearCellResolution() {
-      _builder.clearCellResolution()
+     public val cells: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.mcu.server.mcu.Cell, CellsProxy>
+      @kotlin.jvm.JvmSynthetic
+      get() = com.google.protobuf.kotlin.DslList(
+        _builder.cellsList
+      )
+    /**
+     * `repeated .mcu.public.server.v1.Cell cells = 2;`
+     * @param value The cells to add.
+     */
+    @kotlin.jvm.JvmSynthetic
+    @kotlin.jvm.JvmName("addCells")
+    public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.mcu.server.mcu.Cell, CellsProxy>.add(value: com.evemeta.zdk.pb.mcu.server.mcu.Cell) {
+      _builder.addCells(value)
     }
     /**
-     * `.mcu.public.server.v1.Resolution cell_resolution = 2;`
-     * @return Whether the cellResolution field is set.
+     * `repeated .mcu.public.server.v1.Cell cells = 2;`
+     * @param value The cells to add.
      */
-    public fun hasCellResolution(): kotlin.Boolean {
-      return _builder.hasCellResolution()
+    @kotlin.jvm.JvmSynthetic
+    @kotlin.jvm.JvmName("plusAssignCells")
+    @Suppress("NOTHING_TO_INLINE")
+    public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.mcu.server.mcu.Cell, CellsProxy>.plusAssign(value: com.evemeta.zdk.pb.mcu.server.mcu.Cell) {
+      add(value)
+    }
+    /**
+     * `repeated .mcu.public.server.v1.Cell cells = 2;`
+     * @param values The cells to add.
+     */
+    @kotlin.jvm.JvmSynthetic
+    @kotlin.jvm.JvmName("addAllCells")
+    public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.mcu.server.mcu.Cell, CellsProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.mcu.server.mcu.Cell>) {
+      _builder.addAllCells(values)
+    }
+    /**
+     * `repeated .mcu.public.server.v1.Cell cells = 2;`
+     * @param values The cells to add.
+     */
+    @kotlin.jvm.JvmSynthetic
+    @kotlin.jvm.JvmName("plusAssignAllCells")
+    @Suppress("NOTHING_TO_INLINE")
+    public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.mcu.server.mcu.Cell, CellsProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.mcu.server.mcu.Cell>) {
+      addAll(values)
+    }
+    /**
+     * `repeated .mcu.public.server.v1.Cell cells = 2;`
+     * @param index The index to set the value at.
+     * @param value The cells to set.
+     */
+    @kotlin.jvm.JvmSynthetic
+    @kotlin.jvm.JvmName("setCells")
+    public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.mcu.server.mcu.Cell, CellsProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.mcu.server.mcu.Cell) {
+      _builder.setCells(index, value)
+    }
+    /**
+     * `repeated .mcu.public.server.v1.Cell cells = 2;`
+     */
+    @kotlin.jvm.JvmSynthetic
+    @kotlin.jvm.JvmName("clearCells")
+    public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.mcu.server.mcu.Cell, CellsProxy>.clear() {
+      _builder.clearCells()
     }
 
-    public val CellConfigKt.Dsl.cellResolutionOrNull: com.evemeta.zdk.pb.mcu.server.mcu.Resolution?
-      get() = _builder.cellResolutionOrNull
   }
 }
 @kotlin.jvm.JvmSynthetic
 public inline fun com.evemeta.zdk.pb.mcu.server.mcu.CellConfig.copy(block: `com.evemeta.zdk.pb.mcu.server.mcu`.CellConfigKt.Dsl.() -> kotlin.Unit): com.evemeta.zdk.pb.mcu.server.mcu.CellConfig =
   `com.evemeta.zdk.pb.mcu.server.mcu`.CellConfigKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val com.evemeta.zdk.pb.mcu.server.mcu.CellConfigOrBuilder.cellResolutionOrNull: com.evemeta.zdk.pb.mcu.server.mcu.Resolution?
-  get() = if (hasCellResolution()) getCellResolution() else null
 

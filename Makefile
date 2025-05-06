@@ -32,7 +32,8 @@ init::
 	wget https://repo1.maven.org/maven2/io/grpc/protoc-gen-grpc-java/${PROTOC_GEN_JAVA_VER}/protoc-gen-grpc-java-${PROTOC_GEN_JAVA_VER}-osx-x86_64.exe && \
 	mv protoc-gen-grpc-java-${PROTOC_GEN_JAVA_VER}-osx-x86_64.exe protoc-gen-grpc-java && \
 	chmod +x protoc-gen-grpc-java && \
-	npm i
+	npm i && \
+	go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.5.1
 else
 init::
 	mkdir -p bin && \
@@ -48,7 +49,8 @@ init::
 	wget https://repo1.maven.org/maven2/io/grpc/protoc-gen-grpc-java/${PROTOC_GEN_JAVA_VER}/protoc-gen-grpc-java-${PROTOC_GEN_JAVA_VER}-linux-x86_64.exe && \
 	mv protoc-gen-grpc-java-${PROTOC_GEN_JAVA_VER}-linux-x86_64.exe protoc-gen-grpc-java && \
 	chmod +x protoc-gen-grpc-java && \
-    npm i
+    npm i && \
+    go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.5.1
 endif
 
 ifeq ($(OS),WINDOWS)

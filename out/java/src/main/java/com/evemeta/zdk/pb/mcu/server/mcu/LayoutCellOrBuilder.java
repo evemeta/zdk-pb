@@ -26,4 +26,16 @@ public interface LayoutCellOrBuilder extends
    * @return The position.
    */
   long getPosition();
+
+  /**
+   * <code>string stream_type = 3;</code>
+   * @return The streamType.
+   */
+  java.lang.String getStreamType();
+  /**
+   * <code>string stream_type = 3;</code>
+   * @return The bytes for streamType.
+   */
+  com.google.protobuf.ByteString
+      getStreamTypeBytes();
 }

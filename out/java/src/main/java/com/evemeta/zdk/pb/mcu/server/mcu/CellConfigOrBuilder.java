@@ -16,17 +16,26 @@ public interface CellConfigOrBuilder extends
   int getCount();
 
   /**
-   * <code>.mcu.public.server.v1.Resolution cell_resolution = 2;</code>
-   * @return Whether the cellResolution field is set.
+   * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
    */
-  boolean hasCellResolution();
+  java.util.List<com.evemeta.zdk.pb.mcu.server.mcu.Cell> 
+      getCellsList();
   /**
-   * <code>.mcu.public.server.v1.Resolution cell_resolution = 2;</code>
-   * @return The cellResolution.
+   * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
    */
-  com.evemeta.zdk.pb.mcu.server.mcu.Resolution getCellResolution();
+  com.evemeta.zdk.pb.mcu.server.mcu.Cell getCells(int index);
   /**
-   * <code>.mcu.public.server.v1.Resolution cell_resolution = 2;</code>
+   * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
    */
-  com.evemeta.zdk.pb.mcu.server.mcu.ResolutionOrBuilder getCellResolutionOrBuilder();
+  int getCellsCount();
+  /**
+   * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
+   */
+  java.util.List<? extends com.evemeta.zdk.pb.mcu.server.mcu.CellOrBuilder> 
+      getCellsOrBuilderList();
+  /**
+   * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
+   */
+  com.evemeta.zdk.pb.mcu.server.mcu.CellOrBuilder getCellsOrBuilder(
+      int index);
 }

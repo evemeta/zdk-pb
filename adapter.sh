@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export PATH=$(pwd)/bin:$PATH:$GOPATH/bin
+export PATH=$(pwd)/bin:$GOPATH/bin:$PATH
 
 csed() {
     if [[ "$(uname -s)" == "Linux" ]]; then

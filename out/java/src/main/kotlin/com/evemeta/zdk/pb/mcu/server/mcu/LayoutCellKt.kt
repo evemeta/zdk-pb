@@ -61,6 +61,23 @@ public object LayoutCellKt {
     public fun clearPosition() {
       _builder.clearPosition()
     }
+
+    /**
+     * `string stream_type = 3;`
+     */
+    public var streamType: kotlin.String
+      @JvmName("getStreamType")
+      get() = _builder.streamType
+      @JvmName("setStreamType")
+      set(value) {
+        _builder.streamType = value
+      }
+    /**
+     * `string stream_type = 3;`
+     */
+    public fun clearStreamType() {
+      _builder.clearStreamType()
+    }
   }
 }
 @kotlin.jvm.JvmSynthetic

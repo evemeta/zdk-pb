@@ -27,6 +27,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private CellConfig() {
+    cells_ = java.util.Collections.emptyList();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -42,7 +43,6 @@ private static final long serialVersionUID = 0L;
             com.evemeta.zdk.pb.mcu.server.mcu.CellConfig.class, com.evemeta.zdk.pb.mcu.server.mcu.CellConfig.Builder.class);
   }
 
-  private int bitField0_;
   public static final int COUNT_FIELD_NUMBER = 1;
   private int count_ = 0;
   /**
@@ -54,30 +54,45 @@ private static final long serialVersionUID = 0L;
     return count_;
   }
 
-  public static final int CELL_RESOLUTION_FIELD_NUMBER = 2;
-  private com.evemeta.zdk.pb.mcu.server.mcu.Resolution cellResolution_;
+  public static final int CELLS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
+  private java.util.List<com.evemeta.zdk.pb.mcu.server.mcu.Cell> cells_;
   /**
-   * <code>.mcu.public.server.v1.Resolution cell_resolution = 2;</code>
-   * @return Whether the cellResolution field is set.
+   * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
    */
   @java.lang.Override
-  public boolean hasCellResolution() {
-    return ((bitField0_ & 0x00000001) != 0);
+  public java.util.List<com.evemeta.zdk.pb.mcu.server.mcu.Cell> getCellsList() {
+    return cells_;
   }
   /**
-   * <code>.mcu.public.server.v1.Resolution cell_resolution = 2;</code>
-   * @return The cellResolution.
+   * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
    */
   @java.lang.Override
-  public com.evemeta.zdk.pb.mcu.server.mcu.Resolution getCellResolution() {
-    return cellResolution_ == null ? com.evemeta.zdk.pb.mcu.server.mcu.Resolution.getDefaultInstance() : cellResolution_;
+  public java.util.List<? extends com.evemeta.zdk.pb.mcu.server.mcu.CellOrBuilder> 
+      getCellsOrBuilderList() {
+    return cells_;
   }
   /**
-   * <code>.mcu.public.server.v1.Resolution cell_resolution = 2;</code>
+   * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
    */
   @java.lang.Override
-  public com.evemeta.zdk.pb.mcu.server.mcu.ResolutionOrBuilder getCellResolutionOrBuilder() {
-    return cellResolution_ == null ? com.evemeta.zdk.pb.mcu.server.mcu.Resolution.getDefaultInstance() : cellResolution_;
+  public int getCellsCount() {
+    return cells_.size();
+  }
+  /**
+   * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
+   */
+  @java.lang.Override
+  public com.evemeta.zdk.pb.mcu.server.mcu.Cell getCells(int index) {
+    return cells_.get(index);
+  }
+  /**
+   * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
+   */
+  @java.lang.Override
+  public com.evemeta.zdk.pb.mcu.server.mcu.CellOrBuilder getCellsOrBuilder(
+      int index) {
+    return cells_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -97,8 +112,8 @@ private static final long serialVersionUID = 0L;
     if (count_ != 0) {
       output.writeInt32(1, count_);
     }
-    if (((bitField0_ & 0x00000001) != 0)) {
-      output.writeMessage(2, getCellResolution());
+    for (int i = 0; i < cells_.size(); i++) {
+      output.writeMessage(2, cells_.get(i));
     }
     getUnknownFields().writeTo(output);
   }
@@ -113,9 +128,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(1, count_);
     }
-    if (((bitField0_ & 0x00000001) != 0)) {
+    for (int i = 0; i < cells_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, getCellResolution());
+        .computeMessageSize(2, cells_.get(i));
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -134,11 +149,8 @@ private static final long serialVersionUID = 0L;
 
     if (getCount()
         != other.getCount()) return false;
-    if (hasCellResolution() != other.hasCellResolution()) return false;
-    if (hasCellResolution()) {
-      if (!getCellResolution()
-          .equals(other.getCellResolution())) return false;
-    }
+    if (!getCellsList()
+        .equals(other.getCellsList())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -152,9 +164,9 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + COUNT_FIELD_NUMBER;
     hash = (53 * hash) + getCount();
-    if (hasCellResolution()) {
-      hash = (37 * hash) + CELL_RESOLUTION_FIELD_NUMBER;
-      hash = (53 * hash) + getCellResolution().hashCode();
+    if (getCellsCount() > 0) {
+      hash = (37 * hash) + CELLS_FIELD_NUMBER;
+      hash = (53 * hash) + getCellsList().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -275,30 +287,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.evemeta.zdk.pb.mcu.server.mcu.CellConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessage
-              .alwaysUseFieldBuilders) {
-        getCellResolutionFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
       count_ = 0;
-      cellResolution_ = null;
-      if (cellResolutionBuilder_ != null) {
-        cellResolutionBuilder_.dispose();
-        cellResolutionBuilder_ = null;
+      if (cellsBuilder_ == null) {
+        cells_ = java.util.Collections.emptyList();
+      } else {
+        cells_ = null;
+        cellsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -325,9 +333,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.evemeta.zdk.pb.mcu.server.mcu.CellConfig buildPartial() {
       com.evemeta.zdk.pb.mcu.server.mcu.CellConfig result = new com.evemeta.zdk.pb.mcu.server.mcu.CellConfig(this);
+      buildPartialRepeatedFields(result);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.evemeta.zdk.pb.mcu.server.mcu.CellConfig result) {
+      if (cellsBuilder_ == null) {
+        if (((bitField0_ & 0x00000002) != 0)) {
+          cells_ = java.util.Collections.unmodifiableList(cells_);
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.cells_ = cells_;
+      } else {
+        result.cells_ = cellsBuilder_.build();
+      }
     }
 
     private void buildPartial0(com.evemeta.zdk.pb.mcu.server.mcu.CellConfig result) {
@@ -335,14 +356,6 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.count_ = count_;
       }
-      int to_bitField0_ = 0;
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.cellResolution_ = cellResolutionBuilder_ == null
-            ? cellResolution_
-            : cellResolutionBuilder_.build();
-        to_bitField0_ |= 0x00000001;
-      }
-      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -360,8 +373,31 @@ private static final long serialVersionUID = 0L;
       if (other.getCount() != 0) {
         setCount(other.getCount());
       }
-      if (other.hasCellResolution()) {
-        mergeCellResolution(other.getCellResolution());
+      if (cellsBuilder_ == null) {
+        if (!other.cells_.isEmpty()) {
+          if (cells_.isEmpty()) {
+            cells_ = other.cells_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureCellsIsMutable();
+            cells_.addAll(other.cells_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.cells_.isEmpty()) {
+          if (cellsBuilder_.isEmpty()) {
+            cellsBuilder_.dispose();
+            cellsBuilder_ = null;
+            cells_ = other.cells_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+            cellsBuilder_ = 
+              com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                 getCellsFieldBuilder() : null;
+          } else {
+            cellsBuilder_.addAllMessages(other.cells_);
+          }
+        }
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -395,10 +431,16 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 8
             case 18: {
-              input.readMessage(
-                  getCellResolutionFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              bitField0_ |= 0x00000002;
+              com.evemeta.zdk.pb.mcu.server.mcu.Cell m =
+                  input.readMessage(
+                      com.evemeta.zdk.pb.mcu.server.mcu.Cell.parser(),
+                      extensionRegistry);
+              if (cellsBuilder_ == null) {
+                ensureCellsIsMutable();
+                cells_.add(m);
+              } else {
+                cellsBuilder_.addMessage(m);
+              }
               break;
             } // case 18
             default: {
@@ -450,125 +492,244 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.evemeta.zdk.pb.mcu.server.mcu.Resolution cellResolution_;
-    private com.google.protobuf.SingleFieldBuilder<
-        com.evemeta.zdk.pb.mcu.server.mcu.Resolution, com.evemeta.zdk.pb.mcu.server.mcu.Resolution.Builder, com.evemeta.zdk.pb.mcu.server.mcu.ResolutionOrBuilder> cellResolutionBuilder_;
-    /**
-     * <code>.mcu.public.server.v1.Resolution cell_resolution = 2;</code>
-     * @return Whether the cellResolution field is set.
-     */
-    public boolean hasCellResolution() {
-      return ((bitField0_ & 0x00000002) != 0);
+    private java.util.List<com.evemeta.zdk.pb.mcu.server.mcu.Cell> cells_ =
+      java.util.Collections.emptyList();
+    private void ensureCellsIsMutable() {
+      if (!((bitField0_ & 0x00000002) != 0)) {
+        cells_ = new java.util.ArrayList<com.evemeta.zdk.pb.mcu.server.mcu.Cell>(cells_);
+        bitField0_ |= 0x00000002;
+       }
     }
+
+    private com.google.protobuf.RepeatedFieldBuilder<
+        com.evemeta.zdk.pb.mcu.server.mcu.Cell, com.evemeta.zdk.pb.mcu.server.mcu.Cell.Builder, com.evemeta.zdk.pb.mcu.server.mcu.CellOrBuilder> cellsBuilder_;
+
     /**
-     * <code>.mcu.public.server.v1.Resolution cell_resolution = 2;</code>
-     * @return The cellResolution.
+     * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
      */
-    public com.evemeta.zdk.pb.mcu.server.mcu.Resolution getCellResolution() {
-      if (cellResolutionBuilder_ == null) {
-        return cellResolution_ == null ? com.evemeta.zdk.pb.mcu.server.mcu.Resolution.getDefaultInstance() : cellResolution_;
+    public java.util.List<com.evemeta.zdk.pb.mcu.server.mcu.Cell> getCellsList() {
+      if (cellsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(cells_);
       } else {
-        return cellResolutionBuilder_.getMessage();
+        return cellsBuilder_.getMessageList();
       }
     }
     /**
-     * <code>.mcu.public.server.v1.Resolution cell_resolution = 2;</code>
+     * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
      */
-    public Builder setCellResolution(com.evemeta.zdk.pb.mcu.server.mcu.Resolution value) {
-      if (cellResolutionBuilder_ == null) {
+    public int getCellsCount() {
+      if (cellsBuilder_ == null) {
+        return cells_.size();
+      } else {
+        return cellsBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
+     */
+    public com.evemeta.zdk.pb.mcu.server.mcu.Cell getCells(int index) {
+      if (cellsBuilder_ == null) {
+        return cells_.get(index);
+      } else {
+        return cellsBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
+     */
+    public Builder setCells(
+        int index, com.evemeta.zdk.pb.mcu.server.mcu.Cell value) {
+      if (cellsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        cellResolution_ = value;
-      } else {
-        cellResolutionBuilder_.setMessage(value);
-      }
-      bitField0_ |= 0x00000002;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.mcu.public.server.v1.Resolution cell_resolution = 2;</code>
-     */
-    public Builder setCellResolution(
-        com.evemeta.zdk.pb.mcu.server.mcu.Resolution.Builder builderForValue) {
-      if (cellResolutionBuilder_ == null) {
-        cellResolution_ = builderForValue.build();
-      } else {
-        cellResolutionBuilder_.setMessage(builderForValue.build());
-      }
-      bitField0_ |= 0x00000002;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.mcu.public.server.v1.Resolution cell_resolution = 2;</code>
-     */
-    public Builder mergeCellResolution(com.evemeta.zdk.pb.mcu.server.mcu.Resolution value) {
-      if (cellResolutionBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0) &&
-          cellResolution_ != null &&
-          cellResolution_ != com.evemeta.zdk.pb.mcu.server.mcu.Resolution.getDefaultInstance()) {
-          getCellResolutionBuilder().mergeFrom(value);
-        } else {
-          cellResolution_ = value;
-        }
-      } else {
-        cellResolutionBuilder_.mergeFrom(value);
-      }
-      if (cellResolution_ != null) {
-        bitField0_ |= 0x00000002;
+        ensureCellsIsMutable();
+        cells_.set(index, value);
         onChanged();
-      }
-      return this;
-    }
-    /**
-     * <code>.mcu.public.server.v1.Resolution cell_resolution = 2;</code>
-     */
-    public Builder clearCellResolution() {
-      bitField0_ = (bitField0_ & ~0x00000002);
-      cellResolution_ = null;
-      if (cellResolutionBuilder_ != null) {
-        cellResolutionBuilder_.dispose();
-        cellResolutionBuilder_ = null;
-      }
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.mcu.public.server.v1.Resolution cell_resolution = 2;</code>
-     */
-    public com.evemeta.zdk.pb.mcu.server.mcu.Resolution.Builder getCellResolutionBuilder() {
-      bitField0_ |= 0x00000002;
-      onChanged();
-      return getCellResolutionFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.mcu.public.server.v1.Resolution cell_resolution = 2;</code>
-     */
-    public com.evemeta.zdk.pb.mcu.server.mcu.ResolutionOrBuilder getCellResolutionOrBuilder() {
-      if (cellResolutionBuilder_ != null) {
-        return cellResolutionBuilder_.getMessageOrBuilder();
       } else {
-        return cellResolution_ == null ?
-            com.evemeta.zdk.pb.mcu.server.mcu.Resolution.getDefaultInstance() : cellResolution_;
+        cellsBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
+     */
+    public Builder setCells(
+        int index, com.evemeta.zdk.pb.mcu.server.mcu.Cell.Builder builderForValue) {
+      if (cellsBuilder_ == null) {
+        ensureCellsIsMutable();
+        cells_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        cellsBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
+     */
+    public Builder addCells(com.evemeta.zdk.pb.mcu.server.mcu.Cell value) {
+      if (cellsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureCellsIsMutable();
+        cells_.add(value);
+        onChanged();
+      } else {
+        cellsBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
+     */
+    public Builder addCells(
+        int index, com.evemeta.zdk.pb.mcu.server.mcu.Cell value) {
+      if (cellsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureCellsIsMutable();
+        cells_.add(index, value);
+        onChanged();
+      } else {
+        cellsBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
+     */
+    public Builder addCells(
+        com.evemeta.zdk.pb.mcu.server.mcu.Cell.Builder builderForValue) {
+      if (cellsBuilder_ == null) {
+        ensureCellsIsMutable();
+        cells_.add(builderForValue.build());
+        onChanged();
+      } else {
+        cellsBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
+     */
+    public Builder addCells(
+        int index, com.evemeta.zdk.pb.mcu.server.mcu.Cell.Builder builderForValue) {
+      if (cellsBuilder_ == null) {
+        ensureCellsIsMutable();
+        cells_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        cellsBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
+     */
+    public Builder addAllCells(
+        java.lang.Iterable<? extends com.evemeta.zdk.pb.mcu.server.mcu.Cell> values) {
+      if (cellsBuilder_ == null) {
+        ensureCellsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, cells_);
+        onChanged();
+      } else {
+        cellsBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
+     */
+    public Builder clearCells() {
+      if (cellsBuilder_ == null) {
+        cells_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+      } else {
+        cellsBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
+     */
+    public Builder removeCells(int index) {
+      if (cellsBuilder_ == null) {
+        ensureCellsIsMutable();
+        cells_.remove(index);
+        onChanged();
+      } else {
+        cellsBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
+     */
+    public com.evemeta.zdk.pb.mcu.server.mcu.Cell.Builder getCellsBuilder(
+        int index) {
+      return getCellsFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
+     */
+    public com.evemeta.zdk.pb.mcu.server.mcu.CellOrBuilder getCellsOrBuilder(
+        int index) {
+      if (cellsBuilder_ == null) {
+        return cells_.get(index);  } else {
+        return cellsBuilder_.getMessageOrBuilder(index);
       }
     }
     /**
-     * <code>.mcu.public.server.v1.Resolution cell_resolution = 2;</code>
+     * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
      */
-    private com.google.protobuf.SingleFieldBuilder<
-        com.evemeta.zdk.pb.mcu.server.mcu.Resolution, com.evemeta.zdk.pb.mcu.server.mcu.Resolution.Builder, com.evemeta.zdk.pb.mcu.server.mcu.ResolutionOrBuilder> 
-        getCellResolutionFieldBuilder() {
-      if (cellResolutionBuilder_ == null) {
-        cellResolutionBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-            com.evemeta.zdk.pb.mcu.server.mcu.Resolution, com.evemeta.zdk.pb.mcu.server.mcu.Resolution.Builder, com.evemeta.zdk.pb.mcu.server.mcu.ResolutionOrBuilder>(
-                getCellResolution(),
+    public java.util.List<? extends com.evemeta.zdk.pb.mcu.server.mcu.CellOrBuilder> 
+         getCellsOrBuilderList() {
+      if (cellsBuilder_ != null) {
+        return cellsBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(cells_);
+      }
+    }
+    /**
+     * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
+     */
+    public com.evemeta.zdk.pb.mcu.server.mcu.Cell.Builder addCellsBuilder() {
+      return getCellsFieldBuilder().addBuilder(
+          com.evemeta.zdk.pb.mcu.server.mcu.Cell.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
+     */
+    public com.evemeta.zdk.pb.mcu.server.mcu.Cell.Builder addCellsBuilder(
+        int index) {
+      return getCellsFieldBuilder().addBuilder(
+          index, com.evemeta.zdk.pb.mcu.server.mcu.Cell.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .mcu.public.server.v1.Cell cells = 2;</code>
+     */
+    public java.util.List<com.evemeta.zdk.pb.mcu.server.mcu.Cell.Builder> 
+         getCellsBuilderList() {
+      return getCellsFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilder<
+        com.evemeta.zdk.pb.mcu.server.mcu.Cell, com.evemeta.zdk.pb.mcu.server.mcu.Cell.Builder, com.evemeta.zdk.pb.mcu.server.mcu.CellOrBuilder> 
+        getCellsFieldBuilder() {
+      if (cellsBuilder_ == null) {
+        cellsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            com.evemeta.zdk.pb.mcu.server.mcu.Cell, com.evemeta.zdk.pb.mcu.server.mcu.Cell.Builder, com.evemeta.zdk.pb.mcu.server.mcu.CellOrBuilder>(
+                cells_,
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
-        cellResolution_ = null;
+        cells_ = null;
       }
-      return cellResolutionBuilder_;
+      return cellsBuilder_;
     }
 
     // @@protoc_insertion_point(builder_scope:mcu.public.server.v1.CellConfig)

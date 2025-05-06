@@ -88,25 +88,25 @@ func (SampleType) EnumDescriptor() ([]byte, []int) {
 type DataType int32
 
 const (
-	DataType_MediaTypeUnknown DataType = 0
-	DataType_MediaTypeVideo   DataType = 1
-	DataType_MediaTypeAudio   DataType = 2
-	DataType_MediaTypeData    DataType = 3
+	DataTypeUnknown DataType = 0
+	DataTypeVideo   DataType = 1
+	DataTypeAudio   DataType = 2
+	DataTypeData    DataType = 3
 )
 
 // Enum value maps for DataType.
 var (
 	DataType_name = map[int32]string{
-		0: "MediaTypeUnknown",
-		1: "MediaTypeVideo",
-		2: "MediaTypeAudio",
-		3: "MediaTypeData",
+		0: "DataTypeUnknown",
+		1: "DataTypeVideo",
+		2: "DataTypeAudio",
+		3: "DataTypeData",
 	}
 	DataType_value = map[string]int32{
-		"MediaTypeUnknown": 0,
-		"MediaTypeVideo":   1,
-		"MediaTypeAudio":   2,
-		"MediaTypeData":    3,
+		"DataTypeUnknown": 0,
+		"DataTypeVideo":   1,
+		"DataTypeAudio":   2,
+		"DataTypeData":    3,
 	}
 )
 
@@ -206,12 +206,12 @@ const file_mcu_private_v1_enums_proto_rawDesc = "" +
 	"\x0eSampleTypeOPUS\x10\x04\x12\x11\n" +
 	"\rSampleTypeAV1\x10\x05\x12\x11\n" +
 	"\rSampleTypeAAC\x10\x06\x12\x12\n" +
-	"\x0eSampleTypeH265\x10\a*[\n" +
-	"\bDataType\x12\x14\n" +
-	"\x10MediaTypeUnknown\x10\x00\x12\x12\n" +
-	"\x0eMediaTypeVideo\x10\x01\x12\x12\n" +
-	"\x0eMediaTypeAudio\x10\x02\x12\x11\n" +
-	"\rMediaTypeData\x10\x03*\x8f\x01\n" +
+	"\x0eSampleTypeH265\x10\a*W\n" +
+	"\bDataType\x12\x13\n" +
+	"\x0fDataTypeUnknown\x10\x00\x12\x11\n" +
+	"\rDataTypeVideo\x10\x01\x12\x11\n" +
+	"\rDataTypeAudio\x10\x02\x12\x10\n" +
+	"\fDataTypeData\x10\x03*\x8f\x01\n" +
 	"\tInputType\x12\x14\n" +
 	"\x10InputTypeUnknown\x10\x00\x12&\n" +
 	"\"InputTypeWebRTCCameraAndMicrophone\x10\x01\x12\x1e\n" +

@@ -10,7 +10,6 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
-	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -21,82 +20,14 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type MixerType int32
-
-const (
-	MixerTypeUnknown    MixerType = 0
-	MixerTypeSimpleGrid MixerType = 1
-	MixerTypeRoomGrid   MixerType = 2
-)
-
-// Enum value maps for MixerType.
-var (
-	MixerType_name = map[int32]string{
-		0: "MixerTypeUnknown",
-		1: "MixerTypeSimpleGrid",
-		2: "MixerTypeRoomGrid",
-	}
-	MixerType_value = map[string]int32{
-		"MixerTypeUnknown":    0,
-		"MixerTypeSimpleGrid": 1,
-		"MixerTypeRoomGrid":   2,
-	}
-)
-
-func (x MixerType) Enum() *MixerType {
-	p := new(MixerType)
-	*p = x
-	return p
-}
-
-func (x MixerType) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (MixerType) Descriptor() protoreflect.EnumDescriptor {
-	return file_mcu_public_server_v1_enums_proto_enumTypes[0].Descriptor()
-}
-
-func (MixerType) Type() protoreflect.EnumType {
-	return &file_mcu_public_server_v1_enums_proto_enumTypes[0]
-}
-
-func (x MixerType) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use MixerType.Descriptor instead.
-func (MixerType) EnumDescriptor() ([]byte, []int) {
-	return file_mcu_public_server_v1_enums_proto_rawDescGZIP(), []int{0}
-}
-
 var File_mcu_public_server_v1_enums_proto protoreflect.FileDescriptor
 
 const file_mcu_public_server_v1_enums_proto_rawDesc = "" +
 	"\n" +
-	" mcu/public/server/v1/enums.proto\x12\x14mcu.public.server.v1*Q\n" +
-	"\tMixerType\x12\x14\n" +
-	"\x10MixerTypeUnknown\x10\x00\x12\x17\n" +
-	"\x13MixerTypeSimpleGrid\x10\x01\x12\x15\n" +
-	"\x11MixerTypeRoomGrid\x10\x02Bb\n" +
+	" mcu/public/server/v1/enums.proto\x12\x14mcu.public.server.v1Bb\n" +
 	"!com.evemeta.zdk.pb.mcu.server.mcuP\x01Z;gitlab.com/evemeta/zdk/pb/out/go/mcu/public/server/v1;mcupbb\x06proto3"
 
-var (
-	file_mcu_public_server_v1_enums_proto_rawDescOnce sync.Once
-	file_mcu_public_server_v1_enums_proto_rawDescData []byte
-)
-
-func file_mcu_public_server_v1_enums_proto_rawDescGZIP() []byte {
-	file_mcu_public_server_v1_enums_proto_rawDescOnce.Do(func() {
-		file_mcu_public_server_v1_enums_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_mcu_public_server_v1_enums_proto_rawDesc), len(file_mcu_public_server_v1_enums_proto_rawDesc)))
-	})
-	return file_mcu_public_server_v1_enums_proto_rawDescData
-}
-
-var file_mcu_public_server_v1_enums_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_mcu_public_server_v1_enums_proto_goTypes = []any{
-	(MixerType)(0), // 0: mcu.public.server.v1.MixerType
-}
+var file_mcu_public_server_v1_enums_proto_goTypes = []any{}
 var file_mcu_public_server_v1_enums_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
@@ -115,14 +46,13 @@ func file_mcu_public_server_v1_enums_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_mcu_public_server_v1_enums_proto_rawDesc), len(file_mcu_public_server_v1_enums_proto_rawDesc)),
-			NumEnums:      1,
+			NumEnums:      0,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_mcu_public_server_v1_enums_proto_goTypes,
 		DependencyIndexes: file_mcu_public_server_v1_enums_proto_depIdxs,
-		EnumInfos:         file_mcu_public_server_v1_enums_proto_enumTypes,
 	}.Build()
 	File_mcu_public_server_v1_enums_proto = out.File
 	file_mcu_public_server_v1_enums_proto_goTypes = nil

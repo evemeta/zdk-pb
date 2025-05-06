@@ -18,10 +18,10 @@ enum SampleType {
 }
 
 enum DataType {
-    MediaTypeUnknown = 0;
-    MediaTypeVideo = 1;
-    MediaTypeAudio = 2;
-    MediaTypeData = 3;
+    DataTypeUnknown = 0;
+    DataTypeVideo = 1;
+    DataTypeAudio = 2;
+    DataTypeData = 3;
 }
 
 enum InputType {

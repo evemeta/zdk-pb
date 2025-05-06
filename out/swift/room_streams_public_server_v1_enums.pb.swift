@@ -23,8 +23,10 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 public enum Room_Streams_Public_Server_V1_Kind: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case unknown // = 0
-  case audio // = 1
-  case video // = 2
+  case microphone // = 1
+  case camera // = 2
+  case screen // = 3
+  case speaker // = 4
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -34,8 +36,10 @@ public enum Room_Streams_Public_Server_V1_Kind: SwiftProtobuf.Enum, Swift.CaseIt
   public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unknown
-    case 1: self = .audio
-    case 2: self = .video
+    case 1: self = .microphone
+    case 2: self = .camera
+    case 3: self = .screen
+    case 4: self = .speaker
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -43,8 +47,10 @@ public enum Room_Streams_Public_Server_V1_Kind: SwiftProtobuf.Enum, Swift.CaseIt
   public var rawValue: Int {
     switch self {
     case .unknown: return 0
-    case .audio: return 1
-    case .video: return 2
+    case .microphone: return 1
+    case .camera: return 2
+    case .screen: return 3
+    case .speaker: return 4
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -52,8 +58,10 @@ public enum Room_Streams_Public_Server_V1_Kind: SwiftProtobuf.Enum, Swift.CaseIt
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static let allCases: [Room_Streams_Public_Server_V1_Kind] = [
     .unknown,
-    .audio,
-    .video,
+    .microphone,
+    .camera,
+    .screen,
+    .speaker,
   ]
 
 }
@@ -140,8 +148,10 @@ public enum Room_Streams_Public_Server_V1_Status: SwiftProtobuf.Enum, Swift.Case
 extension Room_Streams_Public_Server_V1_Kind: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "KindUnknown"),
-    1: .same(proto: "KindAudio"),
-    2: .same(proto: "KindVideo"),
+    1: .same(proto: "KindMicrophone"),
+    2: .same(proto: "KindCamera"),
+    3: .same(proto: "KindScreen"),
+    4: .same(proto: "KindSpeaker"),
   ]
 }
 

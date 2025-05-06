@@ -35,12 +35,10 @@ public final class Enums {
   static {
     java.lang.String[] descriptorData = {
       "\n mcu/public/server/v1/enums.proto\022\024mcu." +
-      "public.server.v1*Q\n\tMixerType\022\024\n\020MixerTy" +
-      "peUnknown\020\000\022\027\n\023MixerTypeSimpleGrid\020\001\022\025\n\021" +
-      "MixerTypeRoomGrid\020\002Bb\n!com.evemeta.zdk.p" +
-      "b.mcu.server.mcuP\001Z;gitlab.com/evemeta/z" +
-      "dk/pb/out/go/mcu/public/server/v1;mcupbb" +
-      "\006proto3"
+      "public.server.v1Bb\n!com.evemeta.zdk.pb.m" +
+      "cu.server.mcuP\001Z;gitlab.com/evemeta/zdk/" +
+      "pb/out/go/mcu/public/server/v1;mcupbb\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

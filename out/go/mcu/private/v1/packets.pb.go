@@ -112,7 +112,7 @@ func (x *OutputPacket) GetDataType() DataType {
 	if x != nil {
 		return x.DataType
 	}
-	return DataType_MediaTypeUnknown
+	return DataTypeUnknown
 }
 
 func (x *OutputPacket) GetOutputName() string {
@@ -167,7 +167,7 @@ func (x *InputPacket) GetDataType() DataType {
 	if x != nil {
 		return x.DataType
 	}
-	return DataType_MediaTypeUnknown
+	return DataTypeUnknown
 }
 
 func (x *InputPacket) GetInputDescription() *InputDescription {
