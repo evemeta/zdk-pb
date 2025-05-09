@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package mcu.broadcasts.private.v1;
+
+import "mcu/broadcasts/private/v1/enums.proto";
+import "mcu/rooms/private/v1/entities.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/mcu/broadcasts/private/v1;broadcastspb";
+
+message Query {
+    mcu.broadcasts.private.v1.Order                 order = 1;
+    int64                                           limit = 2;
+    int64                                           offset = 3;
+    repeated mcu.broadcasts.private.v1.Condition    conditions = 4;
+}
+
+message Condition {
+    repeated mcu.rooms.private.v1.Query     rooms           = 1;
+    bool                                    is_streaming    = 2;
+}
+
+message BroadcastRoom {
+    mcu.rooms.private.v1.Room   room = 1;
+    bool                        is_broadcasting = 2;
+    string                      broadcast_url = 3;
+}

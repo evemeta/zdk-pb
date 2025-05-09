@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package mcu.streams.private.v1;
+
+import "mcu/streams/private/v1/procedures.proto";
+import "mcu/streams/private/v1/packets.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/mcu/streams/private/v1;streamspb";
+
+service Service {
+    rpc StreamInput(stream InputPacket) returns (stream OutputPacket);
+    rpc StreamOutput(stream OutputStreamRequest) returns (stream OutputPacket);
+}

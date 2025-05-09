@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package mcu.rooms.private.v1;
+
+import "mcu/rooms/public/server/v1/entities.proto";
+import "mcu/rooms/private/v1/entities.proto";
+import "mcu/rooms/private/v1/enums.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/mcu/rooms/private/v1;roomspb";
+
+message CountArgument {
+    mcu.rooms.private.v1.Query query = 1;
+}
+
+message CountRequest {
+    repeated CountArgument arguments = 1;
+}
+
+message CountResponse {
+    int64 total = 1;
+}
+
+message SelectArgument {
+    mcu.rooms.private.v1.Query query = 1;
+}
+
+message SelectRequest {
+    repeated SelectArgument arguments = 1;
+}
+
+message SelectResponse {
+    repeated Room rooms = 1;
+}
+
+message CreateArgument {
+    string room_id = 1;
+}
+
+message CreateRequest {
+    repeated CreateArgument arguments = 1;
+}
+
+message CreateResponse {
+    repeated Room rooms = 1;
+}
+
+message DeleteArgument {
+    string room_id = 1;
+}
+
+message DeleteRequest {
+    repeated DeleteArgument arguments = 1;
+}
+
+message DeleteResponse {
+    repeated Room rooms = 1;
+}

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package mcu.streams.private.v1;
+
+import "mcu/streams/private/v1/enums.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/mcu/streams/private/v1;streamspb";
+
+
+message OutputStreamRequest {
+    string room_id = 1;
+    string sfu_id = 2;
+    bool control_only = 3;
+}

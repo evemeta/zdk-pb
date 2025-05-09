@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package mcu.broadcasts.private.v1;
+
+import "mcu/broadcasts/private/v1/enums.proto";
+import "mcu/broadcasts/private/v1/entities.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/mcu/broadcasts/private/v1;broadcastspb";
+
+
+message StartArgument {
+    string room_id = 1;
+}
+
+message StartRequest {
+    repeated StartArgument arguments = 1;
+}
+
+message StartResponse {
+    repeated BroadcastRoom rooms = 1;
+}
+
+message StopArgument {
+    string room_id = 1;
+}
+
+message StopRequest {
+    repeated StopArgument arguments = 1;
+}
+
+message StopResponse {
+    repeated BroadcastRoom rooms = 1;
+}
+
+message CountArgument {
+    mcu.broadcasts.private.v1.Query query = 1;
+}
+
+message CountRequest {
+    repeated CountArgument arguments = 1;
+}
+
+message CountResponse {
+    int64 total = 1;
+}
+
+message SelectArgument {
+    mcu.broadcasts.private.v1.Query query = 1;
+}
+
+message SelectRequest {
+    repeated SelectArgument arguments = 1;
+}
+
+message SelectResponse {
+    repeated BroadcastRoom rooms = 1;
+}

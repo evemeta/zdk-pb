@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package mcu.broadcasts.private.v1;
+
+import "mcu/broadcasts/private/v1/procedures.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/mcu/broadcasts/private/v1;broadcastspb";
+
+service Service {
+    rpc Start(StartRequest) returns (StartResponse);
+    rpc Stop(StopRequest) returns (StopResponse);
+    rpc Select(SelectRequest) returns (SelectResponse);
+    rpc Count(CountRequest)   returns (CountResponse);
+}

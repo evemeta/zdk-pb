@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package mcu.rooms.private.v1;
+
+import "mcu/rooms/private/v1/entities.proto";
+import "mcu/rooms/private/v1/enums.proto";
+import "mcu/rooms/public/server/v1/packets.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/mcu/rooms/private/v1;roomspb";
+

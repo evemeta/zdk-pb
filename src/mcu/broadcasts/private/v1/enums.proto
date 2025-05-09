@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package mcu.broadcasts.private.v1;
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/mcu/broadcasts/private/v1;broadcastspb";
+
+enum Order {
+    OrderUnknown    = 0;
+    OrderAscending  = 1;
+    OrderDescending = 2;
+}
