@@ -46,6 +46,40 @@ public interface UserOrBuilder extends
       getFullnameBytes();
 
   /**
+   * <code>map&lt;string, string&gt; metadata = 6;</code>
+   */
+  int getMetadataCount();
+  /**
+   * <code>map&lt;string, string&gt; metadata = 6;</code>
+   */
+  boolean containsMetadata(
+      java.lang.String key);
+  /**
+   * Use {@link #getMetadataMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.String, java.lang.String>
+  getMetadata();
+  /**
+   * <code>map&lt;string, string&gt; metadata = 6;</code>
+   */
+  java.util.Map<java.lang.String, java.lang.String>
+  getMetadataMap();
+  /**
+   * <code>map&lt;string, string&gt; metadata = 6;</code>
+   */
+  /* nullable */
+java.lang.String getMetadataOrDefault(
+      java.lang.String key,
+      /* nullable */
+java.lang.String defaultValue);
+  /**
+   * <code>map&lt;string, string&gt; metadata = 6;</code>
+   */
+  java.lang.String getMetadataOrThrow(
+      java.lang.String key);
+
+  /**
    * <code>string nickname = 4;</code>
    * @return The nickname.
    */

@@ -80,6 +80,67 @@ public object UserKt {
     }
 
     /**
+     * An uninstantiable, behaviorless type to represent the field in
+     * generics.
+     */
+    @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
+    public class MetadataProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    /**
+     * `map<string, string> metadata = 6;`
+     */
+     public val metadata: com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
+      @kotlin.jvm.JvmSynthetic
+      @JvmName("getMetadataMap")
+      get() = com.google.protobuf.kotlin.DslMap(
+        _builder.metadataMap
+      )
+    /**
+     * `map<string, string> metadata = 6;`
+     */
+    @JvmName("putMetadata")
+    public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
+      .put(key: kotlin.String, value: kotlin.String) {
+         _builder.putMetadata(key, value)
+       }
+    /**
+     * `map<string, string> metadata = 6;`
+     */
+    @kotlin.jvm.JvmSynthetic
+    @JvmName("setMetadata")
+    @Suppress("NOTHING_TO_INLINE")
+    public inline operator fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
+      .set(key: kotlin.String, value: kotlin.String) {
+         put(key, value)
+       }
+    /**
+     * `map<string, string> metadata = 6;`
+     */
+    @kotlin.jvm.JvmSynthetic
+    @JvmName("removeMetadata")
+    public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
+      .remove(key: kotlin.String) {
+         _builder.removeMetadata(key)
+       }
+    /**
+     * `map<string, string> metadata = 6;`
+     */
+    @kotlin.jvm.JvmSynthetic
+    @JvmName("putAllMetadata")
+    public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
+      .putAll(map: kotlin.collections.Map<kotlin.String, kotlin.String>) {
+         _builder.putAllMetadata(map)
+       }
+    /**
+     * `map<string, string> metadata = 6;`
+     */
+    @kotlin.jvm.JvmSynthetic
+    @JvmName("clearMetadata")
+    public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
+      .clear() {
+         _builder.clearMetadata()
+       }
+
+    /**
      * `string nickname = 4;`
      */
     public var nickname: kotlin.String

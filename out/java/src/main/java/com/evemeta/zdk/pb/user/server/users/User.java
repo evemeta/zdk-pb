@@ -39,6 +39,18 @@ private static final long serialVersionUID = 0L;
     return com.evemeta.zdk.pb.user.server.users.Entities.internal_static_user_users_public_server_v1_User_descriptor;
   }
 
+  @SuppressWarnings({"rawtypes"})
+  @java.lang.Override
+  protected com.google.protobuf.MapFieldReflectionAccessor internalGetMapFieldReflection(
+      int number) {
+    switch (number) {
+      case 6:
+        return internalGetMetadata();
+      default:
+        throw new RuntimeException(
+            "Invalid map field number: " + number);
+    }
+  }
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internalGetFieldAccessorTable() {
@@ -162,6 +174,85 @@ private static final long serialVersionUID = 0L;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
+  }
+
+  public static final int METADATA_FIELD_NUMBER = 6;
+  private static final class MetadataDefaultEntryHolder {
+    static final com.google.protobuf.MapEntry<
+        java.lang.String, java.lang.String> defaultEntry =
+            com.google.protobuf.MapEntry
+            .<java.lang.String, java.lang.String>newDefaultInstance(
+                com.evemeta.zdk.pb.user.server.users.Entities.internal_static_user_users_public_server_v1_User_MetadataEntry_descriptor, 
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "",
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "");
+  }
+  @SuppressWarnings("serial")
+  private com.google.protobuf.MapField<
+      java.lang.String, java.lang.String> metadata_;
+  private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+  internalGetMetadata() {
+    if (metadata_ == null) {
+      return com.google.protobuf.MapField.emptyMapField(
+          MetadataDefaultEntryHolder.defaultEntry);
+    }
+    return metadata_;
+  }
+  public int getMetadataCount() {
+    return internalGetMetadata().getMap().size();
+  }
+  /**
+   * <code>map&lt;string, string&gt; metadata = 6;</code>
+   */
+  @java.lang.Override
+  public boolean containsMetadata(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    return internalGetMetadata().getMap().containsKey(key);
+  }
+  /**
+   * Use {@link #getMetadataMap()} instead.
+   */
+  @java.lang.Override
+  @java.lang.Deprecated
+  public java.util.Map<java.lang.String, java.lang.String> getMetadata() {
+    return getMetadataMap();
+  }
+  /**
+   * <code>map&lt;string, string&gt; metadata = 6;</code>
+   */
+  @java.lang.Override
+  public java.util.Map<java.lang.String, java.lang.String> getMetadataMap() {
+    return internalGetMetadata().getMap();
+  }
+  /**
+   * <code>map&lt;string, string&gt; metadata = 6;</code>
+   */
+  @java.lang.Override
+  public /* nullable */
+java.lang.String getMetadataOrDefault(
+      java.lang.String key,
+      /* nullable */
+java.lang.String defaultValue) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, java.lang.String> map =
+        internalGetMetadata().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <code>map&lt;string, string&gt; metadata = 6;</code>
+   */
+  @java.lang.Override
+  public java.lang.String getMetadataOrThrow(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, java.lang.String> map =
+        internalGetMetadata().getMap();
+    if (!map.containsKey(key)) {
+      throw new java.lang.IllegalArgumentException();
+    }
+    return map.get(key);
   }
 
   public static final int NICKNAME_FIELD_NUMBER = 4;
@@ -295,6 +386,12 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < permissions_.size(); i++) {
       output.writeEnumNoTag(permissions_.getInt(i));
     }
+    com.google.protobuf.GeneratedMessage
+      .serializeStringMapTo(
+        output,
+        internalGetMetadata(),
+        MetadataDefaultEntryHolder.defaultEntry,
+        6);
     getUnknownFields().writeTo(output);
   }
 
@@ -328,6 +425,16 @@ private static final long serialVersionUID = 0L;
           .computeUInt32SizeNoTag(dataSize);
       }permissionsMemoizedSerializedSize = dataSize;
     }
+    for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+         : internalGetMetadata().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+      metadata__ = MetadataDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
+      size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, metadata__);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -349,6 +456,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getAvatar())) return false;
     if (!getFullname()
         .equals(other.getFullname())) return false;
+    if (!internalGetMetadata().equals(
+        other.internalGetMetadata())) return false;
     if (!getNickname()
         .equals(other.getNickname())) return false;
     if (!permissions_.equals(other.permissions_)) return false;
@@ -369,6 +478,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getAvatar().hashCode();
     hash = (37 * hash) + FULLNAME_FIELD_NUMBER;
     hash = (53 * hash) + getFullname().hashCode();
+    if (!internalGetMetadata().getMap().isEmpty()) {
+      hash = (37 * hash) + METADATA_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetMetadata().hashCode();
+    }
     hash = (37 * hash) + NICKNAME_FIELD_NUMBER;
     hash = (53 * hash) + getNickname().hashCode();
     if (getPermissionsCount() > 0) {
@@ -484,6 +597,28 @@ private static final long serialVersionUID = 0L;
       return com.evemeta.zdk.pb.user.server.users.Entities.internal_static_user_users_public_server_v1_User_descriptor;
     }
 
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapFieldReflectionAccessor internalGetMapFieldReflection(
+        int number) {
+      switch (number) {
+        case 6:
+          return internalGetMetadata();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapFieldReflectionAccessor internalGetMutableMapFieldReflection(
+        int number) {
+      switch (number) {
+        case 6:
+          return internalGetMutableMetadata();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -509,9 +644,10 @@ private static final long serialVersionUID = 0L;
       id_ = "";
       avatar_ = "";
       fullname_ = "";
+      internalGetMutableMetadata().clear();
       nickname_ = "";
       permissions_ = emptyIntList();
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000020);
       return this;
     }
 
@@ -545,9 +681,9 @@ private static final long serialVersionUID = 0L;
     }
 
     private void buildPartialRepeatedFields(com.evemeta.zdk.pb.user.server.users.User result) {
-      if (((bitField0_ & 0x00000010) != 0)) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         permissions_.makeImmutable();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
       }
       result.permissions_ = permissions_;
     }
@@ -564,6 +700,10 @@ private static final long serialVersionUID = 0L;
         result.fullname_ = fullname_;
       }
       if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.metadata_ = internalGetMetadata();
+        result.metadata_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
         result.nickname_ = nickname_;
       }
     }
@@ -595,15 +735,18 @@ private static final long serialVersionUID = 0L;
         bitField0_ |= 0x00000004;
         onChanged();
       }
+      internalGetMutableMetadata().mergeFrom(
+          other.internalGetMetadata());
+      bitField0_ |= 0x00000008;
       if (!other.getNickname().isEmpty()) {
         nickname_ = other.nickname_;
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.permissions_.isEmpty()) {
         if (permissions_.isEmpty()) {
           permissions_ = other.permissions_;
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000020);
         } else {
           ensurePermissionsIsMutable();
           permissions_.addAll(other.permissions_);
@@ -653,7 +796,7 @@ private static final long serialVersionUID = 0L;
             } // case 26
             case 34: {
               nickname_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000008;
+              bitField0_ |= 0x00000010;
               break;
             } // case 34
             case 40: {
@@ -673,6 +816,15 @@ private static final long serialVersionUID = 0L;
               input.popLimit(oldLimit);
               break;
             } // case 42
+            case 50: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              metadata__ = input.readMessage(
+                  MetadataDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMetadata().getMutableMap().put(
+                  metadata__.getKey(), metadata__.getValue());
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 50
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -906,6 +1058,133 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> metadata_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        internalGetMetadata() {
+      if (metadata_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            MetadataDefaultEntryHolder.defaultEntry);
+      }
+      return metadata_;
+    }
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        internalGetMutableMetadata() {
+      if (metadata_ == null) {
+        metadata_ = com.google.protobuf.MapField.newMapField(
+            MetadataDefaultEntryHolder.defaultEntry);
+      }
+      if (!metadata_.isMutable()) {
+        metadata_ = metadata_.copy();
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return metadata_;
+    }
+    public int getMetadataCount() {
+      return internalGetMetadata().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, string&gt; metadata = 6;</code>
+     */
+    @java.lang.Override
+    public boolean containsMetadata(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetMetadata().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getMetadataMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getMetadata() {
+      return getMetadataMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; metadata = 6;</code>
+     */
+    @java.lang.Override
+    public java.util.Map<java.lang.String, java.lang.String> getMetadataMap() {
+      return internalGetMetadata().getMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; metadata = 6;</code>
+     */
+    @java.lang.Override
+    public /* nullable */
+java.lang.String getMetadataOrDefault(
+        java.lang.String key,
+        /* nullable */
+java.lang.String defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetMetadata().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, string&gt; metadata = 6;</code>
+     */
+    @java.lang.Override
+    public java.lang.String getMetadataOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetMetadata().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+    public Builder clearMetadata() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      internalGetMutableMetadata().getMutableMap()
+          .clear();
+      return this;
+    }
+    /**
+     * <code>map&lt;string, string&gt; metadata = 6;</code>
+     */
+    public Builder removeMetadata(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      internalGetMutableMetadata().getMutableMap()
+          .remove(key);
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String>
+        getMutableMetadata() {
+      bitField0_ |= 0x00000008;
+      return internalGetMutableMetadata().getMutableMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; metadata = 6;</code>
+     */
+    public Builder putMetadata(
+        java.lang.String key,
+        java.lang.String value) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) { throw new NullPointerException("map value"); }
+      internalGetMutableMetadata().getMutableMap()
+          .put(key, value);
+      bitField0_ |= 0x00000008;
+      return this;
+    }
+    /**
+     * <code>map&lt;string, string&gt; metadata = 6;</code>
+     */
+    public Builder putAllMetadata(
+        java.util.Map<java.lang.String, java.lang.String> values) {
+      internalGetMutableMetadata().getMutableMap()
+          .putAll(values);
+      bitField0_ |= 0x00000008;
+      return this;
+    }
+
     private java.lang.Object nickname_ = "";
     /**
      * <code>string nickname = 4;</code>
@@ -949,7 +1228,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       nickname_ = value;
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -959,7 +1238,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearNickname() {
       nickname_ = getDefaultInstance().getNickname();
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -973,7 +1252,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       nickname_ = value;
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -981,9 +1260,9 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.Internal.IntList permissions_ =
       emptyIntList();
     private void ensurePermissionsIsMutable() {
-      if (!((bitField0_ & 0x00000010) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         permissions_ = makeMutableCopy(permissions_);
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
       }
     }
     /**
@@ -1059,7 +1338,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearPermissions() {
       permissions_ = emptyIntList();
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }

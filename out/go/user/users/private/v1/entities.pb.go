@@ -26,6 +26,7 @@ type User struct {
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Avatar        string                 `protobuf:"bytes,2,opt,name=avatar,proto3" json:"avatar,omitempty"`
 	Fullname      string                 `protobuf:"bytes,3,opt,name=fullname,proto3" json:"fullname,omitempty"`
+	Metadata      map[string]string      `protobuf:"bytes,6,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	Nickname      string                 `protobuf:"bytes,4,opt,name=nickname,proto3" json:"nickname,omitempty"`
 	Permissions   []Permission           `protobuf:"varint,5,rep,packed,name=permissions,proto3,enum=user.users.private.v1.Permission" json:"permissions,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -83,6 +84,13 @@ func (x *User) GetFullname() string {
 	return ""
 }
 
+func (x *User) GetMetadata() map[string]string {
+	if x != nil {
+		return x.Metadata
+	}
+	return nil
+}
+
 func (x *User) GetNickname() string {
 	if x != nil {
 		return x.Nickname
@@ -101,13 +109,17 @@ var File_user_users_private_v1_entities_proto protoreflect.FileDescriptor
 
 const file_user_users_private_v1_entities_proto_rawDesc = "" +
 	"\n" +
-	"$user/users/private/v1/entities.proto\x12\x15user.users.private.v1\x1a!user/users/private/v1/enums.proto\"\xab\x01\n" +
+	"$user/users/private/v1/entities.proto\x12\x15user.users.private.v1\x1a!user/users/private/v1/enums.proto\"\xaf\x02\n" +
 	"\x04User\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x16\n" +
 	"\x06avatar\x18\x02 \x01(\tR\x06avatar\x12\x1a\n" +
-	"\bfullname\x18\x03 \x01(\tR\bfullname\x12\x1a\n" +
+	"\bfullname\x18\x03 \x01(\tR\bfullname\x12E\n" +
+	"\bmetadata\x18\x06 \x03(\v2).user.users.private.v1.User.MetadataEntryR\bmetadata\x12\x1a\n" +
 	"\bnickname\x18\x04 \x01(\tR\bnickname\x12C\n" +
-	"\vpermissions\x18\x05 \x03(\x0e2!.user.users.private.v1.PermissionR\vpermissionsB@Z>gitlab.com/evemeta/zdk/pb/out/go/user/users/private/v1;userspbb\x06proto3"
+	"\vpermissions\x18\x05 \x03(\x0e2!.user.users.private.v1.PermissionR\vpermissions\x1a;\n" +
+	"\rMetadataEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B@Z>gitlab.com/evemeta/zdk/pb/out/go/user/users/private/v1;userspbb\x06proto3"
 
 var (
 	file_user_users_private_v1_entities_proto_rawDescOnce sync.Once
@@ -121,18 +133,20 @@ func file_user_users_private_v1_entities_proto_rawDescGZIP() []byte {
 	return file_user_users_private_v1_entities_proto_rawDescData
 }
 
-var file_user_users_private_v1_entities_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_user_users_private_v1_entities_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_user_users_private_v1_entities_proto_goTypes = []any{
 	(*User)(nil),    // 0: user.users.private.v1.User
-	(Permission)(0), // 1: user.users.private.v1.Permission
+	nil,             // 1: user.users.private.v1.User.MetadataEntry
+	(Permission)(0), // 2: user.users.private.v1.Permission
 }
 var file_user_users_private_v1_entities_proto_depIdxs = []int32{
-	1, // 0: user.users.private.v1.User.permissions:type_name -> user.users.private.v1.Permission
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	1, // 0: user.users.private.v1.User.metadata:type_name -> user.users.private.v1.User.MetadataEntry
+	2, // 1: user.users.private.v1.User.permissions:type_name -> user.users.private.v1.Permission
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_user_users_private_v1_entities_proto_init() }
@@ -147,7 +161,7 @@ func file_user_users_private_v1_entities_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_user_users_private_v1_entities_proto_rawDesc), len(file_user_users_private_v1_entities_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   1,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

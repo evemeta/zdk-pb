@@ -30,6 +30,11 @@ public final class Entities {
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_user_users_public_server_v1_User_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_user_users_public_server_v1_User_MetadataEntry_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_user_users_public_server_v1_User_MetadataEntry_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -41,14 +46,17 @@ public final class Entities {
     java.lang.String[] descriptorData = {
       "\n*user/users/public/server/v1/entities.p" +
       "roto\022\033user.users.public.server.v1\032\'user/" +
-      "users/public/server/v1/enums.proto\"\204\001\n\004U" +
+      "users/public/server/v1/enums.proto\"\370\001\n\004U" +
       "ser\022\n\n\002id\030\001 \001(\t\022\016\n\006avatar\030\002 \001(\t\022\020\n\010fulln" +
-      "ame\030\003 \001(\t\022\020\n\010nickname\030\004 \001(\t\022<\n\013permissio" +
-      "ns\030\005 \003(\0162\'.user.users.public.server.v1.P" +
-      "ermissionBn\n$com.evemeta.zdk.pb.user.ser" +
-      "ver.usersP\001ZDgitlab.com/evemeta/zdk/pb/o" +
-      "ut/go/user/users/public/server/v1;usersp" +
-      "bb\006proto3"
+      "ame\030\003 \001(\t\022A\n\010metadata\030\006 \003(\0132/.user.users" +
+      ".public.server.v1.User.MetadataEntry\022\020\n\010" +
+      "nickname\030\004 \001(\t\022<\n\013permissions\030\005 \003(\0162\'.us" +
+      "er.users.public.server.v1.Permission\032/\n\r" +
+      "MetadataEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(" +
+      "\t:\0028\001Bn\n$com.evemeta.zdk.pb.user.server." +
+      "usersP\001ZDgitlab.com/evemeta/zdk/pb/out/g" +
+      "o/user/users/public/server/v1;userspbb\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -60,7 +68,13 @@ public final class Entities {
     internal_static_user_users_public_server_v1_User_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_user_users_public_server_v1_User_descriptor,
-        new java.lang.String[] { "Id", "Avatar", "Fullname", "Nickname", "Permissions", });
+        new java.lang.String[] { "Id", "Avatar", "Fullname", "Metadata", "Nickname", "Permissions", });
+    internal_static_user_users_public_server_v1_User_MetadataEntry_descriptor =
+      internal_static_user_users_public_server_v1_User_descriptor.getNestedTypes().get(0);
+    internal_static_user_users_public_server_v1_User_MetadataEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_user_users_public_server_v1_User_MetadataEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     descriptor.resolveAllFeaturesImmutable();
     com.evemeta.zdk.pb.user.server.users.Enums.getDescriptor();
   }

@@ -27,6 +27,7 @@ type CreateArgument struct {
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Avatar        string                 `protobuf:"bytes,2,opt,name=avatar,proto3" json:"avatar,omitempty"`
 	Fullname      string                 `protobuf:"bytes,3,opt,name=fullname,proto3" json:"fullname,omitempty"`
+	Metadata      map[string]string      `protobuf:"bytes,6,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	Nickname      string                 `protobuf:"bytes,4,opt,name=nickname,proto3" json:"nickname,omitempty"`
 	Permissions   []v1.Permission        `protobuf:"varint,5,rep,packed,name=permissions,proto3,enum=user.users.private.v1.Permission" json:"permissions,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -82,6 +83,13 @@ func (x *CreateArgument) GetFullname() string {
 		return x.Fullname
 	}
 	return ""
+}
+
+func (x *CreateArgument) GetMetadata() map[string]string {
+	if x != nil {
+		return x.Metadata
+	}
+	return nil
 }
 
 func (x *CreateArgument) GetNickname() string {
@@ -454,13 +462,17 @@ var File_user_tokens_private_v1_procedures_proto protoreflect.FileDescriptor
 
 const file_user_tokens_private_v1_procedures_proto_rawDesc = "" +
 	"\n" +
-	"'user/tokens/private/v1/procedures.proto\x12\x16user.tokens.private.v1\x1a!user/users/private/v1/enums.proto\x1a$user/users/private/v1/entities.proto\"\xb5\x01\n" +
+	"'user/tokens/private/v1/procedures.proto\x12\x16user.tokens.private.v1\x1a!user/users/private/v1/enums.proto\x1a$user/users/private/v1/entities.proto\"\xc4\x02\n" +
 	"\x0eCreateArgument\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x16\n" +
 	"\x06avatar\x18\x02 \x01(\tR\x06avatar\x12\x1a\n" +
-	"\bfullname\x18\x03 \x01(\tR\bfullname\x12\x1a\n" +
+	"\bfullname\x18\x03 \x01(\tR\bfullname\x12P\n" +
+	"\bmetadata\x18\x06 \x03(\v24.user.tokens.private.v1.CreateArgument.MetadataEntryR\bmetadata\x12\x1a\n" +
 	"\bnickname\x18\x04 \x01(\tR\bnickname\x12C\n" +
-	"\vpermissions\x18\x05 \x03(\x0e2!.user.users.private.v1.PermissionR\vpermissions\"U\n" +
+	"\vpermissions\x18\x05 \x03(\x0e2!.user.users.private.v1.PermissionR\vpermissions\x1a;\n" +
+	"\rMetadataEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"U\n" +
 	"\rCreateRequest\x12D\n" +
 	"\targuments\x18\x01 \x03(\v2&.user.tokens.private.v1.CreateArgumentR\targuments\"(\n" +
 	"\x0eCreateResponse\x12\x16\n" +
@@ -490,7 +502,7 @@ func file_user_tokens_private_v1_procedures_proto_rawDescGZIP() []byte {
 	return file_user_tokens_private_v1_procedures_proto_rawDescData
 }
 
-var file_user_tokens_private_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
+var file_user_tokens_private_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_user_tokens_private_v1_procedures_proto_goTypes = []any{
 	(*CreateArgument)(nil),  // 0: user.tokens.private.v1.CreateArgument
 	(*CreateRequest)(nil),   // 1: user.tokens.private.v1.CreateRequest
@@ -501,20 +513,22 @@ var file_user_tokens_private_v1_procedures_proto_goTypes = []any{
 	(*RefreshArgument)(nil), // 6: user.tokens.private.v1.RefreshArgument
 	(*RefreshRequest)(nil),  // 7: user.tokens.private.v1.RefreshRequest
 	(*RefreshResponse)(nil), // 8: user.tokens.private.v1.RefreshResponse
-	(v1.Permission)(0),      // 9: user.users.private.v1.Permission
-	(*v1.User)(nil),         // 10: user.users.private.v1.User
+	nil,                     // 9: user.tokens.private.v1.CreateArgument.MetadataEntry
+	(v1.Permission)(0),      // 10: user.users.private.v1.Permission
+	(*v1.User)(nil),         // 11: user.users.private.v1.User
 }
 var file_user_tokens_private_v1_procedures_proto_depIdxs = []int32{
-	9,  // 0: user.tokens.private.v1.CreateArgument.permissions:type_name -> user.users.private.v1.Permission
-	0,  // 1: user.tokens.private.v1.CreateRequest.arguments:type_name -> user.tokens.private.v1.CreateArgument
-	3,  // 2: user.tokens.private.v1.ExtractRequest.arguments:type_name -> user.tokens.private.v1.ExtractArgument
-	10, // 3: user.tokens.private.v1.ExtractResponse.users:type_name -> user.users.private.v1.User
-	6,  // 4: user.tokens.private.v1.RefreshRequest.arguments:type_name -> user.tokens.private.v1.RefreshArgument
-	5,  // [5:5] is the sub-list for method output_type
-	5,  // [5:5] is the sub-list for method input_type
-	5,  // [5:5] is the sub-list for extension type_name
-	5,  // [5:5] is the sub-list for extension extendee
-	0,  // [0:5] is the sub-list for field type_name
+	9,  // 0: user.tokens.private.v1.CreateArgument.metadata:type_name -> user.tokens.private.v1.CreateArgument.MetadataEntry
+	10, // 1: user.tokens.private.v1.CreateArgument.permissions:type_name -> user.users.private.v1.Permission
+	0,  // 2: user.tokens.private.v1.CreateRequest.arguments:type_name -> user.tokens.private.v1.CreateArgument
+	3,  // 3: user.tokens.private.v1.ExtractRequest.arguments:type_name -> user.tokens.private.v1.ExtractArgument
+	11, // 4: user.tokens.private.v1.ExtractResponse.users:type_name -> user.users.private.v1.User
+	6,  // 5: user.tokens.private.v1.RefreshRequest.arguments:type_name -> user.tokens.private.v1.RefreshArgument
+	6,  // [6:6] is the sub-list for method output_type
+	6,  // [6:6] is the sub-list for method input_type
+	6,  // [6:6] is the sub-list for extension type_name
+	6,  // [6:6] is the sub-list for extension extendee
+	0,  // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_user_tokens_private_v1_procedures_proto_init() }
@@ -528,7 +542,7 @@ func file_user_tokens_private_v1_procedures_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_user_tokens_private_v1_procedures_proto_rawDesc), len(file_user_tokens_private_v1_procedures_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   9,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
