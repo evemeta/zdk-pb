@@ -289,6 +289,7 @@ func (x *SelectResponse) GetRooms() []*Room {
 type CreateArgument struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	RoomId        string                 `protobuf:"bytes,1,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
+	Metadata      map[string]string      `protobuf:"bytes,2,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -328,6 +329,13 @@ func (x *CreateArgument) GetRoomId() string {
 		return x.RoomId
 	}
 	return ""
+}
+
+func (x *CreateArgument) GetMetadata() map[string]string {
+	if x != nil {
+		return x.Metadata
+	}
+	return nil
 }
 
 type CreateRequest struct {
@@ -566,9 +574,13 @@ const file_mcu_rooms_private_v1_procedures_proto_rawDesc = "" +
 	"\rSelectRequest\x12B\n" +
 	"\targuments\x18\x01 \x03(\v2$.mcu.rooms.private.v1.SelectArgumentR\targuments\"B\n" +
 	"\x0eSelectResponse\x120\n" +
-	"\x05rooms\x18\x01 \x03(\v2\x1a.mcu.rooms.private.v1.RoomR\x05rooms\")\n" +
+	"\x05rooms\x18\x01 \x03(\v2\x1a.mcu.rooms.private.v1.RoomR\x05rooms\"\xb6\x01\n" +
 	"\x0eCreateArgument\x12\x17\n" +
-	"\aroom_id\x18\x01 \x01(\tR\x06roomId\"S\n" +
+	"\aroom_id\x18\x01 \x01(\tR\x06roomId\x12N\n" +
+	"\bmetadata\x18\x02 \x03(\v22.mcu.rooms.private.v1.CreateArgument.MetadataEntryR\bmetadata\x1a;\n" +
+	"\rMetadataEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"S\n" +
 	"\rCreateRequest\x12B\n" +
 	"\targuments\x18\x01 \x03(\v2$.mcu.rooms.private.v1.CreateArgumentR\targuments\"B\n" +
 	"\x0eCreateResponse\x120\n" +
@@ -592,7 +604,7 @@ func file_mcu_rooms_private_v1_procedures_proto_rawDescGZIP() []byte {
 	return file_mcu_rooms_private_v1_procedures_proto_rawDescData
 }
 
-var file_mcu_rooms_private_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
+var file_mcu_rooms_private_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
 var file_mcu_rooms_private_v1_procedures_proto_goTypes = []any{
 	(*CountArgument)(nil),  // 0: mcu.rooms.private.v1.CountArgument
 	(*CountRequest)(nil),   // 1: mcu.rooms.private.v1.CountRequest
@@ -606,24 +618,26 @@ var file_mcu_rooms_private_v1_procedures_proto_goTypes = []any{
 	(*DeleteArgument)(nil), // 9: mcu.rooms.private.v1.DeleteArgument
 	(*DeleteRequest)(nil),  // 10: mcu.rooms.private.v1.DeleteRequest
 	(*DeleteResponse)(nil), // 11: mcu.rooms.private.v1.DeleteResponse
-	(*Query)(nil),          // 12: mcu.rooms.private.v1.Query
-	(*Room)(nil),           // 13: mcu.rooms.private.v1.Room
+	nil,                    // 12: mcu.rooms.private.v1.CreateArgument.MetadataEntry
+	(*Query)(nil),          // 13: mcu.rooms.private.v1.Query
+	(*Room)(nil),           // 14: mcu.rooms.private.v1.Room
 }
 var file_mcu_rooms_private_v1_procedures_proto_depIdxs = []int32{
-	12, // 0: mcu.rooms.private.v1.CountArgument.query:type_name -> mcu.rooms.private.v1.Query
+	13, // 0: mcu.rooms.private.v1.CountArgument.query:type_name -> mcu.rooms.private.v1.Query
 	0,  // 1: mcu.rooms.private.v1.CountRequest.arguments:type_name -> mcu.rooms.private.v1.CountArgument
-	12, // 2: mcu.rooms.private.v1.SelectArgument.query:type_name -> mcu.rooms.private.v1.Query
+	13, // 2: mcu.rooms.private.v1.SelectArgument.query:type_name -> mcu.rooms.private.v1.Query
 	3,  // 3: mcu.rooms.private.v1.SelectRequest.arguments:type_name -> mcu.rooms.private.v1.SelectArgument
-	13, // 4: mcu.rooms.private.v1.SelectResponse.rooms:type_name -> mcu.rooms.private.v1.Room
-	6,  // 5: mcu.rooms.private.v1.CreateRequest.arguments:type_name -> mcu.rooms.private.v1.CreateArgument
-	13, // 6: mcu.rooms.private.v1.CreateResponse.rooms:type_name -> mcu.rooms.private.v1.Room
-	9,  // 7: mcu.rooms.private.v1.DeleteRequest.arguments:type_name -> mcu.rooms.private.v1.DeleteArgument
-	13, // 8: mcu.rooms.private.v1.DeleteResponse.rooms:type_name -> mcu.rooms.private.v1.Room
-	9,  // [9:9] is the sub-list for method output_type
-	9,  // [9:9] is the sub-list for method input_type
-	9,  // [9:9] is the sub-list for extension type_name
-	9,  // [9:9] is the sub-list for extension extendee
-	0,  // [0:9] is the sub-list for field type_name
+	14, // 4: mcu.rooms.private.v1.SelectResponse.rooms:type_name -> mcu.rooms.private.v1.Room
+	12, // 5: mcu.rooms.private.v1.CreateArgument.metadata:type_name -> mcu.rooms.private.v1.CreateArgument.MetadataEntry
+	6,  // 6: mcu.rooms.private.v1.CreateRequest.arguments:type_name -> mcu.rooms.private.v1.CreateArgument
+	14, // 7: mcu.rooms.private.v1.CreateResponse.rooms:type_name -> mcu.rooms.private.v1.Room
+	9,  // 8: mcu.rooms.private.v1.DeleteRequest.arguments:type_name -> mcu.rooms.private.v1.DeleteArgument
+	14, // 9: mcu.rooms.private.v1.DeleteResponse.rooms:type_name -> mcu.rooms.private.v1.Room
+	10, // [10:10] is the sub-list for method output_type
+	10, // [10:10] is the sub-list for method input_type
+	10, // [10:10] is the sub-list for extension type_name
+	10, // [10:10] is the sub-list for extension extendee
+	0,  // [0:10] is the sub-list for field type_name
 }
 
 func init() { file_mcu_rooms_private_v1_procedures_proto_init() }
@@ -639,7 +653,7 @@ func file_mcu_rooms_private_v1_procedures_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_mcu_rooms_private_v1_procedures_proto_rawDesc), len(file_mcu_rooms_private_v1_procedures_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   12,
+			NumMessages:   13,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
