@@ -127,3 +127,108 @@ message DeleteCondition {
 message DeleteTransaction {
     repeated gateway.mcus.private.v1.DeleteMutation mutations = 1;
 }
+
+message AcquireArgument {
+    string              room_id  = 1;
+    map<string, string> metadata = 2;
+}
+
+message AcquireRequest {
+    repeated gateway.mcus.private.v1.AcquireArgument arguments = 1;
+}
+
+message AcquireResponse {}
+
+message AcquireMutation {
+    gateway.mcus.private.v1.AcquireArgument    foundation      = 1;
+    gateway.mcus.private.v1.AcquireCondition   condition       = 2;
+    repeated gateway.mcus.private.v1.Transient transient       = 3;
+    int64                                      begin_timestamp = 4;
+    int64                                      close_timestamp = 5;
+}
+
+message AcquireCondition {
+    repeated gateway.mcus.private.v1.Mcu mcus = 1;
+}
+
+message AcquireTransaction {
+    repeated gateway.mcus.private.v1.AcquireMutation mutations = 1;
+}
+
+message ReleaseArgument {
+    string room_id = 1;
+}
+
+message ReleaseRequest {
+    repeated gateway.mcus.private.v1.ReleaseArgument arguments = 1;
+}
+
+message ReleaseResponse {}
+
+message ReleaseMutation {
+    gateway.mcus.private.v1.ReleaseArgument    foundation      = 1;
+    gateway.mcus.private.v1.ReleaseCondition   condition       = 2;
+    repeated gateway.mcus.private.v1.Transient transient       = 3;
+    int64                                      begin_timestamp = 4;
+    int64                                      close_timestamp = 5;
+}
+
+message ReleaseCondition {
+    repeated gateway.mcus.private.v1.Mcu mcus = 1;
+}
+
+message ReleaseTransaction {
+    repeated gateway.mcus.private.v1.ReleaseMutation mutations = 1;
+}
+
+message StartBroadcastArgument {
+    string room_id = 1;
+}
+
+message StartBroadcastRequest {
+    repeated gateway.mcus.private.v1.StartBroadcastArgument arguments = 1;
+}
+
+message StartBroadcastResponse {}
+
+message StartBroadcastMutation {
+    gateway.mcus.private.v1.StartBroadcastArgument  foundation      = 1;
+    gateway.mcus.private.v1.StartBroadcastCondition condition       = 2;
+    repeated gateway.mcus.private.v1.Transient      transient       = 3;
+    int64                                           begin_timestamp = 4;
+    int64                                           close_timestamp = 5;
+}
+
+message StartBroadcastCondition {
+    repeated gateway.mcus.private.v1.Mcu mcus = 1;
+}
+
+message StartBroadcastTransaction {
+    repeated gateway.mcus.private.v1.StartBroadcastMutation mutations = 1;
+}
+
+message StopBroadcastArgument {
+    string room_id  = 1;
+}
+
+message StopBroadcastRequest {
+    repeated gateway.mcus.private.v1.StopBroadcastArgument arguments = 1;
+}
+
+message StopBroadcastResponse {}
+
+message StopBroadcastMutation {
+    gateway.mcus.private.v1.StopBroadcastArgument  foundation      = 1;
+    gateway.mcus.private.v1.StopBroadcastCondition condition       = 2;
+    repeated gateway.mcus.private.v1.Transient     transient       = 3;
+    int64                                          begin_timestamp = 4;
+    int64                                          close_timestamp = 5;
+}
+
+message StopBroadcastCondition {
+    repeated gateway.mcus.private.v1.Mcu mcus = 1;
+}
+
+message StopBroadcastTransaction {
+    repeated gateway.mcus.private.v1.StopBroadcastMutation mutations = 1;
+}

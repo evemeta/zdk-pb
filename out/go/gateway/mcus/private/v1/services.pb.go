@@ -24,7 +24,7 @@ var File_gateway_mcus_private_v1_services_proto protoreflect.FileDescriptor
 
 const file_gateway_mcus_private_v1_services_proto_rawDesc = "" +
 	"\n" +
-	"&gateway/mcus/private/v1/services.proto\x12\x17gateway.mcus.private.v1\x1a(gateway/mcus/private/v1/procedures.proto2\xef\x10\n" +
+	"&gateway/mcus/private/v1/services.proto\x12\x17gateway.mcus.private.v1\x1a(gateway/mcus/private/v1/procedures.proto2\x90\x1c\n" +
 	"\aService\x12V\n" +
 	"\x05Count\x12%.gateway.mcus.private.v1.CountRequest\x1a&.gateway.mcus.private.v1.CountResponse\x12V\n" +
 	"\x05Range\x12%.gateway.mcus.private.v1.RangeRequest\x1a&.gateway.mcus.private.v1.RangeResponse\x12Y\n" +
@@ -45,24 +45,48 @@ const file_gateway_mcus_private_v1_services_proto_rawDesc = "" +
 	"\x17InitiateDeleteMutations\x12*.gateway.mcus.private.v1.DeleteTransaction\x1a*.gateway.mcus.private.v1.DeleteTransaction\x12q\n" +
 	"\x17FinalizeDeleteMutations\x12*.gateway.mcus.private.v1.DeleteTransaction\x1a*.gateway.mcus.private.v1.DeleteTransaction\x12q\n" +
 	"\x17AnnounceDeleteMutations\x12*.gateway.mcus.private.v1.DeleteTransaction\x1a*.gateway.mcus.private.v1.DeleteTransaction\x12q\n" +
-	"\x17RollbackDeleteMutations\x12*.gateway.mcus.private.v1.DeleteTransaction\x1a*.gateway.mcus.private.v1.DeleteTransactionBAZ?gitlab.com/evemeta/zdk/pb/out/go/gateway/mcus/private/v1;mcuspbb\x06proto3"
+	"\x17RollbackDeleteMutations\x12*.gateway.mcus.private.v1.DeleteTransaction\x1a*.gateway.mcus.private.v1.DeleteTransaction\x12\\\n" +
+	"\aAcquire\x12'.gateway.mcus.private.v1.AcquireRequest\x1a(.gateway.mcus.private.v1.AcquireResponse\x12t\n" +
+	"\x18InitiateAcquireMutations\x12+.gateway.mcus.private.v1.AcquireTransaction\x1a+.gateway.mcus.private.v1.AcquireTransaction\x12t\n" +
+	"\x18FinalizeAcquireMutations\x12+.gateway.mcus.private.v1.AcquireTransaction\x1a+.gateway.mcus.private.v1.AcquireTransaction\x12\\\n" +
+	"\aRelease\x12'.gateway.mcus.private.v1.ReleaseRequest\x1a(.gateway.mcus.private.v1.ReleaseResponse\x12t\n" +
+	"\x18InitiateReleaseMutations\x12+.gateway.mcus.private.v1.ReleaseTransaction\x1a+.gateway.mcus.private.v1.ReleaseTransaction\x12t\n" +
+	"\x18FinalizeReleaseMutations\x12+.gateway.mcus.private.v1.ReleaseTransaction\x1a+.gateway.mcus.private.v1.ReleaseTransaction\x12q\n" +
+	"\x0eStartBroadcast\x12..gateway.mcus.private.v1.StartBroadcastRequest\x1a/.gateway.mcus.private.v1.StartBroadcastResponse\x12\x89\x01\n" +
+	"\x1fInitiateStartBroadcastMutations\x122.gateway.mcus.private.v1.StartBroadcastTransaction\x1a2.gateway.mcus.private.v1.StartBroadcastTransaction\x12\x89\x01\n" +
+	"\x1fFinalizeStartBroadcastMutations\x122.gateway.mcus.private.v1.StartBroadcastTransaction\x1a2.gateway.mcus.private.v1.StartBroadcastTransaction\x12n\n" +
+	"\rStopBroadcast\x12-.gateway.mcus.private.v1.StopBroadcastRequest\x1a..gateway.mcus.private.v1.StopBroadcastResponse\x12\x86\x01\n" +
+	"\x1eInitiateStopBroadcastMutations\x121.gateway.mcus.private.v1.StopBroadcastTransaction\x1a1.gateway.mcus.private.v1.StopBroadcastTransaction\x12\x86\x01\n" +
+	"\x1eFinalizeStopBroadcastMutations\x121.gateway.mcus.private.v1.StopBroadcastTransaction\x1a1.gateway.mcus.private.v1.StopBroadcastTransactionBAZ?gitlab.com/evemeta/zdk/pb/out/go/gateway/mcus/private/v1;mcuspbb\x06proto3"
 
 var file_gateway_mcus_private_v1_services_proto_goTypes = []any{
-	(*CountRequest)(nil),      // 0: gateway.mcus.private.v1.CountRequest
-	(*RangeRequest)(nil),      // 1: gateway.mcus.private.v1.RangeRequest
-	(*SelectRequest)(nil),     // 2: gateway.mcus.private.v1.SelectRequest
-	(*CreateRequest)(nil),     // 3: gateway.mcus.private.v1.CreateRequest
-	(*CreateTransaction)(nil), // 4: gateway.mcus.private.v1.CreateTransaction
-	(*UpdateRequest)(nil),     // 5: gateway.mcus.private.v1.UpdateRequest
-	(*UpdateTransaction)(nil), // 6: gateway.mcus.private.v1.UpdateTransaction
-	(*DeleteRequest)(nil),     // 7: gateway.mcus.private.v1.DeleteRequest
-	(*DeleteTransaction)(nil), // 8: gateway.mcus.private.v1.DeleteTransaction
-	(*CountResponse)(nil),     // 9: gateway.mcus.private.v1.CountResponse
-	(*RangeResponse)(nil),     // 10: gateway.mcus.private.v1.RangeResponse
-	(*SelectResponse)(nil),    // 11: gateway.mcus.private.v1.SelectResponse
-	(*CreateResponse)(nil),    // 12: gateway.mcus.private.v1.CreateResponse
-	(*UpdateResponse)(nil),    // 13: gateway.mcus.private.v1.UpdateResponse
-	(*DeleteResponse)(nil),    // 14: gateway.mcus.private.v1.DeleteResponse
+	(*CountRequest)(nil),              // 0: gateway.mcus.private.v1.CountRequest
+	(*RangeRequest)(nil),              // 1: gateway.mcus.private.v1.RangeRequest
+	(*SelectRequest)(nil),             // 2: gateway.mcus.private.v1.SelectRequest
+	(*CreateRequest)(nil),             // 3: gateway.mcus.private.v1.CreateRequest
+	(*CreateTransaction)(nil),         // 4: gateway.mcus.private.v1.CreateTransaction
+	(*UpdateRequest)(nil),             // 5: gateway.mcus.private.v1.UpdateRequest
+	(*UpdateTransaction)(nil),         // 6: gateway.mcus.private.v1.UpdateTransaction
+	(*DeleteRequest)(nil),             // 7: gateway.mcus.private.v1.DeleteRequest
+	(*DeleteTransaction)(nil),         // 8: gateway.mcus.private.v1.DeleteTransaction
+	(*AcquireRequest)(nil),            // 9: gateway.mcus.private.v1.AcquireRequest
+	(*AcquireTransaction)(nil),        // 10: gateway.mcus.private.v1.AcquireTransaction
+	(*ReleaseRequest)(nil),            // 11: gateway.mcus.private.v1.ReleaseRequest
+	(*ReleaseTransaction)(nil),        // 12: gateway.mcus.private.v1.ReleaseTransaction
+	(*StartBroadcastRequest)(nil),     // 13: gateway.mcus.private.v1.StartBroadcastRequest
+	(*StartBroadcastTransaction)(nil), // 14: gateway.mcus.private.v1.StartBroadcastTransaction
+	(*StopBroadcastRequest)(nil),      // 15: gateway.mcus.private.v1.StopBroadcastRequest
+	(*StopBroadcastTransaction)(nil),  // 16: gateway.mcus.private.v1.StopBroadcastTransaction
+	(*CountResponse)(nil),             // 17: gateway.mcus.private.v1.CountResponse
+	(*RangeResponse)(nil),             // 18: gateway.mcus.private.v1.RangeResponse
+	(*SelectResponse)(nil),            // 19: gateway.mcus.private.v1.SelectResponse
+	(*CreateResponse)(nil),            // 20: gateway.mcus.private.v1.CreateResponse
+	(*UpdateResponse)(nil),            // 21: gateway.mcus.private.v1.UpdateResponse
+	(*DeleteResponse)(nil),            // 22: gateway.mcus.private.v1.DeleteResponse
+	(*AcquireResponse)(nil),           // 23: gateway.mcus.private.v1.AcquireResponse
+	(*ReleaseResponse)(nil),           // 24: gateway.mcus.private.v1.ReleaseResponse
+	(*StartBroadcastResponse)(nil),    // 25: gateway.mcus.private.v1.StartBroadcastResponse
+	(*StopBroadcastResponse)(nil),     // 26: gateway.mcus.private.v1.StopBroadcastResponse
 }
 var file_gateway_mcus_private_v1_services_proto_depIdxs = []int32{
 	0,  // 0: gateway.mcus.private.v1.Service.Count:input_type -> gateway.mcus.private.v1.CountRequest
@@ -85,28 +109,52 @@ var file_gateway_mcus_private_v1_services_proto_depIdxs = []int32{
 	8,  // 17: gateway.mcus.private.v1.Service.FinalizeDeleteMutations:input_type -> gateway.mcus.private.v1.DeleteTransaction
 	8,  // 18: gateway.mcus.private.v1.Service.AnnounceDeleteMutations:input_type -> gateway.mcus.private.v1.DeleteTransaction
 	8,  // 19: gateway.mcus.private.v1.Service.RollbackDeleteMutations:input_type -> gateway.mcus.private.v1.DeleteTransaction
-	9,  // 20: gateway.mcus.private.v1.Service.Count:output_type -> gateway.mcus.private.v1.CountResponse
-	10, // 21: gateway.mcus.private.v1.Service.Range:output_type -> gateway.mcus.private.v1.RangeResponse
-	11, // 22: gateway.mcus.private.v1.Service.Select:output_type -> gateway.mcus.private.v1.SelectResponse
-	12, // 23: gateway.mcus.private.v1.Service.Create:output_type -> gateway.mcus.private.v1.CreateResponse
-	4,  // 24: gateway.mcus.private.v1.Service.InitiateCreateMutations:output_type -> gateway.mcus.private.v1.CreateTransaction
-	4,  // 25: gateway.mcus.private.v1.Service.ValidateCreateMutations:output_type -> gateway.mcus.private.v1.CreateTransaction
-	4,  // 26: gateway.mcus.private.v1.Service.FinalizeCreateMutations:output_type -> gateway.mcus.private.v1.CreateTransaction
-	4,  // 27: gateway.mcus.private.v1.Service.AnnounceCreateMutations:output_type -> gateway.mcus.private.v1.CreateTransaction
-	4,  // 28: gateway.mcus.private.v1.Service.RollbackCreateMutations:output_type -> gateway.mcus.private.v1.CreateTransaction
-	13, // 29: gateway.mcus.private.v1.Service.Update:output_type -> gateway.mcus.private.v1.UpdateResponse
-	6,  // 30: gateway.mcus.private.v1.Service.InitiateUpdateMutations:output_type -> gateway.mcus.private.v1.UpdateTransaction
-	6,  // 31: gateway.mcus.private.v1.Service.ValidateUpdateMutations:output_type -> gateway.mcus.private.v1.UpdateTransaction
-	6,  // 32: gateway.mcus.private.v1.Service.FinalizeUpdateMutations:output_type -> gateway.mcus.private.v1.UpdateTransaction
-	6,  // 33: gateway.mcus.private.v1.Service.AnnounceUpdateMutations:output_type -> gateway.mcus.private.v1.UpdateTransaction
-	6,  // 34: gateway.mcus.private.v1.Service.RollbackUpdateMutations:output_type -> gateway.mcus.private.v1.UpdateTransaction
-	14, // 35: gateway.mcus.private.v1.Service.Delete:output_type -> gateway.mcus.private.v1.DeleteResponse
-	8,  // 36: gateway.mcus.private.v1.Service.InitiateDeleteMutations:output_type -> gateway.mcus.private.v1.DeleteTransaction
-	8,  // 37: gateway.mcus.private.v1.Service.FinalizeDeleteMutations:output_type -> gateway.mcus.private.v1.DeleteTransaction
-	8,  // 38: gateway.mcus.private.v1.Service.AnnounceDeleteMutations:output_type -> gateway.mcus.private.v1.DeleteTransaction
-	8,  // 39: gateway.mcus.private.v1.Service.RollbackDeleteMutations:output_type -> gateway.mcus.private.v1.DeleteTransaction
-	20, // [20:40] is the sub-list for method output_type
-	0,  // [0:20] is the sub-list for method input_type
+	9,  // 20: gateway.mcus.private.v1.Service.Acquire:input_type -> gateway.mcus.private.v1.AcquireRequest
+	10, // 21: gateway.mcus.private.v1.Service.InitiateAcquireMutations:input_type -> gateway.mcus.private.v1.AcquireTransaction
+	10, // 22: gateway.mcus.private.v1.Service.FinalizeAcquireMutations:input_type -> gateway.mcus.private.v1.AcquireTransaction
+	11, // 23: gateway.mcus.private.v1.Service.Release:input_type -> gateway.mcus.private.v1.ReleaseRequest
+	12, // 24: gateway.mcus.private.v1.Service.InitiateReleaseMutations:input_type -> gateway.mcus.private.v1.ReleaseTransaction
+	12, // 25: gateway.mcus.private.v1.Service.FinalizeReleaseMutations:input_type -> gateway.mcus.private.v1.ReleaseTransaction
+	13, // 26: gateway.mcus.private.v1.Service.StartBroadcast:input_type -> gateway.mcus.private.v1.StartBroadcastRequest
+	14, // 27: gateway.mcus.private.v1.Service.InitiateStartBroadcastMutations:input_type -> gateway.mcus.private.v1.StartBroadcastTransaction
+	14, // 28: gateway.mcus.private.v1.Service.FinalizeStartBroadcastMutations:input_type -> gateway.mcus.private.v1.StartBroadcastTransaction
+	15, // 29: gateway.mcus.private.v1.Service.StopBroadcast:input_type -> gateway.mcus.private.v1.StopBroadcastRequest
+	16, // 30: gateway.mcus.private.v1.Service.InitiateStopBroadcastMutations:input_type -> gateway.mcus.private.v1.StopBroadcastTransaction
+	16, // 31: gateway.mcus.private.v1.Service.FinalizeStopBroadcastMutations:input_type -> gateway.mcus.private.v1.StopBroadcastTransaction
+	17, // 32: gateway.mcus.private.v1.Service.Count:output_type -> gateway.mcus.private.v1.CountResponse
+	18, // 33: gateway.mcus.private.v1.Service.Range:output_type -> gateway.mcus.private.v1.RangeResponse
+	19, // 34: gateway.mcus.private.v1.Service.Select:output_type -> gateway.mcus.private.v1.SelectResponse
+	20, // 35: gateway.mcus.private.v1.Service.Create:output_type -> gateway.mcus.private.v1.CreateResponse
+	4,  // 36: gateway.mcus.private.v1.Service.InitiateCreateMutations:output_type -> gateway.mcus.private.v1.CreateTransaction
+	4,  // 37: gateway.mcus.private.v1.Service.ValidateCreateMutations:output_type -> gateway.mcus.private.v1.CreateTransaction
+	4,  // 38: gateway.mcus.private.v1.Service.FinalizeCreateMutations:output_type -> gateway.mcus.private.v1.CreateTransaction
+	4,  // 39: gateway.mcus.private.v1.Service.AnnounceCreateMutations:output_type -> gateway.mcus.private.v1.CreateTransaction
+	4,  // 40: gateway.mcus.private.v1.Service.RollbackCreateMutations:output_type -> gateway.mcus.private.v1.CreateTransaction
+	21, // 41: gateway.mcus.private.v1.Service.Update:output_type -> gateway.mcus.private.v1.UpdateResponse
+	6,  // 42: gateway.mcus.private.v1.Service.InitiateUpdateMutations:output_type -> gateway.mcus.private.v1.UpdateTransaction
+	6,  // 43: gateway.mcus.private.v1.Service.ValidateUpdateMutations:output_type -> gateway.mcus.private.v1.UpdateTransaction
+	6,  // 44: gateway.mcus.private.v1.Service.FinalizeUpdateMutations:output_type -> gateway.mcus.private.v1.UpdateTransaction
+	6,  // 45: gateway.mcus.private.v1.Service.AnnounceUpdateMutations:output_type -> gateway.mcus.private.v1.UpdateTransaction
+	6,  // 46: gateway.mcus.private.v1.Service.RollbackUpdateMutations:output_type -> gateway.mcus.private.v1.UpdateTransaction
+	22, // 47: gateway.mcus.private.v1.Service.Delete:output_type -> gateway.mcus.private.v1.DeleteResponse
+	8,  // 48: gateway.mcus.private.v1.Service.InitiateDeleteMutations:output_type -> gateway.mcus.private.v1.DeleteTransaction
+	8,  // 49: gateway.mcus.private.v1.Service.FinalizeDeleteMutations:output_type -> gateway.mcus.private.v1.DeleteTransaction
+	8,  // 50: gateway.mcus.private.v1.Service.AnnounceDeleteMutations:output_type -> gateway.mcus.private.v1.DeleteTransaction
+	8,  // 51: gateway.mcus.private.v1.Service.RollbackDeleteMutations:output_type -> gateway.mcus.private.v1.DeleteTransaction
+	23, // 52: gateway.mcus.private.v1.Service.Acquire:output_type -> gateway.mcus.private.v1.AcquireResponse
+	10, // 53: gateway.mcus.private.v1.Service.InitiateAcquireMutations:output_type -> gateway.mcus.private.v1.AcquireTransaction
+	10, // 54: gateway.mcus.private.v1.Service.FinalizeAcquireMutations:output_type -> gateway.mcus.private.v1.AcquireTransaction
+	24, // 55: gateway.mcus.private.v1.Service.Release:output_type -> gateway.mcus.private.v1.ReleaseResponse
+	12, // 56: gateway.mcus.private.v1.Service.InitiateReleaseMutations:output_type -> gateway.mcus.private.v1.ReleaseTransaction
+	12, // 57: gateway.mcus.private.v1.Service.FinalizeReleaseMutations:output_type -> gateway.mcus.private.v1.ReleaseTransaction
+	25, // 58: gateway.mcus.private.v1.Service.StartBroadcast:output_type -> gateway.mcus.private.v1.StartBroadcastResponse
+	14, // 59: gateway.mcus.private.v1.Service.InitiateStartBroadcastMutations:output_type -> gateway.mcus.private.v1.StartBroadcastTransaction
+	14, // 60: gateway.mcus.private.v1.Service.FinalizeStartBroadcastMutations:output_type -> gateway.mcus.private.v1.StartBroadcastTransaction
+	26, // 61: gateway.mcus.private.v1.Service.StopBroadcast:output_type -> gateway.mcus.private.v1.StopBroadcastResponse
+	16, // 62: gateway.mcus.private.v1.Service.InitiateStopBroadcastMutations:output_type -> gateway.mcus.private.v1.StopBroadcastTransaction
+	16, // 63: gateway.mcus.private.v1.Service.FinalizeStopBroadcastMutations:output_type -> gateway.mcus.private.v1.StopBroadcastTransaction
+	32, // [32:64] is the sub-list for method output_type
+	0,  // [0:32] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
