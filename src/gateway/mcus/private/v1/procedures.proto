@@ -142,9 +142,8 @@ message AcquireResponse {}
 message AcquireMutation {
     gateway.mcus.private.v1.AcquireArgument    foundation      = 1;
     gateway.mcus.private.v1.AcquireCondition   condition       = 2;
-    repeated gateway.mcus.private.v1.Transient transient       = 3;
-    int64                                      begin_timestamp = 4;
-    int64                                      close_timestamp = 5;
+    int64                                      begin_timestamp = 3;
+    int64                                      close_timestamp = 4;
 }
 
 message AcquireCondition {
@@ -168,9 +167,8 @@ message ReleaseResponse {}
 message ReleaseMutation {
     gateway.mcus.private.v1.ReleaseArgument    foundation      = 1;
     gateway.mcus.private.v1.ReleaseCondition   condition       = 2;
-    repeated gateway.mcus.private.v1.Transient transient       = 3;
-    int64                                      begin_timestamp = 4;
-    int64                                      close_timestamp = 5;
+    int64                                      begin_timestamp = 3;
+    int64                                      close_timestamp = 4;
 }
 
 message ReleaseCondition {
@@ -194,9 +192,8 @@ message StartBroadcastResponse {}
 message StartBroadcastMutation {
     gateway.mcus.private.v1.StartBroadcastArgument  foundation      = 1;
     gateway.mcus.private.v1.StartBroadcastCondition condition       = 2;
-    repeated gateway.mcus.private.v1.Transient      transient       = 3;
-    int64                                           begin_timestamp = 4;
-    int64                                           close_timestamp = 5;
+    int64                                           begin_timestamp = 3;
+    int64                                           close_timestamp = 4;
 }
 
 message StartBroadcastCondition {
@@ -220,9 +217,8 @@ message StopBroadcastResponse {}
 message StopBroadcastMutation {
     gateway.mcus.private.v1.StopBroadcastArgument  foundation      = 1;
     gateway.mcus.private.v1.StopBroadcastCondition condition       = 2;
-    repeated gateway.mcus.private.v1.Transient     transient       = 3;
-    int64                                          begin_timestamp = 4;
-    int64                                          close_timestamp = 5;
+    int64                                          begin_timestamp = 3;
+    int64                                          close_timestamp = 4;
 }
 
 message StopBroadcastCondition {

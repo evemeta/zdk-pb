@@ -1410,9 +1410,8 @@ type AcquireMutation struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
 	Foundation     *AcquireArgument       `protobuf:"bytes,1,opt,name=foundation,proto3" json:"foundation,omitempty"`
 	Condition      *AcquireCondition      `protobuf:"bytes,2,opt,name=condition,proto3" json:"condition,omitempty"`
-	Transient      []*Transient           `protobuf:"bytes,3,rep,name=transient,proto3" json:"transient,omitempty"`
-	BeginTimestamp int64                  `protobuf:"varint,4,opt,name=begin_timestamp,json=beginTimestamp,proto3" json:"begin_timestamp,omitempty"`
-	CloseTimestamp int64                  `protobuf:"varint,5,opt,name=close_timestamp,json=closeTimestamp,proto3" json:"close_timestamp,omitempty"`
+	BeginTimestamp int64                  `protobuf:"varint,3,opt,name=begin_timestamp,json=beginTimestamp,proto3" json:"begin_timestamp,omitempty"`
+	CloseTimestamp int64                  `protobuf:"varint,4,opt,name=close_timestamp,json=closeTimestamp,proto3" json:"close_timestamp,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -1457,13 +1456,6 @@ func (x *AcquireMutation) GetFoundation() *AcquireArgument {
 func (x *AcquireMutation) GetCondition() *AcquireCondition {
 	if x != nil {
 		return x.Condition
-	}
-	return nil
-}
-
-func (x *AcquireMutation) GetTransient() []*Transient {
-	if x != nil {
-		return x.Transient
 	}
 	return nil
 }
@@ -1698,9 +1690,8 @@ type ReleaseMutation struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
 	Foundation     *ReleaseArgument       `protobuf:"bytes,1,opt,name=foundation,proto3" json:"foundation,omitempty"`
 	Condition      *ReleaseCondition      `protobuf:"bytes,2,opt,name=condition,proto3" json:"condition,omitempty"`
-	Transient      []*Transient           `protobuf:"bytes,3,rep,name=transient,proto3" json:"transient,omitempty"`
-	BeginTimestamp int64                  `protobuf:"varint,4,opt,name=begin_timestamp,json=beginTimestamp,proto3" json:"begin_timestamp,omitempty"`
-	CloseTimestamp int64                  `protobuf:"varint,5,opt,name=close_timestamp,json=closeTimestamp,proto3" json:"close_timestamp,omitempty"`
+	BeginTimestamp int64                  `protobuf:"varint,3,opt,name=begin_timestamp,json=beginTimestamp,proto3" json:"begin_timestamp,omitempty"`
+	CloseTimestamp int64                  `protobuf:"varint,4,opt,name=close_timestamp,json=closeTimestamp,proto3" json:"close_timestamp,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -1745,13 +1736,6 @@ func (x *ReleaseMutation) GetFoundation() *ReleaseArgument {
 func (x *ReleaseMutation) GetCondition() *ReleaseCondition {
 	if x != nil {
 		return x.Condition
-	}
-	return nil
-}
-
-func (x *ReleaseMutation) GetTransient() []*Transient {
-	if x != nil {
-		return x.Transient
 	}
 	return nil
 }
@@ -1986,9 +1970,8 @@ type StartBroadcastMutation struct {
 	state          protoimpl.MessageState   `protogen:"open.v1"`
 	Foundation     *StartBroadcastArgument  `protobuf:"bytes,1,opt,name=foundation,proto3" json:"foundation,omitempty"`
 	Condition      *StartBroadcastCondition `protobuf:"bytes,2,opt,name=condition,proto3" json:"condition,omitempty"`
-	Transient      []*Transient             `protobuf:"bytes,3,rep,name=transient,proto3" json:"transient,omitempty"`
-	BeginTimestamp int64                    `protobuf:"varint,4,opt,name=begin_timestamp,json=beginTimestamp,proto3" json:"begin_timestamp,omitempty"`
-	CloseTimestamp int64                    `protobuf:"varint,5,opt,name=close_timestamp,json=closeTimestamp,proto3" json:"close_timestamp,omitempty"`
+	BeginTimestamp int64                    `protobuf:"varint,3,opt,name=begin_timestamp,json=beginTimestamp,proto3" json:"begin_timestamp,omitempty"`
+	CloseTimestamp int64                    `protobuf:"varint,4,opt,name=close_timestamp,json=closeTimestamp,proto3" json:"close_timestamp,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -2033,13 +2016,6 @@ func (x *StartBroadcastMutation) GetFoundation() *StartBroadcastArgument {
 func (x *StartBroadcastMutation) GetCondition() *StartBroadcastCondition {
 	if x != nil {
 		return x.Condition
-	}
-	return nil
-}
-
-func (x *StartBroadcastMutation) GetTransient() []*Transient {
-	if x != nil {
-		return x.Transient
 	}
 	return nil
 }
@@ -2274,9 +2250,8 @@ type StopBroadcastMutation struct {
 	state          protoimpl.MessageState  `protogen:"open.v1"`
 	Foundation     *StopBroadcastArgument  `protobuf:"bytes,1,opt,name=foundation,proto3" json:"foundation,omitempty"`
 	Condition      *StopBroadcastCondition `protobuf:"bytes,2,opt,name=condition,proto3" json:"condition,omitempty"`
-	Transient      []*Transient            `protobuf:"bytes,3,rep,name=transient,proto3" json:"transient,omitempty"`
-	BeginTimestamp int64                   `protobuf:"varint,4,opt,name=begin_timestamp,json=beginTimestamp,proto3" json:"begin_timestamp,omitempty"`
-	CloseTimestamp int64                   `protobuf:"varint,5,opt,name=close_timestamp,json=closeTimestamp,proto3" json:"close_timestamp,omitempty"`
+	BeginTimestamp int64                   `protobuf:"varint,3,opt,name=begin_timestamp,json=beginTimestamp,proto3" json:"begin_timestamp,omitempty"`
+	CloseTimestamp int64                   `protobuf:"varint,4,opt,name=close_timestamp,json=closeTimestamp,proto3" json:"close_timestamp,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -2321,13 +2296,6 @@ func (x *StopBroadcastMutation) GetFoundation() *StopBroadcastArgument {
 func (x *StopBroadcastMutation) GetCondition() *StopBroadcastCondition {
 	if x != nil {
 		return x.Condition
-	}
-	return nil
-}
-
-func (x *StopBroadcastMutation) GetTransient() []*Transient {
-	if x != nil {
-		return x.Transient
 	}
 	return nil
 }
@@ -2526,15 +2494,14 @@ const file_gateway_mcus_private_v1_procedures_proto_rawDesc = "" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"X\n" +
 	"\x0eAcquireRequest\x12F\n" +
 	"\targuments\x18\x01 \x03(\v2(.gateway.mcus.private.v1.AcquireArgumentR\targuments\"\x11\n" +
-	"\x0fAcquireResponse\"\xb8\x02\n" +
+	"\x0fAcquireResponse\"\xf6\x01\n" +
 	"\x0fAcquireMutation\x12H\n" +
 	"\n" +
 	"foundation\x18\x01 \x01(\v2(.gateway.mcus.private.v1.AcquireArgumentR\n" +
 	"foundation\x12G\n" +
-	"\tcondition\x18\x02 \x01(\v2).gateway.mcus.private.v1.AcquireConditionR\tcondition\x12@\n" +
-	"\ttransient\x18\x03 \x03(\v2\".gateway.mcus.private.v1.TransientR\ttransient\x12'\n" +
-	"\x0fbegin_timestamp\x18\x04 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
-	"\x0fclose_timestamp\x18\x05 \x01(\x03R\x0ecloseTimestamp\"D\n" +
+	"\tcondition\x18\x02 \x01(\v2).gateway.mcus.private.v1.AcquireConditionR\tcondition\x12'\n" +
+	"\x0fbegin_timestamp\x18\x03 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
+	"\x0fclose_timestamp\x18\x04 \x01(\x03R\x0ecloseTimestamp\"D\n" +
 	"\x10AcquireCondition\x120\n" +
 	"\x04mcus\x18\x01 \x03(\v2\x1c.gateway.mcus.private.v1.McuR\x04mcus\"\\\n" +
 	"\x12AcquireTransaction\x12F\n" +
@@ -2543,15 +2510,14 @@ const file_gateway_mcus_private_v1_procedures_proto_rawDesc = "" +
 	"\aroom_id\x18\x01 \x01(\tR\x06roomId\"X\n" +
 	"\x0eReleaseRequest\x12F\n" +
 	"\targuments\x18\x01 \x03(\v2(.gateway.mcus.private.v1.ReleaseArgumentR\targuments\"\x11\n" +
-	"\x0fReleaseResponse\"\xb8\x02\n" +
+	"\x0fReleaseResponse\"\xf6\x01\n" +
 	"\x0fReleaseMutation\x12H\n" +
 	"\n" +
 	"foundation\x18\x01 \x01(\v2(.gateway.mcus.private.v1.ReleaseArgumentR\n" +
 	"foundation\x12G\n" +
-	"\tcondition\x18\x02 \x01(\v2).gateway.mcus.private.v1.ReleaseConditionR\tcondition\x12@\n" +
-	"\ttransient\x18\x03 \x03(\v2\".gateway.mcus.private.v1.TransientR\ttransient\x12'\n" +
-	"\x0fbegin_timestamp\x18\x04 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
-	"\x0fclose_timestamp\x18\x05 \x01(\x03R\x0ecloseTimestamp\"D\n" +
+	"\tcondition\x18\x02 \x01(\v2).gateway.mcus.private.v1.ReleaseConditionR\tcondition\x12'\n" +
+	"\x0fbegin_timestamp\x18\x03 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
+	"\x0fclose_timestamp\x18\x04 \x01(\x03R\x0ecloseTimestamp\"D\n" +
 	"\x10ReleaseCondition\x120\n" +
 	"\x04mcus\x18\x01 \x03(\v2\x1c.gateway.mcus.private.v1.McuR\x04mcus\"\\\n" +
 	"\x12ReleaseTransaction\x12F\n" +
@@ -2560,15 +2526,14 @@ const file_gateway_mcus_private_v1_procedures_proto_rawDesc = "" +
 	"\aroom_id\x18\x01 \x01(\tR\x06roomId\"f\n" +
 	"\x15StartBroadcastRequest\x12M\n" +
 	"\targuments\x18\x01 \x03(\v2/.gateway.mcus.private.v1.StartBroadcastArgumentR\targuments\"\x18\n" +
-	"\x16StartBroadcastResponse\"\xcd\x02\n" +
+	"\x16StartBroadcastResponse\"\x8b\x02\n" +
 	"\x16StartBroadcastMutation\x12O\n" +
 	"\n" +
 	"foundation\x18\x01 \x01(\v2/.gateway.mcus.private.v1.StartBroadcastArgumentR\n" +
 	"foundation\x12N\n" +
-	"\tcondition\x18\x02 \x01(\v20.gateway.mcus.private.v1.StartBroadcastConditionR\tcondition\x12@\n" +
-	"\ttransient\x18\x03 \x03(\v2\".gateway.mcus.private.v1.TransientR\ttransient\x12'\n" +
-	"\x0fbegin_timestamp\x18\x04 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
-	"\x0fclose_timestamp\x18\x05 \x01(\x03R\x0ecloseTimestamp\"K\n" +
+	"\tcondition\x18\x02 \x01(\v20.gateway.mcus.private.v1.StartBroadcastConditionR\tcondition\x12'\n" +
+	"\x0fbegin_timestamp\x18\x03 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
+	"\x0fclose_timestamp\x18\x04 \x01(\x03R\x0ecloseTimestamp\"K\n" +
 	"\x17StartBroadcastCondition\x120\n" +
 	"\x04mcus\x18\x01 \x03(\v2\x1c.gateway.mcus.private.v1.McuR\x04mcus\"j\n" +
 	"\x19StartBroadcastTransaction\x12M\n" +
@@ -2577,15 +2542,14 @@ const file_gateway_mcus_private_v1_procedures_proto_rawDesc = "" +
 	"\aroom_id\x18\x01 \x01(\tR\x06roomId\"d\n" +
 	"\x14StopBroadcastRequest\x12L\n" +
 	"\targuments\x18\x01 \x03(\v2..gateway.mcus.private.v1.StopBroadcastArgumentR\targuments\"\x17\n" +
-	"\x15StopBroadcastResponse\"\xca\x02\n" +
+	"\x15StopBroadcastResponse\"\x88\x02\n" +
 	"\x15StopBroadcastMutation\x12N\n" +
 	"\n" +
 	"foundation\x18\x01 \x01(\v2..gateway.mcus.private.v1.StopBroadcastArgumentR\n" +
 	"foundation\x12M\n" +
-	"\tcondition\x18\x02 \x01(\v2/.gateway.mcus.private.v1.StopBroadcastConditionR\tcondition\x12@\n" +
-	"\ttransient\x18\x03 \x03(\v2\".gateway.mcus.private.v1.TransientR\ttransient\x12'\n" +
-	"\x0fbegin_timestamp\x18\x04 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
-	"\x0fclose_timestamp\x18\x05 \x01(\x03R\x0ecloseTimestamp\"J\n" +
+	"\tcondition\x18\x02 \x01(\v2/.gateway.mcus.private.v1.StopBroadcastConditionR\tcondition\x12'\n" +
+	"\x0fbegin_timestamp\x18\x03 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
+	"\x0fclose_timestamp\x18\x04 \x01(\x03R\x0ecloseTimestamp\"J\n" +
 	"\x16StopBroadcastCondition\x120\n" +
 	"\x04mcus\x18\x01 \x03(\v2\x1c.gateway.mcus.private.v1.McuR\x04mcus\"h\n" +
 	"\x18StopBroadcastTransaction\x12L\n" +
@@ -2703,32 +2667,28 @@ var file_gateway_mcus_private_v1_procedures_proto_depIdxs = []int32{
 	25, // 33: gateway.mcus.private.v1.AcquireRequest.arguments:type_name -> gateway.mcus.private.v1.AcquireArgument
 	25, // 34: gateway.mcus.private.v1.AcquireMutation.foundation:type_name -> gateway.mcus.private.v1.AcquireArgument
 	29, // 35: gateway.mcus.private.v1.AcquireMutation.condition:type_name -> gateway.mcus.private.v1.AcquireCondition
-	55, // 36: gateway.mcus.private.v1.AcquireMutation.transient:type_name -> gateway.mcus.private.v1.Transient
-	52, // 37: gateway.mcus.private.v1.AcquireCondition.mcus:type_name -> gateway.mcus.private.v1.Mcu
-	28, // 38: gateway.mcus.private.v1.AcquireTransaction.mutations:type_name -> gateway.mcus.private.v1.AcquireMutation
-	31, // 39: gateway.mcus.private.v1.ReleaseRequest.arguments:type_name -> gateway.mcus.private.v1.ReleaseArgument
-	31, // 40: gateway.mcus.private.v1.ReleaseMutation.foundation:type_name -> gateway.mcus.private.v1.ReleaseArgument
-	35, // 41: gateway.mcus.private.v1.ReleaseMutation.condition:type_name -> gateway.mcus.private.v1.ReleaseCondition
-	55, // 42: gateway.mcus.private.v1.ReleaseMutation.transient:type_name -> gateway.mcus.private.v1.Transient
-	52, // 43: gateway.mcus.private.v1.ReleaseCondition.mcus:type_name -> gateway.mcus.private.v1.Mcu
-	34, // 44: gateway.mcus.private.v1.ReleaseTransaction.mutations:type_name -> gateway.mcus.private.v1.ReleaseMutation
-	37, // 45: gateway.mcus.private.v1.StartBroadcastRequest.arguments:type_name -> gateway.mcus.private.v1.StartBroadcastArgument
-	37, // 46: gateway.mcus.private.v1.StartBroadcastMutation.foundation:type_name -> gateway.mcus.private.v1.StartBroadcastArgument
-	41, // 47: gateway.mcus.private.v1.StartBroadcastMutation.condition:type_name -> gateway.mcus.private.v1.StartBroadcastCondition
-	55, // 48: gateway.mcus.private.v1.StartBroadcastMutation.transient:type_name -> gateway.mcus.private.v1.Transient
-	52, // 49: gateway.mcus.private.v1.StartBroadcastCondition.mcus:type_name -> gateway.mcus.private.v1.Mcu
-	40, // 50: gateway.mcus.private.v1.StartBroadcastTransaction.mutations:type_name -> gateway.mcus.private.v1.StartBroadcastMutation
-	43, // 51: gateway.mcus.private.v1.StopBroadcastRequest.arguments:type_name -> gateway.mcus.private.v1.StopBroadcastArgument
-	43, // 52: gateway.mcus.private.v1.StopBroadcastMutation.foundation:type_name -> gateway.mcus.private.v1.StopBroadcastArgument
-	47, // 53: gateway.mcus.private.v1.StopBroadcastMutation.condition:type_name -> gateway.mcus.private.v1.StopBroadcastCondition
-	55, // 54: gateway.mcus.private.v1.StopBroadcastMutation.transient:type_name -> gateway.mcus.private.v1.Transient
-	52, // 55: gateway.mcus.private.v1.StopBroadcastCondition.mcus:type_name -> gateway.mcus.private.v1.Mcu
-	46, // 56: gateway.mcus.private.v1.StopBroadcastTransaction.mutations:type_name -> gateway.mcus.private.v1.StopBroadcastMutation
-	57, // [57:57] is the sub-list for method output_type
-	57, // [57:57] is the sub-list for method input_type
-	57, // [57:57] is the sub-list for extension type_name
-	57, // [57:57] is the sub-list for extension extendee
-	0,  // [0:57] is the sub-list for field type_name
+	52, // 36: gateway.mcus.private.v1.AcquireCondition.mcus:type_name -> gateway.mcus.private.v1.Mcu
+	28, // 37: gateway.mcus.private.v1.AcquireTransaction.mutations:type_name -> gateway.mcus.private.v1.AcquireMutation
+	31, // 38: gateway.mcus.private.v1.ReleaseRequest.arguments:type_name -> gateway.mcus.private.v1.ReleaseArgument
+	31, // 39: gateway.mcus.private.v1.ReleaseMutation.foundation:type_name -> gateway.mcus.private.v1.ReleaseArgument
+	35, // 40: gateway.mcus.private.v1.ReleaseMutation.condition:type_name -> gateway.mcus.private.v1.ReleaseCondition
+	52, // 41: gateway.mcus.private.v1.ReleaseCondition.mcus:type_name -> gateway.mcus.private.v1.Mcu
+	34, // 42: gateway.mcus.private.v1.ReleaseTransaction.mutations:type_name -> gateway.mcus.private.v1.ReleaseMutation
+	37, // 43: gateway.mcus.private.v1.StartBroadcastRequest.arguments:type_name -> gateway.mcus.private.v1.StartBroadcastArgument
+	37, // 44: gateway.mcus.private.v1.StartBroadcastMutation.foundation:type_name -> gateway.mcus.private.v1.StartBroadcastArgument
+	41, // 45: gateway.mcus.private.v1.StartBroadcastMutation.condition:type_name -> gateway.mcus.private.v1.StartBroadcastCondition
+	52, // 46: gateway.mcus.private.v1.StartBroadcastCondition.mcus:type_name -> gateway.mcus.private.v1.Mcu
+	40, // 47: gateway.mcus.private.v1.StartBroadcastTransaction.mutations:type_name -> gateway.mcus.private.v1.StartBroadcastMutation
+	43, // 48: gateway.mcus.private.v1.StopBroadcastRequest.arguments:type_name -> gateway.mcus.private.v1.StopBroadcastArgument
+	43, // 49: gateway.mcus.private.v1.StopBroadcastMutation.foundation:type_name -> gateway.mcus.private.v1.StopBroadcastArgument
+	47, // 50: gateway.mcus.private.v1.StopBroadcastMutation.condition:type_name -> gateway.mcus.private.v1.StopBroadcastCondition
+	52, // 51: gateway.mcus.private.v1.StopBroadcastCondition.mcus:type_name -> gateway.mcus.private.v1.Mcu
+	46, // 52: gateway.mcus.private.v1.StopBroadcastTransaction.mutations:type_name -> gateway.mcus.private.v1.StopBroadcastMutation
+	53, // [53:53] is the sub-list for method output_type
+	53, // [53:53] is the sub-list for method input_type
+	53, // [53:53] is the sub-list for extension type_name
+	53, // [53:53] is the sub-list for extension extendee
+	0,  // [0:53] is the sub-list for field type_name
 }
 
 func init() { file_gateway_mcus_private_v1_procedures_proto_init() }
