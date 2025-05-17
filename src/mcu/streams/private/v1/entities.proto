@@ -26,7 +26,7 @@ message Sample {
     bool is_key_frame = 4;
     Resolution resolution = 5;
     int32 picture_id = 6;
-    int32 duration = 7;
+    int64 duration = 7;
     int32 prev_dropped_packets = 8;
     int32 spatial_layer_id = 9;
     int32 temporal_layer_id = 10;

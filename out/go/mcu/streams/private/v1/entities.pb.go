@@ -177,7 +177,7 @@ type Sample struct {
 	IsKeyFrame         bool                   `protobuf:"varint,4,opt,name=is_key_frame,json=isKeyFrame,proto3" json:"is_key_frame,omitempty"`
 	Resolution         *Resolution            `protobuf:"bytes,5,opt,name=resolution,proto3" json:"resolution,omitempty"`
 	PictureId          int32                  `protobuf:"varint,6,opt,name=picture_id,json=pictureId,proto3" json:"picture_id,omitempty"`
-	Duration           int32                  `protobuf:"varint,7,opt,name=duration,proto3" json:"duration,omitempty"`
+	Duration           int64                  `protobuf:"varint,7,opt,name=duration,proto3" json:"duration,omitempty"`
 	PrevDroppedPackets int32                  `protobuf:"varint,8,opt,name=prev_dropped_packets,json=prevDroppedPackets,proto3" json:"prev_dropped_packets,omitempty"`
 	SpatialLayerId     int32                  `protobuf:"varint,9,opt,name=spatial_layer_id,json=spatialLayerId,proto3" json:"spatial_layer_id,omitempty"`
 	TemporalLayerId    int32                  `protobuf:"varint,10,opt,name=temporal_layer_id,json=temporalLayerId,proto3" json:"temporal_layer_id,omitempty"`
@@ -258,7 +258,7 @@ func (x *Sample) GetPictureId() int32 {
 	return 0
 }
 
-func (x *Sample) GetDuration() int32 {
+func (x *Sample) GetDuration() int64 {
 	if x != nil {
 		return x.Duration
 	}
@@ -534,7 +534,7 @@ const file_mcu_streams_private_v1_entities_proto_rawDesc = "" +
 	"resolution\x12\x1d\n" +
 	"\n" +
 	"picture_id\x18\x06 \x01(\x05R\tpictureId\x12\x1a\n" +
-	"\bduration\x18\a \x01(\x05R\bduration\x120\n" +
+	"\bduration\x18\a \x01(\x03R\bduration\x120\n" +
 	"\x14prev_dropped_packets\x18\b \x01(\x05R\x12prevDroppedPackets\x12(\n" +
 	"\x10spatial_layer_id\x18\t \x01(\x05R\x0espatialLayerId\x12*\n" +
 	"\x11temporal_layer_id\x18\n" +

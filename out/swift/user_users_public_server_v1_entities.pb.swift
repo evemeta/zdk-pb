@@ -31,6 +31,8 @@ public struct User_Users_Public_Server_V1_User: Sendable {
 
   public var fullname: String = String()
 
+  public var metadata: Dictionary<String,String> = [:]
+
   public var nickname: String = String()
 
   public var permissions: [User_Users_Public_Server_V1_Permission] = []
@@ -50,6 +52,7 @@ extension User_Users_Public_Server_V1_User: SwiftProtobuf.Message, SwiftProtobuf
     1: .same(proto: "id"),
     2: .same(proto: "avatar"),
     3: .same(proto: "fullname"),
+    6: .same(proto: "metadata"),
     4: .same(proto: "nickname"),
     5: .same(proto: "permissions"),
   ]
@@ -65,6 +68,7 @@ extension User_Users_Public_Server_V1_User: SwiftProtobuf.Message, SwiftProtobuf
       case 3: try { try decoder.decodeSingularStringField(value: &self.fullname) }()
       case 4: try { try decoder.decodeSingularStringField(value: &self.nickname) }()
       case 5: try { try decoder.decodeRepeatedEnumField(value: &self.permissions) }()
+      case 6: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &self.metadata) }()
       default: break
       }
     }
@@ -86,6 +90,9 @@ extension User_Users_Public_Server_V1_User: SwiftProtobuf.Message, SwiftProtobuf
     if !self.permissions.isEmpty {
       try visitor.visitPackedEnumField(value: self.permissions, fieldNumber: 5)
     }
+    if !self.metadata.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: self.metadata, fieldNumber: 6)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -93,6 +100,7 @@ extension User_Users_Public_Server_V1_User: SwiftProtobuf.Message, SwiftProtobuf
     if lhs.id != rhs.id {return false}
     if lhs.avatar != rhs.avatar {return false}
     if lhs.fullname != rhs.fullname {return false}
+    if lhs.metadata != rhs.metadata {return false}
     if lhs.nickname != rhs.nickname {return false}
     if lhs.permissions != rhs.permissions {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
