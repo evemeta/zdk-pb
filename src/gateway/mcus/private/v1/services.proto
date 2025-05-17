@@ -47,4 +47,28 @@ service Service {
     rpc AnnounceDeleteMutations(DeleteTransaction) returns (DeleteTransaction);
 
     rpc RollbackDeleteMutations(DeleteTransaction) returns (DeleteTransaction);
+
+    rpc Acquire(AcquireRequest) returns (AcquireResponse);
+
+    rpc InitiateAcquireMutations(AcquireTransaction) returns (AcquireTransaction);
+
+    rpc FinalizeAcquireMutations(AcquireTransaction) returns (AcquireTransaction);
+
+    rpc Release(ReleaseRequest) returns (ReleaseResponse);
+
+    rpc InitiateReleaseMutations(ReleaseTransaction) returns (ReleaseTransaction);
+
+    rpc FinalizeReleaseMutations(ReleaseTransaction) returns (ReleaseTransaction);
+
+    rpc StartBroadcast(StartBroadcastRequest) returns (StartBroadcastResponse);
+
+    rpc InitiateStartBroadcastMutations(StartBroadcastTransaction) returns (StartBroadcastTransaction);
+
+    rpc FinalizeStartBroadcastMutations(StartBroadcastTransaction) returns (StartBroadcastTransaction);
+
+    rpc StopBroadcast(StopBroadcastRequest) returns (StopBroadcastResponse);
+
+    rpc InitiateStopBroadcastMutations(StopBroadcastTransaction) returns (StopBroadcastTransaction);
+
+    rpc FinalizeStopBroadcastMutations(StopBroadcastTransaction) returns (StopBroadcastTransaction);
 }
