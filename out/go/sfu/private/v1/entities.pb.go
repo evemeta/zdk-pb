@@ -202,6 +202,142 @@ func (x *ConnectionUserInfo) GetRoomId() string {
 	return ""
 }
 
+type RecordingHeader struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	UserId        string                 `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	RoomId        string                 `protobuf:"bytes,2,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
+	ConnectionId  string                 `protobuf:"bytes,3,opt,name=connection_id,json=connectionId,proto3" json:"connection_id,omitempty"`
+	StartTime     int64                  `protobuf:"varint,4,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	EndTime       int64                  `protobuf:"varint,5,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	Streams       []*RecordingStream     `protobuf:"bytes,6,rep,name=streams,proto3" json:"streams,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RecordingHeader) Reset() {
+	*x = RecordingHeader{}
+	mi := &file_sfu_private_v1_entities_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RecordingHeader) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RecordingHeader) ProtoMessage() {}
+
+func (x *RecordingHeader) ProtoReflect() protoreflect.Message {
+	mi := &file_sfu_private_v1_entities_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RecordingHeader.ProtoReflect.Descriptor instead.
+func (*RecordingHeader) Descriptor() ([]byte, []int) {
+	return file_sfu_private_v1_entities_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *RecordingHeader) GetUserId() string {
+	if x != nil {
+		return x.UserId
+	}
+	return ""
+}
+
+func (x *RecordingHeader) GetRoomId() string {
+	if x != nil {
+		return x.RoomId
+	}
+	return ""
+}
+
+func (x *RecordingHeader) GetConnectionId() string {
+	if x != nil {
+		return x.ConnectionId
+	}
+	return ""
+}
+
+func (x *RecordingHeader) GetStartTime() int64 {
+	if x != nil {
+		return x.StartTime
+	}
+	return 0
+}
+
+func (x *RecordingHeader) GetEndTime() int64 {
+	if x != nil {
+		return x.EndTime
+	}
+	return 0
+}
+
+func (x *RecordingHeader) GetStreams() []*RecordingStream {
+	if x != nil {
+		return x.Streams
+	}
+	return nil
+}
+
+type RecordingStream struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	StreamType    v1.StreamType          `protobuf:"varint,1,opt,name=stream_type,json=streamType,proto3,enum=sfu.public.server.v1.StreamType" json:"stream_type,omitempty"`
+	StartTime     int64                  `protobuf:"varint,4,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RecordingStream) Reset() {
+	*x = RecordingStream{}
+	mi := &file_sfu_private_v1_entities_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RecordingStream) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RecordingStream) ProtoMessage() {}
+
+func (x *RecordingStream) ProtoReflect() protoreflect.Message {
+	mi := &file_sfu_private_v1_entities_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RecordingStream.ProtoReflect.Descriptor instead.
+func (*RecordingStream) Descriptor() ([]byte, []int) {
+	return file_sfu_private_v1_entities_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *RecordingStream) GetStreamType() v1.StreamType {
+	if x != nil {
+		return x.StreamType
+	}
+	return v1.StreamType(0)
+}
+
+func (x *RecordingStream) GetStartTime() int64 {
+	if x != nil {
+		return x.StartTime
+	}
+	return 0
+}
+
 var File_sfu_private_v1_entities_proto protoreflect.FileDescriptor
 
 const file_sfu_private_v1_entities_proto_rawDesc = "" +
@@ -222,7 +358,20 @@ const file_sfu_private_v1_entities_proto_rawDesc = "" +
 	"\n" +
 	"session_id\x18\x01 \x01(\tR\tsessionId\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\x12\x17\n" +
-	"\aroom_id\x18\x03 \x01(\tR\x06roomIdB7Z5gitlab.com/evemeta/zdk/pb/out/go/sfu/private/v1;sfupbb\x06proto3"
+	"\aroom_id\x18\x03 \x01(\tR\x06roomId\"\xdd\x01\n" +
+	"\x0fRecordingHeader\x12\x17\n" +
+	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x17\n" +
+	"\aroom_id\x18\x02 \x01(\tR\x06roomId\x12#\n" +
+	"\rconnection_id\x18\x03 \x01(\tR\fconnectionId\x12\x1d\n" +
+	"\n" +
+	"start_time\x18\x04 \x01(\x03R\tstartTime\x12\x19\n" +
+	"\bend_time\x18\x05 \x01(\x03R\aendTime\x129\n" +
+	"\astreams\x18\x06 \x03(\v2\x1f.sfu.private.v1.RecordingStreamR\astreams\"s\n" +
+	"\x0fRecordingStream\x12A\n" +
+	"\vstream_type\x18\x01 \x01(\x0e2 .sfu.public.server.v1.StreamTypeR\n" +
+	"streamType\x12\x1d\n" +
+	"\n" +
+	"start_time\x18\x04 \x01(\x03R\tstartTimeB7Z5gitlab.com/evemeta/zdk/pb/out/go/sfu/private/v1;sfupbb\x06proto3"
 
 var (
 	file_sfu_private_v1_entities_proto_rawDescOnce sync.Once
@@ -236,24 +385,29 @@ func file_sfu_private_v1_entities_proto_rawDescGZIP() []byte {
 	return file_sfu_private_v1_entities_proto_rawDescData
 }
 
-var file_sfu_private_v1_entities_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_sfu_private_v1_entities_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_sfu_private_v1_entities_proto_goTypes = []any{
 	(*SupportedCodecs)(nil),    // 0: sfu.private.v1.SupportedCodecs
 	(*CodecInfo)(nil),          // 1: sfu.private.v1.CodecInfo
 	(*ConnectionUserInfo)(nil), // 2: sfu.private.v1.ConnectionUserInfo
-	nil,                        // 3: sfu.private.v1.CodecInfo.FmtpEntry
-	(v1.Codec)(0),              // 4: sfu.public.server.v1.Codec
+	(*RecordingHeader)(nil),    // 3: sfu.private.v1.RecordingHeader
+	(*RecordingStream)(nil),    // 4: sfu.private.v1.RecordingStream
+	nil,                        // 5: sfu.private.v1.CodecInfo.FmtpEntry
+	(v1.Codec)(0),              // 6: sfu.public.server.v1.Codec
+	(v1.StreamType)(0),         // 7: sfu.public.server.v1.StreamType
 }
 var file_sfu_private_v1_entities_proto_depIdxs = []int32{
 	1, // 0: sfu.private.v1.SupportedCodecs.video_codecs:type_name -> sfu.private.v1.CodecInfo
 	1, // 1: sfu.private.v1.SupportedCodecs.audio_codecs:type_name -> sfu.private.v1.CodecInfo
-	4, // 2: sfu.private.v1.CodecInfo.codec:type_name -> sfu.public.server.v1.Codec
-	3, // 3: sfu.private.v1.CodecInfo.fmtp:type_name -> sfu.private.v1.CodecInfo.FmtpEntry
-	4, // [4:4] is the sub-list for method output_type
-	4, // [4:4] is the sub-list for method input_type
-	4, // [4:4] is the sub-list for extension type_name
-	4, // [4:4] is the sub-list for extension extendee
-	0, // [0:4] is the sub-list for field type_name
+	6, // 2: sfu.private.v1.CodecInfo.codec:type_name -> sfu.public.server.v1.Codec
+	5, // 3: sfu.private.v1.CodecInfo.fmtp:type_name -> sfu.private.v1.CodecInfo.FmtpEntry
+	4, // 4: sfu.private.v1.RecordingHeader.streams:type_name -> sfu.private.v1.RecordingStream
+	7, // 5: sfu.private.v1.RecordingStream.stream_type:type_name -> sfu.public.server.v1.StreamType
+	6, // [6:6] is the sub-list for method output_type
+	6, // [6:6] is the sub-list for method input_type
+	6, // [6:6] is the sub-list for extension type_name
+	6, // [6:6] is the sub-list for extension extendee
+	0, // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_sfu_private_v1_entities_proto_init() }
@@ -267,7 +421,7 @@ func file_sfu_private_v1_entities_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_sfu_private_v1_entities_proto_rawDesc), len(file_sfu_private_v1_entities_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
