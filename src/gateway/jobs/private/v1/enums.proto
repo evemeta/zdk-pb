@@ -6,4 +6,9 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/jobs/private/v1;jo
 
 enum Status {
     StatusUnknown = 0;
+    StatusPending = 1;
+    StatusRunning = 2;
+    StatusSucceeded = 3;
+    StatusFailed = 4;
+    StatusCanceled = 5;
 }

@@ -24,16 +24,31 @@ const (
 type Status int32
 
 const (
-	StatusUnknown Status = 0
+	StatusUnknown   Status = 0
+	StatusPending   Status = 1
+	StatusRunning   Status = 2
+	StatusSucceeded Status = 3
+	StatusFailed    Status = 4
+	StatusCanceled  Status = 5
 )
 
 // Enum value maps for Status.
 var (
 	Status_name = map[int32]string{
 		0: "StatusUnknown",
+		1: "StatusPending",
+		2: "StatusRunning",
+		3: "StatusSucceeded",
+		4: "StatusFailed",
+		5: "StatusCanceled",
 	}
 	Status_value = map[string]int32{
-		"StatusUnknown": 0,
+		"StatusUnknown":   0,
+		"StatusPending":   1,
+		"StatusRunning":   2,
+		"StatusSucceeded": 3,
+		"StatusFailed":    4,
+		"StatusCanceled":  5,
 	}
 )
 
@@ -68,9 +83,14 @@ var File_gateway_jobs_private_v1_enums_proto protoreflect.FileDescriptor
 
 const file_gateway_jobs_private_v1_enums_proto_rawDesc = "" +
 	"\n" +
-	"#gateway/jobs/private/v1/enums.proto\x12\x17gateway.jobs.private.v1*\x1b\n" +
+	"#gateway/jobs/private/v1/enums.proto\x12\x17gateway.jobs.private.v1*|\n" +
 	"\x06Status\x12\x11\n" +
-	"\rStatusUnknown\x10\x00BAZ?gitlab.com/evemeta/zdk/pb/out/go/gateway/jobs/private/v1;jobspbb\x06proto3"
+	"\rStatusUnknown\x10\x00\x12\x11\n" +
+	"\rStatusPending\x10\x01\x12\x11\n" +
+	"\rStatusRunning\x10\x02\x12\x13\n" +
+	"\x0fStatusSucceeded\x10\x03\x12\x10\n" +
+	"\fStatusFailed\x10\x04\x12\x12\n" +
+	"\x0eStatusCanceled\x10\x05BAZ?gitlab.com/evemeta/zdk/pb/out/go/gateway/jobs/private/v1;jobspbb\x06proto3"
 
 var (
 	file_gateway_jobs_private_v1_enums_proto_rawDescOnce sync.Once
