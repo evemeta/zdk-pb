@@ -1,0 +1,125 @@
+syntax = "proto3";
+
+package gateway.jobs.private.v1;
+
+import "gateway/jobs/private/v1/enums.proto";
+import "gateway/jobs/private/v1/entities.proto";
+import "gateway/jobs/private/v1/optionals.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/jobs/private/v1;jobspb";
+
+message CountArgument {
+    bool                          cache = 1;
+    gateway.jobs.private.v1.Query query = 2;
+}
+
+message CountRequest {
+    repeated gateway.jobs.private.v1.CountArgument arguments = 1;
+}
+
+message CountResponse {
+    int64 total = 1;
+}
+
+message RangeArgument {
+    bool                          cache = 1;
+    gateway.jobs.private.v1.Query query = 2;
+}
+
+message RangeRequest {
+    repeated gateway.jobs.private.v1.RangeArgument arguments = 1;
+}
+
+message RangeResponse {
+    repeated gateway.jobs.private.v1.Chunk chunks = 1;
+}
+
+message SelectArgument {
+    bool                          cache = 1;
+    gateway.jobs.private.v1.Query query = 2;
+}
+
+message SelectRequest {
+    repeated gateway.jobs.private.v1.SelectArgument arguments = 1;
+}
+
+message SelectResponse {
+    repeated gateway.jobs.private.v1.Job jobs = 1;
+}
+
+message CreateArgument {
+    string                         id          = 1;
+    string                         image       = 2;
+    repeated string                command     = 3;
+    map<string, string>            selectors   = 4;
+    map<string, string>            variables   = 5;
+    map<string, string>            annotations = 6;
+    map<string, string>            tolerations = 7;
+    gateway.jobs.private.v1.Status status      = 8;
+}
+
+message CreateRequest {
+    repeated gateway.jobs.private.v1.CreateArgument arguments = 1;
+}
+
+message CreateResponse {
+    repeated gateway.jobs.private.v1.Job jobs = 1;
+}
+
+message CreateMutation {
+    gateway.jobs.private.v1.CreateArgument     foundation      = 1;
+    repeated gateway.jobs.private.v1.Transient transient       = 2;
+    int64                                      begin_timestamp = 3;
+    int64                                      close_timestamp = 4;
+}
+
+message CreateTransaction {
+    repeated gateway.jobs.private.v1.CreateMutation mutations = 1;
+}
+
+message UpdateArgument {
+    gateway.jobs.private.v1.Query                   query  = 1;
+    optional gateway.jobs.private.v1.OptionalStatus status = 2;
+}
+
+message UpdateRequest {
+    repeated gateway.jobs.private.v1.UpdateArgument arguments = 1;
+}
+
+message UpdateResponse {
+    repeated gateway.jobs.private.v1.Job jobs = 1;
+}
+
+message UpdateMutation {
+    gateway.jobs.private.v1.UpdateArgument     foundation      = 1;
+    repeated gateway.jobs.private.v1.Transient transient       = 2;
+    int64                                      begin_timestamp = 3;
+    int64                                      close_timestamp = 4;
+}
+
+message UpdateTransaction {
+    repeated gateway.jobs.private.v1.UpdateMutation mutations = 1;
+}
+
+message DeleteArgument {
+    gateway.jobs.private.v1.Query query = 1;
+}
+
+message DeleteRequest {
+    repeated gateway.jobs.private.v1.DeleteArgument arguments = 1;
+}
+
+message DeleteResponse {
+    repeated gateway.jobs.private.v1.Job jobs = 1;
+}
+
+message DeleteMutation {
+    gateway.jobs.private.v1.DeleteArgument     foundation      = 1;
+    repeated gateway.jobs.private.v1.Transient transient       = 2;
+    int64                                      begin_timestamp = 3;
+    int64                                      close_timestamp = 4;
+}
+
+message DeleteTransaction {
+    repeated gateway.jobs.private.v1.DeleteMutation mutations = 1;
+}

@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package gateway.jobs.private.v1;
+
+import "gateway/jobs/private/v1/entities.proto";
+import "gateway/jobs/private/v1/optionals.proto";
+import "common/timeframes/public/v1/entities.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/jobs/private/v1;jobspb";
+
+message CreateJobPacket {
+    gateway.jobs.private.v1.Job           job = 1;
+    common.timeframes.public.v1.Timeframe timeframe = 2;
+}
+
+message UpdateJobPacket {
+    string                                          id        = 1;
+    optional gateway.jobs.private.v1.OptionalStatus status    = 2;
+    common.timeframes.public.v1.Timeframe           timeframe = 3;
+}
+
+message DeleteJobPacket {
+    string                                id = 1;
+    common.timeframes.public.v1.Timeframe timeframe = 2;
+}

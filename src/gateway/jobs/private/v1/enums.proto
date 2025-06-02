@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package gateway.jobs.private.v1;
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/jobs/private/v1;jobspb";
+
+enum Status {
+    StatusUnknown = 0;
+}

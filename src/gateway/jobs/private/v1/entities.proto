@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package gateway.jobs.private.v1;
+
+import "gateway/jobs/private/v1/enums.proto";
+import "common/orders/public/v1/entities.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/jobs/private/v1;jobspb";
+
+message Chunk {
+    int64                                size     = 1;
+    int64                                index    = 2;
+    int64                                total    = 3;
+    repeated gateway.jobs.private.v1.Job entities = 4;
+}
+
+message Query {
+    common.orders.public.v1.Order              order      = 1;
+    int64                                      limit      = 2;
+    int64                                      offset     = 3;
+    repeated gateway.jobs.private.v1.Condition conditions = 4;
+}
+
+message Condition {
+    repeated string                         ids      = 1;
+    repeated gateway.jobs.private.v1.Status statuses = 2;
+}
+
+message Transient {
+    gateway.jobs.private.v1.Job future   = 1;
+    gateway.jobs.private.v1.Job current  = 2;
+    gateway.jobs.private.v1.Job previous = 3;
+}
+
+message Job {
+    string                         id          = 1;
+    string                         image       = 2;
+    repeated string                command     = 3;
+    map<string, string>            selectors   = 4;
+    map<string, string>            variables   = 5;
+    map<string, string>            annotations = 6;
+    map<string, string>            tolerations = 7;
+    gateway.jobs.private.v1.Status status      = 8;
+    int64                          access_time = 9;
+    int64                          create_time = 10;
+    int64                          update_time = 11;
+}
