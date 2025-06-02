@@ -64,8 +64,7 @@ generate_go() {
           fi
     }
 
-    generate normal & generate mcu
-
+    generate normal & generate mcu & wait
 }
 
 generate_ts() {
