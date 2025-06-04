@@ -279,10 +279,11 @@ type Job struct {
 	Variables     map[string]string      `protobuf:"bytes,5,rep,name=variables,proto3" json:"variables,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	Annotations   map[string]string      `protobuf:"bytes,6,rep,name=annotations,proto3" json:"annotations,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	Tolerations   map[string]string      `protobuf:"bytes,7,rep,name=tolerations,proto3" json:"tolerations,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	Status        Status                 `protobuf:"varint,8,opt,name=status,proto3,enum=gateway.jobs.private.v1.Status" json:"status,omitempty"`
-	AccessTime    int64                  `protobuf:"varint,9,opt,name=access_time,json=accessTime,proto3" json:"access_time,omitempty"`
-	CreateTime    int64                  `protobuf:"varint,10,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
-	UpdateTime    int64                  `protobuf:"varint,11,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	Result        *Result                `protobuf:"bytes,8,opt,name=result,proto3" json:"result,omitempty"`
+	Status        Status                 `protobuf:"varint,9,opt,name=status,proto3,enum=gateway.jobs.private.v1.Status" json:"status,omitempty"`
+	AccessTime    int64                  `protobuf:"varint,10,opt,name=access_time,json=accessTime,proto3" json:"access_time,omitempty"`
+	CreateTime    int64                  `protobuf:"varint,11,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	UpdateTime    int64                  `protobuf:"varint,12,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -366,6 +367,13 @@ func (x *Job) GetTolerations() map[string]string {
 	return nil
 }
 
+func (x *Job) GetResult() *Result {
+	if x != nil {
+		return x.Result
+	}
+	return nil
+}
+
 func (x *Job) GetStatus() Status {
 	if x != nil {
 		return x.Status
@@ -394,6 +402,58 @@ func (x *Job) GetUpdateTime() int64 {
 	return 0
 }
 
+type Result struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Description   string                 `protobuf:"bytes,1,opt,name=description,proto3" json:"description,omitempty"`
+	CreateTime    int64                  `protobuf:"varint,2,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Result) Reset() {
+	*x = Result{}
+	mi := &file_gateway_jobs_private_v1_entities_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Result) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Result) ProtoMessage() {}
+
+func (x *Result) ProtoReflect() protoreflect.Message {
+	mi := &file_gateway_jobs_private_v1_entities_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Result.ProtoReflect.Descriptor instead.
+func (*Result) Descriptor() ([]byte, []int) {
+	return file_gateway_jobs_private_v1_entities_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *Result) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *Result) GetCreateTime() int64 {
+	if x != nil {
+		return x.CreateTime
+	}
+	return 0
+}
+
 var File_gateway_jobs_private_v1_entities_proto protoreflect.FileDescriptor
 
 const file_gateway_jobs_private_v1_entities_proto_rawDesc = "" +
@@ -417,7 +477,7 @@ const file_gateway_jobs_private_v1_entities_proto_rawDesc = "" +
 	"\tTransient\x124\n" +
 	"\x06future\x18\x01 \x01(\v2\x1c.gateway.jobs.private.v1.JobR\x06future\x126\n" +
 	"\acurrent\x18\x02 \x01(\v2\x1c.gateway.jobs.private.v1.JobR\acurrent\x128\n" +
-	"\bprevious\x18\x03 \x01(\v2\x1c.gateway.jobs.private.v1.JobR\bprevious\"\x95\x06\n" +
+	"\bprevious\x18\x03 \x01(\v2\x1c.gateway.jobs.private.v1.JobR\bprevious\"\xce\x06\n" +
 	"\x03Job\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
 	"\x05image\x18\x02 \x01(\tR\x05image\x12\x18\n" +
@@ -426,13 +486,14 @@ const file_gateway_jobs_private_v1_entities_proto_rawDesc = "" +
 	"\tvariables\x18\x05 \x03(\v2+.gateway.jobs.private.v1.Job.VariablesEntryR\tvariables\x12O\n" +
 	"\vannotations\x18\x06 \x03(\v2-.gateway.jobs.private.v1.Job.AnnotationsEntryR\vannotations\x12O\n" +
 	"\vtolerations\x18\a \x03(\v2-.gateway.jobs.private.v1.Job.TolerationsEntryR\vtolerations\x127\n" +
-	"\x06status\x18\b \x01(\x0e2\x1f.gateway.jobs.private.v1.StatusR\x06status\x12\x1f\n" +
-	"\vaccess_time\x18\t \x01(\x03R\n" +
-	"accessTime\x12\x1f\n" +
-	"\vcreate_time\x18\n" +
+	"\x06result\x18\b \x01(\v2\x1f.gateway.jobs.private.v1.ResultR\x06result\x127\n" +
+	"\x06status\x18\t \x01(\x0e2\x1f.gateway.jobs.private.v1.StatusR\x06status\x12\x1f\n" +
+	"\vaccess_time\x18\n" +
 	" \x01(\x03R\n" +
+	"accessTime\x12\x1f\n" +
+	"\vcreate_time\x18\v \x01(\x03R\n" +
 	"createTime\x12\x1f\n" +
-	"\vupdate_time\x18\v \x01(\x03R\n" +
+	"\vupdate_time\x18\f \x01(\x03R\n" +
 	"updateTime\x1a<\n" +
 	"\x0eSelectorsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
@@ -445,7 +506,11 @@ const file_gateway_jobs_private_v1_entities_proto_rawDesc = "" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1a>\n" +
 	"\x10TolerationsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01BAZ?gitlab.com/evemeta/zdk/pb/out/go/gateway/jobs/private/v1;jobspbb\x06proto3"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"K\n" +
+	"\x06Result\x12 \n" +
+	"\vdescription\x18\x01 \x01(\tR\vdescription\x12\x1f\n" +
+	"\vcreate_time\x18\x02 \x01(\x03R\n" +
+	"createTimeBAZ?gitlab.com/evemeta/zdk/pb/out/go/gateway/jobs/private/v1;jobspbb\x06proto3"
 
 var (
 	file_gateway_jobs_private_v1_entities_proto_rawDescOnce sync.Once
@@ -459,38 +524,40 @@ func file_gateway_jobs_private_v1_entities_proto_rawDescGZIP() []byte {
 	return file_gateway_jobs_private_v1_entities_proto_rawDescData
 }
 
-var file_gateway_jobs_private_v1_entities_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
+var file_gateway_jobs_private_v1_entities_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_gateway_jobs_private_v1_entities_proto_goTypes = []any{
 	(*Chunk)(nil),     // 0: gateway.jobs.private.v1.Chunk
 	(*Query)(nil),     // 1: gateway.jobs.private.v1.Query
 	(*Condition)(nil), // 2: gateway.jobs.private.v1.Condition
 	(*Transient)(nil), // 3: gateway.jobs.private.v1.Transient
 	(*Job)(nil),       // 4: gateway.jobs.private.v1.Job
-	nil,               // 5: gateway.jobs.private.v1.Job.SelectorsEntry
-	nil,               // 6: gateway.jobs.private.v1.Job.VariablesEntry
-	nil,               // 7: gateway.jobs.private.v1.Job.AnnotationsEntry
-	nil,               // 8: gateway.jobs.private.v1.Job.TolerationsEntry
-	(v1.Order)(0),     // 9: common.orders.public.v1.Order
-	(Status)(0),       // 10: gateway.jobs.private.v1.Status
+	(*Result)(nil),    // 5: gateway.jobs.private.v1.Result
+	nil,               // 6: gateway.jobs.private.v1.Job.SelectorsEntry
+	nil,               // 7: gateway.jobs.private.v1.Job.VariablesEntry
+	nil,               // 8: gateway.jobs.private.v1.Job.AnnotationsEntry
+	nil,               // 9: gateway.jobs.private.v1.Job.TolerationsEntry
+	(v1.Order)(0),     // 10: common.orders.public.v1.Order
+	(Status)(0),       // 11: gateway.jobs.private.v1.Status
 }
 var file_gateway_jobs_private_v1_entities_proto_depIdxs = []int32{
 	4,  // 0: gateway.jobs.private.v1.Chunk.entities:type_name -> gateway.jobs.private.v1.Job
-	9,  // 1: gateway.jobs.private.v1.Query.order:type_name -> common.orders.public.v1.Order
+	10, // 1: gateway.jobs.private.v1.Query.order:type_name -> common.orders.public.v1.Order
 	2,  // 2: gateway.jobs.private.v1.Query.conditions:type_name -> gateway.jobs.private.v1.Condition
-	10, // 3: gateway.jobs.private.v1.Condition.statuses:type_name -> gateway.jobs.private.v1.Status
+	11, // 3: gateway.jobs.private.v1.Condition.statuses:type_name -> gateway.jobs.private.v1.Status
 	4,  // 4: gateway.jobs.private.v1.Transient.future:type_name -> gateway.jobs.private.v1.Job
 	4,  // 5: gateway.jobs.private.v1.Transient.current:type_name -> gateway.jobs.private.v1.Job
 	4,  // 6: gateway.jobs.private.v1.Transient.previous:type_name -> gateway.jobs.private.v1.Job
-	5,  // 7: gateway.jobs.private.v1.Job.selectors:type_name -> gateway.jobs.private.v1.Job.SelectorsEntry
-	6,  // 8: gateway.jobs.private.v1.Job.variables:type_name -> gateway.jobs.private.v1.Job.VariablesEntry
-	7,  // 9: gateway.jobs.private.v1.Job.annotations:type_name -> gateway.jobs.private.v1.Job.AnnotationsEntry
-	8,  // 10: gateway.jobs.private.v1.Job.tolerations:type_name -> gateway.jobs.private.v1.Job.TolerationsEntry
-	10, // 11: gateway.jobs.private.v1.Job.status:type_name -> gateway.jobs.private.v1.Status
-	12, // [12:12] is the sub-list for method output_type
-	12, // [12:12] is the sub-list for method input_type
-	12, // [12:12] is the sub-list for extension type_name
-	12, // [12:12] is the sub-list for extension extendee
-	0,  // [0:12] is the sub-list for field type_name
+	6,  // 7: gateway.jobs.private.v1.Job.selectors:type_name -> gateway.jobs.private.v1.Job.SelectorsEntry
+	7,  // 8: gateway.jobs.private.v1.Job.variables:type_name -> gateway.jobs.private.v1.Job.VariablesEntry
+	8,  // 9: gateway.jobs.private.v1.Job.annotations:type_name -> gateway.jobs.private.v1.Job.AnnotationsEntry
+	9,  // 10: gateway.jobs.private.v1.Job.tolerations:type_name -> gateway.jobs.private.v1.Job.TolerationsEntry
+	5,  // 11: gateway.jobs.private.v1.Job.result:type_name -> gateway.jobs.private.v1.Result
+	11, // 12: gateway.jobs.private.v1.Job.status:type_name -> gateway.jobs.private.v1.Status
+	13, // [13:13] is the sub-list for method output_type
+	13, // [13:13] is the sub-list for method input_type
+	13, // [13:13] is the sub-list for extension type_name
+	13, // [13:13] is the sub-list for extension extendee
+	0,  // [0:13] is the sub-list for field type_name
 }
 
 func init() { file_gateway_jobs_private_v1_entities_proto_init() }
@@ -505,7 +572,7 @@ func file_gateway_jobs_private_v1_entities_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_gateway_jobs_private_v1_entities_proto_rawDesc), len(file_gateway_jobs_private_v1_entities_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   9,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

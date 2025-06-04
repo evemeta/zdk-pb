@@ -77,8 +77,9 @@ func (x *CreateJobPacket) GetTimeframe() *v1.Timeframe {
 type UpdateJobPacket struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Status        *OptionalStatus        `protobuf:"bytes,2,opt,name=status,proto3,oneof" json:"status,omitempty"`
-	Timeframe     *v1.Timeframe          `protobuf:"bytes,3,opt,name=timeframe,proto3" json:"timeframe,omitempty"`
+	Result        *OptionalResult        `protobuf:"bytes,2,opt,name=result,proto3,oneof" json:"result,omitempty"`
+	Status        *OptionalStatus        `protobuf:"bytes,3,opt,name=status,proto3,oneof" json:"status,omitempty"`
+	Timeframe     *v1.Timeframe          `protobuf:"bytes,4,opt,name=timeframe,proto3" json:"timeframe,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -118,6 +119,13 @@ func (x *UpdateJobPacket) GetId() string {
 		return x.Id
 	}
 	return ""
+}
+
+func (x *UpdateJobPacket) GetResult() *OptionalResult {
+	if x != nil {
+		return x.Result
+	}
+	return nil
 }
 
 func (x *UpdateJobPacket) GetStatus() *OptionalStatus {
@@ -193,11 +201,13 @@ const file_gateway_jobs_private_v1_packets_proto_rawDesc = "" +
 	"%gateway/jobs/private/v1/packets.proto\x12\x17gateway.jobs.private.v1\x1a&gateway/jobs/private/v1/entities.proto\x1a'gateway/jobs/private/v1/optionals.proto\x1a*common/timeframes/public/v1/entities.proto\"\x87\x01\n" +
 	"\x0fCreateJobPacket\x12.\n" +
 	"\x03job\x18\x01 \x01(\v2\x1c.gateway.jobs.private.v1.JobR\x03job\x12D\n" +
-	"\ttimeframe\x18\x02 \x01(\v2&.common.timeframes.public.v1.TimeframeR\ttimeframe\"\xb8\x01\n" +
+	"\ttimeframe\x18\x02 \x01(\v2&.common.timeframes.public.v1.TimeframeR\ttimeframe\"\x89\x02\n" +
 	"\x0fUpdateJobPacket\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12D\n" +
-	"\x06status\x18\x02 \x01(\v2'.gateway.jobs.private.v1.OptionalStatusH\x00R\x06status\x88\x01\x01\x12D\n" +
-	"\ttimeframe\x18\x03 \x01(\v2&.common.timeframes.public.v1.TimeframeR\ttimeframeB\t\n" +
+	"\x06result\x18\x02 \x01(\v2'.gateway.jobs.private.v1.OptionalResultH\x00R\x06result\x88\x01\x01\x12D\n" +
+	"\x06status\x18\x03 \x01(\v2'.gateway.jobs.private.v1.OptionalStatusH\x01R\x06status\x88\x01\x01\x12D\n" +
+	"\ttimeframe\x18\x04 \x01(\v2&.common.timeframes.public.v1.TimeframeR\ttimeframeB\t\n" +
+	"\a_resultB\t\n" +
 	"\a_status\"g\n" +
 	"\x0fDeleteJobPacket\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12D\n" +
@@ -222,19 +232,21 @@ var file_gateway_jobs_private_v1_packets_proto_goTypes = []any{
 	(*DeleteJobPacket)(nil), // 2: gateway.jobs.private.v1.DeleteJobPacket
 	(*Job)(nil),             // 3: gateway.jobs.private.v1.Job
 	(*v1.Timeframe)(nil),    // 4: common.timeframes.public.v1.Timeframe
-	(*OptionalStatus)(nil),  // 5: gateway.jobs.private.v1.OptionalStatus
+	(*OptionalResult)(nil),  // 5: gateway.jobs.private.v1.OptionalResult
+	(*OptionalStatus)(nil),  // 6: gateway.jobs.private.v1.OptionalStatus
 }
 var file_gateway_jobs_private_v1_packets_proto_depIdxs = []int32{
 	3, // 0: gateway.jobs.private.v1.CreateJobPacket.job:type_name -> gateway.jobs.private.v1.Job
 	4, // 1: gateway.jobs.private.v1.CreateJobPacket.timeframe:type_name -> common.timeframes.public.v1.Timeframe
-	5, // 2: gateway.jobs.private.v1.UpdateJobPacket.status:type_name -> gateway.jobs.private.v1.OptionalStatus
-	4, // 3: gateway.jobs.private.v1.UpdateJobPacket.timeframe:type_name -> common.timeframes.public.v1.Timeframe
-	4, // 4: gateway.jobs.private.v1.DeleteJobPacket.timeframe:type_name -> common.timeframes.public.v1.Timeframe
-	5, // [5:5] is the sub-list for method output_type
-	5, // [5:5] is the sub-list for method input_type
-	5, // [5:5] is the sub-list for extension type_name
-	5, // [5:5] is the sub-list for extension extendee
-	0, // [0:5] is the sub-list for field type_name
+	5, // 2: gateway.jobs.private.v1.UpdateJobPacket.result:type_name -> gateway.jobs.private.v1.OptionalResult
+	6, // 3: gateway.jobs.private.v1.UpdateJobPacket.status:type_name -> gateway.jobs.private.v1.OptionalStatus
+	4, // 4: gateway.jobs.private.v1.UpdateJobPacket.timeframe:type_name -> common.timeframes.public.v1.Timeframe
+	4, // 5: gateway.jobs.private.v1.DeleteJobPacket.timeframe:type_name -> common.timeframes.public.v1.Timeframe
+	6, // [6:6] is the sub-list for method output_type
+	6, // [6:6] is the sub-list for method input_type
+	6, // [6:6] is the sub-list for extension type_name
+	6, // [6:6] is the sub-list for extension extendee
+	0, // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_gateway_jobs_private_v1_packets_proto_init() }

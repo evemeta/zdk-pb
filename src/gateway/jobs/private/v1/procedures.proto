@@ -55,7 +55,8 @@ message CreateArgument {
     map<string, string>            variables   = 5;
     map<string, string>            annotations = 6;
     map<string, string>            tolerations = 7;
-    gateway.jobs.private.v1.Status status      = 8;
+    gateway.jobs.private.v1.Result result      = 8;
+    gateway.jobs.private.v1.Status status      = 9;
 }
 
 message CreateRequest {
@@ -79,7 +80,8 @@ message CreateTransaction {
 
 message UpdateArgument {
     gateway.jobs.private.v1.Query                   query  = 1;
-    optional gateway.jobs.private.v1.OptionalStatus status = 2;
+    optional gateway.jobs.private.v1.OptionalResult result = 2;
+    optional gateway.jobs.private.v1.OptionalStatus status = 3;
 }
 
 message UpdateRequest {

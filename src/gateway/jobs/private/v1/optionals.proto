@@ -3,8 +3,14 @@ syntax = "proto3";
 package gateway.jobs.private.v1;
 
 import "gateway/jobs/private/v1/enums.proto";
+import "gateway/jobs/private/v1/entities.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/jobs/private/v1;jobspb";
+
+// OptionalResult todo;
+message OptionalResult {
+    gateway.jobs.private.v1.Result value = 1;
+}
 
 // OptionalStatus todo;
 message OptionalStatus {

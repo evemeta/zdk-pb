@@ -40,8 +40,14 @@ message Job {
     map<string, string>            variables   = 5;
     map<string, string>            annotations = 6;
     map<string, string>            tolerations = 7;
-    gateway.jobs.private.v1.Status status      = 8;
-    int64                          access_time = 9;
-    int64                          create_time = 10;
-    int64                          update_time = 11;
+    gateway.jobs.private.v1.Result result      = 8;
+    gateway.jobs.private.v1.Status status      = 9;
+    int64                          access_time = 10;
+    int64                          create_time = 11;
+    int64                          update_time = 12;
+}
+
+message Result {
+    string description = 1;
+    int64  create_time = 2;
 }
