@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package audit.private.v1;
+
+import "audit/private/v1/entities.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/audit/private/v1;auditpb";
+
+message CreateEventPacket {
+    Event event = 1;
+}
+
+message UpdateEventPacket {
+    Event event = 1;
+}

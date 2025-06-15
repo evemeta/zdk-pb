@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package media.private.v1;
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/media/private/v1;mediapb";
+
+enum MediaType {
+    MediaTypeUnknown = 0;
+    MediaTypeVideo = 1;
+    MediaTypeAudio = 2;
+    MediaTypeData = 3;
+}
+
+enum InputType {
+    InputTypeUnknown = 0;
+    InputTypeWebRTCWebcamMicrophone = 1;
+    InputTypeWebRTCScreenshare = 2;
+    InputTypeRTMP = 3;
+    InputTypeWHIP = 4;
+}

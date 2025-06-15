@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package audit.private.v1;
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/audit/private/v1;auditpb";
+
+enum IssueType {
+    IssueTypeUnknown = 0;
+    IssueTypeMuted = 1;
+    IssueTypeNetwork = 2;
+    IssueTypeAdultContent = 3;
+    IssueTypeNoFace = 4;
+    IssueTypeNoHuman = 5;
+    IssueTypeMultipleHumans = 6;
+    IssueTypeConversation = 7;
+    IssueTypeNoMedia = 8;
+}
+
+enum Source {
+    SourceUnknown = 0;
+    SourceMCU = 1;
+    SourceSFU = 2;
+}

@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package audit.private.v1;
+
+import "audit/private/v1/enums.proto";
+import "media/private/v1/enums.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/audit/private/v1;auditpb";
+
+message Event {
+    string                      id         = 1;
+    IssueType                   issue      = 2;
+    media.private.v1.MediaType  media_type = 3;
+    media.private.v1.MediaType  input_type = 4;
+    string                      user_id    = 5;
+    string                      room_id    = 6;
+    Source                      source     = 7;
+    int64                       start_time = 8;
+    int64                       end_time   = 9;
+}
