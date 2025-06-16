@@ -27,7 +27,7 @@ type Event struct {
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Issue         IssueType              `protobuf:"varint,2,opt,name=issue,proto3,enum=audit.private.v1.IssueType" json:"issue,omitempty"`
 	MediaType     v1.MediaType           `protobuf:"varint,3,opt,name=media_type,json=mediaType,proto3,enum=media.private.v1.MediaType" json:"media_type,omitempty"`
-	InputType     v1.MediaType           `protobuf:"varint,4,opt,name=input_type,json=inputType,proto3,enum=media.private.v1.MediaType" json:"input_type,omitempty"`
+	InputType     v1.InputType           `protobuf:"varint,4,opt,name=input_type,json=inputType,proto3,enum=media.private.v1.InputType" json:"input_type,omitempty"`
 	UserId        string                 `protobuf:"bytes,5,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	RoomId        string                 `protobuf:"bytes,6,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
 	Source        Source                 `protobuf:"varint,7,opt,name=source,proto3,enum=audit.private.v1.Source" json:"source,omitempty"`
@@ -88,11 +88,11 @@ func (x *Event) GetMediaType() v1.MediaType {
 	return v1.MediaType(0)
 }
 
-func (x *Event) GetInputType() v1.MediaType {
+func (x *Event) GetInputType() v1.InputType {
 	if x != nil {
 		return x.InputType
 	}
-	return v1.MediaType(0)
+	return v1.InputType(0)
 }
 
 func (x *Event) GetUserId() string {
@@ -141,7 +141,7 @@ const file_audit_private_v1_entities_proto_rawDesc = "" +
 	"\n" +
 	"media_type\x18\x03 \x01(\x0e2\x1b.media.private.v1.MediaTypeR\tmediaType\x12:\n" +
 	"\n" +
-	"input_type\x18\x04 \x01(\x0e2\x1b.media.private.v1.MediaTypeR\tinputType\x12\x17\n" +
+	"input_type\x18\x04 \x01(\x0e2\x1b.media.private.v1.InputTypeR\tinputType\x12\x17\n" +
 	"\auser_id\x18\x05 \x01(\tR\x06userId\x12\x17\n" +
 	"\aroom_id\x18\x06 \x01(\tR\x06roomId\x120\n" +
 	"\x06source\x18\a \x01(\x0e2\x18.audit.private.v1.SourceR\x06source\x12\x1d\n" +
@@ -166,13 +166,14 @@ var file_audit_private_v1_entities_proto_goTypes = []any{
 	(*Event)(nil),     // 0: audit.private.v1.Event
 	(IssueType)(0),    // 1: audit.private.v1.IssueType
 	(v1.MediaType)(0), // 2: media.private.v1.MediaType
-	(Source)(0),       // 3: audit.private.v1.Source
+	(v1.InputType)(0), // 3: media.private.v1.InputType
+	(Source)(0),       // 4: audit.private.v1.Source
 }
 var file_audit_private_v1_entities_proto_depIdxs = []int32{
 	1, // 0: audit.private.v1.Event.issue:type_name -> audit.private.v1.IssueType
 	2, // 1: audit.private.v1.Event.media_type:type_name -> media.private.v1.MediaType
-	2, // 2: audit.private.v1.Event.input_type:type_name -> media.private.v1.MediaType
-	3, // 3: audit.private.v1.Event.source:type_name -> audit.private.v1.Source
+	3, // 2: audit.private.v1.Event.input_type:type_name -> media.private.v1.InputType
+	4, // 3: audit.private.v1.Event.source:type_name -> audit.private.v1.Source
 	4, // [4:4] is the sub-list for method output_type
 	4, // [4:4] is the sub-list for method input_type
 	4, // [4:4] is the sub-list for extension type_name

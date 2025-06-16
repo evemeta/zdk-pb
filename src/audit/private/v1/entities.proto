@@ -11,7 +11,7 @@ message Event {
     string                      id         = 1;
     IssueType                   issue      = 2;
     media.private.v1.MediaType  media_type = 3;
-    media.private.v1.MediaType  input_type = 4;
+    media.private.v1.InputType  input_type = 4;
     string                      user_id    = 5;
     string                      room_id    = 6;
     Source                      source     = 7;
