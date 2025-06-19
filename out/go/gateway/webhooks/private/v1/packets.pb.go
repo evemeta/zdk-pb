@@ -78,8 +78,10 @@ type UpdateWebhookPacket struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Url           *OptionalString        `protobuf:"bytes,2,opt,name=url,proto3,oneof" json:"url,omitempty"`
-	Protocol      *OptionalProtocol      `protobuf:"bytes,3,opt,name=protocol,proto3,oneof" json:"protocol,omitempty"`
-	Timeframe     *v1.Timeframe          `protobuf:"bytes,4,opt,name=timeframe,proto3" json:"timeframe,omitempty"`
+	Method        *OptionalMethod        `protobuf:"bytes,3,opt,name=method,proto3,oneof" json:"method,omitempty"`
+	Headers       *OptionalMap           `protobuf:"bytes,4,opt,name=headers,proto3,oneof" json:"headers,omitempty"`
+	Protocol      *OptionalProtocol      `protobuf:"bytes,5,opt,name=protocol,proto3,oneof" json:"protocol,omitempty"`
+	Timeframe     *v1.Timeframe          `protobuf:"bytes,6,opt,name=timeframe,proto3" json:"timeframe,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -124,6 +126,20 @@ func (x *UpdateWebhookPacket) GetId() string {
 func (x *UpdateWebhookPacket) GetUrl() *OptionalString {
 	if x != nil {
 		return x.Url
+	}
+	return nil
+}
+
+func (x *UpdateWebhookPacket) GetMethod() *OptionalMethod {
+	if x != nil {
+		return x.Method
+	}
+	return nil
+}
+
+func (x *UpdateWebhookPacket) GetHeaders() *OptionalMap {
+	if x != nil {
+		return x.Headers
 	}
 	return nil
 }
@@ -201,13 +217,18 @@ const file_gateway_webhooks_private_v1_packets_proto_rawDesc = "" +
 	")gateway/webhooks/private/v1/packets.proto\x12\x1bgateway.webhooks.private.v1\x1a*gateway/webhooks/private/v1/entities.proto\x1a+gateway/webhooks/private/v1/optionals.proto\x1a*common/timeframes/public/v1/entities.proto\"\x9b\x01\n" +
 	"\x13CreateWebhookPacket\x12>\n" +
 	"\awebhook\x18\x01 \x01(\v2$.gateway.webhooks.private.v1.WebhookR\awebhook\x12D\n" +
-	"\ttimeframe\x18\x02 \x01(\v2&.common.timeframes.public.v1.TimeframeR\ttimeframe\"\x94\x02\n" +
+	"\ttimeframe\x18\x02 \x01(\v2&.common.timeframes.public.v1.TimeframeR\ttimeframe\"\xbe\x03\n" +
 	"\x13UpdateWebhookPacket\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12B\n" +
-	"\x03url\x18\x02 \x01(\v2+.gateway.webhooks.private.v1.OptionalStringH\x00R\x03url\x88\x01\x01\x12N\n" +
-	"\bprotocol\x18\x03 \x01(\v2-.gateway.webhooks.private.v1.OptionalProtocolH\x01R\bprotocol\x88\x01\x01\x12D\n" +
-	"\ttimeframe\x18\x04 \x01(\v2&.common.timeframes.public.v1.TimeframeR\ttimeframeB\x06\n" +
-	"\x04_urlB\v\n" +
+	"\x03url\x18\x02 \x01(\v2+.gateway.webhooks.private.v1.OptionalStringH\x00R\x03url\x88\x01\x01\x12H\n" +
+	"\x06method\x18\x03 \x01(\v2+.gateway.webhooks.private.v1.OptionalMethodH\x01R\x06method\x88\x01\x01\x12G\n" +
+	"\aheaders\x18\x04 \x01(\v2(.gateway.webhooks.private.v1.OptionalMapH\x02R\aheaders\x88\x01\x01\x12N\n" +
+	"\bprotocol\x18\x05 \x01(\v2-.gateway.webhooks.private.v1.OptionalProtocolH\x03R\bprotocol\x88\x01\x01\x12D\n" +
+	"\ttimeframe\x18\x06 \x01(\v2&.common.timeframes.public.v1.TimeframeR\ttimeframeB\x06\n" +
+	"\x04_urlB\t\n" +
+	"\a_methodB\n" +
+	"\n" +
+	"\b_headersB\v\n" +
 	"\t_protocol\"k\n" +
 	"\x13DeleteWebhookPacket\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12D\n" +
@@ -233,20 +254,24 @@ var file_gateway_webhooks_private_v1_packets_proto_goTypes = []any{
 	(*Webhook)(nil),             // 3: gateway.webhooks.private.v1.Webhook
 	(*v1.Timeframe)(nil),        // 4: common.timeframes.public.v1.Timeframe
 	(*OptionalString)(nil),      // 5: gateway.webhooks.private.v1.OptionalString
-	(*OptionalProtocol)(nil),    // 6: gateway.webhooks.private.v1.OptionalProtocol
+	(*OptionalMethod)(nil),      // 6: gateway.webhooks.private.v1.OptionalMethod
+	(*OptionalMap)(nil),         // 7: gateway.webhooks.private.v1.OptionalMap
+	(*OptionalProtocol)(nil),    // 8: gateway.webhooks.private.v1.OptionalProtocol
 }
 var file_gateway_webhooks_private_v1_packets_proto_depIdxs = []int32{
 	3, // 0: gateway.webhooks.private.v1.CreateWebhookPacket.webhook:type_name -> gateway.webhooks.private.v1.Webhook
 	4, // 1: gateway.webhooks.private.v1.CreateWebhookPacket.timeframe:type_name -> common.timeframes.public.v1.Timeframe
 	5, // 2: gateway.webhooks.private.v1.UpdateWebhookPacket.url:type_name -> gateway.webhooks.private.v1.OptionalString
-	6, // 3: gateway.webhooks.private.v1.UpdateWebhookPacket.protocol:type_name -> gateway.webhooks.private.v1.OptionalProtocol
-	4, // 4: gateway.webhooks.private.v1.UpdateWebhookPacket.timeframe:type_name -> common.timeframes.public.v1.Timeframe
-	4, // 5: gateway.webhooks.private.v1.DeleteWebhookPacket.timeframe:type_name -> common.timeframes.public.v1.Timeframe
-	6, // [6:6] is the sub-list for method output_type
-	6, // [6:6] is the sub-list for method input_type
-	6, // [6:6] is the sub-list for extension type_name
-	6, // [6:6] is the sub-list for extension extendee
-	0, // [0:6] is the sub-list for field type_name
+	6, // 3: gateway.webhooks.private.v1.UpdateWebhookPacket.method:type_name -> gateway.webhooks.private.v1.OptionalMethod
+	7, // 4: gateway.webhooks.private.v1.UpdateWebhookPacket.headers:type_name -> gateway.webhooks.private.v1.OptionalMap
+	8, // 5: gateway.webhooks.private.v1.UpdateWebhookPacket.protocol:type_name -> gateway.webhooks.private.v1.OptionalProtocol
+	4, // 6: gateway.webhooks.private.v1.UpdateWebhookPacket.timeframe:type_name -> common.timeframes.public.v1.Timeframe
+	4, // 7: gateway.webhooks.private.v1.DeleteWebhookPacket.timeframe:type_name -> common.timeframes.public.v1.Timeframe
+	8, // [8:8] is the sub-list for method output_type
+	8, // [8:8] is the sub-list for method input_type
+	8, // [8:8] is the sub-list for extension type_name
+	8, // [8:8] is the sub-list for extension extendee
+	0, // [0:8] is the sub-list for field type_name
 }
 
 func init() { file_gateway_webhooks_private_v1_packets_proto_init() }

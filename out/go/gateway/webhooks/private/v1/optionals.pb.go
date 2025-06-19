@@ -21,8 +21,50 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// OptionalString represents a string value that can be intentionally left unset or null.
-// It allows for explicit control over the presence or absence of the string, accommodating scenarios where the string might be optional or intentionally omitted.
+type OptionalMap struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Value         map[string]string      `protobuf:"bytes,1,rep,name=value,proto3" json:"value,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OptionalMap) Reset() {
+	*x = OptionalMap{}
+	mi := &file_gateway_webhooks_private_v1_optionals_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OptionalMap) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OptionalMap) ProtoMessage() {}
+
+func (x *OptionalMap) ProtoReflect() protoreflect.Message {
+	mi := &file_gateway_webhooks_private_v1_optionals_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OptionalMap.ProtoReflect.Descriptor instead.
+func (*OptionalMap) Descriptor() ([]byte, []int) {
+	return file_gateway_webhooks_private_v1_optionals_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *OptionalMap) GetValue() map[string]string {
+	if x != nil {
+		return x.Value
+	}
+	return nil
+}
+
 type OptionalString struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Value         string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
@@ -32,7 +74,7 @@ type OptionalString struct {
 
 func (x *OptionalString) Reset() {
 	*x = OptionalString{}
-	mi := &file_gateway_webhooks_private_v1_optionals_proto_msgTypes[0]
+	mi := &file_gateway_webhooks_private_v1_optionals_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -44,7 +86,7 @@ func (x *OptionalString) String() string {
 func (*OptionalString) ProtoMessage() {}
 
 func (x *OptionalString) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_webhooks_private_v1_optionals_proto_msgTypes[0]
+	mi := &file_gateway_webhooks_private_v1_optionals_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -57,7 +99,7 @@ func (x *OptionalString) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OptionalString.ProtoReflect.Descriptor instead.
 func (*OptionalString) Descriptor() ([]byte, []int) {
-	return file_gateway_webhooks_private_v1_optionals_proto_rawDescGZIP(), []int{0}
+	return file_gateway_webhooks_private_v1_optionals_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *OptionalString) GetValue() string {
@@ -67,8 +109,50 @@ func (x *OptionalString) GetValue() string {
 	return ""
 }
 
-// OptionalProtocol allows explicit control over the presence of a Protocol.
-// It supports scenarios where the protocol may be optional or intentionally unset.
+type OptionalMethod struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Value         Method                 `protobuf:"varint,1,opt,name=value,proto3,enum=gateway.webhooks.private.v1.Method" json:"value,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OptionalMethod) Reset() {
+	*x = OptionalMethod{}
+	mi := &file_gateway_webhooks_private_v1_optionals_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OptionalMethod) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OptionalMethod) ProtoMessage() {}
+
+func (x *OptionalMethod) ProtoReflect() protoreflect.Message {
+	mi := &file_gateway_webhooks_private_v1_optionals_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OptionalMethod.ProtoReflect.Descriptor instead.
+func (*OptionalMethod) Descriptor() ([]byte, []int) {
+	return file_gateway_webhooks_private_v1_optionals_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *OptionalMethod) GetValue() Method {
+	if x != nil {
+		return x.Value
+	}
+	return MethodUnknown
+}
+
 type OptionalProtocol struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Value         Protocol               `protobuf:"varint,1,opt,name=value,proto3,enum=gateway.webhooks.private.v1.Protocol" json:"value,omitempty"`
@@ -78,7 +162,7 @@ type OptionalProtocol struct {
 
 func (x *OptionalProtocol) Reset() {
 	*x = OptionalProtocol{}
-	mi := &file_gateway_webhooks_private_v1_optionals_proto_msgTypes[1]
+	mi := &file_gateway_webhooks_private_v1_optionals_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -90,7 +174,7 @@ func (x *OptionalProtocol) String() string {
 func (*OptionalProtocol) ProtoMessage() {}
 
 func (x *OptionalProtocol) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_webhooks_private_v1_optionals_proto_msgTypes[1]
+	mi := &file_gateway_webhooks_private_v1_optionals_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -103,7 +187,7 @@ func (x *OptionalProtocol) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OptionalProtocol.ProtoReflect.Descriptor instead.
 func (*OptionalProtocol) Descriptor() ([]byte, []int) {
-	return file_gateway_webhooks_private_v1_optionals_proto_rawDescGZIP(), []int{1}
+	return file_gateway_webhooks_private_v1_optionals_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *OptionalProtocol) GetValue() Protocol {
@@ -117,9 +201,17 @@ var File_gateway_webhooks_private_v1_optionals_proto protoreflect.FileDescriptor
 
 const file_gateway_webhooks_private_v1_optionals_proto_rawDesc = "" +
 	"\n" +
-	"+gateway/webhooks/private/v1/optionals.proto\x12\x1bgateway.webhooks.private.v1\x1a'gateway/webhooks/private/v1/enums.proto\"&\n" +
+	"+gateway/webhooks/private/v1/optionals.proto\x12\x1bgateway.webhooks.private.v1\x1a'gateway/webhooks/private/v1/enums.proto\"\x92\x01\n" +
+	"\vOptionalMap\x12I\n" +
+	"\x05value\x18\x01 \x03(\v23.gateway.webhooks.private.v1.OptionalMap.ValueEntryR\x05value\x1a8\n" +
+	"\n" +
+	"ValueEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"&\n" +
 	"\x0eOptionalString\x12\x14\n" +
-	"\x05value\x18\x01 \x01(\tR\x05value\"O\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\"K\n" +
+	"\x0eOptionalMethod\x129\n" +
+	"\x05value\x18\x01 \x01(\x0e2#.gateway.webhooks.private.v1.MethodR\x05value\"O\n" +
 	"\x10OptionalProtocol\x12;\n" +
 	"\x05value\x18\x01 \x01(\x0e2%.gateway.webhooks.private.v1.ProtocolR\x05valueBIZGgitlab.com/evemeta/zdk/pb/out/go/gateway/webhooks/private/v1;webhookspbb\x06proto3"
 
@@ -135,19 +227,25 @@ func file_gateway_webhooks_private_v1_optionals_proto_rawDescGZIP() []byte {
 	return file_gateway_webhooks_private_v1_optionals_proto_rawDescData
 }
 
-var file_gateway_webhooks_private_v1_optionals_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_gateway_webhooks_private_v1_optionals_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_gateway_webhooks_private_v1_optionals_proto_goTypes = []any{
-	(*OptionalString)(nil),   // 0: gateway.webhooks.private.v1.OptionalString
-	(*OptionalProtocol)(nil), // 1: gateway.webhooks.private.v1.OptionalProtocol
-	(Protocol)(0),            // 2: gateway.webhooks.private.v1.Protocol
+	(*OptionalMap)(nil),      // 0: gateway.webhooks.private.v1.OptionalMap
+	(*OptionalString)(nil),   // 1: gateway.webhooks.private.v1.OptionalString
+	(*OptionalMethod)(nil),   // 2: gateway.webhooks.private.v1.OptionalMethod
+	(*OptionalProtocol)(nil), // 3: gateway.webhooks.private.v1.OptionalProtocol
+	nil,                      // 4: gateway.webhooks.private.v1.OptionalMap.ValueEntry
+	(Method)(0),              // 5: gateway.webhooks.private.v1.Method
+	(Protocol)(0),            // 6: gateway.webhooks.private.v1.Protocol
 }
 var file_gateway_webhooks_private_v1_optionals_proto_depIdxs = []int32{
-	2, // 0: gateway.webhooks.private.v1.OptionalProtocol.value:type_name -> gateway.webhooks.private.v1.Protocol
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	4, // 0: gateway.webhooks.private.v1.OptionalMap.value:type_name -> gateway.webhooks.private.v1.OptionalMap.ValueEntry
+	5, // 1: gateway.webhooks.private.v1.OptionalMethod.value:type_name -> gateway.webhooks.private.v1.Method
+	6, // 2: gateway.webhooks.private.v1.OptionalProtocol.value:type_name -> gateway.webhooks.private.v1.Protocol
+	3, // [3:3] is the sub-list for method output_type
+	3, // [3:3] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_gateway_webhooks_private_v1_optionals_proto_init() }
@@ -162,7 +260,7 @@ func file_gateway_webhooks_private_v1_optionals_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_gateway_webhooks_private_v1_optionals_proto_rawDesc), len(file_gateway_webhooks_private_v1_optionals_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

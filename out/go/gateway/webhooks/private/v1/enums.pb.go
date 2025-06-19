@@ -21,6 +21,61 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type Method int32
+
+const (
+	MethodUnknown Method = 0
+	MethodPut     Method = 1
+	MethodPost    Method = 2
+	MethodPatch   Method = 3
+	MethodDelete  Method = 4
+)
+
+// Enum value maps for Method.
+var (
+	Method_name = map[int32]string{
+		0: "MethodUnknown",
+		1: "MethodPut",
+		2: "MethodPost",
+		3: "MethodPatch",
+		4: "MethodDelete",
+	}
+	Method_value = map[string]int32{
+		"MethodUnknown": 0,
+		"MethodPut":     1,
+		"MethodPost":    2,
+		"MethodPatch":   3,
+		"MethodDelete":  4,
+	}
+)
+
+func (x Method) Enum() *Method {
+	p := new(Method)
+	*p = x
+	return p
+}
+
+func (x Method) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (Method) Descriptor() protoreflect.EnumDescriptor {
+	return file_gateway_webhooks_private_v1_enums_proto_enumTypes[0].Descriptor()
+}
+
+func (Method) Type() protoreflect.EnumType {
+	return &file_gateway_webhooks_private_v1_enums_proto_enumTypes[0]
+}
+
+func (x Method) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use Method.Descriptor instead.
+func (Method) EnumDescriptor() ([]byte, []int) {
+	return file_gateway_webhooks_private_v1_enums_proto_rawDescGZIP(), []int{0}
+}
+
 type Protocol int32
 
 const (
@@ -54,11 +109,11 @@ func (x Protocol) String() string {
 }
 
 func (Protocol) Descriptor() protoreflect.EnumDescriptor {
-	return file_gateway_webhooks_private_v1_enums_proto_enumTypes[0].Descriptor()
+	return file_gateway_webhooks_private_v1_enums_proto_enumTypes[1].Descriptor()
 }
 
 func (Protocol) Type() protoreflect.EnumType {
-	return &file_gateway_webhooks_private_v1_enums_proto_enumTypes[0]
+	return &file_gateway_webhooks_private_v1_enums_proto_enumTypes[1]
 }
 
 func (x Protocol) Number() protoreflect.EnumNumber {
@@ -67,14 +122,21 @@ func (x Protocol) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Protocol.Descriptor instead.
 func (Protocol) EnumDescriptor() ([]byte, []int) {
-	return file_gateway_webhooks_private_v1_enums_proto_rawDescGZIP(), []int{0}
+	return file_gateway_webhooks_private_v1_enums_proto_rawDescGZIP(), []int{1}
 }
 
 var File_gateway_webhooks_private_v1_enums_proto protoreflect.FileDescriptor
 
 const file_gateway_webhooks_private_v1_enums_proto_rawDesc = "" +
 	"\n" +
-	"'gateway/webhooks/private/v1/enums.proto\x12\x1bgateway.webhooks.private.v1*E\n" +
+	"'gateway/webhooks/private/v1/enums.proto\x12\x1bgateway.webhooks.private.v1*]\n" +
+	"\x06Method\x12\x11\n" +
+	"\rMethodUnknown\x10\x00\x12\r\n" +
+	"\tMethodPut\x10\x01\x12\x0e\n" +
+	"\n" +
+	"MethodPost\x10\x02\x12\x0f\n" +
+	"\vMethodPatch\x10\x03\x12\x10\n" +
+	"\fMethodDelete\x10\x04*E\n" +
 	"\bProtocol\x12\x13\n" +
 	"\x0fProtocolUnknown\x10\x00\x12\x10\n" +
 	"\fProtocolText\x10\x01\x12\x12\n" +
@@ -92,9 +154,10 @@ func file_gateway_webhooks_private_v1_enums_proto_rawDescGZIP() []byte {
 	return file_gateway_webhooks_private_v1_enums_proto_rawDescData
 }
 
-var file_gateway_webhooks_private_v1_enums_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_gateway_webhooks_private_v1_enums_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
 var file_gateway_webhooks_private_v1_enums_proto_goTypes = []any{
-	(Protocol)(0), // 0: gateway.webhooks.private.v1.Protocol
+	(Method)(0),   // 0: gateway.webhooks.private.v1.Method
+	(Protocol)(0), // 1: gateway.webhooks.private.v1.Protocol
 }
 var file_gateway_webhooks_private_v1_enums_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -114,7 +177,7 @@ func file_gateway_webhooks_private_v1_enums_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_gateway_webhooks_private_v1_enums_proto_rawDesc), len(file_gateway_webhooks_private_v1_enums_proto_rawDesc)),
-			NumEnums:      1,
+			NumEnums:      2,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   0,

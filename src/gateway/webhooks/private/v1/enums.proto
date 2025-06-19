@@ -4,6 +4,14 @@ package gateway.webhooks.private.v1;
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/webhooks/private/v1;webhookspb";
 
+enum Method {
+    MethodUnknown = 0;
+    MethodPut = 1;
+    MethodPost = 2;
+    MethodPatch = 3;
+    MethodDelete = 4;
+}
+
 enum Protocol {
     ProtocolUnknown = 0;
     ProtocolText    = 1;

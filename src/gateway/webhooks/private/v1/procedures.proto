@@ -52,7 +52,9 @@ message SelectResponse {
 message CreateArgument {
     string                               id       = 1;
     string                               url      = 2;
-    gateway.webhooks.private.v1.Protocol protocol = 3;
+    gateway.webhooks.private.v1.Method   method   = 3;
+    map<string, string>                  headers  = 4;
+    gateway.webhooks.private.v1.Protocol protocol = 5;
 }
 
 message CreateRequest {
@@ -77,7 +79,9 @@ message CreateTransaction {
 message UpdateArgument {
     gateway.webhooks.private.v1.Query                     query    = 1;
     optional gateway.webhooks.private.v1.OptionalString   url      = 2;
-    optional gateway.webhooks.private.v1.OptionalProtocol protocol = 3;
+    optional gateway.webhooks.private.v1.OptionalMethod   method   = 3;
+    optional gateway.webhooks.private.v1.OptionalMap      headers  = 4;
+    optional gateway.webhooks.private.v1.OptionalProtocol protocol = 5;
 }
 
 message UpdateRequest {

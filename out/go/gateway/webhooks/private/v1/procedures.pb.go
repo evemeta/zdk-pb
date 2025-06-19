@@ -447,7 +447,9 @@ type CreateArgument struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Url           string                 `protobuf:"bytes,2,opt,name=url,proto3" json:"url,omitempty"`
-	Protocol      Protocol               `protobuf:"varint,3,opt,name=protocol,proto3,enum=gateway.webhooks.private.v1.Protocol" json:"protocol,omitempty"`
+	Method        Method                 `protobuf:"varint,3,opt,name=method,proto3,enum=gateway.webhooks.private.v1.Method" json:"method,omitempty"`
+	Headers       map[string]string      `protobuf:"bytes,4,rep,name=headers,proto3" json:"headers,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Protocol      Protocol               `protobuf:"varint,5,opt,name=protocol,proto3,enum=gateway.webhooks.private.v1.Protocol" json:"protocol,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -494,6 +496,20 @@ func (x *CreateArgument) GetUrl() string {
 		return x.Url
 	}
 	return ""
+}
+
+func (x *CreateArgument) GetMethod() Method {
+	if x != nil {
+		return x.Method
+	}
+	return MethodUnknown
+}
+
+func (x *CreateArgument) GetHeaders() map[string]string {
+	if x != nil {
+		return x.Headers
+	}
+	return nil
 }
 
 func (x *CreateArgument) GetProtocol() Protocol {
@@ -707,7 +723,9 @@ type UpdateArgument struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Query         *Query                 `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
 	Url           *OptionalString        `protobuf:"bytes,2,opt,name=url,proto3,oneof" json:"url,omitempty"`
-	Protocol      *OptionalProtocol      `protobuf:"bytes,3,opt,name=protocol,proto3,oneof" json:"protocol,omitempty"`
+	Method        *OptionalMethod        `protobuf:"bytes,3,opt,name=method,proto3,oneof" json:"method,omitempty"`
+	Headers       *OptionalMap           `protobuf:"bytes,4,opt,name=headers,proto3,oneof" json:"headers,omitempty"`
+	Protocol      *OptionalProtocol      `protobuf:"bytes,5,opt,name=protocol,proto3,oneof" json:"protocol,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -752,6 +770,20 @@ func (x *UpdateArgument) GetQuery() *Query {
 func (x *UpdateArgument) GetUrl() *OptionalString {
 	if x != nil {
 		return x.Url
+	}
+	return nil
+}
+
+func (x *UpdateArgument) GetMethod() *OptionalMethod {
+	if x != nil {
+		return x.Method
+	}
+	return nil
+}
+
+func (x *UpdateArgument) GetHeaders() *OptionalMap {
+	if x != nil {
+		return x.Headers
 	}
 	return nil
 }
@@ -1572,11 +1604,16 @@ const file_gateway_webhooks_private_v1_procedures_proto_rawDesc = "" +
 	"\rSelectRequest\x12I\n" +
 	"\targuments\x18\x01 \x03(\v2+.gateway.webhooks.private.v1.SelectArgumentR\targuments\"R\n" +
 	"\x0eSelectResponse\x12@\n" +
-	"\bwebhooks\x18\x01 \x03(\v2$.gateway.webhooks.private.v1.WebhookR\bwebhooks\"u\n" +
+	"\bwebhooks\x18\x01 \x03(\v2$.gateway.webhooks.private.v1.WebhookR\bwebhooks\"\xc2\x02\n" +
 	"\x0eCreateArgument\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x10\n" +
-	"\x03url\x18\x02 \x01(\tR\x03url\x12A\n" +
-	"\bprotocol\x18\x03 \x01(\x0e2%.gateway.webhooks.private.v1.ProtocolR\bprotocol\"Z\n" +
+	"\x03url\x18\x02 \x01(\tR\x03url\x12;\n" +
+	"\x06method\x18\x03 \x01(\x0e2#.gateway.webhooks.private.v1.MethodR\x06method\x12R\n" +
+	"\aheaders\x18\x04 \x03(\v28.gateway.webhooks.private.v1.CreateArgument.HeadersEntryR\aheaders\x12A\n" +
+	"\bprotocol\x18\x05 \x01(\x0e2%.gateway.webhooks.private.v1.ProtocolR\bprotocol\x1a:\n" +
+	"\fHeadersEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"Z\n" +
 	"\rCreateRequest\x12I\n" +
 	"\targuments\x18\x01 \x03(\v2+.gateway.webhooks.private.v1.CreateArgumentR\targuments\"R\n" +
 	"\x0eCreateResponse\x12@\n" +
@@ -1589,12 +1626,17 @@ const file_gateway_webhooks_private_v1_procedures_proto_rawDesc = "" +
 	"\x0fbegin_timestamp\x18\x03 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
 	"\x0fclose_timestamp\x18\x04 \x01(\x03R\x0ecloseTimestamp\"^\n" +
 	"\x11CreateTransaction\x12I\n" +
-	"\tmutations\x18\x01 \x03(\v2+.gateway.webhooks.private.v1.CreateMutationR\tmutations\"\xf3\x01\n" +
+	"\tmutations\x18\x01 \x03(\v2+.gateway.webhooks.private.v1.CreateMutationR\tmutations\"\x9d\x03\n" +
 	"\x0eUpdateArgument\x128\n" +
 	"\x05query\x18\x01 \x01(\v2\".gateway.webhooks.private.v1.QueryR\x05query\x12B\n" +
-	"\x03url\x18\x02 \x01(\v2+.gateway.webhooks.private.v1.OptionalStringH\x00R\x03url\x88\x01\x01\x12N\n" +
-	"\bprotocol\x18\x03 \x01(\v2-.gateway.webhooks.private.v1.OptionalProtocolH\x01R\bprotocol\x88\x01\x01B\x06\n" +
-	"\x04_urlB\v\n" +
+	"\x03url\x18\x02 \x01(\v2+.gateway.webhooks.private.v1.OptionalStringH\x00R\x03url\x88\x01\x01\x12H\n" +
+	"\x06method\x18\x03 \x01(\v2+.gateway.webhooks.private.v1.OptionalMethodH\x01R\x06method\x88\x01\x01\x12G\n" +
+	"\aheaders\x18\x04 \x01(\v2(.gateway.webhooks.private.v1.OptionalMapH\x02R\aheaders\x88\x01\x01\x12N\n" +
+	"\bprotocol\x18\x05 \x01(\v2-.gateway.webhooks.private.v1.OptionalProtocolH\x03R\bprotocol\x88\x01\x01B\x06\n" +
+	"\x04_urlB\t\n" +
+	"\a_methodB\n" +
+	"\n" +
+	"\b_headersB\v\n" +
 	"\t_protocol\"Z\n" +
 	"\rUpdateRequest\x12I\n" +
 	"\targuments\x18\x01 \x03(\v2+.gateway.webhooks.private.v1.UpdateArgumentR\targuments\"R\n" +
@@ -1657,7 +1699,7 @@ func file_gateway_webhooks_private_v1_procedures_proto_rawDescGZIP() []byte {
 	return file_gateway_webhooks_private_v1_procedures_proto_rawDescData
 }
 
-var file_gateway_webhooks_private_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 31)
+var file_gateway_webhooks_private_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 32)
 var file_gateway_webhooks_private_v1_procedures_proto_goTypes = []any{
 	(*CountArgument)(nil),        // 0: gateway.webhooks.private.v1.CountArgument
 	(*CountRequest)(nil),         // 1: gateway.webhooks.private.v1.CountRequest
@@ -1690,58 +1732,66 @@ var file_gateway_webhooks_private_v1_procedures_proto_goTypes = []any{
 	(*DeleteCondition)(nil),      // 28: gateway.webhooks.private.v1.DeleteCondition
 	(*DeleteMutation)(nil),       // 29: gateway.webhooks.private.v1.DeleteMutation
 	(*DeleteTransaction)(nil),    // 30: gateway.webhooks.private.v1.DeleteTransaction
-	(*Query)(nil),                // 31: gateway.webhooks.private.v1.Query
-	(*Chunk)(nil),                // 32: gateway.webhooks.private.v1.Chunk
-	(*Webhook)(nil),              // 33: gateway.webhooks.private.v1.Webhook
-	(Protocol)(0),                // 34: gateway.webhooks.private.v1.Protocol
-	(*Transient)(nil),            // 35: gateway.webhooks.private.v1.Transient
-	(*OptionalString)(nil),       // 36: gateway.webhooks.private.v1.OptionalString
-	(*OptionalProtocol)(nil),     // 37: gateway.webhooks.private.v1.OptionalProtocol
-	(*v1.Message)(nil),           // 38: common.messages.public.v1.Message
-	(*v11.DeleteMutation)(nil),   // 39: gateway.transponders.private.v1.DeleteMutation
+	nil,                          // 31: gateway.webhooks.private.v1.CreateArgument.HeadersEntry
+	(*Query)(nil),                // 32: gateway.webhooks.private.v1.Query
+	(*Chunk)(nil),                // 33: gateway.webhooks.private.v1.Chunk
+	(*Webhook)(nil),              // 34: gateway.webhooks.private.v1.Webhook
+	(Method)(0),                  // 35: gateway.webhooks.private.v1.Method
+	(Protocol)(0),                // 36: gateway.webhooks.private.v1.Protocol
+	(*Transient)(nil),            // 37: gateway.webhooks.private.v1.Transient
+	(*OptionalString)(nil),       // 38: gateway.webhooks.private.v1.OptionalString
+	(*OptionalMethod)(nil),       // 39: gateway.webhooks.private.v1.OptionalMethod
+	(*OptionalMap)(nil),          // 40: gateway.webhooks.private.v1.OptionalMap
+	(*OptionalProtocol)(nil),     // 41: gateway.webhooks.private.v1.OptionalProtocol
+	(*v1.Message)(nil),           // 42: common.messages.public.v1.Message
+	(*v11.DeleteMutation)(nil),   // 43: gateway.transponders.private.v1.DeleteMutation
 }
 var file_gateway_webhooks_private_v1_procedures_proto_depIdxs = []int32{
-	31, // 0: gateway.webhooks.private.v1.CountArgument.query:type_name -> gateway.webhooks.private.v1.Query
+	32, // 0: gateway.webhooks.private.v1.CountArgument.query:type_name -> gateway.webhooks.private.v1.Query
 	0,  // 1: gateway.webhooks.private.v1.CountRequest.arguments:type_name -> gateway.webhooks.private.v1.CountArgument
-	31, // 2: gateway.webhooks.private.v1.RangeArgument.query:type_name -> gateway.webhooks.private.v1.Query
+	32, // 2: gateway.webhooks.private.v1.RangeArgument.query:type_name -> gateway.webhooks.private.v1.Query
 	3,  // 3: gateway.webhooks.private.v1.RangeRequest.arguments:type_name -> gateway.webhooks.private.v1.RangeArgument
-	32, // 4: gateway.webhooks.private.v1.RangeResponse.chunks:type_name -> gateway.webhooks.private.v1.Chunk
-	31, // 5: gateway.webhooks.private.v1.SelectArgument.query:type_name -> gateway.webhooks.private.v1.Query
+	33, // 4: gateway.webhooks.private.v1.RangeResponse.chunks:type_name -> gateway.webhooks.private.v1.Chunk
+	32, // 5: gateway.webhooks.private.v1.SelectArgument.query:type_name -> gateway.webhooks.private.v1.Query
 	6,  // 6: gateway.webhooks.private.v1.SelectRequest.arguments:type_name -> gateway.webhooks.private.v1.SelectArgument
-	33, // 7: gateway.webhooks.private.v1.SelectResponse.webhooks:type_name -> gateway.webhooks.private.v1.Webhook
-	34, // 8: gateway.webhooks.private.v1.CreateArgument.protocol:type_name -> gateway.webhooks.private.v1.Protocol
-	9,  // 9: gateway.webhooks.private.v1.CreateRequest.arguments:type_name -> gateway.webhooks.private.v1.CreateArgument
-	33, // 10: gateway.webhooks.private.v1.CreateResponse.webhooks:type_name -> gateway.webhooks.private.v1.Webhook
-	9,  // 11: gateway.webhooks.private.v1.CreateMutation.foundation:type_name -> gateway.webhooks.private.v1.CreateArgument
-	35, // 12: gateway.webhooks.private.v1.CreateMutation.transient:type_name -> gateway.webhooks.private.v1.Transient
-	12, // 13: gateway.webhooks.private.v1.CreateTransaction.mutations:type_name -> gateway.webhooks.private.v1.CreateMutation
-	31, // 14: gateway.webhooks.private.v1.UpdateArgument.query:type_name -> gateway.webhooks.private.v1.Query
-	36, // 15: gateway.webhooks.private.v1.UpdateArgument.url:type_name -> gateway.webhooks.private.v1.OptionalString
-	37, // 16: gateway.webhooks.private.v1.UpdateArgument.protocol:type_name -> gateway.webhooks.private.v1.OptionalProtocol
-	14, // 17: gateway.webhooks.private.v1.UpdateRequest.arguments:type_name -> gateway.webhooks.private.v1.UpdateArgument
-	33, // 18: gateway.webhooks.private.v1.UpdateResponse.webhooks:type_name -> gateway.webhooks.private.v1.Webhook
-	14, // 19: gateway.webhooks.private.v1.UpdateMutation.foundation:type_name -> gateway.webhooks.private.v1.UpdateArgument
-	35, // 20: gateway.webhooks.private.v1.UpdateMutation.transient:type_name -> gateway.webhooks.private.v1.Transient
-	17, // 21: gateway.webhooks.private.v1.UpdateTransaction.mutations:type_name -> gateway.webhooks.private.v1.UpdateMutation
-	38, // 22: gateway.webhooks.private.v1.BroadcastArgument.message:type_name -> common.messages.public.v1.Message
-	19, // 23: gateway.webhooks.private.v1.BroadcastRequest.arguments:type_name -> gateway.webhooks.private.v1.BroadcastArgument
-	33, // 24: gateway.webhooks.private.v1.BroadcastCondition.webhooks:type_name -> gateway.webhooks.private.v1.Webhook
-	19, // 25: gateway.webhooks.private.v1.BroadcastMutation.foundation:type_name -> gateway.webhooks.private.v1.BroadcastArgument
-	22, // 26: gateway.webhooks.private.v1.BroadcastMutation.condition:type_name -> gateway.webhooks.private.v1.BroadcastCondition
-	23, // 27: gateway.webhooks.private.v1.BroadcastTransaction.mutations:type_name -> gateway.webhooks.private.v1.BroadcastMutation
-	31, // 28: gateway.webhooks.private.v1.DeleteArgument.query:type_name -> gateway.webhooks.private.v1.Query
-	25, // 29: gateway.webhooks.private.v1.DeleteRequest.arguments:type_name -> gateway.webhooks.private.v1.DeleteArgument
-	33, // 30: gateway.webhooks.private.v1.DeleteResponse.webhooks:type_name -> gateway.webhooks.private.v1.Webhook
-	39, // 31: gateway.webhooks.private.v1.DeleteCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
-	25, // 32: gateway.webhooks.private.v1.DeleteMutation.foundation:type_name -> gateway.webhooks.private.v1.DeleteArgument
-	28, // 33: gateway.webhooks.private.v1.DeleteMutation.condition:type_name -> gateway.webhooks.private.v1.DeleteCondition
-	35, // 34: gateway.webhooks.private.v1.DeleteMutation.transient:type_name -> gateway.webhooks.private.v1.Transient
-	29, // 35: gateway.webhooks.private.v1.DeleteTransaction.mutations:type_name -> gateway.webhooks.private.v1.DeleteMutation
-	36, // [36:36] is the sub-list for method output_type
-	36, // [36:36] is the sub-list for method input_type
-	36, // [36:36] is the sub-list for extension type_name
-	36, // [36:36] is the sub-list for extension extendee
-	0,  // [0:36] is the sub-list for field type_name
+	34, // 7: gateway.webhooks.private.v1.SelectResponse.webhooks:type_name -> gateway.webhooks.private.v1.Webhook
+	35, // 8: gateway.webhooks.private.v1.CreateArgument.method:type_name -> gateway.webhooks.private.v1.Method
+	31, // 9: gateway.webhooks.private.v1.CreateArgument.headers:type_name -> gateway.webhooks.private.v1.CreateArgument.HeadersEntry
+	36, // 10: gateway.webhooks.private.v1.CreateArgument.protocol:type_name -> gateway.webhooks.private.v1.Protocol
+	9,  // 11: gateway.webhooks.private.v1.CreateRequest.arguments:type_name -> gateway.webhooks.private.v1.CreateArgument
+	34, // 12: gateway.webhooks.private.v1.CreateResponse.webhooks:type_name -> gateway.webhooks.private.v1.Webhook
+	9,  // 13: gateway.webhooks.private.v1.CreateMutation.foundation:type_name -> gateway.webhooks.private.v1.CreateArgument
+	37, // 14: gateway.webhooks.private.v1.CreateMutation.transient:type_name -> gateway.webhooks.private.v1.Transient
+	12, // 15: gateway.webhooks.private.v1.CreateTransaction.mutations:type_name -> gateway.webhooks.private.v1.CreateMutation
+	32, // 16: gateway.webhooks.private.v1.UpdateArgument.query:type_name -> gateway.webhooks.private.v1.Query
+	38, // 17: gateway.webhooks.private.v1.UpdateArgument.url:type_name -> gateway.webhooks.private.v1.OptionalString
+	39, // 18: gateway.webhooks.private.v1.UpdateArgument.method:type_name -> gateway.webhooks.private.v1.OptionalMethod
+	40, // 19: gateway.webhooks.private.v1.UpdateArgument.headers:type_name -> gateway.webhooks.private.v1.OptionalMap
+	41, // 20: gateway.webhooks.private.v1.UpdateArgument.protocol:type_name -> gateway.webhooks.private.v1.OptionalProtocol
+	14, // 21: gateway.webhooks.private.v1.UpdateRequest.arguments:type_name -> gateway.webhooks.private.v1.UpdateArgument
+	34, // 22: gateway.webhooks.private.v1.UpdateResponse.webhooks:type_name -> gateway.webhooks.private.v1.Webhook
+	14, // 23: gateway.webhooks.private.v1.UpdateMutation.foundation:type_name -> gateway.webhooks.private.v1.UpdateArgument
+	37, // 24: gateway.webhooks.private.v1.UpdateMutation.transient:type_name -> gateway.webhooks.private.v1.Transient
+	17, // 25: gateway.webhooks.private.v1.UpdateTransaction.mutations:type_name -> gateway.webhooks.private.v1.UpdateMutation
+	42, // 26: gateway.webhooks.private.v1.BroadcastArgument.message:type_name -> common.messages.public.v1.Message
+	19, // 27: gateway.webhooks.private.v1.BroadcastRequest.arguments:type_name -> gateway.webhooks.private.v1.BroadcastArgument
+	34, // 28: gateway.webhooks.private.v1.BroadcastCondition.webhooks:type_name -> gateway.webhooks.private.v1.Webhook
+	19, // 29: gateway.webhooks.private.v1.BroadcastMutation.foundation:type_name -> gateway.webhooks.private.v1.BroadcastArgument
+	22, // 30: gateway.webhooks.private.v1.BroadcastMutation.condition:type_name -> gateway.webhooks.private.v1.BroadcastCondition
+	23, // 31: gateway.webhooks.private.v1.BroadcastTransaction.mutations:type_name -> gateway.webhooks.private.v1.BroadcastMutation
+	32, // 32: gateway.webhooks.private.v1.DeleteArgument.query:type_name -> gateway.webhooks.private.v1.Query
+	25, // 33: gateway.webhooks.private.v1.DeleteRequest.arguments:type_name -> gateway.webhooks.private.v1.DeleteArgument
+	34, // 34: gateway.webhooks.private.v1.DeleteResponse.webhooks:type_name -> gateway.webhooks.private.v1.Webhook
+	43, // 35: gateway.webhooks.private.v1.DeleteCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
+	25, // 36: gateway.webhooks.private.v1.DeleteMutation.foundation:type_name -> gateway.webhooks.private.v1.DeleteArgument
+	28, // 37: gateway.webhooks.private.v1.DeleteMutation.condition:type_name -> gateway.webhooks.private.v1.DeleteCondition
+	37, // 38: gateway.webhooks.private.v1.DeleteMutation.transient:type_name -> gateway.webhooks.private.v1.Transient
+	29, // 39: gateway.webhooks.private.v1.DeleteTransaction.mutations:type_name -> gateway.webhooks.private.v1.DeleteMutation
+	40, // [40:40] is the sub-list for method output_type
+	40, // [40:40] is the sub-list for method input_type
+	40, // [40:40] is the sub-list for extension type_name
+	40, // [40:40] is the sub-list for extension extendee
+	0,  // [0:40] is the sub-list for field type_name
 }
 
 func init() { file_gateway_webhooks_private_v1_procedures_proto_init() }
@@ -1759,7 +1809,7 @@ func file_gateway_webhooks_private_v1_procedures_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_gateway_webhooks_private_v1_procedures_proto_rawDesc), len(file_gateway_webhooks_private_v1_procedures_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   31,
+			NumMessages:   32,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

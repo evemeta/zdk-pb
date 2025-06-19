@@ -162,7 +162,8 @@ type Condition struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Ids           []string               `protobuf:"bytes,1,rep,name=ids,proto3" json:"ids,omitempty"`
 	Urls          []string               `protobuf:"bytes,2,rep,name=urls,proto3" json:"urls,omitempty"`
-	Protocols     []Protocol             `protobuf:"varint,3,rep,packed,name=protocols,proto3,enum=gateway.webhooks.private.v1.Protocol" json:"protocols,omitempty"`
+	Methods       []Method               `protobuf:"varint,3,rep,packed,name=methods,proto3,enum=gateway.webhooks.private.v1.Method" json:"methods,omitempty"`
+	Protocols     []Protocol             `protobuf:"varint,4,rep,packed,name=protocols,proto3,enum=gateway.webhooks.private.v1.Protocol" json:"protocols,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -207,6 +208,13 @@ func (x *Condition) GetIds() []string {
 func (x *Condition) GetUrls() []string {
 	if x != nil {
 		return x.Urls
+	}
+	return nil
+}
+
+func (x *Condition) GetMethods() []Method {
+	if x != nil {
+		return x.Methods
 	}
 	return nil
 }
@@ -282,10 +290,12 @@ type Webhook struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Url           string                 `protobuf:"bytes,2,opt,name=url,proto3" json:"url,omitempty"`
-	Protocol      Protocol               `protobuf:"varint,3,opt,name=protocol,proto3,enum=gateway.webhooks.private.v1.Protocol" json:"protocol,omitempty"`
-	AccessTime    int64                  `protobuf:"varint,4,opt,name=access_time,json=accessTime,proto3" json:"access_time,omitempty"`
-	CreateTime    int64                  `protobuf:"varint,5,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
-	UpdateTime    int64                  `protobuf:"varint,6,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	Method        Method                 `protobuf:"varint,3,opt,name=method,proto3,enum=gateway.webhooks.private.v1.Method" json:"method,omitempty"`
+	Headers       map[string]string      `protobuf:"bytes,4,rep,name=headers,proto3" json:"headers,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Protocol      Protocol               `protobuf:"varint,5,opt,name=protocol,proto3,enum=gateway.webhooks.private.v1.Protocol" json:"protocol,omitempty"`
+	AccessTime    int64                  `protobuf:"varint,6,opt,name=access_time,json=accessTime,proto3" json:"access_time,omitempty"`
+	CreateTime    int64                  `protobuf:"varint,7,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	UpdateTime    int64                  `protobuf:"varint,8,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -334,6 +344,20 @@ func (x *Webhook) GetUrl() string {
 	return ""
 }
 
+func (x *Webhook) GetMethod() Method {
+	if x != nil {
+		return x.Method
+	}
+	return MethodUnknown
+}
+
+func (x *Webhook) GetHeaders() map[string]string {
+	if x != nil {
+		return x.Headers
+	}
+	return nil
+}
+
 func (x *Webhook) GetProtocol() Protocol {
 	if x != nil {
 		return x.Protocol
@@ -378,25 +402,31 @@ const file_gateway_webhooks_private_v1_entities_proto_rawDesc = "" +
 	"\x06offset\x18\x03 \x01(\x03R\x06offset\x12F\n" +
 	"\n" +
 	"conditions\x18\x04 \x03(\v2&.gateway.webhooks.private.v1.ConditionR\n" +
-	"conditions\"v\n" +
+	"conditions\"\xb5\x01\n" +
 	"\tCondition\x12\x10\n" +
 	"\x03ids\x18\x01 \x03(\tR\x03ids\x12\x12\n" +
-	"\x04urls\x18\x02 \x03(\tR\x04urls\x12C\n" +
-	"\tprotocols\x18\x03 \x03(\x0e2%.gateway.webhooks.private.v1.ProtocolR\tprotocols\"\xcb\x01\n" +
+	"\x04urls\x18\x02 \x03(\tR\x04urls\x12=\n" +
+	"\amethods\x18\x03 \x03(\x0e2#.gateway.webhooks.private.v1.MethodR\amethods\x12C\n" +
+	"\tprotocols\x18\x04 \x03(\x0e2%.gateway.webhooks.private.v1.ProtocolR\tprotocols\"\xcb\x01\n" +
 	"\tTransient\x12<\n" +
 	"\x06future\x18\x01 \x01(\v2$.gateway.webhooks.private.v1.WebhookR\x06future\x12>\n" +
 	"\acurrent\x18\x02 \x01(\v2$.gateway.webhooks.private.v1.WebhookR\acurrent\x12@\n" +
-	"\bprevious\x18\x03 \x01(\v2$.gateway.webhooks.private.v1.WebhookR\bprevious\"\xd1\x01\n" +
+	"\bprevious\x18\x03 \x01(\v2$.gateway.webhooks.private.v1.WebhookR\bprevious\"\x97\x03\n" +
 	"\aWebhook\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x10\n" +
-	"\x03url\x18\x02 \x01(\tR\x03url\x12A\n" +
-	"\bprotocol\x18\x03 \x01(\x0e2%.gateway.webhooks.private.v1.ProtocolR\bprotocol\x12\x1f\n" +
-	"\vaccess_time\x18\x04 \x01(\x03R\n" +
+	"\x03url\x18\x02 \x01(\tR\x03url\x12;\n" +
+	"\x06method\x18\x03 \x01(\x0e2#.gateway.webhooks.private.v1.MethodR\x06method\x12K\n" +
+	"\aheaders\x18\x04 \x03(\v21.gateway.webhooks.private.v1.Webhook.HeadersEntryR\aheaders\x12A\n" +
+	"\bprotocol\x18\x05 \x01(\x0e2%.gateway.webhooks.private.v1.ProtocolR\bprotocol\x12\x1f\n" +
+	"\vaccess_time\x18\x06 \x01(\x03R\n" +
 	"accessTime\x12\x1f\n" +
-	"\vcreate_time\x18\x05 \x01(\x03R\n" +
+	"\vcreate_time\x18\a \x01(\x03R\n" +
 	"createTime\x12\x1f\n" +
-	"\vupdate_time\x18\x06 \x01(\x03R\n" +
-	"updateTimeBIZGgitlab.com/evemeta/zdk/pb/out/go/gateway/webhooks/private/v1;webhookspbb\x06proto3"
+	"\vupdate_time\x18\b \x01(\x03R\n" +
+	"updateTime\x1a:\n" +
+	"\fHeadersEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01BIZGgitlab.com/evemeta/zdk/pb/out/go/gateway/webhooks/private/v1;webhookspbb\x06proto3"
 
 var (
 	file_gateway_webhooks_private_v1_entities_proto_rawDescOnce sync.Once
@@ -410,30 +440,35 @@ func file_gateway_webhooks_private_v1_entities_proto_rawDescGZIP() []byte {
 	return file_gateway_webhooks_private_v1_entities_proto_rawDescData
 }
 
-var file_gateway_webhooks_private_v1_entities_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_gateway_webhooks_private_v1_entities_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_gateway_webhooks_private_v1_entities_proto_goTypes = []any{
 	(*Chunk)(nil),     // 0: gateway.webhooks.private.v1.Chunk
 	(*Query)(nil),     // 1: gateway.webhooks.private.v1.Query
 	(*Condition)(nil), // 2: gateway.webhooks.private.v1.Condition
 	(*Transient)(nil), // 3: gateway.webhooks.private.v1.Transient
 	(*Webhook)(nil),   // 4: gateway.webhooks.private.v1.Webhook
-	(v1.Order)(0),     // 5: common.orders.public.v1.Order
-	(Protocol)(0),     // 6: gateway.webhooks.private.v1.Protocol
+	nil,               // 5: gateway.webhooks.private.v1.Webhook.HeadersEntry
+	(v1.Order)(0),     // 6: common.orders.public.v1.Order
+	(Method)(0),       // 7: gateway.webhooks.private.v1.Method
+	(Protocol)(0),     // 8: gateway.webhooks.private.v1.Protocol
 }
 var file_gateway_webhooks_private_v1_entities_proto_depIdxs = []int32{
-	4, // 0: gateway.webhooks.private.v1.Chunk.entities:type_name -> gateway.webhooks.private.v1.Webhook
-	5, // 1: gateway.webhooks.private.v1.Query.order:type_name -> common.orders.public.v1.Order
-	2, // 2: gateway.webhooks.private.v1.Query.conditions:type_name -> gateway.webhooks.private.v1.Condition
-	6, // 3: gateway.webhooks.private.v1.Condition.protocols:type_name -> gateway.webhooks.private.v1.Protocol
-	4, // 4: gateway.webhooks.private.v1.Transient.future:type_name -> gateway.webhooks.private.v1.Webhook
-	4, // 5: gateway.webhooks.private.v1.Transient.current:type_name -> gateway.webhooks.private.v1.Webhook
-	4, // 6: gateway.webhooks.private.v1.Transient.previous:type_name -> gateway.webhooks.private.v1.Webhook
-	6, // 7: gateway.webhooks.private.v1.Webhook.protocol:type_name -> gateway.webhooks.private.v1.Protocol
-	8, // [8:8] is the sub-list for method output_type
-	8, // [8:8] is the sub-list for method input_type
-	8, // [8:8] is the sub-list for extension type_name
-	8, // [8:8] is the sub-list for extension extendee
-	0, // [0:8] is the sub-list for field type_name
+	4,  // 0: gateway.webhooks.private.v1.Chunk.entities:type_name -> gateway.webhooks.private.v1.Webhook
+	6,  // 1: gateway.webhooks.private.v1.Query.order:type_name -> common.orders.public.v1.Order
+	2,  // 2: gateway.webhooks.private.v1.Query.conditions:type_name -> gateway.webhooks.private.v1.Condition
+	7,  // 3: gateway.webhooks.private.v1.Condition.methods:type_name -> gateway.webhooks.private.v1.Method
+	8,  // 4: gateway.webhooks.private.v1.Condition.protocols:type_name -> gateway.webhooks.private.v1.Protocol
+	4,  // 5: gateway.webhooks.private.v1.Transient.future:type_name -> gateway.webhooks.private.v1.Webhook
+	4,  // 6: gateway.webhooks.private.v1.Transient.current:type_name -> gateway.webhooks.private.v1.Webhook
+	4,  // 7: gateway.webhooks.private.v1.Transient.previous:type_name -> gateway.webhooks.private.v1.Webhook
+	7,  // 8: gateway.webhooks.private.v1.Webhook.method:type_name -> gateway.webhooks.private.v1.Method
+	5,  // 9: gateway.webhooks.private.v1.Webhook.headers:type_name -> gateway.webhooks.private.v1.Webhook.HeadersEntry
+	8,  // 10: gateway.webhooks.private.v1.Webhook.protocol:type_name -> gateway.webhooks.private.v1.Protocol
+	11, // [11:11] is the sub-list for method output_type
+	11, // [11:11] is the sub-list for method input_type
+	11, // [11:11] is the sub-list for extension type_name
+	11, // [11:11] is the sub-list for extension extendee
+	0,  // [0:11] is the sub-list for field type_name
 }
 
 func init() { file_gateway_webhooks_private_v1_entities_proto_init() }
@@ -448,7 +483,7 @@ func file_gateway_webhooks_private_v1_entities_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_gateway_webhooks_private_v1_entities_proto_rawDesc), len(file_gateway_webhooks_private_v1_entities_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

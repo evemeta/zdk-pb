@@ -16,8 +16,10 @@ message CreateWebhookPacket {
 message UpdateWebhookPacket {
     string                                                id        = 1;
     optional gateway.webhooks.private.v1.OptionalString   url       = 2;
-    optional gateway.webhooks.private.v1.OptionalProtocol protocol  = 3;
-    common.timeframes.public.v1.Timeframe                 timeframe = 4;
+    optional gateway.webhooks.private.v1.OptionalMethod   method    = 3;
+    optional gateway.webhooks.private.v1.OptionalMap      headers   = 4;
+    optional gateway.webhooks.private.v1.OptionalProtocol protocol  = 5;
+    common.timeframes.public.v1.Timeframe                 timeframe = 6;
 }
 
 message DeleteWebhookPacket {
