@@ -17,7 +17,8 @@ message UpdateJobPacket {
     string                                          id        = 1;
     optional gateway.jobs.private.v1.OptionalResult result    = 2;
     optional gateway.jobs.private.v1.OptionalStatus status    = 3;
-    common.timeframes.public.v1.Timeframe           timeframe = 4;
+    optional gateway.jobs.private.v1.OptionalMap    metadata  = 4;
+    common.timeframes.public.v1.Timeframe           timeframe = 5;
 }
 
 message DeleteJobPacket {

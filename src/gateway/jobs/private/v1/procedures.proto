@@ -48,15 +48,11 @@ message SelectResponse {
 }
 
 message CreateArgument {
-    string                         id          = 1;
-    string                         image       = 2;
-    repeated string                command     = 3;
-    map<string, string>            selectors   = 4;
-    map<string, string>            variables   = 5;
-    map<string, string>            annotations = 6;
-    map<string, string>            tolerations = 7;
-    gateway.jobs.private.v1.Result result      = 8;
-    gateway.jobs.private.v1.Status status      = 9;
+    string                            id        = 1;
+    gateway.jobs.private.v1.Result    result    = 2;
+    gateway.jobs.private.v1.Status    status    = 3;
+    map<string, string>               metadata  = 4;
+    gateway.jobs.private.v1.Container container = 5;
 }
 
 message CreateRequest {
@@ -79,9 +75,10 @@ message CreateTransaction {
 }
 
 message UpdateArgument {
-    gateway.jobs.private.v1.Query                   query  = 1;
-    optional gateway.jobs.private.v1.OptionalResult result = 2;
-    optional gateway.jobs.private.v1.OptionalStatus status = 3;
+    gateway.jobs.private.v1.Query                   query    = 1;
+    optional gateway.jobs.private.v1.OptionalResult result   = 2;
+    optional gateway.jobs.private.v1.OptionalStatus status   = 3;
+    optional gateway.jobs.private.v1.OptionalMap    metadata = 4;
 }
 
 message UpdateRequest {

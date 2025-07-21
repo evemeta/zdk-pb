@@ -5,7 +5,6 @@ package gateway.mcus.private.v1;
 import "gateway/mcus/private/v1/enums.proto";
 import "gateway/mcus/private/v1/entities.proto";
 import "gateway/mcus/private/v1/optionals.proto";
-import "gateway/reservations/private/v1/procedures.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/mcus/private/v1;mcuspb";
 
@@ -50,9 +49,10 @@ message SelectResponse {
 
 message CreateArgument {
     string                         id      = 1;
-    gateway.mcus.private.v1.Zone   zone    = 2;
-    gateway.mcus.private.v1.Status status  = 3;
-    string                         address = 4;
+    string                         room_id = 2;
+    gateway.mcus.private.v1.Zone   zone    = 3;
+    gateway.mcus.private.v1.Status status  = 4;
+    string                         address = 5;
 }
 
 message CreateRequest {
@@ -114,69 +114,13 @@ message DeleteResponse {
 
 message DeleteMutation {
     gateway.mcus.private.v1.DeleteArgument     foundation      = 1;
-    gateway.mcus.private.v1.DeleteCondition    condition       = 2;
-    repeated gateway.mcus.private.v1.Transient transient       = 3;
-    int64                                      begin_timestamp = 4;
-    int64                                      close_timestamp = 5;
-}
-
-message DeleteCondition {
-    repeated gateway.reservations.private.v1.DeleteMutation delete_reservation_mutations = 1;
+    repeated gateway.mcus.private.v1.Transient transient       = 2;
+    int64                                      begin_timestamp = 3;
+    int64                                      close_timestamp = 4;
 }
 
 message DeleteTransaction {
     repeated gateway.mcus.private.v1.DeleteMutation mutations = 1;
-}
-
-message AcquireArgument {
-    string              room_id  = 1;
-    map<string, string> metadata = 2;
-}
-
-message AcquireRequest {
-    repeated gateway.mcus.private.v1.AcquireArgument arguments = 1;
-}
-
-message AcquireResponse {}
-
-message AcquireMutation {
-    gateway.mcus.private.v1.AcquireArgument    foundation      = 1;
-    gateway.mcus.private.v1.AcquireCondition   condition       = 2;
-    int64                                      begin_timestamp = 3;
-    int64                                      close_timestamp = 4;
-}
-
-message AcquireCondition {
-    repeated gateway.mcus.private.v1.Mcu mcus = 1;
-}
-
-message AcquireTransaction {
-    repeated gateway.mcus.private.v1.AcquireMutation mutations = 1;
-}
-
-message ReleaseArgument {
-    string room_id = 1;
-}
-
-message ReleaseRequest {
-    repeated gateway.mcus.private.v1.ReleaseArgument arguments = 1;
-}
-
-message ReleaseResponse {}
-
-message ReleaseMutation {
-    gateway.mcus.private.v1.ReleaseArgument    foundation      = 1;
-    gateway.mcus.private.v1.ReleaseCondition   condition       = 2;
-    int64                                      begin_timestamp = 3;
-    int64                                      close_timestamp = 4;
-}
-
-message ReleaseCondition {
-    repeated gateway.mcus.private.v1.Mcu mcus = 1;
-}
-
-message ReleaseTransaction {
-    repeated gateway.mcus.private.v1.ReleaseMutation mutations = 1;
 }
 
 message StartBroadcastArgument {

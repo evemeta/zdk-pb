@@ -7,6 +7,11 @@ import "gateway/jobs/private/v1/entities.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/jobs/private/v1;jobspb";
 
+// OptionalMap todo;
+message OptionalMap {
+    map<string, string> value = 1;
+}
+
 // OptionalResult todo;
 message OptionalResult {
     gateway.jobs.private.v1.Result value = 1;

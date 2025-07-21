@@ -8,7 +8,6 @@ package mcuspb
 
 import (
 	v1 "gitlab.com/evemeta/zdk/pb/out/go/common/orders/public/v1"
-	v11 "gitlab.com/evemeta/zdk/pb/out/go/gateway/reservations/private/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -162,8 +161,8 @@ func (x *Query) GetConditions() []*Condition {
 type Condition struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Ids           []string               `protobuf:"bytes,1,rep,name=ids,proto3" json:"ids,omitempty"`
-	Zones         []Zone                 `protobuf:"varint,2,rep,packed,name=zones,proto3,enum=gateway.mcus.private.v1.Zone" json:"zones,omitempty"`
-	Reservations  []*v11.Query           `protobuf:"bytes,3,rep,name=reservations,proto3" json:"reservations,omitempty"`
+	RoomIds       []string               `protobuf:"bytes,2,rep,name=room_ids,json=roomIds,proto3" json:"room_ids,omitempty"`
+	Zones         []Zone                 `protobuf:"varint,3,rep,packed,name=zones,proto3,enum=gateway.mcus.private.v1.Zone" json:"zones,omitempty"`
 	Statuses      []Status               `protobuf:"varint,4,rep,packed,name=statuses,proto3,enum=gateway.mcus.private.v1.Status" json:"statuses,omitempty"`
 	Addresses     []string               `protobuf:"bytes,5,rep,name=addresses,proto3" json:"addresses,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -207,16 +206,16 @@ func (x *Condition) GetIds() []string {
 	return nil
 }
 
-func (x *Condition) GetZones() []Zone {
+func (x *Condition) GetRoomIds() []string {
 	if x != nil {
-		return x.Zones
+		return x.RoomIds
 	}
 	return nil
 }
 
-func (x *Condition) GetReservations() []*v11.Query {
+func (x *Condition) GetZones() []Zone {
 	if x != nil {
-		return x.Reservations
+		return x.Zones
 	}
 	return nil
 }
@@ -298,12 +297,13 @@ func (x *Transient) GetPrevious() *Mcu {
 type Mcu struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Zone          Zone                   `protobuf:"varint,2,opt,name=zone,proto3,enum=gateway.mcus.private.v1.Zone" json:"zone,omitempty"`
-	Status        Status                 `protobuf:"varint,3,opt,name=status,proto3,enum=gateway.mcus.private.v1.Status" json:"status,omitempty"`
-	Address       string                 `protobuf:"bytes,4,opt,name=address,proto3" json:"address,omitempty"`
-	AccessTime    int64                  `protobuf:"varint,5,opt,name=access_time,json=accessTime,proto3" json:"access_time,omitempty"`
-	CreateTime    int64                  `protobuf:"varint,6,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
-	UpdateTime    int64                  `protobuf:"varint,7,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	RoomId        string                 `protobuf:"bytes,2,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
+	Zone          Zone                   `protobuf:"varint,3,opt,name=zone,proto3,enum=gateway.mcus.private.v1.Zone" json:"zone,omitempty"`
+	Status        Status                 `protobuf:"varint,4,opt,name=status,proto3,enum=gateway.mcus.private.v1.Status" json:"status,omitempty"`
+	Address       string                 `protobuf:"bytes,5,opt,name=address,proto3" json:"address,omitempty"`
+	AccessTime    int64                  `protobuf:"varint,6,opt,name=access_time,json=accessTime,proto3" json:"access_time,omitempty"`
+	CreateTime    int64                  `protobuf:"varint,7,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	UpdateTime    int64                  `protobuf:"varint,8,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -341,6 +341,13 @@ func (*Mcu) Descriptor() ([]byte, []int) {
 func (x *Mcu) GetId() string {
 	if x != nil {
 		return x.Id
+	}
+	return ""
+}
+
+func (x *Mcu) GetRoomId() string {
+	if x != nil {
+		return x.RoomId
 	}
 	return ""
 }
@@ -391,7 +398,7 @@ var File_gateway_mcus_private_v1_entities_proto protoreflect.FileDescriptor
 
 const file_gateway_mcus_private_v1_entities_proto_rawDesc = "" +
 	"\n" +
-	"&gateway/mcus/private/v1/entities.proto\x12\x17gateway.mcus.private.v1\x1a#gateway/mcus/private/v1/enums.proto\x1a.gateway/reservations/private/v1/entities.proto\x1a&common/orders/public/v1/entities.proto\"\x81\x01\n" +
+	"&gateway/mcus/private/v1/entities.proto\x12\x17gateway.mcus.private.v1\x1a#gateway/mcus/private/v1/enums.proto\x1a&common/orders/public/v1/entities.proto\"\x81\x01\n" +
 	"\x05Chunk\x12\x12\n" +
 	"\x04size\x18\x01 \x01(\x03R\x04size\x12\x14\n" +
 	"\x05index\x18\x02 \x01(\x03R\x05index\x12\x14\n" +
@@ -403,27 +410,28 @@ const file_gateway_mcus_private_v1_entities_proto_rawDesc = "" +
 	"\x06offset\x18\x03 \x01(\x03R\x06offset\x12B\n" +
 	"\n" +
 	"conditions\x18\x04 \x03(\v2\".gateway.mcus.private.v1.ConditionR\n" +
-	"conditions\"\xf9\x01\n" +
+	"conditions\"\xc8\x01\n" +
 	"\tCondition\x12\x10\n" +
-	"\x03ids\x18\x01 \x03(\tR\x03ids\x123\n" +
-	"\x05zones\x18\x02 \x03(\x0e2\x1d.gateway.mcus.private.v1.ZoneR\x05zones\x12J\n" +
-	"\freservations\x18\x03 \x03(\v2&.gateway.reservations.private.v1.QueryR\freservations\x12;\n" +
+	"\x03ids\x18\x01 \x03(\tR\x03ids\x12\x19\n" +
+	"\broom_ids\x18\x02 \x03(\tR\aroomIds\x123\n" +
+	"\x05zones\x18\x03 \x03(\x0e2\x1d.gateway.mcus.private.v1.ZoneR\x05zones\x12;\n" +
 	"\bstatuses\x18\x04 \x03(\x0e2\x1f.gateway.mcus.private.v1.StatusR\bstatuses\x12\x1c\n" +
 	"\taddresses\x18\x05 \x03(\tR\taddresses\"\xb3\x01\n" +
 	"\tTransient\x124\n" +
 	"\x06future\x18\x01 \x01(\v2\x1c.gateway.mcus.private.v1.McuR\x06future\x126\n" +
 	"\acurrent\x18\x02 \x01(\v2\x1c.gateway.mcus.private.v1.McuR\acurrent\x128\n" +
-	"\bprevious\x18\x03 \x01(\v2\x1c.gateway.mcus.private.v1.McuR\bprevious\"\xfe\x01\n" +
+	"\bprevious\x18\x03 \x01(\v2\x1c.gateway.mcus.private.v1.McuR\bprevious\"\x97\x02\n" +
 	"\x03Mcu\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x121\n" +
-	"\x04zone\x18\x02 \x01(\x0e2\x1d.gateway.mcus.private.v1.ZoneR\x04zone\x127\n" +
-	"\x06status\x18\x03 \x01(\x0e2\x1f.gateway.mcus.private.v1.StatusR\x06status\x12\x18\n" +
-	"\aaddress\x18\x04 \x01(\tR\aaddress\x12\x1f\n" +
-	"\vaccess_time\x18\x05 \x01(\x03R\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
+	"\aroom_id\x18\x02 \x01(\tR\x06roomId\x121\n" +
+	"\x04zone\x18\x03 \x01(\x0e2\x1d.gateway.mcus.private.v1.ZoneR\x04zone\x127\n" +
+	"\x06status\x18\x04 \x01(\x0e2\x1f.gateway.mcus.private.v1.StatusR\x06status\x12\x18\n" +
+	"\aaddress\x18\x05 \x01(\tR\aaddress\x12\x1f\n" +
+	"\vaccess_time\x18\x06 \x01(\x03R\n" +
 	"accessTime\x12\x1f\n" +
-	"\vcreate_time\x18\x06 \x01(\x03R\n" +
+	"\vcreate_time\x18\a \x01(\x03R\n" +
 	"createTime\x12\x1f\n" +
-	"\vupdate_time\x18\a \x01(\x03R\n" +
+	"\vupdate_time\x18\b \x01(\x03R\n" +
 	"updateTimeBAZ?gitlab.com/evemeta/zdk/pb/out/go/gateway/mcus/private/v1;mcuspbb\x06proto3"
 
 var (
@@ -447,26 +455,24 @@ var file_gateway_mcus_private_v1_entities_proto_goTypes = []any{
 	(*Mcu)(nil),       // 4: gateway.mcus.private.v1.Mcu
 	(v1.Order)(0),     // 5: common.orders.public.v1.Order
 	(Zone)(0),         // 6: gateway.mcus.private.v1.Zone
-	(*v11.Query)(nil), // 7: gateway.reservations.private.v1.Query
-	(Status)(0),       // 8: gateway.mcus.private.v1.Status
+	(Status)(0),       // 7: gateway.mcus.private.v1.Status
 }
 var file_gateway_mcus_private_v1_entities_proto_depIdxs = []int32{
 	4,  // 0: gateway.mcus.private.v1.Chunk.entities:type_name -> gateway.mcus.private.v1.Mcu
 	5,  // 1: gateway.mcus.private.v1.Query.order:type_name -> common.orders.public.v1.Order
 	2,  // 2: gateway.mcus.private.v1.Query.conditions:type_name -> gateway.mcus.private.v1.Condition
 	6,  // 3: gateway.mcus.private.v1.Condition.zones:type_name -> gateway.mcus.private.v1.Zone
-	7,  // 4: gateway.mcus.private.v1.Condition.reservations:type_name -> gateway.reservations.private.v1.Query
-	8,  // 5: gateway.mcus.private.v1.Condition.statuses:type_name -> gateway.mcus.private.v1.Status
-	4,  // 6: gateway.mcus.private.v1.Transient.future:type_name -> gateway.mcus.private.v1.Mcu
-	4,  // 7: gateway.mcus.private.v1.Transient.current:type_name -> gateway.mcus.private.v1.Mcu
-	4,  // 8: gateway.mcus.private.v1.Transient.previous:type_name -> gateway.mcus.private.v1.Mcu
-	6,  // 9: gateway.mcus.private.v1.Mcu.zone:type_name -> gateway.mcus.private.v1.Zone
-	8,  // 10: gateway.mcus.private.v1.Mcu.status:type_name -> gateway.mcus.private.v1.Status
-	11, // [11:11] is the sub-list for method output_type
-	11, // [11:11] is the sub-list for method input_type
-	11, // [11:11] is the sub-list for extension type_name
-	11, // [11:11] is the sub-list for extension extendee
-	0,  // [0:11] is the sub-list for field type_name
+	7,  // 4: gateway.mcus.private.v1.Condition.statuses:type_name -> gateway.mcus.private.v1.Status
+	4,  // 5: gateway.mcus.private.v1.Transient.future:type_name -> gateway.mcus.private.v1.Mcu
+	4,  // 6: gateway.mcus.private.v1.Transient.current:type_name -> gateway.mcus.private.v1.Mcu
+	4,  // 7: gateway.mcus.private.v1.Transient.previous:type_name -> gateway.mcus.private.v1.Mcu
+	6,  // 8: gateway.mcus.private.v1.Mcu.zone:type_name -> gateway.mcus.private.v1.Zone
+	7,  // 9: gateway.mcus.private.v1.Mcu.status:type_name -> gateway.mcus.private.v1.Status
+	10, // [10:10] is the sub-list for method output_type
+	10, // [10:10] is the sub-list for method input_type
+	10, // [10:10] is the sub-list for extension type_name
+	10, // [10:10] is the sub-list for extension extendee
+	0,  // [0:10] is the sub-list for field type_name
 }
 
 func init() { file_gateway_mcus_private_v1_entities_proto_init() }

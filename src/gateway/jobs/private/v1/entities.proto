@@ -33,21 +33,26 @@ message Transient {
 }
 
 message Job {
-    string                         id          = 1;
-    string                         image       = 2;
-    repeated string                command     = 3;
-    map<string, string>            selectors   = 4;
-    map<string, string>            variables   = 5;
-    map<string, string>            annotations = 6;
-    map<string, string>            tolerations = 7;
-    gateway.jobs.private.v1.Result result      = 8;
-    gateway.jobs.private.v1.Status status      = 9;
-    int64                          access_time = 10;
-    int64                          create_time = 11;
-    int64                          update_time = 12;
+    string                            id          = 1;
+    gateway.jobs.private.v1.Result    result      = 2;
+    gateway.jobs.private.v1.Status    status      = 3;
+    map<string, string>               metadata    = 4;
+    gateway.jobs.private.v1.Container container   = 5;
+    int64                             access_time = 6;
+    int64                             create_time = 7;
+    int64                             update_time = 8;
 }
 
 message Result {
     string description = 1;
     int64  create_time = 2;
+}
+
+message Container {
+    string              image       = 1;
+    repeated string     command     = 2;
+    map<string, string> selectors   = 3;
+    map<string, string> variables   = 4;
+    map<string, string> annotations = 5;
+    map<string, string> tolerations = 6;
 }

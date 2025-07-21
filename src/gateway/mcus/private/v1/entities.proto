@@ -3,7 +3,6 @@ syntax = "proto3";
 package gateway.mcus.private.v1;
 
 import "gateway/mcus/private/v1/enums.proto";
-import "gateway/reservations/private/v1/entities.proto";
 import "common/orders/public/v1/entities.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/mcus/private/v1;mcuspb";
@@ -23,11 +22,11 @@ message Query {
 }
 
 message Condition {
-    repeated string                                ids          = 1;
-    repeated gateway.mcus.private.v1.Zone          zones        = 2;
-    repeated gateway.reservations.private.v1.Query reservations = 3;
-    repeated gateway.mcus.private.v1.Status        statuses     = 4;
-    repeated string                                addresses    = 5;
+    repeated string                         ids       = 1;
+    repeated string                         room_ids  = 2;
+    repeated gateway.mcus.private.v1.Zone   zones     = 3;
+    repeated gateway.mcus.private.v1.Status statuses  = 4;
+    repeated string                         addresses = 5;
 }
 
 message Transient {
@@ -38,10 +37,11 @@ message Transient {
 
 message Mcu {
     string                         id          = 1;
-    gateway.mcus.private.v1.Zone   zone        = 2;
-    gateway.mcus.private.v1.Status status      = 3;
-    string                         address     = 4;
-    int64                          access_time = 5;
-    int64                          create_time = 6;
-    int64                          update_time = 7;
+    string                         room_id     = 2;
+    gateway.mcus.private.v1.Zone   zone        = 3;
+    gateway.mcus.private.v1.Status status      = 4;
+    string                         address     = 5;
+    int64                          access_time = 6;
+    int64                          create_time = 7;
+    int64                          update_time = 8;
 }

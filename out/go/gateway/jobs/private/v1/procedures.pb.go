@@ -444,14 +444,10 @@ func (x *SelectResponse) GetJobs() []*Job {
 type CreateArgument struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Image         string                 `protobuf:"bytes,2,opt,name=image,proto3" json:"image,omitempty"`
-	Command       []string               `protobuf:"bytes,3,rep,name=command,proto3" json:"command,omitempty"`
-	Selectors     map[string]string      `protobuf:"bytes,4,rep,name=selectors,proto3" json:"selectors,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	Variables     map[string]string      `protobuf:"bytes,5,rep,name=variables,proto3" json:"variables,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	Annotations   map[string]string      `protobuf:"bytes,6,rep,name=annotations,proto3" json:"annotations,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	Tolerations   map[string]string      `protobuf:"bytes,7,rep,name=tolerations,proto3" json:"tolerations,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	Result        *Result                `protobuf:"bytes,8,opt,name=result,proto3" json:"result,omitempty"`
-	Status        Status                 `protobuf:"varint,9,opt,name=status,proto3,enum=gateway.jobs.private.v1.Status" json:"status,omitempty"`
+	Result        *Result                `protobuf:"bytes,2,opt,name=result,proto3" json:"result,omitempty"`
+	Status        Status                 `protobuf:"varint,3,opt,name=status,proto3,enum=gateway.jobs.private.v1.Status" json:"status,omitempty"`
+	Metadata      map[string]string      `protobuf:"bytes,4,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Container     *Container             `protobuf:"bytes,5,opt,name=container,proto3" json:"container,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -493,48 +489,6 @@ func (x *CreateArgument) GetId() string {
 	return ""
 }
 
-func (x *CreateArgument) GetImage() string {
-	if x != nil {
-		return x.Image
-	}
-	return ""
-}
-
-func (x *CreateArgument) GetCommand() []string {
-	if x != nil {
-		return x.Command
-	}
-	return nil
-}
-
-func (x *CreateArgument) GetSelectors() map[string]string {
-	if x != nil {
-		return x.Selectors
-	}
-	return nil
-}
-
-func (x *CreateArgument) GetVariables() map[string]string {
-	if x != nil {
-		return x.Variables
-	}
-	return nil
-}
-
-func (x *CreateArgument) GetAnnotations() map[string]string {
-	if x != nil {
-		return x.Annotations
-	}
-	return nil
-}
-
-func (x *CreateArgument) GetTolerations() map[string]string {
-	if x != nil {
-		return x.Tolerations
-	}
-	return nil
-}
-
 func (x *CreateArgument) GetResult() *Result {
 	if x != nil {
 		return x.Result
@@ -547,6 +501,20 @@ func (x *CreateArgument) GetStatus() Status {
 		return x.Status
 	}
 	return StatusUnknown
+}
+
+func (x *CreateArgument) GetMetadata() map[string]string {
+	if x != nil {
+		return x.Metadata
+	}
+	return nil
+}
+
+func (x *CreateArgument) GetContainer() *Container {
+	if x != nil {
+		return x.Container
+	}
+	return nil
 }
 
 type CreateRequest struct {
@@ -754,6 +722,7 @@ type UpdateArgument struct {
 	Query         *Query                 `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
 	Result        *OptionalResult        `protobuf:"bytes,2,opt,name=result,proto3,oneof" json:"result,omitempty"`
 	Status        *OptionalStatus        `protobuf:"bytes,3,opt,name=status,proto3,oneof" json:"status,omitempty"`
+	Metadata      *OptionalMap           `protobuf:"bytes,4,opt,name=metadata,proto3,oneof" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -805,6 +774,13 @@ func (x *UpdateArgument) GetResult() *OptionalResult {
 func (x *UpdateArgument) GetStatus() *OptionalStatus {
 	if x != nil {
 		return x.Status
+	}
+	return nil
+}
+
+func (x *UpdateArgument) GetMetadata() *OptionalMap {
+	if x != nil {
+		return x.Metadata
 	}
 	return nil
 }
@@ -1278,27 +1254,14 @@ const file_gateway_jobs_private_v1_procedures_proto_rawDesc = "" +
 	"\rSelectRequest\x12E\n" +
 	"\targuments\x18\x01 \x03(\v2'.gateway.jobs.private.v1.SelectArgumentR\targuments\"B\n" +
 	"\x0eSelectResponse\x120\n" +
-	"\x04jobs\x18\x01 \x03(\v2\x1c.gateway.jobs.private.v1.JobR\x04jobs\"\xa2\x06\n" +
+	"\x04jobs\x18\x01 \x03(\v2\x1c.gateway.jobs.private.v1.JobR\x04jobs\"\xe4\x02\n" +
 	"\x0eCreateArgument\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
-	"\x05image\x18\x02 \x01(\tR\x05image\x12\x18\n" +
-	"\acommand\x18\x03 \x03(\tR\acommand\x12T\n" +
-	"\tselectors\x18\x04 \x03(\v26.gateway.jobs.private.v1.CreateArgument.SelectorsEntryR\tselectors\x12T\n" +
-	"\tvariables\x18\x05 \x03(\v26.gateway.jobs.private.v1.CreateArgument.VariablesEntryR\tvariables\x12Z\n" +
-	"\vannotations\x18\x06 \x03(\v28.gateway.jobs.private.v1.CreateArgument.AnnotationsEntryR\vannotations\x12Z\n" +
-	"\vtolerations\x18\a \x03(\v28.gateway.jobs.private.v1.CreateArgument.TolerationsEntryR\vtolerations\x127\n" +
-	"\x06result\x18\b \x01(\v2\x1f.gateway.jobs.private.v1.ResultR\x06result\x127\n" +
-	"\x06status\x18\t \x01(\x0e2\x1f.gateway.jobs.private.v1.StatusR\x06status\x1a<\n" +
-	"\x0eSelectorsEntry\x12\x10\n" +
-	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1a<\n" +
-	"\x0eVariablesEntry\x12\x10\n" +
-	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1a>\n" +
-	"\x10AnnotationsEntry\x12\x10\n" +
-	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1a>\n" +
-	"\x10TolerationsEntry\x12\x10\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x127\n" +
+	"\x06result\x18\x02 \x01(\v2\x1f.gateway.jobs.private.v1.ResultR\x06result\x127\n" +
+	"\x06status\x18\x03 \x01(\x0e2\x1f.gateway.jobs.private.v1.StatusR\x06status\x12Q\n" +
+	"\bmetadata\x18\x04 \x03(\v25.gateway.jobs.private.v1.CreateArgument.MetadataEntryR\bmetadata\x12@\n" +
+	"\tcontainer\x18\x05 \x01(\v2\".gateway.jobs.private.v1.ContainerR\tcontainer\x1a;\n" +
+	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"V\n" +
 	"\rCreateRequest\x12E\n" +
@@ -1313,13 +1276,15 @@ const file_gateway_jobs_private_v1_procedures_proto_rawDesc = "" +
 	"\x0fbegin_timestamp\x18\x03 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
 	"\x0fclose_timestamp\x18\x04 \x01(\x03R\x0ecloseTimestamp\"Z\n" +
 	"\x11CreateTransaction\x12E\n" +
-	"\tmutations\x18\x01 \x03(\v2'.gateway.jobs.private.v1.CreateMutationR\tmutations\"\xe8\x01\n" +
+	"\tmutations\x18\x01 \x03(\v2'.gateway.jobs.private.v1.CreateMutationR\tmutations\"\xbc\x02\n" +
 	"\x0eUpdateArgument\x124\n" +
 	"\x05query\x18\x01 \x01(\v2\x1e.gateway.jobs.private.v1.QueryR\x05query\x12D\n" +
 	"\x06result\x18\x02 \x01(\v2'.gateway.jobs.private.v1.OptionalResultH\x00R\x06result\x88\x01\x01\x12D\n" +
-	"\x06status\x18\x03 \x01(\v2'.gateway.jobs.private.v1.OptionalStatusH\x01R\x06status\x88\x01\x01B\t\n" +
+	"\x06status\x18\x03 \x01(\v2'.gateway.jobs.private.v1.OptionalStatusH\x01R\x06status\x88\x01\x01\x12E\n" +
+	"\bmetadata\x18\x04 \x01(\v2$.gateway.jobs.private.v1.OptionalMapH\x02R\bmetadata\x88\x01\x01B\t\n" +
 	"\a_resultB\t\n" +
-	"\a_status\"V\n" +
+	"\a_statusB\v\n" +
+	"\t_metadata\"V\n" +
 	"\rUpdateRequest\x12E\n" +
 	"\targuments\x18\x01 \x03(\v2'.gateway.jobs.private.v1.UpdateArgumentR\targuments\"B\n" +
 	"\x0eUpdateResponse\x120\n" +
@@ -1361,7 +1326,7 @@ func file_gateway_jobs_private_v1_procedures_proto_rawDescGZIP() []byte {
 	return file_gateway_jobs_private_v1_procedures_proto_rawDescData
 }
 
-var file_gateway_jobs_private_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 28)
+var file_gateway_jobs_private_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 25)
 var file_gateway_jobs_private_v1_procedures_proto_goTypes = []any{
 	(*CountArgument)(nil),     // 0: gateway.jobs.private.v1.CountArgument
 	(*CountRequest)(nil),      // 1: gateway.jobs.private.v1.CountRequest
@@ -1387,58 +1352,56 @@ var file_gateway_jobs_private_v1_procedures_proto_goTypes = []any{
 	(*DeleteResponse)(nil),    // 21: gateway.jobs.private.v1.DeleteResponse
 	(*DeleteMutation)(nil),    // 22: gateway.jobs.private.v1.DeleteMutation
 	(*DeleteTransaction)(nil), // 23: gateway.jobs.private.v1.DeleteTransaction
-	nil,                       // 24: gateway.jobs.private.v1.CreateArgument.SelectorsEntry
-	nil,                       // 25: gateway.jobs.private.v1.CreateArgument.VariablesEntry
-	nil,                       // 26: gateway.jobs.private.v1.CreateArgument.AnnotationsEntry
-	nil,                       // 27: gateway.jobs.private.v1.CreateArgument.TolerationsEntry
-	(*Query)(nil),             // 28: gateway.jobs.private.v1.Query
-	(*Chunk)(nil),             // 29: gateway.jobs.private.v1.Chunk
-	(*Job)(nil),               // 30: gateway.jobs.private.v1.Job
-	(*Result)(nil),            // 31: gateway.jobs.private.v1.Result
-	(Status)(0),               // 32: gateway.jobs.private.v1.Status
-	(*Transient)(nil),         // 33: gateway.jobs.private.v1.Transient
-	(*OptionalResult)(nil),    // 34: gateway.jobs.private.v1.OptionalResult
-	(*OptionalStatus)(nil),    // 35: gateway.jobs.private.v1.OptionalStatus
+	nil,                       // 24: gateway.jobs.private.v1.CreateArgument.MetadataEntry
+	(*Query)(nil),             // 25: gateway.jobs.private.v1.Query
+	(*Chunk)(nil),             // 26: gateway.jobs.private.v1.Chunk
+	(*Job)(nil),               // 27: gateway.jobs.private.v1.Job
+	(*Result)(nil),            // 28: gateway.jobs.private.v1.Result
+	(Status)(0),               // 29: gateway.jobs.private.v1.Status
+	(*Container)(nil),         // 30: gateway.jobs.private.v1.Container
+	(*Transient)(nil),         // 31: gateway.jobs.private.v1.Transient
+	(*OptionalResult)(nil),    // 32: gateway.jobs.private.v1.OptionalResult
+	(*OptionalStatus)(nil),    // 33: gateway.jobs.private.v1.OptionalStatus
+	(*OptionalMap)(nil),       // 34: gateway.jobs.private.v1.OptionalMap
 }
 var file_gateway_jobs_private_v1_procedures_proto_depIdxs = []int32{
-	28, // 0: gateway.jobs.private.v1.CountArgument.query:type_name -> gateway.jobs.private.v1.Query
+	25, // 0: gateway.jobs.private.v1.CountArgument.query:type_name -> gateway.jobs.private.v1.Query
 	0,  // 1: gateway.jobs.private.v1.CountRequest.arguments:type_name -> gateway.jobs.private.v1.CountArgument
-	28, // 2: gateway.jobs.private.v1.RangeArgument.query:type_name -> gateway.jobs.private.v1.Query
+	25, // 2: gateway.jobs.private.v1.RangeArgument.query:type_name -> gateway.jobs.private.v1.Query
 	3,  // 3: gateway.jobs.private.v1.RangeRequest.arguments:type_name -> gateway.jobs.private.v1.RangeArgument
-	29, // 4: gateway.jobs.private.v1.RangeResponse.chunks:type_name -> gateway.jobs.private.v1.Chunk
-	28, // 5: gateway.jobs.private.v1.SelectArgument.query:type_name -> gateway.jobs.private.v1.Query
+	26, // 4: gateway.jobs.private.v1.RangeResponse.chunks:type_name -> gateway.jobs.private.v1.Chunk
+	25, // 5: gateway.jobs.private.v1.SelectArgument.query:type_name -> gateway.jobs.private.v1.Query
 	6,  // 6: gateway.jobs.private.v1.SelectRequest.arguments:type_name -> gateway.jobs.private.v1.SelectArgument
-	30, // 7: gateway.jobs.private.v1.SelectResponse.jobs:type_name -> gateway.jobs.private.v1.Job
-	24, // 8: gateway.jobs.private.v1.CreateArgument.selectors:type_name -> gateway.jobs.private.v1.CreateArgument.SelectorsEntry
-	25, // 9: gateway.jobs.private.v1.CreateArgument.variables:type_name -> gateway.jobs.private.v1.CreateArgument.VariablesEntry
-	26, // 10: gateway.jobs.private.v1.CreateArgument.annotations:type_name -> gateway.jobs.private.v1.CreateArgument.AnnotationsEntry
-	27, // 11: gateway.jobs.private.v1.CreateArgument.tolerations:type_name -> gateway.jobs.private.v1.CreateArgument.TolerationsEntry
-	31, // 12: gateway.jobs.private.v1.CreateArgument.result:type_name -> gateway.jobs.private.v1.Result
-	32, // 13: gateway.jobs.private.v1.CreateArgument.status:type_name -> gateway.jobs.private.v1.Status
-	9,  // 14: gateway.jobs.private.v1.CreateRequest.arguments:type_name -> gateway.jobs.private.v1.CreateArgument
-	30, // 15: gateway.jobs.private.v1.CreateResponse.jobs:type_name -> gateway.jobs.private.v1.Job
-	9,  // 16: gateway.jobs.private.v1.CreateMutation.foundation:type_name -> gateway.jobs.private.v1.CreateArgument
-	33, // 17: gateway.jobs.private.v1.CreateMutation.transient:type_name -> gateway.jobs.private.v1.Transient
-	12, // 18: gateway.jobs.private.v1.CreateTransaction.mutations:type_name -> gateway.jobs.private.v1.CreateMutation
-	28, // 19: gateway.jobs.private.v1.UpdateArgument.query:type_name -> gateway.jobs.private.v1.Query
-	34, // 20: gateway.jobs.private.v1.UpdateArgument.result:type_name -> gateway.jobs.private.v1.OptionalResult
-	35, // 21: gateway.jobs.private.v1.UpdateArgument.status:type_name -> gateway.jobs.private.v1.OptionalStatus
-	14, // 22: gateway.jobs.private.v1.UpdateRequest.arguments:type_name -> gateway.jobs.private.v1.UpdateArgument
-	30, // 23: gateway.jobs.private.v1.UpdateResponse.jobs:type_name -> gateway.jobs.private.v1.Job
-	14, // 24: gateway.jobs.private.v1.UpdateMutation.foundation:type_name -> gateway.jobs.private.v1.UpdateArgument
-	33, // 25: gateway.jobs.private.v1.UpdateMutation.transient:type_name -> gateway.jobs.private.v1.Transient
-	17, // 26: gateway.jobs.private.v1.UpdateTransaction.mutations:type_name -> gateway.jobs.private.v1.UpdateMutation
-	28, // 27: gateway.jobs.private.v1.DeleteArgument.query:type_name -> gateway.jobs.private.v1.Query
-	19, // 28: gateway.jobs.private.v1.DeleteRequest.arguments:type_name -> gateway.jobs.private.v1.DeleteArgument
-	30, // 29: gateway.jobs.private.v1.DeleteResponse.jobs:type_name -> gateway.jobs.private.v1.Job
-	19, // 30: gateway.jobs.private.v1.DeleteMutation.foundation:type_name -> gateway.jobs.private.v1.DeleteArgument
-	33, // 31: gateway.jobs.private.v1.DeleteMutation.transient:type_name -> gateway.jobs.private.v1.Transient
-	22, // 32: gateway.jobs.private.v1.DeleteTransaction.mutations:type_name -> gateway.jobs.private.v1.DeleteMutation
-	33, // [33:33] is the sub-list for method output_type
-	33, // [33:33] is the sub-list for method input_type
-	33, // [33:33] is the sub-list for extension type_name
-	33, // [33:33] is the sub-list for extension extendee
-	0,  // [0:33] is the sub-list for field type_name
+	27, // 7: gateway.jobs.private.v1.SelectResponse.jobs:type_name -> gateway.jobs.private.v1.Job
+	28, // 8: gateway.jobs.private.v1.CreateArgument.result:type_name -> gateway.jobs.private.v1.Result
+	29, // 9: gateway.jobs.private.v1.CreateArgument.status:type_name -> gateway.jobs.private.v1.Status
+	24, // 10: gateway.jobs.private.v1.CreateArgument.metadata:type_name -> gateway.jobs.private.v1.CreateArgument.MetadataEntry
+	30, // 11: gateway.jobs.private.v1.CreateArgument.container:type_name -> gateway.jobs.private.v1.Container
+	9,  // 12: gateway.jobs.private.v1.CreateRequest.arguments:type_name -> gateway.jobs.private.v1.CreateArgument
+	27, // 13: gateway.jobs.private.v1.CreateResponse.jobs:type_name -> gateway.jobs.private.v1.Job
+	9,  // 14: gateway.jobs.private.v1.CreateMutation.foundation:type_name -> gateway.jobs.private.v1.CreateArgument
+	31, // 15: gateway.jobs.private.v1.CreateMutation.transient:type_name -> gateway.jobs.private.v1.Transient
+	12, // 16: gateway.jobs.private.v1.CreateTransaction.mutations:type_name -> gateway.jobs.private.v1.CreateMutation
+	25, // 17: gateway.jobs.private.v1.UpdateArgument.query:type_name -> gateway.jobs.private.v1.Query
+	32, // 18: gateway.jobs.private.v1.UpdateArgument.result:type_name -> gateway.jobs.private.v1.OptionalResult
+	33, // 19: gateway.jobs.private.v1.UpdateArgument.status:type_name -> gateway.jobs.private.v1.OptionalStatus
+	34, // 20: gateway.jobs.private.v1.UpdateArgument.metadata:type_name -> gateway.jobs.private.v1.OptionalMap
+	14, // 21: gateway.jobs.private.v1.UpdateRequest.arguments:type_name -> gateway.jobs.private.v1.UpdateArgument
+	27, // 22: gateway.jobs.private.v1.UpdateResponse.jobs:type_name -> gateway.jobs.private.v1.Job
+	14, // 23: gateway.jobs.private.v1.UpdateMutation.foundation:type_name -> gateway.jobs.private.v1.UpdateArgument
+	31, // 24: gateway.jobs.private.v1.UpdateMutation.transient:type_name -> gateway.jobs.private.v1.Transient
+	17, // 25: gateway.jobs.private.v1.UpdateTransaction.mutations:type_name -> gateway.jobs.private.v1.UpdateMutation
+	25, // 26: gateway.jobs.private.v1.DeleteArgument.query:type_name -> gateway.jobs.private.v1.Query
+	19, // 27: gateway.jobs.private.v1.DeleteRequest.arguments:type_name -> gateway.jobs.private.v1.DeleteArgument
+	27, // 28: gateway.jobs.private.v1.DeleteResponse.jobs:type_name -> gateway.jobs.private.v1.Job
+	19, // 29: gateway.jobs.private.v1.DeleteMutation.foundation:type_name -> gateway.jobs.private.v1.DeleteArgument
+	31, // 30: gateway.jobs.private.v1.DeleteMutation.transient:type_name -> gateway.jobs.private.v1.Transient
+	22, // 31: gateway.jobs.private.v1.DeleteTransaction.mutations:type_name -> gateway.jobs.private.v1.DeleteMutation
+	32, // [32:32] is the sub-list for method output_type
+	32, // [32:32] is the sub-list for method input_type
+	32, // [32:32] is the sub-list for extension type_name
+	32, // [32:32] is the sub-list for extension extendee
+	0,  // [0:32] is the sub-list for field type_name
 }
 
 func init() { file_gateway_jobs_private_v1_procedures_proto_init() }
@@ -1456,7 +1419,7 @@ func file_gateway_jobs_private_v1_procedures_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_gateway_jobs_private_v1_procedures_proto_rawDesc), len(file_gateway_jobs_private_v1_procedures_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   28,
+			NumMessages:   25,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

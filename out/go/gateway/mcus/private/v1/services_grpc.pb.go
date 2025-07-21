@@ -39,12 +39,6 @@ const (
 	Service_FinalizeDeleteMutations_FullMethodName         = "/gateway.mcus.private.v1.Service/FinalizeDeleteMutations"
 	Service_AnnounceDeleteMutations_FullMethodName         = "/gateway.mcus.private.v1.Service/AnnounceDeleteMutations"
 	Service_RollbackDeleteMutations_FullMethodName         = "/gateway.mcus.private.v1.Service/RollbackDeleteMutations"
-	Service_Acquire_FullMethodName                         = "/gateway.mcus.private.v1.Service/Acquire"
-	Service_InitiateAcquireMutations_FullMethodName        = "/gateway.mcus.private.v1.Service/InitiateAcquireMutations"
-	Service_FinalizeAcquireMutations_FullMethodName        = "/gateway.mcus.private.v1.Service/FinalizeAcquireMutations"
-	Service_Release_FullMethodName                         = "/gateway.mcus.private.v1.Service/Release"
-	Service_InitiateReleaseMutations_FullMethodName        = "/gateway.mcus.private.v1.Service/InitiateReleaseMutations"
-	Service_FinalizeReleaseMutations_FullMethodName        = "/gateway.mcus.private.v1.Service/FinalizeReleaseMutations"
 	Service_StartBroadcast_FullMethodName                  = "/gateway.mcus.private.v1.Service/StartBroadcast"
 	Service_InitiateStartBroadcastMutations_FullMethodName = "/gateway.mcus.private.v1.Service/InitiateStartBroadcastMutations"
 	Service_FinalizeStartBroadcastMutations_FullMethodName = "/gateway.mcus.private.v1.Service/FinalizeStartBroadcastMutations"
@@ -77,12 +71,6 @@ type ServiceClient interface {
 	FinalizeDeleteMutations(ctx context.Context, in *DeleteTransaction, opts ...grpc.CallOption) (*DeleteTransaction, error)
 	AnnounceDeleteMutations(ctx context.Context, in *DeleteTransaction, opts ...grpc.CallOption) (*DeleteTransaction, error)
 	RollbackDeleteMutations(ctx context.Context, in *DeleteTransaction, opts ...grpc.CallOption) (*DeleteTransaction, error)
-	Acquire(ctx context.Context, in *AcquireRequest, opts ...grpc.CallOption) (*AcquireResponse, error)
-	InitiateAcquireMutations(ctx context.Context, in *AcquireTransaction, opts ...grpc.CallOption) (*AcquireTransaction, error)
-	FinalizeAcquireMutations(ctx context.Context, in *AcquireTransaction, opts ...grpc.CallOption) (*AcquireTransaction, error)
-	Release(ctx context.Context, in *ReleaseRequest, opts ...grpc.CallOption) (*ReleaseResponse, error)
-	InitiateReleaseMutations(ctx context.Context, in *ReleaseTransaction, opts ...grpc.CallOption) (*ReleaseTransaction, error)
-	FinalizeReleaseMutations(ctx context.Context, in *ReleaseTransaction, opts ...grpc.CallOption) (*ReleaseTransaction, error)
 	StartBroadcast(ctx context.Context, in *StartBroadcastRequest, opts ...grpc.CallOption) (*StartBroadcastResponse, error)
 	InitiateStartBroadcastMutations(ctx context.Context, in *StartBroadcastTransaction, opts ...grpc.CallOption) (*StartBroadcastTransaction, error)
 	FinalizeStartBroadcastMutations(ctx context.Context, in *StartBroadcastTransaction, opts ...grpc.CallOption) (*StartBroadcastTransaction, error)
@@ -299,66 +287,6 @@ func (c *serviceClient) RollbackDeleteMutations(ctx context.Context, in *DeleteT
 	return out, nil
 }
 
-func (c *serviceClient) Acquire(ctx context.Context, in *AcquireRequest, opts ...grpc.CallOption) (*AcquireResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AcquireResponse)
-	err := c.cc.Invoke(ctx, Service_Acquire_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceClient) InitiateAcquireMutations(ctx context.Context, in *AcquireTransaction, opts ...grpc.CallOption) (*AcquireTransaction, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AcquireTransaction)
-	err := c.cc.Invoke(ctx, Service_InitiateAcquireMutations_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceClient) FinalizeAcquireMutations(ctx context.Context, in *AcquireTransaction, opts ...grpc.CallOption) (*AcquireTransaction, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AcquireTransaction)
-	err := c.cc.Invoke(ctx, Service_FinalizeAcquireMutations_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceClient) Release(ctx context.Context, in *ReleaseRequest, opts ...grpc.CallOption) (*ReleaseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ReleaseResponse)
-	err := c.cc.Invoke(ctx, Service_Release_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceClient) InitiateReleaseMutations(ctx context.Context, in *ReleaseTransaction, opts ...grpc.CallOption) (*ReleaseTransaction, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ReleaseTransaction)
-	err := c.cc.Invoke(ctx, Service_InitiateReleaseMutations_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceClient) FinalizeReleaseMutations(ctx context.Context, in *ReleaseTransaction, opts ...grpc.CallOption) (*ReleaseTransaction, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ReleaseTransaction)
-	err := c.cc.Invoke(ctx, Service_FinalizeReleaseMutations_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *serviceClient) StartBroadcast(ctx context.Context, in *StartBroadcastRequest, opts ...grpc.CallOption) (*StartBroadcastResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(StartBroadcastResponse)
@@ -443,12 +371,6 @@ type ServiceServer interface {
 	FinalizeDeleteMutations(context.Context, *DeleteTransaction) (*DeleteTransaction, error)
 	AnnounceDeleteMutations(context.Context, *DeleteTransaction) (*DeleteTransaction, error)
 	RollbackDeleteMutations(context.Context, *DeleteTransaction) (*DeleteTransaction, error)
-	Acquire(context.Context, *AcquireRequest) (*AcquireResponse, error)
-	InitiateAcquireMutations(context.Context, *AcquireTransaction) (*AcquireTransaction, error)
-	FinalizeAcquireMutations(context.Context, *AcquireTransaction) (*AcquireTransaction, error)
-	Release(context.Context, *ReleaseRequest) (*ReleaseResponse, error)
-	InitiateReleaseMutations(context.Context, *ReleaseTransaction) (*ReleaseTransaction, error)
-	FinalizeReleaseMutations(context.Context, *ReleaseTransaction) (*ReleaseTransaction, error)
 	StartBroadcast(context.Context, *StartBroadcastRequest) (*StartBroadcastResponse, error)
 	InitiateStartBroadcastMutations(context.Context, *StartBroadcastTransaction) (*StartBroadcastTransaction, error)
 	FinalizeStartBroadcastMutations(context.Context, *StartBroadcastTransaction) (*StartBroadcastTransaction, error)
@@ -524,24 +446,6 @@ func (UnimplementedServiceServer) AnnounceDeleteMutations(context.Context, *Dele
 }
 func (UnimplementedServiceServer) RollbackDeleteMutations(context.Context, *DeleteTransaction) (*DeleteTransaction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RollbackDeleteMutations not implemented")
-}
-func (UnimplementedServiceServer) Acquire(context.Context, *AcquireRequest) (*AcquireResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Acquire not implemented")
-}
-func (UnimplementedServiceServer) InitiateAcquireMutations(context.Context, *AcquireTransaction) (*AcquireTransaction, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method InitiateAcquireMutations not implemented")
-}
-func (UnimplementedServiceServer) FinalizeAcquireMutations(context.Context, *AcquireTransaction) (*AcquireTransaction, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FinalizeAcquireMutations not implemented")
-}
-func (UnimplementedServiceServer) Release(context.Context, *ReleaseRequest) (*ReleaseResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Release not implemented")
-}
-func (UnimplementedServiceServer) InitiateReleaseMutations(context.Context, *ReleaseTransaction) (*ReleaseTransaction, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method InitiateReleaseMutations not implemented")
-}
-func (UnimplementedServiceServer) FinalizeReleaseMutations(context.Context, *ReleaseTransaction) (*ReleaseTransaction, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FinalizeReleaseMutations not implemented")
 }
 func (UnimplementedServiceServer) StartBroadcast(context.Context, *StartBroadcastRequest) (*StartBroadcastResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method StartBroadcast not implemented")
@@ -942,114 +846,6 @@ func _Service_RollbackDeleteMutations_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Service_Acquire_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AcquireRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).Acquire(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Service_Acquire_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).Acquire(ctx, req.(*AcquireRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Service_InitiateAcquireMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AcquireTransaction)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).InitiateAcquireMutations(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Service_InitiateAcquireMutations_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).InitiateAcquireMutations(ctx, req.(*AcquireTransaction))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Service_FinalizeAcquireMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AcquireTransaction)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).FinalizeAcquireMutations(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Service_FinalizeAcquireMutations_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).FinalizeAcquireMutations(ctx, req.(*AcquireTransaction))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Service_Release_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReleaseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).Release(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Service_Release_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).Release(ctx, req.(*ReleaseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Service_InitiateReleaseMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReleaseTransaction)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).InitiateReleaseMutations(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Service_InitiateReleaseMutations_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).InitiateReleaseMutations(ctx, req.(*ReleaseTransaction))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Service_FinalizeReleaseMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReleaseTransaction)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).FinalizeReleaseMutations(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Service_FinalizeReleaseMutations_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).FinalizeReleaseMutations(ctx, req.(*ReleaseTransaction))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _Service_StartBroadcast_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(StartBroadcastRequest)
 	if err := dec(in); err != nil {
@@ -1244,30 +1040,6 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RollbackDeleteMutations",
 			Handler:    _Service_RollbackDeleteMutations_Handler,
-		},
-		{
-			MethodName: "Acquire",
-			Handler:    _Service_Acquire_Handler,
-		},
-		{
-			MethodName: "InitiateAcquireMutations",
-			Handler:    _Service_InitiateAcquireMutations_Handler,
-		},
-		{
-			MethodName: "FinalizeAcquireMutations",
-			Handler:    _Service_FinalizeAcquireMutations_Handler,
-		},
-		{
-			MethodName: "Release",
-			Handler:    _Service_Release_Handler,
-		},
-		{
-			MethodName: "InitiateReleaseMutations",
-			Handler:    _Service_InitiateReleaseMutations_Handler,
-		},
-		{
-			MethodName: "FinalizeReleaseMutations",
-			Handler:    _Service_FinalizeReleaseMutations_Handler,
 		},
 		{
 			MethodName: "StartBroadcast",

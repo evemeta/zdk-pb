@@ -7,7 +7,6 @@
 package mcuspb
 
 import (
-	v1 "gitlab.com/evemeta/zdk/pb/out/go/gateway/reservations/private/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -445,9 +444,10 @@ func (x *SelectResponse) GetMcus() []*Mcu {
 type CreateArgument struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Zone          Zone                   `protobuf:"varint,2,opt,name=zone,proto3,enum=gateway.mcus.private.v1.Zone" json:"zone,omitempty"`
-	Status        Status                 `protobuf:"varint,3,opt,name=status,proto3,enum=gateway.mcus.private.v1.Status" json:"status,omitempty"`
-	Address       string                 `protobuf:"bytes,4,opt,name=address,proto3" json:"address,omitempty"`
+	RoomId        string                 `protobuf:"bytes,2,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
+	Zone          Zone                   `protobuf:"varint,3,opt,name=zone,proto3,enum=gateway.mcus.private.v1.Zone" json:"zone,omitempty"`
+	Status        Status                 `protobuf:"varint,4,opt,name=status,proto3,enum=gateway.mcus.private.v1.Status" json:"status,omitempty"`
+	Address       string                 `protobuf:"bytes,5,opt,name=address,proto3" json:"address,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -485,6 +485,13 @@ func (*CreateArgument) Descriptor() ([]byte, []int) {
 func (x *CreateArgument) GetId() string {
 	if x != nil {
 		return x.Id
+	}
+	return ""
+}
+
+func (x *CreateArgument) GetRoomId() string {
+	if x != nil {
+		return x.RoomId
 	}
 	return ""
 }
@@ -1113,10 +1120,9 @@ func (x *DeleteResponse) GetMcus() []*Mcu {
 type DeleteMutation struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
 	Foundation     *DeleteArgument        `protobuf:"bytes,1,opt,name=foundation,proto3" json:"foundation,omitempty"`
-	Condition      *DeleteCondition       `protobuf:"bytes,2,opt,name=condition,proto3" json:"condition,omitempty"`
-	Transient      []*Transient           `protobuf:"bytes,3,rep,name=transient,proto3" json:"transient,omitempty"`
-	BeginTimestamp int64                  `protobuf:"varint,4,opt,name=begin_timestamp,json=beginTimestamp,proto3" json:"begin_timestamp,omitempty"`
-	CloseTimestamp int64                  `protobuf:"varint,5,opt,name=close_timestamp,json=closeTimestamp,proto3" json:"close_timestamp,omitempty"`
+	Transient      []*Transient           `protobuf:"bytes,2,rep,name=transient,proto3" json:"transient,omitempty"`
+	BeginTimestamp int64                  `protobuf:"varint,3,opt,name=begin_timestamp,json=beginTimestamp,proto3" json:"begin_timestamp,omitempty"`
+	CloseTimestamp int64                  `protobuf:"varint,4,opt,name=close_timestamp,json=closeTimestamp,proto3" json:"close_timestamp,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -1158,13 +1164,6 @@ func (x *DeleteMutation) GetFoundation() *DeleteArgument {
 	return nil
 }
 
-func (x *DeleteMutation) GetCondition() *DeleteCondition {
-	if x != nil {
-		return x.Condition
-	}
-	return nil
-}
-
 func (x *DeleteMutation) GetTransient() []*Transient {
 	if x != nil {
 		return x.Transient
@@ -1186,50 +1185,6 @@ func (x *DeleteMutation) GetCloseTimestamp() int64 {
 	return 0
 }
 
-type DeleteCondition struct {
-	state                      protoimpl.MessageState `protogen:"open.v1"`
-	DeleteReservationMutations []*v1.DeleteMutation   `protobuf:"bytes,1,rep,name=delete_reservation_mutations,json=deleteReservationMutations,proto3" json:"delete_reservation_mutations,omitempty"`
-	unknownFields              protoimpl.UnknownFields
-	sizeCache                  protoimpl.SizeCache
-}
-
-func (x *DeleteCondition) Reset() {
-	*x = DeleteCondition{}
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[23]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DeleteCondition) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DeleteCondition) ProtoMessage() {}
-
-func (x *DeleteCondition) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[23]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DeleteCondition.ProtoReflect.Descriptor instead.
-func (*DeleteCondition) Descriptor() ([]byte, []int) {
-	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{23}
-}
-
-func (x *DeleteCondition) GetDeleteReservationMutations() []*v1.DeleteMutation {
-	if x != nil {
-		return x.DeleteReservationMutations
-	}
-	return nil
-}
-
 type DeleteTransaction struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Mutations     []*DeleteMutation      `protobuf:"bytes,1,rep,name=mutations,proto3" json:"mutations,omitempty"`
@@ -1239,7 +1194,7 @@ type DeleteTransaction struct {
 
 func (x *DeleteTransaction) Reset() {
 	*x = DeleteTransaction{}
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[24]
+	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1251,7 +1206,7 @@ func (x *DeleteTransaction) String() string {
 func (*DeleteTransaction) ProtoMessage() {}
 
 func (x *DeleteTransaction) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[24]
+	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1264,578 +1219,10 @@ func (x *DeleteTransaction) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteTransaction.ProtoReflect.Descriptor instead.
 func (*DeleteTransaction) Descriptor() ([]byte, []int) {
-	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{24}
+	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *DeleteTransaction) GetMutations() []*DeleteMutation {
-	if x != nil {
-		return x.Mutations
-	}
-	return nil
-}
-
-type AcquireArgument struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	RoomId        string                 `protobuf:"bytes,1,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
-	Metadata      map[string]string      `protobuf:"bytes,2,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AcquireArgument) Reset() {
-	*x = AcquireArgument{}
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[25]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AcquireArgument) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AcquireArgument) ProtoMessage() {}
-
-func (x *AcquireArgument) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[25]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AcquireArgument.ProtoReflect.Descriptor instead.
-func (*AcquireArgument) Descriptor() ([]byte, []int) {
-	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{25}
-}
-
-func (x *AcquireArgument) GetRoomId() string {
-	if x != nil {
-		return x.RoomId
-	}
-	return ""
-}
-
-func (x *AcquireArgument) GetMetadata() map[string]string {
-	if x != nil {
-		return x.Metadata
-	}
-	return nil
-}
-
-type AcquireRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arguments     []*AcquireArgument     `protobuf:"bytes,1,rep,name=arguments,proto3" json:"arguments,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AcquireRequest) Reset() {
-	*x = AcquireRequest{}
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[26]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AcquireRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AcquireRequest) ProtoMessage() {}
-
-func (x *AcquireRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[26]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AcquireRequest.ProtoReflect.Descriptor instead.
-func (*AcquireRequest) Descriptor() ([]byte, []int) {
-	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{26}
-}
-
-func (x *AcquireRequest) GetArguments() []*AcquireArgument {
-	if x != nil {
-		return x.Arguments
-	}
-	return nil
-}
-
-type AcquireResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AcquireResponse) Reset() {
-	*x = AcquireResponse{}
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[27]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AcquireResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AcquireResponse) ProtoMessage() {}
-
-func (x *AcquireResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[27]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AcquireResponse.ProtoReflect.Descriptor instead.
-func (*AcquireResponse) Descriptor() ([]byte, []int) {
-	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{27}
-}
-
-type AcquireMutation struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	Foundation     *AcquireArgument       `protobuf:"bytes,1,opt,name=foundation,proto3" json:"foundation,omitempty"`
-	Condition      *AcquireCondition      `protobuf:"bytes,2,opt,name=condition,proto3" json:"condition,omitempty"`
-	BeginTimestamp int64                  `protobuf:"varint,3,opt,name=begin_timestamp,json=beginTimestamp,proto3" json:"begin_timestamp,omitempty"`
-	CloseTimestamp int64                  `protobuf:"varint,4,opt,name=close_timestamp,json=closeTimestamp,proto3" json:"close_timestamp,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
-}
-
-func (x *AcquireMutation) Reset() {
-	*x = AcquireMutation{}
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[28]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AcquireMutation) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AcquireMutation) ProtoMessage() {}
-
-func (x *AcquireMutation) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[28]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AcquireMutation.ProtoReflect.Descriptor instead.
-func (*AcquireMutation) Descriptor() ([]byte, []int) {
-	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{28}
-}
-
-func (x *AcquireMutation) GetFoundation() *AcquireArgument {
-	if x != nil {
-		return x.Foundation
-	}
-	return nil
-}
-
-func (x *AcquireMutation) GetCondition() *AcquireCondition {
-	if x != nil {
-		return x.Condition
-	}
-	return nil
-}
-
-func (x *AcquireMutation) GetBeginTimestamp() int64 {
-	if x != nil {
-		return x.BeginTimestamp
-	}
-	return 0
-}
-
-func (x *AcquireMutation) GetCloseTimestamp() int64 {
-	if x != nil {
-		return x.CloseTimestamp
-	}
-	return 0
-}
-
-type AcquireCondition struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Mcus          []*Mcu                 `protobuf:"bytes,1,rep,name=mcus,proto3" json:"mcus,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AcquireCondition) Reset() {
-	*x = AcquireCondition{}
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[29]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AcquireCondition) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AcquireCondition) ProtoMessage() {}
-
-func (x *AcquireCondition) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[29]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AcquireCondition.ProtoReflect.Descriptor instead.
-func (*AcquireCondition) Descriptor() ([]byte, []int) {
-	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{29}
-}
-
-func (x *AcquireCondition) GetMcus() []*Mcu {
-	if x != nil {
-		return x.Mcus
-	}
-	return nil
-}
-
-type AcquireTransaction struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Mutations     []*AcquireMutation     `protobuf:"bytes,1,rep,name=mutations,proto3" json:"mutations,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AcquireTransaction) Reset() {
-	*x = AcquireTransaction{}
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[30]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AcquireTransaction) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AcquireTransaction) ProtoMessage() {}
-
-func (x *AcquireTransaction) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[30]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AcquireTransaction.ProtoReflect.Descriptor instead.
-func (*AcquireTransaction) Descriptor() ([]byte, []int) {
-	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{30}
-}
-
-func (x *AcquireTransaction) GetMutations() []*AcquireMutation {
-	if x != nil {
-		return x.Mutations
-	}
-	return nil
-}
-
-type ReleaseArgument struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	RoomId        string                 `protobuf:"bytes,1,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ReleaseArgument) Reset() {
-	*x = ReleaseArgument{}
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[31]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ReleaseArgument) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReleaseArgument) ProtoMessage() {}
-
-func (x *ReleaseArgument) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[31]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReleaseArgument.ProtoReflect.Descriptor instead.
-func (*ReleaseArgument) Descriptor() ([]byte, []int) {
-	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{31}
-}
-
-func (x *ReleaseArgument) GetRoomId() string {
-	if x != nil {
-		return x.RoomId
-	}
-	return ""
-}
-
-type ReleaseRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arguments     []*ReleaseArgument     `protobuf:"bytes,1,rep,name=arguments,proto3" json:"arguments,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ReleaseRequest) Reset() {
-	*x = ReleaseRequest{}
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[32]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ReleaseRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReleaseRequest) ProtoMessage() {}
-
-func (x *ReleaseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[32]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReleaseRequest.ProtoReflect.Descriptor instead.
-func (*ReleaseRequest) Descriptor() ([]byte, []int) {
-	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{32}
-}
-
-func (x *ReleaseRequest) GetArguments() []*ReleaseArgument {
-	if x != nil {
-		return x.Arguments
-	}
-	return nil
-}
-
-type ReleaseResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ReleaseResponse) Reset() {
-	*x = ReleaseResponse{}
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[33]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ReleaseResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReleaseResponse) ProtoMessage() {}
-
-func (x *ReleaseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[33]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReleaseResponse.ProtoReflect.Descriptor instead.
-func (*ReleaseResponse) Descriptor() ([]byte, []int) {
-	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{33}
-}
-
-type ReleaseMutation struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	Foundation     *ReleaseArgument       `protobuf:"bytes,1,opt,name=foundation,proto3" json:"foundation,omitempty"`
-	Condition      *ReleaseCondition      `protobuf:"bytes,2,opt,name=condition,proto3" json:"condition,omitempty"`
-	BeginTimestamp int64                  `protobuf:"varint,3,opt,name=begin_timestamp,json=beginTimestamp,proto3" json:"begin_timestamp,omitempty"`
-	CloseTimestamp int64                  `protobuf:"varint,4,opt,name=close_timestamp,json=closeTimestamp,proto3" json:"close_timestamp,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
-}
-
-func (x *ReleaseMutation) Reset() {
-	*x = ReleaseMutation{}
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[34]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ReleaseMutation) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReleaseMutation) ProtoMessage() {}
-
-func (x *ReleaseMutation) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[34]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReleaseMutation.ProtoReflect.Descriptor instead.
-func (*ReleaseMutation) Descriptor() ([]byte, []int) {
-	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{34}
-}
-
-func (x *ReleaseMutation) GetFoundation() *ReleaseArgument {
-	if x != nil {
-		return x.Foundation
-	}
-	return nil
-}
-
-func (x *ReleaseMutation) GetCondition() *ReleaseCondition {
-	if x != nil {
-		return x.Condition
-	}
-	return nil
-}
-
-func (x *ReleaseMutation) GetBeginTimestamp() int64 {
-	if x != nil {
-		return x.BeginTimestamp
-	}
-	return 0
-}
-
-func (x *ReleaseMutation) GetCloseTimestamp() int64 {
-	if x != nil {
-		return x.CloseTimestamp
-	}
-	return 0
-}
-
-type ReleaseCondition struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Mcus          []*Mcu                 `protobuf:"bytes,1,rep,name=mcus,proto3" json:"mcus,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ReleaseCondition) Reset() {
-	*x = ReleaseCondition{}
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[35]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ReleaseCondition) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReleaseCondition) ProtoMessage() {}
-
-func (x *ReleaseCondition) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[35]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReleaseCondition.ProtoReflect.Descriptor instead.
-func (*ReleaseCondition) Descriptor() ([]byte, []int) {
-	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{35}
-}
-
-func (x *ReleaseCondition) GetMcus() []*Mcu {
-	if x != nil {
-		return x.Mcus
-	}
-	return nil
-}
-
-type ReleaseTransaction struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Mutations     []*ReleaseMutation     `protobuf:"bytes,1,rep,name=mutations,proto3" json:"mutations,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ReleaseTransaction) Reset() {
-	*x = ReleaseTransaction{}
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[36]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ReleaseTransaction) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReleaseTransaction) ProtoMessage() {}
-
-func (x *ReleaseTransaction) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[36]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReleaseTransaction.ProtoReflect.Descriptor instead.
-func (*ReleaseTransaction) Descriptor() ([]byte, []int) {
-	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{36}
-}
-
-func (x *ReleaseTransaction) GetMutations() []*ReleaseMutation {
 	if x != nil {
 		return x.Mutations
 	}
@@ -1851,7 +1238,7 @@ type StartBroadcastArgument struct {
 
 func (x *StartBroadcastArgument) Reset() {
 	*x = StartBroadcastArgument{}
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[37]
+	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1863,7 +1250,7 @@ func (x *StartBroadcastArgument) String() string {
 func (*StartBroadcastArgument) ProtoMessage() {}
 
 func (x *StartBroadcastArgument) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[37]
+	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1876,7 +1263,7 @@ func (x *StartBroadcastArgument) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartBroadcastArgument.ProtoReflect.Descriptor instead.
 func (*StartBroadcastArgument) Descriptor() ([]byte, []int) {
-	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{37}
+	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *StartBroadcastArgument) GetRoomId() string {
@@ -1895,7 +1282,7 @@ type StartBroadcastRequest struct {
 
 func (x *StartBroadcastRequest) Reset() {
 	*x = StartBroadcastRequest{}
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[38]
+	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1907,7 +1294,7 @@ func (x *StartBroadcastRequest) String() string {
 func (*StartBroadcastRequest) ProtoMessage() {}
 
 func (x *StartBroadcastRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[38]
+	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1920,7 +1307,7 @@ func (x *StartBroadcastRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartBroadcastRequest.ProtoReflect.Descriptor instead.
 func (*StartBroadcastRequest) Descriptor() ([]byte, []int) {
-	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{38}
+	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *StartBroadcastRequest) GetArguments() []*StartBroadcastArgument {
@@ -1938,7 +1325,7 @@ type StartBroadcastResponse struct {
 
 func (x *StartBroadcastResponse) Reset() {
 	*x = StartBroadcastResponse{}
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[39]
+	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1950,7 +1337,7 @@ func (x *StartBroadcastResponse) String() string {
 func (*StartBroadcastResponse) ProtoMessage() {}
 
 func (x *StartBroadcastResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[39]
+	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1963,7 +1350,7 @@ func (x *StartBroadcastResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartBroadcastResponse.ProtoReflect.Descriptor instead.
 func (*StartBroadcastResponse) Descriptor() ([]byte, []int) {
-	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{39}
+	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{26}
 }
 
 type StartBroadcastMutation struct {
@@ -1978,7 +1365,7 @@ type StartBroadcastMutation struct {
 
 func (x *StartBroadcastMutation) Reset() {
 	*x = StartBroadcastMutation{}
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[40]
+	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1990,7 +1377,7 @@ func (x *StartBroadcastMutation) String() string {
 func (*StartBroadcastMutation) ProtoMessage() {}
 
 func (x *StartBroadcastMutation) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[40]
+	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2003,7 +1390,7 @@ func (x *StartBroadcastMutation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartBroadcastMutation.ProtoReflect.Descriptor instead.
 func (*StartBroadcastMutation) Descriptor() ([]byte, []int) {
-	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{40}
+	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *StartBroadcastMutation) GetFoundation() *StartBroadcastArgument {
@@ -2043,7 +1430,7 @@ type StartBroadcastCondition struct {
 
 func (x *StartBroadcastCondition) Reset() {
 	*x = StartBroadcastCondition{}
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[41]
+	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2055,7 +1442,7 @@ func (x *StartBroadcastCondition) String() string {
 func (*StartBroadcastCondition) ProtoMessage() {}
 
 func (x *StartBroadcastCondition) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[41]
+	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2068,7 +1455,7 @@ func (x *StartBroadcastCondition) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartBroadcastCondition.ProtoReflect.Descriptor instead.
 func (*StartBroadcastCondition) Descriptor() ([]byte, []int) {
-	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{41}
+	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *StartBroadcastCondition) GetMcus() []*Mcu {
@@ -2087,7 +1474,7 @@ type StartBroadcastTransaction struct {
 
 func (x *StartBroadcastTransaction) Reset() {
 	*x = StartBroadcastTransaction{}
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[42]
+	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2099,7 +1486,7 @@ func (x *StartBroadcastTransaction) String() string {
 func (*StartBroadcastTransaction) ProtoMessage() {}
 
 func (x *StartBroadcastTransaction) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[42]
+	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2112,7 +1499,7 @@ func (x *StartBroadcastTransaction) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartBroadcastTransaction.ProtoReflect.Descriptor instead.
 func (*StartBroadcastTransaction) Descriptor() ([]byte, []int) {
-	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{42}
+	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *StartBroadcastTransaction) GetMutations() []*StartBroadcastMutation {
@@ -2131,7 +1518,7 @@ type StopBroadcastArgument struct {
 
 func (x *StopBroadcastArgument) Reset() {
 	*x = StopBroadcastArgument{}
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[43]
+	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2143,7 +1530,7 @@ func (x *StopBroadcastArgument) String() string {
 func (*StopBroadcastArgument) ProtoMessage() {}
 
 func (x *StopBroadcastArgument) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[43]
+	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2156,7 +1543,7 @@ func (x *StopBroadcastArgument) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopBroadcastArgument.ProtoReflect.Descriptor instead.
 func (*StopBroadcastArgument) Descriptor() ([]byte, []int) {
-	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{43}
+	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *StopBroadcastArgument) GetRoomId() string {
@@ -2175,7 +1562,7 @@ type StopBroadcastRequest struct {
 
 func (x *StopBroadcastRequest) Reset() {
 	*x = StopBroadcastRequest{}
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[44]
+	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2187,7 +1574,7 @@ func (x *StopBroadcastRequest) String() string {
 func (*StopBroadcastRequest) ProtoMessage() {}
 
 func (x *StopBroadcastRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[44]
+	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2200,7 +1587,7 @@ func (x *StopBroadcastRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopBroadcastRequest.ProtoReflect.Descriptor instead.
 func (*StopBroadcastRequest) Descriptor() ([]byte, []int) {
-	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{44}
+	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *StopBroadcastRequest) GetArguments() []*StopBroadcastArgument {
@@ -2218,7 +1605,7 @@ type StopBroadcastResponse struct {
 
 func (x *StopBroadcastResponse) Reset() {
 	*x = StopBroadcastResponse{}
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[45]
+	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2230,7 +1617,7 @@ func (x *StopBroadcastResponse) String() string {
 func (*StopBroadcastResponse) ProtoMessage() {}
 
 func (x *StopBroadcastResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[45]
+	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2243,7 +1630,7 @@ func (x *StopBroadcastResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopBroadcastResponse.ProtoReflect.Descriptor instead.
 func (*StopBroadcastResponse) Descriptor() ([]byte, []int) {
-	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{45}
+	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{32}
 }
 
 type StopBroadcastMutation struct {
@@ -2258,7 +1645,7 @@ type StopBroadcastMutation struct {
 
 func (x *StopBroadcastMutation) Reset() {
 	*x = StopBroadcastMutation{}
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[46]
+	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2270,7 +1657,7 @@ func (x *StopBroadcastMutation) String() string {
 func (*StopBroadcastMutation) ProtoMessage() {}
 
 func (x *StopBroadcastMutation) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[46]
+	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2283,7 +1670,7 @@ func (x *StopBroadcastMutation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopBroadcastMutation.ProtoReflect.Descriptor instead.
 func (*StopBroadcastMutation) Descriptor() ([]byte, []int) {
-	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{46}
+	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *StopBroadcastMutation) GetFoundation() *StopBroadcastArgument {
@@ -2323,7 +1710,7 @@ type StopBroadcastCondition struct {
 
 func (x *StopBroadcastCondition) Reset() {
 	*x = StopBroadcastCondition{}
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[47]
+	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2335,7 +1722,7 @@ func (x *StopBroadcastCondition) String() string {
 func (*StopBroadcastCondition) ProtoMessage() {}
 
 func (x *StopBroadcastCondition) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[47]
+	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2348,7 +1735,7 @@ func (x *StopBroadcastCondition) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopBroadcastCondition.ProtoReflect.Descriptor instead.
 func (*StopBroadcastCondition) Descriptor() ([]byte, []int) {
-	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{47}
+	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *StopBroadcastCondition) GetMcus() []*Mcu {
@@ -2367,7 +1754,7 @@ type StopBroadcastTransaction struct {
 
 func (x *StopBroadcastTransaction) Reset() {
 	*x = StopBroadcastTransaction{}
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[48]
+	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2379,7 +1766,7 @@ func (x *StopBroadcastTransaction) String() string {
 func (*StopBroadcastTransaction) ProtoMessage() {}
 
 func (x *StopBroadcastTransaction) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[48]
+	mi := &file_gateway_mcus_private_v1_procedures_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2392,7 +1779,7 @@ func (x *StopBroadcastTransaction) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopBroadcastTransaction.ProtoReflect.Descriptor instead.
 func (*StopBroadcastTransaction) Descriptor() ([]byte, []int) {
-	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{48}
+	return file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *StopBroadcastTransaction) GetMutations() []*StopBroadcastMutation {
@@ -2406,7 +1793,7 @@ var File_gateway_mcus_private_v1_procedures_proto protoreflect.FileDescriptor
 
 const file_gateway_mcus_private_v1_procedures_proto_rawDesc = "" +
 	"\n" +
-	"(gateway/mcus/private/v1/procedures.proto\x12\x17gateway.mcus.private.v1\x1a#gateway/mcus/private/v1/enums.proto\x1a&gateway/mcus/private/v1/entities.proto\x1a'gateway/mcus/private/v1/optionals.proto\x1a0gateway/reservations/private/v1/procedures.proto\"[\n" +
+	"(gateway/mcus/private/v1/procedures.proto\x12\x17gateway.mcus.private.v1\x1a#gateway/mcus/private/v1/enums.proto\x1a&gateway/mcus/private/v1/entities.proto\x1a'gateway/mcus/private/v1/optionals.proto\"[\n" +
 	"\rCountArgument\x12\x14\n" +
 	"\x05cache\x18\x01 \x01(\bR\x05cache\x124\n" +
 	"\x05query\x18\x02 \x01(\v2\x1e.gateway.mcus.private.v1.QueryR\x05query\"T\n" +
@@ -2427,12 +1814,13 @@ const file_gateway_mcus_private_v1_procedures_proto_rawDesc = "" +
 	"\rSelectRequest\x12E\n" +
 	"\targuments\x18\x01 \x03(\v2'.gateway.mcus.private.v1.SelectArgumentR\targuments\"B\n" +
 	"\x0eSelectResponse\x120\n" +
-	"\x04mcus\x18\x01 \x03(\v2\x1c.gateway.mcus.private.v1.McuR\x04mcus\"\xa6\x01\n" +
+	"\x04mcus\x18\x01 \x03(\v2\x1c.gateway.mcus.private.v1.McuR\x04mcus\"\xbf\x01\n" +
 	"\x0eCreateArgument\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x121\n" +
-	"\x04zone\x18\x02 \x01(\x0e2\x1d.gateway.mcus.private.v1.ZoneR\x04zone\x127\n" +
-	"\x06status\x18\x03 \x01(\x0e2\x1f.gateway.mcus.private.v1.StatusR\x06status\x12\x18\n" +
-	"\aaddress\x18\x04 \x01(\tR\aaddress\"V\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
+	"\aroom_id\x18\x02 \x01(\tR\x06roomId\x121\n" +
+	"\x04zone\x18\x03 \x01(\x0e2\x1d.gateway.mcus.private.v1.ZoneR\x04zone\x127\n" +
+	"\x06status\x18\x04 \x01(\x0e2\x1f.gateway.mcus.private.v1.StatusR\x06status\x12\x18\n" +
+	"\aaddress\x18\x05 \x01(\tR\aaddress\"V\n" +
 	"\rCreateRequest\x12E\n" +
 	"\targuments\x18\x01 \x03(\v2'.gateway.mcus.private.v1.CreateArgumentR\targuments\"B\n" +
 	"\x0eCreateResponse\x120\n" +
@@ -2473,55 +1861,16 @@ const file_gateway_mcus_private_v1_procedures_proto_rawDesc = "" +
 	"\rDeleteRequest\x12E\n" +
 	"\targuments\x18\x01 \x03(\v2'.gateway.mcus.private.v1.DeleteArgumentR\targuments\"B\n" +
 	"\x0eDeleteResponse\x120\n" +
-	"\x04mcus\x18\x01 \x03(\v2\x1c.gateway.mcus.private.v1.McuR\x04mcus\"\xb5\x02\n" +
+	"\x04mcus\x18\x01 \x03(\v2\x1c.gateway.mcus.private.v1.McuR\x04mcus\"\xed\x01\n" +
 	"\x0eDeleteMutation\x12G\n" +
 	"\n" +
 	"foundation\x18\x01 \x01(\v2'.gateway.mcus.private.v1.DeleteArgumentR\n" +
-	"foundation\x12F\n" +
-	"\tcondition\x18\x02 \x01(\v2(.gateway.mcus.private.v1.DeleteConditionR\tcondition\x12@\n" +
-	"\ttransient\x18\x03 \x03(\v2\".gateway.mcus.private.v1.TransientR\ttransient\x12'\n" +
-	"\x0fbegin_timestamp\x18\x04 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
-	"\x0fclose_timestamp\x18\x05 \x01(\x03R\x0ecloseTimestamp\"\x84\x01\n" +
-	"\x0fDeleteCondition\x12q\n" +
-	"\x1cdelete_reservation_mutations\x18\x01 \x03(\v2/.gateway.reservations.private.v1.DeleteMutationR\x1adeleteReservationMutations\"Z\n" +
+	"foundation\x12@\n" +
+	"\ttransient\x18\x02 \x03(\v2\".gateway.mcus.private.v1.TransientR\ttransient\x12'\n" +
+	"\x0fbegin_timestamp\x18\x03 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
+	"\x0fclose_timestamp\x18\x04 \x01(\x03R\x0ecloseTimestamp\"Z\n" +
 	"\x11DeleteTransaction\x12E\n" +
-	"\tmutations\x18\x01 \x03(\v2'.gateway.mcus.private.v1.DeleteMutationR\tmutations\"\xbb\x01\n" +
-	"\x0fAcquireArgument\x12\x17\n" +
-	"\aroom_id\x18\x01 \x01(\tR\x06roomId\x12R\n" +
-	"\bmetadata\x18\x02 \x03(\v26.gateway.mcus.private.v1.AcquireArgument.MetadataEntryR\bmetadata\x1a;\n" +
-	"\rMetadataEntry\x12\x10\n" +
-	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"X\n" +
-	"\x0eAcquireRequest\x12F\n" +
-	"\targuments\x18\x01 \x03(\v2(.gateway.mcus.private.v1.AcquireArgumentR\targuments\"\x11\n" +
-	"\x0fAcquireResponse\"\xf6\x01\n" +
-	"\x0fAcquireMutation\x12H\n" +
-	"\n" +
-	"foundation\x18\x01 \x01(\v2(.gateway.mcus.private.v1.AcquireArgumentR\n" +
-	"foundation\x12G\n" +
-	"\tcondition\x18\x02 \x01(\v2).gateway.mcus.private.v1.AcquireConditionR\tcondition\x12'\n" +
-	"\x0fbegin_timestamp\x18\x03 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
-	"\x0fclose_timestamp\x18\x04 \x01(\x03R\x0ecloseTimestamp\"D\n" +
-	"\x10AcquireCondition\x120\n" +
-	"\x04mcus\x18\x01 \x03(\v2\x1c.gateway.mcus.private.v1.McuR\x04mcus\"\\\n" +
-	"\x12AcquireTransaction\x12F\n" +
-	"\tmutations\x18\x01 \x03(\v2(.gateway.mcus.private.v1.AcquireMutationR\tmutations\"*\n" +
-	"\x0fReleaseArgument\x12\x17\n" +
-	"\aroom_id\x18\x01 \x01(\tR\x06roomId\"X\n" +
-	"\x0eReleaseRequest\x12F\n" +
-	"\targuments\x18\x01 \x03(\v2(.gateway.mcus.private.v1.ReleaseArgumentR\targuments\"\x11\n" +
-	"\x0fReleaseResponse\"\xf6\x01\n" +
-	"\x0fReleaseMutation\x12H\n" +
-	"\n" +
-	"foundation\x18\x01 \x01(\v2(.gateway.mcus.private.v1.ReleaseArgumentR\n" +
-	"foundation\x12G\n" +
-	"\tcondition\x18\x02 \x01(\v2).gateway.mcus.private.v1.ReleaseConditionR\tcondition\x12'\n" +
-	"\x0fbegin_timestamp\x18\x03 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
-	"\x0fclose_timestamp\x18\x04 \x01(\x03R\x0ecloseTimestamp\"D\n" +
-	"\x10ReleaseCondition\x120\n" +
-	"\x04mcus\x18\x01 \x03(\v2\x1c.gateway.mcus.private.v1.McuR\x04mcus\"\\\n" +
-	"\x12ReleaseTransaction\x12F\n" +
-	"\tmutations\x18\x01 \x03(\v2(.gateway.mcus.private.v1.ReleaseMutationR\tmutations\"1\n" +
+	"\tmutations\x18\x01 \x03(\v2'.gateway.mcus.private.v1.DeleteMutationR\tmutations\"1\n" +
 	"\x16StartBroadcastArgument\x12\x17\n" +
 	"\aroom_id\x18\x01 \x01(\tR\x06roomId\"f\n" +
 	"\x15StartBroadcastRequest\x12M\n" +
@@ -2567,7 +1916,7 @@ func file_gateway_mcus_private_v1_procedures_proto_rawDescGZIP() []byte {
 	return file_gateway_mcus_private_v1_procedures_proto_rawDescData
 }
 
-var file_gateway_mcus_private_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 50)
+var file_gateway_mcus_private_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 36)
 var file_gateway_mcus_private_v1_procedures_proto_goTypes = []any{
 	(*CountArgument)(nil),             // 0: gateway.mcus.private.v1.CountArgument
 	(*CountRequest)(nil),              // 1: gateway.mcus.private.v1.CountRequest
@@ -2592,103 +1941,75 @@ var file_gateway_mcus_private_v1_procedures_proto_goTypes = []any{
 	(*DeleteRequest)(nil),             // 20: gateway.mcus.private.v1.DeleteRequest
 	(*DeleteResponse)(nil),            // 21: gateway.mcus.private.v1.DeleteResponse
 	(*DeleteMutation)(nil),            // 22: gateway.mcus.private.v1.DeleteMutation
-	(*DeleteCondition)(nil),           // 23: gateway.mcus.private.v1.DeleteCondition
-	(*DeleteTransaction)(nil),         // 24: gateway.mcus.private.v1.DeleteTransaction
-	(*AcquireArgument)(nil),           // 25: gateway.mcus.private.v1.AcquireArgument
-	(*AcquireRequest)(nil),            // 26: gateway.mcus.private.v1.AcquireRequest
-	(*AcquireResponse)(nil),           // 27: gateway.mcus.private.v1.AcquireResponse
-	(*AcquireMutation)(nil),           // 28: gateway.mcus.private.v1.AcquireMutation
-	(*AcquireCondition)(nil),          // 29: gateway.mcus.private.v1.AcquireCondition
-	(*AcquireTransaction)(nil),        // 30: gateway.mcus.private.v1.AcquireTransaction
-	(*ReleaseArgument)(nil),           // 31: gateway.mcus.private.v1.ReleaseArgument
-	(*ReleaseRequest)(nil),            // 32: gateway.mcus.private.v1.ReleaseRequest
-	(*ReleaseResponse)(nil),           // 33: gateway.mcus.private.v1.ReleaseResponse
-	(*ReleaseMutation)(nil),           // 34: gateway.mcus.private.v1.ReleaseMutation
-	(*ReleaseCondition)(nil),          // 35: gateway.mcus.private.v1.ReleaseCondition
-	(*ReleaseTransaction)(nil),        // 36: gateway.mcus.private.v1.ReleaseTransaction
-	(*StartBroadcastArgument)(nil),    // 37: gateway.mcus.private.v1.StartBroadcastArgument
-	(*StartBroadcastRequest)(nil),     // 38: gateway.mcus.private.v1.StartBroadcastRequest
-	(*StartBroadcastResponse)(nil),    // 39: gateway.mcus.private.v1.StartBroadcastResponse
-	(*StartBroadcastMutation)(nil),    // 40: gateway.mcus.private.v1.StartBroadcastMutation
-	(*StartBroadcastCondition)(nil),   // 41: gateway.mcus.private.v1.StartBroadcastCondition
-	(*StartBroadcastTransaction)(nil), // 42: gateway.mcus.private.v1.StartBroadcastTransaction
-	(*StopBroadcastArgument)(nil),     // 43: gateway.mcus.private.v1.StopBroadcastArgument
-	(*StopBroadcastRequest)(nil),      // 44: gateway.mcus.private.v1.StopBroadcastRequest
-	(*StopBroadcastResponse)(nil),     // 45: gateway.mcus.private.v1.StopBroadcastResponse
-	(*StopBroadcastMutation)(nil),     // 46: gateway.mcus.private.v1.StopBroadcastMutation
-	(*StopBroadcastCondition)(nil),    // 47: gateway.mcus.private.v1.StopBroadcastCondition
-	(*StopBroadcastTransaction)(nil),  // 48: gateway.mcus.private.v1.StopBroadcastTransaction
-	nil,                               // 49: gateway.mcus.private.v1.AcquireArgument.MetadataEntry
-	(*Query)(nil),                     // 50: gateway.mcus.private.v1.Query
-	(*Chunk)(nil),                     // 51: gateway.mcus.private.v1.Chunk
-	(*Mcu)(nil),                       // 52: gateway.mcus.private.v1.Mcu
-	(Zone)(0),                         // 53: gateway.mcus.private.v1.Zone
-	(Status)(0),                       // 54: gateway.mcus.private.v1.Status
-	(*Transient)(nil),                 // 55: gateway.mcus.private.v1.Transient
-	(*OptionalZone)(nil),              // 56: gateway.mcus.private.v1.OptionalZone
-	(*OptionalStatus)(nil),            // 57: gateway.mcus.private.v1.OptionalStatus
-	(*OptionalString)(nil),            // 58: gateway.mcus.private.v1.OptionalString
-	(*v1.DeleteMutation)(nil),         // 59: gateway.reservations.private.v1.DeleteMutation
+	(*DeleteTransaction)(nil),         // 23: gateway.mcus.private.v1.DeleteTransaction
+	(*StartBroadcastArgument)(nil),    // 24: gateway.mcus.private.v1.StartBroadcastArgument
+	(*StartBroadcastRequest)(nil),     // 25: gateway.mcus.private.v1.StartBroadcastRequest
+	(*StartBroadcastResponse)(nil),    // 26: gateway.mcus.private.v1.StartBroadcastResponse
+	(*StartBroadcastMutation)(nil),    // 27: gateway.mcus.private.v1.StartBroadcastMutation
+	(*StartBroadcastCondition)(nil),   // 28: gateway.mcus.private.v1.StartBroadcastCondition
+	(*StartBroadcastTransaction)(nil), // 29: gateway.mcus.private.v1.StartBroadcastTransaction
+	(*StopBroadcastArgument)(nil),     // 30: gateway.mcus.private.v1.StopBroadcastArgument
+	(*StopBroadcastRequest)(nil),      // 31: gateway.mcus.private.v1.StopBroadcastRequest
+	(*StopBroadcastResponse)(nil),     // 32: gateway.mcus.private.v1.StopBroadcastResponse
+	(*StopBroadcastMutation)(nil),     // 33: gateway.mcus.private.v1.StopBroadcastMutation
+	(*StopBroadcastCondition)(nil),    // 34: gateway.mcus.private.v1.StopBroadcastCondition
+	(*StopBroadcastTransaction)(nil),  // 35: gateway.mcus.private.v1.StopBroadcastTransaction
+	(*Query)(nil),                     // 36: gateway.mcus.private.v1.Query
+	(*Chunk)(nil),                     // 37: gateway.mcus.private.v1.Chunk
+	(*Mcu)(nil),                       // 38: gateway.mcus.private.v1.Mcu
+	(Zone)(0),                         // 39: gateway.mcus.private.v1.Zone
+	(Status)(0),                       // 40: gateway.mcus.private.v1.Status
+	(*Transient)(nil),                 // 41: gateway.mcus.private.v1.Transient
+	(*OptionalZone)(nil),              // 42: gateway.mcus.private.v1.OptionalZone
+	(*OptionalStatus)(nil),            // 43: gateway.mcus.private.v1.OptionalStatus
+	(*OptionalString)(nil),            // 44: gateway.mcus.private.v1.OptionalString
 }
 var file_gateway_mcus_private_v1_procedures_proto_depIdxs = []int32{
-	50, // 0: gateway.mcus.private.v1.CountArgument.query:type_name -> gateway.mcus.private.v1.Query
+	36, // 0: gateway.mcus.private.v1.CountArgument.query:type_name -> gateway.mcus.private.v1.Query
 	0,  // 1: gateway.mcus.private.v1.CountRequest.arguments:type_name -> gateway.mcus.private.v1.CountArgument
-	50, // 2: gateway.mcus.private.v1.RangeArgument.query:type_name -> gateway.mcus.private.v1.Query
+	36, // 2: gateway.mcus.private.v1.RangeArgument.query:type_name -> gateway.mcus.private.v1.Query
 	3,  // 3: gateway.mcus.private.v1.RangeRequest.arguments:type_name -> gateway.mcus.private.v1.RangeArgument
-	51, // 4: gateway.mcus.private.v1.RangeResponse.chunks:type_name -> gateway.mcus.private.v1.Chunk
-	50, // 5: gateway.mcus.private.v1.SelectArgument.query:type_name -> gateway.mcus.private.v1.Query
+	37, // 4: gateway.mcus.private.v1.RangeResponse.chunks:type_name -> gateway.mcus.private.v1.Chunk
+	36, // 5: gateway.mcus.private.v1.SelectArgument.query:type_name -> gateway.mcus.private.v1.Query
 	6,  // 6: gateway.mcus.private.v1.SelectRequest.arguments:type_name -> gateway.mcus.private.v1.SelectArgument
-	52, // 7: gateway.mcus.private.v1.SelectResponse.mcus:type_name -> gateway.mcus.private.v1.Mcu
-	53, // 8: gateway.mcus.private.v1.CreateArgument.zone:type_name -> gateway.mcus.private.v1.Zone
-	54, // 9: gateway.mcus.private.v1.CreateArgument.status:type_name -> gateway.mcus.private.v1.Status
+	38, // 7: gateway.mcus.private.v1.SelectResponse.mcus:type_name -> gateway.mcus.private.v1.Mcu
+	39, // 8: gateway.mcus.private.v1.CreateArgument.zone:type_name -> gateway.mcus.private.v1.Zone
+	40, // 9: gateway.mcus.private.v1.CreateArgument.status:type_name -> gateway.mcus.private.v1.Status
 	9,  // 10: gateway.mcus.private.v1.CreateRequest.arguments:type_name -> gateway.mcus.private.v1.CreateArgument
-	52, // 11: gateway.mcus.private.v1.CreateResponse.mcus:type_name -> gateway.mcus.private.v1.Mcu
+	38, // 11: gateway.mcus.private.v1.CreateResponse.mcus:type_name -> gateway.mcus.private.v1.Mcu
 	9,  // 12: gateway.mcus.private.v1.CreateMutation.foundation:type_name -> gateway.mcus.private.v1.CreateArgument
-	55, // 13: gateway.mcus.private.v1.CreateMutation.transient:type_name -> gateway.mcus.private.v1.Transient
+	41, // 13: gateway.mcus.private.v1.CreateMutation.transient:type_name -> gateway.mcus.private.v1.Transient
 	12, // 14: gateway.mcus.private.v1.CreateTransaction.mutations:type_name -> gateway.mcus.private.v1.CreateMutation
-	50, // 15: gateway.mcus.private.v1.UpdateArgument.query:type_name -> gateway.mcus.private.v1.Query
-	56, // 16: gateway.mcus.private.v1.UpdateArgument.zone:type_name -> gateway.mcus.private.v1.OptionalZone
-	57, // 17: gateway.mcus.private.v1.UpdateArgument.status:type_name -> gateway.mcus.private.v1.OptionalStatus
-	58, // 18: gateway.mcus.private.v1.UpdateArgument.address:type_name -> gateway.mcus.private.v1.OptionalString
+	36, // 15: gateway.mcus.private.v1.UpdateArgument.query:type_name -> gateway.mcus.private.v1.Query
+	42, // 16: gateway.mcus.private.v1.UpdateArgument.zone:type_name -> gateway.mcus.private.v1.OptionalZone
+	43, // 17: gateway.mcus.private.v1.UpdateArgument.status:type_name -> gateway.mcus.private.v1.OptionalStatus
+	44, // 18: gateway.mcus.private.v1.UpdateArgument.address:type_name -> gateway.mcus.private.v1.OptionalString
 	14, // 19: gateway.mcus.private.v1.UpdateRequest.arguments:type_name -> gateway.mcus.private.v1.UpdateArgument
-	52, // 20: gateway.mcus.private.v1.UpdateResponse.mcus:type_name -> gateway.mcus.private.v1.Mcu
+	38, // 20: gateway.mcus.private.v1.UpdateResponse.mcus:type_name -> gateway.mcus.private.v1.Mcu
 	14, // 21: gateway.mcus.private.v1.UpdateMutation.foundation:type_name -> gateway.mcus.private.v1.UpdateArgument
-	55, // 22: gateway.mcus.private.v1.UpdateMutation.transient:type_name -> gateway.mcus.private.v1.Transient
+	41, // 22: gateway.mcus.private.v1.UpdateMutation.transient:type_name -> gateway.mcus.private.v1.Transient
 	17, // 23: gateway.mcus.private.v1.UpdateTransaction.mutations:type_name -> gateway.mcus.private.v1.UpdateMutation
-	50, // 24: gateway.mcus.private.v1.DeleteArgument.query:type_name -> gateway.mcus.private.v1.Query
+	36, // 24: gateway.mcus.private.v1.DeleteArgument.query:type_name -> gateway.mcus.private.v1.Query
 	19, // 25: gateway.mcus.private.v1.DeleteRequest.arguments:type_name -> gateway.mcus.private.v1.DeleteArgument
-	52, // 26: gateway.mcus.private.v1.DeleteResponse.mcus:type_name -> gateway.mcus.private.v1.Mcu
+	38, // 26: gateway.mcus.private.v1.DeleteResponse.mcus:type_name -> gateway.mcus.private.v1.Mcu
 	19, // 27: gateway.mcus.private.v1.DeleteMutation.foundation:type_name -> gateway.mcus.private.v1.DeleteArgument
-	23, // 28: gateway.mcus.private.v1.DeleteMutation.condition:type_name -> gateway.mcus.private.v1.DeleteCondition
-	55, // 29: gateway.mcus.private.v1.DeleteMutation.transient:type_name -> gateway.mcus.private.v1.Transient
-	59, // 30: gateway.mcus.private.v1.DeleteCondition.delete_reservation_mutations:type_name -> gateway.reservations.private.v1.DeleteMutation
-	22, // 31: gateway.mcus.private.v1.DeleteTransaction.mutations:type_name -> gateway.mcus.private.v1.DeleteMutation
-	49, // 32: gateway.mcus.private.v1.AcquireArgument.metadata:type_name -> gateway.mcus.private.v1.AcquireArgument.MetadataEntry
-	25, // 33: gateway.mcus.private.v1.AcquireRequest.arguments:type_name -> gateway.mcus.private.v1.AcquireArgument
-	25, // 34: gateway.mcus.private.v1.AcquireMutation.foundation:type_name -> gateway.mcus.private.v1.AcquireArgument
-	29, // 35: gateway.mcus.private.v1.AcquireMutation.condition:type_name -> gateway.mcus.private.v1.AcquireCondition
-	52, // 36: gateway.mcus.private.v1.AcquireCondition.mcus:type_name -> gateway.mcus.private.v1.Mcu
-	28, // 37: gateway.mcus.private.v1.AcquireTransaction.mutations:type_name -> gateway.mcus.private.v1.AcquireMutation
-	31, // 38: gateway.mcus.private.v1.ReleaseRequest.arguments:type_name -> gateway.mcus.private.v1.ReleaseArgument
-	31, // 39: gateway.mcus.private.v1.ReleaseMutation.foundation:type_name -> gateway.mcus.private.v1.ReleaseArgument
-	35, // 40: gateway.mcus.private.v1.ReleaseMutation.condition:type_name -> gateway.mcus.private.v1.ReleaseCondition
-	52, // 41: gateway.mcus.private.v1.ReleaseCondition.mcus:type_name -> gateway.mcus.private.v1.Mcu
-	34, // 42: gateway.mcus.private.v1.ReleaseTransaction.mutations:type_name -> gateway.mcus.private.v1.ReleaseMutation
-	37, // 43: gateway.mcus.private.v1.StartBroadcastRequest.arguments:type_name -> gateway.mcus.private.v1.StartBroadcastArgument
-	37, // 44: gateway.mcus.private.v1.StartBroadcastMutation.foundation:type_name -> gateway.mcus.private.v1.StartBroadcastArgument
-	41, // 45: gateway.mcus.private.v1.StartBroadcastMutation.condition:type_name -> gateway.mcus.private.v1.StartBroadcastCondition
-	52, // 46: gateway.mcus.private.v1.StartBroadcastCondition.mcus:type_name -> gateway.mcus.private.v1.Mcu
-	40, // 47: gateway.mcus.private.v1.StartBroadcastTransaction.mutations:type_name -> gateway.mcus.private.v1.StartBroadcastMutation
-	43, // 48: gateway.mcus.private.v1.StopBroadcastRequest.arguments:type_name -> gateway.mcus.private.v1.StopBroadcastArgument
-	43, // 49: gateway.mcus.private.v1.StopBroadcastMutation.foundation:type_name -> gateway.mcus.private.v1.StopBroadcastArgument
-	47, // 50: gateway.mcus.private.v1.StopBroadcastMutation.condition:type_name -> gateway.mcus.private.v1.StopBroadcastCondition
-	52, // 51: gateway.mcus.private.v1.StopBroadcastCondition.mcus:type_name -> gateway.mcus.private.v1.Mcu
-	46, // 52: gateway.mcus.private.v1.StopBroadcastTransaction.mutations:type_name -> gateway.mcus.private.v1.StopBroadcastMutation
-	53, // [53:53] is the sub-list for method output_type
-	53, // [53:53] is the sub-list for method input_type
-	53, // [53:53] is the sub-list for extension type_name
-	53, // [53:53] is the sub-list for extension extendee
-	0,  // [0:53] is the sub-list for field type_name
+	41, // 28: gateway.mcus.private.v1.DeleteMutation.transient:type_name -> gateway.mcus.private.v1.Transient
+	22, // 29: gateway.mcus.private.v1.DeleteTransaction.mutations:type_name -> gateway.mcus.private.v1.DeleteMutation
+	24, // 30: gateway.mcus.private.v1.StartBroadcastRequest.arguments:type_name -> gateway.mcus.private.v1.StartBroadcastArgument
+	24, // 31: gateway.mcus.private.v1.StartBroadcastMutation.foundation:type_name -> gateway.mcus.private.v1.StartBroadcastArgument
+	28, // 32: gateway.mcus.private.v1.StartBroadcastMutation.condition:type_name -> gateway.mcus.private.v1.StartBroadcastCondition
+	38, // 33: gateway.mcus.private.v1.StartBroadcastCondition.mcus:type_name -> gateway.mcus.private.v1.Mcu
+	27, // 34: gateway.mcus.private.v1.StartBroadcastTransaction.mutations:type_name -> gateway.mcus.private.v1.StartBroadcastMutation
+	30, // 35: gateway.mcus.private.v1.StopBroadcastRequest.arguments:type_name -> gateway.mcus.private.v1.StopBroadcastArgument
+	30, // 36: gateway.mcus.private.v1.StopBroadcastMutation.foundation:type_name -> gateway.mcus.private.v1.StopBroadcastArgument
+	34, // 37: gateway.mcus.private.v1.StopBroadcastMutation.condition:type_name -> gateway.mcus.private.v1.StopBroadcastCondition
+	38, // 38: gateway.mcus.private.v1.StopBroadcastCondition.mcus:type_name -> gateway.mcus.private.v1.Mcu
+	33, // 39: gateway.mcus.private.v1.StopBroadcastTransaction.mutations:type_name -> gateway.mcus.private.v1.StopBroadcastMutation
+	40, // [40:40] is the sub-list for method output_type
+	40, // [40:40] is the sub-list for method input_type
+	40, // [40:40] is the sub-list for extension type_name
+	40, // [40:40] is the sub-list for extension extendee
+	0,  // [0:40] is the sub-list for field type_name
 }
 
 func init() { file_gateway_mcus_private_v1_procedures_proto_init() }
@@ -2706,7 +2027,7 @@ func file_gateway_mcus_private_v1_procedures_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_gateway_mcus_private_v1_procedures_proto_rawDesc), len(file_gateway_mcus_private_v1_procedures_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   50,
+			NumMessages:   36,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
