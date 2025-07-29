@@ -322,6 +322,74 @@ func (x *DetachSessionPacket) GetTimeframe() *v1.Timeframe {
 	return nil
 }
 
+type CloseSessionPacket struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	UserId        string                 `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	WebsocketId   string                 `protobuf:"bytes,3,opt,name=websocket_id,json=websocketId,proto3" json:"websocket_id,omitempty"`
+	Timeframe     *v1.Timeframe          `protobuf:"bytes,4,opt,name=timeframe,proto3" json:"timeframe,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloseSessionPacket) Reset() {
+	*x = CloseSessionPacket{}
+	mi := &file_gateway_sessions_private_v1_packets_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloseSessionPacket) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloseSessionPacket) ProtoMessage() {}
+
+func (x *CloseSessionPacket) ProtoReflect() protoreflect.Message {
+	mi := &file_gateway_sessions_private_v1_packets_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloseSessionPacket.ProtoReflect.Descriptor instead.
+func (*CloseSessionPacket) Descriptor() ([]byte, []int) {
+	return file_gateway_sessions_private_v1_packets_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *CloseSessionPacket) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *CloseSessionPacket) GetUserId() string {
+	if x != nil {
+		return x.UserId
+	}
+	return ""
+}
+
+func (x *CloseSessionPacket) GetWebsocketId() string {
+	if x != nil {
+		return x.WebsocketId
+	}
+	return ""
+}
+
+func (x *CloseSessionPacket) GetTimeframe() *v1.Timeframe {
+	if x != nil {
+		return x.Timeframe
+	}
+	return nil
+}
+
 var File_gateway_sessions_private_v1_packets_proto protoreflect.FileDescriptor
 
 const file_gateway_sessions_private_v1_packets_proto_rawDesc = "" +
@@ -347,7 +415,12 @@ const file_gateway_sessions_private_v1_packets_proto_rawDesc = "" +
 	"\x13DetachSessionPacket\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12!\n" +
 	"\fwebsocket_id\x18\x02 \x01(\tR\vwebsocketId\x12D\n" +
-	"\ttimeframe\x18\x03 \x01(\v2&.common.timeframes.public.v1.TimeframeR\ttimeframeBIZGgitlab.com/evemeta/zdk/pb/out/go/gateway/sessions/private/v1;sessionspbb\x06proto3"
+	"\ttimeframe\x18\x03 \x01(\v2&.common.timeframes.public.v1.TimeframeR\ttimeframe\"\xa6\x01\n" +
+	"\x12CloseSessionPacket\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
+	"\auser_id\x18\x02 \x01(\tR\x06userId\x12!\n" +
+	"\fwebsocket_id\x18\x03 \x01(\tR\vwebsocketId\x12D\n" +
+	"\ttimeframe\x18\x04 \x01(\v2&.common.timeframes.public.v1.TimeframeR\ttimeframeBIZGgitlab.com/evemeta/zdk/pb/out/go/gateway/sessions/private/v1;sessionspbb\x06proto3"
 
 var (
 	file_gateway_sessions_private_v1_packets_proto_rawDescOnce sync.Once
@@ -361,30 +434,32 @@ func file_gateway_sessions_private_v1_packets_proto_rawDescGZIP() []byte {
 	return file_gateway_sessions_private_v1_packets_proto_rawDescData
 }
 
-var file_gateway_sessions_private_v1_packets_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_gateway_sessions_private_v1_packets_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_gateway_sessions_private_v1_packets_proto_goTypes = []any{
 	(*CreateSessionPacket)(nil), // 0: gateway.sessions.private.v1.CreateSessionPacket
 	(*UpdateSessionPacket)(nil), // 1: gateway.sessions.private.v1.UpdateSessionPacket
 	(*DeleteSessionPacket)(nil), // 2: gateway.sessions.private.v1.DeleteSessionPacket
 	(*AttachSessionPacket)(nil), // 3: gateway.sessions.private.v1.AttachSessionPacket
 	(*DetachSessionPacket)(nil), // 4: gateway.sessions.private.v1.DetachSessionPacket
-	(*Session)(nil),             // 5: gateway.sessions.private.v1.Session
-	(*v1.Timeframe)(nil),        // 6: common.timeframes.public.v1.Timeframe
-	(*OptionalStatus)(nil),      // 7: gateway.sessions.private.v1.OptionalStatus
+	(*CloseSessionPacket)(nil),  // 5: gateway.sessions.private.v1.CloseSessionPacket
+	(*Session)(nil),             // 6: gateway.sessions.private.v1.Session
+	(*v1.Timeframe)(nil),        // 7: common.timeframes.public.v1.Timeframe
+	(*OptionalStatus)(nil),      // 8: gateway.sessions.private.v1.OptionalStatus
 }
 var file_gateway_sessions_private_v1_packets_proto_depIdxs = []int32{
-	5, // 0: gateway.sessions.private.v1.CreateSessionPacket.session:type_name -> gateway.sessions.private.v1.Session
-	6, // 1: gateway.sessions.private.v1.CreateSessionPacket.timeframe:type_name -> common.timeframes.public.v1.Timeframe
-	7, // 2: gateway.sessions.private.v1.UpdateSessionPacket.status:type_name -> gateway.sessions.private.v1.OptionalStatus
-	6, // 3: gateway.sessions.private.v1.UpdateSessionPacket.timeframe:type_name -> common.timeframes.public.v1.Timeframe
-	6, // 4: gateway.sessions.private.v1.DeleteSessionPacket.timeframe:type_name -> common.timeframes.public.v1.Timeframe
-	6, // 5: gateway.sessions.private.v1.AttachSessionPacket.timeframe:type_name -> common.timeframes.public.v1.Timeframe
-	6, // 6: gateway.sessions.private.v1.DetachSessionPacket.timeframe:type_name -> common.timeframes.public.v1.Timeframe
-	7, // [7:7] is the sub-list for method output_type
-	7, // [7:7] is the sub-list for method input_type
-	7, // [7:7] is the sub-list for extension type_name
-	7, // [7:7] is the sub-list for extension extendee
-	0, // [0:7] is the sub-list for field type_name
+	6, // 0: gateway.sessions.private.v1.CreateSessionPacket.session:type_name -> gateway.sessions.private.v1.Session
+	7, // 1: gateway.sessions.private.v1.CreateSessionPacket.timeframe:type_name -> common.timeframes.public.v1.Timeframe
+	8, // 2: gateway.sessions.private.v1.UpdateSessionPacket.status:type_name -> gateway.sessions.private.v1.OptionalStatus
+	7, // 3: gateway.sessions.private.v1.UpdateSessionPacket.timeframe:type_name -> common.timeframes.public.v1.Timeframe
+	7, // 4: gateway.sessions.private.v1.DeleteSessionPacket.timeframe:type_name -> common.timeframes.public.v1.Timeframe
+	7, // 5: gateway.sessions.private.v1.AttachSessionPacket.timeframe:type_name -> common.timeframes.public.v1.Timeframe
+	7, // 6: gateway.sessions.private.v1.DetachSessionPacket.timeframe:type_name -> common.timeframes.public.v1.Timeframe
+	7, // 7: gateway.sessions.private.v1.CloseSessionPacket.timeframe:type_name -> common.timeframes.public.v1.Timeframe
+	8, // [8:8] is the sub-list for method output_type
+	8, // [8:8] is the sub-list for method input_type
+	8, // [8:8] is the sub-list for extension type_name
+	8, // [8:8] is the sub-list for extension extendee
+	0, // [0:8] is the sub-list for field type_name
 }
 
 func init() { file_gateway_sessions_private_v1_packets_proto_init() }
@@ -401,7 +476,7 @@ func file_gateway_sessions_private_v1_packets_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_gateway_sessions_private_v1_packets_proto_rawDesc), len(file_gateway_sessions_private_v1_packets_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

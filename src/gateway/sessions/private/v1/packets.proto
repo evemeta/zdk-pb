@@ -37,3 +37,10 @@ message DetachSessionPacket {
     string                                websocket_id = 2;
     common.timeframes.public.v1.Timeframe timeframe    = 3;
 }
+
+message CloseSessionPacket {
+    string                                id           = 1;
+    string                                user_id      = 2;
+    string                                websocket_id = 3;
+    common.timeframes.public.v1.Timeframe timeframe    = 4;
+}
