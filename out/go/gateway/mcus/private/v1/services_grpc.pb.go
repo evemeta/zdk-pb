@@ -42,9 +42,11 @@ const (
 	Service_StartBroadcast_FullMethodName                  = "/gateway.mcus.private.v1.Service/StartBroadcast"
 	Service_InitiateStartBroadcastMutations_FullMethodName = "/gateway.mcus.private.v1.Service/InitiateStartBroadcastMutations"
 	Service_FinalizeStartBroadcastMutations_FullMethodName = "/gateway.mcus.private.v1.Service/FinalizeStartBroadcastMutations"
+	Service_RollbackStartBroadcastMutations_FullMethodName = "/gateway.mcus.private.v1.Service/RollbackStartBroadcastMutations"
 	Service_StopBroadcast_FullMethodName                   = "/gateway.mcus.private.v1.Service/StopBroadcast"
 	Service_InitiateStopBroadcastMutations_FullMethodName  = "/gateway.mcus.private.v1.Service/InitiateStopBroadcastMutations"
 	Service_FinalizeStopBroadcastMutations_FullMethodName  = "/gateway.mcus.private.v1.Service/FinalizeStopBroadcastMutations"
+	Service_RollbackStopBroadcastMutations_FullMethodName  = "/gateway.mcus.private.v1.Service/RollbackStopBroadcastMutations"
 )
 
 // ServiceClient is the client API for Service service.
@@ -74,9 +76,11 @@ type ServiceClient interface {
 	StartBroadcast(ctx context.Context, in *StartBroadcastRequest, opts ...grpc.CallOption) (*StartBroadcastResponse, error)
 	InitiateStartBroadcastMutations(ctx context.Context, in *StartBroadcastTransaction, opts ...grpc.CallOption) (*StartBroadcastTransaction, error)
 	FinalizeStartBroadcastMutations(ctx context.Context, in *StartBroadcastTransaction, opts ...grpc.CallOption) (*StartBroadcastTransaction, error)
+	RollbackStartBroadcastMutations(ctx context.Context, in *StartBroadcastTransaction, opts ...grpc.CallOption) (*StartBroadcastTransaction, error)
 	StopBroadcast(ctx context.Context, in *StopBroadcastRequest, opts ...grpc.CallOption) (*StopBroadcastResponse, error)
 	InitiateStopBroadcastMutations(ctx context.Context, in *StopBroadcastTransaction, opts ...grpc.CallOption) (*StopBroadcastTransaction, error)
 	FinalizeStopBroadcastMutations(ctx context.Context, in *StopBroadcastTransaction, opts ...grpc.CallOption) (*StopBroadcastTransaction, error)
+	RollbackStopBroadcastMutations(ctx context.Context, in *StopBroadcastTransaction, opts ...grpc.CallOption) (*StopBroadcastTransaction, error)
 }
 
 type serviceClient struct {
@@ -317,6 +321,16 @@ func (c *serviceClient) FinalizeStartBroadcastMutations(ctx context.Context, in 
 	return out, nil
 }
 
+func (c *serviceClient) RollbackStartBroadcastMutations(ctx context.Context, in *StartBroadcastTransaction, opts ...grpc.CallOption) (*StartBroadcastTransaction, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartBroadcastTransaction)
+	err := c.cc.Invoke(ctx, Service_RollbackStartBroadcastMutations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *serviceClient) StopBroadcast(ctx context.Context, in *StopBroadcastRequest, opts ...grpc.CallOption) (*StopBroadcastResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(StopBroadcastResponse)
@@ -341,6 +355,16 @@ func (c *serviceClient) FinalizeStopBroadcastMutations(ctx context.Context, in *
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(StopBroadcastTransaction)
 	err := c.cc.Invoke(ctx, Service_FinalizeStopBroadcastMutations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) RollbackStopBroadcastMutations(ctx context.Context, in *StopBroadcastTransaction, opts ...grpc.CallOption) (*StopBroadcastTransaction, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StopBroadcastTransaction)
+	err := c.cc.Invoke(ctx, Service_RollbackStopBroadcastMutations_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -374,9 +398,11 @@ type ServiceServer interface {
 	StartBroadcast(context.Context, *StartBroadcastRequest) (*StartBroadcastResponse, error)
 	InitiateStartBroadcastMutations(context.Context, *StartBroadcastTransaction) (*StartBroadcastTransaction, error)
 	FinalizeStartBroadcastMutations(context.Context, *StartBroadcastTransaction) (*StartBroadcastTransaction, error)
+	RollbackStartBroadcastMutations(context.Context, *StartBroadcastTransaction) (*StartBroadcastTransaction, error)
 	StopBroadcast(context.Context, *StopBroadcastRequest) (*StopBroadcastResponse, error)
 	InitiateStopBroadcastMutations(context.Context, *StopBroadcastTransaction) (*StopBroadcastTransaction, error)
 	FinalizeStopBroadcastMutations(context.Context, *StopBroadcastTransaction) (*StopBroadcastTransaction, error)
+	RollbackStopBroadcastMutations(context.Context, *StopBroadcastTransaction) (*StopBroadcastTransaction, error)
 	mustEmbedUnimplementedServiceServer()
 }
 
@@ -456,6 +482,9 @@ func (UnimplementedServiceServer) InitiateStartBroadcastMutations(context.Contex
 func (UnimplementedServiceServer) FinalizeStartBroadcastMutations(context.Context, *StartBroadcastTransaction) (*StartBroadcastTransaction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FinalizeStartBroadcastMutations not implemented")
 }
+func (UnimplementedServiceServer) RollbackStartBroadcastMutations(context.Context, *StartBroadcastTransaction) (*StartBroadcastTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RollbackStartBroadcastMutations not implemented")
+}
 func (UnimplementedServiceServer) StopBroadcast(context.Context, *StopBroadcastRequest) (*StopBroadcastResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method StopBroadcast not implemented")
 }
@@ -464,6 +493,9 @@ func (UnimplementedServiceServer) InitiateStopBroadcastMutations(context.Context
 }
 func (UnimplementedServiceServer) FinalizeStopBroadcastMutations(context.Context, *StopBroadcastTransaction) (*StopBroadcastTransaction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FinalizeStopBroadcastMutations not implemented")
+}
+func (UnimplementedServiceServer) RollbackStopBroadcastMutations(context.Context, *StopBroadcastTransaction) (*StopBroadcastTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RollbackStopBroadcastMutations not implemented")
 }
 func (UnimplementedServiceServer) mustEmbedUnimplementedServiceServer() {}
 func (UnimplementedServiceServer) testEmbeddedByValue()                 {}
@@ -900,6 +932,24 @@ func _Service_FinalizeStartBroadcastMutations_Handler(srv interface{}, ctx conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Service_RollbackStartBroadcastMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartBroadcastTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).RollbackStartBroadcastMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_RollbackStartBroadcastMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).RollbackStartBroadcastMutations(ctx, req.(*StartBroadcastTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _Service_StopBroadcast_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(StopBroadcastRequest)
 	if err := dec(in); err != nil {
@@ -950,6 +1000,24 @@ func _Service_FinalizeStopBroadcastMutations_Handler(srv interface{}, ctx contex
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ServiceServer).FinalizeStopBroadcastMutations(ctx, req.(*StopBroadcastTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_RollbackStopBroadcastMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StopBroadcastTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).RollbackStopBroadcastMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_RollbackStopBroadcastMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).RollbackStopBroadcastMutations(ctx, req.(*StopBroadcastTransaction))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1054,6 +1122,10 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Service_FinalizeStartBroadcastMutations_Handler,
 		},
 		{
+			MethodName: "RollbackStartBroadcastMutations",
+			Handler:    _Service_RollbackStartBroadcastMutations_Handler,
+		},
+		{
 			MethodName: "StopBroadcast",
 			Handler:    _Service_StopBroadcast_Handler,
 		},
@@ -1064,6 +1136,10 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "FinalizeStopBroadcastMutations",
 			Handler:    _Service_FinalizeStopBroadcastMutations_Handler,
+		},
+		{
+			MethodName: "RollbackStopBroadcastMutations",
+			Handler:    _Service_RollbackStopBroadcastMutations_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

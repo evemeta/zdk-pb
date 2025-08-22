@@ -54,9 +54,13 @@ service Service {
 
     rpc FinalizeStartBroadcastMutations(StartBroadcastTransaction) returns (StartBroadcastTransaction);
 
+    rpc RollbackStartBroadcastMutations(StartBroadcastTransaction) returns (StartBroadcastTransaction);
+
     rpc StopBroadcast(StopBroadcastRequest) returns (StopBroadcastResponse);
 
     rpc InitiateStopBroadcastMutations(StopBroadcastTransaction) returns (StopBroadcastTransaction);
 
     rpc FinalizeStopBroadcastMutations(StopBroadcastTransaction) returns (StopBroadcastTransaction);
+
+    rpc RollbackStopBroadcastMutations(StopBroadcastTransaction) returns (StopBroadcastTransaction);
 }

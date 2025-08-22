@@ -136,8 +136,9 @@ message StartBroadcastResponse {}
 message StartBroadcastMutation {
     gateway.mcus.private.v1.StartBroadcastArgument  foundation      = 1;
     gateway.mcus.private.v1.StartBroadcastCondition condition       = 2;
-    int64                                           begin_timestamp = 3;
-    int64                                           close_timestamp = 4;
+    bool                                            transient       = 3;
+    int64                                           begin_timestamp = 4;
+    int64                                           close_timestamp = 5;
 }
 
 message StartBroadcastCondition {
@@ -161,8 +162,9 @@ message StopBroadcastResponse {}
 message StopBroadcastMutation {
     gateway.mcus.private.v1.StopBroadcastArgument  foundation      = 1;
     gateway.mcus.private.v1.StopBroadcastCondition condition       = 2;
-    int64                                          begin_timestamp = 3;
-    int64                                          close_timestamp = 4;
+    bool                                           transient       = 3;
+    int64                                          begin_timestamp = 4;
+    int64                                          close_timestamp = 5;
 }
 
 message StopBroadcastCondition {
