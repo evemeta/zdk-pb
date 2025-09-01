@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package chat.restrictions.public.server.v1;
+
+
+option java_multiple_files = true;
+option java_package = "com.evemeta.zdk.pb.chat.server.restrictions";
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/restrictions/public/server/v1;restrictionspb";
+
+// Kind todo;
+enum Kind {
+    KindUnknown = 0;
+    KindMute    = 1;
+    KindBlock   = 2;
+}
+
+// Order represents an enumeration that specifies the sort order for data retrieval, particularly in the context of querying.
+enum Order {
+    OrderUnknown    = 0;
+    OrderAscending  = 1;
+    OrderDescending = 2;
+}
