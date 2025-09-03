@@ -50,7 +50,16 @@ init::
 	mv protoc-gen-grpc-java-${PROTOC_GEN_JAVA_VER}-linux-x86_64.exe protoc-gen-grpc-java && \
 	chmod +x protoc-gen-grpc-java && \
     npm i && \
-    go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.5.1
+	sudo apt-get install -y parallel && \
+	go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.5.1 && \
+	go get github.com/grpc-ecosystem/grpc-gateway/v2/internal/descriptor@v2.22.0 && \
+	go get google.golang.org/grpc/cmd/protoc-gen-go-grpc && \
+	go install \
+    	github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway \
+    	github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2 \
+    	google.golang.org/protobuf/cmd/protoc-gen-go \
+    	google.golang.org/grpc/cmd/protoc-gen-go-grpc
+	go install github.com/planetscale/vtprotobuf/cmd/protoc-gen-go-vtproto@latest
 endif
 
 ifeq ($(OS),WINDOWS)
