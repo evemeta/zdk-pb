@@ -146,16 +146,16 @@ java.lang.String defaultValue);
    * Represents list of permission which member have inside this room.
    * </pre>
    *
-   * <code>repeated .user.users.private.v1.Permission permissions = 7;</code>
+   * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
    * @return A list containing the permissions.
    */
-  java.util.List<user.users.private.v1.Enums.Permission> getPermissionsList();
+  java.util.List<com.evemeta.zdk.pb.room.server.members.Permission> getPermissionsList();
   /**
    * <pre>
    * Represents list of permission which member have inside this room.
    * </pre>
    *
-   * <code>repeated .user.users.private.v1.Permission permissions = 7;</code>
+   * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
    * @return The count of permissions.
    */
   int getPermissionsCount();
@@ -164,17 +164,17 @@ java.lang.String defaultValue);
    * Represents list of permission which member have inside this room.
    * </pre>
    *
-   * <code>repeated .user.users.private.v1.Permission permissions = 7;</code>
+   * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
    * @param index The index of the element to return.
    * @return The permissions at the given index.
    */
-  user.users.private.v1.Enums.Permission getPermissions(int index);
+  com.evemeta.zdk.pb.room.server.members.Permission getPermissions(int index);
   /**
    * <pre>
    * Represents list of permission which member have inside this room.
    * </pre>
    *
-   * <code>repeated .user.users.private.v1.Permission permissions = 7;</code>
+   * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
    * @return A list containing the enum numeric values on the wire for permissions.
    */
   java.util.List<java.lang.Integer>
@@ -184,7 +184,7 @@ java.lang.String defaultValue);
    * Represents list of permission which member have inside this room.
    * </pre>
    *
-   * <code>repeated .user.users.private.v1.Permission permissions = 7;</code>
+   * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
    * @param index The index of the value to return.
    * @return The enum numeric value on the wire of permissions at the given index.
    */

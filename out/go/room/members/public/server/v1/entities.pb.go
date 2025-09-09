@@ -7,7 +7,6 @@
 package memberspb
 
 import (
-	v1 "gitlab.com/evemeta/zdk/pb/out/go/user/users/private/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -187,7 +186,7 @@ type Member struct {
 	// Represents the timestamp of the last update associated with this member.
 	UpdateTime int64 `protobuf:"varint,6,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	// Represents list of permission which member have inside this room.
-	Permissions   []v1.Permission `protobuf:"varint,7,rep,packed,name=permissions,proto3,enum=user.users.private.v1.Permission" json:"permissions,omitempty"`
+	Permissions   []Permission `protobuf:"varint,7,rep,packed,name=permissions,proto3,enum=room.members.public.server.v1.Permission" json:"permissions,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -264,7 +263,7 @@ func (x *Member) GetUpdateTime() int64 {
 	return 0
 }
 
-func (x *Member) GetPermissions() []v1.Permission {
+func (x *Member) GetPermissions() []Permission {
 	if x != nil {
 		return x.Permissions
 	}
@@ -396,7 +395,7 @@ var File_room_members_public_server_v1_entities_proto protoreflect.FileDescripto
 
 const file_room_members_public_server_v1_entities_proto_rawDesc = "" +
 	"\n" +
-	",room/members/public/server/v1/entities.proto\x12\x1droom.members.public.server.v1\x1a)room/members/public/server/v1/enums.proto\x1a!user/users/private/v1/enums.proto\"\x8a\x01\n" +
+	",room/members/public/server/v1/entities.proto\x12\x1droom.members.public.server.v1\x1a)room/members/public/server/v1/enums.proto\"\x8a\x01\n" +
 	"\x05Chunk\x12\x12\n" +
 	"\x04size\x18\x01 \x01(\x03R\x04size\x12\x14\n" +
 	"\x05index\x18\x02 \x01(\x03R\x05index\x12\x14\n" +
@@ -406,7 +405,7 @@ const file_room_members_public_server_v1_entities_proto_rawDesc = "" +
 	"\x05order\x18\x01 \x01(\x0e2$.room.members.public.server.v1.OrderR\x05order\x12\x14\n" +
 	"\x05limit\x18\x02 \x01(\x03R\x05limit\x12\x16\n" +
 	"\x06offset\x18\x03 \x01(\x03R\x06offset\x12F\n" +
-	"\tcondition\x18\x04 \x01(\v2(.room.members.public.server.v1.ConditionR\tcondition\"\xdf\x02\n" +
+	"\tcondition\x18\x04 \x01(\v2(.room.members.public.server.v1.ConditionR\tcondition\"\xe7\x02\n" +
 	"\x06Member\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\x12\x17\n" +
@@ -415,8 +414,8 @@ const file_room_members_public_server_v1_entities_proto_rawDesc = "" +
 	"\vcreate_time\x18\x05 \x01(\x03R\n" +
 	"createTime\x12\x1f\n" +
 	"\vupdate_time\x18\x06 \x01(\x03R\n" +
-	"updateTime\x12C\n" +
-	"\vpermissions\x18\a \x03(\x0e2!.user.users.private.v1.PermissionR\vpermissions\x1a;\n" +
+	"updateTime\x12K\n" +
+	"\vpermissions\x18\a \x03(\x0e2).room.members.public.server.v1.PermissionR\vpermissions\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"{\n" +
@@ -443,22 +442,22 @@ func file_room_members_public_server_v1_entities_proto_rawDescGZIP() []byte {
 
 var file_room_members_public_server_v1_entities_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_room_members_public_server_v1_entities_proto_goTypes = []any{
-	(*Chunk)(nil),      // 0: room.members.public.server.v1.Chunk
-	(*Query)(nil),      // 1: room.members.public.server.v1.Query
-	(*Member)(nil),     // 2: room.members.public.server.v1.Member
-	(*Condition)(nil),  // 3: room.members.public.server.v1.Condition
-	(*Timeframe)(nil),  // 4: room.members.public.server.v1.Timeframe
-	nil,                // 5: room.members.public.server.v1.Member.MetadataEntry
-	(Order)(0),         // 6: room.members.public.server.v1.Order
-	(v1.Permission)(0), // 7: user.users.private.v1.Permission
-	(Status)(0),        // 8: room.members.public.server.v1.Status
+	(*Chunk)(nil),     // 0: room.members.public.server.v1.Chunk
+	(*Query)(nil),     // 1: room.members.public.server.v1.Query
+	(*Member)(nil),    // 2: room.members.public.server.v1.Member
+	(*Condition)(nil), // 3: room.members.public.server.v1.Condition
+	(*Timeframe)(nil), // 4: room.members.public.server.v1.Timeframe
+	nil,               // 5: room.members.public.server.v1.Member.MetadataEntry
+	(Order)(0),        // 6: room.members.public.server.v1.Order
+	(Permission)(0),   // 7: room.members.public.server.v1.Permission
+	(Status)(0),       // 8: room.members.public.server.v1.Status
 }
 var file_room_members_public_server_v1_entities_proto_depIdxs = []int32{
 	2, // 0: room.members.public.server.v1.Chunk.entities:type_name -> room.members.public.server.v1.Member
 	6, // 1: room.members.public.server.v1.Query.order:type_name -> room.members.public.server.v1.Order
 	3, // 2: room.members.public.server.v1.Query.condition:type_name -> room.members.public.server.v1.Condition
 	5, // 3: room.members.public.server.v1.Member.metadata:type_name -> room.members.public.server.v1.Member.MetadataEntry
-	7, // 4: room.members.public.server.v1.Member.permissions:type_name -> user.users.private.v1.Permission
+	7, // 4: room.members.public.server.v1.Member.permissions:type_name -> room.members.public.server.v1.Permission
 	8, // 5: room.members.public.server.v1.Condition.statuses:type_name -> room.members.public.server.v1.Status
 	6, // [6:6] is the sub-list for method output_type
 	6, // [6:6] is the sub-list for method input_type

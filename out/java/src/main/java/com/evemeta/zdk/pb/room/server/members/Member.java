@@ -334,12 +334,12 @@ java.lang.String defaultValue) {
   @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> permissions_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
-      java.lang.Integer, user.users.private.v1.Enums.Permission> permissions_converter_ =
+      java.lang.Integer, com.evemeta.zdk.pb.room.server.members.Permission> permissions_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
-              java.lang.Integer, user.users.private.v1.Enums.Permission>() {
-            public user.users.private.v1.Enums.Permission convert(java.lang.Integer from) {
-              user.users.private.v1.Enums.Permission result = user.users.private.v1.Enums.Permission.forNumber(from);
-              return result == null ? user.users.private.v1.Enums.Permission.UNRECOGNIZED : result;
+              java.lang.Integer, com.evemeta.zdk.pb.room.server.members.Permission>() {
+            public com.evemeta.zdk.pb.room.server.members.Permission convert(java.lang.Integer from) {
+              com.evemeta.zdk.pb.room.server.members.Permission result = com.evemeta.zdk.pb.room.server.members.Permission.forNumber(from);
+              return result == null ? com.evemeta.zdk.pb.room.server.members.Permission.UNRECOGNIZED : result;
             }
           };
   /**
@@ -347,20 +347,20 @@ java.lang.String defaultValue) {
    * Represents list of permission which member have inside this room.
    * </pre>
    *
-   * <code>repeated .user.users.private.v1.Permission permissions = 7;</code>
+   * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
    * @return A list containing the permissions.
    */
   @java.lang.Override
-  public java.util.List<user.users.private.v1.Enums.Permission> getPermissionsList() {
+  public java.util.List<com.evemeta.zdk.pb.room.server.members.Permission> getPermissionsList() {
     return new com.google.protobuf.Internal.ListAdapter<
-        java.lang.Integer, user.users.private.v1.Enums.Permission>(permissions_, permissions_converter_);
+        java.lang.Integer, com.evemeta.zdk.pb.room.server.members.Permission>(permissions_, permissions_converter_);
   }
   /**
    * <pre>
    * Represents list of permission which member have inside this room.
    * </pre>
    *
-   * <code>repeated .user.users.private.v1.Permission permissions = 7;</code>
+   * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
    * @return The count of permissions.
    */
   @java.lang.Override
@@ -372,12 +372,12 @@ java.lang.String defaultValue) {
    * Represents list of permission which member have inside this room.
    * </pre>
    *
-   * <code>repeated .user.users.private.v1.Permission permissions = 7;</code>
+   * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
    * @param index The index of the element to return.
    * @return The permissions at the given index.
    */
   @java.lang.Override
-  public user.users.private.v1.Enums.Permission getPermissions(int index) {
+  public com.evemeta.zdk.pb.room.server.members.Permission getPermissions(int index) {
     return permissions_converter_.convert(permissions_.get(index));
   }
   /**
@@ -385,7 +385,7 @@ java.lang.String defaultValue) {
    * Represents list of permission which member have inside this room.
    * </pre>
    *
-   * <code>repeated .user.users.private.v1.Permission permissions = 7;</code>
+   * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
    * @return A list containing the enum numeric values on the wire for permissions.
    */
   @java.lang.Override
@@ -398,7 +398,7 @@ java.lang.String defaultValue) {
    * Represents list of permission which member have inside this room.
    * </pre>
    *
-   * <code>repeated .user.users.private.v1.Permission permissions = 7;</code>
+   * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
    * @param index The index of the value to return.
    * @return The enum numeric value on the wire of permissions at the given index.
    */
@@ -1489,19 +1489,19 @@ java.lang.String defaultValue) {
      * Represents list of permission which member have inside this room.
      * </pre>
      *
-     * <code>repeated .user.users.private.v1.Permission permissions = 7;</code>
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
      * @return A list containing the permissions.
      */
-    public java.util.List<user.users.private.v1.Enums.Permission> getPermissionsList() {
+    public java.util.List<com.evemeta.zdk.pb.room.server.members.Permission> getPermissionsList() {
       return new com.google.protobuf.Internal.ListAdapter<
-          java.lang.Integer, user.users.private.v1.Enums.Permission>(permissions_, permissions_converter_);
+          java.lang.Integer, com.evemeta.zdk.pb.room.server.members.Permission>(permissions_, permissions_converter_);
     }
     /**
      * <pre>
      * Represents list of permission which member have inside this room.
      * </pre>
      *
-     * <code>repeated .user.users.private.v1.Permission permissions = 7;</code>
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
      * @return The count of permissions.
      */
     public int getPermissionsCount() {
@@ -1512,11 +1512,11 @@ java.lang.String defaultValue) {
      * Represents list of permission which member have inside this room.
      * </pre>
      *
-     * <code>repeated .user.users.private.v1.Permission permissions = 7;</code>
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
      * @param index The index of the element to return.
      * @return The permissions at the given index.
      */
-    public user.users.private.v1.Enums.Permission getPermissions(int index) {
+    public com.evemeta.zdk.pb.room.server.members.Permission getPermissions(int index) {
       return permissions_converter_.convert(permissions_.get(index));
     }
     /**
@@ -1524,13 +1524,13 @@ java.lang.String defaultValue) {
      * Represents list of permission which member have inside this room.
      * </pre>
      *
-     * <code>repeated .user.users.private.v1.Permission permissions = 7;</code>
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
      * @param index The index to set the value at.
      * @param value The permissions to set.
      * @return This builder for chaining.
      */
     public Builder setPermissions(
-        int index, user.users.private.v1.Enums.Permission value) {
+        int index, com.evemeta.zdk.pb.room.server.members.Permission value) {
       if (value == null) {
         throw new NullPointerException();
       }
@@ -1544,11 +1544,11 @@ java.lang.String defaultValue) {
      * Represents list of permission which member have inside this room.
      * </pre>
      *
-     * <code>repeated .user.users.private.v1.Permission permissions = 7;</code>
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
      * @param value The permissions to add.
      * @return This builder for chaining.
      */
-    public Builder addPermissions(user.users.private.v1.Enums.Permission value) {
+    public Builder addPermissions(com.evemeta.zdk.pb.room.server.members.Permission value) {
       if (value == null) {
         throw new NullPointerException();
       }
@@ -1562,14 +1562,14 @@ java.lang.String defaultValue) {
      * Represents list of permission which member have inside this room.
      * </pre>
      *
-     * <code>repeated .user.users.private.v1.Permission permissions = 7;</code>
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
      * @param values The permissions to add.
      * @return This builder for chaining.
      */
     public Builder addAllPermissions(
-        java.lang.Iterable<? extends user.users.private.v1.Enums.Permission> values) {
+        java.lang.Iterable<? extends com.evemeta.zdk.pb.room.server.members.Permission> values) {
       ensurePermissionsIsMutable();
-      for (user.users.private.v1.Enums.Permission value : values) {
+      for (com.evemeta.zdk.pb.room.server.members.Permission value : values) {
         permissions_.add(value.getNumber());
       }
       onChanged();
@@ -1580,7 +1580,7 @@ java.lang.String defaultValue) {
      * Represents list of permission which member have inside this room.
      * </pre>
      *
-     * <code>repeated .user.users.private.v1.Permission permissions = 7;</code>
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearPermissions() {
@@ -1594,7 +1594,7 @@ java.lang.String defaultValue) {
      * Represents list of permission which member have inside this room.
      * </pre>
      *
-     * <code>repeated .user.users.private.v1.Permission permissions = 7;</code>
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
      * @return A list containing the enum numeric values on the wire for permissions.
      */
     public java.util.List<java.lang.Integer>
@@ -1606,7 +1606,7 @@ java.lang.String defaultValue) {
      * Represents list of permission which member have inside this room.
      * </pre>
      *
-     * <code>repeated .user.users.private.v1.Permission permissions = 7;</code>
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
      * @param index The index of the value to return.
      * @return The enum numeric value on the wire of permissions at the given index.
      */
@@ -1618,7 +1618,7 @@ java.lang.String defaultValue) {
      * Represents list of permission which member have inside this room.
      * </pre>
      *
-     * <code>repeated .user.users.private.v1.Permission permissions = 7;</code>
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
      * @param index The index to set the value at.
      * @param value The enum numeric value on the wire for permissions to set.
      * @return This builder for chaining.
@@ -1635,7 +1635,7 @@ java.lang.String defaultValue) {
      * Represents list of permission which member have inside this room.
      * </pre>
      *
-     * <code>repeated .user.users.private.v1.Permission permissions = 7;</code>
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
      * @param value The enum numeric value on the wire for permissions to add.
      * @return This builder for chaining.
      */
@@ -1650,7 +1650,7 @@ java.lang.String defaultValue) {
      * Represents list of permission which member have inside this room.
      * </pre>
      *
-     * <code>repeated .user.users.private.v1.Permission permissions = 7;</code>
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
      * @param values The enum numeric values on the wire for permissions to add.
      * @return This builder for chaining.
      */

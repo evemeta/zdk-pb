@@ -56,34 +56,32 @@ public final class Entities {
       "\n,room/members/public/server/v1/entities" +
       ".proto\022\035room.members.public.server.v1\032)r" +
       "oom/members/public/server/v1/enums.proto" +
-      "\032!user/users/private/v1/enums.proto\"l\n\005C" +
-      "hunk\022\014\n\004size\030\001 \001(\003\022\r\n\005index\030\002 \001(\003\022\r\n\005tot" +
-      "al\030\003 \001(\003\0227\n\010entities\030\004 \003(\0132%.room.member" +
-      "s.public.server.v1.Member\"\230\001\n\005Query\0223\n\005o" +
-      "rder\030\001 \001(\0162$.room.members.public.server." +
-      "v1.Order\022\r\n\005limit\030\002 \001(\003\022\016\n\006offset\030\003 \001(\003\022" +
-      ";\n\tcondition\030\004 \001(\0132(.room.members.public" +
-      ".server.v1.Condition\"\220\002\n\006Member\022\n\n\002id\030\001 " +
-      "\001(\t\022\017\n\007user_id\030\002 \001(\t\022\017\n\007room_id\030\003 \001(\t\022E\n" +
-      "\010metadata\030\004 \003(\01323.room.members.public.se" +
-      "rver.v1.Member.MetadataEntry\022\023\n\013create_t" +
-      "ime\030\005 \001(\003\022\023\n\013update_time\030\006 \001(\003\0226\n\013permis" +
-      "sions\030\007 \003(\0162!.user.users.private.v1.Perm" +
-      "ission\032/\n\rMetadataEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005" +
-      "value\030\002 \001(\t:\0028\001\"c\n\tCondition\022\013\n\003ids\030\001 \003(" +
-      "\t\022\020\n\010room_ids\030\002 \003(\t\0227\n\010statuses\030\003 \003(\0162%." +
-      "room.members.public.server.v1.Status\"/\n\t" +
-      "Timeframe\022\020\n\010commence\030\001 \001(\003\022\020\n\010complete\030" +
-      "\002 \001(\003Bt\n&com.evemeta.zdk.pb.room.server." +
-      "membersP\001ZHgitlab.com/evemeta/zdk/pb/out" +
-      "/go/room/members/public/server/v1;member" +
-      "spbb\006proto3"
+      "\"l\n\005Chunk\022\014\n\004size\030\001 \001(\003\022\r\n\005index\030\002 \001(\003\022\r" +
+      "\n\005total\030\003 \001(\003\0227\n\010entities\030\004 \003(\0132%.room.m" +
+      "embers.public.server.v1.Member\"\230\001\n\005Query" +
+      "\0223\n\005order\030\001 \001(\0162$.room.members.public.se" +
+      "rver.v1.Order\022\r\n\005limit\030\002 \001(\003\022\016\n\006offset\030\003" +
+      " \001(\003\022;\n\tcondition\030\004 \001(\0132(.room.members.p" +
+      "ublic.server.v1.Condition\"\230\002\n\006Member\022\n\n\002" +
+      "id\030\001 \001(\t\022\017\n\007user_id\030\002 \001(\t\022\017\n\007room_id\030\003 \001" +
+      "(\t\022E\n\010metadata\030\004 \003(\01323.room.members.publ" +
+      "ic.server.v1.Member.MetadataEntry\022\023\n\013cre" +
+      "ate_time\030\005 \001(\003\022\023\n\013update_time\030\006 \001(\003\022>\n\013p" +
+      "ermissions\030\007 \003(\0162).room.members.public.s" +
+      "erver.v1.Permission\032/\n\rMetadataEntry\022\013\n\003" +
+      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"c\n\tConditio" +
+      "n\022\013\n\003ids\030\001 \003(\t\022\020\n\010room_ids\030\002 \003(\t\0227\n\010stat" +
+      "uses\030\003 \003(\0162%.room.members.public.server." +
+      "v1.Status\"/\n\tTimeframe\022\020\n\010commence\030\001 \001(\003" +
+      "\022\020\n\010complete\030\002 \001(\003Bt\n&com.evemeta.zdk.pb" +
+      ".room.server.membersP\001ZHgitlab.com/eveme" +
+      "ta/zdk/pb/out/go/room/members/public/ser" +
+      "ver/v1;memberspbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.evemeta.zdk.pb.room.server.members.Enums.getDescriptor(),
-          user.users.private.v1.Enums.getDescriptor(),
         });
     internal_static_room_members_public_server_v1_Chunk_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -122,7 +120,6 @@ public final class Entities {
         internal_static_room_members_public_server_v1_Timeframe_descriptor,
         new java.lang.String[] { "Commence", "Complete", });
     com.evemeta.zdk.pb.room.server.members.Enums.getDescriptor();
-    user.users.private.v1.Enums.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
