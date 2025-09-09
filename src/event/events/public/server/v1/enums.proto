@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package event.events.public.server.v1;
+
+
+option java_multiple_files = true;
+option java_package = "com.evemeta.zdk.pb.event.server.events";
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/events/public/server/v1;eventspb";
+
+// Kind todo;
+enum Kind {
+    KindUnknown     = 0;
+    KindDependent   = 1;
+    KindIndependent = 2;
+}
+
+// Order represents an enumeration that specifies the sort order for data retrieval, particularly in the context of querying.
+enum Order {
+    OrderUnknown    = 0;
+    OrderAscending  = 1;
+    OrderDescending = 2;
+}

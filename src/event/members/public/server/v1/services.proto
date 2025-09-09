@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package event.members.public.server.v1;
+
+import "event/members/public/server/v1/procedures.proto";
+
+option java_multiple_files = true;
+option java_package = "com.evemeta.zdk.pb.event.server.members";
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/members/public/server/v1;memberspb";
+
+service Service {
+
+    // Count represents a procedure that retrieves the total number of members based on a specific query.
+    rpc Count(CountRequest) returns (CountResponse);
+
+    // Range represents a procedure that retrieves a chunk of members based on a specific query.
+    rpc Range(RangeRequest) returns (RangeResponse);
+
+    // Select represents a procedure that retrieves specific members based on a specific query.
+    rpc Select(SelectRequest) returns (SelectResponse);
+
+    // Kick represents a procedure that forcefully removes a member from a event for a specific reason.
+    rpc Kick(KickRequest) returns (KickResponse);
+}

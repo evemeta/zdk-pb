@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package event.restrictions.public.server.v1;
+
+
+option java_multiple_files = true;
+option java_package = "com.evemeta.zdk.pb.event.server.restrictions";
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/restrictions/public/server/v1;restrictionspb";
+
+// Kind todo;
+enum Kind {
+    KindUnknown = 0;
+    KindBlock   = 1;
+}
+
+// Order represents an enumeration that specifies the sort order for data retrieval, particularly in the context of querying.
+enum Order {
+    OrderUnknown    = 0;
+    OrderAscending  = 1;
+    OrderDescending = 2;
+}
