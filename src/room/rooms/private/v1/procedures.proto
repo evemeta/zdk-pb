@@ -12,6 +12,7 @@ import "gateway/sfus/private/v1/procedures.proto";
 import "room/connections/private/v1/procedures.proto";
 import "room/restrictions/private/v1/procedures.proto";
 import "gateway/transponders/private/v1/procedures.proto";
+import "room/members/private/v1/enums.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/rooms/private/v1;roomspb";
 
@@ -161,11 +162,12 @@ message DeleteTransaction {
 }
 
 message EnterArgument {
-    string              id         = 1;
-    string              user_id    = 2;
-    string              session_id = 3;
-    map<string, string> metadata   = 4;
-    bool                override   = 5;
+    string                                      id          = 1;
+    string                                      user_id     = 2;
+    string                                      session_id  = 3;
+    map<string, string>                         metadata    = 4;
+    repeated room.members.private.v1.Permission permissions = 6;
+    bool                                        override    = 5;
 }
 
 message EnterRequest {
