@@ -9,12 +9,16 @@ export namespace chat.chats.public.client.v1 {
         #one_of_decls: number[][] = [];
         constructor(data?: any[] | {
             id?: string;
+            override?: boolean;
         }) {
             super();
             pb_1.Message.initialize(this, Array.isArray(data) ? data : [], 0, -1, [], this.#one_of_decls);
             if (!Array.isArray(data) && typeof data == "object") {
                 if ("id" in data && data.id != undefined) {
                     this.id = data.id;
+                }
+                if ("override" in data && data.override != undefined) {
+                    this.override = data.override;
                 }
             }
         }
@@ -24,21 +28,35 @@ export namespace chat.chats.public.client.v1 {
         set id(value: string) {
             pb_1.Message.setField(this, 1, value);
         }
+        get override() {
+            return pb_1.Message.getFieldWithDefault(this, 2, false) as boolean;
+        }
+        set override(value: boolean) {
+            pb_1.Message.setField(this, 2, value);
+        }
         static fromObject(data: {
             id?: string;
+            override?: boolean;
         }): EnterChatPacket {
             const message = new EnterChatPacket({});
             if (data.id != null) {
                 message.id = data.id;
+            }
+            if (data.override != null) {
+                message.override = data.override;
             }
             return message;
         }
         toObject() {
             const data: {
                 id?: string;
+                override?: boolean;
             } = {};
             if (this.id != null) {
                 data.id = this.id;
+            }
+            if (this.override != null) {
+                data.override = this.override;
             }
             return data;
         }
@@ -48,6 +66,8 @@ export namespace chat.chats.public.client.v1 {
             const writer = w || new pb_1.BinaryWriter();
             if (this.id.length)
                 writer.writeString(1, this.id);
+            if (this.override != false)
+                writer.writeBool(2, this.override);
             if (!w)
                 return writer.getResultBuffer();
         }
@@ -59,6 +79,9 @@ export namespace chat.chats.public.client.v1 {
                 switch (reader.getFieldNumber()) {
                     case 1:
                         message.id = reader.readString();
+                        break;
+                    case 2:
+                        message.override = reader.readBool();
                         break;
                     default: reader.skipField();
                 }
