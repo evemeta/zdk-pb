@@ -9,7 +9,6 @@ import "room/streams/private/v1/procedures.proto";
 import "room/connections/private/v1/procedures.proto";
 import "gateway/sfus/private/v1/procedures.proto";
 import "gateway/transponders/private/v1/procedures.proto";
-import "user/users/private/v1/enums.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/members/private/v1;memberspb";
 
@@ -88,11 +87,11 @@ message CreateTransaction {
 }
 
 message UpdateArgument {
-    room.members.private.v1.Query                   query       = 1;
-    optional room.members.private.v1.OptionalString user_id     = 2;
-    optional room.members.private.v1.OptionalString room_id     = 3;
-    optional room.members.private.v1.OptionalMap    metadata    = 4;
-    optional user.users.private.v1.Permission       permissions = 5;
+    room.members.private.v1.Query                     query       = 1;
+    optional room.members.private.v1.OptionalString   user_id     = 2;
+    optional room.members.private.v1.OptionalString   room_id     = 3;
+    optional room.members.private.v1.OptionalMap      metadata    = 4;
+    optional room.members.private.v1.Permission       permissions = 5;
 }
 
 message UpdateRequest {
