@@ -16,3 +16,7 @@ enum Status {
     StatusConnected    = 1;
     StatusDisconnected = 2;
 }
+
+enum Permission {
+    PermissionUnknown = 0;
+}
