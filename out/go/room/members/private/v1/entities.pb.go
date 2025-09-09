@@ -7,7 +7,6 @@
 package memberspb
 
 import (
-	v1 "gitlab.com/evemeta/zdk/pb/out/go/user/users/private/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -165,7 +164,7 @@ type Member struct {
 	RoomId        string                 `protobuf:"bytes,3,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
 	Status        Status                 `protobuf:"varint,4,opt,name=status,proto3,enum=room.members.private.v1.Status" json:"status,omitempty"`
 	Metadata      map[string]string      `protobuf:"bytes,5,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	Permissions   []v1.Permission        `protobuf:"varint,6,rep,packed,name=permissions,proto3,enum=user.users.private.v1.Permission" json:"permissions,omitempty"`
+	Permissions   []Permission           `protobuf:"varint,6,rep,packed,name=permissions,proto3,enum=room.members.private.v1.Permission" json:"permissions,omitempty"`
 	EnterTime     int64                  `protobuf:"varint,7,opt,name=enter_time,json=enterTime,proto3" json:"enter_time,omitempty"`
 	LeaveTime     int64                  `protobuf:"varint,8,opt,name=leave_time,json=leaveTime,proto3" json:"leave_time,omitempty"`
 	AccessTime    int64                  `protobuf:"varint,9,opt,name=access_time,json=accessTime,proto3" json:"access_time,omitempty"`
@@ -240,7 +239,7 @@ func (x *Member) GetMetadata() map[string]string {
 	return nil
 }
 
-func (x *Member) GetPermissions() []v1.Permission {
+func (x *Member) GetPermissions() []Permission {
 	if x != nil {
 		return x.Permissions
 	}
@@ -414,7 +413,7 @@ var File_room_members_private_v1_entities_proto protoreflect.FileDescriptor
 
 const file_room_members_private_v1_entities_proto_rawDesc = "" +
 	"\n" +
-	"&room/members/private/v1/entities.proto\x12\x17room.members.private.v1\x1a#room/members/private/v1/enums.proto\x1a!user/users/private/v1/enums.proto\"\x84\x01\n" +
+	"&room/members/private/v1/entities.proto\x12\x17room.members.private.v1\x1a#room/members/private/v1/enums.proto\"\x84\x01\n" +
 	"\x05Chunk\x12\x12\n" +
 	"\x04size\x18\x01 \x01(\x03R\x04size\x12\x14\n" +
 	"\x05index\x18\x02 \x01(\x03R\x05index\x12\x14\n" +
@@ -426,14 +425,14 @@ const file_room_members_private_v1_entities_proto_rawDesc = "" +
 	"\x06offset\x18\x03 \x01(\x03R\x06offset\x12B\n" +
 	"\n" +
 	"conditions\x18\x04 \x03(\v2\".room.members.private.v1.ConditionR\n" +
-	"conditions\"\xf1\x03\n" +
+	"conditions\"\xf3\x03\n" +
 	"\x06Member\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\x12\x17\n" +
 	"\aroom_id\x18\x03 \x01(\tR\x06roomId\x127\n" +
 	"\x06status\x18\x04 \x01(\x0e2\x1f.room.members.private.v1.StatusR\x06status\x12I\n" +
-	"\bmetadata\x18\x05 \x03(\v2-.room.members.private.v1.Member.MetadataEntryR\bmetadata\x12C\n" +
-	"\vpermissions\x18\x06 \x03(\x0e2!.user.users.private.v1.PermissionR\vpermissions\x12\x1d\n" +
+	"\bmetadata\x18\x05 \x03(\v2-.room.members.private.v1.Member.MetadataEntryR\bmetadata\x12E\n" +
+	"\vpermissions\x18\x06 \x03(\x0e2#.room.members.private.v1.PermissionR\vpermissions\x12\x1d\n" +
 	"\n" +
 	"enter_time\x18\a \x01(\x03R\tenterTime\x12\x1d\n" +
 	"\n" +
@@ -472,15 +471,15 @@ func file_room_members_private_v1_entities_proto_rawDescGZIP() []byte {
 
 var file_room_members_private_v1_entities_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_room_members_private_v1_entities_proto_goTypes = []any{
-	(*Chunk)(nil),      // 0: room.members.private.v1.Chunk
-	(*Query)(nil),      // 1: room.members.private.v1.Query
-	(*Member)(nil),     // 2: room.members.private.v1.Member
-	(*Condition)(nil),  // 3: room.members.private.v1.Condition
-	(*Transient)(nil),  // 4: room.members.private.v1.Transient
-	nil,                // 5: room.members.private.v1.Member.MetadataEntry
-	(Order)(0),         // 6: room.members.private.v1.Order
-	(Status)(0),        // 7: room.members.private.v1.Status
-	(v1.Permission)(0), // 8: user.users.private.v1.Permission
+	(*Chunk)(nil),     // 0: room.members.private.v1.Chunk
+	(*Query)(nil),     // 1: room.members.private.v1.Query
+	(*Member)(nil),    // 2: room.members.private.v1.Member
+	(*Condition)(nil), // 3: room.members.private.v1.Condition
+	(*Transient)(nil), // 4: room.members.private.v1.Transient
+	nil,               // 5: room.members.private.v1.Member.MetadataEntry
+	(Order)(0),        // 6: room.members.private.v1.Order
+	(Status)(0),       // 7: room.members.private.v1.Status
+	(Permission)(0),   // 8: room.members.private.v1.Permission
 }
 var file_room_members_private_v1_entities_proto_depIdxs = []int32{
 	2,  // 0: room.members.private.v1.Chunk.entities:type_name -> room.members.private.v1.Member
@@ -488,7 +487,7 @@ var file_room_members_private_v1_entities_proto_depIdxs = []int32{
 	3,  // 2: room.members.private.v1.Query.conditions:type_name -> room.members.private.v1.Condition
 	7,  // 3: room.members.private.v1.Member.status:type_name -> room.members.private.v1.Status
 	5,  // 4: room.members.private.v1.Member.metadata:type_name -> room.members.private.v1.Member.MetadataEntry
-	8,  // 5: room.members.private.v1.Member.permissions:type_name -> user.users.private.v1.Permission
+	8,  // 5: room.members.private.v1.Member.permissions:type_name -> room.members.private.v1.Permission
 	7,  // 6: room.members.private.v1.Condition.statuses:type_name -> room.members.private.v1.Status
 	2,  // 7: room.members.private.v1.Transient.future:type_name -> room.members.private.v1.Member
 	2,  // 8: room.members.private.v1.Transient.current:type_name -> room.members.private.v1.Member
