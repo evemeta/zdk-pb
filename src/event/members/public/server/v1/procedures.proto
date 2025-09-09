@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package event.members.public.server.v1;
+
+import "event/members/public/server/v1/entities.proto";
+
+option java_multiple_files = true;
+option java_package = "com.evemeta.zdk.pb.event.server.members";
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/members/public/server/v1;memberspb";
+
+// CountRequest represents a message designed to count members based on a given query.
+message CountRequest {
+    // Represents the specifications and conditions under which members should be counted.
+    event.members.public.server.v1.Query query = 1;
+}
+
+// CountResponse represents a message that provides the result of the count procedure.
+message CountResponse {
+    // Represents the total number of members that match the criteria of the given query.
+    int64 total = 1;
+}
+
+// SelectRequest represents a message designed to retrieve specific members based on a given query.
+message SelectRequest {
+    // Represents the specifications and conditions under which particular members should be retrieved.
+    event.members.public.server.v1.Query query = 1;
+}
+
+// SelectResponse represents a message that provides the result of the select procedure.
+message SelectResponse {
+    // Represents a list of members that match the criteria of the given query.
+    repeated event.members.public.server.v1.Member members = 1;
+}
+
+// RangeRequest represents a message designed to retrieve a chunk of members based on a given query.
+message RangeRequest {
+    // Represents the specifications and conditions under which a chunk of members should be retrieved.
+    event.members.public.server.v1.Query query = 1;
+}
+
+// RangeResponse represents a message that provides the result of the range procedure.
+message RangeResponse {
+    // Represents a chunk of members that match the criteria of the given query.
+    event.members.public.server.v1.Chunk chunk = 1;
+}
+
+// KickRequest represents a message designed to forcefully remove a member from a event.
+message KickRequest {
+    // Represents the unique identifier of the user associated with the member intended to be forcefully removed.
+    string user_id = 1;
+    // Represents the unique identifier of the event from which the member is to be removed.
+    string event_id = 2;
+    // Represents an optional reason or cause for kicking the member.
+    string reason = 3;
+}
+
+// KickResponse represents a message that provides the result of the kick procedure.
+message KickResponse {}

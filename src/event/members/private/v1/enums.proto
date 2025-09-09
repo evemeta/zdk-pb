@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package event.members.private.v1;
+
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/members/private/v1;memberspb";
+
+enum Order {
+    OrderUnknown    = 0;
+    OrderAscending  = 1;
+    OrderDescending = 2;
+}
+
+enum Status {
+    StatusUnknown      = 0;
+    StatusConnected    = 1;
+    StatusDisconnected = 2;
+}

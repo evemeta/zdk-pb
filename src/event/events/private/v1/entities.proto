@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package event.events.private.v1;
+
+import "event/events/private/v1/enums.proto";
+import "event/members/private/v1/entities.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/events/private/v1;eventspb";
+
+message Event {
+    string                       id          = 1;
+    string                       chat_id     = 2;
+    event.events.private.v1.Kind kind        = 3;
+    map<string, string>          metadata    = 4;
+    int64                        retention   = 5;
+    int64                        access_time = 6;
+    int64                        create_time = 7;
+    int64                        update_time = 8;
+}
+
+message Chunk {
+    int64                                  size     = 1;
+    int64                                  index    = 2;
+    int64                                  total    = 3;
+    repeated event.events.private.v1.Event entities = 4;
+}
+
+message Query {
+    event.events.private.v1.Order              order      = 1;
+    int64                                      limit      = 2;
+    int64                                      offset     = 3;
+    repeated event.events.private.v1.Condition conditions = 4;
+}
+
+message Condition {
+    repeated string                         ids     = 1;
+    repeated event.members.private.v1.Query members = 2;
+}
+
+message Transient {
+    event.events.private.v1.Event future   = 1;
+    event.events.private.v1.Event current  = 2;
+    event.events.private.v1.Event previous = 3;
+}

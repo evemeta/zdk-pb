@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+package event.members.public.server.v1;
+
+import "event/members/public/server/v1/enums.proto";
+
+option java_multiple_files = true;
+option java_package = "com.evemeta.zdk.pb.event.server.members";
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/members/public/server/v1;memberspb";
+
+// Chunk represents a segmented portion of members used for pagination or segmented data retrieval.
+// It provides insights about the desired chunk size, its position within the overall dataset, and the actual members it contains.
+message Chunk {
+    // Represents the desired size of the chunk, not necessarily the actual number of entities it contains.
+    int64 size = 1;
+    // Represents the position of this chunk within the context of pagination.
+    int64 index = 2;
+    // Represents the total count of entities across all chunks.
+    int64 total = 3;
+    // Represents the actual members included in this chunk.
+    repeated event.members.public.server.v1.Member entities = 4;
+}
+
+// Query represents a structure designed to facilitate specific and conditional data retrieval.
+// It contains order specifications, limitations on the number of results, and conditions to filter data.
+message Query {
+    // Represents the order in which results should be retrieved.
+    event.members.public.server.v1.Order order = 1;
+    // Represents the maximum number of results to be fetched.
+    int64 limit = 2;
+    // Represents the starting point from which to retrieve results.
+    int64 offset = 3;
+    // Represents the set of conditions that filter the data retrieval process.
+    event.members.public.server.v1.Condition condition = 4;
+}
+
+// Member represents a participant in a event.
+// It contains details for identification, associated metadata, associated restrictions, and timestamps reflecting its creation and last alteration.
+message Member {
+    // Represents the unique identifier for this member.
+    string id = 1;
+    // Represents the unique identifier of the user associated with this member.
+    string user_id = 2;
+    // Represents the unique identifier of the event in which this member exists.
+    string event_id = 3;
+    // Represents a collection of key-value pairs providing additional context or information about this member.
+    map<string, string> metadata = 4;
+    // Represents the timestamp indicating when this member was created or added to the event.
+    int64 create_time = 5;
+    // Represents the timestamp of the last update associated with this member.
+    int64 update_time = 6;
+}
+
+// Condition represents a set of criteria designed to filter data during retrieval.
+// It provides mechanisms to specifically target members based on identifiers or event affiliations.
+message Condition {
+    // Represents a list of member identifiers for targeted data retrieval.
+    repeated string ids = 1;
+    // Represents a list of event identifiers to filter members based on their association.
+    repeated string event_ids = 2;
+    // todo;
+    repeated event.members.public.server.v1.Status statuses = 3;
+}
+
+// Timeframe represents a specific span or duration marked by its commencement and completion times.
+// It provides a clear boundary to understand when a particular activity began and when it ended.
+message Timeframe {
+    // Represents the timestamp indicating when the activity or retrieve of data commenced.
+    int64 commence = 1;
+    // Represents the timestamp indicating when the activity or retrieve of data completed.
+    int64 complete = 2;
+}
