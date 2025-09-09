@@ -3,6 +3,7 @@ syntax = "proto3";
 package room.members.private.v1;
 
 import "room/members/private/v1/enums.proto";
+import "user/users/private/v1/enums.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/members/private/v1;memberspb";
 
@@ -26,7 +27,7 @@ message Member {
     string                                       room_id      = 3;
     room.members.private.v1.Status               status       = 4;
     map<string, string>                          metadata     = 5;
-    repeated int64                               permissions  = 6;
+    repeated user.users.private.v1.Permission    permissions  = 6;
     int64                                        enter_time   = 7;
     int64                                        leave_time   = 8;
     int64                                        access_time  = 9;
