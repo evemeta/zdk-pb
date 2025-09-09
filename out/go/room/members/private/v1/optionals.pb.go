@@ -113,11 +113,55 @@ func (x *OptionalString) GetValue() string {
 	return ""
 }
 
+type OptionalPermission struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Value         []Permission           `protobuf:"varint,1,rep,packed,name=value,proto3,enum=room.members.private.v1.Permission" json:"value,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OptionalPermission) Reset() {
+	*x = OptionalPermission{}
+	mi := &file_room_members_private_v1_optionals_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OptionalPermission) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OptionalPermission) ProtoMessage() {}
+
+func (x *OptionalPermission) ProtoReflect() protoreflect.Message {
+	mi := &file_room_members_private_v1_optionals_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OptionalPermission.ProtoReflect.Descriptor instead.
+func (*OptionalPermission) Descriptor() ([]byte, []int) {
+	return file_room_members_private_v1_optionals_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *OptionalPermission) GetValue() []Permission {
+	if x != nil {
+		return x.Value
+	}
+	return nil
+}
+
 var File_room_members_private_v1_optionals_proto protoreflect.FileDescriptor
 
 const file_room_members_private_v1_optionals_proto_rawDesc = "" +
 	"\n" +
-	"'room/members/private/v1/optionals.proto\x12\x17room.members.private.v1\"\x8e\x01\n" +
+	"'room/members/private/v1/optionals.proto\x12\x17room.members.private.v1\x1a#room/members/private/v1/enums.proto\"\x8e\x01\n" +
 	"\vOptionalMap\x12E\n" +
 	"\x05value\x18\x01 \x03(\v2/.room.members.private.v1.OptionalMap.ValueEntryR\x05value\x1a8\n" +
 	"\n" +
@@ -125,7 +169,9 @@ const file_room_members_private_v1_optionals_proto_rawDesc = "" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"&\n" +
 	"\x0eOptionalString\x12\x14\n" +
-	"\x05value\x18\x01 \x01(\tR\x05valueBDZBgitlab.com/evemeta/zdk/pb/out/go/room/members/private/v1;memberspbb\x06proto3"
+	"\x05value\x18\x01 \x01(\tR\x05value\"O\n" +
+	"\x12OptionalPermission\x129\n" +
+	"\x05value\x18\x01 \x03(\x0e2#.room.members.private.v1.PermissionR\x05valueBDZBgitlab.com/evemeta/zdk/pb/out/go/room/members/private/v1;memberspbb\x06proto3"
 
 var (
 	file_room_members_private_v1_optionals_proto_rawDescOnce sync.Once
@@ -139,19 +185,22 @@ func file_room_members_private_v1_optionals_proto_rawDescGZIP() []byte {
 	return file_room_members_private_v1_optionals_proto_rawDescData
 }
 
-var file_room_members_private_v1_optionals_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_room_members_private_v1_optionals_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_room_members_private_v1_optionals_proto_goTypes = []any{
-	(*OptionalMap)(nil),    // 0: room.members.private.v1.OptionalMap
-	(*OptionalString)(nil), // 1: room.members.private.v1.OptionalString
-	nil,                    // 2: room.members.private.v1.OptionalMap.ValueEntry
+	(*OptionalMap)(nil),        // 0: room.members.private.v1.OptionalMap
+	(*OptionalString)(nil),     // 1: room.members.private.v1.OptionalString
+	(*OptionalPermission)(nil), // 2: room.members.private.v1.OptionalPermission
+	nil,                        // 3: room.members.private.v1.OptionalMap.ValueEntry
+	(Permission)(0),            // 4: room.members.private.v1.Permission
 }
 var file_room_members_private_v1_optionals_proto_depIdxs = []int32{
-	2, // 0: room.members.private.v1.OptionalMap.value:type_name -> room.members.private.v1.OptionalMap.ValueEntry
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	3, // 0: room.members.private.v1.OptionalMap.value:type_name -> room.members.private.v1.OptionalMap.ValueEntry
+	4, // 1: room.members.private.v1.OptionalPermission.value:type_name -> room.members.private.v1.Permission
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_room_members_private_v1_optionals_proto_init() }
@@ -159,13 +208,14 @@ func file_room_members_private_v1_optionals_proto_init() {
 	if File_room_members_private_v1_optionals_proto != nil {
 		return
 	}
+	file_room_members_private_v1_enums_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_room_members_private_v1_optionals_proto_rawDesc), len(file_room_members_private_v1_optionals_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   3,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
