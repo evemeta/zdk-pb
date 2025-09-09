@@ -21,16 +21,4 @@ service Service {
 
     // Kick represents a procedure that forcefully removes a member from a chat for a specific reason.
     rpc Kick(KickRequest) returns (KickResponse);
-
-    // Mute represents a procedure that silences a member for a specified duration or indefinitely.
-    rpc Mute(MuteRequest) returns (MuteResponse);
-
-    // Unmute represents a procedure that restores communication privileges for a previously muted member.
-    rpc Unmute(UnmuteRequest) returns (UnmuteResponse);
-
-    // Block represents a procedure that forcefully removes a member from a chat and prevents them from participating for a specified duration or indefinitely.
-    rpc Block(BlockRequest) returns (BlockResponse);
-
-    // Unblock represents a procedure that restores access privileges for a previously blocked member.
-    rpc Unblock(UnblockRequest) returns (UnblockResponse);
 }

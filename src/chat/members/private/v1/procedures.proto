@@ -54,7 +54,6 @@ message CreateArgument {
     string                                       chat_id      = 3;
     chat.members.private.v1.Status               status       = 4;
     map<string, string>                          metadata     = 5;
-    repeated chat.members.private.v1.Restriction restrictions = 6;
     int64                                        enter_time   = 7;
     int64                                        leave_time   = 8;
 }
@@ -162,109 +161,4 @@ message KickCondition {
 
 message KickTransaction {
     repeated chat.members.private.v1.KickMutation mutations = 1;
-}
-
-message MuteArgument {
-    chat.members.private.v1.Query query    = 1;
-    string                        reason   = 2;
-    int64                         duration = 3;
-}
-
-message MuteRequest {
-    repeated chat.members.private.v1.MuteArgument arguments = 1;
-}
-
-message MuteResponse {}
-
-message MuteMutation {
-    chat.members.private.v1.MuteArgument  foundation      = 1;
-    chat.members.private.v1.MuteCondition condition       = 2;
-    int64                                 begin_timestamp = 3;
-    int64                                 close_timestamp = 4;
-}
-
-message MuteCondition {
-    repeated chat.members.private.v1.UpdateMutation update_mutations = 1;
-}
-
-message MuteTransaction {
-    repeated chat.members.private.v1.MuteMutation mutations = 1;
-}
-
-message UnmuteArgument {
-    chat.members.private.v1.Query query = 1;
-}
-
-message UnmuteRequest {
-    repeated chat.members.private.v1.UnmuteArgument arguments = 1;
-}
-
-message UnmuteResponse {}
-
-message UnmuteMutation {
-    chat.members.private.v1.UnmuteArgument  foundation      = 1;
-    chat.members.private.v1.UnmuteCondition condition       = 2;
-    int64                                   begin_timestamp = 3;
-    int64                                   close_timestamp = 4;
-}
-
-message UnmuteCondition {
-    repeated chat.members.private.v1.UpdateMutation update_mutations = 1;
-}
-
-message UnmuteTransaction {
-    repeated chat.members.private.v1.UnmuteMutation mutations = 1;
-}
-
-message BlockArgument {
-    chat.members.private.v1.Query query    = 1;
-    string                        reason   = 2;
-    int64                         duration = 3;
-}
-
-message BlockRequest {
-    repeated chat.members.private.v1.BlockArgument arguments = 1;
-}
-
-message BlockResponse {}
-
-message BlockMutation {
-    chat.members.private.v1.BlockArgument  foundation      = 1;
-    chat.members.private.v1.BlockCondition condition       = 2;
-    int64                                  begin_timestamp = 3;
-    int64                                  close_timestamp = 4;
-}
-
-message BlockCondition {
-    repeated chat.members.private.v1.UpdateMutation         update_mutations             = 1;
-    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 2;
-}
-
-message BlockTransaction {
-    repeated chat.members.private.v1.BlockMutation mutations = 1;
-}
-
-message UnblockArgument {
-    chat.members.private.v1.Query query = 1;
-}
-
-message UnblockRequest {
-    repeated chat.members.private.v1.UnblockArgument arguments = 1;
-}
-
-message UnblockResponse {}
-
-message UnblockMutation {
-    chat.members.private.v1.UnblockArgument  foundation      = 1;
-    chat.members.private.v1.UnblockCondition condition       = 2;
-    int64                                    begin_timestamp = 3;
-    int64                                    close_timestamp = 4;
-}
-
-message UnblockCondition {
-    repeated chat.members.private.v1.UpdateMutation update_mutations = 1;
-}
-
-message UnblockTransaction {
-    repeated chat.members.private.v1.UnblockMutation mutations = 1;
 }
