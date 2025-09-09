@@ -451,7 +451,7 @@ type CreateArgument struct {
 	UserId        string                 `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	RoomId        string                 `protobuf:"bytes,3,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
 	Status        Status                 `protobuf:"varint,4,opt,name=status,proto3,enum=room.members.private.v1.Status" json:"status,omitempty"`
-	Permissions   Permission             `protobuf:"varint,8,opt,name=permissions,proto3,enum=room.members.private.v1.Permission" json:"permissions,omitempty"`
+	Permissions   []Permission           `protobuf:"varint,8,rep,packed,name=permissions,proto3,enum=room.members.private.v1.Permission" json:"permissions,omitempty"`
 	Metadata      map[string]string      `protobuf:"bytes,5,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	EnterTime     int64                  `protobuf:"varint,6,opt,name=enter_time,json=enterTime,proto3" json:"enter_time,omitempty"`
 	LeaveTime     int64                  `protobuf:"varint,7,opt,name=leave_time,json=leaveTime,proto3" json:"leave_time,omitempty"`
@@ -517,11 +517,11 @@ func (x *CreateArgument) GetStatus() Status {
 	return StatusUnknown
 }
 
-func (x *CreateArgument) GetPermissions() Permission {
+func (x *CreateArgument) GetPermissions() []Permission {
 	if x != nil {
 		return x.Permissions
 	}
-	return PermissionUnknown
+	return nil
 }
 
 func (x *CreateArgument) GetMetadata() map[string]string {
@@ -1720,7 +1720,7 @@ const file_room_members_private_v1_procedures_proto_rawDesc = "" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\x12\x17\n" +
 	"\aroom_id\x18\x03 \x01(\tR\x06roomId\x127\n" +
 	"\x06status\x18\x04 \x01(\x0e2\x1f.room.members.private.v1.StatusR\x06status\x12E\n" +
-	"\vpermissions\x18\b \x01(\x0e2#.room.members.private.v1.PermissionR\vpermissions\x12Q\n" +
+	"\vpermissions\x18\b \x03(\x0e2#.room.members.private.v1.PermissionR\vpermissions\x12Q\n" +
 	"\bmetadata\x18\x05 \x03(\v25.room.members.private.v1.CreateArgument.MetadataEntryR\bmetadata\x12\x1d\n" +
 	"\n" +
 	"enter_time\x18\x06 \x01(\x03R\tenterTime\x12\x1d\n" +

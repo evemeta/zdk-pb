@@ -52,14 +52,14 @@ message SelectResponse {
 }
 
 message CreateArgument {
-    string                             id              = 1;
-    string                             user_id         = 2;
-    string                             room_id         = 3;
-    room.members.private.v1.Status     status          = 4;
-    room.members.private.v1.Permission permissions     = 8;
-    map<string, string>                metadata        = 5;
-    int64                              enter_time      = 6;
-    int64                              leave_time      = 7;
+    string                             id                       = 1;
+    string                             user_id                  = 2;
+    string                             room_id                  = 3;
+    room.members.private.v1.Status     status                   = 4;
+    repeated room.members.private.v1.Permission permissions     = 8;
+    map<string, string>                metadata                 = 5;
+    int64                              enter_time               = 6;
+    int64                              leave_time               = 7;
 }
 
 message CreateRequest {
