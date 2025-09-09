@@ -3,6 +3,7 @@ syntax = "proto3";
 package room.members.public.server.v1;
 
 import "room/members/public/server/v1/enums.proto";
+import "user/users/private/v1/enums.proto";
 
 option java_multiple_files = true;
 option java_package = "com.evemeta.zdk.pb.room.server.members";
@@ -50,7 +51,7 @@ message Member {
     // Represents the timestamp of the last update associated with this member.
     int64 update_time = 6;
     // Represents list of permission which member have inside this room.
-    repeated int64 permissions = 7;
+    repeated user.users.private.v1.Permission permissions = 7;
 }
 
 // Condition represents a set of criteria designed to filter data during retrieval.

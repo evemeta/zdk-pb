@@ -11,6 +11,7 @@ import type { PartialMessage } from "@protobuf-ts/runtime";
 import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
 import { Status } from "./enums";
+import { Permission } from "../../../../../user/users/private/v1/enums";
 import { Order } from "./enums";
 /**
  * Chunk represents a segmented portion of members used for pagination or segmented data retrieval.
@@ -124,9 +125,9 @@ export interface Member {
     /**
      * Represents list of permission which member have inside this room.
      *
-     * @generated from protobuf field: repeated int64 permissions = 7;
+     * @generated from protobuf field: repeated user.users.private.v1.Permission permissions = 7;
      */
-    permissions: bigint[];
+    permissions: Permission[];
 }
 /**
  * Condition represents a set of criteria designed to filter data during retrieval.
@@ -325,7 +326,7 @@ class Member$Type extends MessageType<Member> {
             { no: 4, name: "metadata", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } },
             { no: 5, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 6, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 7, name: "permissions", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 7, name: "permissions", kind: "enum", repeat: 1 /*RepeatType.PACKED*/, T: () => ["user.users.private.v1.Permission", Permission] }
         ]);
     }
     create(value?: PartialMessage<Member>): Member {
@@ -364,12 +365,12 @@ class Member$Type extends MessageType<Member> {
                 case /* int64 update_time */ 6:
                     message.updateTime = reader.int64().toBigInt();
                     break;
-                case /* repeated int64 permissions */ 7:
+                case /* repeated user.users.private.v1.Permission permissions */ 7:
                     if (wireType === WireType.LengthDelimited)
                         for (let e = reader.int32() + reader.pos; reader.pos < e;)
-                            message.permissions.push(reader.int64().toBigInt());
+                            message.permissions.push(reader.int32());
                     else
-                        message.permissions.push(reader.int64().toBigInt());
+                        message.permissions.push(reader.int32());
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -417,11 +418,11 @@ class Member$Type extends MessageType<Member> {
         /* int64 update_time = 6; */
         if (message.updateTime !== 0n)
             writer.tag(6, WireType.Varint).int64(message.updateTime);
-        /* repeated int64 permissions = 7; */
+        /* repeated user.users.private.v1.Permission permissions = 7; */
         if (message.permissions.length) {
             writer.tag(7, WireType.LengthDelimited).fork();
             for (let i = 0; i < message.permissions.length; i++)
-                writer.int64(message.permissions[i]);
+                writer.int32(message.permissions[i]);
             writer.join();
         }
         let u = options.writeUnknownFields;

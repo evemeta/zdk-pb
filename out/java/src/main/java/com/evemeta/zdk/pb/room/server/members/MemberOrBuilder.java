@@ -146,16 +146,16 @@ java.lang.String defaultValue);
    * Represents list of permission which member have inside this room.
    * </pre>
    *
-   * <code>repeated int64 permissions = 7;</code>
+   * <code>repeated .user.users.private.v1.Permission permissions = 7;</code>
    * @return A list containing the permissions.
    */
-  java.util.List<java.lang.Long> getPermissionsList();
+  java.util.List<user.users.private.v1.Enums.Permission> getPermissionsList();
   /**
    * <pre>
    * Represents list of permission which member have inside this room.
    * </pre>
    *
-   * <code>repeated int64 permissions = 7;</code>
+   * <code>repeated .user.users.private.v1.Permission permissions = 7;</code>
    * @return The count of permissions.
    */
   int getPermissionsCount();
@@ -164,9 +164,29 @@ java.lang.String defaultValue);
    * Represents list of permission which member have inside this room.
    * </pre>
    *
-   * <code>repeated int64 permissions = 7;</code>
+   * <code>repeated .user.users.private.v1.Permission permissions = 7;</code>
    * @param index The index of the element to return.
    * @return The permissions at the given index.
    */
-  long getPermissions(int index);
+  user.users.private.v1.Enums.Permission getPermissions(int index);
+  /**
+   * <pre>
+   * Represents list of permission which member have inside this room.
+   * </pre>
+   *
+   * <code>repeated .user.users.private.v1.Permission permissions = 7;</code>
+   * @return A list containing the enum numeric values on the wire for permissions.
+   */
+  java.util.List<java.lang.Integer>
+  getPermissionsValueList();
+  /**
+   * <pre>
+   * Represents list of permission which member have inside this room.
+   * </pre>
+   *
+   * <code>repeated .user.users.private.v1.Permission permissions = 7;</code>
+   * @param index The index of the value to return.
+   * @return The enum numeric value on the wire of permissions at the given index.
+   */
+  int getPermissionsValue(int index);
 }
