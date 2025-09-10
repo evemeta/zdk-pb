@@ -14,6 +14,7 @@ import { Restriction } from "../../../../restrictions/public/server/v1/entities"
 import { Member } from "../../../../members/public/server/v1/entities";
 import { Chat } from "../../../../../chat/chats/public/server/v1/entities";
 import { Order } from "./enums";
+import { Status } from "./enums";
 import { Kind } from "./enums";
 /**
  * Event represents a conversation environment.
@@ -35,9 +36,15 @@ export interface Event {
      */
     kind: Kind;
     /**
+     * todo;
+     *
+     * @generated from protobuf field: event.events.public.server.v1.Status status = 3;
+     */
+    status: Status;
+    /**
      * Represents a collection of key-value pairs providing additional context or information about this event.
      *
-     * @generated from protobuf field: map<string, string> metadata = 3;
+     * @generated from protobuf field: map<string, string> metadata = 4;
      */
     metadata: {
         [key: string]: string;
@@ -45,13 +52,13 @@ export interface Event {
     /**
      * Represents the timestamp indicating when this event was created.
      *
-     * @generated from protobuf field: int64 create_time = 4;
+     * @generated from protobuf field: int64 create_time = 5;
      */
     createTime: bigint;
     /**
      * Represents the timestamp of the last update associated with this event.
      *
-     * @generated from protobuf field: int64 update_time = 5;
+     * @generated from protobuf field: int64 update_time = 6;
      */
     updateTime: bigint;
 }
@@ -239,15 +246,17 @@ class Event$Type extends MessageType<Event> {
         super("event.events.public.server.v1.Event", [
             { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 2, name: "kind", kind: "enum", T: () => ["event.events.public.server.v1.Kind", Kind] },
-            { no: 3, name: "metadata", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } },
-            { no: 4, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 5, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 3, name: "status", kind: "enum", T: () => ["event.events.public.server.v1.Status", Status] },
+            { no: 4, name: "metadata", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } },
+            { no: 5, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 6, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value?: PartialMessage<Event>): Event {
         const message = globalThis.Object.create((this.messagePrototype!));
         message.id = "";
         message.kind = 0;
+        message.status = 0;
         message.metadata = {};
         message.createTime = 0n;
         message.updateTime = 0n;
@@ -266,13 +275,16 @@ class Event$Type extends MessageType<Event> {
                 case /* event.events.public.server.v1.Kind kind */ 2:
                     message.kind = reader.int32();
                     break;
-                case /* map<string, string> metadata */ 3:
-                    this.binaryReadMap3(message.metadata, reader, options);
+                case /* event.events.public.server.v1.Status status */ 3:
+                    message.status = reader.int32();
                     break;
-                case /* int64 create_time */ 4:
+                case /* map<string, string> metadata */ 4:
+                    this.binaryReadMap4(message.metadata, reader, options);
+                    break;
+                case /* int64 create_time */ 5:
                     message.createTime = reader.int64().toBigInt();
                     break;
-                case /* int64 update_time */ 5:
+                case /* int64 update_time */ 6:
                     message.updateTime = reader.int64().toBigInt();
                     break;
                 default:
@@ -286,7 +298,7 @@ class Event$Type extends MessageType<Event> {
         }
         return message;
     }
-    private binaryReadMap3(map: Event["metadata"], reader: IBinaryReader, options: BinaryReadOptions): void {
+    private binaryReadMap4(map: Event["metadata"], reader: IBinaryReader, options: BinaryReadOptions): void {
         let len = reader.uint32(), end = reader.pos + len, key: keyof Event["metadata"] | undefined, val: Event["metadata"][any] | undefined;
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
@@ -309,15 +321,18 @@ class Event$Type extends MessageType<Event> {
         /* event.events.public.server.v1.Kind kind = 2; */
         if (message.kind !== 0)
             writer.tag(2, WireType.Varint).int32(message.kind);
-        /* map<string, string> metadata = 3; */
+        /* event.events.public.server.v1.Status status = 3; */
+        if (message.status !== 0)
+            writer.tag(3, WireType.Varint).int32(message.status);
+        /* map<string, string> metadata = 4; */
         for (let k of globalThis.Object.keys(message.metadata))
-            writer.tag(3, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.metadata[k]).join();
-        /* int64 create_time = 4; */
+            writer.tag(4, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.metadata[k]).join();
+        /* int64 create_time = 5; */
         if (message.createTime !== 0n)
-            writer.tag(4, WireType.Varint).int64(message.createTime);
-        /* int64 update_time = 5; */
+            writer.tag(5, WireType.Varint).int64(message.createTime);
+        /* int64 update_time = 6; */
         if (message.updateTime !== 0n)
-            writer.tag(5, WireType.Varint).int64(message.updateTime);
+            writer.tag(6, WireType.Varint).int64(message.updateTime);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

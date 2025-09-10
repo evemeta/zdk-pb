@@ -18,12 +18,14 @@ message Event {
     string id = 1;
     // todo;
     event.events.public.server.v1.Kind kind = 2;
+    // todo;
+    event.events.public.server.v1.Status status = 3;
     // Represents a collection of key-value pairs providing additional context or information about this event.
-    map<string, string> metadata = 3;
+    map<string, string> metadata = 4;
     // Represents the timestamp indicating when this event was created.
-    int64 create_time = 4;
+    int64 create_time = 5;
     // Represents the timestamp of the last update associated with this event.
-    int64 update_time = 5;
+    int64 update_time = 6;
 }
 
 // Chunk represents a segmented portion of events used for pagination or segmented data retrieval.
