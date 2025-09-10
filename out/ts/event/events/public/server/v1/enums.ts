@@ -48,9 +48,9 @@ export enum Status {
      */
     Unknown = 0,
     /**
-     * @generated from protobuf enum value: Planned = 1;
+     * @generated from protobuf enum value: Pending = 1;
      */
-    Planned = 1,
+    Pending = 1,
     /**
      * @generated from protobuf enum value: Started = 2;
      */
