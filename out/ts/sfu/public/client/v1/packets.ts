@@ -262,8 +262,8 @@ export const Packet = new Packet$Type();
 class StreamsTogglePacket$Type extends MessageType<StreamsTogglePacket> {
     constructor() {
         super("sfu.public.client.v1.StreamsTogglePacket", [
-            { no: 1, name: "enable_streams", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => StreamInfo },
-            { no: 2, name: "disable_streams", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => StreamInfo }
+            { no: 1, name: "enable_streams", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => StreamInfo },
+            { no: 2, name: "disable_streams", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => StreamInfo }
         ]);
     }
     create(value?: PartialMessage<StreamsTogglePacket>): StreamsTogglePacket {
@@ -317,8 +317,8 @@ export const StreamsTogglePacket = new StreamsTogglePacket$Type();
 class StreamsPacket$Type extends MessageType<StreamsPacket> {
     constructor() {
         super("sfu.public.client.v1.StreamsPacket", [
-            { no: 1, name: "add_requests", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => StreamInfo },
-            { no: 2, name: "removal_requests", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => StreamInfo },
+            { no: 1, name: "add_requests", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => StreamInfo },
+            { no: 2, name: "removal_requests", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => StreamInfo },
             { no: 3, name: "sdp_offer", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
             { no: 4, name: "channel", kind: "enum", T: () => ["sfu.public.server.v1.Channel", Channel] }
         ]);

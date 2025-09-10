@@ -39,22 +39,3 @@ export enum Status {
      */
     Disconnected = 2
 }
-/**
- * RestrictionKind represents an enumeration that specifies the kinds of restrictions or actions that can be applied to a member.
- *
- * @generated from protobuf enum chat.members.public.server.v1.RestrictionKind
- */
-export enum RestrictionKind {
-    /**
-     * @generated from protobuf enum value: Unknown = 0;
-     */
-    Unknown = 0,
-    /**
-     * @generated from protobuf enum value: Mute = 1;
-     */
-    Mute = 1,
-    /**
-     * @generated from protobuf enum value: Block = 2;
-     */
-    Block = 2
-}

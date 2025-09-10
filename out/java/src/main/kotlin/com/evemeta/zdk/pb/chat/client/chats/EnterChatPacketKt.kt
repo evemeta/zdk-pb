@@ -44,6 +44,23 @@ public object EnterChatPacketKt {
     public fun clearId() {
       _builder.clearId()
     }
+
+    /**
+     * `bool override = 2;`
+     */
+    public var override: kotlin.Boolean
+      @JvmName("getOverride")
+      get() = _builder.override
+      @JvmName("setOverride")
+      set(value) {
+        _builder.override = value
+      }
+    /**
+     * `bool override = 2;`
+     */
+    public fun clearOverride() {
+      _builder.clearOverride()
+    }
   }
 }
 @kotlin.jvm.JvmSynthetic
