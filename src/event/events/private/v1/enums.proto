@@ -16,3 +16,10 @@ enum Order {
     OrderAscending  = 1;
     OrderDescending = 2;
 }
+
+enum Status {
+    StatusUnknown  = 0;
+    StatusStarted  = 1;
+    StatusCanceled = 2;
+    StatusFinished = 3;
+}
