@@ -14,9 +14,12 @@ message Event {
     event.events.private.v1.Status status      = 4;
     map<string, string>            metadata    = 5;
     int64                          retention   = 6;
-    int64                          access_time = 7;
-    int64                          create_time = 8;
-    int64                          update_time = 9;
+    int64                          start_time  = 7;
+    int64                          cancel_time = 8;
+    int64                          finish_time = 9;
+    int64                          access_time = 10;
+    int64                          create_time = 11;
+    int64                          update_time = 12;
 }
 
 message Chunk {
