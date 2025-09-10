@@ -39,3 +39,24 @@ export enum Order {
      */
     Descending = 2
 }
+/**
+ * @generated from protobuf enum event.events.public.server.v1.Status
+ */
+export enum Status {
+    /**
+     * @generated from protobuf enum value: Unknown = 0;
+     */
+    Unknown = 0,
+    /**
+     * @generated from protobuf enum value: Started = 1;
+     */
+    Started = 1,
+    /**
+     * @generated from protobuf enum value: Canceled = 2;
+     */
+    Canceled = 2,
+    /**
+     * @generated from protobuf enum value: Finished = 3;
+     */
+    Finished = 3
+}
