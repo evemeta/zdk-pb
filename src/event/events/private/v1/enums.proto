@@ -19,7 +19,7 @@ enum Order {
 
 enum Status {
     StatusUnknown  = 0;
-    StatusPlanned  = 1;
+    StatusPending  = 1;
     StatusStarted  = 2;
     StatusCanceled = 3;
     StatusFinished = 4;
