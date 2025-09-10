@@ -22,10 +22,20 @@ message Event {
     event.events.public.server.v1.Status status = 3;
     // Represents a collection of key-value pairs providing additional context or information about this event.
     map<string, string> metadata = 4;
+
+    // todo;
+    int64 start_time  = 5;
+
+    // todo;
+    int64 cancel_time = 6;
+
+    // todo;
+    int64 finish_time = 7;
+
     // Represents the timestamp indicating when this event was created.
-    int64 create_time = 5;
+    int64 create_time = 8;
     // Represents the timestamp of the last update associated with this event.
-    int64 update_time = 6;
+    int64 update_time = 9;
 }
 
 // Chunk represents a segmented portion of events used for pagination or segmented data retrieval.

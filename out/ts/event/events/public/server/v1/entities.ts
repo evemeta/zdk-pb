@@ -50,15 +50,33 @@ export interface Event {
         [key: string]: string;
     };
     /**
+     * todo;
+     *
+     * @generated from protobuf field: int64 start_time = 5;
+     */
+    startTime: bigint;
+    /**
+     * todo;
+     *
+     * @generated from protobuf field: int64 cancel_time = 6;
+     */
+    cancelTime: bigint;
+    /**
+     * todo;
+     *
+     * @generated from protobuf field: int64 finish_time = 7;
+     */
+    finishTime: bigint;
+    /**
      * Represents the timestamp indicating when this event was created.
      *
-     * @generated from protobuf field: int64 create_time = 5;
+     * @generated from protobuf field: int64 create_time = 8;
      */
     createTime: bigint;
     /**
      * Represents the timestamp of the last update associated with this event.
      *
-     * @generated from protobuf field: int64 update_time = 6;
+     * @generated from protobuf field: int64 update_time = 9;
      */
     updateTime: bigint;
 }
@@ -248,8 +266,11 @@ class Event$Type extends MessageType<Event> {
             { no: 2, name: "kind", kind: "enum", T: () => ["event.events.public.server.v1.Kind", Kind] },
             { no: 3, name: "status", kind: "enum", T: () => ["event.events.public.server.v1.Status", Status] },
             { no: 4, name: "metadata", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } },
-            { no: 5, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 6, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 5, name: "start_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 6, name: "cancel_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 7, name: "finish_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 8, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 9, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value?: PartialMessage<Event>): Event {
@@ -258,6 +279,9 @@ class Event$Type extends MessageType<Event> {
         message.kind = 0;
         message.status = 0;
         message.metadata = {};
+        message.startTime = 0n;
+        message.cancelTime = 0n;
+        message.finishTime = 0n;
         message.createTime = 0n;
         message.updateTime = 0n;
         if (value !== undefined)
@@ -281,10 +305,19 @@ class Event$Type extends MessageType<Event> {
                 case /* map<string, string> metadata */ 4:
                     this.binaryReadMap4(message.metadata, reader, options);
                     break;
-                case /* int64 create_time */ 5:
+                case /* int64 start_time */ 5:
+                    message.startTime = reader.int64().toBigInt();
+                    break;
+                case /* int64 cancel_time */ 6:
+                    message.cancelTime = reader.int64().toBigInt();
+                    break;
+                case /* int64 finish_time */ 7:
+                    message.finishTime = reader.int64().toBigInt();
+                    break;
+                case /* int64 create_time */ 8:
                     message.createTime = reader.int64().toBigInt();
                     break;
-                case /* int64 update_time */ 6:
+                case /* int64 update_time */ 9:
                     message.updateTime = reader.int64().toBigInt();
                     break;
                 default:
@@ -327,12 +360,21 @@ class Event$Type extends MessageType<Event> {
         /* map<string, string> metadata = 4; */
         for (let k of globalThis.Object.keys(message.metadata))
             writer.tag(4, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.metadata[k]).join();
-        /* int64 create_time = 5; */
+        /* int64 start_time = 5; */
+        if (message.startTime !== 0n)
+            writer.tag(5, WireType.Varint).int64(message.startTime);
+        /* int64 cancel_time = 6; */
+        if (message.cancelTime !== 0n)
+            writer.tag(6, WireType.Varint).int64(message.cancelTime);
+        /* int64 finish_time = 7; */
+        if (message.finishTime !== 0n)
+            writer.tag(7, WireType.Varint).int64(message.finishTime);
+        /* int64 create_time = 8; */
         if (message.createTime !== 0n)
-            writer.tag(5, WireType.Varint).int64(message.createTime);
-        /* int64 update_time = 6; */
+            writer.tag(8, WireType.Varint).int64(message.createTime);
+        /* int64 update_time = 9; */
         if (message.updateTime !== 0n)
-            writer.tag(6, WireType.Varint).int64(message.updateTime);
+            writer.tag(9, WireType.Varint).int64(message.updateTime);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
