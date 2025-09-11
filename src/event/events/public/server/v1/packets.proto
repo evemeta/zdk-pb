@@ -68,3 +68,12 @@ message InvokeEventActionPacket {
     // todo;
     map<string, string> data = 4;
 }
+
+// StartEventPacket is a notification sent to clients when a event has been started.
+// It provides the identifier of the event and the relevant timeframe associated with the event.
+message StartEventPacket {
+    // Represents the unique identifier of the event.
+    string id = 1;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+    event.events.public.server.v1.Timeframe timeframe = 2;
+}
