@@ -2770,6 +2770,265 @@ func (x *CancelTransaction) GetMutations() []*CancelMutation {
 	return nil
 }
 
+type FinishArgument struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Query *Query `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
+}
+
+func (x *FinishArgument) Reset() {
+	*x = FinishArgument{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_event_events_private_v1_procedures_proto_msgTypes[51]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *FinishArgument) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FinishArgument) ProtoMessage() {}
+
+func (x *FinishArgument) ProtoReflect() protoreflect.Message {
+	mi := &file_event_events_private_v1_procedures_proto_msgTypes[51]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FinishArgument.ProtoReflect.Descriptor instead.
+func (*FinishArgument) Descriptor() ([]byte, []int) {
+	return file_event_events_private_v1_procedures_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *FinishArgument) GetQuery() *Query {
+	if x != nil {
+		return x.Query
+	}
+	return nil
+}
+
+type FinishRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Arguments []*FinishArgument `protobuf:"bytes,1,rep,name=arguments,proto3" json:"arguments,omitempty"`
+}
+
+func (x *FinishRequest) Reset() {
+	*x = FinishRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_event_events_private_v1_procedures_proto_msgTypes[52]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *FinishRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FinishRequest) ProtoMessage() {}
+
+func (x *FinishRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_event_events_private_v1_procedures_proto_msgTypes[52]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FinishRequest.ProtoReflect.Descriptor instead.
+func (*FinishRequest) Descriptor() ([]byte, []int) {
+	return file_event_events_private_v1_procedures_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *FinishRequest) GetArguments() []*FinishArgument {
+	if x != nil {
+		return x.Arguments
+	}
+	return nil
+}
+
+type FinishResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Events []*Event `protobuf:"bytes,1,rep,name=events,proto3" json:"events,omitempty"`
+}
+
+func (x *FinishResponse) Reset() {
+	*x = FinishResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_event_events_private_v1_procedures_proto_msgTypes[53]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *FinishResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FinishResponse) ProtoMessage() {}
+
+func (x *FinishResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_event_events_private_v1_procedures_proto_msgTypes[53]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FinishResponse.ProtoReflect.Descriptor instead.
+func (*FinishResponse) Descriptor() ([]byte, []int) {
+	return file_event_events_private_v1_procedures_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *FinishResponse) GetEvents() []*Event {
+	if x != nil {
+		return x.Events
+	}
+	return nil
+}
+
+type FinishMutation struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Foundation     *FinishArgument `protobuf:"bytes,1,opt,name=foundation,proto3" json:"foundation,omitempty"`
+	Transient      []*Transient    `protobuf:"bytes,2,rep,name=transient,proto3" json:"transient,omitempty"`
+	BeginTimestamp int64           `protobuf:"varint,3,opt,name=begin_timestamp,json=beginTimestamp,proto3" json:"begin_timestamp,omitempty"`
+	CloseTimestamp int64           `protobuf:"varint,4,opt,name=close_timestamp,json=closeTimestamp,proto3" json:"close_timestamp,omitempty"`
+}
+
+func (x *FinishMutation) Reset() {
+	*x = FinishMutation{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_event_events_private_v1_procedures_proto_msgTypes[54]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *FinishMutation) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FinishMutation) ProtoMessage() {}
+
+func (x *FinishMutation) ProtoReflect() protoreflect.Message {
+	mi := &file_event_events_private_v1_procedures_proto_msgTypes[54]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FinishMutation.ProtoReflect.Descriptor instead.
+func (*FinishMutation) Descriptor() ([]byte, []int) {
+	return file_event_events_private_v1_procedures_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *FinishMutation) GetFoundation() *FinishArgument {
+	if x != nil {
+		return x.Foundation
+	}
+	return nil
+}
+
+func (x *FinishMutation) GetTransient() []*Transient {
+	if x != nil {
+		return x.Transient
+	}
+	return nil
+}
+
+func (x *FinishMutation) GetBeginTimestamp() int64 {
+	if x != nil {
+		return x.BeginTimestamp
+	}
+	return 0
+}
+
+func (x *FinishMutation) GetCloseTimestamp() int64 {
+	if x != nil {
+		return x.CloseTimestamp
+	}
+	return 0
+}
+
+type FinishTransaction struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Mutations []*FinishMutation `protobuf:"bytes,1,rep,name=mutations,proto3" json:"mutations,omitempty"`
+}
+
+func (x *FinishTransaction) Reset() {
+	*x = FinishTransaction{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_event_events_private_v1_procedures_proto_msgTypes[55]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *FinishTransaction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FinishTransaction) ProtoMessage() {}
+
+func (x *FinishTransaction) ProtoReflect() protoreflect.Message {
+	mi := &file_event_events_private_v1_procedures_proto_msgTypes[55]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FinishTransaction.ProtoReflect.Descriptor instead.
+func (*FinishTransaction) Descriptor() ([]byte, []int) {
+	return file_event_events_private_v1_procedures_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *FinishTransaction) GetMutations() []*FinishMutation {
+	if x != nil {
+		return x.Mutations
+	}
+	return nil
+}
+
 var File_event_events_private_v1_procedures_proto protoreflect.FileDescriptor
 
 var file_event_events_private_v1_procedures_proto_rawDesc = []byte{
@@ -3218,11 +3477,47 @@ var file_event_events_private_v1_procedures_proto_rawDesc = []byte{
 	0x27, 0x2e, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x2e, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x73, 0x2e, 0x70,
 	0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x43, 0x61, 0x6e, 0x63, 0x65, 0x6c,
 	0x4d, 0x75, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x09, 0x6d, 0x75, 0x74, 0x61, 0x74, 0x69,
-	0x6f, 0x6e, 0x73, 0x42, 0x43, 0x5a, 0x41, 0x67, 0x69, 0x74, 0x6c, 0x61, 0x62, 0x2e, 0x63, 0x6f,
-	0x6d, 0x2f, 0x65, 0x76, 0x65, 0x6d, 0x65, 0x74, 0x61, 0x2f, 0x7a, 0x64, 0x6b, 0x2f, 0x70, 0x62,
-	0x2f, 0x6f, 0x75, 0x74, 0x2f, 0x67, 0x6f, 0x2f, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x2f, 0x65, 0x76,
-	0x65, 0x6e, 0x74, 0x73, 0x2f, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2f, 0x76, 0x31, 0x3b,
-	0x65, 0x76, 0x65, 0x6e, 0x74, 0x73, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6f, 0x6e, 0x73, 0x22, 0x46, 0x0a, 0x0e, 0x46, 0x69, 0x6e, 0x69, 0x73, 0x68, 0x41, 0x72, 0x67,
+	0x75, 0x6d, 0x65, 0x6e, 0x74, 0x12, 0x34, 0x0a, 0x05, 0x71, 0x75, 0x65, 0x72, 0x79, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x0b, 0x32, 0x1e, 0x2e, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x2e, 0x65, 0x76, 0x65,
+	0x6e, 0x74, 0x73, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x51,
+	0x75, 0x65, 0x72, 0x79, 0x52, 0x05, 0x71, 0x75, 0x65, 0x72, 0x79, 0x22, 0x56, 0x0a, 0x0d, 0x46,
+	0x69, 0x6e, 0x69, 0x73, 0x68, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x45, 0x0a, 0x09,
+	0x61, 0x72, 0x67, 0x75, 0x6d, 0x65, 0x6e, 0x74, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32,
+	0x27, 0x2e, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x2e, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x73, 0x2e, 0x70,
+	0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x46, 0x69, 0x6e, 0x69, 0x73, 0x68,
+	0x41, 0x72, 0x67, 0x75, 0x6d, 0x65, 0x6e, 0x74, 0x52, 0x09, 0x61, 0x72, 0x67, 0x75, 0x6d, 0x65,
+	0x6e, 0x74, 0x73, 0x22, 0x48, 0x0a, 0x0e, 0x46, 0x69, 0x6e, 0x69, 0x73, 0x68, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x36, 0x0a, 0x06, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x73, 0x18,
+	0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1e, 0x2e, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x2e, 0x65, 0x76,
+	0x65, 0x6e, 0x74, 0x73, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e,
+	0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x06, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x73, 0x22, 0xed, 0x01,
+	0x0a, 0x0e, 0x46, 0x69, 0x6e, 0x69, 0x73, 0x68, 0x4d, 0x75, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e,
+	0x12, 0x47, 0x0a, 0x0a, 0x66, 0x6f, 0x75, 0x6e, 0x64, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x0b, 0x32, 0x27, 0x2e, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x2e, 0x65, 0x76, 0x65,
+	0x6e, 0x74, 0x73, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x46,
+	0x69, 0x6e, 0x69, 0x73, 0x68, 0x41, 0x72, 0x67, 0x75, 0x6d, 0x65, 0x6e, 0x74, 0x52, 0x0a, 0x66,
+	0x6f, 0x75, 0x6e, 0x64, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x40, 0x0a, 0x09, 0x74, 0x72, 0x61,
+	0x6e, 0x73, 0x69, 0x65, 0x6e, 0x74, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x22, 0x2e, 0x65,
+	0x76, 0x65, 0x6e, 0x74, 0x2e, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x73, 0x2e, 0x70, 0x72, 0x69, 0x76,
+	0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x69, 0x65, 0x6e, 0x74,
+	0x52, 0x09, 0x74, 0x72, 0x61, 0x6e, 0x73, 0x69, 0x65, 0x6e, 0x74, 0x12, 0x27, 0x0a, 0x0f, 0x62,
+	0x65, 0x67, 0x69, 0x6e, 0x5f, 0x74, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x18, 0x03,
+	0x20, 0x01, 0x28, 0x03, 0x52, 0x0e, 0x62, 0x65, 0x67, 0x69, 0x6e, 0x54, 0x69, 0x6d, 0x65, 0x73,
+	0x74, 0x61, 0x6d, 0x70, 0x12, 0x27, 0x0a, 0x0f, 0x63, 0x6c, 0x6f, 0x73, 0x65, 0x5f, 0x74, 0x69,
+	0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x18, 0x04, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0e, 0x63,
+	0x6c, 0x6f, 0x73, 0x65, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x22, 0x5a, 0x0a,
+	0x11, 0x46, 0x69, 0x6e, 0x69, 0x73, 0x68, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69,
+	0x6f, 0x6e, 0x12, 0x45, 0x0a, 0x09, 0x6d, 0x75, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x18,
+	0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x27, 0x2e, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x2e, 0x65, 0x76,
+	0x65, 0x6e, 0x74, 0x73, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x76, 0x31, 0x2e,
+	0x46, 0x69, 0x6e, 0x69, 0x73, 0x68, 0x4d, 0x75, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x09,
+	0x6d, 0x75, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x42, 0x43, 0x5a, 0x41, 0x67, 0x69, 0x74,
+	0x6c, 0x61, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x65, 0x76, 0x65, 0x6d, 0x65, 0x74, 0x61, 0x2f,
+	0x7a, 0x64, 0x6b, 0x2f, 0x70, 0x62, 0x2f, 0x6f, 0x75, 0x74, 0x2f, 0x67, 0x6f, 0x2f, 0x65, 0x76,
+	0x65, 0x6e, 0x74, 0x2f, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x73, 0x2f, 0x70, 0x72, 0x69, 0x76, 0x61,
+	0x74, 0x65, 0x2f, 0x76, 0x31, 0x3b, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x73, 0x70, 0x62, 0x62, 0x06,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -3237,7 +3532,7 @@ func file_event_events_private_v1_procedures_proto_rawDescGZIP() []byte {
 	return file_event_events_private_v1_procedures_proto_rawDescData
 }
 
-var file_event_events_private_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 54)
+var file_event_events_private_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 59)
 var file_event_events_private_v1_procedures_proto_goTypes = []any{
 	(*CountArgument)(nil),      // 0: event.events.private.v1.CountArgument
 	(*CountRequest)(nil),       // 1: event.events.private.v1.CountRequest
@@ -3290,94 +3585,105 @@ var file_event_events_private_v1_procedures_proto_goTypes = []any{
 	(*CancelResponse)(nil),     // 48: event.events.private.v1.CancelResponse
 	(*CancelMutation)(nil),     // 49: event.events.private.v1.CancelMutation
 	(*CancelTransaction)(nil),  // 50: event.events.private.v1.CancelTransaction
-	nil,                        // 51: event.events.private.v1.InvokeArgument.DataEntry
-	nil,                        // 52: event.events.private.v1.CreateArgument.MetadataEntry
-	nil,                        // 53: event.events.private.v1.EnterArgument.MetadataEntry
-	(*Query)(nil),              // 54: event.events.private.v1.Query
-	(*Chunk)(nil),              // 55: event.events.private.v1.Chunk
-	(*Event)(nil),              // 56: event.events.private.v1.Event
-	(Kind)(0),                  // 57: event.events.private.v1.Kind
-	(*Transient)(nil),          // 58: event.events.private.v1.Transient
-	(*v1.CreateMutation)(nil),  // 59: chat.chats.private.v1.CreateMutation
-	(*v11.CreateMutation)(nil), // 60: gateway.transponders.private.v1.CreateMutation
-	(*OptionalMap)(nil),        // 61: event.events.private.v1.OptionalMap
-	(*v1.DeleteMutation)(nil),  // 62: chat.chats.private.v1.DeleteMutation
-	(*v12.DeleteMutation)(nil), // 63: event.members.private.v1.DeleteMutation
-	(*v11.DeleteMutation)(nil), // 64: gateway.transponders.private.v1.DeleteMutation
-	(*v13.DeleteMutation)(nil), // 65: event.restrictions.private.v1.DeleteMutation
-	(*v12.CreateMutation)(nil), // 66: event.members.private.v1.CreateMutation
-	(*v12.UpdateMutation)(nil), // 67: event.members.private.v1.UpdateMutation
+	(*FinishArgument)(nil),     // 51: event.events.private.v1.FinishArgument
+	(*FinishRequest)(nil),      // 52: event.events.private.v1.FinishRequest
+	(*FinishResponse)(nil),     // 53: event.events.private.v1.FinishResponse
+	(*FinishMutation)(nil),     // 54: event.events.private.v1.FinishMutation
+	(*FinishTransaction)(nil),  // 55: event.events.private.v1.FinishTransaction
+	nil,                        // 56: event.events.private.v1.InvokeArgument.DataEntry
+	nil,                        // 57: event.events.private.v1.CreateArgument.MetadataEntry
+	nil,                        // 58: event.events.private.v1.EnterArgument.MetadataEntry
+	(*Query)(nil),              // 59: event.events.private.v1.Query
+	(*Chunk)(nil),              // 60: event.events.private.v1.Chunk
+	(*Event)(nil),              // 61: event.events.private.v1.Event
+	(Kind)(0),                  // 62: event.events.private.v1.Kind
+	(*Transient)(nil),          // 63: event.events.private.v1.Transient
+	(*v1.CreateMutation)(nil),  // 64: chat.chats.private.v1.CreateMutation
+	(*v11.CreateMutation)(nil), // 65: gateway.transponders.private.v1.CreateMutation
+	(*OptionalMap)(nil),        // 66: event.events.private.v1.OptionalMap
+	(*v1.DeleteMutation)(nil),  // 67: chat.chats.private.v1.DeleteMutation
+	(*v12.DeleteMutation)(nil), // 68: event.members.private.v1.DeleteMutation
+	(*v11.DeleteMutation)(nil), // 69: gateway.transponders.private.v1.DeleteMutation
+	(*v13.DeleteMutation)(nil), // 70: event.restrictions.private.v1.DeleteMutation
+	(*v12.CreateMutation)(nil), // 71: event.members.private.v1.CreateMutation
+	(*v12.UpdateMutation)(nil), // 72: event.members.private.v1.UpdateMutation
 }
 var file_event_events_private_v1_procedures_proto_depIdxs = []int32{
-	54, // 0: event.events.private.v1.CountArgument.query:type_name -> event.events.private.v1.Query
+	59, // 0: event.events.private.v1.CountArgument.query:type_name -> event.events.private.v1.Query
 	0,  // 1: event.events.private.v1.CountRequest.arguments:type_name -> event.events.private.v1.CountArgument
-	54, // 2: event.events.private.v1.RangeArgument.query:type_name -> event.events.private.v1.Query
+	59, // 2: event.events.private.v1.RangeArgument.query:type_name -> event.events.private.v1.Query
 	3,  // 3: event.events.private.v1.RangeRequest.arguments:type_name -> event.events.private.v1.RangeArgument
-	55, // 4: event.events.private.v1.RangeResponse.chunks:type_name -> event.events.private.v1.Chunk
-	54, // 5: event.events.private.v1.SelectArgument.query:type_name -> event.events.private.v1.Query
+	60, // 4: event.events.private.v1.RangeResponse.chunks:type_name -> event.events.private.v1.Chunk
+	59, // 5: event.events.private.v1.SelectArgument.query:type_name -> event.events.private.v1.Query
 	6,  // 6: event.events.private.v1.SelectRequest.arguments:type_name -> event.events.private.v1.SelectArgument
-	56, // 7: event.events.private.v1.SelectResponse.events:type_name -> event.events.private.v1.Event
-	51, // 8: event.events.private.v1.InvokeArgument.data:type_name -> event.events.private.v1.InvokeArgument.DataEntry
+	61, // 7: event.events.private.v1.SelectResponse.events:type_name -> event.events.private.v1.Event
+	56, // 8: event.events.private.v1.InvokeArgument.data:type_name -> event.events.private.v1.InvokeArgument.DataEntry
 	9,  // 9: event.events.private.v1.InvokeRequest.arguments:type_name -> event.events.private.v1.InvokeArgument
-	57, // 10: event.events.private.v1.CreateArgument.kind:type_name -> event.events.private.v1.Kind
-	52, // 11: event.events.private.v1.CreateArgument.metadata:type_name -> event.events.private.v1.CreateArgument.MetadataEntry
+	62, // 10: event.events.private.v1.CreateArgument.kind:type_name -> event.events.private.v1.Kind
+	57, // 11: event.events.private.v1.CreateArgument.metadata:type_name -> event.events.private.v1.CreateArgument.MetadataEntry
 	12, // 12: event.events.private.v1.CreateRequest.arguments:type_name -> event.events.private.v1.CreateArgument
-	56, // 13: event.events.private.v1.CreateResponse.events:type_name -> event.events.private.v1.Event
+	61, // 13: event.events.private.v1.CreateResponse.events:type_name -> event.events.private.v1.Event
 	12, // 14: event.events.private.v1.CreateMutation.foundation:type_name -> event.events.private.v1.CreateArgument
 	16, // 15: event.events.private.v1.CreateMutation.condition:type_name -> event.events.private.v1.CreateCondition
-	58, // 16: event.events.private.v1.CreateMutation.transient:type_name -> event.events.private.v1.Transient
-	59, // 17: event.events.private.v1.CreateCondition.create_chat_mutations:type_name -> chat.chats.private.v1.CreateMutation
-	60, // 18: event.events.private.v1.CreateCondition.create_transponder_mutations:type_name -> gateway.transponders.private.v1.CreateMutation
+	63, // 16: event.events.private.v1.CreateMutation.transient:type_name -> event.events.private.v1.Transient
+	64, // 17: event.events.private.v1.CreateCondition.create_chat_mutations:type_name -> chat.chats.private.v1.CreateMutation
+	65, // 18: event.events.private.v1.CreateCondition.create_transponder_mutations:type_name -> gateway.transponders.private.v1.CreateMutation
 	15, // 19: event.events.private.v1.CreateTransaction.mutations:type_name -> event.events.private.v1.CreateMutation
-	54, // 20: event.events.private.v1.UpdateArgument.query:type_name -> event.events.private.v1.Query
-	61, // 21: event.events.private.v1.UpdateArgument.metadata:type_name -> event.events.private.v1.OptionalMap
+	59, // 20: event.events.private.v1.UpdateArgument.query:type_name -> event.events.private.v1.Query
+	66, // 21: event.events.private.v1.UpdateArgument.metadata:type_name -> event.events.private.v1.OptionalMap
 	18, // 22: event.events.private.v1.UpdateRequest.arguments:type_name -> event.events.private.v1.UpdateArgument
-	56, // 23: event.events.private.v1.UpdateResponse.events:type_name -> event.events.private.v1.Event
+	61, // 23: event.events.private.v1.UpdateResponse.events:type_name -> event.events.private.v1.Event
 	18, // 24: event.events.private.v1.UpdateMutation.foundation:type_name -> event.events.private.v1.UpdateArgument
-	58, // 25: event.events.private.v1.UpdateMutation.transient:type_name -> event.events.private.v1.Transient
+	63, // 25: event.events.private.v1.UpdateMutation.transient:type_name -> event.events.private.v1.Transient
 	21, // 26: event.events.private.v1.UpdateTransaction.mutations:type_name -> event.events.private.v1.UpdateMutation
-	54, // 27: event.events.private.v1.DeleteArgument.query:type_name -> event.events.private.v1.Query
+	59, // 27: event.events.private.v1.DeleteArgument.query:type_name -> event.events.private.v1.Query
 	23, // 28: event.events.private.v1.DeleteRequest.arguments:type_name -> event.events.private.v1.DeleteArgument
-	56, // 29: event.events.private.v1.DeleteResponse.events:type_name -> event.events.private.v1.Event
+	61, // 29: event.events.private.v1.DeleteResponse.events:type_name -> event.events.private.v1.Event
 	23, // 30: event.events.private.v1.DeleteMutation.foundation:type_name -> event.events.private.v1.DeleteArgument
 	27, // 31: event.events.private.v1.DeleteMutation.condition:type_name -> event.events.private.v1.DeleteCondition
-	58, // 32: event.events.private.v1.DeleteMutation.transient:type_name -> event.events.private.v1.Transient
-	62, // 33: event.events.private.v1.DeleteCondition.delete_chat_mutations:type_name -> chat.chats.private.v1.DeleteMutation
-	63, // 34: event.events.private.v1.DeleteCondition.delete_member_mutations:type_name -> event.members.private.v1.DeleteMutation
-	64, // 35: event.events.private.v1.DeleteCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
-	65, // 36: event.events.private.v1.DeleteCondition.delete_restriction_mutations:type_name -> event.restrictions.private.v1.DeleteMutation
+	63, // 32: event.events.private.v1.DeleteMutation.transient:type_name -> event.events.private.v1.Transient
+	67, // 33: event.events.private.v1.DeleteCondition.delete_chat_mutations:type_name -> chat.chats.private.v1.DeleteMutation
+	68, // 34: event.events.private.v1.DeleteCondition.delete_member_mutations:type_name -> event.members.private.v1.DeleteMutation
+	69, // 35: event.events.private.v1.DeleteCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
+	70, // 36: event.events.private.v1.DeleteCondition.delete_restriction_mutations:type_name -> event.restrictions.private.v1.DeleteMutation
 	26, // 37: event.events.private.v1.DeleteTransaction.mutations:type_name -> event.events.private.v1.DeleteMutation
-	53, // 38: event.events.private.v1.EnterArgument.metadata:type_name -> event.events.private.v1.EnterArgument.MetadataEntry
+	58, // 38: event.events.private.v1.EnterArgument.metadata:type_name -> event.events.private.v1.EnterArgument.MetadataEntry
 	29, // 39: event.events.private.v1.EnterRequest.arguments:type_name -> event.events.private.v1.EnterArgument
 	29, // 40: event.events.private.v1.EnterMutation.foundation:type_name -> event.events.private.v1.EnterArgument
 	33, // 41: event.events.private.v1.EnterMutation.condition:type_name -> event.events.private.v1.EnterCondition
-	66, // 42: event.events.private.v1.EnterCondition.create_member_mutations:type_name -> event.members.private.v1.CreateMutation
-	67, // 43: event.events.private.v1.EnterCondition.update_member_mutations:type_name -> event.members.private.v1.UpdateMutation
-	60, // 44: event.events.private.v1.EnterCondition.create_transponder_mutations:type_name -> gateway.transponders.private.v1.CreateMutation
+	71, // 42: event.events.private.v1.EnterCondition.create_member_mutations:type_name -> event.members.private.v1.CreateMutation
+	72, // 43: event.events.private.v1.EnterCondition.update_member_mutations:type_name -> event.members.private.v1.UpdateMutation
+	65, // 44: event.events.private.v1.EnterCondition.create_transponder_mutations:type_name -> gateway.transponders.private.v1.CreateMutation
 	32, // 45: event.events.private.v1.EnterTransaction.mutations:type_name -> event.events.private.v1.EnterMutation
 	35, // 46: event.events.private.v1.LeaveRequest.arguments:type_name -> event.events.private.v1.LeaveArgument
 	35, // 47: event.events.private.v1.LeaveMutation.foundation:type_name -> event.events.private.v1.LeaveArgument
 	39, // 48: event.events.private.v1.LeaveMutation.condition:type_name -> event.events.private.v1.LeaveCondition
-	67, // 49: event.events.private.v1.LeaveCondition.update_member_mutations:type_name -> event.members.private.v1.UpdateMutation
-	64, // 50: event.events.private.v1.LeaveCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
+	72, // 49: event.events.private.v1.LeaveCondition.update_member_mutations:type_name -> event.members.private.v1.UpdateMutation
+	69, // 50: event.events.private.v1.LeaveCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
 	38, // 51: event.events.private.v1.LeaveTransaction.mutations:type_name -> event.events.private.v1.LeaveMutation
-	54, // 52: event.events.private.v1.StartArgument.query:type_name -> event.events.private.v1.Query
+	59, // 52: event.events.private.v1.StartArgument.query:type_name -> event.events.private.v1.Query
 	41, // 53: event.events.private.v1.StartRequest.arguments:type_name -> event.events.private.v1.StartArgument
-	56, // 54: event.events.private.v1.StartResponse.events:type_name -> event.events.private.v1.Event
+	61, // 54: event.events.private.v1.StartResponse.events:type_name -> event.events.private.v1.Event
 	41, // 55: event.events.private.v1.StartMutation.foundation:type_name -> event.events.private.v1.StartArgument
-	58, // 56: event.events.private.v1.StartMutation.transient:type_name -> event.events.private.v1.Transient
+	63, // 56: event.events.private.v1.StartMutation.transient:type_name -> event.events.private.v1.Transient
 	44, // 57: event.events.private.v1.StartTransaction.mutations:type_name -> event.events.private.v1.StartMutation
-	54, // 58: event.events.private.v1.CancelArgument.query:type_name -> event.events.private.v1.Query
+	59, // 58: event.events.private.v1.CancelArgument.query:type_name -> event.events.private.v1.Query
 	46, // 59: event.events.private.v1.CancelRequest.arguments:type_name -> event.events.private.v1.CancelArgument
-	56, // 60: event.events.private.v1.CancelResponse.events:type_name -> event.events.private.v1.Event
+	61, // 60: event.events.private.v1.CancelResponse.events:type_name -> event.events.private.v1.Event
 	46, // 61: event.events.private.v1.CancelMutation.foundation:type_name -> event.events.private.v1.CancelArgument
-	58, // 62: event.events.private.v1.CancelMutation.transient:type_name -> event.events.private.v1.Transient
+	63, // 62: event.events.private.v1.CancelMutation.transient:type_name -> event.events.private.v1.Transient
 	49, // 63: event.events.private.v1.CancelTransaction.mutations:type_name -> event.events.private.v1.CancelMutation
-	64, // [64:64] is the sub-list for method output_type
-	64, // [64:64] is the sub-list for method input_type
-	64, // [64:64] is the sub-list for extension type_name
-	64, // [64:64] is the sub-list for extension extendee
-	0,  // [0:64] is the sub-list for field type_name
+	59, // 64: event.events.private.v1.FinishArgument.query:type_name -> event.events.private.v1.Query
+	51, // 65: event.events.private.v1.FinishRequest.arguments:type_name -> event.events.private.v1.FinishArgument
+	61, // 66: event.events.private.v1.FinishResponse.events:type_name -> event.events.private.v1.Event
+	51, // 67: event.events.private.v1.FinishMutation.foundation:type_name -> event.events.private.v1.FinishArgument
+	63, // 68: event.events.private.v1.FinishMutation.transient:type_name -> event.events.private.v1.Transient
+	54, // 69: event.events.private.v1.FinishTransaction.mutations:type_name -> event.events.private.v1.FinishMutation
+	70, // [70:70] is the sub-list for method output_type
+	70, // [70:70] is the sub-list for method input_type
+	70, // [70:70] is the sub-list for extension type_name
+	70, // [70:70] is the sub-list for extension extendee
+	0,  // [0:70] is the sub-list for field type_name
 }
 
 func init() { file_event_events_private_v1_procedures_proto_init() }
@@ -4001,6 +4307,66 @@ func file_event_events_private_v1_procedures_proto_init() {
 				return nil
 			}
 		}
+		file_event_events_private_v1_procedures_proto_msgTypes[51].Exporter = func(v any, i int) any {
+			switch v := v.(*FinishArgument); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_event_events_private_v1_procedures_proto_msgTypes[52].Exporter = func(v any, i int) any {
+			switch v := v.(*FinishRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_event_events_private_v1_procedures_proto_msgTypes[53].Exporter = func(v any, i int) any {
+			switch v := v.(*FinishResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_event_events_private_v1_procedures_proto_msgTypes[54].Exporter = func(v any, i int) any {
+			switch v := v.(*FinishMutation); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_event_events_private_v1_procedures_proto_msgTypes[55].Exporter = func(v any, i int) any {
+			switch v := v.(*FinishTransaction); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	file_event_events_private_v1_procedures_proto_msgTypes[18].OneofWrappers = []any{}
 	type x struct{}
@@ -4009,7 +4375,7 @@ func file_event_events_private_v1_procedures_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_event_events_private_v1_procedures_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   54,
+			NumMessages:   59,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
