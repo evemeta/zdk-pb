@@ -967,6 +967,32 @@ func local_request_Service_FinalizeStartMutations_0(ctx context.Context, marshal
 
 }
 
+func request_Service_AnnounceStartMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq StartTransaction
+	var metadata runtime.ServerMetadata
+
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	msg, err := client.AnnounceStartMutations(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
+func local_request_Service_AnnounceStartMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq StartTransaction
+	var metadata runtime.ServerMetadata
+
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	msg, err := server.AnnounceStartMutations(ctx, &protoReq)
+	return msg, metadata, err
+
+}
+
 func request_Service_RollbackStartMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq StartTransaction
 	var metadata runtime.ServerMetadata
@@ -1071,6 +1097,32 @@ func local_request_Service_FinalizeCancelMutations_0(ctx context.Context, marsha
 
 }
 
+func request_Service_AnnounceCancelMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq CancelTransaction
+	var metadata runtime.ServerMetadata
+
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	msg, err := client.AnnounceCancelMutations(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
+func local_request_Service_AnnounceCancelMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq CancelTransaction
+	var metadata runtime.ServerMetadata
+
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	msg, err := server.AnnounceCancelMutations(ctx, &protoReq)
+	return msg, metadata, err
+
+}
+
 func request_Service_RollbackCancelMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq CancelTransaction
 	var metadata runtime.ServerMetadata
@@ -1171,6 +1223,32 @@ func local_request_Service_FinalizeFinishMutations_0(ctx context.Context, marsha
 	}
 
 	msg, err := server.FinalizeFinishMutations(ctx, &protoReq)
+	return msg, metadata, err
+
+}
+
+func request_Service_AnnounceFinishMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq FinishTransaction
+	var metadata runtime.ServerMetadata
+
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	msg, err := client.AnnounceFinishMutations(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
+func local_request_Service_AnnounceFinishMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq FinishTransaction
+	var metadata runtime.ServerMetadata
+
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	msg, err := server.AnnounceFinishMutations(ctx, &protoReq)
 	return msg, metadata, err
 
 }
@@ -2108,6 +2186,31 @@ func RegisterServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 
 	})
 
+	mux.Handle("POST", pattern_Service_AnnounceStartMutations_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		var err error
+		var annotatedContext context.Context
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/event.events.private.v1.Service/AnnounceStartMutations", runtime.WithHTTPPathPattern("/event.events.private.v1.Service/AnnounceStartMutations"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_Service_AnnounceStartMutations_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_Service_AnnounceStartMutations_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
 	mux.Handle("POST", pattern_Service_RollbackStartMutations_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -2208,6 +2311,31 @@ func RegisterServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 
 	})
 
+	mux.Handle("POST", pattern_Service_AnnounceCancelMutations_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		var err error
+		var annotatedContext context.Context
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/event.events.private.v1.Service/AnnounceCancelMutations", runtime.WithHTTPPathPattern("/event.events.private.v1.Service/AnnounceCancelMutations"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_Service_AnnounceCancelMutations_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_Service_AnnounceCancelMutations_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
 	mux.Handle("POST", pattern_Service_RollbackCancelMutations_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -2305,6 +2433,31 @@ func RegisterServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		}
 
 		forward_Service_FinalizeFinishMutations_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	mux.Handle("POST", pattern_Service_AnnounceFinishMutations_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		var err error
+		var annotatedContext context.Context
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/event.events.private.v1.Service/AnnounceFinishMutations", runtime.WithHTTPPathPattern("/event.events.private.v1.Service/AnnounceFinishMutations"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_Service_AnnounceFinishMutations_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_Service_AnnounceFinishMutations_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -3166,6 +3319,28 @@ func RegisterServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 
 	})
 
+	mux.Handle("POST", pattern_Service_AnnounceStartMutations_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		var err error
+		var annotatedContext context.Context
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/event.events.private.v1.Service/AnnounceStartMutations", runtime.WithHTTPPathPattern("/event.events.private.v1.Service/AnnounceStartMutations"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_Service_AnnounceStartMutations_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_Service_AnnounceStartMutations_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
 	mux.Handle("POST", pattern_Service_RollbackStartMutations_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -3254,6 +3429,28 @@ func RegisterServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 
 	})
 
+	mux.Handle("POST", pattern_Service_AnnounceCancelMutations_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		var err error
+		var annotatedContext context.Context
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/event.events.private.v1.Service/AnnounceCancelMutations", runtime.WithHTTPPathPattern("/event.events.private.v1.Service/AnnounceCancelMutations"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_Service_AnnounceCancelMutations_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_Service_AnnounceCancelMutations_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
 	mux.Handle("POST", pattern_Service_RollbackCancelMutations_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -3339,6 +3536,28 @@ func RegisterServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		}
 
 		forward_Service_FinalizeFinishMutations_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	mux.Handle("POST", pattern_Service_AnnounceFinishMutations_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		var err error
+		var annotatedContext context.Context
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/event.events.private.v1.Service/AnnounceFinishMutations", runtime.WithHTTPPathPattern("/event.events.private.v1.Service/AnnounceFinishMutations"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_Service_AnnounceFinishMutations_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_Service_AnnounceFinishMutations_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -3440,6 +3659,8 @@ var (
 
 	pattern_Service_FinalizeStartMutations_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"event.events.private.v1.Service", "FinalizeStartMutations"}, ""))
 
+	pattern_Service_AnnounceStartMutations_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"event.events.private.v1.Service", "AnnounceStartMutations"}, ""))
+
 	pattern_Service_RollbackStartMutations_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"event.events.private.v1.Service", "RollbackStartMutations"}, ""))
 
 	pattern_Service_Cancel_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"event.events.private.v1.Service", "Cancel"}, ""))
@@ -3448,6 +3669,8 @@ var (
 
 	pattern_Service_FinalizeCancelMutations_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"event.events.private.v1.Service", "FinalizeCancelMutations"}, ""))
 
+	pattern_Service_AnnounceCancelMutations_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"event.events.private.v1.Service", "AnnounceCancelMutations"}, ""))
+
 	pattern_Service_RollbackCancelMutations_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"event.events.private.v1.Service", "RollbackCancelMutations"}, ""))
 
 	pattern_Service_Finish_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"event.events.private.v1.Service", "Finish"}, ""))
@@ -3455,6 +3678,8 @@ var (
 	pattern_Service_InitiateFinishMutations_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"event.events.private.v1.Service", "InitiateFinishMutations"}, ""))
 
 	pattern_Service_FinalizeFinishMutations_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"event.events.private.v1.Service", "FinalizeFinishMutations"}, ""))
+
+	pattern_Service_AnnounceFinishMutations_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"event.events.private.v1.Service", "AnnounceFinishMutations"}, ""))
 
 	pattern_Service_RollbackFinishMutations_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"event.events.private.v1.Service", "RollbackFinishMutations"}, ""))
 )
@@ -3532,6 +3757,8 @@ var (
 
 	forward_Service_FinalizeStartMutations_0 = runtime.ForwardResponseMessage
 
+	forward_Service_AnnounceStartMutations_0 = runtime.ForwardResponseMessage
+
 	forward_Service_RollbackStartMutations_0 = runtime.ForwardResponseMessage
 
 	forward_Service_Cancel_0 = runtime.ForwardResponseMessage
@@ -3540,6 +3767,8 @@ var (
 
 	forward_Service_FinalizeCancelMutations_0 = runtime.ForwardResponseMessage
 
+	forward_Service_AnnounceCancelMutations_0 = runtime.ForwardResponseMessage
+
 	forward_Service_RollbackCancelMutations_0 = runtime.ForwardResponseMessage
 
 	forward_Service_Finish_0 = runtime.ForwardResponseMessage
@@ -3547,6 +3776,8 @@ var (
 	forward_Service_InitiateFinishMutations_0 = runtime.ForwardResponseMessage
 
 	forward_Service_FinalizeFinishMutations_0 = runtime.ForwardResponseMessage
+
+	forward_Service_AnnounceFinishMutations_0 = runtime.ForwardResponseMessage
 
 	forward_Service_RollbackFinishMutations_0 = runtime.ForwardResponseMessage
 )

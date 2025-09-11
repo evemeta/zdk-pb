@@ -80,6 +80,8 @@ service Service {
 
     rpc FinalizeStartMutations(StartTransaction) returns (StartTransaction);
 
+    rpc AnnounceStartMutations(StartTransaction) returns (StartTransaction);
+
     rpc RollbackStartMutations(StartTransaction) returns (StartTransaction);
 
     rpc Cancel(CancelRequest) returns (CancelResponse);
@@ -88,6 +90,8 @@ service Service {
 
     rpc FinalizeCancelMutations(CancelTransaction) returns (CancelTransaction);
 
+    rpc AnnounceCancelMutations(CancelTransaction) returns (CancelTransaction);
+
     rpc RollbackCancelMutations(CancelTransaction) returns (CancelTransaction);
 
     rpc Finish(FinishRequest) returns (FinishResponse);
@@ -95,6 +99,8 @@ service Service {
     rpc InitiateFinishMutations(FinishTransaction) returns (FinishTransaction);
 
     rpc FinalizeFinishMutations(FinishTransaction) returns (FinishTransaction);
+
+    rpc AnnounceFinishMutations(FinishTransaction) returns (FinishTransaction);
 
     rpc RollbackFinishMutations(FinishTransaction) returns (FinishTransaction);
 }

@@ -55,14 +55,17 @@ const (
 	Service_Start_FullMethodName                   = "/event.events.private.v1.Service/Start"
 	Service_InitiateStartMutations_FullMethodName  = "/event.events.private.v1.Service/InitiateStartMutations"
 	Service_FinalizeStartMutations_FullMethodName  = "/event.events.private.v1.Service/FinalizeStartMutations"
+	Service_AnnounceStartMutations_FullMethodName  = "/event.events.private.v1.Service/AnnounceStartMutations"
 	Service_RollbackStartMutations_FullMethodName  = "/event.events.private.v1.Service/RollbackStartMutations"
 	Service_Cancel_FullMethodName                  = "/event.events.private.v1.Service/Cancel"
 	Service_InitiateCancelMutations_FullMethodName = "/event.events.private.v1.Service/InitiateCancelMutations"
 	Service_FinalizeCancelMutations_FullMethodName = "/event.events.private.v1.Service/FinalizeCancelMutations"
+	Service_AnnounceCancelMutations_FullMethodName = "/event.events.private.v1.Service/AnnounceCancelMutations"
 	Service_RollbackCancelMutations_FullMethodName = "/event.events.private.v1.Service/RollbackCancelMutations"
 	Service_Finish_FullMethodName                  = "/event.events.private.v1.Service/Finish"
 	Service_InitiateFinishMutations_FullMethodName = "/event.events.private.v1.Service/InitiateFinishMutations"
 	Service_FinalizeFinishMutations_FullMethodName = "/event.events.private.v1.Service/FinalizeFinishMutations"
+	Service_AnnounceFinishMutations_FullMethodName = "/event.events.private.v1.Service/AnnounceFinishMutations"
 	Service_RollbackFinishMutations_FullMethodName = "/event.events.private.v1.Service/RollbackFinishMutations"
 )
 
@@ -106,14 +109,17 @@ type ServiceClient interface {
 	Start(ctx context.Context, in *StartRequest, opts ...grpc.CallOption) (*StartResponse, error)
 	InitiateStartMutations(ctx context.Context, in *StartTransaction, opts ...grpc.CallOption) (*StartTransaction, error)
 	FinalizeStartMutations(ctx context.Context, in *StartTransaction, opts ...grpc.CallOption) (*StartTransaction, error)
+	AnnounceStartMutations(ctx context.Context, in *StartTransaction, opts ...grpc.CallOption) (*StartTransaction, error)
 	RollbackStartMutations(ctx context.Context, in *StartTransaction, opts ...grpc.CallOption) (*StartTransaction, error)
 	Cancel(ctx context.Context, in *CancelRequest, opts ...grpc.CallOption) (*CancelResponse, error)
 	InitiateCancelMutations(ctx context.Context, in *CancelTransaction, opts ...grpc.CallOption) (*CancelTransaction, error)
 	FinalizeCancelMutations(ctx context.Context, in *CancelTransaction, opts ...grpc.CallOption) (*CancelTransaction, error)
+	AnnounceCancelMutations(ctx context.Context, in *CancelTransaction, opts ...grpc.CallOption) (*CancelTransaction, error)
 	RollbackCancelMutations(ctx context.Context, in *CancelTransaction, opts ...grpc.CallOption) (*CancelTransaction, error)
 	Finish(ctx context.Context, in *FinishRequest, opts ...grpc.CallOption) (*FinishResponse, error)
 	InitiateFinishMutations(ctx context.Context, in *FinishTransaction, opts ...grpc.CallOption) (*FinishTransaction, error)
 	FinalizeFinishMutations(ctx context.Context, in *FinishTransaction, opts ...grpc.CallOption) (*FinishTransaction, error)
+	AnnounceFinishMutations(ctx context.Context, in *FinishTransaction, opts ...grpc.CallOption) (*FinishTransaction, error)
 	RollbackFinishMutations(ctx context.Context, in *FinishTransaction, opts ...grpc.CallOption) (*FinishTransaction, error)
 }
 
@@ -485,6 +491,16 @@ func (c *serviceClient) FinalizeStartMutations(ctx context.Context, in *StartTra
 	return out, nil
 }
 
+func (c *serviceClient) AnnounceStartMutations(ctx context.Context, in *StartTransaction, opts ...grpc.CallOption) (*StartTransaction, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartTransaction)
+	err := c.cc.Invoke(ctx, Service_AnnounceStartMutations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *serviceClient) RollbackStartMutations(ctx context.Context, in *StartTransaction, opts ...grpc.CallOption) (*StartTransaction, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(StartTransaction)
@@ -525,6 +541,16 @@ func (c *serviceClient) FinalizeCancelMutations(ctx context.Context, in *CancelT
 	return out, nil
 }
 
+func (c *serviceClient) AnnounceCancelMutations(ctx context.Context, in *CancelTransaction, opts ...grpc.CallOption) (*CancelTransaction, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CancelTransaction)
+	err := c.cc.Invoke(ctx, Service_AnnounceCancelMutations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *serviceClient) RollbackCancelMutations(ctx context.Context, in *CancelTransaction, opts ...grpc.CallOption) (*CancelTransaction, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CancelTransaction)
@@ -559,6 +585,16 @@ func (c *serviceClient) FinalizeFinishMutations(ctx context.Context, in *FinishT
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(FinishTransaction)
 	err := c.cc.Invoke(ctx, Service_FinalizeFinishMutations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) AnnounceFinishMutations(ctx context.Context, in *FinishTransaction, opts ...grpc.CallOption) (*FinishTransaction, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FinishTransaction)
+	err := c.cc.Invoke(ctx, Service_AnnounceFinishMutations_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -615,14 +651,17 @@ type ServiceServer interface {
 	Start(context.Context, *StartRequest) (*StartResponse, error)
 	InitiateStartMutations(context.Context, *StartTransaction) (*StartTransaction, error)
 	FinalizeStartMutations(context.Context, *StartTransaction) (*StartTransaction, error)
+	AnnounceStartMutations(context.Context, *StartTransaction) (*StartTransaction, error)
 	RollbackStartMutations(context.Context, *StartTransaction) (*StartTransaction, error)
 	Cancel(context.Context, *CancelRequest) (*CancelResponse, error)
 	InitiateCancelMutations(context.Context, *CancelTransaction) (*CancelTransaction, error)
 	FinalizeCancelMutations(context.Context, *CancelTransaction) (*CancelTransaction, error)
+	AnnounceCancelMutations(context.Context, *CancelTransaction) (*CancelTransaction, error)
 	RollbackCancelMutations(context.Context, *CancelTransaction) (*CancelTransaction, error)
 	Finish(context.Context, *FinishRequest) (*FinishResponse, error)
 	InitiateFinishMutations(context.Context, *FinishTransaction) (*FinishTransaction, error)
 	FinalizeFinishMutations(context.Context, *FinishTransaction) (*FinishTransaction, error)
+	AnnounceFinishMutations(context.Context, *FinishTransaction) (*FinishTransaction, error)
 	RollbackFinishMutations(context.Context, *FinishTransaction) (*FinishTransaction, error)
 	mustEmbedUnimplementedServiceServer()
 }
@@ -742,6 +781,9 @@ func (UnimplementedServiceServer) InitiateStartMutations(context.Context, *Start
 func (UnimplementedServiceServer) FinalizeStartMutations(context.Context, *StartTransaction) (*StartTransaction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FinalizeStartMutations not implemented")
 }
+func (UnimplementedServiceServer) AnnounceStartMutations(context.Context, *StartTransaction) (*StartTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AnnounceStartMutations not implemented")
+}
 func (UnimplementedServiceServer) RollbackStartMutations(context.Context, *StartTransaction) (*StartTransaction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RollbackStartMutations not implemented")
 }
@@ -754,6 +796,9 @@ func (UnimplementedServiceServer) InitiateCancelMutations(context.Context, *Canc
 func (UnimplementedServiceServer) FinalizeCancelMutations(context.Context, *CancelTransaction) (*CancelTransaction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FinalizeCancelMutations not implemented")
 }
+func (UnimplementedServiceServer) AnnounceCancelMutations(context.Context, *CancelTransaction) (*CancelTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AnnounceCancelMutations not implemented")
+}
 func (UnimplementedServiceServer) RollbackCancelMutations(context.Context, *CancelTransaction) (*CancelTransaction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RollbackCancelMutations not implemented")
 }
@@ -765,6 +810,9 @@ func (UnimplementedServiceServer) InitiateFinishMutations(context.Context, *Fini
 }
 func (UnimplementedServiceServer) FinalizeFinishMutations(context.Context, *FinishTransaction) (*FinishTransaction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FinalizeFinishMutations not implemented")
+}
+func (UnimplementedServiceServer) AnnounceFinishMutations(context.Context, *FinishTransaction) (*FinishTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AnnounceFinishMutations not implemented")
 }
 func (UnimplementedServiceServer) RollbackFinishMutations(context.Context, *FinishTransaction) (*FinishTransaction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RollbackFinishMutations not implemented")
@@ -1438,6 +1486,24 @@ func _Service_FinalizeStartMutations_Handler(srv interface{}, ctx context.Contex
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Service_AnnounceStartMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).AnnounceStartMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_AnnounceStartMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).AnnounceStartMutations(ctx, req.(*StartTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _Service_RollbackStartMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(StartTransaction)
 	if err := dec(in); err != nil {
@@ -1510,6 +1576,24 @@ func _Service_FinalizeCancelMutations_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Service_AnnounceCancelMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CancelTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).AnnounceCancelMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_AnnounceCancelMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).AnnounceCancelMutations(ctx, req.(*CancelTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _Service_RollbackCancelMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CancelTransaction)
 	if err := dec(in); err != nil {
@@ -1578,6 +1662,24 @@ func _Service_FinalizeFinishMutations_Handler(srv interface{}, ctx context.Conte
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ServiceServer).FinalizeFinishMutations(ctx, req.(*FinishTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_AnnounceFinishMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FinishTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).AnnounceFinishMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_AnnounceFinishMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).AnnounceFinishMutations(ctx, req.(*FinishTransaction))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1752,6 +1854,10 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Service_FinalizeStartMutations_Handler,
 		},
 		{
+			MethodName: "AnnounceStartMutations",
+			Handler:    _Service_AnnounceStartMutations_Handler,
+		},
+		{
 			MethodName: "RollbackStartMutations",
 			Handler:    _Service_RollbackStartMutations_Handler,
 		},
@@ -1768,6 +1874,10 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Service_FinalizeCancelMutations_Handler,
 		},
 		{
+			MethodName: "AnnounceCancelMutations",
+			Handler:    _Service_AnnounceCancelMutations_Handler,
+		},
+		{
 			MethodName: "RollbackCancelMutations",
 			Handler:    _Service_RollbackCancelMutations_Handler,
 		},
@@ -1782,6 +1892,10 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "FinalizeFinishMutations",
 			Handler:    _Service_FinalizeFinishMutations_Handler,
+		},
+		{
+			MethodName: "AnnounceFinishMutations",
+			Handler:    _Service_AnnounceFinishMutations_Handler,
 		},
 		{
 			MethodName: "RollbackFinishMutations",
