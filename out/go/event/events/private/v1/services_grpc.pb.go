@@ -52,6 +52,10 @@ const (
 	Service_FinalizeLeaveMutations_FullMethodName  = "/event.events.private.v1.Service/FinalizeLeaveMutations"
 	Service_AnnounceLeaveMutations_FullMethodName  = "/event.events.private.v1.Service/AnnounceLeaveMutations"
 	Service_RollbackLeaveMutations_FullMethodName  = "/event.events.private.v1.Service/RollbackLeaveMutations"
+	Service_Start_FullMethodName                   = "/event.events.private.v1.Service/Start"
+	Service_InitiateStartMutations_FullMethodName  = "/event.events.private.v1.Service/InitiateStartMutations"
+	Service_FinalizeStartMutations_FullMethodName  = "/event.events.private.v1.Service/FinalizeStartMutations"
+	Service_RollbackStartMutations_FullMethodName  = "/event.events.private.v1.Service/RollbackStartMutations"
 )
 
 // ServiceClient is the client API for Service service.
@@ -91,6 +95,10 @@ type ServiceClient interface {
 	FinalizeLeaveMutations(ctx context.Context, in *LeaveTransaction, opts ...grpc.CallOption) (*LeaveTransaction, error)
 	AnnounceLeaveMutations(ctx context.Context, in *LeaveTransaction, opts ...grpc.CallOption) (*LeaveTransaction, error)
 	RollbackLeaveMutations(ctx context.Context, in *LeaveTransaction, opts ...grpc.CallOption) (*LeaveTransaction, error)
+	Start(ctx context.Context, in *StartRequest, opts ...grpc.CallOption) (*StartResponse, error)
+	InitiateStartMutations(ctx context.Context, in *StartTransaction, opts ...grpc.CallOption) (*StartTransaction, error)
+	FinalizeStartMutations(ctx context.Context, in *StartTransaction, opts ...grpc.CallOption) (*StartTransaction, error)
+	RollbackStartMutations(ctx context.Context, in *StartTransaction, opts ...grpc.CallOption) (*StartTransaction, error)
 }
 
 type serviceClient struct {
@@ -431,6 +439,46 @@ func (c *serviceClient) RollbackLeaveMutations(ctx context.Context, in *LeaveTra
 	return out, nil
 }
 
+func (c *serviceClient) Start(ctx context.Context, in *StartRequest, opts ...grpc.CallOption) (*StartResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartResponse)
+	err := c.cc.Invoke(ctx, Service_Start_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) InitiateStartMutations(ctx context.Context, in *StartTransaction, opts ...grpc.CallOption) (*StartTransaction, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartTransaction)
+	err := c.cc.Invoke(ctx, Service_InitiateStartMutations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) FinalizeStartMutations(ctx context.Context, in *StartTransaction, opts ...grpc.CallOption) (*StartTransaction, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartTransaction)
+	err := c.cc.Invoke(ctx, Service_FinalizeStartMutations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) RollbackStartMutations(ctx context.Context, in *StartTransaction, opts ...grpc.CallOption) (*StartTransaction, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartTransaction)
+	err := c.cc.Invoke(ctx, Service_RollbackStartMutations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ServiceServer is the server API for Service service.
 // All implementations must embed UnimplementedServiceServer
 // for forward compatibility.
@@ -468,6 +516,10 @@ type ServiceServer interface {
 	FinalizeLeaveMutations(context.Context, *LeaveTransaction) (*LeaveTransaction, error)
 	AnnounceLeaveMutations(context.Context, *LeaveTransaction) (*LeaveTransaction, error)
 	RollbackLeaveMutations(context.Context, *LeaveTransaction) (*LeaveTransaction, error)
+	Start(context.Context, *StartRequest) (*StartResponse, error)
+	InitiateStartMutations(context.Context, *StartTransaction) (*StartTransaction, error)
+	FinalizeStartMutations(context.Context, *StartTransaction) (*StartTransaction, error)
+	RollbackStartMutations(context.Context, *StartTransaction) (*StartTransaction, error)
 	mustEmbedUnimplementedServiceServer()
 }
 
@@ -576,6 +628,18 @@ func (UnimplementedServiceServer) AnnounceLeaveMutations(context.Context, *Leave
 }
 func (UnimplementedServiceServer) RollbackLeaveMutations(context.Context, *LeaveTransaction) (*LeaveTransaction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RollbackLeaveMutations not implemented")
+}
+func (UnimplementedServiceServer) Start(context.Context, *StartRequest) (*StartResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Start not implemented")
+}
+func (UnimplementedServiceServer) InitiateStartMutations(context.Context, *StartTransaction) (*StartTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InitiateStartMutations not implemented")
+}
+func (UnimplementedServiceServer) FinalizeStartMutations(context.Context, *StartTransaction) (*StartTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FinalizeStartMutations not implemented")
+}
+func (UnimplementedServiceServer) RollbackStartMutations(context.Context, *StartTransaction) (*StartTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RollbackStartMutations not implemented")
 }
 func (UnimplementedServiceServer) mustEmbedUnimplementedServiceServer() {}
 func (UnimplementedServiceServer) testEmbeddedByValue()                 {}
@@ -1192,6 +1256,78 @@ func _Service_RollbackLeaveMutations_Handler(srv interface{}, ctx context.Contex
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Service_Start_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).Start(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_Start_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).Start(ctx, req.(*StartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_InitiateStartMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).InitiateStartMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_InitiateStartMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).InitiateStartMutations(ctx, req.(*StartTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_FinalizeStartMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).FinalizeStartMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_FinalizeStartMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).FinalizeStartMutations(ctx, req.(*StartTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_RollbackStartMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).RollbackStartMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_RollbackStartMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).RollbackStartMutations(ctx, req.(*StartTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Service_ServiceDesc is the grpc.ServiceDesc for Service service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -1330,6 +1466,22 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RollbackLeaveMutations",
 			Handler:    _Service_RollbackLeaveMutations_Handler,
+		},
+		{
+			MethodName: "Start",
+			Handler:    _Service_Start_Handler,
+		},
+		{
+			MethodName: "InitiateStartMutations",
+			Handler:    _Service_InitiateStartMutations_Handler,
+		},
+		{
+			MethodName: "FinalizeStartMutations",
+			Handler:    _Service_FinalizeStartMutations_Handler,
+		},
+		{
+			MethodName: "RollbackStartMutations",
+			Handler:    _Service_RollbackStartMutations_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -210,3 +210,26 @@ message LeaveCondition {
 message LeaveTransaction {
     repeated event.events.private.v1.LeaveMutation mutations = 1;
 }
+
+message StartArgument {
+    event.events.private.v1.Query query = 1;
+}
+
+message StartRequest {
+    repeated event.events.private.v1.StartArgument arguments = 1;
+}
+
+message StartResponse {
+    repeated event.events.private.v1.Event events = 1;
+}
+
+message StartMutation {
+    event.events.private.v1.StartArgument      foundation      = 1;
+    repeated event.events.private.v1.Transient transient       = 2;
+    int64                                      begin_timestamp = 3;
+    int64                                      close_timestamp = 4;
+}
+
+message StartTransaction {
+    repeated event.events.private.v1.StartMutation mutations = 1;
+}

@@ -73,4 +73,12 @@ service Service {
     rpc AnnounceLeaveMutations(LeaveTransaction) returns (LeaveTransaction);
 
     rpc RollbackLeaveMutations(LeaveTransaction) returns (LeaveTransaction);
+
+    rpc Start(StartRequest) returns (StartResponse);
+
+    rpc InitiateStartMutations(StartTransaction) returns (StartTransaction);
+
+    rpc FinalizeStartMutations(StartTransaction) returns (StartTransaction);
+
+    rpc RollbackStartMutations(StartTransaction) returns (StartTransaction);
 }
