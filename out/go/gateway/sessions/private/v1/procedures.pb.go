@@ -8,8 +8,9 @@ package sessionspb
 
 import (
 	v11 "gitlab.com/evemeta/zdk/pb/out/go/chat/members/private/v1"
-	v13 "gitlab.com/evemeta/zdk/pb/out/go/gateway/connections/private/v1"
-	v14 "gitlab.com/evemeta/zdk/pb/out/go/gateway/sfus/private/v1"
+	v13 "gitlab.com/evemeta/zdk/pb/out/go/event/members/private/v1"
+	v14 "gitlab.com/evemeta/zdk/pb/out/go/gateway/connections/private/v1"
+	v15 "gitlab.com/evemeta/zdk/pb/out/go/gateway/sfus/private/v1"
 	v1 "gitlab.com/evemeta/zdk/pb/out/go/gateway/transponders/private/v1"
 	v12 "gitlab.com/evemeta/zdk/pb/out/go/room/members/private/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -1246,9 +1247,10 @@ type DeleteCondition struct {
 	state                         protoimpl.MessageState    `protogen:"open.v1"`
 	KickChatMemberMutations       []*v11.KickMutation       `protobuf:"bytes,1,rep,name=kick_chat_member_mutations,json=kickChatMemberMutations,proto3" json:"kick_chat_member_mutations,omitempty"`
 	KickRoomMemberMutations       []*v12.KickMutation       `protobuf:"bytes,2,rep,name=kick_room_member_mutations,json=kickRoomMemberMutations,proto3" json:"kick_room_member_mutations,omitempty"`
-	DeleteConnectionMutations     []*v13.DeleteMutation     `protobuf:"bytes,3,rep,name=delete_connection_mutations,json=deleteConnectionMutations,proto3" json:"delete_connection_mutations,omitempty"`
+	KickEventMemberMutations      []*v13.KickMutation       `protobuf:"bytes,6,rep,name=kick_event_member_mutations,json=kickEventMemberMutations,proto3" json:"kick_event_member_mutations,omitempty"`
+	DeleteConnectionMutations     []*v14.DeleteMutation     `protobuf:"bytes,3,rep,name=delete_connection_mutations,json=deleteConnectionMutations,proto3" json:"delete_connection_mutations,omitempty"`
 	DeleteTransponderMutations    []*v1.DeleteMutation      `protobuf:"bytes,4,rep,name=delete_transponder_mutations,json=deleteTransponderMutations,proto3" json:"delete_transponder_mutations,omitempty"`
-	DisconnectConnectionMutations []*v14.DisconnectMutation `protobuf:"bytes,5,rep,name=disconnect_connection_mutations,json=disconnectConnectionMutations,proto3" json:"disconnect_connection_mutations,omitempty"`
+	DisconnectConnectionMutations []*v15.DisconnectMutation `protobuf:"bytes,5,rep,name=disconnect_connection_mutations,json=disconnectConnectionMutations,proto3" json:"disconnect_connection_mutations,omitempty"`
 	unknownFields                 protoimpl.UnknownFields
 	sizeCache                     protoimpl.SizeCache
 }
@@ -1297,7 +1299,14 @@ func (x *DeleteCondition) GetKickRoomMemberMutations() []*v12.KickMutation {
 	return nil
 }
 
-func (x *DeleteCondition) GetDeleteConnectionMutations() []*v13.DeleteMutation {
+func (x *DeleteCondition) GetKickEventMemberMutations() []*v13.KickMutation {
+	if x != nil {
+		return x.KickEventMemberMutations
+	}
+	return nil
+}
+
+func (x *DeleteCondition) GetDeleteConnectionMutations() []*v14.DeleteMutation {
 	if x != nil {
 		return x.DeleteConnectionMutations
 	}
@@ -1311,7 +1320,7 @@ func (x *DeleteCondition) GetDeleteTransponderMutations() []*v1.DeleteMutation {
 	return nil
 }
 
-func (x *DeleteCondition) GetDisconnectConnectionMutations() []*v14.DisconnectMutation {
+func (x *DeleteCondition) GetDisconnectConnectionMutations() []*v15.DisconnectMutation {
 	if x != nil {
 		return x.DisconnectConnectionMutations
 	}
@@ -1982,7 +1991,7 @@ var File_gateway_sessions_private_v1_procedures_proto protoreflect.FileDescripto
 
 const file_gateway_sessions_private_v1_procedures_proto_rawDesc = "" +
 	"\n" +
-	",gateway/sessions/private/v1/procedures.proto\x12\x1bgateway.sessions.private.v1\x1a(gateway/sfus/private/v1/procedures.proto\x1a(chat/members/private/v1/procedures.proto\x1a(room/members/private/v1/procedures.proto\x1a'gateway/sessions/private/v1/enums.proto\x1a*gateway/sessions/private/v1/entities.proto\x1a+gateway/sessions/private/v1/optionals.proto\x1a/gateway/connections/private/v1/procedures.proto\x1a0gateway/transponders/private/v1/procedures.proto\"_\n" +
+	",gateway/sessions/private/v1/procedures.proto\x12\x1bgateway.sessions.private.v1\x1a(gateway/sfus/private/v1/procedures.proto\x1a(chat/members/private/v1/procedures.proto\x1a(room/members/private/v1/procedures.proto\x1a)event/members/private/v1/procedures.proto\x1a'gateway/sessions/private/v1/enums.proto\x1a*gateway/sessions/private/v1/entities.proto\x1a+gateway/sessions/private/v1/optionals.proto\x1a/gateway/connections/private/v1/procedures.proto\x1a0gateway/transponders/private/v1/procedures.proto\"_\n" +
 	"\rCountArgument\x12\x14\n" +
 	"\x05cache\x18\x01 \x01(\bR\x05cache\x128\n" +
 	"\x05query\x18\x02 \x01(\v2\".gateway.sessions.private.v1.QueryR\x05query\"X\n" +
@@ -2060,10 +2069,11 @@ const file_gateway_sessions_private_v1_procedures_proto_rawDesc = "" +
 	"\tcondition\x18\x02 \x01(\v2,.gateway.sessions.private.v1.DeleteConditionR\tcondition\x12D\n" +
 	"\ttransient\x18\x03 \x03(\v2&.gateway.sessions.private.v1.TransientR\ttransient\x12'\n" +
 	"\x0fbegin_timestamp\x18\x04 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
-	"\x0fclose_timestamp\x18\x05 \x01(\x03R\x0ecloseTimestamp\"\xb1\x04\n" +
+	"\x0fclose_timestamp\x18\x05 \x01(\x03R\x0ecloseTimestamp\"\x98\x05\n" +
 	"\x0fDeleteCondition\x12b\n" +
 	"\x1akick_chat_member_mutations\x18\x01 \x03(\v2%.chat.members.private.v1.KickMutationR\x17kickChatMemberMutations\x12b\n" +
-	"\x1akick_room_member_mutations\x18\x02 \x03(\v2%.room.members.private.v1.KickMutationR\x17kickRoomMemberMutations\x12n\n" +
+	"\x1akick_room_member_mutations\x18\x02 \x03(\v2%.room.members.private.v1.KickMutationR\x17kickRoomMemberMutations\x12e\n" +
+	"\x1bkick_event_member_mutations\x18\x06 \x03(\v2&.event.members.private.v1.KickMutationR\x18kickEventMemberMutations\x12n\n" +
 	"\x1bdelete_connection_mutations\x18\x03 \x03(\v2..gateway.connections.private.v1.DeleteMutationR\x19deleteConnectionMutations\x12q\n" +
 	"\x1cdelete_transponder_mutations\x18\x04 \x03(\v2/.gateway.transponders.private.v1.DeleteMutationR\x1adeleteTransponderMutations\x12s\n" +
 	"\x1fdisconnect_connection_mutations\x18\x05 \x03(\v2+.gateway.sfus.private.v1.DisconnectMutationR\x1ddisconnectConnectionMutations\"^\n" +
@@ -2171,9 +2181,10 @@ var file_gateway_sessions_private_v1_procedures_proto_goTypes = []any{
 	(*OptionalStatus)(nil),         // 45: gateway.sessions.private.v1.OptionalStatus
 	(*v11.KickMutation)(nil),       // 46: chat.members.private.v1.KickMutation
 	(*v12.KickMutation)(nil),       // 47: room.members.private.v1.KickMutation
-	(*v13.DeleteMutation)(nil),     // 48: gateway.connections.private.v1.DeleteMutation
-	(*v1.DeleteMutation)(nil),      // 49: gateway.transponders.private.v1.DeleteMutation
-	(*v14.DisconnectMutation)(nil), // 50: gateway.sfus.private.v1.DisconnectMutation
+	(*v13.KickMutation)(nil),       // 48: event.members.private.v1.KickMutation
+	(*v14.DeleteMutation)(nil),     // 49: gateway.connections.private.v1.DeleteMutation
+	(*v1.DeleteMutation)(nil),      // 50: gateway.transponders.private.v1.DeleteMutation
+	(*v15.DisconnectMutation)(nil), // 51: gateway.sfus.private.v1.DisconnectMutation
 }
 var file_gateway_sessions_private_v1_procedures_proto_depIdxs = []int32{
 	38, // 0: gateway.sessions.private.v1.CountArgument.query:type_name -> gateway.sessions.private.v1.Query
@@ -2209,27 +2220,28 @@ var file_gateway_sessions_private_v1_procedures_proto_depIdxs = []int32{
 	42, // 30: gateway.sessions.private.v1.DeleteMutation.transient:type_name -> gateway.sessions.private.v1.Transient
 	46, // 31: gateway.sessions.private.v1.DeleteCondition.kick_chat_member_mutations:type_name -> chat.members.private.v1.KickMutation
 	47, // 32: gateway.sessions.private.v1.DeleteCondition.kick_room_member_mutations:type_name -> room.members.private.v1.KickMutation
-	48, // 33: gateway.sessions.private.v1.DeleteCondition.delete_connection_mutations:type_name -> gateway.connections.private.v1.DeleteMutation
-	49, // 34: gateway.sessions.private.v1.DeleteCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
-	50, // 35: gateway.sessions.private.v1.DeleteCondition.disconnect_connection_mutations:type_name -> gateway.sfus.private.v1.DisconnectMutation
-	23, // 36: gateway.sessions.private.v1.DeleteTransaction.mutations:type_name -> gateway.sessions.private.v1.DeleteMutation
-	26, // 37: gateway.sessions.private.v1.AttachRequest.arguments:type_name -> gateway.sessions.private.v1.AttachArgument
-	26, // 38: gateway.sessions.private.v1.AttachMutation.foundation:type_name -> gateway.sessions.private.v1.AttachArgument
-	30, // 39: gateway.sessions.private.v1.AttachMutation.condition:type_name -> gateway.sessions.private.v1.AttachCondition
-	12, // 40: gateway.sessions.private.v1.AttachCondition.create_mutations:type_name -> gateway.sessions.private.v1.CreateMutation
-	18, // 41: gateway.sessions.private.v1.AttachCondition.update_mutations:type_name -> gateway.sessions.private.v1.UpdateMutation
-	29, // 42: gateway.sessions.private.v1.AttachTransaction.mutations:type_name -> gateway.sessions.private.v1.AttachMutation
-	32, // 43: gateway.sessions.private.v1.DetachRequest.arguments:type_name -> gateway.sessions.private.v1.DetachArgument
-	32, // 44: gateway.sessions.private.v1.DetachMutation.foundation:type_name -> gateway.sessions.private.v1.DetachArgument
-	36, // 45: gateway.sessions.private.v1.DetachMutation.condition:type_name -> gateway.sessions.private.v1.DetachCondition
-	18, // 46: gateway.sessions.private.v1.DetachCondition.update_mutations:type_name -> gateway.sessions.private.v1.UpdateMutation
-	23, // 47: gateway.sessions.private.v1.DetachCondition.delete_mutations:type_name -> gateway.sessions.private.v1.DeleteMutation
-	35, // 48: gateway.sessions.private.v1.DetachTransaction.mutations:type_name -> gateway.sessions.private.v1.DetachMutation
-	49, // [49:49] is the sub-list for method output_type
-	49, // [49:49] is the sub-list for method input_type
-	49, // [49:49] is the sub-list for extension type_name
-	49, // [49:49] is the sub-list for extension extendee
-	0,  // [0:49] is the sub-list for field type_name
+	48, // 33: gateway.sessions.private.v1.DeleteCondition.kick_event_member_mutations:type_name -> event.members.private.v1.KickMutation
+	49, // 34: gateway.sessions.private.v1.DeleteCondition.delete_connection_mutations:type_name -> gateway.connections.private.v1.DeleteMutation
+	50, // 35: gateway.sessions.private.v1.DeleteCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
+	51, // 36: gateway.sessions.private.v1.DeleteCondition.disconnect_connection_mutations:type_name -> gateway.sfus.private.v1.DisconnectMutation
+	23, // 37: gateway.sessions.private.v1.DeleteTransaction.mutations:type_name -> gateway.sessions.private.v1.DeleteMutation
+	26, // 38: gateway.sessions.private.v1.AttachRequest.arguments:type_name -> gateway.sessions.private.v1.AttachArgument
+	26, // 39: gateway.sessions.private.v1.AttachMutation.foundation:type_name -> gateway.sessions.private.v1.AttachArgument
+	30, // 40: gateway.sessions.private.v1.AttachMutation.condition:type_name -> gateway.sessions.private.v1.AttachCondition
+	12, // 41: gateway.sessions.private.v1.AttachCondition.create_mutations:type_name -> gateway.sessions.private.v1.CreateMutation
+	18, // 42: gateway.sessions.private.v1.AttachCondition.update_mutations:type_name -> gateway.sessions.private.v1.UpdateMutation
+	29, // 43: gateway.sessions.private.v1.AttachTransaction.mutations:type_name -> gateway.sessions.private.v1.AttachMutation
+	32, // 44: gateway.sessions.private.v1.DetachRequest.arguments:type_name -> gateway.sessions.private.v1.DetachArgument
+	32, // 45: gateway.sessions.private.v1.DetachMutation.foundation:type_name -> gateway.sessions.private.v1.DetachArgument
+	36, // 46: gateway.sessions.private.v1.DetachMutation.condition:type_name -> gateway.sessions.private.v1.DetachCondition
+	18, // 47: gateway.sessions.private.v1.DetachCondition.update_mutations:type_name -> gateway.sessions.private.v1.UpdateMutation
+	23, // 48: gateway.sessions.private.v1.DetachCondition.delete_mutations:type_name -> gateway.sessions.private.v1.DeleteMutation
+	35, // 49: gateway.sessions.private.v1.DetachTransaction.mutations:type_name -> gateway.sessions.private.v1.DetachMutation
+	50, // [50:50] is the sub-list for method output_type
+	50, // [50:50] is the sub-list for method input_type
+	50, // [50:50] is the sub-list for extension type_name
+	50, // [50:50] is the sub-list for extension extendee
+	0,  // [0:50] is the sub-list for field type_name
 }
 
 func init() { file_gateway_sessions_private_v1_procedures_proto_init() }
