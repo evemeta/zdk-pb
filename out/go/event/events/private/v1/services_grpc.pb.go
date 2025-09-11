@@ -56,6 +56,10 @@ const (
 	Service_InitiateStartMutations_FullMethodName  = "/event.events.private.v1.Service/InitiateStartMutations"
 	Service_FinalizeStartMutations_FullMethodName  = "/event.events.private.v1.Service/FinalizeStartMutations"
 	Service_RollbackStartMutations_FullMethodName  = "/event.events.private.v1.Service/RollbackStartMutations"
+	Service_Cancel_FullMethodName                  = "/event.events.private.v1.Service/Cancel"
+	Service_InitiateCancelMutations_FullMethodName = "/event.events.private.v1.Service/InitiateCancelMutations"
+	Service_FinalizeCancelMutations_FullMethodName = "/event.events.private.v1.Service/FinalizeCancelMutations"
+	Service_RollbackCancelMutations_FullMethodName = "/event.events.private.v1.Service/RollbackCancelMutations"
 )
 
 // ServiceClient is the client API for Service service.
@@ -99,6 +103,10 @@ type ServiceClient interface {
 	InitiateStartMutations(ctx context.Context, in *StartTransaction, opts ...grpc.CallOption) (*StartTransaction, error)
 	FinalizeStartMutations(ctx context.Context, in *StartTransaction, opts ...grpc.CallOption) (*StartTransaction, error)
 	RollbackStartMutations(ctx context.Context, in *StartTransaction, opts ...grpc.CallOption) (*StartTransaction, error)
+	Cancel(ctx context.Context, in *CancelRequest, opts ...grpc.CallOption) (*CancelResponse, error)
+	InitiateCancelMutations(ctx context.Context, in *CancelTransaction, opts ...grpc.CallOption) (*CancelTransaction, error)
+	FinalizeCancelMutations(ctx context.Context, in *CancelTransaction, opts ...grpc.CallOption) (*CancelTransaction, error)
+	RollbackCancelMutations(ctx context.Context, in *CancelTransaction, opts ...grpc.CallOption) (*CancelTransaction, error)
 }
 
 type serviceClient struct {
@@ -479,6 +487,46 @@ func (c *serviceClient) RollbackStartMutations(ctx context.Context, in *StartTra
 	return out, nil
 }
 
+func (c *serviceClient) Cancel(ctx context.Context, in *CancelRequest, opts ...grpc.CallOption) (*CancelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CancelResponse)
+	err := c.cc.Invoke(ctx, Service_Cancel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) InitiateCancelMutations(ctx context.Context, in *CancelTransaction, opts ...grpc.CallOption) (*CancelTransaction, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CancelTransaction)
+	err := c.cc.Invoke(ctx, Service_InitiateCancelMutations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) FinalizeCancelMutations(ctx context.Context, in *CancelTransaction, opts ...grpc.CallOption) (*CancelTransaction, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CancelTransaction)
+	err := c.cc.Invoke(ctx, Service_FinalizeCancelMutations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) RollbackCancelMutations(ctx context.Context, in *CancelTransaction, opts ...grpc.CallOption) (*CancelTransaction, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CancelTransaction)
+	err := c.cc.Invoke(ctx, Service_RollbackCancelMutations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ServiceServer is the server API for Service service.
 // All implementations must embed UnimplementedServiceServer
 // for forward compatibility.
@@ -520,6 +568,10 @@ type ServiceServer interface {
 	InitiateStartMutations(context.Context, *StartTransaction) (*StartTransaction, error)
 	FinalizeStartMutations(context.Context, *StartTransaction) (*StartTransaction, error)
 	RollbackStartMutations(context.Context, *StartTransaction) (*StartTransaction, error)
+	Cancel(context.Context, *CancelRequest) (*CancelResponse, error)
+	InitiateCancelMutations(context.Context, *CancelTransaction) (*CancelTransaction, error)
+	FinalizeCancelMutations(context.Context, *CancelTransaction) (*CancelTransaction, error)
+	RollbackCancelMutations(context.Context, *CancelTransaction) (*CancelTransaction, error)
 	mustEmbedUnimplementedServiceServer()
 }
 
@@ -640,6 +692,18 @@ func (UnimplementedServiceServer) FinalizeStartMutations(context.Context, *Start
 }
 func (UnimplementedServiceServer) RollbackStartMutations(context.Context, *StartTransaction) (*StartTransaction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RollbackStartMutations not implemented")
+}
+func (UnimplementedServiceServer) Cancel(context.Context, *CancelRequest) (*CancelResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Cancel not implemented")
+}
+func (UnimplementedServiceServer) InitiateCancelMutations(context.Context, *CancelTransaction) (*CancelTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InitiateCancelMutations not implemented")
+}
+func (UnimplementedServiceServer) FinalizeCancelMutations(context.Context, *CancelTransaction) (*CancelTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FinalizeCancelMutations not implemented")
+}
+func (UnimplementedServiceServer) RollbackCancelMutations(context.Context, *CancelTransaction) (*CancelTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RollbackCancelMutations not implemented")
 }
 func (UnimplementedServiceServer) mustEmbedUnimplementedServiceServer() {}
 func (UnimplementedServiceServer) testEmbeddedByValue()                 {}
@@ -1328,6 +1392,78 @@ func _Service_RollbackStartMutations_Handler(srv interface{}, ctx context.Contex
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Service_Cancel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CancelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).Cancel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_Cancel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).Cancel(ctx, req.(*CancelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_InitiateCancelMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CancelTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).InitiateCancelMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_InitiateCancelMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).InitiateCancelMutations(ctx, req.(*CancelTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_FinalizeCancelMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CancelTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).FinalizeCancelMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_FinalizeCancelMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).FinalizeCancelMutations(ctx, req.(*CancelTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_RollbackCancelMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CancelTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).RollbackCancelMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_RollbackCancelMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).RollbackCancelMutations(ctx, req.(*CancelTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Service_ServiceDesc is the grpc.ServiceDesc for Service service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -1482,6 +1618,22 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RollbackStartMutations",
 			Handler:    _Service_RollbackStartMutations_Handler,
+		},
+		{
+			MethodName: "Cancel",
+			Handler:    _Service_Cancel_Handler,
+		},
+		{
+			MethodName: "InitiateCancelMutations",
+			Handler:    _Service_InitiateCancelMutations_Handler,
+		},
+		{
+			MethodName: "FinalizeCancelMutations",
+			Handler:    _Service_FinalizeCancelMutations_Handler,
+		},
+		{
+			MethodName: "RollbackCancelMutations",
+			Handler:    _Service_RollbackCancelMutations_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

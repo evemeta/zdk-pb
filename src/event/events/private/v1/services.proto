@@ -81,4 +81,12 @@ service Service {
     rpc FinalizeStartMutations(StartTransaction) returns (StartTransaction);
 
     rpc RollbackStartMutations(StartTransaction) returns (StartTransaction);
+
+    rpc Cancel(CancelRequest) returns (CancelResponse);
+
+    rpc InitiateCancelMutations(CancelTransaction) returns (CancelTransaction);
+
+    rpc FinalizeCancelMutations(CancelTransaction) returns (CancelTransaction);
+
+    rpc RollbackCancelMutations(CancelTransaction) returns (CancelTransaction);
 }
