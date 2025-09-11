@@ -460,6 +460,65 @@ func (x *StartEventPacket) GetTimeframe() *Timeframe {
 	return nil
 }
 
+// CancelEventPacket is a notification sent to clients when a event has been canceled.
+// It provides the identifier of the event and the relevant timeframe associated with the event.
+type CancelEventPacket struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Represents the unique identifier of the event.
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+	Timeframe *Timeframe `protobuf:"bytes,2,opt,name=timeframe,proto3" json:"timeframe,omitempty"`
+}
+
+func (x *CancelEventPacket) Reset() {
+	*x = CancelEventPacket{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_event_events_public_server_v1_packets_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CancelEventPacket) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CancelEventPacket) ProtoMessage() {}
+
+func (x *CancelEventPacket) ProtoReflect() protoreflect.Message {
+	mi := &file_event_events_public_server_v1_packets_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CancelEventPacket.ProtoReflect.Descriptor instead.
+func (*CancelEventPacket) Descriptor() ([]byte, []int) {
+	return file_event_events_public_server_v1_packets_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *CancelEventPacket) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *CancelEventPacket) GetTimeframe() *Timeframe {
+	if x != nil {
+		return x.Timeframe
+	}
+	return nil
+}
+
 var File_event_events_public_server_v1_packets_proto protoreflect.FileDescriptor
 
 var file_event_events_public_server_v1_packets_proto_rawDesc = []byte{
@@ -546,15 +605,21 @@ var file_event_events_public_server_v1_packets_proto_rawDesc = []byte{
 	0x32, 0x28, 0x2e, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x2e, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x73, 0x2e,
 	0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31,
 	0x2e, 0x54, 0x69, 0x6d, 0x65, 0x66, 0x72, 0x61, 0x6d, 0x65, 0x52, 0x09, 0x74, 0x69, 0x6d, 0x65,
-	0x66, 0x72, 0x61, 0x6d, 0x65, 0x42, 0x73, 0x0a, 0x26, 0x63, 0x6f, 0x6d, 0x2e, 0x65, 0x76, 0x65,
-	0x6d, 0x65, 0x74, 0x61, 0x2e, 0x7a, 0x64, 0x6b, 0x2e, 0x70, 0x62, 0x2e, 0x65, 0x76, 0x65, 0x6e,
-	0x74, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x73, 0x50,
-	0x01, 0x5a, 0x47, 0x67, 0x69, 0x74, 0x6c, 0x61, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x65, 0x76,
-	0x65, 0x6d, 0x65, 0x74, 0x61, 0x2f, 0x7a, 0x64, 0x6b, 0x2f, 0x70, 0x62, 0x2f, 0x6f, 0x75, 0x74,
-	0x2f, 0x67, 0x6f, 0x2f, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x2f, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x73,
-	0x2f, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2f, 0x76,
-	0x31, 0x3b, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x73, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x33,
+	0x66, 0x72, 0x61, 0x6d, 0x65, 0x22, 0x6b, 0x0a, 0x11, 0x43, 0x61, 0x6e, 0x63, 0x65, 0x6c, 0x45,
+	0x76, 0x65, 0x6e, 0x74, 0x50, 0x61, 0x63, 0x6b, 0x65, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x12, 0x46, 0x0a, 0x09, 0x74, 0x69,
+	0x6d, 0x65, 0x66, 0x72, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x28, 0x2e,
+	0x65, 0x76, 0x65, 0x6e, 0x74, 0x2e, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x73, 0x2e, 0x70, 0x75, 0x62,
+	0x6c, 0x69, 0x63, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x54, 0x69,
+	0x6d, 0x65, 0x66, 0x72, 0x61, 0x6d, 0x65, 0x52, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x66, 0x72, 0x61,
+	0x6d, 0x65, 0x42, 0x73, 0x0a, 0x26, 0x63, 0x6f, 0x6d, 0x2e, 0x65, 0x76, 0x65, 0x6d, 0x65, 0x74,
+	0x61, 0x2e, 0x7a, 0x64, 0x6b, 0x2e, 0x70, 0x62, 0x2e, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x2e, 0x73,
+	0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x73, 0x50, 0x01, 0x5a, 0x47,
+	0x67, 0x69, 0x74, 0x6c, 0x61, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x65, 0x76, 0x65, 0x6d, 0x65,
+	0x74, 0x61, 0x2f, 0x7a, 0x64, 0x6b, 0x2f, 0x70, 0x62, 0x2f, 0x6f, 0x75, 0x74, 0x2f, 0x67, 0x6f,
+	0x2f, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x2f, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x73, 0x2f, 0x70, 0x75,
+	0x62, 0x6c, 0x69, 0x63, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2f, 0x76, 0x31, 0x3b, 0x65,
+	0x76, 0x65, 0x6e, 0x74, 0x73, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -569,7 +634,7 @@ func file_event_events_public_server_v1_packets_proto_rawDescGZIP() []byte {
 	return file_event_events_public_server_v1_packets_proto_rawDescData
 }
 
-var file_event_events_public_server_v1_packets_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_event_events_public_server_v1_packets_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_event_events_public_server_v1_packets_proto_goTypes = []any{
 	(*EnterEventPacket)(nil),        // 0: event.events.public.server.v1.EnterEventPacket
 	(*LeaveEventPacket)(nil),        // 1: event.events.public.server.v1.LeaveEventPacket
@@ -578,29 +643,31 @@ var file_event_events_public_server_v1_packets_proto_goTypes = []any{
 	(*DeleteEventPacket)(nil),       // 4: event.events.public.server.v1.DeleteEventPacket
 	(*InvokeEventActionPacket)(nil), // 5: event.events.public.server.v1.InvokeEventActionPacket
 	(*StartEventPacket)(nil),        // 6: event.events.public.server.v1.StartEventPacket
-	nil,                             // 7: event.events.public.server.v1.InvokeEventActionPacket.DataEntry
-	(*v1.Member)(nil),               // 8: event.members.public.server.v1.Member
-	(*Timeframe)(nil),               // 9: event.events.public.server.v1.Timeframe
-	(*Event)(nil),                   // 10: event.events.public.server.v1.Event
-	(*OptionalMap)(nil),             // 11: event.events.public.server.v1.OptionalMap
+	(*CancelEventPacket)(nil),       // 7: event.events.public.server.v1.CancelEventPacket
+	nil,                             // 8: event.events.public.server.v1.InvokeEventActionPacket.DataEntry
+	(*v1.Member)(nil),               // 9: event.members.public.server.v1.Member
+	(*Timeframe)(nil),               // 10: event.events.public.server.v1.Timeframe
+	(*Event)(nil),                   // 11: event.events.public.server.v1.Event
+	(*OptionalMap)(nil),             // 12: event.events.public.server.v1.OptionalMap
 }
 var file_event_events_public_server_v1_packets_proto_depIdxs = []int32{
-	8,  // 0: event.events.public.server.v1.EnterEventPacket.member:type_name -> event.members.public.server.v1.Member
-	9,  // 1: event.events.public.server.v1.EnterEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
-	8,  // 2: event.events.public.server.v1.LeaveEventPacket.member:type_name -> event.members.public.server.v1.Member
-	9,  // 3: event.events.public.server.v1.LeaveEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
-	10, // 4: event.events.public.server.v1.CreateEventPacket.event:type_name -> event.events.public.server.v1.Event
-	9,  // 5: event.events.public.server.v1.CreateEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
-	11, // 6: event.events.public.server.v1.UpdateEventPacket.metadata:type_name -> event.events.public.server.v1.OptionalMap
-	9,  // 7: event.events.public.server.v1.UpdateEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
-	9,  // 8: event.events.public.server.v1.DeleteEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
-	7,  // 9: event.events.public.server.v1.InvokeEventActionPacket.data:type_name -> event.events.public.server.v1.InvokeEventActionPacket.DataEntry
-	9,  // 10: event.events.public.server.v1.StartEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
-	11, // [11:11] is the sub-list for method output_type
-	11, // [11:11] is the sub-list for method input_type
-	11, // [11:11] is the sub-list for extension type_name
-	11, // [11:11] is the sub-list for extension extendee
-	0,  // [0:11] is the sub-list for field type_name
+	9,  // 0: event.events.public.server.v1.EnterEventPacket.member:type_name -> event.members.public.server.v1.Member
+	10, // 1: event.events.public.server.v1.EnterEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
+	9,  // 2: event.events.public.server.v1.LeaveEventPacket.member:type_name -> event.members.public.server.v1.Member
+	10, // 3: event.events.public.server.v1.LeaveEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
+	11, // 4: event.events.public.server.v1.CreateEventPacket.event:type_name -> event.events.public.server.v1.Event
+	10, // 5: event.events.public.server.v1.CreateEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
+	12, // 6: event.events.public.server.v1.UpdateEventPacket.metadata:type_name -> event.events.public.server.v1.OptionalMap
+	10, // 7: event.events.public.server.v1.UpdateEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
+	10, // 8: event.events.public.server.v1.DeleteEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
+	8,  // 9: event.events.public.server.v1.InvokeEventActionPacket.data:type_name -> event.events.public.server.v1.InvokeEventActionPacket.DataEntry
+	10, // 10: event.events.public.server.v1.StartEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
+	10, // 11: event.events.public.server.v1.CancelEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
+	12, // [12:12] is the sub-list for method output_type
+	12, // [12:12] is the sub-list for method input_type
+	12, // [12:12] is the sub-list for extension type_name
+	12, // [12:12] is the sub-list for extension extendee
+	0,  // [0:12] is the sub-list for field type_name
 }
 
 func init() { file_event_events_public_server_v1_packets_proto_init() }
@@ -695,6 +762,18 @@ func file_event_events_public_server_v1_packets_proto_init() {
 				return nil
 			}
 		}
+		file_event_events_public_server_v1_packets_proto_msgTypes[7].Exporter = func(v any, i int) any {
+			switch v := v.(*CancelEventPacket); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	file_event_events_public_server_v1_packets_proto_msgTypes[3].OneofWrappers = []any{}
 	type x struct{}
@@ -703,7 +782,7 @@ func file_event_events_public_server_v1_packets_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_event_events_public_server_v1_packets_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   8,
+			NumMessages:   9,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
