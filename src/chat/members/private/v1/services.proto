@@ -57,44 +57,4 @@ service Service {
     rpc AnnounceKickMutations(KickTransaction) returns (KickTransaction);
 
     rpc RollbackKickMutations(KickTransaction) returns (KickTransaction);
-
-    rpc Mute(MuteRequest) returns (MuteResponse);
-
-    rpc InitiateMuteMutations(MuteTransaction) returns (MuteTransaction);
-
-    rpc FinalizeMuteMutations(MuteTransaction) returns (MuteTransaction);
-
-    rpc AnnounceMuteMutations(MuteTransaction) returns (MuteTransaction);
-
-    rpc RollbackMuteMutations(MuteTransaction) returns (MuteTransaction);
-
-    rpc Unmute(UnmuteRequest) returns (UnmuteResponse);
-
-    rpc InitiateUnmuteMutations(UnmuteTransaction) returns (UnmuteTransaction);
-
-    rpc FinalizeUnmuteMutations(UnmuteTransaction) returns (UnmuteTransaction);
-
-    rpc AnnounceUnmuteMutations(UnmuteTransaction) returns (UnmuteTransaction);
-
-    rpc RollbackUnmuteMutations(UnmuteTransaction) returns (UnmuteTransaction);
-
-    rpc Block(BlockRequest) returns (BlockResponse);
-
-    rpc InitiateBlockMutations(BlockTransaction) returns (BlockTransaction);
-
-    rpc FinalizeBlockMutations(BlockTransaction) returns (BlockTransaction);
-
-    rpc AnnounceBlockMutations(BlockTransaction) returns (BlockTransaction);
-
-    rpc RollbackBlockMutations(BlockTransaction) returns (BlockTransaction);
-
-    rpc Unblock(UnblockRequest) returns (UnblockResponse);
-
-    rpc InitiateUnblockMutations(UnblockTransaction) returns (UnblockTransaction);
-
-    rpc FinalizeUnblockMutations(UnblockTransaction) returns (UnblockTransaction);
-
-    rpc AnnounceUnblockMutations(UnblockTransaction) returns (UnblockTransaction);
-
-    rpc RollbackUnblockMutations(UnblockTransaction) returns (UnblockTransaction);
 }

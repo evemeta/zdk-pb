@@ -194,111 +194,11 @@ public object MemberKt {
        }
 
     /**
-     * An uninstantiable, behaviorless type to represent the field in
-     * generics.
-     */
-    @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class RestrictionsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
-    /**
-     * ```
-     * Represents a list of restrictions that have been applied to this member.
-     * ```
-     *
-     * `repeated .chat.members.public.server.v1.Restriction restrictions = 5;`
-     */
-     public val restrictions: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.members.Restriction, RestrictionsProxy>
-      @kotlin.jvm.JvmSynthetic
-      get() = com.google.protobuf.kotlin.DslList(
-        _builder.restrictionsList
-      )
-    /**
-     * ```
-     * Represents a list of restrictions that have been applied to this member.
-     * ```
-     *
-     * `repeated .chat.members.public.server.v1.Restriction restrictions = 5;`
-     * @param value The restrictions to add.
-     */
-    @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addRestrictions")
-    public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.members.Restriction, RestrictionsProxy>.add(value: com.evemeta.zdk.pb.chat.server.members.Restriction) {
-      _builder.addRestrictions(value)
-    }
-    /**
-     * ```
-     * Represents a list of restrictions that have been applied to this member.
-     * ```
-     *
-     * `repeated .chat.members.public.server.v1.Restriction restrictions = 5;`
-     * @param value The restrictions to add.
-     */
-    @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignRestrictions")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.members.Restriction, RestrictionsProxy>.plusAssign(value: com.evemeta.zdk.pb.chat.server.members.Restriction) {
-      add(value)
-    }
-    /**
-     * ```
-     * Represents a list of restrictions that have been applied to this member.
-     * ```
-     *
-     * `repeated .chat.members.public.server.v1.Restriction restrictions = 5;`
-     * @param values The restrictions to add.
-     */
-    @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addAllRestrictions")
-    public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.members.Restriction, RestrictionsProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.chat.server.members.Restriction>) {
-      _builder.addAllRestrictions(values)
-    }
-    /**
-     * ```
-     * Represents a list of restrictions that have been applied to this member.
-     * ```
-     *
-     * `repeated .chat.members.public.server.v1.Restriction restrictions = 5;`
-     * @param values The restrictions to add.
-     */
-    @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignAllRestrictions")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.members.Restriction, RestrictionsProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.chat.server.members.Restriction>) {
-      addAll(values)
-    }
-    /**
-     * ```
-     * Represents a list of restrictions that have been applied to this member.
-     * ```
-     *
-     * `repeated .chat.members.public.server.v1.Restriction restrictions = 5;`
-     * @param index The index to set the value at.
-     * @param value The restrictions to set.
-     */
-    @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("setRestrictions")
-    public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.members.Restriction, RestrictionsProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.chat.server.members.Restriction) {
-      _builder.setRestrictions(index, value)
-    }
-    /**
-     * ```
-     * Represents a list of restrictions that have been applied to this member.
-     * ```
-     *
-     * `repeated .chat.members.public.server.v1.Restriction restrictions = 5;`
-     */
-    @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("clearRestrictions")
-    public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.members.Restriction, RestrictionsProxy>.clear() {
-      _builder.clearRestrictions()
-    }
-
-
-    /**
      * ```
      * Represents the timestamp indicating when this member was created or added to the chat.
      * ```
      *
-     * `int64 create_time = 6;`
+     * `int64 create_time = 5;`
      */
     public var createTime: kotlin.Long
       @JvmName("getCreateTime")
@@ -312,7 +212,7 @@ public object MemberKt {
      * Represents the timestamp indicating when this member was created or added to the chat.
      * ```
      *
-     * `int64 create_time = 6;`
+     * `int64 create_time = 5;`
      */
     public fun clearCreateTime() {
       _builder.clearCreateTime()
@@ -323,7 +223,7 @@ public object MemberKt {
      * Represents the timestamp of the last update associated with this member.
      * ```
      *
-     * `int64 update_time = 7;`
+     * `int64 update_time = 6;`
      */
     public var updateTime: kotlin.Long
       @JvmName("getUpdateTime")
@@ -337,7 +237,7 @@ public object MemberKt {
      * Represents the timestamp of the last update associated with this member.
      * ```
      *
-     * `int64 update_time = 7;`
+     * `int64 update_time = 6;`
      */
     public fun clearUpdateTime() {
       _builder.clearUpdateTime()

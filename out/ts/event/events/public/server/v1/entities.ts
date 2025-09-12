@@ -392,7 +392,7 @@ class Chunk$Type extends MessageType<Chunk> {
             { no: 1, name: "size", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 2, name: "index", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 3, name: "total", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 4, name: "entities", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => Event }
+            { no: 4, name: "entities", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => Event }
         ]);
     }
     create(value?: PartialMessage<Chunk>): Chunk {
@@ -536,11 +536,11 @@ class Context$Type extends MessageType<Context> {
             { no: 4, name: "chat_timeframe", kind: "message", T: () => Timeframe },
             { no: 5, name: "member", kind: "message", T: () => Member },
             { no: 6, name: "member_timeframe", kind: "message", T: () => Timeframe },
-            { no: 7, name: "members", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => Member },
+            { no: 7, name: "members", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => Member },
             { no: 8, name: "members_timeframe", kind: "message", T: () => Timeframe },
             { no: 9, name: "streams_timeframe", kind: "message", T: () => Timeframe },
             { no: 10, name: "connections_timeframe", kind: "message", T: () => Timeframe },
-            { no: 11, name: "restrictions", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => Restriction },
+            { no: 11, name: "restrictions", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => Restriction },
             { no: 12, name: "restrictions_timeframe", kind: "message", T: () => Timeframe }
         ]);
     }

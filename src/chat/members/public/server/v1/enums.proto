@@ -20,10 +20,3 @@ enum Status {
     StatusConnected    = 1;
     StatusDisconnected = 2;
 }
-
-// RestrictionKind represents an enumeration that specifies the kinds of restrictions or actions that can be applied to a member.
-enum RestrictionKind {
-    RestrictionKindUnknown = 0;
-    RestrictionKindMute    = 1;
-    RestrictionKindBlock   = 2;
-}

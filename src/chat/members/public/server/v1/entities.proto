@@ -45,12 +45,10 @@ message Member {
     string chat_id = 3;
     // Represents a collection of key-value pairs providing additional context or information about this member.
     map<string, string> metadata = 4;
-    // Represents a list of restrictions that have been applied to this member.
-    repeated chat.members.public.server.v1.Restriction restrictions = 5;
     // Represents the timestamp indicating when this member was created or added to the chat.
-    int64 create_time = 6;
+    int64 create_time = 5;
     // Represents the timestamp of the last update associated with this member.
-    int64 update_time = 7;
+    int64 update_time = 6;
 }
 
 // Condition represents a set of criteria designed to filter data during retrieval.
@@ -71,17 +69,4 @@ message Timeframe {
     int64 commence = 1;
     // Represents the timestamp indicating when the activity or retrieve of data completed.
     int64 complete = 2;
-}
-
-// Restriction represents a particular limitation applied to a member.
-// It provides insight into the type, reason, and duration of the restriction.
-message Restriction {
-    // Represents the type or category of the restriction.
-    chat.members.public.server.v1.RestrictionKind kind = 1;
-    // Represents a brief explanation or reason behind the application of this restriction.
-    string reason = 2;
-    // Represents the timestamp indicating when this restriction was put into place.
-    int64 create_time = 3;
-    // Represents the timestamp indicating when this restriction will end or expire.
-    int64 expire_time = 4;
 }

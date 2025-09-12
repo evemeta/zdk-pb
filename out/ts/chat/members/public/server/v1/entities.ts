@@ -10,7 +10,6 @@ import { UnknownFieldHandler } from "@protobuf-ts/runtime";
 import type { PartialMessage } from "@protobuf-ts/runtime";
 import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
-import { RestrictionKind } from "./enums";
 import { Status } from "./enums";
 import { Order } from "./enums";
 /**
@@ -111,21 +110,15 @@ export interface Member {
         [key: string]: string;
     };
     /**
-     * Represents a list of restrictions that have been applied to this member.
-     *
-     * @generated from protobuf field: repeated chat.members.public.server.v1.Restriction restrictions = 5;
-     */
-    restrictions: Restriction[];
-    /**
      * Represents the timestamp indicating when this member was created or added to the chat.
      *
-     * @generated from protobuf field: int64 create_time = 6;
+     * @generated from protobuf field: int64 create_time = 5;
      */
     createTime: bigint;
     /**
      * Represents the timestamp of the last update associated with this member.
      *
-     * @generated from protobuf field: int64 update_time = 7;
+     * @generated from protobuf field: int64 update_time = 6;
      */
     updateTime: bigint;
 }
@@ -175,38 +168,6 @@ export interface Timeframe {
      */
     complete: bigint;
 }
-/**
- * Restriction represents a particular limitation applied to a member.
- * It provides insight into the type, reason, and duration of the restriction.
- *
- * @generated from protobuf message chat.members.public.server.v1.Restriction
- */
-export interface Restriction {
-    /**
-     * Represents the type or category of the restriction.
-     *
-     * @generated from protobuf field: chat.members.public.server.v1.RestrictionKind kind = 1;
-     */
-    kind: RestrictionKind;
-    /**
-     * Represents a brief explanation or reason behind the application of this restriction.
-     *
-     * @generated from protobuf field: string reason = 2;
-     */
-    reason: string;
-    /**
-     * Represents the timestamp indicating when this restriction was put into place.
-     *
-     * @generated from protobuf field: int64 create_time = 3;
-     */
-    createTime: bigint;
-    /**
-     * Represents the timestamp indicating when this restriction will end or expire.
-     *
-     * @generated from protobuf field: int64 expire_time = 4;
-     */
-    expireTime: bigint;
-}
 // @generated message type with reflection information, may provide speed optimized methods
 class Chunk$Type extends MessageType<Chunk> {
     constructor() {
@@ -214,7 +175,7 @@ class Chunk$Type extends MessageType<Chunk> {
             { no: 1, name: "size", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 2, name: "index", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 3, name: "total", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 4, name: "entities", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => Member }
+            { no: 4, name: "entities", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => Member }
         ]);
     }
     create(value?: PartialMessage<Chunk>): Chunk {
@@ -356,9 +317,8 @@ class Member$Type extends MessageType<Member> {
             { no: 2, name: "user_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 3, name: "chat_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 4, name: "metadata", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } },
-            { no: 5, name: "restrictions", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => Restriction },
-            { no: 6, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 7, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 5, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 6, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value?: PartialMessage<Member>): Member {
@@ -367,7 +327,6 @@ class Member$Type extends MessageType<Member> {
         message.userId = "";
         message.chatId = "";
         message.metadata = {};
-        message.restrictions = [];
         message.createTime = 0n;
         message.updateTime = 0n;
         if (value !== undefined)
@@ -391,13 +350,10 @@ class Member$Type extends MessageType<Member> {
                 case /* map<string, string> metadata */ 4:
                     this.binaryReadMap4(message.metadata, reader, options);
                     break;
-                case /* repeated chat.members.public.server.v1.Restriction restrictions */ 5:
-                    message.restrictions.push(Restriction.internalBinaryRead(reader, reader.uint32(), options));
-                    break;
-                case /* int64 create_time */ 6:
+                case /* int64 create_time */ 5:
                     message.createTime = reader.int64().toBigInt();
                     break;
-                case /* int64 update_time */ 7:
+                case /* int64 update_time */ 6:
                     message.updateTime = reader.int64().toBigInt();
                     break;
                 default:
@@ -440,15 +396,12 @@ class Member$Type extends MessageType<Member> {
         /* map<string, string> metadata = 4; */
         for (let k of globalThis.Object.keys(message.metadata))
             writer.tag(4, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.metadata[k]).join();
-        /* repeated chat.members.public.server.v1.Restriction restrictions = 5; */
-        for (let i = 0; i < message.restrictions.length; i++)
-            Restriction.internalBinaryWrite(message.restrictions[i], writer.tag(5, WireType.LengthDelimited).fork(), options).join();
-        /* int64 create_time = 6; */
+        /* int64 create_time = 5; */
         if (message.createTime !== 0n)
-            writer.tag(6, WireType.Varint).int64(message.createTime);
-        /* int64 update_time = 7; */
+            writer.tag(5, WireType.Varint).int64(message.createTime);
+        /* int64 update_time = 6; */
         if (message.updateTime !== 0n)
-            writer.tag(7, WireType.Varint).int64(message.updateTime);
+            writer.tag(6, WireType.Varint).int64(message.updateTime);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -585,74 +538,3 @@ class Timeframe$Type extends MessageType<Timeframe> {
  * @generated MessageType for protobuf message chat.members.public.server.v1.Timeframe
  */
 export const Timeframe = new Timeframe$Type();
-// @generated message type with reflection information, may provide speed optimized methods
-class Restriction$Type extends MessageType<Restriction> {
-    constructor() {
-        super("chat.members.public.server.v1.Restriction", [
-            { no: 1, name: "kind", kind: "enum", T: () => ["chat.members.public.server.v1.RestrictionKind", RestrictionKind] },
-            { no: 2, name: "reason", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 3, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 4, name: "expire_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
-        ]);
-    }
-    create(value?: PartialMessage<Restriction>): Restriction {
-        const message = globalThis.Object.create((this.messagePrototype!));
-        message.kind = 0;
-        message.reason = "";
-        message.createTime = 0n;
-        message.expireTime = 0n;
-        if (value !== undefined)
-            reflectionMergePartial<Restriction>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Restriction): Restriction {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* chat.members.public.server.v1.RestrictionKind kind */ 1:
-                    message.kind = reader.int32();
-                    break;
-                case /* string reason */ 2:
-                    message.reason = reader.string();
-                    break;
-                case /* int64 create_time */ 3:
-                    message.createTime = reader.int64().toBigInt();
-                    break;
-                case /* int64 expire_time */ 4:
-                    message.expireTime = reader.int64().toBigInt();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: Restriction, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* chat.members.public.server.v1.RestrictionKind kind = 1; */
-        if (message.kind !== 0)
-            writer.tag(1, WireType.Varint).int32(message.kind);
-        /* string reason = 2; */
-        if (message.reason !== "")
-            writer.tag(2, WireType.LengthDelimited).string(message.reason);
-        /* int64 create_time = 3; */
-        if (message.createTime !== 0n)
-            writer.tag(3, WireType.Varint).int64(message.createTime);
-        /* int64 expire_time = 4; */
-        if (message.expireTime !== 0n)
-            writer.tag(4, WireType.Varint).int64(message.expireTime);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
-}
-/**
- * @generated MessageType for protobuf message chat.members.public.server.v1.Restriction
- */
-export const Restriction = new Restriction$Type();

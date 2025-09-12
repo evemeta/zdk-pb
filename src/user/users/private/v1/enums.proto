@@ -13,10 +13,6 @@ enum Permission {
     PermissionChatMember               = 200;
     PermissionChatMemberSelect         = 201;
     PermissionChatMemberKick           = 202;
-    PermissionChatMemberMute           = 203;
-    PermissionChatMemberUnmute         = 204;
-    PermissionChatMemberBlock          = 205;
-    PermissionChatMemberUnblock        = 206;
     PermissionChatMessage              = 300;
     PermissionChatMessageSelect        = 301;
     PermissionChatMessageCreate        = 302;
@@ -42,4 +38,9 @@ enum Permission {
     PermissionRoomRestrictionSelect    = 801;
     PermissionRoomRestrictionCreate    = 802;
     PermissionRoomRestrictionDelete    = 803;
+
+    PermissionChatRestriction          = 900;
+    PermissionChatRestrictionSelect    = 901;
+    PermissionChatRestrictionCreate    = 902;
+    PermissionChatRestrictionDelete    = 903;
 }

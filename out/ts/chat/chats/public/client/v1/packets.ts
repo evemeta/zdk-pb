@@ -18,6 +18,10 @@ export interface EnterChatPacket {
      * @generated from protobuf field: string id = 1;
      */
     id: string;
+    /**
+     * @generated from protobuf field: bool override = 2;
+     */
+    override: boolean;
 }
 /**
  * @generated from protobuf message chat.chats.public.client.v1.LeaveChatPacket
@@ -32,12 +36,14 @@ export interface LeaveChatPacket {
 class EnterChatPacket$Type extends MessageType<EnterChatPacket> {
     constructor() {
         super("chat.chats.public.client.v1.EnterChatPacket", [
-            { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
+            { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "override", kind: "scalar", T: 8 /*ScalarType.BOOL*/ }
         ]);
     }
     create(value?: PartialMessage<EnterChatPacket>): EnterChatPacket {
         const message = globalThis.Object.create((this.messagePrototype!));
         message.id = "";
+        message.override = false;
         if (value !== undefined)
             reflectionMergePartial<EnterChatPacket>(this, message, value);
         return message;
@@ -49,6 +55,9 @@ class EnterChatPacket$Type extends MessageType<EnterChatPacket> {
             switch (fieldNo) {
                 case /* string id */ 1:
                     message.id = reader.string();
+                    break;
+                case /* bool override */ 2:
+                    message.override = reader.bool();
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -65,6 +74,9 @@ class EnterChatPacket$Type extends MessageType<EnterChatPacket> {
         /* string id = 1; */
         if (message.id !== "")
             writer.tag(1, WireType.LengthDelimited).string(message.id);
+        /* bool override = 2; */
+        if (message.override !== false)
+            writer.tag(2, WireType.Varint).bool(message.override);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

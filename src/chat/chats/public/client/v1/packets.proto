@@ -8,7 +8,8 @@ option java_package = "com.evemeta.zdk.pb.chat.client.chats";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/chats/public/client/v1;chatspb";
 
 message EnterChatPacket {
-    string id = 1;
+    string id     = 1;
+    bool override = 2;
 }
 
 message LeaveChatPacket {
