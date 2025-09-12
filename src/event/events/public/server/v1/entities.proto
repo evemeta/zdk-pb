@@ -84,13 +84,9 @@ message Context {
     // Represents the specific span of time, containing the commence and complete timestamps associated with the retrieval of members from the database.
     event.events.public.server.v1.Timeframe members_timeframe = 8;
     // todo;
-    event.events.public.server.v1.Timeframe streams_timeframe = 9;
+    repeated event.restrictions.public.server.v1.Restriction restrictions = 9;
     // todo;
-    event.events.public.server.v1.Timeframe connections_timeframe = 10;
-    // todo;
-    repeated event.restrictions.public.server.v1.Restriction restrictions = 11;
-    // todo;
-    event.events.public.server.v1.Timeframe restrictions_timeframe = 12;
+    event.events.public.server.v1.Timeframe restrictions_timeframe = 10;
 }
 
 // Condition represents a set of criteria designed to filter data during retrieval.

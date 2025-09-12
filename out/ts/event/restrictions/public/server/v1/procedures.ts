@@ -311,7 +311,7 @@ export const SelectRequest = new SelectRequest$Type();
 class SelectResponse$Type extends MessageType<SelectResponse> {
     constructor() {
         super("event.restrictions.public.server.v1.SelectResponse", [
-            { no: 1, name: "restrictions", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => Restriction }
+            { no: 1, name: "restrictions", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => Restriction }
         ]);
     }
     create(value?: PartialMessage<SelectResponse>): SelectResponse {

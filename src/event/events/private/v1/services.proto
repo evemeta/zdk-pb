@@ -73,4 +73,34 @@ service Service {
     rpc AnnounceLeaveMutations(LeaveTransaction) returns (LeaveTransaction);
 
     rpc RollbackLeaveMutations(LeaveTransaction) returns (LeaveTransaction);
+
+    rpc Start(StartRequest) returns (StartResponse);
+
+    rpc InitiateStartMutations(StartTransaction) returns (StartTransaction);
+
+    rpc FinalizeStartMutations(StartTransaction) returns (StartTransaction);
+
+    rpc AnnounceStartMutations(StartTransaction) returns (StartTransaction);
+
+    rpc RollbackStartMutations(StartTransaction) returns (StartTransaction);
+
+    rpc Cancel(CancelRequest) returns (CancelResponse);
+
+    rpc InitiateCancelMutations(CancelTransaction) returns (CancelTransaction);
+
+    rpc FinalizeCancelMutations(CancelTransaction) returns (CancelTransaction);
+
+    rpc AnnounceCancelMutations(CancelTransaction) returns (CancelTransaction);
+
+    rpc RollbackCancelMutations(CancelTransaction) returns (CancelTransaction);
+
+    rpc Finish(FinishRequest) returns (FinishResponse);
+
+    rpc InitiateFinishMutations(FinishTransaction) returns (FinishTransaction);
+
+    rpc FinalizeFinishMutations(FinishTransaction) returns (FinishTransaction);
+
+    rpc AnnounceFinishMutations(FinishTransaction) returns (FinishTransaction);
+
+    rpc RollbackFinishMutations(FinishTransaction) returns (FinishTransaction);
 }
