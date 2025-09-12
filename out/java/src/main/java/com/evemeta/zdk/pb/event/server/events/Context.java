@@ -378,83 +378,7 @@ private static final long serialVersionUID = 0L;
     return membersTimeframe_ == null ? com.evemeta.zdk.pb.event.server.events.Timeframe.getDefaultInstance() : membersTimeframe_;
   }
 
-  public static final int STREAMS_TIMEFRAME_FIELD_NUMBER = 9;
-  private com.evemeta.zdk.pb.event.server.events.Timeframe streamsTimeframe_;
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>.event.events.public.server.v1.Timeframe streams_timeframe = 9;</code>
-   * @return Whether the streamsTimeframe field is set.
-   */
-  @java.lang.Override
-  public boolean hasStreamsTimeframe() {
-    return ((bitField0_ & 0x00000080) != 0);
-  }
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>.event.events.public.server.v1.Timeframe streams_timeframe = 9;</code>
-   * @return The streamsTimeframe.
-   */
-  @java.lang.Override
-  public com.evemeta.zdk.pb.event.server.events.Timeframe getStreamsTimeframe() {
-    return streamsTimeframe_ == null ? com.evemeta.zdk.pb.event.server.events.Timeframe.getDefaultInstance() : streamsTimeframe_;
-  }
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>.event.events.public.server.v1.Timeframe streams_timeframe = 9;</code>
-   */
-  @java.lang.Override
-  public com.evemeta.zdk.pb.event.server.events.TimeframeOrBuilder getStreamsTimeframeOrBuilder() {
-    return streamsTimeframe_ == null ? com.evemeta.zdk.pb.event.server.events.Timeframe.getDefaultInstance() : streamsTimeframe_;
-  }
-
-  public static final int CONNECTIONS_TIMEFRAME_FIELD_NUMBER = 10;
-  private com.evemeta.zdk.pb.event.server.events.Timeframe connectionsTimeframe_;
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>.event.events.public.server.v1.Timeframe connections_timeframe = 10;</code>
-   * @return Whether the connectionsTimeframe field is set.
-   */
-  @java.lang.Override
-  public boolean hasConnectionsTimeframe() {
-    return ((bitField0_ & 0x00000100) != 0);
-  }
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>.event.events.public.server.v1.Timeframe connections_timeframe = 10;</code>
-   * @return The connectionsTimeframe.
-   */
-  @java.lang.Override
-  public com.evemeta.zdk.pb.event.server.events.Timeframe getConnectionsTimeframe() {
-    return connectionsTimeframe_ == null ? com.evemeta.zdk.pb.event.server.events.Timeframe.getDefaultInstance() : connectionsTimeframe_;
-  }
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>.event.events.public.server.v1.Timeframe connections_timeframe = 10;</code>
-   */
-  @java.lang.Override
-  public com.evemeta.zdk.pb.event.server.events.TimeframeOrBuilder getConnectionsTimeframeOrBuilder() {
-    return connectionsTimeframe_ == null ? com.evemeta.zdk.pb.event.server.events.Timeframe.getDefaultInstance() : connectionsTimeframe_;
-  }
-
-  public static final int RESTRICTIONS_FIELD_NUMBER = 11;
+  public static final int RESTRICTIONS_FIELD_NUMBER = 9;
   @SuppressWarnings("serial")
   private java.util.List<com.evemeta.zdk.pb.event.server.restrictions.Restriction> restrictions_;
   /**
@@ -462,7 +386,7 @@ private static final long serialVersionUID = 0L;
    * todo;
    * </pre>
    *
-   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
    */
   @java.lang.Override
   public java.util.List<com.evemeta.zdk.pb.event.server.restrictions.Restriction> getRestrictionsList() {
@@ -473,7 +397,7 @@ private static final long serialVersionUID = 0L;
    * todo;
    * </pre>
    *
-   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
    */
   @java.lang.Override
   public java.util.List<? extends com.evemeta.zdk.pb.event.server.restrictions.RestrictionOrBuilder> 
@@ -485,7 +409,7 @@ private static final long serialVersionUID = 0L;
    * todo;
    * </pre>
    *
-   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
    */
   @java.lang.Override
   public int getRestrictionsCount() {
@@ -496,7 +420,7 @@ private static final long serialVersionUID = 0L;
    * todo;
    * </pre>
    *
-   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
    */
   @java.lang.Override
   public com.evemeta.zdk.pb.event.server.restrictions.Restriction getRestrictions(int index) {
@@ -507,7 +431,7 @@ private static final long serialVersionUID = 0L;
    * todo;
    * </pre>
    *
-   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
    */
   @java.lang.Override
   public com.evemeta.zdk.pb.event.server.restrictions.RestrictionOrBuilder getRestrictionsOrBuilder(
@@ -515,26 +439,26 @@ private static final long serialVersionUID = 0L;
     return restrictions_.get(index);
   }
 
-  public static final int RESTRICTIONS_TIMEFRAME_FIELD_NUMBER = 12;
+  public static final int RESTRICTIONS_TIMEFRAME_FIELD_NUMBER = 10;
   private com.evemeta.zdk.pb.event.server.events.Timeframe restrictionsTimeframe_;
   /**
    * <pre>
    * todo;
    * </pre>
    *
-   * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 12;</code>
+   * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 10;</code>
    * @return Whether the restrictionsTimeframe field is set.
    */
   @java.lang.Override
   public boolean hasRestrictionsTimeframe() {
-    return ((bitField0_ & 0x00000200) != 0);
+    return ((bitField0_ & 0x00000080) != 0);
   }
   /**
    * <pre>
    * todo;
    * </pre>
    *
-   * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 12;</code>
+   * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 10;</code>
    * @return The restrictionsTimeframe.
    */
   @java.lang.Override
@@ -546,7 +470,7 @@ private static final long serialVersionUID = 0L;
    * todo;
    * </pre>
    *
-   * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 12;</code>
+   * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 10;</code>
    */
   @java.lang.Override
   public com.evemeta.zdk.pb.event.server.events.TimeframeOrBuilder getRestrictionsTimeframeOrBuilder() {
@@ -591,17 +515,11 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000040) != 0)) {
       output.writeMessage(8, getMembersTimeframe());
     }
-    if (((bitField0_ & 0x00000080) != 0)) {
-      output.writeMessage(9, getStreamsTimeframe());
-    }
-    if (((bitField0_ & 0x00000100) != 0)) {
-      output.writeMessage(10, getConnectionsTimeframe());
-    }
     for (int i = 0; i < restrictions_.size(); i++) {
-      output.writeMessage(11, restrictions_.get(i));
+      output.writeMessage(9, restrictions_.get(i));
     }
-    if (((bitField0_ & 0x00000200) != 0)) {
-      output.writeMessage(12, getRestrictionsTimeframe());
+    if (((bitField0_ & 0x00000080) != 0)) {
+      output.writeMessage(10, getRestrictionsTimeframe());
     }
     getUnknownFields().writeTo(output);
   }
@@ -644,21 +562,13 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getMembersTimeframe());
     }
-    if (((bitField0_ & 0x00000080) != 0)) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(9, getStreamsTimeframe());
-    }
-    if (((bitField0_ & 0x00000100) != 0)) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(10, getConnectionsTimeframe());
-    }
     for (int i = 0; i < restrictions_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(11, restrictions_.get(i));
+        .computeMessageSize(9, restrictions_.get(i));
     }
-    if (((bitField0_ & 0x00000200) != 0)) {
+    if (((bitField0_ & 0x00000080) != 0)) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(12, getRestrictionsTimeframe());
+        .computeMessageSize(10, getRestrictionsTimeframe());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -712,16 +622,6 @@ private static final long serialVersionUID = 0L;
       if (!getMembersTimeframe()
           .equals(other.getMembersTimeframe())) return false;
     }
-    if (hasStreamsTimeframe() != other.hasStreamsTimeframe()) return false;
-    if (hasStreamsTimeframe()) {
-      if (!getStreamsTimeframe()
-          .equals(other.getStreamsTimeframe())) return false;
-    }
-    if (hasConnectionsTimeframe() != other.hasConnectionsTimeframe()) return false;
-    if (hasConnectionsTimeframe()) {
-      if (!getConnectionsTimeframe()
-          .equals(other.getConnectionsTimeframe())) return false;
-    }
     if (!getRestrictionsList()
         .equals(other.getRestrictionsList())) return false;
     if (hasRestrictionsTimeframe() != other.hasRestrictionsTimeframe()) return false;
@@ -771,14 +671,6 @@ private static final long serialVersionUID = 0L;
     if (hasMembersTimeframe()) {
       hash = (37 * hash) + MEMBERS_TIMEFRAME_FIELD_NUMBER;
       hash = (53 * hash) + getMembersTimeframe().hashCode();
-    }
-    if (hasStreamsTimeframe()) {
-      hash = (37 * hash) + STREAMS_TIMEFRAME_FIELD_NUMBER;
-      hash = (53 * hash) + getStreamsTimeframe().hashCode();
-    }
-    if (hasConnectionsTimeframe()) {
-      hash = (37 * hash) + CONNECTIONS_TIMEFRAME_FIELD_NUMBER;
-      hash = (53 * hash) + getConnectionsTimeframe().hashCode();
     }
     if (getRestrictionsCount() > 0) {
       hash = (37 * hash) + RESTRICTIONS_FIELD_NUMBER;
@@ -931,8 +823,6 @@ private static final long serialVersionUID = 0L;
         internalGetMemberTimeframeFieldBuilder();
         internalGetMembersFieldBuilder();
         internalGetMembersTimeframeFieldBuilder();
-        internalGetStreamsTimeframeFieldBuilder();
-        internalGetConnectionsTimeframeFieldBuilder();
         internalGetRestrictionsFieldBuilder();
         internalGetRestrictionsTimeframeFieldBuilder();
       }
@@ -983,23 +873,13 @@ private static final long serialVersionUID = 0L;
         membersTimeframeBuilder_.dispose();
         membersTimeframeBuilder_ = null;
       }
-      streamsTimeframe_ = null;
-      if (streamsTimeframeBuilder_ != null) {
-        streamsTimeframeBuilder_.dispose();
-        streamsTimeframeBuilder_ = null;
-      }
-      connectionsTimeframe_ = null;
-      if (connectionsTimeframeBuilder_ != null) {
-        connectionsTimeframeBuilder_.dispose();
-        connectionsTimeframeBuilder_ = null;
-      }
       if (restrictionsBuilder_ == null) {
         restrictions_ = java.util.Collections.emptyList();
       } else {
         restrictions_ = null;
         restrictionsBuilder_.clear();
       }
-      bitField0_ = (bitField0_ & ~0x00000400);
+      bitField0_ = (bitField0_ & ~0x00000100);
       restrictionsTimeframe_ = null;
       if (restrictionsTimeframeBuilder_ != null) {
         restrictionsTimeframeBuilder_.dispose();
@@ -1048,9 +928,9 @@ private static final long serialVersionUID = 0L;
         result.members_ = membersBuilder_.build();
       }
       if (restrictionsBuilder_ == null) {
-        if (((bitField0_ & 0x00000400) != 0)) {
+        if (((bitField0_ & 0x00000100) != 0)) {
           restrictions_ = java.util.Collections.unmodifiableList(restrictions_);
-          bitField0_ = (bitField0_ & ~0x00000400);
+          bitField0_ = (bitField0_ & ~0x00000100);
         }
         result.restrictions_ = restrictions_;
       } else {
@@ -1103,23 +983,11 @@ private static final long serialVersionUID = 0L;
             : membersTimeframeBuilder_.build();
         to_bitField0_ |= 0x00000040;
       }
-      if (((from_bitField0_ & 0x00000100) != 0)) {
-        result.streamsTimeframe_ = streamsTimeframeBuilder_ == null
-            ? streamsTimeframe_
-            : streamsTimeframeBuilder_.build();
-        to_bitField0_ |= 0x00000080;
-      }
       if (((from_bitField0_ & 0x00000200) != 0)) {
-        result.connectionsTimeframe_ = connectionsTimeframeBuilder_ == null
-            ? connectionsTimeframe_
-            : connectionsTimeframeBuilder_.build();
-        to_bitField0_ |= 0x00000100;
-      }
-      if (((from_bitField0_ & 0x00000800) != 0)) {
         result.restrictionsTimeframe_ = restrictionsTimeframeBuilder_ == null
             ? restrictionsTimeframe_
             : restrictionsTimeframeBuilder_.build();
-        to_bitField0_ |= 0x00000200;
+        to_bitField0_ |= 0x00000080;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -1183,17 +1051,11 @@ private static final long serialVersionUID = 0L;
       if (other.hasMembersTimeframe()) {
         mergeMembersTimeframe(other.getMembersTimeframe());
       }
-      if (other.hasStreamsTimeframe()) {
-        mergeStreamsTimeframe(other.getStreamsTimeframe());
-      }
-      if (other.hasConnectionsTimeframe()) {
-        mergeConnectionsTimeframe(other.getConnectionsTimeframe());
-      }
       if (restrictionsBuilder_ == null) {
         if (!other.restrictions_.isEmpty()) {
           if (restrictions_.isEmpty()) {
             restrictions_ = other.restrictions_;
-            bitField0_ = (bitField0_ & ~0x00000400);
+            bitField0_ = (bitField0_ & ~0x00000100);
           } else {
             ensureRestrictionsIsMutable();
             restrictions_.addAll(other.restrictions_);
@@ -1206,7 +1068,7 @@ private static final long serialVersionUID = 0L;
             restrictionsBuilder_.dispose();
             restrictionsBuilder_ = null;
             restrictions_ = other.restrictions_;
-            bitField0_ = (bitField0_ & ~0x00000400);
+            bitField0_ = (bitField0_ & ~0x00000100);
             restrictionsBuilder_ = 
               com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                  internalGetRestrictionsFieldBuilder() : null;
@@ -1307,20 +1169,6 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 66
             case 74: {
-              input.readMessage(
-                  internalGetStreamsTimeframeFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              bitField0_ |= 0x00000100;
-              break;
-            } // case 74
-            case 82: {
-              input.readMessage(
-                  internalGetConnectionsTimeframeFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              bitField0_ |= 0x00000200;
-              break;
-            } // case 82
-            case 90: {
               com.evemeta.zdk.pb.event.server.restrictions.Restriction m =
                   input.readMessage(
                       com.evemeta.zdk.pb.event.server.restrictions.Restriction.parser(),
@@ -1332,14 +1180,14 @@ private static final long serialVersionUID = 0L;
                 restrictionsBuilder_.addMessage(m);
               }
               break;
-            } // case 90
-            case 98: {
+            } // case 74
+            case 82: {
               input.readMessage(
                   internalGetRestrictionsTimeframeFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000800;
+              bitField0_ |= 0x00000200;
               break;
-            } // case 98
+            } // case 82
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -2768,326 +2616,12 @@ private static final long serialVersionUID = 0L;
       return membersTimeframeBuilder_;
     }
 
-    private com.evemeta.zdk.pb.event.server.events.Timeframe streamsTimeframe_;
-    private com.google.protobuf.SingleFieldBuilder<
-        com.evemeta.zdk.pb.event.server.events.Timeframe, com.evemeta.zdk.pb.event.server.events.Timeframe.Builder, com.evemeta.zdk.pb.event.server.events.TimeframeOrBuilder> streamsTimeframeBuilder_;
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>.event.events.public.server.v1.Timeframe streams_timeframe = 9;</code>
-     * @return Whether the streamsTimeframe field is set.
-     */
-    public boolean hasStreamsTimeframe() {
-      return ((bitField0_ & 0x00000100) != 0);
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>.event.events.public.server.v1.Timeframe streams_timeframe = 9;</code>
-     * @return The streamsTimeframe.
-     */
-    public com.evemeta.zdk.pb.event.server.events.Timeframe getStreamsTimeframe() {
-      if (streamsTimeframeBuilder_ == null) {
-        return streamsTimeframe_ == null ? com.evemeta.zdk.pb.event.server.events.Timeframe.getDefaultInstance() : streamsTimeframe_;
-      } else {
-        return streamsTimeframeBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>.event.events.public.server.v1.Timeframe streams_timeframe = 9;</code>
-     */
-    public Builder setStreamsTimeframe(com.evemeta.zdk.pb.event.server.events.Timeframe value) {
-      if (streamsTimeframeBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        streamsTimeframe_ = value;
-      } else {
-        streamsTimeframeBuilder_.setMessage(value);
-      }
-      bitField0_ |= 0x00000100;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>.event.events.public.server.v1.Timeframe streams_timeframe = 9;</code>
-     */
-    public Builder setStreamsTimeframe(
-        com.evemeta.zdk.pb.event.server.events.Timeframe.Builder builderForValue) {
-      if (streamsTimeframeBuilder_ == null) {
-        streamsTimeframe_ = builderForValue.build();
-      } else {
-        streamsTimeframeBuilder_.setMessage(builderForValue.build());
-      }
-      bitField0_ |= 0x00000100;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>.event.events.public.server.v1.Timeframe streams_timeframe = 9;</code>
-     */
-    public Builder mergeStreamsTimeframe(com.evemeta.zdk.pb.event.server.events.Timeframe value) {
-      if (streamsTimeframeBuilder_ == null) {
-        if (((bitField0_ & 0x00000100) != 0) &&
-          streamsTimeframe_ != null &&
-          streamsTimeframe_ != com.evemeta.zdk.pb.event.server.events.Timeframe.getDefaultInstance()) {
-          getStreamsTimeframeBuilder().mergeFrom(value);
-        } else {
-          streamsTimeframe_ = value;
-        }
-      } else {
-        streamsTimeframeBuilder_.mergeFrom(value);
-      }
-      if (streamsTimeframe_ != null) {
-        bitField0_ |= 0x00000100;
-        onChanged();
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>.event.events.public.server.v1.Timeframe streams_timeframe = 9;</code>
-     */
-    public Builder clearStreamsTimeframe() {
-      bitField0_ = (bitField0_ & ~0x00000100);
-      streamsTimeframe_ = null;
-      if (streamsTimeframeBuilder_ != null) {
-        streamsTimeframeBuilder_.dispose();
-        streamsTimeframeBuilder_ = null;
-      }
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>.event.events.public.server.v1.Timeframe streams_timeframe = 9;</code>
-     */
-    public com.evemeta.zdk.pb.event.server.events.Timeframe.Builder getStreamsTimeframeBuilder() {
-      bitField0_ |= 0x00000100;
-      onChanged();
-      return internalGetStreamsTimeframeFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>.event.events.public.server.v1.Timeframe streams_timeframe = 9;</code>
-     */
-    public com.evemeta.zdk.pb.event.server.events.TimeframeOrBuilder getStreamsTimeframeOrBuilder() {
-      if (streamsTimeframeBuilder_ != null) {
-        return streamsTimeframeBuilder_.getMessageOrBuilder();
-      } else {
-        return streamsTimeframe_ == null ?
-            com.evemeta.zdk.pb.event.server.events.Timeframe.getDefaultInstance() : streamsTimeframe_;
-      }
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>.event.events.public.server.v1.Timeframe streams_timeframe = 9;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilder<
-        com.evemeta.zdk.pb.event.server.events.Timeframe, com.evemeta.zdk.pb.event.server.events.Timeframe.Builder, com.evemeta.zdk.pb.event.server.events.TimeframeOrBuilder> 
-        internalGetStreamsTimeframeFieldBuilder() {
-      if (streamsTimeframeBuilder_ == null) {
-        streamsTimeframeBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-            com.evemeta.zdk.pb.event.server.events.Timeframe, com.evemeta.zdk.pb.event.server.events.Timeframe.Builder, com.evemeta.zdk.pb.event.server.events.TimeframeOrBuilder>(
-                getStreamsTimeframe(),
-                getParentForChildren(),
-                isClean());
-        streamsTimeframe_ = null;
-      }
-      return streamsTimeframeBuilder_;
-    }
-
-    private com.evemeta.zdk.pb.event.server.events.Timeframe connectionsTimeframe_;
-    private com.google.protobuf.SingleFieldBuilder<
-        com.evemeta.zdk.pb.event.server.events.Timeframe, com.evemeta.zdk.pb.event.server.events.Timeframe.Builder, com.evemeta.zdk.pb.event.server.events.TimeframeOrBuilder> connectionsTimeframeBuilder_;
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>.event.events.public.server.v1.Timeframe connections_timeframe = 10;</code>
-     * @return Whether the connectionsTimeframe field is set.
-     */
-    public boolean hasConnectionsTimeframe() {
-      return ((bitField0_ & 0x00000200) != 0);
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>.event.events.public.server.v1.Timeframe connections_timeframe = 10;</code>
-     * @return The connectionsTimeframe.
-     */
-    public com.evemeta.zdk.pb.event.server.events.Timeframe getConnectionsTimeframe() {
-      if (connectionsTimeframeBuilder_ == null) {
-        return connectionsTimeframe_ == null ? com.evemeta.zdk.pb.event.server.events.Timeframe.getDefaultInstance() : connectionsTimeframe_;
-      } else {
-        return connectionsTimeframeBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>.event.events.public.server.v1.Timeframe connections_timeframe = 10;</code>
-     */
-    public Builder setConnectionsTimeframe(com.evemeta.zdk.pb.event.server.events.Timeframe value) {
-      if (connectionsTimeframeBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        connectionsTimeframe_ = value;
-      } else {
-        connectionsTimeframeBuilder_.setMessage(value);
-      }
-      bitField0_ |= 0x00000200;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>.event.events.public.server.v1.Timeframe connections_timeframe = 10;</code>
-     */
-    public Builder setConnectionsTimeframe(
-        com.evemeta.zdk.pb.event.server.events.Timeframe.Builder builderForValue) {
-      if (connectionsTimeframeBuilder_ == null) {
-        connectionsTimeframe_ = builderForValue.build();
-      } else {
-        connectionsTimeframeBuilder_.setMessage(builderForValue.build());
-      }
-      bitField0_ |= 0x00000200;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>.event.events.public.server.v1.Timeframe connections_timeframe = 10;</code>
-     */
-    public Builder mergeConnectionsTimeframe(com.evemeta.zdk.pb.event.server.events.Timeframe value) {
-      if (connectionsTimeframeBuilder_ == null) {
-        if (((bitField0_ & 0x00000200) != 0) &&
-          connectionsTimeframe_ != null &&
-          connectionsTimeframe_ != com.evemeta.zdk.pb.event.server.events.Timeframe.getDefaultInstance()) {
-          getConnectionsTimeframeBuilder().mergeFrom(value);
-        } else {
-          connectionsTimeframe_ = value;
-        }
-      } else {
-        connectionsTimeframeBuilder_.mergeFrom(value);
-      }
-      if (connectionsTimeframe_ != null) {
-        bitField0_ |= 0x00000200;
-        onChanged();
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>.event.events.public.server.v1.Timeframe connections_timeframe = 10;</code>
-     */
-    public Builder clearConnectionsTimeframe() {
-      bitField0_ = (bitField0_ & ~0x00000200);
-      connectionsTimeframe_ = null;
-      if (connectionsTimeframeBuilder_ != null) {
-        connectionsTimeframeBuilder_.dispose();
-        connectionsTimeframeBuilder_ = null;
-      }
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>.event.events.public.server.v1.Timeframe connections_timeframe = 10;</code>
-     */
-    public com.evemeta.zdk.pb.event.server.events.Timeframe.Builder getConnectionsTimeframeBuilder() {
-      bitField0_ |= 0x00000200;
-      onChanged();
-      return internalGetConnectionsTimeframeFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>.event.events.public.server.v1.Timeframe connections_timeframe = 10;</code>
-     */
-    public com.evemeta.zdk.pb.event.server.events.TimeframeOrBuilder getConnectionsTimeframeOrBuilder() {
-      if (connectionsTimeframeBuilder_ != null) {
-        return connectionsTimeframeBuilder_.getMessageOrBuilder();
-      } else {
-        return connectionsTimeframe_ == null ?
-            com.evemeta.zdk.pb.event.server.events.Timeframe.getDefaultInstance() : connectionsTimeframe_;
-      }
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>.event.events.public.server.v1.Timeframe connections_timeframe = 10;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilder<
-        com.evemeta.zdk.pb.event.server.events.Timeframe, com.evemeta.zdk.pb.event.server.events.Timeframe.Builder, com.evemeta.zdk.pb.event.server.events.TimeframeOrBuilder> 
-        internalGetConnectionsTimeframeFieldBuilder() {
-      if (connectionsTimeframeBuilder_ == null) {
-        connectionsTimeframeBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-            com.evemeta.zdk.pb.event.server.events.Timeframe, com.evemeta.zdk.pb.event.server.events.Timeframe.Builder, com.evemeta.zdk.pb.event.server.events.TimeframeOrBuilder>(
-                getConnectionsTimeframe(),
-                getParentForChildren(),
-                isClean());
-        connectionsTimeframe_ = null;
-      }
-      return connectionsTimeframeBuilder_;
-    }
-
     private java.util.List<com.evemeta.zdk.pb.event.server.restrictions.Restriction> restrictions_ =
       java.util.Collections.emptyList();
     private void ensureRestrictionsIsMutable() {
-      if (!((bitField0_ & 0x00000400) != 0)) {
+      if (!((bitField0_ & 0x00000100) != 0)) {
         restrictions_ = new java.util.ArrayList<com.evemeta.zdk.pb.event.server.restrictions.Restriction>(restrictions_);
-        bitField0_ |= 0x00000400;
+        bitField0_ |= 0x00000100;
        }
     }
 
@@ -3099,7 +2633,7 @@ private static final long serialVersionUID = 0L;
      * todo;
      * </pre>
      *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
      */
     public java.util.List<com.evemeta.zdk.pb.event.server.restrictions.Restriction> getRestrictionsList() {
       if (restrictionsBuilder_ == null) {
@@ -3113,7 +2647,7 @@ private static final long serialVersionUID = 0L;
      * todo;
      * </pre>
      *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
      */
     public int getRestrictionsCount() {
       if (restrictionsBuilder_ == null) {
@@ -3127,7 +2661,7 @@ private static final long serialVersionUID = 0L;
      * todo;
      * </pre>
      *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
      */
     public com.evemeta.zdk.pb.event.server.restrictions.Restriction getRestrictions(int index) {
       if (restrictionsBuilder_ == null) {
@@ -3141,7 +2675,7 @@ private static final long serialVersionUID = 0L;
      * todo;
      * </pre>
      *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
      */
     public Builder setRestrictions(
         int index, com.evemeta.zdk.pb.event.server.restrictions.Restriction value) {
@@ -3162,7 +2696,7 @@ private static final long serialVersionUID = 0L;
      * todo;
      * </pre>
      *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
      */
     public Builder setRestrictions(
         int index, com.evemeta.zdk.pb.event.server.restrictions.Restriction.Builder builderForValue) {
@@ -3180,7 +2714,7 @@ private static final long serialVersionUID = 0L;
      * todo;
      * </pre>
      *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
      */
     public Builder addRestrictions(com.evemeta.zdk.pb.event.server.restrictions.Restriction value) {
       if (restrictionsBuilder_ == null) {
@@ -3200,7 +2734,7 @@ private static final long serialVersionUID = 0L;
      * todo;
      * </pre>
      *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
      */
     public Builder addRestrictions(
         int index, com.evemeta.zdk.pb.event.server.restrictions.Restriction value) {
@@ -3221,7 +2755,7 @@ private static final long serialVersionUID = 0L;
      * todo;
      * </pre>
      *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
      */
     public Builder addRestrictions(
         com.evemeta.zdk.pb.event.server.restrictions.Restriction.Builder builderForValue) {
@@ -3239,7 +2773,7 @@ private static final long serialVersionUID = 0L;
      * todo;
      * </pre>
      *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
      */
     public Builder addRestrictions(
         int index, com.evemeta.zdk.pb.event.server.restrictions.Restriction.Builder builderForValue) {
@@ -3257,7 +2791,7 @@ private static final long serialVersionUID = 0L;
      * todo;
      * </pre>
      *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
      */
     public Builder addAllRestrictions(
         java.lang.Iterable<? extends com.evemeta.zdk.pb.event.server.restrictions.Restriction> values) {
@@ -3276,12 +2810,12 @@ private static final long serialVersionUID = 0L;
      * todo;
      * </pre>
      *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
      */
     public Builder clearRestrictions() {
       if (restrictionsBuilder_ == null) {
         restrictions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000400);
+        bitField0_ = (bitField0_ & ~0x00000100);
         onChanged();
       } else {
         restrictionsBuilder_.clear();
@@ -3293,7 +2827,7 @@ private static final long serialVersionUID = 0L;
      * todo;
      * </pre>
      *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
      */
     public Builder removeRestrictions(int index) {
       if (restrictionsBuilder_ == null) {
@@ -3310,7 +2844,7 @@ private static final long serialVersionUID = 0L;
      * todo;
      * </pre>
      *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
      */
     public com.evemeta.zdk.pb.event.server.restrictions.Restriction.Builder getRestrictionsBuilder(
         int index) {
@@ -3321,7 +2855,7 @@ private static final long serialVersionUID = 0L;
      * todo;
      * </pre>
      *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
      */
     public com.evemeta.zdk.pb.event.server.restrictions.RestrictionOrBuilder getRestrictionsOrBuilder(
         int index) {
@@ -3335,7 +2869,7 @@ private static final long serialVersionUID = 0L;
      * todo;
      * </pre>
      *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
      */
     public java.util.List<? extends com.evemeta.zdk.pb.event.server.restrictions.RestrictionOrBuilder> 
          getRestrictionsOrBuilderList() {
@@ -3350,7 +2884,7 @@ private static final long serialVersionUID = 0L;
      * todo;
      * </pre>
      *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
      */
     public com.evemeta.zdk.pb.event.server.restrictions.Restriction.Builder addRestrictionsBuilder() {
       return internalGetRestrictionsFieldBuilder().addBuilder(
@@ -3361,7 +2895,7 @@ private static final long serialVersionUID = 0L;
      * todo;
      * </pre>
      *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
      */
     public com.evemeta.zdk.pb.event.server.restrictions.Restriction.Builder addRestrictionsBuilder(
         int index) {
@@ -3373,7 +2907,7 @@ private static final long serialVersionUID = 0L;
      * todo;
      * </pre>
      *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
      */
     public java.util.List<com.evemeta.zdk.pb.event.server.restrictions.Restriction.Builder> 
          getRestrictionsBuilderList() {
@@ -3386,7 +2920,7 @@ private static final long serialVersionUID = 0L;
         restrictionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
             com.evemeta.zdk.pb.event.server.restrictions.Restriction, com.evemeta.zdk.pb.event.server.restrictions.Restriction.Builder, com.evemeta.zdk.pb.event.server.restrictions.RestrictionOrBuilder>(
                 restrictions_,
-                ((bitField0_ & 0x00000400) != 0),
+                ((bitField0_ & 0x00000100) != 0),
                 getParentForChildren(),
                 isClean());
         restrictions_ = null;
@@ -3402,18 +2936,18 @@ private static final long serialVersionUID = 0L;
      * todo;
      * </pre>
      *
-     * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 12;</code>
+     * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 10;</code>
      * @return Whether the restrictionsTimeframe field is set.
      */
     public boolean hasRestrictionsTimeframe() {
-      return ((bitField0_ & 0x00000800) != 0);
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
      * todo;
      * </pre>
      *
-     * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 12;</code>
+     * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 10;</code>
      * @return The restrictionsTimeframe.
      */
     public com.evemeta.zdk.pb.event.server.events.Timeframe getRestrictionsTimeframe() {
@@ -3428,7 +2962,7 @@ private static final long serialVersionUID = 0L;
      * todo;
      * </pre>
      *
-     * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 12;</code>
+     * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 10;</code>
      */
     public Builder setRestrictionsTimeframe(com.evemeta.zdk.pb.event.server.events.Timeframe value) {
       if (restrictionsTimeframeBuilder_ == null) {
@@ -3439,7 +2973,7 @@ private static final long serialVersionUID = 0L;
       } else {
         restrictionsTimeframeBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3448,7 +2982,7 @@ private static final long serialVersionUID = 0L;
      * todo;
      * </pre>
      *
-     * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 12;</code>
+     * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 10;</code>
      */
     public Builder setRestrictionsTimeframe(
         com.evemeta.zdk.pb.event.server.events.Timeframe.Builder builderForValue) {
@@ -3457,7 +2991,7 @@ private static final long serialVersionUID = 0L;
       } else {
         restrictionsTimeframeBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3466,11 +3000,11 @@ private static final long serialVersionUID = 0L;
      * todo;
      * </pre>
      *
-     * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 12;</code>
+     * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 10;</code>
      */
     public Builder mergeRestrictionsTimeframe(com.evemeta.zdk.pb.event.server.events.Timeframe value) {
       if (restrictionsTimeframeBuilder_ == null) {
-        if (((bitField0_ & 0x00000800) != 0) &&
+        if (((bitField0_ & 0x00000200) != 0) &&
           restrictionsTimeframe_ != null &&
           restrictionsTimeframe_ != com.evemeta.zdk.pb.event.server.events.Timeframe.getDefaultInstance()) {
           getRestrictionsTimeframeBuilder().mergeFrom(value);
@@ -3481,7 +3015,7 @@ private static final long serialVersionUID = 0L;
         restrictionsTimeframeBuilder_.mergeFrom(value);
       }
       if (restrictionsTimeframe_ != null) {
-        bitField0_ |= 0x00000800;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       return this;
@@ -3491,10 +3025,10 @@ private static final long serialVersionUID = 0L;
      * todo;
      * </pre>
      *
-     * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 12;</code>
+     * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 10;</code>
      */
     public Builder clearRestrictionsTimeframe() {
-      bitField0_ = (bitField0_ & ~0x00000800);
+      bitField0_ = (bitField0_ & ~0x00000200);
       restrictionsTimeframe_ = null;
       if (restrictionsTimeframeBuilder_ != null) {
         restrictionsTimeframeBuilder_.dispose();
@@ -3508,10 +3042,10 @@ private static final long serialVersionUID = 0L;
      * todo;
      * </pre>
      *
-     * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 12;</code>
+     * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 10;</code>
      */
     public com.evemeta.zdk.pb.event.server.events.Timeframe.Builder getRestrictionsTimeframeBuilder() {
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00000200;
       onChanged();
       return internalGetRestrictionsTimeframeFieldBuilder().getBuilder();
     }
@@ -3520,7 +3054,7 @@ private static final long serialVersionUID = 0L;
      * todo;
      * </pre>
      *
-     * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 12;</code>
+     * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 10;</code>
      */
     public com.evemeta.zdk.pb.event.server.events.TimeframeOrBuilder getRestrictionsTimeframeOrBuilder() {
       if (restrictionsTimeframeBuilder_ != null) {
@@ -3535,7 +3069,7 @@ private static final long serialVersionUID = 0L;
      * todo;
      * </pre>
      *
-     * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 12;</code>
+     * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 10;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.evemeta.zdk.pb.event.server.events.Timeframe, com.evemeta.zdk.pb.event.server.events.Timeframe.Builder, com.evemeta.zdk.pb.event.server.events.TimeframeOrBuilder> 

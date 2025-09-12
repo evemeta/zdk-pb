@@ -91,8 +91,8 @@ public final class Entities {
       "ent\"\230\001\n\005Query\0223\n\005order\030\001 \001(\0162$.event.eve" +
       "nts.public.server.v1.Order\022\r\n\005limit\030\002 \001(" +
       "\003\022\016\n\006offset\030\003 \001(\003\022;\n\tcondition\030\004 \001(\0132(.e" +
-      "vent.events.public.server.v1.Condition\"\216" +
-      "\006\n\007Context\0223\n\005event\030\001 \001(\0132$.event.events" +
+      "vent.events.public.server.v1.Condition\"\200" +
+      "\005\n\007Context\0223\n\005event\030\001 \001(\0132$.event.events" +
       ".public.server.v1.Event\022A\n\017event_timefra" +
       "me\030\002 \001(\0132(.event.events.public.server.v1" +
       ".Timeframe\022/\n\004chat\030\003 \001(\0132!.chat.chats.pu" +
@@ -104,19 +104,16 @@ public final class Entities {
       "Timeframe\0227\n\007members\030\007 \003(\0132&.event.membe" +
       "rs.public.server.v1.Member\022C\n\021members_ti" +
       "meframe\030\010 \001(\0132(.event.events.public.serv" +
-      "er.v1.Timeframe\022C\n\021streams_timeframe\030\t \001" +
-      "(\0132(.event.events.public.server.v1.Timef" +
-      "rame\022G\n\025connections_timeframe\030\n \001(\0132(.ev" +
-      "ent.events.public.server.v1.Timeframe\022F\n" +
-      "\014restrictions\030\013 \003(\01320.event.restrictions" +
-      ".public.server.v1.Restriction\022H\n\026restric" +
-      "tions_timeframe\030\014 \001(\0132(.event.events.pub" +
-      "lic.server.v1.Timeframe\"\030\n\tCondition\022\013\n\003" +
-      "ids\030\001 \003(\t\"/\n\tTimeframe\022\020\n\010commence\030\001 \001(\003" +
-      "\022\020\n\010complete\030\002 \001(\003Bs\n&com.evemeta.zdk.pb" +
-      ".event.server.eventsP\001ZGgitlab.com/eveme" +
-      "ta/zdk/pb/out/go/event/events/public/ser" +
-      "ver/v1;eventspbb\006proto3"
+      "er.v1.Timeframe\022F\n\014restrictions\030\t \003(\01320." +
+      "event.restrictions.public.server.v1.Rest" +
+      "riction\022H\n\026restrictions_timeframe\030\n \001(\0132" +
+      "(.event.events.public.server.v1.Timefram" +
+      "e\"\030\n\tCondition\022\013\n\003ids\030\001 \003(\t\"/\n\tTimeframe" +
+      "\022\020\n\010commence\030\001 \001(\003\022\020\n\010complete\030\002 \001(\003Bs\n&" +
+      "com.evemeta.zdk.pb.event.server.eventsP\001" +
+      "ZGgitlab.com/evemeta/zdk/pb/out/go/event" +
+      "/events/public/server/v1;eventspbb\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -155,7 +152,7 @@ public final class Entities {
     internal_static_event_events_public_server_v1_Context_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_event_events_public_server_v1_Context_descriptor,
-        new java.lang.String[] { "Event", "EventTimeframe", "Chat", "ChatTimeframe", "Member", "MemberTimeframe", "Members", "MembersTimeframe", "StreamsTimeframe", "ConnectionsTimeframe", "Restrictions", "RestrictionsTimeframe", });
+        new java.lang.String[] { "Event", "EventTimeframe", "Chat", "ChatTimeframe", "Member", "MemberTimeframe", "Members", "MembersTimeframe", "Restrictions", "RestrictionsTimeframe", });
     internal_static_event_events_public_server_v1_Condition_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_event_events_public_server_v1_Condition_fieldAccessorTable = new

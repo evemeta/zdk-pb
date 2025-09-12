@@ -202,25 +202,13 @@ export interface Context {
     /**
      * todo;
      *
-     * @generated from protobuf field: event.events.public.server.v1.Timeframe streams_timeframe = 9;
-     */
-    streamsTimeframe?: Timeframe;
-    /**
-     * todo;
-     *
-     * @generated from protobuf field: event.events.public.server.v1.Timeframe connections_timeframe = 10;
-     */
-    connectionsTimeframe?: Timeframe;
-    /**
-     * todo;
-     *
-     * @generated from protobuf field: repeated event.restrictions.public.server.v1.Restriction restrictions = 11;
+     * @generated from protobuf field: repeated event.restrictions.public.server.v1.Restriction restrictions = 9;
      */
     restrictions: Restriction[];
     /**
      * todo;
      *
-     * @generated from protobuf field: event.events.public.server.v1.Timeframe restrictions_timeframe = 12;
+     * @generated from protobuf field: event.events.public.server.v1.Timeframe restrictions_timeframe = 10;
      */
     restrictionsTimeframe?: Timeframe;
 }
@@ -538,10 +526,8 @@ class Context$Type extends MessageType<Context> {
             { no: 6, name: "member_timeframe", kind: "message", T: () => Timeframe },
             { no: 7, name: "members", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => Member },
             { no: 8, name: "members_timeframe", kind: "message", T: () => Timeframe },
-            { no: 9, name: "streams_timeframe", kind: "message", T: () => Timeframe },
-            { no: 10, name: "connections_timeframe", kind: "message", T: () => Timeframe },
-            { no: 11, name: "restrictions", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => Restriction },
-            { no: 12, name: "restrictions_timeframe", kind: "message", T: () => Timeframe }
+            { no: 9, name: "restrictions", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => Restriction },
+            { no: 10, name: "restrictions_timeframe", kind: "message", T: () => Timeframe }
         ]);
     }
     create(value?: PartialMessage<Context>): Context {
@@ -581,16 +567,10 @@ class Context$Type extends MessageType<Context> {
                 case /* event.events.public.server.v1.Timeframe members_timeframe */ 8:
                     message.membersTimeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.membersTimeframe);
                     break;
-                case /* event.events.public.server.v1.Timeframe streams_timeframe */ 9:
-                    message.streamsTimeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.streamsTimeframe);
-                    break;
-                case /* event.events.public.server.v1.Timeframe connections_timeframe */ 10:
-                    message.connectionsTimeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.connectionsTimeframe);
-                    break;
-                case /* repeated event.restrictions.public.server.v1.Restriction restrictions */ 11:
+                case /* repeated event.restrictions.public.server.v1.Restriction restrictions */ 9:
                     message.restrictions.push(Restriction.internalBinaryRead(reader, reader.uint32(), options));
                     break;
-                case /* event.events.public.server.v1.Timeframe restrictions_timeframe */ 12:
+                case /* event.events.public.server.v1.Timeframe restrictions_timeframe */ 10:
                     message.restrictionsTimeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.restrictionsTimeframe);
                     break;
                 default:
@@ -629,18 +609,12 @@ class Context$Type extends MessageType<Context> {
         /* event.events.public.server.v1.Timeframe members_timeframe = 8; */
         if (message.membersTimeframe)
             Timeframe.internalBinaryWrite(message.membersTimeframe, writer.tag(8, WireType.LengthDelimited).fork(), options).join();
-        /* event.events.public.server.v1.Timeframe streams_timeframe = 9; */
-        if (message.streamsTimeframe)
-            Timeframe.internalBinaryWrite(message.streamsTimeframe, writer.tag(9, WireType.LengthDelimited).fork(), options).join();
-        /* event.events.public.server.v1.Timeframe connections_timeframe = 10; */
-        if (message.connectionsTimeframe)
-            Timeframe.internalBinaryWrite(message.connectionsTimeframe, writer.tag(10, WireType.LengthDelimited).fork(), options).join();
-        /* repeated event.restrictions.public.server.v1.Restriction restrictions = 11; */
+        /* repeated event.restrictions.public.server.v1.Restriction restrictions = 9; */
         for (let i = 0; i < message.restrictions.length; i++)
-            Restriction.internalBinaryWrite(message.restrictions[i], writer.tag(11, WireType.LengthDelimited).fork(), options).join();
-        /* event.events.public.server.v1.Timeframe restrictions_timeframe = 12; */
+            Restriction.internalBinaryWrite(message.restrictions[i], writer.tag(9, WireType.LengthDelimited).fork(), options).join();
+        /* event.events.public.server.v1.Timeframe restrictions_timeframe = 10; */
         if (message.restrictionsTimeframe)
-            Timeframe.internalBinaryWrite(message.restrictionsTimeframe, writer.tag(12, WireType.LengthDelimited).fork(), options).join();
+            Timeframe.internalBinaryWrite(message.restrictionsTimeframe, writer.tag(10, WireType.LengthDelimited).fork(), options).join();
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

@@ -248,61 +248,7 @@ public interface ContextOrBuilder extends
    * todo;
    * </pre>
    *
-   * <code>.event.events.public.server.v1.Timeframe streams_timeframe = 9;</code>
-   * @return Whether the streamsTimeframe field is set.
-   */
-  boolean hasStreamsTimeframe();
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>.event.events.public.server.v1.Timeframe streams_timeframe = 9;</code>
-   * @return The streamsTimeframe.
-   */
-  com.evemeta.zdk.pb.event.server.events.Timeframe getStreamsTimeframe();
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>.event.events.public.server.v1.Timeframe streams_timeframe = 9;</code>
-   */
-  com.evemeta.zdk.pb.event.server.events.TimeframeOrBuilder getStreamsTimeframeOrBuilder();
-
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>.event.events.public.server.v1.Timeframe connections_timeframe = 10;</code>
-   * @return Whether the connectionsTimeframe field is set.
-   */
-  boolean hasConnectionsTimeframe();
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>.event.events.public.server.v1.Timeframe connections_timeframe = 10;</code>
-   * @return The connectionsTimeframe.
-   */
-  com.evemeta.zdk.pb.event.server.events.Timeframe getConnectionsTimeframe();
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>.event.events.public.server.v1.Timeframe connections_timeframe = 10;</code>
-   */
-  com.evemeta.zdk.pb.event.server.events.TimeframeOrBuilder getConnectionsTimeframeOrBuilder();
-
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
    */
   java.util.List<com.evemeta.zdk.pb.event.server.restrictions.Restriction> 
       getRestrictionsList();
@@ -311,7 +257,7 @@ public interface ContextOrBuilder extends
    * todo;
    * </pre>
    *
-   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
    */
   com.evemeta.zdk.pb.event.server.restrictions.Restriction getRestrictions(int index);
   /**
@@ -319,7 +265,7 @@ public interface ContextOrBuilder extends
    * todo;
    * </pre>
    *
-   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
    */
   int getRestrictionsCount();
   /**
@@ -327,7 +273,7 @@ public interface ContextOrBuilder extends
    * todo;
    * </pre>
    *
-   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
    */
   java.util.List<? extends com.evemeta.zdk.pb.event.server.restrictions.RestrictionOrBuilder> 
       getRestrictionsOrBuilderList();
@@ -336,7 +282,7 @@ public interface ContextOrBuilder extends
    * todo;
    * </pre>
    *
-   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
+   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
    */
   com.evemeta.zdk.pb.event.server.restrictions.RestrictionOrBuilder getRestrictionsOrBuilder(
       int index);
@@ -346,7 +292,7 @@ public interface ContextOrBuilder extends
    * todo;
    * </pre>
    *
-   * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 12;</code>
+   * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 10;</code>
    * @return Whether the restrictionsTimeframe field is set.
    */
   boolean hasRestrictionsTimeframe();
@@ -355,7 +301,7 @@ public interface ContextOrBuilder extends
    * todo;
    * </pre>
    *
-   * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 12;</code>
+   * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 10;</code>
    * @return The restrictionsTimeframe.
    */
   com.evemeta.zdk.pb.event.server.events.Timeframe getRestrictionsTimeframe();
@@ -364,7 +310,7 @@ public interface ContextOrBuilder extends
    * todo;
    * </pre>
    *
-   * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 12;</code>
+   * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 10;</code>
    */
   com.evemeta.zdk.pb.event.server.events.TimeframeOrBuilder getRestrictionsTimeframeOrBuilder();
 }
