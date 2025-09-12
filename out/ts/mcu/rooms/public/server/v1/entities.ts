@@ -352,7 +352,7 @@ class CellConfig$Type extends MessageType<CellConfig> {
     constructor() {
         super("mcu.rooms.public.server.v1.CellConfig", [
             { no: 1, name: "count", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
-            { no: 2, name: "cells", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => Cell }
+            { no: 2, name: "cells", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => Cell }
         ]);
     }
     create(value?: PartialMessage<CellConfig>): CellConfig {
@@ -408,7 +408,7 @@ class Layout$Type extends MessageType<Layout> {
         super("mcu.rooms.public.server.v1.Layout", [
             { no: 1, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 2, name: "resolution", kind: "message", T: () => Resolution },
-            { no: 3, name: "config", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => LayoutCell },
+            { no: 3, name: "config", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => LayoutCell },
             { no: 4, name: "cell_config", kind: "message", T: () => CellConfig },
             { no: 5, name: "version", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 6, name: "seed", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
