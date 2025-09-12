@@ -1,0 +1,78 @@
+syntax = "proto3";
+
+package event.restrictions.public.server.v1;
+
+import "event/restrictions/public/server/v1/enums.proto";
+import "event/restrictions/public/server/v1/entities.proto";
+
+option java_multiple_files = true;
+option java_package = "com.evemeta.zdk.pb.event.server.restrictions";
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/restrictions/public/server/v1;restrictionspb";
+
+// CountRequest represents a message designed to count restrictions based on a given query.
+message CountRequest {
+    // Represents the specifications and conditions under which restrictions should be counted.
+    event.restrictions.public.server.v1.Query query = 1;
+}
+
+// CountResponse represents a message that provides the result of the count procedure.
+message CountResponse {
+    // Represents the total number of restrictions that match the criteria of the given query.
+    int64 total = 1;
+}
+
+// SelectRequest represents a message designed to retrieve specific restrictions based on a given query.
+message SelectRequest {
+    // Represents the specifications and conditions under which particular restrictions should be retrieved.
+    event.restrictions.public.server.v1.Query query = 1;
+}
+
+// SelectResponse represents a message that provides the result of the select procedure.
+message SelectResponse {
+    // Represents a list of restrictions that match the criteria of the given query.
+    repeated event.restrictions.public.server.v1.Restriction restrictions = 1;
+}
+
+// RangeRequest represents a message designed to retrieve a chunk of restrictions based on a given query.
+message RangeRequest {
+    // Represents the specifications and conditions under which a chunk of restrictions should be retrieved.
+    event.restrictions.public.server.v1.Query query = 1;
+}
+
+// RangeResponse represents a message that provides the result of the range procedure.
+message RangeResponse {
+    // Represents a chunk of restrictions that match the criteria of the given query.
+    event.restrictions.public.server.v1.Chunk chunk = 1;
+}
+
+// CreateRequest represents a restriction designed to create a new restriction.
+message CreateRequest {
+    // todo;
+    string user_id = 1;
+    // Represents the unique identifier of the event in which the restriction will be created.
+    string event_id = 2;
+    // todo;
+    event.restrictions.public.server.v1.Kind kind = 3;
+    // todo;
+    string reason = 4;
+    // todo;
+    int64 duration = 5;
+}
+
+// RangeResponse represents a restriction that provides the result of the create procedure.
+message CreateResponse {
+    // Represents the comprehensive details of the created restriction.
+    event.restrictions.public.server.v1.Restriction restriction = 1;
+}
+
+// DeleteRequest represents a restriction designed to delete a specific restriction based on its unique identifier.
+message DeleteRequest {
+    // Represents the unique identifier of the restriction intended to be deleted.
+    string id = 1;
+}
+
+// RangeResponse represents a restriction that provides the result of the delete procedure.
+message DeleteResponse {
+    // Represents the comprehensive details of the deleted restriction.
+    event.restrictions.public.server.v1.Restriction restriction = 1;
+}

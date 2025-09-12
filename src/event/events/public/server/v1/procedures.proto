@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package event.events.public.server.v1;
+
+import "event/events/public/server/v1/entities.proto";
+
+option java_multiple_files = true;
+option java_package = "com.evemeta.zdk.pb.event.server.events";
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/events/public/server/v1;eventspb";
+
+// CountRequest represents a message designed to count events based on a given query.
+message CountRequest {
+    // Represents the specifications and conditions under which events should be counted.
+    event.events.public.server.v1.Query query = 1;
+}
+
+// CountResponse represents a message that provides the result of the count procedure.
+message CountResponse {
+    // Represents the total number of events that match the criteria of the given query.
+    int64 total = 1;
+}
+
+// SelectRequest represents a message designed to retrieve specific events based on a given query.
+message SelectRequest {
+    // Represents the specifications and conditions under which particular events should be retrieved.
+    event.events.public.server.v1.Query query = 1;
+}
+
+// SelectResponse represents a message that provides the result of the select procedure.
+message SelectResponse {
+    // Represents a list of events that match the criteria of the given query.
+    repeated event.events.public.server.v1.Event events = 1;
+}
+
+// RangeRequest represents a message designed to retrieve a chunk of events based on a given query.
+message RangeRequest {
+    // Represents the specifications and conditions under which a chunk of events should be retrieved.
+    event.events.public.server.v1.Query query = 1;
+}
+
+// RangeResponse represents a message that provides the result of the range procedure.
+message RangeResponse {
+    // Represents a chunk of events that match the criteria of the given query.
+    event.events.public.server.v1.Chunk chunk = 1;
+}
+
+// ContextRequest represents a message designed to retrieve the context associated with a specific event based on its unique identifier.
+message ContextRequest {
+    // Represents the unique identifier for the event whose context is to be retrieved.
+    string id = 1;
+}
+
+// ContextResponse represents a message that provides the result of the context procedure.
+message ContextResponse {
+    // Represents the snapshot of the event, including its current state corresponding to the unique identifier specified in the request.
+    event.events.public.server.v1.Context context = 1;
+}

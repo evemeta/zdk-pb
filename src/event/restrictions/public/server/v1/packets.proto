@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package event.restrictions.public.server.v1;
+
+import "event/restrictions/public/server/v1/entities.proto";
+
+option java_multiple_files = true;
+option java_package = "com.evemeta.zdk.pb.event.server.restrictions";
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/restrictions/public/server/v1;restrictionspb";
+
+// CreateRestrictionPacket todo;
+message CreateRestrictionPacket {
+    // Represents the comprehensive details of the newly created restriction.
+    event.restrictions.public.server.v1.Restriction restriction = 3;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+    event.restrictions.public.server.v1.Timeframe timeframe = 4;
+}
+
+// DeleteRestrictionPacket todo;
+message DeleteRestrictionPacket {
+    // todo;
+    string id = 1;
+    // todo;
+    string event_id = 2;
+    // todo;
+    event.restrictions.public.server.v1.Timeframe timeframe = 4;
+}

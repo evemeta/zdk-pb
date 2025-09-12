@@ -4,14 +4,6 @@
 import type { RpcTransport } from "@protobuf-ts/runtime-rpc";
 import type { ServiceInfo } from "@protobuf-ts/runtime-rpc";
 import { Service } from "./services";
-import type { UnblockResponse } from "./procedures";
-import type { UnblockRequest } from "./procedures";
-import type { BlockResponse } from "./procedures";
-import type { BlockRequest } from "./procedures";
-import type { UnmuteResponse } from "./procedures";
-import type { UnmuteRequest } from "./procedures";
-import type { MuteResponse } from "./procedures";
-import type { MuteRequest } from "./procedures";
 import type { KickResponse } from "./procedures";
 import type { KickRequest } from "./procedures";
 import type { SelectResponse } from "./procedures";
@@ -51,30 +43,6 @@ export interface IServiceClient {
      * @generated from protobuf rpc: Kick(chat.members.public.server.v1.KickRequest) returns (chat.members.public.server.v1.KickResponse);
      */
     kick(input: KickRequest, options?: RpcOptions): UnaryCall<KickRequest, KickResponse>;
-    /**
-     * Mute represents a procedure that silences a member for a specified duration or indefinitely.
-     *
-     * @generated from protobuf rpc: Mute(chat.members.public.server.v1.MuteRequest) returns (chat.members.public.server.v1.MuteResponse);
-     */
-    mute(input: MuteRequest, options?: RpcOptions): UnaryCall<MuteRequest, MuteResponse>;
-    /**
-     * Unmute represents a procedure that restores communication privileges for a previously muted member.
-     *
-     * @generated from protobuf rpc: Unmute(chat.members.public.server.v1.UnmuteRequest) returns (chat.members.public.server.v1.UnmuteResponse);
-     */
-    unmute(input: UnmuteRequest, options?: RpcOptions): UnaryCall<UnmuteRequest, UnmuteResponse>;
-    /**
-     * Block represents a procedure that forcefully removes a member from a chat and prevents them from participating for a specified duration or indefinitely.
-     *
-     * @generated from protobuf rpc: Block(chat.members.public.server.v1.BlockRequest) returns (chat.members.public.server.v1.BlockResponse);
-     */
-    block(input: BlockRequest, options?: RpcOptions): UnaryCall<BlockRequest, BlockResponse>;
-    /**
-     * Unblock represents a procedure that restores access privileges for a previously blocked member.
-     *
-     * @generated from protobuf rpc: Unblock(chat.members.public.server.v1.UnblockRequest) returns (chat.members.public.server.v1.UnblockResponse);
-     */
-    unblock(input: UnblockRequest, options?: RpcOptions): UnaryCall<UnblockRequest, UnblockResponse>;
 }
 /**
  * @generated from protobuf service chat.members.public.server.v1.Service
@@ -120,41 +88,5 @@ export class ServiceClient implements IServiceClient, ServiceInfo {
     kick(input: KickRequest, options?: RpcOptions): UnaryCall<KickRequest, KickResponse> {
         const method = this.methods[3], opt = this._transport.mergeOptions(options);
         return stackIntercept<KickRequest, KickResponse>("unary", this._transport, method, opt, input);
-    }
-    /**
-     * Mute represents a procedure that silences a member for a specified duration or indefinitely.
-     *
-     * @generated from protobuf rpc: Mute(chat.members.public.server.v1.MuteRequest) returns (chat.members.public.server.v1.MuteResponse);
-     */
-    mute(input: MuteRequest, options?: RpcOptions): UnaryCall<MuteRequest, MuteResponse> {
-        const method = this.methods[4], opt = this._transport.mergeOptions(options);
-        return stackIntercept<MuteRequest, MuteResponse>("unary", this._transport, method, opt, input);
-    }
-    /**
-     * Unmute represents a procedure that restores communication privileges for a previously muted member.
-     *
-     * @generated from protobuf rpc: Unmute(chat.members.public.server.v1.UnmuteRequest) returns (chat.members.public.server.v1.UnmuteResponse);
-     */
-    unmute(input: UnmuteRequest, options?: RpcOptions): UnaryCall<UnmuteRequest, UnmuteResponse> {
-        const method = this.methods[5], opt = this._transport.mergeOptions(options);
-        return stackIntercept<UnmuteRequest, UnmuteResponse>("unary", this._transport, method, opt, input);
-    }
-    /**
-     * Block represents a procedure that forcefully removes a member from a chat and prevents them from participating for a specified duration or indefinitely.
-     *
-     * @generated from protobuf rpc: Block(chat.members.public.server.v1.BlockRequest) returns (chat.members.public.server.v1.BlockResponse);
-     */
-    block(input: BlockRequest, options?: RpcOptions): UnaryCall<BlockRequest, BlockResponse> {
-        const method = this.methods[6], opt = this._transport.mergeOptions(options);
-        return stackIntercept<BlockRequest, BlockResponse>("unary", this._transport, method, opt, input);
-    }
-    /**
-     * Unblock represents a procedure that restores access privileges for a previously blocked member.
-     *
-     * @generated from protobuf rpc: Unblock(chat.members.public.server.v1.UnblockRequest) returns (chat.members.public.server.v1.UnblockResponse);
-     */
-    unblock(input: UnblockRequest, options?: RpcOptions): UnaryCall<UnblockRequest, UnblockResponse> {
-        const method = this.methods[7], opt = this._transport.mergeOptions(options);
-        return stackIntercept<UnblockRequest, UnblockResponse>("unary", this._transport, method, opt, input);
     }
 }

@@ -1,0 +1,104 @@
+syntax = "proto3";
+
+package event.restrictions.private.v1;
+
+import "event/members/private/v1/procedures.proto";
+import "event/restrictions/private/v1/enums.proto";
+import "event/restrictions/private/v1/entities.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/restrictions/private/v1;restrictionspb";
+
+message CountArgument {
+    bool                                cache = 1;
+    event.restrictions.private.v1.Query query = 2;
+}
+
+message CountRequest {
+    repeated event.restrictions.private.v1.CountArgument arguments = 1;
+}
+
+message CountResponse {
+    int64 total = 1;
+}
+
+message RangeArgument {
+    bool                                cache = 1;
+    event.restrictions.private.v1.Query query = 2;
+}
+
+message RangeRequest {
+    repeated event.restrictions.private.v1.RangeArgument arguments = 1;
+}
+
+message RangeResponse {
+    repeated event.restrictions.private.v1.Chunk chunks = 1;
+}
+
+message SelectArgument {
+    bool                                cache = 1;
+    event.restrictions.private.v1.Query query = 2;
+}
+
+message SelectRequest {
+    repeated event.restrictions.private.v1.SelectArgument arguments = 1;
+}
+
+message SelectResponse {
+    repeated event.restrictions.private.v1.Restriction restrictions = 1;
+}
+
+message CreateArgument {
+    string                             id       = 1;
+    string                             user_id  = 2;
+    string                             event_id = 3;
+    event.restrictions.private.v1.Kind kind     = 4;
+    string                             reason   = 5;
+    int64                              duration = 6;
+}
+
+message CreateRequest {
+    repeated event.restrictions.private.v1.CreateArgument arguments = 1;
+}
+
+message CreateResponse {
+    repeated event.restrictions.private.v1.Restriction restrictions = 1;
+}
+
+message CreateMutation {
+    event.restrictions.private.v1.CreateArgument     foundation      = 1;
+    event.restrictions.private.v1.CreateCondition    condition       = 2;
+    repeated event.restrictions.private.v1.Transient transient       = 3;
+    int64                                            begin_timestamp = 4;
+    int64                                            close_timestamp = 5;
+}
+
+message CreateCondition {
+    repeated event.members.private.v1.KickMutation kick_member_mutations = 1;
+}
+
+message CreateTransaction {
+    repeated event.restrictions.private.v1.CreateMutation mutations = 1;
+}
+
+message DeleteArgument {
+    event.restrictions.private.v1.Query query = 1;
+}
+
+message DeleteRequest {
+    repeated event.restrictions.private.v1.DeleteArgument arguments = 1;
+}
+
+message DeleteResponse {
+    repeated event.restrictions.private.v1.Restriction restrictions = 1;
+}
+
+message DeleteMutation {
+    event.restrictions.private.v1.DeleteArgument     foundation      = 1;
+    repeated event.restrictions.private.v1.Transient transient       = 2;
+    int64                                            begin_timestamp = 3;
+    int64                                            close_timestamp = 4;
+}
+
+message DeleteTransaction {
+    repeated event.restrictions.private.v1.DeleteMutation mutations = 1;
+}

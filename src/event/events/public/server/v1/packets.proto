@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+package event.events.public.server.v1;
+
+import "event/events/public/server/v1/entities.proto";
+import "event/events/public/server/v1/optionals.proto";
+import "event/members/public/server/v1/entities.proto";
+
+option java_multiple_files = true;
+option java_package = "com.evemeta.zdk.pb.event.server.events";
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/events/public/server/v1;eventspb";
+
+// EnterEventPacket is a notification sent to clients when a member has entered a event.
+// It provides the details of the member entering and the relevant timeframe associated with the event.
+message EnterEventPacket {
+    // Represents the comprehensive details of the member entering the event.
+    event.members.public.server.v1.Member member = 1;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+    event.events.public.server.v1.Timeframe timeframe = 2;
+}
+
+// LeaveEventPacket is a notification sent to clients when a member has left a event.
+// It provides the details of the member leaving and the relevant timeframe associated with the event.
+message LeaveEventPacket {
+    // Represents the comprehensive details of the member leaving the event.
+    event.members.public.server.v1.Member member = 1;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+    event.events.public.server.v1.Timeframe timeframe = 2;
+}
+
+// CreateEventPacket is a notification sent to clients when a new event has been created.
+// It provides the details of the event and the relevant timeframe associated with the event.
+message CreateEventPacket {
+    // Represents the comprehensive details of the newly created event.
+    event.events.public.server.v1.Event event = 1;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+    event.events.public.server.v1.Timeframe timeframe = 2;
+}
+
+// UpdateEventPacket is a notification sent to clients when a event has been updated.
+// It provides the identifier of the event, updated details, and the relevant timeframe associated with the event.
+message UpdateEventPacket {
+    // Represents the unique identifier of the event.
+    string id = 1;
+    // Represents a new or updated metadata associated with the event. It may be absent if no metadata changes occurred.
+    optional event.events.public.server.v1.OptionalMap metadata = 2;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+    event.events.public.server.v1.Timeframe timeframe = 3;
+}
+
+// DeleteEventPacket is a notification sent to clients when a event has been deleted.
+// It provides the identifier of the event and the relevant timeframe associated with the event.
+message DeleteEventPacket {
+    // Represents the unique identifier of the event.
+    string id = 1;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+    event.events.public.server.v1.Timeframe timeframe = 2;
+}
+
+// InvokeEventActionPacket todo;
+message InvokeEventActionPacket {
+    // todo;
+    string id = 1;
+    // todo;
+    string user_id = 2;
+    // todo;
+    string name = 3;
+    // todo;
+    map<string, string> data = 4;
+}

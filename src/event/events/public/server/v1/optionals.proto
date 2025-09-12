@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package event.events.public.server.v1;
+
+
+option java_multiple_files = true;
+option java_package = "com.evemeta.zdk.pb.event.server.events";
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/events/public/server/v1;eventspb";
+
+// OptionalMap represents a mapping of key-value pairs that can be intentionally left unset or null.
+// It allows for explicit control over the presence or absence of the map, accommodating scenarios where the map might be optional or intentionally omitted.
+message OptionalMap {
+    map<string, string> value = 1;
+}
+
+// OptionalInt64 todo;
+message OptionalInt64 {
+    int64 value = 1;
+}
