@@ -37,8 +37,10 @@ message Query {
 }
 
 message Condition {
-    repeated string                         ids     = 1;
-    repeated event.members.private.v1.Query members = 2;
+    repeated string                         ids      = 1;
+    repeated string                         chat_ids = 2;
+    repeated event.events.private.v1.Status statuses = 3;
+    repeated event.members.private.v1.Query members  = 4;
 }
 
 message Transient {
