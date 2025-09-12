@@ -18,5 +18,18 @@ enum Status {
 }
 
 enum Permission {
-    PermissionUnknown = 0;
+    PermissionUnknown              = 0;
+    PermissionChat                 = 100;
+    PermissionChatBlock            = 101;
+    PermissionChatUnblock          = 102;
+    PermissionChatMute             = 103;
+    PermissionChatUnmute           = 104;
+    PermissionChatMessageDelete    = 105;
+    PermissionChatKick             = 106;
+    permissionChatSlowmode         = 107;
+    permissionChatSlowmodeBypass   = 108;
+    PermissionRoom                 = 200;
+    PermissionRoomBlock            = 201;
+    PermissionRoomUnblock          = 202;
+    PermissionRoomKick             = 203;
 }
