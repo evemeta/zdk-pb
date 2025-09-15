@@ -7,7 +7,7 @@ package com.evemeta.zdk.pb.event.server.events;
 
 /**
  * <pre>
- * Kind todo;
+ * Kind represents an enumeration that specifies the type or classification of an event, indicating whether it is dependent on a parent object or independent.
  * </pre>
  *
  * Protobuf enum {@code event.events.public.server.v1.Kind}

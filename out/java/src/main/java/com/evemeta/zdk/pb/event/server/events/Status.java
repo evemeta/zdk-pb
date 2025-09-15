@@ -6,6 +6,10 @@
 package com.evemeta.zdk.pb.event.server.events;
 
 /**
+ * <pre>
+ * Status represents an enumeration that specifies the current state of an event, indicating whether it is pending, started, canceled, or finished.
+ * </pre>
+ *
  * Protobuf enum {@code event.events.public.server.v1.Status}
  */
 @com.google.protobuf.Generated

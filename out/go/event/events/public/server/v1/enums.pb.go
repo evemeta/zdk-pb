@@ -20,7 +20,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Kind todo;
+// Kind represents an enumeration that specifies the type or classification of an event, indicating whether it is dependent on a parent object or independent.
 type Kind int32
 
 const (
@@ -120,6 +120,7 @@ func (Order) EnumDescriptor() ([]byte, []int) {
 	return file_event_events_public_server_v1_enums_proto_rawDescGZIP(), []int{1}
 }
 
+// Status represents an enumeration that specifies the current state of an event, indicating whether it is pending, started, canceled, or finished.
 type Status int32
 
 const (
