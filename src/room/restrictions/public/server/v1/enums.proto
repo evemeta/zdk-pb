@@ -10,7 +10,7 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/restrictions/public/s
 // Kind todo;
 enum Kind {
     KindUnknown = 0;
-    KindEnter   = 1;
+    KindBlock   = 1;
 }
 
 // Order represents an enumeration that specifies the sort order for data retrieval, particularly in the context of querying.
