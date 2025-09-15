@@ -17,6 +17,10 @@ enum Permission {
     PermissionChatKick           = 106;
     PermissionChatSlowmode       = 107;
     PermissionChatSlowmodeBypass = 108;
+    PermissionRoom               = 200;
+    PermissionRoomBlock          = 201;
+    PermissionRoomUnblock        = 202;
+    PermissionRoomKick           = 203;
     PermissionEvent              = 300;
     PermissionEventBlock         = 301;
     PermissionEventUnblock       = 302;
