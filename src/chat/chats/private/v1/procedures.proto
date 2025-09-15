@@ -188,3 +188,49 @@ message LeaveCondition {
 message LeaveTransaction {
     repeated chat.chats.private.v1.LeaveMutation mutations = 1;
 }
+
+message EnableSlowmodeArgument {
+    chat.chats.private.v1.Query query = 1;
+}
+
+message EnableSlowmodeRequest {
+    repeated chat.chats.private.v1.EnableSlowmodeArgument arguments = 1;
+}
+
+message EnableSlowmodeResponse {
+    repeated chat.chats.private.v1.Chat chats = 1;
+}
+
+message EnableSlowmodeMutation {
+    chat.chats.private.v1.EnableSlowmodeArgument foundation      = 1;
+    repeated chat.chats.private.v1.Transient     transient       = 2;
+    int64                                        begin_timestamp = 3;
+    int64                                        close_timestamp = 4;
+}
+
+message EnableSlowmodeTransaction {
+    repeated chat.chats.private.v1.EnableSlowmodeMutation mutations = 1;
+}
+
+message DisableSlowmodeArgument {
+    chat.chats.private.v1.Query query = 1;
+}
+
+message DisableSlowmodeRequest {
+    repeated chat.chats.private.v1.DisableSlowmodeArgument arguments = 1;
+}
+
+message DisableSlowmodeResponse {
+    repeated chat.chats.private.v1.Chat chats = 1;
+}
+
+message DisableSlowmodeMutation {
+    chat.chats.private.v1.DisableSlowmodeArgument foundation      = 1;
+    repeated chat.chats.private.v1.Transient      transient       = 2;
+    int64                                         begin_timestamp = 3;
+    int64                                         close_timestamp = 4;
+}
+
+message DisableSlowmodeTransaction {
+    repeated chat.chats.private.v1.DisableSlowmodeMutation mutations = 1;
+}
