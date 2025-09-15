@@ -32,7 +32,7 @@ public interface EventOrBuilder extends
 
   /**
    * <pre>
-   * todo;
+   * Determines whatever the event is dependent or independent, it may depend on a parent object.
    * </pre>
    *
    * <code>.event.events.public.server.v1.Kind kind = 2;</code>
@@ -41,7 +41,7 @@ public interface EventOrBuilder extends
   int getKindValue();
   /**
    * <pre>
-   * todo;
+   * Determines whatever the event is dependent or independent, it may depend on a parent object.
    * </pre>
    *
    * <code>.event.events.public.server.v1.Kind kind = 2;</code>
@@ -51,7 +51,7 @@ public interface EventOrBuilder extends
 
   /**
    * <pre>
-   * todo;
+   * Status of the event (pending, started, canceled, or finished).
    * </pre>
    *
    * <code>.event.events.public.server.v1.Status status = 3;</code>
@@ -60,7 +60,7 @@ public interface EventOrBuilder extends
   int getStatusValue();
   /**
    * <pre>
-   * todo;
+   * Status of the event (pending, started, canceled, or finished).
    * </pre>
    *
    * <code>.event.events.public.server.v1.Status status = 3;</code>
@@ -124,7 +124,7 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * todo;
+   * Represents the timestamp indicating when this event was started.
    * </pre>
    *
    * <code>int64 start_time = 5;</code>
@@ -134,7 +134,7 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * todo;
+   * Represents the timestamp indicating when this event was canceled.
    * </pre>
    *
    * <code>int64 cancel_time = 6;</code>
@@ -144,7 +144,7 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * todo;
+   * Represents the timestamp indicating when this event was finished.
    * </pre>
    *
    * <code>int64 finish_time = 7;</code>

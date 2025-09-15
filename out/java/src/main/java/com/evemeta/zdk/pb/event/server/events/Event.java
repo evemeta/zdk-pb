@@ -114,7 +114,7 @@ private static final long serialVersionUID = 0L;
   private int kind_ = 0;
   /**
    * <pre>
-   * todo;
+   * Determines whatever the event is dependent or independent, it may depend on a parent object.
    * </pre>
    *
    * <code>.event.events.public.server.v1.Kind kind = 2;</code>
@@ -125,7 +125,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * todo;
+   * Determines whatever the event is dependent or independent, it may depend on a parent object.
    * </pre>
    *
    * <code>.event.events.public.server.v1.Kind kind = 2;</code>
@@ -140,7 +140,7 @@ private static final long serialVersionUID = 0L;
   private int status_ = 0;
   /**
    * <pre>
-   * todo;
+   * Status of the event (pending, started, canceled, or finished).
    * </pre>
    *
    * <code>.event.events.public.server.v1.Status status = 3;</code>
@@ -151,7 +151,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * todo;
+   * Status of the event (pending, started, canceled, or finished).
    * </pre>
    *
    * <code>.event.events.public.server.v1.Status status = 3;</code>
@@ -261,7 +261,7 @@ java.lang.String defaultValue) {
   private long startTime_ = 0L;
   /**
    * <pre>
-   * todo;
+   * Represents the timestamp indicating when this event was started.
    * </pre>
    *
    * <code>int64 start_time = 5;</code>
@@ -276,7 +276,7 @@ java.lang.String defaultValue) {
   private long cancelTime_ = 0L;
   /**
    * <pre>
-   * todo;
+   * Represents the timestamp indicating when this event was canceled.
    * </pre>
    *
    * <code>int64 cancel_time = 6;</code>
@@ -291,7 +291,7 @@ java.lang.String defaultValue) {
   private long finishTime_ = 0L;
   /**
    * <pre>
-   * todo;
+   * Represents the timestamp indicating when this event was finished.
    * </pre>
    *
    * <code>int64 finish_time = 7;</code>
@@ -951,7 +951,7 @@ java.lang.String defaultValue) {
     private int kind_ = 0;
     /**
      * <pre>
-     * todo;
+     * Determines whatever the event is dependent or independent, it may depend on a parent object.
      * </pre>
      *
      * <code>.event.events.public.server.v1.Kind kind = 2;</code>
@@ -962,7 +962,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Determines whatever the event is dependent or independent, it may depend on a parent object.
      * </pre>
      *
      * <code>.event.events.public.server.v1.Kind kind = 2;</code>
@@ -977,7 +977,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Determines whatever the event is dependent or independent, it may depend on a parent object.
      * </pre>
      *
      * <code>.event.events.public.server.v1.Kind kind = 2;</code>
@@ -990,7 +990,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Determines whatever the event is dependent or independent, it may depend on a parent object.
      * </pre>
      *
      * <code>.event.events.public.server.v1.Kind kind = 2;</code>
@@ -1006,7 +1006,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Determines whatever the event is dependent or independent, it may depend on a parent object.
      * </pre>
      *
      * <code>.event.events.public.server.v1.Kind kind = 2;</code>
@@ -1022,7 +1022,7 @@ java.lang.String defaultValue) {
     private int status_ = 0;
     /**
      * <pre>
-     * todo;
+     * Status of the event (pending, started, canceled, or finished).
      * </pre>
      *
      * <code>.event.events.public.server.v1.Status status = 3;</code>
@@ -1033,7 +1033,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Status of the event (pending, started, canceled, or finished).
      * </pre>
      *
      * <code>.event.events.public.server.v1.Status status = 3;</code>
@@ -1048,7 +1048,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Status of the event (pending, started, canceled, or finished).
      * </pre>
      *
      * <code>.event.events.public.server.v1.Status status = 3;</code>
@@ -1061,7 +1061,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Status of the event (pending, started, canceled, or finished).
      * </pre>
      *
      * <code>.event.events.public.server.v1.Status status = 3;</code>
@@ -1077,7 +1077,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Status of the event (pending, started, canceled, or finished).
      * </pre>
      *
      * <code>.event.events.public.server.v1.Status status = 3;</code>
@@ -1248,7 +1248,7 @@ java.lang.String defaultValue) {
     private long startTime_ ;
     /**
      * <pre>
-     * todo;
+     * Represents the timestamp indicating when this event was started.
      * </pre>
      *
      * <code>int64 start_time = 5;</code>
@@ -1260,7 +1260,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Represents the timestamp indicating when this event was started.
      * </pre>
      *
      * <code>int64 start_time = 5;</code>
@@ -1276,7 +1276,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Represents the timestamp indicating when this event was started.
      * </pre>
      *
      * <code>int64 start_time = 5;</code>
@@ -1292,7 +1292,7 @@ java.lang.String defaultValue) {
     private long cancelTime_ ;
     /**
      * <pre>
-     * todo;
+     * Represents the timestamp indicating when this event was canceled.
      * </pre>
      *
      * <code>int64 cancel_time = 6;</code>
@@ -1304,7 +1304,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Represents the timestamp indicating when this event was canceled.
      * </pre>
      *
      * <code>int64 cancel_time = 6;</code>
@@ -1320,7 +1320,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Represents the timestamp indicating when this event was canceled.
      * </pre>
      *
      * <code>int64 cancel_time = 6;</code>
@@ -1336,7 +1336,7 @@ java.lang.String defaultValue) {
     private long finishTime_ ;
     /**
      * <pre>
-     * todo;
+     * Represents the timestamp indicating when this event was finished.
      * </pre>
      *
      * <code>int64 finish_time = 7;</code>
@@ -1348,7 +1348,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Represents the timestamp indicating when this event was finished.
      * </pre>
      *
      * <code>int64 finish_time = 7;</code>
@@ -1364,7 +1364,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Represents the timestamp indicating when this event was finished.
      * </pre>
      *
      * <code>int64 finish_time = 7;</code>

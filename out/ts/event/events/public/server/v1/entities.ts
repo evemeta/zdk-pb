@@ -30,13 +30,13 @@ export interface Event {
      */
     id: string;
     /**
-     * todo;
+     * Determines whatever the event is dependent or independent, it may depend on a parent object.
      *
      * @generated from protobuf field: event.events.public.server.v1.Kind kind = 2;
      */
     kind: Kind;
     /**
-     * todo;
+     * Status of the event (pending, started, canceled, or finished).
      *
      * @generated from protobuf field: event.events.public.server.v1.Status status = 3;
      */
@@ -50,19 +50,19 @@ export interface Event {
         [key: string]: string;
     };
     /**
-     * todo;
+     * Represents the timestamp indicating when this event was started.
      *
      * @generated from protobuf field: int64 start_time = 5;
      */
     startTime: bigint;
     /**
-     * todo;
+     * Represents the timestamp indicating when this event was canceled.
      *
      * @generated from protobuf field: int64 cancel_time = 6;
      */
     cancelTime: bigint;
     /**
-     * todo;
+     * Represents the timestamp indicating when this event was finished.
      *
      * @generated from protobuf field: int64 finish_time = 7;
      */
