@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package event.tokens.private.v1;
+
+import "event/events/private/v1/enums.proto";
+import "event/events/private/v1/entities.proto";
+import "event/members/private/v1/enums.proto";
+import "event/members/private/v1/entities.proto";
+
+option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/tokens/private/v1;tokenspb";
+
+message CreateArgument {
+    string                                       user_id     = 1;
+    string                                       event_id    = 2;
+    map<string, string>                          metadata    = 3;
+    repeated event.members.private.v1.Permission permissions = 4;
+}
+
+message CreateRequest {
+    repeated event.tokens.private.v1.CreateArgument arguments = 1;
+}
+
+message CreateResponse {
+    repeated string tokens = 1;
+}
+
+message ExtractArgument {
+    string token = 1;
+}
+
+message ExtractRequest {
+    repeated event.tokens.private.v1.ExtractArgument arguments = 1;
+}
+
+message ExtractResponse {
+    repeated members.private.v1.Member members = 1;
+}

@@ -16,3 +16,9 @@ enum Order {
     OrderAscending  = 1;
     OrderDescending = 2;
 }
+
+enum SlowmodeStatus {
+    SlowmodeStatusUnknown  = 0;
+    SlowmodeStatusEnabled  = 1;
+    SlowmodeStatusDisabled = 2;
+}

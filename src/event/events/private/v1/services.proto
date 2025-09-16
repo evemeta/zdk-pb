@@ -103,4 +103,8 @@ service Service {
     rpc AnnounceFinishMutations(FinishTransaction) returns (FinishTransaction);
 
     rpc RollbackFinishMutations(FinishTransaction) returns (FinishTransaction);
+
+    //
+
+    rpc GenerateBroadcastAccessUrl(GenerateBroadcastAccessUrlRequest) returns (GenerateBroadcastAccessUrlResponse);
 }

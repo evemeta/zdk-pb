@@ -9,12 +9,19 @@ import "chat/messages/private/v1/entities.proto";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/chats/private/v1;chatspb";
 
 message Chat {
-    string                     id          = 1;
-    chat.chats.private.v1.Kind kind        = 2;
-    map<string, string>        metadata    = 3;
-    int64                      access_time = 4;
-    int64                      create_time = 5;
-    int64                      update_time = 6;
+    string                         id          = 1;
+    chat.chats.private.v1.Kind     kind        = 2;
+    map<string, string>            metadata    = 3;
+    chat.chats.private.v1.Slowmode slowmode    = 4;
+    int64                          access_time = 5;
+    int64                          create_time = 6;
+    int64                          update_time = 7;
+}
+
+message Slowmode {
+    chat.chats.private.v1.SlowmodeStatus status = 1;
+    int64 limit = 2;
+    int64 window = 3;
 }
 
 message Chunk {
