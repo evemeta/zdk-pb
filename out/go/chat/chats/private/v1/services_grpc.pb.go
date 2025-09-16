@@ -19,38 +19,48 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Service_Count_FullMethodName                   = "/chat.chats.private.v1.Service/Count"
-	Service_Range_FullMethodName                   = "/chat.chats.private.v1.Service/Range"
-	Service_Select_FullMethodName                  = "/chat.chats.private.v1.Service/Select"
-	Service_Create_FullMethodName                  = "/chat.chats.private.v1.Service/Create"
-	Service_InitiateCreateMutations_FullMethodName = "/chat.chats.private.v1.Service/InitiateCreateMutations"
-	Service_ValidateCreateMutations_FullMethodName = "/chat.chats.private.v1.Service/ValidateCreateMutations"
-	Service_FinalizeCreateMutations_FullMethodName = "/chat.chats.private.v1.Service/FinalizeCreateMutations"
-	Service_AnnounceCreateMutations_FullMethodName = "/chat.chats.private.v1.Service/AnnounceCreateMutations"
-	Service_RollbackCreateMutations_FullMethodName = "/chat.chats.private.v1.Service/RollbackCreateMutations"
-	Service_Update_FullMethodName                  = "/chat.chats.private.v1.Service/Update"
-	Service_InitiateUpdateMutations_FullMethodName = "/chat.chats.private.v1.Service/InitiateUpdateMutations"
-	Service_ValidateUpdateMutations_FullMethodName = "/chat.chats.private.v1.Service/ValidateUpdateMutations"
-	Service_FinalizeUpdateMutations_FullMethodName = "/chat.chats.private.v1.Service/FinalizeUpdateMutations"
-	Service_AnnounceUpdateMutations_FullMethodName = "/chat.chats.private.v1.Service/AnnounceUpdateMutations"
-	Service_RollbackUpdateMutations_FullMethodName = "/chat.chats.private.v1.Service/RollbackUpdateMutations"
-	Service_Delete_FullMethodName                  = "/chat.chats.private.v1.Service/Delete"
-	Service_InitiateDeleteMutations_FullMethodName = "/chat.chats.private.v1.Service/InitiateDeleteMutations"
-	Service_FinalizeDeleteMutations_FullMethodName = "/chat.chats.private.v1.Service/FinalizeDeleteMutations"
-	Service_AnnounceDeleteMutations_FullMethodName = "/chat.chats.private.v1.Service/AnnounceDeleteMutations"
-	Service_RollbackDeleteMutations_FullMethodName = "/chat.chats.private.v1.Service/RollbackDeleteMutations"
-	Service_Enter_FullMethodName                   = "/chat.chats.private.v1.Service/Enter"
-	Service_InitiateEnterMutations_FullMethodName  = "/chat.chats.private.v1.Service/InitiateEnterMutations"
-	Service_ValidateEnterMutations_FullMethodName  = "/chat.chats.private.v1.Service/ValidateEnterMutations"
-	Service_FinalizeEnterMutations_FullMethodName  = "/chat.chats.private.v1.Service/FinalizeEnterMutations"
-	Service_AnnounceEnterMutations_FullMethodName  = "/chat.chats.private.v1.Service/AnnounceEnterMutations"
-	Service_RollbackEnterMutations_FullMethodName  = "/chat.chats.private.v1.Service/RollbackEnterMutations"
-	Service_Leave_FullMethodName                   = "/chat.chats.private.v1.Service/Leave"
-	Service_InitiateLeaveMutations_FullMethodName  = "/chat.chats.private.v1.Service/InitiateLeaveMutations"
-	Service_ValidateLeaveMutations_FullMethodName  = "/chat.chats.private.v1.Service/ValidateLeaveMutations"
-	Service_FinalizeLeaveMutations_FullMethodName  = "/chat.chats.private.v1.Service/FinalizeLeaveMutations"
-	Service_AnnounceLeaveMutations_FullMethodName  = "/chat.chats.private.v1.Service/AnnounceLeaveMutations"
-	Service_RollbackLeaveMutations_FullMethodName  = "/chat.chats.private.v1.Service/RollbackLeaveMutations"
+	Service_Count_FullMethodName                            = "/chat.chats.private.v1.Service/Count"
+	Service_Range_FullMethodName                            = "/chat.chats.private.v1.Service/Range"
+	Service_Select_FullMethodName                           = "/chat.chats.private.v1.Service/Select"
+	Service_Create_FullMethodName                           = "/chat.chats.private.v1.Service/Create"
+	Service_InitiateCreateMutations_FullMethodName          = "/chat.chats.private.v1.Service/InitiateCreateMutations"
+	Service_ValidateCreateMutations_FullMethodName          = "/chat.chats.private.v1.Service/ValidateCreateMutations"
+	Service_FinalizeCreateMutations_FullMethodName          = "/chat.chats.private.v1.Service/FinalizeCreateMutations"
+	Service_AnnounceCreateMutations_FullMethodName          = "/chat.chats.private.v1.Service/AnnounceCreateMutations"
+	Service_RollbackCreateMutations_FullMethodName          = "/chat.chats.private.v1.Service/RollbackCreateMutations"
+	Service_Update_FullMethodName                           = "/chat.chats.private.v1.Service/Update"
+	Service_InitiateUpdateMutations_FullMethodName          = "/chat.chats.private.v1.Service/InitiateUpdateMutations"
+	Service_ValidateUpdateMutations_FullMethodName          = "/chat.chats.private.v1.Service/ValidateUpdateMutations"
+	Service_FinalizeUpdateMutations_FullMethodName          = "/chat.chats.private.v1.Service/FinalizeUpdateMutations"
+	Service_AnnounceUpdateMutations_FullMethodName          = "/chat.chats.private.v1.Service/AnnounceUpdateMutations"
+	Service_RollbackUpdateMutations_FullMethodName          = "/chat.chats.private.v1.Service/RollbackUpdateMutations"
+	Service_Delete_FullMethodName                           = "/chat.chats.private.v1.Service/Delete"
+	Service_InitiateDeleteMutations_FullMethodName          = "/chat.chats.private.v1.Service/InitiateDeleteMutations"
+	Service_FinalizeDeleteMutations_FullMethodName          = "/chat.chats.private.v1.Service/FinalizeDeleteMutations"
+	Service_AnnounceDeleteMutations_FullMethodName          = "/chat.chats.private.v1.Service/AnnounceDeleteMutations"
+	Service_RollbackDeleteMutations_FullMethodName          = "/chat.chats.private.v1.Service/RollbackDeleteMutations"
+	Service_Enter_FullMethodName                            = "/chat.chats.private.v1.Service/Enter"
+	Service_InitiateEnterMutations_FullMethodName           = "/chat.chats.private.v1.Service/InitiateEnterMutations"
+	Service_ValidateEnterMutations_FullMethodName           = "/chat.chats.private.v1.Service/ValidateEnterMutations"
+	Service_FinalizeEnterMutations_FullMethodName           = "/chat.chats.private.v1.Service/FinalizeEnterMutations"
+	Service_AnnounceEnterMutations_FullMethodName           = "/chat.chats.private.v1.Service/AnnounceEnterMutations"
+	Service_RollbackEnterMutations_FullMethodName           = "/chat.chats.private.v1.Service/RollbackEnterMutations"
+	Service_Leave_FullMethodName                            = "/chat.chats.private.v1.Service/Leave"
+	Service_InitiateLeaveMutations_FullMethodName           = "/chat.chats.private.v1.Service/InitiateLeaveMutations"
+	Service_ValidateLeaveMutations_FullMethodName           = "/chat.chats.private.v1.Service/ValidateLeaveMutations"
+	Service_FinalizeLeaveMutations_FullMethodName           = "/chat.chats.private.v1.Service/FinalizeLeaveMutations"
+	Service_AnnounceLeaveMutations_FullMethodName           = "/chat.chats.private.v1.Service/AnnounceLeaveMutations"
+	Service_RollbackLeaveMutations_FullMethodName           = "/chat.chats.private.v1.Service/RollbackLeaveMutations"
+	Service_EnableSlowmode_FullMethodName                   = "/chat.chats.private.v1.Service/EnableSlowmode"
+	Service_InitiateEnableSlowmodeMutations_FullMethodName  = "/chat.chats.private.v1.Service/InitiateEnableSlowmodeMutations"
+	Service_FinalizeEnableSlowmodeMutations_FullMethodName  = "/chat.chats.private.v1.Service/FinalizeEnableSlowmodeMutations"
+	Service_AnnounceEnableSlowmodeMutations_FullMethodName  = "/chat.chats.private.v1.Service/AnnounceEnableSlowmodeMutations"
+	Service_RollbackEnableSlowmodeMutations_FullMethodName  = "/chat.chats.private.v1.Service/RollbackEnableSlowmodeMutations"
+	Service_DisableSlowmode_FullMethodName                  = "/chat.chats.private.v1.Service/DisableSlowmode"
+	Service_InitiateDisableSlowmodeMutations_FullMethodName = "/chat.chats.private.v1.Service/InitiateDisableSlowmodeMutations"
+	Service_FinalizeDisableSlowmodeMutations_FullMethodName = "/chat.chats.private.v1.Service/FinalizeDisableSlowmodeMutations"
+	Service_AnnounceDisableSlowmodeMutations_FullMethodName = "/chat.chats.private.v1.Service/AnnounceDisableSlowmodeMutations"
+	Service_RollbackDisableSlowmodeMutations_FullMethodName = "/chat.chats.private.v1.Service/RollbackDisableSlowmodeMutations"
 )
 
 // ServiceClient is the client API for Service service.
@@ -89,6 +99,16 @@ type ServiceClient interface {
 	FinalizeLeaveMutations(ctx context.Context, in *LeaveTransaction, opts ...grpc.CallOption) (*LeaveTransaction, error)
 	AnnounceLeaveMutations(ctx context.Context, in *LeaveTransaction, opts ...grpc.CallOption) (*LeaveTransaction, error)
 	RollbackLeaveMutations(ctx context.Context, in *LeaveTransaction, opts ...grpc.CallOption) (*LeaveTransaction, error)
+	EnableSlowmode(ctx context.Context, in *EnableSlowmodeRequest, opts ...grpc.CallOption) (*EnableSlowmodeResponse, error)
+	InitiateEnableSlowmodeMutations(ctx context.Context, in *EnableSlowmodeTransaction, opts ...grpc.CallOption) (*EnableSlowmodeTransaction, error)
+	FinalizeEnableSlowmodeMutations(ctx context.Context, in *EnableSlowmodeTransaction, opts ...grpc.CallOption) (*EnableSlowmodeTransaction, error)
+	AnnounceEnableSlowmodeMutations(ctx context.Context, in *EnableSlowmodeTransaction, opts ...grpc.CallOption) (*EnableSlowmodeTransaction, error)
+	RollbackEnableSlowmodeMutations(ctx context.Context, in *EnableSlowmodeTransaction, opts ...grpc.CallOption) (*EnableSlowmodeTransaction, error)
+	DisableSlowmode(ctx context.Context, in *DisableSlowmodeRequest, opts ...grpc.CallOption) (*DisableSlowmodeResponse, error)
+	InitiateDisableSlowmodeMutations(ctx context.Context, in *DisableSlowmodeTransaction, opts ...grpc.CallOption) (*DisableSlowmodeTransaction, error)
+	FinalizeDisableSlowmodeMutations(ctx context.Context, in *DisableSlowmodeTransaction, opts ...grpc.CallOption) (*DisableSlowmodeTransaction, error)
+	AnnounceDisableSlowmodeMutations(ctx context.Context, in *DisableSlowmodeTransaction, opts ...grpc.CallOption) (*DisableSlowmodeTransaction, error)
+	RollbackDisableSlowmodeMutations(ctx context.Context, in *DisableSlowmodeTransaction, opts ...grpc.CallOption) (*DisableSlowmodeTransaction, error)
 }
 
 type serviceClient struct {
@@ -419,6 +439,106 @@ func (c *serviceClient) RollbackLeaveMutations(ctx context.Context, in *LeaveTra
 	return out, nil
 }
 
+func (c *serviceClient) EnableSlowmode(ctx context.Context, in *EnableSlowmodeRequest, opts ...grpc.CallOption) (*EnableSlowmodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EnableSlowmodeResponse)
+	err := c.cc.Invoke(ctx, Service_EnableSlowmode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) InitiateEnableSlowmodeMutations(ctx context.Context, in *EnableSlowmodeTransaction, opts ...grpc.CallOption) (*EnableSlowmodeTransaction, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EnableSlowmodeTransaction)
+	err := c.cc.Invoke(ctx, Service_InitiateEnableSlowmodeMutations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) FinalizeEnableSlowmodeMutations(ctx context.Context, in *EnableSlowmodeTransaction, opts ...grpc.CallOption) (*EnableSlowmodeTransaction, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EnableSlowmodeTransaction)
+	err := c.cc.Invoke(ctx, Service_FinalizeEnableSlowmodeMutations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) AnnounceEnableSlowmodeMutations(ctx context.Context, in *EnableSlowmodeTransaction, opts ...grpc.CallOption) (*EnableSlowmodeTransaction, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EnableSlowmodeTransaction)
+	err := c.cc.Invoke(ctx, Service_AnnounceEnableSlowmodeMutations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) RollbackEnableSlowmodeMutations(ctx context.Context, in *EnableSlowmodeTransaction, opts ...grpc.CallOption) (*EnableSlowmodeTransaction, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EnableSlowmodeTransaction)
+	err := c.cc.Invoke(ctx, Service_RollbackEnableSlowmodeMutations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) DisableSlowmode(ctx context.Context, in *DisableSlowmodeRequest, opts ...grpc.CallOption) (*DisableSlowmodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DisableSlowmodeResponse)
+	err := c.cc.Invoke(ctx, Service_DisableSlowmode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) InitiateDisableSlowmodeMutations(ctx context.Context, in *DisableSlowmodeTransaction, opts ...grpc.CallOption) (*DisableSlowmodeTransaction, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DisableSlowmodeTransaction)
+	err := c.cc.Invoke(ctx, Service_InitiateDisableSlowmodeMutations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) FinalizeDisableSlowmodeMutations(ctx context.Context, in *DisableSlowmodeTransaction, opts ...grpc.CallOption) (*DisableSlowmodeTransaction, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DisableSlowmodeTransaction)
+	err := c.cc.Invoke(ctx, Service_FinalizeDisableSlowmodeMutations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) AnnounceDisableSlowmodeMutations(ctx context.Context, in *DisableSlowmodeTransaction, opts ...grpc.CallOption) (*DisableSlowmodeTransaction, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DisableSlowmodeTransaction)
+	err := c.cc.Invoke(ctx, Service_AnnounceDisableSlowmodeMutations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) RollbackDisableSlowmodeMutations(ctx context.Context, in *DisableSlowmodeTransaction, opts ...grpc.CallOption) (*DisableSlowmodeTransaction, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DisableSlowmodeTransaction)
+	err := c.cc.Invoke(ctx, Service_RollbackDisableSlowmodeMutations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ServiceServer is the server API for Service service.
 // All implementations must embed UnimplementedServiceServer
 // for forward compatibility.
@@ -455,6 +575,16 @@ type ServiceServer interface {
 	FinalizeLeaveMutations(context.Context, *LeaveTransaction) (*LeaveTransaction, error)
 	AnnounceLeaveMutations(context.Context, *LeaveTransaction) (*LeaveTransaction, error)
 	RollbackLeaveMutations(context.Context, *LeaveTransaction) (*LeaveTransaction, error)
+	EnableSlowmode(context.Context, *EnableSlowmodeRequest) (*EnableSlowmodeResponse, error)
+	InitiateEnableSlowmodeMutations(context.Context, *EnableSlowmodeTransaction) (*EnableSlowmodeTransaction, error)
+	FinalizeEnableSlowmodeMutations(context.Context, *EnableSlowmodeTransaction) (*EnableSlowmodeTransaction, error)
+	AnnounceEnableSlowmodeMutations(context.Context, *EnableSlowmodeTransaction) (*EnableSlowmodeTransaction, error)
+	RollbackEnableSlowmodeMutations(context.Context, *EnableSlowmodeTransaction) (*EnableSlowmodeTransaction, error)
+	DisableSlowmode(context.Context, *DisableSlowmodeRequest) (*DisableSlowmodeResponse, error)
+	InitiateDisableSlowmodeMutations(context.Context, *DisableSlowmodeTransaction) (*DisableSlowmodeTransaction, error)
+	FinalizeDisableSlowmodeMutations(context.Context, *DisableSlowmodeTransaction) (*DisableSlowmodeTransaction, error)
+	AnnounceDisableSlowmodeMutations(context.Context, *DisableSlowmodeTransaction) (*DisableSlowmodeTransaction, error)
+	RollbackDisableSlowmodeMutations(context.Context, *DisableSlowmodeTransaction) (*DisableSlowmodeTransaction, error)
 	mustEmbedUnimplementedServiceServer()
 }
 
@@ -560,6 +690,36 @@ func (UnimplementedServiceServer) AnnounceLeaveMutations(context.Context, *Leave
 }
 func (UnimplementedServiceServer) RollbackLeaveMutations(context.Context, *LeaveTransaction) (*LeaveTransaction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RollbackLeaveMutations not implemented")
+}
+func (UnimplementedServiceServer) EnableSlowmode(context.Context, *EnableSlowmodeRequest) (*EnableSlowmodeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EnableSlowmode not implemented")
+}
+func (UnimplementedServiceServer) InitiateEnableSlowmodeMutations(context.Context, *EnableSlowmodeTransaction) (*EnableSlowmodeTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InitiateEnableSlowmodeMutations not implemented")
+}
+func (UnimplementedServiceServer) FinalizeEnableSlowmodeMutations(context.Context, *EnableSlowmodeTransaction) (*EnableSlowmodeTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FinalizeEnableSlowmodeMutations not implemented")
+}
+func (UnimplementedServiceServer) AnnounceEnableSlowmodeMutations(context.Context, *EnableSlowmodeTransaction) (*EnableSlowmodeTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AnnounceEnableSlowmodeMutations not implemented")
+}
+func (UnimplementedServiceServer) RollbackEnableSlowmodeMutations(context.Context, *EnableSlowmodeTransaction) (*EnableSlowmodeTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RollbackEnableSlowmodeMutations not implemented")
+}
+func (UnimplementedServiceServer) DisableSlowmode(context.Context, *DisableSlowmodeRequest) (*DisableSlowmodeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DisableSlowmode not implemented")
+}
+func (UnimplementedServiceServer) InitiateDisableSlowmodeMutations(context.Context, *DisableSlowmodeTransaction) (*DisableSlowmodeTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InitiateDisableSlowmodeMutations not implemented")
+}
+func (UnimplementedServiceServer) FinalizeDisableSlowmodeMutations(context.Context, *DisableSlowmodeTransaction) (*DisableSlowmodeTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FinalizeDisableSlowmodeMutations not implemented")
+}
+func (UnimplementedServiceServer) AnnounceDisableSlowmodeMutations(context.Context, *DisableSlowmodeTransaction) (*DisableSlowmodeTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AnnounceDisableSlowmodeMutations not implemented")
+}
+func (UnimplementedServiceServer) RollbackDisableSlowmodeMutations(context.Context, *DisableSlowmodeTransaction) (*DisableSlowmodeTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RollbackDisableSlowmodeMutations not implemented")
 }
 func (UnimplementedServiceServer) mustEmbedUnimplementedServiceServer() {}
 func (UnimplementedServiceServer) testEmbeddedByValue()                 {}
@@ -1158,6 +1318,186 @@ func _Service_RollbackLeaveMutations_Handler(srv interface{}, ctx context.Contex
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Service_EnableSlowmode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EnableSlowmodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).EnableSlowmode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_EnableSlowmode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).EnableSlowmode(ctx, req.(*EnableSlowmodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_InitiateEnableSlowmodeMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EnableSlowmodeTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).InitiateEnableSlowmodeMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_InitiateEnableSlowmodeMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).InitiateEnableSlowmodeMutations(ctx, req.(*EnableSlowmodeTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_FinalizeEnableSlowmodeMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EnableSlowmodeTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).FinalizeEnableSlowmodeMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_FinalizeEnableSlowmodeMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).FinalizeEnableSlowmodeMutations(ctx, req.(*EnableSlowmodeTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_AnnounceEnableSlowmodeMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EnableSlowmodeTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).AnnounceEnableSlowmodeMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_AnnounceEnableSlowmodeMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).AnnounceEnableSlowmodeMutations(ctx, req.(*EnableSlowmodeTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_RollbackEnableSlowmodeMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EnableSlowmodeTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).RollbackEnableSlowmodeMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_RollbackEnableSlowmodeMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).RollbackEnableSlowmodeMutations(ctx, req.(*EnableSlowmodeTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_DisableSlowmode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DisableSlowmodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).DisableSlowmode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_DisableSlowmode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).DisableSlowmode(ctx, req.(*DisableSlowmodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_InitiateDisableSlowmodeMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DisableSlowmodeTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).InitiateDisableSlowmodeMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_InitiateDisableSlowmodeMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).InitiateDisableSlowmodeMutations(ctx, req.(*DisableSlowmodeTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_FinalizeDisableSlowmodeMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DisableSlowmodeTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).FinalizeDisableSlowmodeMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_FinalizeDisableSlowmodeMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).FinalizeDisableSlowmodeMutations(ctx, req.(*DisableSlowmodeTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_AnnounceDisableSlowmodeMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DisableSlowmodeTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).AnnounceDisableSlowmodeMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_AnnounceDisableSlowmodeMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).AnnounceDisableSlowmodeMutations(ctx, req.(*DisableSlowmodeTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_RollbackDisableSlowmodeMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DisableSlowmodeTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).RollbackDisableSlowmodeMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_RollbackDisableSlowmodeMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).RollbackDisableSlowmodeMutations(ctx, req.(*DisableSlowmodeTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Service_ServiceDesc is the grpc.ServiceDesc for Service service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -1292,6 +1632,46 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RollbackLeaveMutations",
 			Handler:    _Service_RollbackLeaveMutations_Handler,
+		},
+		{
+			MethodName: "EnableSlowmode",
+			Handler:    _Service_EnableSlowmode_Handler,
+		},
+		{
+			MethodName: "InitiateEnableSlowmodeMutations",
+			Handler:    _Service_InitiateEnableSlowmodeMutations_Handler,
+		},
+		{
+			MethodName: "FinalizeEnableSlowmodeMutations",
+			Handler:    _Service_FinalizeEnableSlowmodeMutations_Handler,
+		},
+		{
+			MethodName: "AnnounceEnableSlowmodeMutations",
+			Handler:    _Service_AnnounceEnableSlowmodeMutations_Handler,
+		},
+		{
+			MethodName: "RollbackEnableSlowmodeMutations",
+			Handler:    _Service_RollbackEnableSlowmodeMutations_Handler,
+		},
+		{
+			MethodName: "DisableSlowmode",
+			Handler:    _Service_DisableSlowmode_Handler,
+		},
+		{
+			MethodName: "InitiateDisableSlowmodeMutations",
+			Handler:    _Service_InitiateDisableSlowmodeMutations_Handler,
+		},
+		{
+			MethodName: "FinalizeDisableSlowmodeMutations",
+			Handler:    _Service_FinalizeDisableSlowmodeMutations_Handler,
+		},
+		{
+			MethodName: "AnnounceDisableSlowmodeMutations",
+			Handler:    _Service_AnnounceDisableSlowmodeMutations_Handler,
+		},
+		{
+			MethodName: "RollbackDisableSlowmodeMutations",
+			Handler:    _Service_RollbackDisableSlowmodeMutations_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

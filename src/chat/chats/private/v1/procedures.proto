@@ -52,9 +52,10 @@ message SelectResponse {
 }
 
 message CreateArgument {
-    string              id          = 1;
-    chat.chats.private.v1.Kind kind = 2;
-    map<string, string> metadata    = 3;
+    string                         id       = 1;
+    chat.chats.private.v1.Kind     kind     = 2;
+    map<string, string>            metadata = 3;
+    chat.chats.private.v1.Slowmode slowmode = 4;
 }
 
 message CreateRequest {
@@ -77,8 +78,9 @@ message CreateTransaction {
 }
 
 message UpdateArgument {
-    chat.chats.private.v1.Query                query    = 1;
-    optional chat.chats.private.v1.OptionalMap metadata = 2;
+    chat.chats.private.v1.Query                     query    = 1;
+    optional chat.chats.private.v1.OptionalMap      metadata = 2;
+    optional chat.chats.private.v1.OptionalSlowmode slowmode = 3;
 }
 
 message UpdateRequest {
@@ -187,4 +189,50 @@ message LeaveCondition {
 
 message LeaveTransaction {
     repeated chat.chats.private.v1.LeaveMutation mutations = 1;
+}
+
+message EnableSlowmodeArgument {
+    chat.chats.private.v1.Query query = 1;
+}
+
+message EnableSlowmodeRequest {
+    repeated chat.chats.private.v1.EnableSlowmodeArgument arguments = 1;
+}
+
+message EnableSlowmodeResponse {
+    repeated chat.chats.private.v1.Chat chats = 1;
+}
+
+message EnableSlowmodeMutation {
+    chat.chats.private.v1.EnableSlowmodeArgument foundation      = 1;
+    repeated chat.chats.private.v1.Transient     transient       = 2;
+    int64                                        begin_timestamp = 3;
+    int64                                        close_timestamp = 4;
+}
+
+message EnableSlowmodeTransaction {
+    repeated chat.chats.private.v1.EnableSlowmodeMutation mutations = 1;
+}
+
+message DisableSlowmodeArgument {
+    chat.chats.private.v1.Query query = 1;
+}
+
+message DisableSlowmodeRequest {
+    repeated chat.chats.private.v1.DisableSlowmodeArgument arguments = 1;
+}
+
+message DisableSlowmodeResponse {
+    repeated chat.chats.private.v1.Chat chats = 1;
+}
+
+message DisableSlowmodeMutation {
+    chat.chats.private.v1.DisableSlowmodeArgument foundation      = 1;
+    repeated chat.chats.private.v1.Transient      transient       = 2;
+    int64                                         begin_timestamp = 3;
+    int64                                         close_timestamp = 4;
+}
+
+message DisableSlowmodeTransaction {
+    repeated chat.chats.private.v1.DisableSlowmodeMutation mutations = 1;
 }

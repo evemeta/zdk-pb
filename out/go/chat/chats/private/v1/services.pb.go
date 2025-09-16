@@ -24,7 +24,7 @@ var File_chat_chats_private_v1_services_proto protoreflect.FileDescriptor
 
 const file_chat_chats_private_v1_services_proto_rawDesc = "" +
 	"\n" +
-	"$chat/chats/private/v1/services.proto\x12\x15chat.chats.private.v1\x1a&chat/chats/private/v1/procedures.proto2\xff\x19\n" +
+	"$chat/chats/private/v1/services.proto\x12\x15chat.chats.private.v1\x1a&chat/chats/private/v1/procedures.proto2\xac$\n" +
 	"\aService\x12R\n" +
 	"\x05Count\x12#.chat.chats.private.v1.CountRequest\x1a$.chat.chats.private.v1.CountResponse\x12R\n" +
 	"\x05Range\x12#.chat.chats.private.v1.RangeRequest\x1a$.chat.chats.private.v1.RangeResponse\x12U\n" +
@@ -57,30 +57,46 @@ const file_chat_chats_private_v1_services_proto_rawDesc = "" +
 	"\x16ValidateLeaveMutations\x12'.chat.chats.private.v1.LeaveTransaction\x1a'.chat.chats.private.v1.LeaveTransaction\x12j\n" +
 	"\x16FinalizeLeaveMutations\x12'.chat.chats.private.v1.LeaveTransaction\x1a'.chat.chats.private.v1.LeaveTransaction\x12j\n" +
 	"\x16AnnounceLeaveMutations\x12'.chat.chats.private.v1.LeaveTransaction\x1a'.chat.chats.private.v1.LeaveTransaction\x12j\n" +
-	"\x16RollbackLeaveMutations\x12'.chat.chats.private.v1.LeaveTransaction\x1a'.chat.chats.private.v1.LeaveTransactionB@Z>gitlab.com/evemeta/zdk/pb/out/go/chat/chats/private/v1;chatspbb\x06proto3"
+	"\x16RollbackLeaveMutations\x12'.chat.chats.private.v1.LeaveTransaction\x1a'.chat.chats.private.v1.LeaveTransaction\x12m\n" +
+	"\x0eEnableSlowmode\x12,.chat.chats.private.v1.EnableSlowmodeRequest\x1a-.chat.chats.private.v1.EnableSlowmodeResponse\x12\x85\x01\n" +
+	"\x1fInitiateEnableSlowmodeMutations\x120.chat.chats.private.v1.EnableSlowmodeTransaction\x1a0.chat.chats.private.v1.EnableSlowmodeTransaction\x12\x85\x01\n" +
+	"\x1fFinalizeEnableSlowmodeMutations\x120.chat.chats.private.v1.EnableSlowmodeTransaction\x1a0.chat.chats.private.v1.EnableSlowmodeTransaction\x12\x85\x01\n" +
+	"\x1fAnnounceEnableSlowmodeMutations\x120.chat.chats.private.v1.EnableSlowmodeTransaction\x1a0.chat.chats.private.v1.EnableSlowmodeTransaction\x12\x85\x01\n" +
+	"\x1fRollbackEnableSlowmodeMutations\x120.chat.chats.private.v1.EnableSlowmodeTransaction\x1a0.chat.chats.private.v1.EnableSlowmodeTransaction\x12p\n" +
+	"\x0fDisableSlowmode\x12-.chat.chats.private.v1.DisableSlowmodeRequest\x1a..chat.chats.private.v1.DisableSlowmodeResponse\x12\x88\x01\n" +
+	" InitiateDisableSlowmodeMutations\x121.chat.chats.private.v1.DisableSlowmodeTransaction\x1a1.chat.chats.private.v1.DisableSlowmodeTransaction\x12\x88\x01\n" +
+	" FinalizeDisableSlowmodeMutations\x121.chat.chats.private.v1.DisableSlowmodeTransaction\x1a1.chat.chats.private.v1.DisableSlowmodeTransaction\x12\x88\x01\n" +
+	" AnnounceDisableSlowmodeMutations\x121.chat.chats.private.v1.DisableSlowmodeTransaction\x1a1.chat.chats.private.v1.DisableSlowmodeTransaction\x12\x88\x01\n" +
+	" RollbackDisableSlowmodeMutations\x121.chat.chats.private.v1.DisableSlowmodeTransaction\x1a1.chat.chats.private.v1.DisableSlowmodeTransactionB@Z>gitlab.com/evemeta/zdk/pb/out/go/chat/chats/private/v1;chatspbb\x06proto3"
 
 var file_chat_chats_private_v1_services_proto_goTypes = []any{
-	(*CountRequest)(nil),      // 0: chat.chats.private.v1.CountRequest
-	(*RangeRequest)(nil),      // 1: chat.chats.private.v1.RangeRequest
-	(*SelectRequest)(nil),     // 2: chat.chats.private.v1.SelectRequest
-	(*CreateRequest)(nil),     // 3: chat.chats.private.v1.CreateRequest
-	(*CreateTransaction)(nil), // 4: chat.chats.private.v1.CreateTransaction
-	(*UpdateRequest)(nil),     // 5: chat.chats.private.v1.UpdateRequest
-	(*UpdateTransaction)(nil), // 6: chat.chats.private.v1.UpdateTransaction
-	(*DeleteRequest)(nil),     // 7: chat.chats.private.v1.DeleteRequest
-	(*DeleteTransaction)(nil), // 8: chat.chats.private.v1.DeleteTransaction
-	(*EnterRequest)(nil),      // 9: chat.chats.private.v1.EnterRequest
-	(*EnterTransaction)(nil),  // 10: chat.chats.private.v1.EnterTransaction
-	(*LeaveRequest)(nil),      // 11: chat.chats.private.v1.LeaveRequest
-	(*LeaveTransaction)(nil),  // 12: chat.chats.private.v1.LeaveTransaction
-	(*CountResponse)(nil),     // 13: chat.chats.private.v1.CountResponse
-	(*RangeResponse)(nil),     // 14: chat.chats.private.v1.RangeResponse
-	(*SelectResponse)(nil),    // 15: chat.chats.private.v1.SelectResponse
-	(*CreateResponse)(nil),    // 16: chat.chats.private.v1.CreateResponse
-	(*UpdateResponse)(nil),    // 17: chat.chats.private.v1.UpdateResponse
-	(*DeleteResponse)(nil),    // 18: chat.chats.private.v1.DeleteResponse
-	(*EnterResponse)(nil),     // 19: chat.chats.private.v1.EnterResponse
-	(*LeaveResponse)(nil),     // 20: chat.chats.private.v1.LeaveResponse
+	(*CountRequest)(nil),               // 0: chat.chats.private.v1.CountRequest
+	(*RangeRequest)(nil),               // 1: chat.chats.private.v1.RangeRequest
+	(*SelectRequest)(nil),              // 2: chat.chats.private.v1.SelectRequest
+	(*CreateRequest)(nil),              // 3: chat.chats.private.v1.CreateRequest
+	(*CreateTransaction)(nil),          // 4: chat.chats.private.v1.CreateTransaction
+	(*UpdateRequest)(nil),              // 5: chat.chats.private.v1.UpdateRequest
+	(*UpdateTransaction)(nil),          // 6: chat.chats.private.v1.UpdateTransaction
+	(*DeleteRequest)(nil),              // 7: chat.chats.private.v1.DeleteRequest
+	(*DeleteTransaction)(nil),          // 8: chat.chats.private.v1.DeleteTransaction
+	(*EnterRequest)(nil),               // 9: chat.chats.private.v1.EnterRequest
+	(*EnterTransaction)(nil),           // 10: chat.chats.private.v1.EnterTransaction
+	(*LeaveRequest)(nil),               // 11: chat.chats.private.v1.LeaveRequest
+	(*LeaveTransaction)(nil),           // 12: chat.chats.private.v1.LeaveTransaction
+	(*EnableSlowmodeRequest)(nil),      // 13: chat.chats.private.v1.EnableSlowmodeRequest
+	(*EnableSlowmodeTransaction)(nil),  // 14: chat.chats.private.v1.EnableSlowmodeTransaction
+	(*DisableSlowmodeRequest)(nil),     // 15: chat.chats.private.v1.DisableSlowmodeRequest
+	(*DisableSlowmodeTransaction)(nil), // 16: chat.chats.private.v1.DisableSlowmodeTransaction
+	(*CountResponse)(nil),              // 17: chat.chats.private.v1.CountResponse
+	(*RangeResponse)(nil),              // 18: chat.chats.private.v1.RangeResponse
+	(*SelectResponse)(nil),             // 19: chat.chats.private.v1.SelectResponse
+	(*CreateResponse)(nil),             // 20: chat.chats.private.v1.CreateResponse
+	(*UpdateResponse)(nil),             // 21: chat.chats.private.v1.UpdateResponse
+	(*DeleteResponse)(nil),             // 22: chat.chats.private.v1.DeleteResponse
+	(*EnterResponse)(nil),              // 23: chat.chats.private.v1.EnterResponse
+	(*LeaveResponse)(nil),              // 24: chat.chats.private.v1.LeaveResponse
+	(*EnableSlowmodeResponse)(nil),     // 25: chat.chats.private.v1.EnableSlowmodeResponse
+	(*DisableSlowmodeResponse)(nil),    // 26: chat.chats.private.v1.DisableSlowmodeResponse
 }
 var file_chat_chats_private_v1_services_proto_depIdxs = []int32{
 	0,  // 0: chat.chats.private.v1.Service.Count:input_type -> chat.chats.private.v1.CountRequest
@@ -115,40 +131,60 @@ var file_chat_chats_private_v1_services_proto_depIdxs = []int32{
 	12, // 29: chat.chats.private.v1.Service.FinalizeLeaveMutations:input_type -> chat.chats.private.v1.LeaveTransaction
 	12, // 30: chat.chats.private.v1.Service.AnnounceLeaveMutations:input_type -> chat.chats.private.v1.LeaveTransaction
 	12, // 31: chat.chats.private.v1.Service.RollbackLeaveMutations:input_type -> chat.chats.private.v1.LeaveTransaction
-	13, // 32: chat.chats.private.v1.Service.Count:output_type -> chat.chats.private.v1.CountResponse
-	14, // 33: chat.chats.private.v1.Service.Range:output_type -> chat.chats.private.v1.RangeResponse
-	15, // 34: chat.chats.private.v1.Service.Select:output_type -> chat.chats.private.v1.SelectResponse
-	16, // 35: chat.chats.private.v1.Service.Create:output_type -> chat.chats.private.v1.CreateResponse
-	4,  // 36: chat.chats.private.v1.Service.InitiateCreateMutations:output_type -> chat.chats.private.v1.CreateTransaction
-	4,  // 37: chat.chats.private.v1.Service.ValidateCreateMutations:output_type -> chat.chats.private.v1.CreateTransaction
-	4,  // 38: chat.chats.private.v1.Service.FinalizeCreateMutations:output_type -> chat.chats.private.v1.CreateTransaction
-	4,  // 39: chat.chats.private.v1.Service.AnnounceCreateMutations:output_type -> chat.chats.private.v1.CreateTransaction
-	4,  // 40: chat.chats.private.v1.Service.RollbackCreateMutations:output_type -> chat.chats.private.v1.CreateTransaction
-	17, // 41: chat.chats.private.v1.Service.Update:output_type -> chat.chats.private.v1.UpdateResponse
-	6,  // 42: chat.chats.private.v1.Service.InitiateUpdateMutations:output_type -> chat.chats.private.v1.UpdateTransaction
-	6,  // 43: chat.chats.private.v1.Service.ValidateUpdateMutations:output_type -> chat.chats.private.v1.UpdateTransaction
-	6,  // 44: chat.chats.private.v1.Service.FinalizeUpdateMutations:output_type -> chat.chats.private.v1.UpdateTransaction
-	6,  // 45: chat.chats.private.v1.Service.AnnounceUpdateMutations:output_type -> chat.chats.private.v1.UpdateTransaction
-	6,  // 46: chat.chats.private.v1.Service.RollbackUpdateMutations:output_type -> chat.chats.private.v1.UpdateTransaction
-	18, // 47: chat.chats.private.v1.Service.Delete:output_type -> chat.chats.private.v1.DeleteResponse
-	8,  // 48: chat.chats.private.v1.Service.InitiateDeleteMutations:output_type -> chat.chats.private.v1.DeleteTransaction
-	8,  // 49: chat.chats.private.v1.Service.FinalizeDeleteMutations:output_type -> chat.chats.private.v1.DeleteTransaction
-	8,  // 50: chat.chats.private.v1.Service.AnnounceDeleteMutations:output_type -> chat.chats.private.v1.DeleteTransaction
-	8,  // 51: chat.chats.private.v1.Service.RollbackDeleteMutations:output_type -> chat.chats.private.v1.DeleteTransaction
-	19, // 52: chat.chats.private.v1.Service.Enter:output_type -> chat.chats.private.v1.EnterResponse
-	10, // 53: chat.chats.private.v1.Service.InitiateEnterMutations:output_type -> chat.chats.private.v1.EnterTransaction
-	10, // 54: chat.chats.private.v1.Service.ValidateEnterMutations:output_type -> chat.chats.private.v1.EnterTransaction
-	10, // 55: chat.chats.private.v1.Service.FinalizeEnterMutations:output_type -> chat.chats.private.v1.EnterTransaction
-	10, // 56: chat.chats.private.v1.Service.AnnounceEnterMutations:output_type -> chat.chats.private.v1.EnterTransaction
-	10, // 57: chat.chats.private.v1.Service.RollbackEnterMutations:output_type -> chat.chats.private.v1.EnterTransaction
-	20, // 58: chat.chats.private.v1.Service.Leave:output_type -> chat.chats.private.v1.LeaveResponse
-	12, // 59: chat.chats.private.v1.Service.InitiateLeaveMutations:output_type -> chat.chats.private.v1.LeaveTransaction
-	12, // 60: chat.chats.private.v1.Service.ValidateLeaveMutations:output_type -> chat.chats.private.v1.LeaveTransaction
-	12, // 61: chat.chats.private.v1.Service.FinalizeLeaveMutations:output_type -> chat.chats.private.v1.LeaveTransaction
-	12, // 62: chat.chats.private.v1.Service.AnnounceLeaveMutations:output_type -> chat.chats.private.v1.LeaveTransaction
-	12, // 63: chat.chats.private.v1.Service.RollbackLeaveMutations:output_type -> chat.chats.private.v1.LeaveTransaction
-	32, // [32:64] is the sub-list for method output_type
-	0,  // [0:32] is the sub-list for method input_type
+	13, // 32: chat.chats.private.v1.Service.EnableSlowmode:input_type -> chat.chats.private.v1.EnableSlowmodeRequest
+	14, // 33: chat.chats.private.v1.Service.InitiateEnableSlowmodeMutations:input_type -> chat.chats.private.v1.EnableSlowmodeTransaction
+	14, // 34: chat.chats.private.v1.Service.FinalizeEnableSlowmodeMutations:input_type -> chat.chats.private.v1.EnableSlowmodeTransaction
+	14, // 35: chat.chats.private.v1.Service.AnnounceEnableSlowmodeMutations:input_type -> chat.chats.private.v1.EnableSlowmodeTransaction
+	14, // 36: chat.chats.private.v1.Service.RollbackEnableSlowmodeMutations:input_type -> chat.chats.private.v1.EnableSlowmodeTransaction
+	15, // 37: chat.chats.private.v1.Service.DisableSlowmode:input_type -> chat.chats.private.v1.DisableSlowmodeRequest
+	16, // 38: chat.chats.private.v1.Service.InitiateDisableSlowmodeMutations:input_type -> chat.chats.private.v1.DisableSlowmodeTransaction
+	16, // 39: chat.chats.private.v1.Service.FinalizeDisableSlowmodeMutations:input_type -> chat.chats.private.v1.DisableSlowmodeTransaction
+	16, // 40: chat.chats.private.v1.Service.AnnounceDisableSlowmodeMutations:input_type -> chat.chats.private.v1.DisableSlowmodeTransaction
+	16, // 41: chat.chats.private.v1.Service.RollbackDisableSlowmodeMutations:input_type -> chat.chats.private.v1.DisableSlowmodeTransaction
+	17, // 42: chat.chats.private.v1.Service.Count:output_type -> chat.chats.private.v1.CountResponse
+	18, // 43: chat.chats.private.v1.Service.Range:output_type -> chat.chats.private.v1.RangeResponse
+	19, // 44: chat.chats.private.v1.Service.Select:output_type -> chat.chats.private.v1.SelectResponse
+	20, // 45: chat.chats.private.v1.Service.Create:output_type -> chat.chats.private.v1.CreateResponse
+	4,  // 46: chat.chats.private.v1.Service.InitiateCreateMutations:output_type -> chat.chats.private.v1.CreateTransaction
+	4,  // 47: chat.chats.private.v1.Service.ValidateCreateMutations:output_type -> chat.chats.private.v1.CreateTransaction
+	4,  // 48: chat.chats.private.v1.Service.FinalizeCreateMutations:output_type -> chat.chats.private.v1.CreateTransaction
+	4,  // 49: chat.chats.private.v1.Service.AnnounceCreateMutations:output_type -> chat.chats.private.v1.CreateTransaction
+	4,  // 50: chat.chats.private.v1.Service.RollbackCreateMutations:output_type -> chat.chats.private.v1.CreateTransaction
+	21, // 51: chat.chats.private.v1.Service.Update:output_type -> chat.chats.private.v1.UpdateResponse
+	6,  // 52: chat.chats.private.v1.Service.InitiateUpdateMutations:output_type -> chat.chats.private.v1.UpdateTransaction
+	6,  // 53: chat.chats.private.v1.Service.ValidateUpdateMutations:output_type -> chat.chats.private.v1.UpdateTransaction
+	6,  // 54: chat.chats.private.v1.Service.FinalizeUpdateMutations:output_type -> chat.chats.private.v1.UpdateTransaction
+	6,  // 55: chat.chats.private.v1.Service.AnnounceUpdateMutations:output_type -> chat.chats.private.v1.UpdateTransaction
+	6,  // 56: chat.chats.private.v1.Service.RollbackUpdateMutations:output_type -> chat.chats.private.v1.UpdateTransaction
+	22, // 57: chat.chats.private.v1.Service.Delete:output_type -> chat.chats.private.v1.DeleteResponse
+	8,  // 58: chat.chats.private.v1.Service.InitiateDeleteMutations:output_type -> chat.chats.private.v1.DeleteTransaction
+	8,  // 59: chat.chats.private.v1.Service.FinalizeDeleteMutations:output_type -> chat.chats.private.v1.DeleteTransaction
+	8,  // 60: chat.chats.private.v1.Service.AnnounceDeleteMutations:output_type -> chat.chats.private.v1.DeleteTransaction
+	8,  // 61: chat.chats.private.v1.Service.RollbackDeleteMutations:output_type -> chat.chats.private.v1.DeleteTransaction
+	23, // 62: chat.chats.private.v1.Service.Enter:output_type -> chat.chats.private.v1.EnterResponse
+	10, // 63: chat.chats.private.v1.Service.InitiateEnterMutations:output_type -> chat.chats.private.v1.EnterTransaction
+	10, // 64: chat.chats.private.v1.Service.ValidateEnterMutations:output_type -> chat.chats.private.v1.EnterTransaction
+	10, // 65: chat.chats.private.v1.Service.FinalizeEnterMutations:output_type -> chat.chats.private.v1.EnterTransaction
+	10, // 66: chat.chats.private.v1.Service.AnnounceEnterMutations:output_type -> chat.chats.private.v1.EnterTransaction
+	10, // 67: chat.chats.private.v1.Service.RollbackEnterMutations:output_type -> chat.chats.private.v1.EnterTransaction
+	24, // 68: chat.chats.private.v1.Service.Leave:output_type -> chat.chats.private.v1.LeaveResponse
+	12, // 69: chat.chats.private.v1.Service.InitiateLeaveMutations:output_type -> chat.chats.private.v1.LeaveTransaction
+	12, // 70: chat.chats.private.v1.Service.ValidateLeaveMutations:output_type -> chat.chats.private.v1.LeaveTransaction
+	12, // 71: chat.chats.private.v1.Service.FinalizeLeaveMutations:output_type -> chat.chats.private.v1.LeaveTransaction
+	12, // 72: chat.chats.private.v1.Service.AnnounceLeaveMutations:output_type -> chat.chats.private.v1.LeaveTransaction
+	12, // 73: chat.chats.private.v1.Service.RollbackLeaveMutations:output_type -> chat.chats.private.v1.LeaveTransaction
+	25, // 74: chat.chats.private.v1.Service.EnableSlowmode:output_type -> chat.chats.private.v1.EnableSlowmodeResponse
+	14, // 75: chat.chats.private.v1.Service.InitiateEnableSlowmodeMutations:output_type -> chat.chats.private.v1.EnableSlowmodeTransaction
+	14, // 76: chat.chats.private.v1.Service.FinalizeEnableSlowmodeMutations:output_type -> chat.chats.private.v1.EnableSlowmodeTransaction
+	14, // 77: chat.chats.private.v1.Service.AnnounceEnableSlowmodeMutations:output_type -> chat.chats.private.v1.EnableSlowmodeTransaction
+	14, // 78: chat.chats.private.v1.Service.RollbackEnableSlowmodeMutations:output_type -> chat.chats.private.v1.EnableSlowmodeTransaction
+	26, // 79: chat.chats.private.v1.Service.DisableSlowmode:output_type -> chat.chats.private.v1.DisableSlowmodeResponse
+	16, // 80: chat.chats.private.v1.Service.InitiateDisableSlowmodeMutations:output_type -> chat.chats.private.v1.DisableSlowmodeTransaction
+	16, // 81: chat.chats.private.v1.Service.FinalizeDisableSlowmodeMutations:output_type -> chat.chats.private.v1.DisableSlowmodeTransaction
+	16, // 82: chat.chats.private.v1.Service.AnnounceDisableSlowmodeMutations:output_type -> chat.chats.private.v1.DisableSlowmodeTransaction
+	16, // 83: chat.chats.private.v1.Service.RollbackDisableSlowmodeMutations:output_type -> chat.chats.private.v1.DisableSlowmodeTransaction
+	42, // [42:84] is the sub-list for method output_type
+	0,  // [0:42] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name

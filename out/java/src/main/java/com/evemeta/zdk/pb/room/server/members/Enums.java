@@ -39,10 +39,11 @@ public final class Enums {
       "der\022\020\n\014OrderUnknown\020\000\022\022\n\016OrderAscending\020" +
       "\001\022\023\n\017OrderDescending\020\002*H\n\006Status\022\021\n\rStat" +
       "usUnknown\020\000\022\023\n\017StatusConnected\020\001\022\026\n\022Stat" +
-      "usDisconnected\020\002Bt\n&com.evemeta.zdk.pb.r" +
-      "oom.server.membersP\001ZHgitlab.com/evemeta" +
-      "/zdk/pb/out/go/room/members/public/serve" +
-      "r/v1;memberspbb\006proto3"
+      "usDisconnected\020\002*#\n\nPermission\022\025\n\021Permis" +
+      "sionUnknown\020\000Bt\n&com.evemeta.zdk.pb.room" +
+      ".server.membersP\001ZHgitlab.com/evemeta/zd" +
+      "k/pb/out/go/room/members/public/server/v" +
+      "1;memberspbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

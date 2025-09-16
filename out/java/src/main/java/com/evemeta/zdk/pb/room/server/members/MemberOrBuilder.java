@@ -142,4 +142,53 @@ java.lang.String defaultValue);
    * @return The updateTime.
    */
   long getUpdateTime();
+
+  /**
+   * <pre>
+   * Represents list of permission which member have inside this room.
+   * </pre>
+   *
+   * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+   * @return A list containing the permissions.
+   */
+  java.util.List<com.evemeta.zdk.pb.room.server.members.Permission> getPermissionsList();
+  /**
+   * <pre>
+   * Represents list of permission which member have inside this room.
+   * </pre>
+   *
+   * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+   * @return The count of permissions.
+   */
+  int getPermissionsCount();
+  /**
+   * <pre>
+   * Represents list of permission which member have inside this room.
+   * </pre>
+   *
+   * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+   * @param index The index of the element to return.
+   * @return The permissions at the given index.
+   */
+  com.evemeta.zdk.pb.room.server.members.Permission getPermissions(int index);
+  /**
+   * <pre>
+   * Represents list of permission which member have inside this room.
+   * </pre>
+   *
+   * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+   * @return A list containing the enum numeric values on the wire for permissions.
+   */
+  java.util.List<java.lang.Integer>
+  getPermissionsValueList();
+  /**
+   * <pre>
+   * Represents list of permission which member have inside this room.
+   * </pre>
+   *
+   * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+   * @param index The index of the value to return.
+   * @return The enum numeric value on the wire of permissions at the given index.
+   */
+  int getPermissionsValue(int index);
 }

@@ -21,7 +21,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Kind todo;
+// Kind represents an enumeration that specifies the type or classification of an event, indicating whether it is dependent on a parent object or independent.
 type Kind int32
 
 const (
@@ -121,6 +121,62 @@ func (Order) EnumDescriptor() ([]byte, []int) {
 	return file_event_events_public_server_v1_enums_proto_rawDescGZIP(), []int{1}
 }
 
+// Status represents an enumeration that specifies the current state of an event, indicating whether it is pending, started, canceled, or finished.
+type Status int32
+
+const (
+	StatusUnknown  Status = 0
+	StatusPending  Status = 1
+	StatusStarted  Status = 2
+	StatusFinished Status = 3
+	StatusCanceled Status = 4
+)
+
+// Enum value maps for Status.
+var (
+	Status_name = map[int32]string{
+		0: "StatusUnknown",
+		1: "StatusPending",
+		2: "StatusStarted",
+		3: "StatusFinished",
+		4: "StatusCanceled",
+	}
+	Status_value = map[string]int32{
+		"StatusUnknown":  0,
+		"StatusPending":  1,
+		"StatusStarted":  2,
+		"StatusFinished": 3,
+		"StatusCanceled": 4,
+	}
+)
+
+func (x Status) Enum() *Status {
+	p := new(Status)
+	*p = x
+	return p
+}
+
+func (x Status) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (Status) Descriptor() protoreflect.EnumDescriptor {
+	return file_event_events_public_server_v1_enums_proto_enumTypes[2].Descriptor()
+}
+
+func (Status) Type() protoreflect.EnumType {
+	return &file_event_events_public_server_v1_enums_proto_enumTypes[2]
+}
+
+func (x Status) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use Status.Descriptor instead.
+func (Status) EnumDescriptor() ([]byte, []int) {
+	return file_event_events_public_server_v1_enums_proto_rawDescGZIP(), []int{2}
+}
+
 var File_event_events_public_server_v1_enums_proto protoreflect.FileDescriptor
 
 const file_event_events_public_server_v1_enums_proto_rawDesc = "" +
@@ -133,7 +189,13 @@ const file_event_events_public_server_v1_enums_proto_rawDesc = "" +
 	"\x05Order\x12\x10\n" +
 	"\fOrderUnknown\x10\x00\x12\x12\n" +
 	"\x0eOrderAscending\x10\x01\x12\x13\n" +
-	"\x0fOrderDescending\x10\x02Bs\n" +
+	"\x0fOrderDescending\x10\x02*i\n" +
+	"\x06Status\x12\x11\n" +
+	"\rStatusUnknown\x10\x00\x12\x11\n" +
+	"\rStatusPending\x10\x01\x12\x11\n" +
+	"\rStatusStarted\x10\x02\x12\x12\n" +
+	"\x0eStatusFinished\x10\x03\x12\x12\n" +
+	"\x0eStatusCanceled\x10\x04Bs\n" +
 	"&com.evemeta.zdk.pb.event.server.eventsP\x01ZGgitlab.com/evemeta/zdk/pb/out/go/event/events/public/server/v1;eventspbb\x06proto3"
 
 var (
@@ -148,10 +210,11 @@ func file_event_events_public_server_v1_enums_proto_rawDescGZIP() []byte {
 	return file_event_events_public_server_v1_enums_proto_rawDescData
 }
 
-var file_event_events_public_server_v1_enums_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_event_events_public_server_v1_enums_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
 var file_event_events_public_server_v1_enums_proto_goTypes = []any{
-	(Kind)(0),  // 0: event.events.public.server.v1.Kind
-	(Order)(0), // 1: event.events.public.server.v1.Order
+	(Kind)(0),   // 0: event.events.public.server.v1.Kind
+	(Order)(0),  // 1: event.events.public.server.v1.Order
+	(Status)(0), // 2: event.events.public.server.v1.Status
 }
 var file_event_events_public_server_v1_enums_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -171,7 +234,7 @@ func file_event_events_public_server_v1_enums_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_event_events_public_server_v1_enums_proto_rawDesc), len(file_event_events_public_server_v1_enums_proto_rawDesc)),
-			NumEnums:      2,
+			NumEnums:      3,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   0,

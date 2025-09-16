@@ -39,10 +39,12 @@ public final class Enums {
       "nd\022\017\n\013KindUnknown\020\000\022\021\n\rKindDependent\020\001\022\023" +
       "\n\017KindIndependent\020\002*B\n\005Order\022\020\n\014OrderUnk" +
       "nown\020\000\022\022\n\016OrderAscending\020\001\022\023\n\017OrderDesce" +
-      "nding\020\002Bs\n&com.evemeta.zdk.pb.event.serv" +
-      "er.eventsP\001ZGgitlab.com/evemeta/zdk/pb/o" +
-      "ut/go/event/events/public/server/v1;even" +
-      "tspbb\006proto3"
+      "nding\020\002*i\n\006Status\022\021\n\rStatusUnknown\020\000\022\021\n\r" +
+      "StatusPending\020\001\022\021\n\rStatusStarted\020\002\022\022\n\016St" +
+      "atusFinished\020\003\022\022\n\016StatusCanceled\020\004Bs\n&co" +
+      "m.evemeta.zdk.pb.event.server.eventsP\001ZG" +
+      "gitlab.com/evemeta/zdk/pb/out/go/event/e" +
+      "vents/public/server/v1;eventspbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

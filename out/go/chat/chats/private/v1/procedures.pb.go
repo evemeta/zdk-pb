@@ -449,6 +449,7 @@ type CreateArgument struct {
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Kind          Kind                   `protobuf:"varint,2,opt,name=kind,proto3,enum=chat.chats.private.v1.Kind" json:"kind,omitempty"`
 	Metadata      map[string]string      `protobuf:"bytes,3,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Slowmode      *Slowmode              `protobuf:"bytes,4,opt,name=slowmode,proto3" json:"slowmode,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -500,6 +501,13 @@ func (x *CreateArgument) GetKind() Kind {
 func (x *CreateArgument) GetMetadata() map[string]string {
 	if x != nil {
 		return x.Metadata
+	}
+	return nil
+}
+
+func (x *CreateArgument) GetSlowmode() *Slowmode {
+	if x != nil {
+		return x.Slowmode
 	}
 	return nil
 }
@@ -708,6 +716,7 @@ type UpdateArgument struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Query         *Query                 `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
 	Metadata      *OptionalMap           `protobuf:"bytes,2,opt,name=metadata,proto3,oneof" json:"metadata,omitempty"`
+	Slowmode      *OptionalSlowmode      `protobuf:"bytes,3,opt,name=slowmode,proto3,oneof" json:"slowmode,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -752,6 +761,13 @@ func (x *UpdateArgument) GetQuery() *Query {
 func (x *UpdateArgument) GetMetadata() *OptionalMap {
 	if x != nil {
 		return x.Metadata
+	}
+	return nil
+}
+
+func (x *UpdateArgument) GetSlowmode() *OptionalSlowmode {
+	if x != nil {
+		return x.Slowmode
 	}
 	return nil
 }
@@ -1892,6 +1908,494 @@ func (x *LeaveTransaction) GetMutations() []*LeaveMutation {
 	return nil
 }
 
+type EnableSlowmodeArgument struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Query         *Query                 `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EnableSlowmodeArgument) Reset() {
+	*x = EnableSlowmodeArgument{}
+	mi := &file_chat_chats_private_v1_procedures_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EnableSlowmodeArgument) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EnableSlowmodeArgument) ProtoMessage() {}
+
+func (x *EnableSlowmodeArgument) ProtoReflect() protoreflect.Message {
+	mi := &file_chat_chats_private_v1_procedures_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EnableSlowmodeArgument.ProtoReflect.Descriptor instead.
+func (*EnableSlowmodeArgument) Descriptor() ([]byte, []int) {
+	return file_chat_chats_private_v1_procedures_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *EnableSlowmodeArgument) GetQuery() *Query {
+	if x != nil {
+		return x.Query
+	}
+	return nil
+}
+
+type EnableSlowmodeRequest struct {
+	state         protoimpl.MessageState    `protogen:"open.v1"`
+	Arguments     []*EnableSlowmodeArgument `protobuf:"bytes,1,rep,name=arguments,proto3" json:"arguments,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EnableSlowmodeRequest) Reset() {
+	*x = EnableSlowmodeRequest{}
+	mi := &file_chat_chats_private_v1_procedures_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EnableSlowmodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EnableSlowmodeRequest) ProtoMessage() {}
+
+func (x *EnableSlowmodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_chat_chats_private_v1_procedures_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EnableSlowmodeRequest.ProtoReflect.Descriptor instead.
+func (*EnableSlowmodeRequest) Descriptor() ([]byte, []int) {
+	return file_chat_chats_private_v1_procedures_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *EnableSlowmodeRequest) GetArguments() []*EnableSlowmodeArgument {
+	if x != nil {
+		return x.Arguments
+	}
+	return nil
+}
+
+type EnableSlowmodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Chats         []*Chat                `protobuf:"bytes,1,rep,name=chats,proto3" json:"chats,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EnableSlowmodeResponse) Reset() {
+	*x = EnableSlowmodeResponse{}
+	mi := &file_chat_chats_private_v1_procedures_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EnableSlowmodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EnableSlowmodeResponse) ProtoMessage() {}
+
+func (x *EnableSlowmodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_chat_chats_private_v1_procedures_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EnableSlowmodeResponse.ProtoReflect.Descriptor instead.
+func (*EnableSlowmodeResponse) Descriptor() ([]byte, []int) {
+	return file_chat_chats_private_v1_procedures_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *EnableSlowmodeResponse) GetChats() []*Chat {
+	if x != nil {
+		return x.Chats
+	}
+	return nil
+}
+
+type EnableSlowmodeMutation struct {
+	state          protoimpl.MessageState  `protogen:"open.v1"`
+	Foundation     *EnableSlowmodeArgument `protobuf:"bytes,1,opt,name=foundation,proto3" json:"foundation,omitempty"`
+	Transient      []*Transient            `protobuf:"bytes,2,rep,name=transient,proto3" json:"transient,omitempty"`
+	BeginTimestamp int64                   `protobuf:"varint,3,opt,name=begin_timestamp,json=beginTimestamp,proto3" json:"begin_timestamp,omitempty"`
+	CloseTimestamp int64                   `protobuf:"varint,4,opt,name=close_timestamp,json=closeTimestamp,proto3" json:"close_timestamp,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *EnableSlowmodeMutation) Reset() {
+	*x = EnableSlowmodeMutation{}
+	mi := &file_chat_chats_private_v1_procedures_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EnableSlowmodeMutation) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EnableSlowmodeMutation) ProtoMessage() {}
+
+func (x *EnableSlowmodeMutation) ProtoReflect() protoreflect.Message {
+	mi := &file_chat_chats_private_v1_procedures_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EnableSlowmodeMutation.ProtoReflect.Descriptor instead.
+func (*EnableSlowmodeMutation) Descriptor() ([]byte, []int) {
+	return file_chat_chats_private_v1_procedures_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *EnableSlowmodeMutation) GetFoundation() *EnableSlowmodeArgument {
+	if x != nil {
+		return x.Foundation
+	}
+	return nil
+}
+
+func (x *EnableSlowmodeMutation) GetTransient() []*Transient {
+	if x != nil {
+		return x.Transient
+	}
+	return nil
+}
+
+func (x *EnableSlowmodeMutation) GetBeginTimestamp() int64 {
+	if x != nil {
+		return x.BeginTimestamp
+	}
+	return 0
+}
+
+func (x *EnableSlowmodeMutation) GetCloseTimestamp() int64 {
+	if x != nil {
+		return x.CloseTimestamp
+	}
+	return 0
+}
+
+type EnableSlowmodeTransaction struct {
+	state         protoimpl.MessageState    `protogen:"open.v1"`
+	Mutations     []*EnableSlowmodeMutation `protobuf:"bytes,1,rep,name=mutations,proto3" json:"mutations,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EnableSlowmodeTransaction) Reset() {
+	*x = EnableSlowmodeTransaction{}
+	mi := &file_chat_chats_private_v1_procedures_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EnableSlowmodeTransaction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EnableSlowmodeTransaction) ProtoMessage() {}
+
+func (x *EnableSlowmodeTransaction) ProtoReflect() protoreflect.Message {
+	mi := &file_chat_chats_private_v1_procedures_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EnableSlowmodeTransaction.ProtoReflect.Descriptor instead.
+func (*EnableSlowmodeTransaction) Descriptor() ([]byte, []int) {
+	return file_chat_chats_private_v1_procedures_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *EnableSlowmodeTransaction) GetMutations() []*EnableSlowmodeMutation {
+	if x != nil {
+		return x.Mutations
+	}
+	return nil
+}
+
+type DisableSlowmodeArgument struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Query         *Query                 `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DisableSlowmodeArgument) Reset() {
+	*x = DisableSlowmodeArgument{}
+	mi := &file_chat_chats_private_v1_procedures_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DisableSlowmodeArgument) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DisableSlowmodeArgument) ProtoMessage() {}
+
+func (x *DisableSlowmodeArgument) ProtoReflect() protoreflect.Message {
+	mi := &file_chat_chats_private_v1_procedures_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DisableSlowmodeArgument.ProtoReflect.Descriptor instead.
+func (*DisableSlowmodeArgument) Descriptor() ([]byte, []int) {
+	return file_chat_chats_private_v1_procedures_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *DisableSlowmodeArgument) GetQuery() *Query {
+	if x != nil {
+		return x.Query
+	}
+	return nil
+}
+
+type DisableSlowmodeRequest struct {
+	state         protoimpl.MessageState     `protogen:"open.v1"`
+	Arguments     []*DisableSlowmodeArgument `protobuf:"bytes,1,rep,name=arguments,proto3" json:"arguments,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DisableSlowmodeRequest) Reset() {
+	*x = DisableSlowmodeRequest{}
+	mi := &file_chat_chats_private_v1_procedures_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DisableSlowmodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DisableSlowmodeRequest) ProtoMessage() {}
+
+func (x *DisableSlowmodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_chat_chats_private_v1_procedures_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DisableSlowmodeRequest.ProtoReflect.Descriptor instead.
+func (*DisableSlowmodeRequest) Descriptor() ([]byte, []int) {
+	return file_chat_chats_private_v1_procedures_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *DisableSlowmodeRequest) GetArguments() []*DisableSlowmodeArgument {
+	if x != nil {
+		return x.Arguments
+	}
+	return nil
+}
+
+type DisableSlowmodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Chats         []*Chat                `protobuf:"bytes,1,rep,name=chats,proto3" json:"chats,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DisableSlowmodeResponse) Reset() {
+	*x = DisableSlowmodeResponse{}
+	mi := &file_chat_chats_private_v1_procedures_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DisableSlowmodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DisableSlowmodeResponse) ProtoMessage() {}
+
+func (x *DisableSlowmodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_chat_chats_private_v1_procedures_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DisableSlowmodeResponse.ProtoReflect.Descriptor instead.
+func (*DisableSlowmodeResponse) Descriptor() ([]byte, []int) {
+	return file_chat_chats_private_v1_procedures_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *DisableSlowmodeResponse) GetChats() []*Chat {
+	if x != nil {
+		return x.Chats
+	}
+	return nil
+}
+
+type DisableSlowmodeMutation struct {
+	state          protoimpl.MessageState   `protogen:"open.v1"`
+	Foundation     *DisableSlowmodeArgument `protobuf:"bytes,1,opt,name=foundation,proto3" json:"foundation,omitempty"`
+	Transient      []*Transient             `protobuf:"bytes,2,rep,name=transient,proto3" json:"transient,omitempty"`
+	BeginTimestamp int64                    `protobuf:"varint,3,opt,name=begin_timestamp,json=beginTimestamp,proto3" json:"begin_timestamp,omitempty"`
+	CloseTimestamp int64                    `protobuf:"varint,4,opt,name=close_timestamp,json=closeTimestamp,proto3" json:"close_timestamp,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *DisableSlowmodeMutation) Reset() {
+	*x = DisableSlowmodeMutation{}
+	mi := &file_chat_chats_private_v1_procedures_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DisableSlowmodeMutation) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DisableSlowmodeMutation) ProtoMessage() {}
+
+func (x *DisableSlowmodeMutation) ProtoReflect() protoreflect.Message {
+	mi := &file_chat_chats_private_v1_procedures_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DisableSlowmodeMutation.ProtoReflect.Descriptor instead.
+func (*DisableSlowmodeMutation) Descriptor() ([]byte, []int) {
+	return file_chat_chats_private_v1_procedures_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *DisableSlowmodeMutation) GetFoundation() *DisableSlowmodeArgument {
+	if x != nil {
+		return x.Foundation
+	}
+	return nil
+}
+
+func (x *DisableSlowmodeMutation) GetTransient() []*Transient {
+	if x != nil {
+		return x.Transient
+	}
+	return nil
+}
+
+func (x *DisableSlowmodeMutation) GetBeginTimestamp() int64 {
+	if x != nil {
+		return x.BeginTimestamp
+	}
+	return 0
+}
+
+func (x *DisableSlowmodeMutation) GetCloseTimestamp() int64 {
+	if x != nil {
+		return x.CloseTimestamp
+	}
+	return 0
+}
+
+type DisableSlowmodeTransaction struct {
+	state         protoimpl.MessageState     `protogen:"open.v1"`
+	Mutations     []*DisableSlowmodeMutation `protobuf:"bytes,1,rep,name=mutations,proto3" json:"mutations,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DisableSlowmodeTransaction) Reset() {
+	*x = DisableSlowmodeTransaction{}
+	mi := &file_chat_chats_private_v1_procedures_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DisableSlowmodeTransaction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DisableSlowmodeTransaction) ProtoMessage() {}
+
+func (x *DisableSlowmodeTransaction) ProtoReflect() protoreflect.Message {
+	mi := &file_chat_chats_private_v1_procedures_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DisableSlowmodeTransaction.ProtoReflect.Descriptor instead.
+func (*DisableSlowmodeTransaction) Descriptor() ([]byte, []int) {
+	return file_chat_chats_private_v1_procedures_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *DisableSlowmodeTransaction) GetMutations() []*DisableSlowmodeMutation {
+	if x != nil {
+		return x.Mutations
+	}
+	return nil
+}
+
 var File_chat_chats_private_v1_procedures_proto protoreflect.FileDescriptor
 
 const file_chat_chats_private_v1_procedures_proto_rawDesc = "" +
@@ -1917,11 +2421,12 @@ const file_chat_chats_private_v1_procedures_proto_rawDesc = "" +
 	"\rSelectRequest\x12C\n" +
 	"\targuments\x18\x01 \x03(\v2%.chat.chats.private.v1.SelectArgumentR\targuments\"C\n" +
 	"\x0eSelectResponse\x121\n" +
-	"\x05chats\x18\x01 \x03(\v2\x1b.chat.chats.private.v1.ChatR\x05chats\"\xdf\x01\n" +
+	"\x05chats\x18\x01 \x03(\v2\x1b.chat.chats.private.v1.ChatR\x05chats\"\x9c\x02\n" +
 	"\x0eCreateArgument\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12/\n" +
 	"\x04kind\x18\x02 \x01(\x0e2\x1b.chat.chats.private.v1.KindR\x04kind\x12O\n" +
-	"\bmetadata\x18\x03 \x03(\v23.chat.chats.private.v1.CreateArgument.MetadataEntryR\bmetadata\x1a;\n" +
+	"\bmetadata\x18\x03 \x03(\v23.chat.chats.private.v1.CreateArgument.MetadataEntryR\bmetadata\x12;\n" +
+	"\bslowmode\x18\x04 \x01(\v2\x1f.chat.chats.private.v1.SlowmodeR\bslowmode\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"T\n" +
@@ -1937,11 +2442,13 @@ const file_chat_chats_private_v1_procedures_proto_rawDesc = "" +
 	"\x0fbegin_timestamp\x18\x03 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
 	"\x0fclose_timestamp\x18\x04 \x01(\x03R\x0ecloseTimestamp\"X\n" +
 	"\x11CreateTransaction\x12C\n" +
-	"\tmutations\x18\x01 \x03(\v2%.chat.chats.private.v1.CreateMutationR\tmutations\"\x96\x01\n" +
+	"\tmutations\x18\x01 \x03(\v2%.chat.chats.private.v1.CreateMutationR\tmutations\"\xed\x01\n" +
 	"\x0eUpdateArgument\x122\n" +
 	"\x05query\x18\x01 \x01(\v2\x1c.chat.chats.private.v1.QueryR\x05query\x12C\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".chat.chats.private.v1.OptionalMapH\x00R\bmetadata\x88\x01\x01B\v\n" +
-	"\t_metadata\"T\n" +
+	"\bmetadata\x18\x02 \x01(\v2\".chat.chats.private.v1.OptionalMapH\x00R\bmetadata\x88\x01\x01\x12H\n" +
+	"\bslowmode\x18\x03 \x01(\v2'.chat.chats.private.v1.OptionalSlowmodeH\x01R\bslowmode\x88\x01\x01B\v\n" +
+	"\t_metadataB\v\n" +
+	"\t_slowmode\"T\n" +
 	"\rUpdateRequest\x12C\n" +
 	"\targuments\x18\x01 \x03(\v2%.chat.chats.private.v1.UpdateArgumentR\targuments\"C\n" +
 	"\x0eUpdateResponse\x121\n" +
@@ -2019,7 +2526,37 @@ const file_chat_chats_private_v1_procedures_proto_rawDesc = "" +
 	"\x17update_member_mutations\x18\x01 \x03(\v2'.chat.members.private.v1.UpdateMutationR\x15updateMemberMutations\x12q\n" +
 	"\x1cdelete_transponder_mutations\x18\x02 \x03(\v2/.gateway.transponders.private.v1.DeleteMutationR\x1adeleteTransponderMutations\"V\n" +
 	"\x10LeaveTransaction\x12B\n" +
-	"\tmutations\x18\x01 \x03(\v2$.chat.chats.private.v1.LeaveMutationR\tmutationsB@Z>gitlab.com/evemeta/zdk/pb/out/go/chat/chats/private/v1;chatspbb\x06proto3"
+	"\tmutations\x18\x01 \x03(\v2$.chat.chats.private.v1.LeaveMutationR\tmutations\"L\n" +
+	"\x16EnableSlowmodeArgument\x122\n" +
+	"\x05query\x18\x01 \x01(\v2\x1c.chat.chats.private.v1.QueryR\x05query\"d\n" +
+	"\x15EnableSlowmodeRequest\x12K\n" +
+	"\targuments\x18\x01 \x03(\v2-.chat.chats.private.v1.EnableSlowmodeArgumentR\targuments\"K\n" +
+	"\x16EnableSlowmodeResponse\x121\n" +
+	"\x05chats\x18\x01 \x03(\v2\x1b.chat.chats.private.v1.ChatR\x05chats\"\xf9\x01\n" +
+	"\x16EnableSlowmodeMutation\x12M\n" +
+	"\n" +
+	"foundation\x18\x01 \x01(\v2-.chat.chats.private.v1.EnableSlowmodeArgumentR\n" +
+	"foundation\x12>\n" +
+	"\ttransient\x18\x02 \x03(\v2 .chat.chats.private.v1.TransientR\ttransient\x12'\n" +
+	"\x0fbegin_timestamp\x18\x03 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
+	"\x0fclose_timestamp\x18\x04 \x01(\x03R\x0ecloseTimestamp\"h\n" +
+	"\x19EnableSlowmodeTransaction\x12K\n" +
+	"\tmutations\x18\x01 \x03(\v2-.chat.chats.private.v1.EnableSlowmodeMutationR\tmutations\"M\n" +
+	"\x17DisableSlowmodeArgument\x122\n" +
+	"\x05query\x18\x01 \x01(\v2\x1c.chat.chats.private.v1.QueryR\x05query\"f\n" +
+	"\x16DisableSlowmodeRequest\x12L\n" +
+	"\targuments\x18\x01 \x03(\v2..chat.chats.private.v1.DisableSlowmodeArgumentR\targuments\"L\n" +
+	"\x17DisableSlowmodeResponse\x121\n" +
+	"\x05chats\x18\x01 \x03(\v2\x1b.chat.chats.private.v1.ChatR\x05chats\"\xfb\x01\n" +
+	"\x17DisableSlowmodeMutation\x12N\n" +
+	"\n" +
+	"foundation\x18\x01 \x01(\v2..chat.chats.private.v1.DisableSlowmodeArgumentR\n" +
+	"foundation\x12>\n" +
+	"\ttransient\x18\x02 \x03(\v2 .chat.chats.private.v1.TransientR\ttransient\x12'\n" +
+	"\x0fbegin_timestamp\x18\x03 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
+	"\x0fclose_timestamp\x18\x04 \x01(\x03R\x0ecloseTimestamp\"j\n" +
+	"\x1aDisableSlowmodeTransaction\x12L\n" +
+	"\tmutations\x18\x01 \x03(\v2..chat.chats.private.v1.DisableSlowmodeMutationR\tmutationsB@Z>gitlab.com/evemeta/zdk/pb/out/go/chat/chats/private/v1;chatspbb\x06proto3"
 
 var (
 	file_chat_chats_private_v1_procedures_proto_rawDescOnce sync.Once
@@ -2033,111 +2570,137 @@ func file_chat_chats_private_v1_procedures_proto_rawDescGZIP() []byte {
 	return file_chat_chats_private_v1_procedures_proto_rawDescData
 }
 
-var file_chat_chats_private_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 39)
+var file_chat_chats_private_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 49)
 var file_chat_chats_private_v1_procedures_proto_goTypes = []any{
-	(*CountArgument)(nil),      // 0: chat.chats.private.v1.CountArgument
-	(*CountRequest)(nil),       // 1: chat.chats.private.v1.CountRequest
-	(*CountResponse)(nil),      // 2: chat.chats.private.v1.CountResponse
-	(*RangeArgument)(nil),      // 3: chat.chats.private.v1.RangeArgument
-	(*RangeRequest)(nil),       // 4: chat.chats.private.v1.RangeRequest
-	(*RangeResponse)(nil),      // 5: chat.chats.private.v1.RangeResponse
-	(*SelectArgument)(nil),     // 6: chat.chats.private.v1.SelectArgument
-	(*SelectRequest)(nil),      // 7: chat.chats.private.v1.SelectRequest
-	(*SelectResponse)(nil),     // 8: chat.chats.private.v1.SelectResponse
-	(*CreateArgument)(nil),     // 9: chat.chats.private.v1.CreateArgument
-	(*CreateRequest)(nil),      // 10: chat.chats.private.v1.CreateRequest
-	(*CreateResponse)(nil),     // 11: chat.chats.private.v1.CreateResponse
-	(*CreateMutation)(nil),     // 12: chat.chats.private.v1.CreateMutation
-	(*CreateTransaction)(nil),  // 13: chat.chats.private.v1.CreateTransaction
-	(*UpdateArgument)(nil),     // 14: chat.chats.private.v1.UpdateArgument
-	(*UpdateRequest)(nil),      // 15: chat.chats.private.v1.UpdateRequest
-	(*UpdateResponse)(nil),     // 16: chat.chats.private.v1.UpdateResponse
-	(*UpdateMutation)(nil),     // 17: chat.chats.private.v1.UpdateMutation
-	(*UpdateTransaction)(nil),  // 18: chat.chats.private.v1.UpdateTransaction
-	(*DeleteArgument)(nil),     // 19: chat.chats.private.v1.DeleteArgument
-	(*DeleteRequest)(nil),      // 20: chat.chats.private.v1.DeleteRequest
-	(*DeleteResponse)(nil),     // 21: chat.chats.private.v1.DeleteResponse
-	(*DeleteMutation)(nil),     // 22: chat.chats.private.v1.DeleteMutation
-	(*DeleteCondition)(nil),    // 23: chat.chats.private.v1.DeleteCondition
-	(*DeleteTransaction)(nil),  // 24: chat.chats.private.v1.DeleteTransaction
-	(*EnterArgument)(nil),      // 25: chat.chats.private.v1.EnterArgument
-	(*EnterRequest)(nil),       // 26: chat.chats.private.v1.EnterRequest
-	(*EnterResponse)(nil),      // 27: chat.chats.private.v1.EnterResponse
-	(*EnterMutation)(nil),      // 28: chat.chats.private.v1.EnterMutation
-	(*EnterCondition)(nil),     // 29: chat.chats.private.v1.EnterCondition
-	(*EnterTransaction)(nil),   // 30: chat.chats.private.v1.EnterTransaction
-	(*LeaveArgument)(nil),      // 31: chat.chats.private.v1.LeaveArgument
-	(*LeaveRequest)(nil),       // 32: chat.chats.private.v1.LeaveRequest
-	(*LeaveResponse)(nil),      // 33: chat.chats.private.v1.LeaveResponse
-	(*LeaveMutation)(nil),      // 34: chat.chats.private.v1.LeaveMutation
-	(*LeaveCondition)(nil),     // 35: chat.chats.private.v1.LeaveCondition
-	(*LeaveTransaction)(nil),   // 36: chat.chats.private.v1.LeaveTransaction
-	nil,                        // 37: chat.chats.private.v1.CreateArgument.MetadataEntry
-	nil,                        // 38: chat.chats.private.v1.EnterArgument.MetadataEntry
-	(*Query)(nil),              // 39: chat.chats.private.v1.Query
-	(*Chunk)(nil),              // 40: chat.chats.private.v1.Chunk
-	(*Chat)(nil),               // 41: chat.chats.private.v1.Chat
-	(Kind)(0),                  // 42: chat.chats.private.v1.Kind
-	(*Transient)(nil),          // 43: chat.chats.private.v1.Transient
-	(*OptionalMap)(nil),        // 44: chat.chats.private.v1.OptionalMap
-	(*v1.DeleteMutation)(nil),  // 45: chat.members.private.v1.DeleteMutation
-	(*v11.DeleteMutation)(nil), // 46: chat.messages.private.v1.DeleteMutation
-	(*v1.CreateMutation)(nil),  // 47: chat.members.private.v1.CreateMutation
-	(*v1.UpdateMutation)(nil),  // 48: chat.members.private.v1.UpdateMutation
-	(*v12.CreateMutation)(nil), // 49: gateway.transponders.private.v1.CreateMutation
-	(*v12.DeleteMutation)(nil), // 50: gateway.transponders.private.v1.DeleteMutation
+	(*CountArgument)(nil),              // 0: chat.chats.private.v1.CountArgument
+	(*CountRequest)(nil),               // 1: chat.chats.private.v1.CountRequest
+	(*CountResponse)(nil),              // 2: chat.chats.private.v1.CountResponse
+	(*RangeArgument)(nil),              // 3: chat.chats.private.v1.RangeArgument
+	(*RangeRequest)(nil),               // 4: chat.chats.private.v1.RangeRequest
+	(*RangeResponse)(nil),              // 5: chat.chats.private.v1.RangeResponse
+	(*SelectArgument)(nil),             // 6: chat.chats.private.v1.SelectArgument
+	(*SelectRequest)(nil),              // 7: chat.chats.private.v1.SelectRequest
+	(*SelectResponse)(nil),             // 8: chat.chats.private.v1.SelectResponse
+	(*CreateArgument)(nil),             // 9: chat.chats.private.v1.CreateArgument
+	(*CreateRequest)(nil),              // 10: chat.chats.private.v1.CreateRequest
+	(*CreateResponse)(nil),             // 11: chat.chats.private.v1.CreateResponse
+	(*CreateMutation)(nil),             // 12: chat.chats.private.v1.CreateMutation
+	(*CreateTransaction)(nil),          // 13: chat.chats.private.v1.CreateTransaction
+	(*UpdateArgument)(nil),             // 14: chat.chats.private.v1.UpdateArgument
+	(*UpdateRequest)(nil),              // 15: chat.chats.private.v1.UpdateRequest
+	(*UpdateResponse)(nil),             // 16: chat.chats.private.v1.UpdateResponse
+	(*UpdateMutation)(nil),             // 17: chat.chats.private.v1.UpdateMutation
+	(*UpdateTransaction)(nil),          // 18: chat.chats.private.v1.UpdateTransaction
+	(*DeleteArgument)(nil),             // 19: chat.chats.private.v1.DeleteArgument
+	(*DeleteRequest)(nil),              // 20: chat.chats.private.v1.DeleteRequest
+	(*DeleteResponse)(nil),             // 21: chat.chats.private.v1.DeleteResponse
+	(*DeleteMutation)(nil),             // 22: chat.chats.private.v1.DeleteMutation
+	(*DeleteCondition)(nil),            // 23: chat.chats.private.v1.DeleteCondition
+	(*DeleteTransaction)(nil),          // 24: chat.chats.private.v1.DeleteTransaction
+	(*EnterArgument)(nil),              // 25: chat.chats.private.v1.EnterArgument
+	(*EnterRequest)(nil),               // 26: chat.chats.private.v1.EnterRequest
+	(*EnterResponse)(nil),              // 27: chat.chats.private.v1.EnterResponse
+	(*EnterMutation)(nil),              // 28: chat.chats.private.v1.EnterMutation
+	(*EnterCondition)(nil),             // 29: chat.chats.private.v1.EnterCondition
+	(*EnterTransaction)(nil),           // 30: chat.chats.private.v1.EnterTransaction
+	(*LeaveArgument)(nil),              // 31: chat.chats.private.v1.LeaveArgument
+	(*LeaveRequest)(nil),               // 32: chat.chats.private.v1.LeaveRequest
+	(*LeaveResponse)(nil),              // 33: chat.chats.private.v1.LeaveResponse
+	(*LeaveMutation)(nil),              // 34: chat.chats.private.v1.LeaveMutation
+	(*LeaveCondition)(nil),             // 35: chat.chats.private.v1.LeaveCondition
+	(*LeaveTransaction)(nil),           // 36: chat.chats.private.v1.LeaveTransaction
+	(*EnableSlowmodeArgument)(nil),     // 37: chat.chats.private.v1.EnableSlowmodeArgument
+	(*EnableSlowmodeRequest)(nil),      // 38: chat.chats.private.v1.EnableSlowmodeRequest
+	(*EnableSlowmodeResponse)(nil),     // 39: chat.chats.private.v1.EnableSlowmodeResponse
+	(*EnableSlowmodeMutation)(nil),     // 40: chat.chats.private.v1.EnableSlowmodeMutation
+	(*EnableSlowmodeTransaction)(nil),  // 41: chat.chats.private.v1.EnableSlowmodeTransaction
+	(*DisableSlowmodeArgument)(nil),    // 42: chat.chats.private.v1.DisableSlowmodeArgument
+	(*DisableSlowmodeRequest)(nil),     // 43: chat.chats.private.v1.DisableSlowmodeRequest
+	(*DisableSlowmodeResponse)(nil),    // 44: chat.chats.private.v1.DisableSlowmodeResponse
+	(*DisableSlowmodeMutation)(nil),    // 45: chat.chats.private.v1.DisableSlowmodeMutation
+	(*DisableSlowmodeTransaction)(nil), // 46: chat.chats.private.v1.DisableSlowmodeTransaction
+	nil,                                // 47: chat.chats.private.v1.CreateArgument.MetadataEntry
+	nil,                                // 48: chat.chats.private.v1.EnterArgument.MetadataEntry
+	(*Query)(nil),                      // 49: chat.chats.private.v1.Query
+	(*Chunk)(nil),                      // 50: chat.chats.private.v1.Chunk
+	(*Chat)(nil),                       // 51: chat.chats.private.v1.Chat
+	(Kind)(0),                          // 52: chat.chats.private.v1.Kind
+	(*Slowmode)(nil),                   // 53: chat.chats.private.v1.Slowmode
+	(*Transient)(nil),                  // 54: chat.chats.private.v1.Transient
+	(*OptionalMap)(nil),                // 55: chat.chats.private.v1.OptionalMap
+	(*OptionalSlowmode)(nil),           // 56: chat.chats.private.v1.OptionalSlowmode
+	(*v1.DeleteMutation)(nil),          // 57: chat.members.private.v1.DeleteMutation
+	(*v11.DeleteMutation)(nil),         // 58: chat.messages.private.v1.DeleteMutation
+	(*v1.CreateMutation)(nil),          // 59: chat.members.private.v1.CreateMutation
+	(*v1.UpdateMutation)(nil),          // 60: chat.members.private.v1.UpdateMutation
+	(*v12.CreateMutation)(nil),         // 61: gateway.transponders.private.v1.CreateMutation
+	(*v12.DeleteMutation)(nil),         // 62: gateway.transponders.private.v1.DeleteMutation
 }
 var file_chat_chats_private_v1_procedures_proto_depIdxs = []int32{
-	39, // 0: chat.chats.private.v1.CountArgument.query:type_name -> chat.chats.private.v1.Query
+	49, // 0: chat.chats.private.v1.CountArgument.query:type_name -> chat.chats.private.v1.Query
 	0,  // 1: chat.chats.private.v1.CountRequest.arguments:type_name -> chat.chats.private.v1.CountArgument
-	39, // 2: chat.chats.private.v1.RangeArgument.query:type_name -> chat.chats.private.v1.Query
+	49, // 2: chat.chats.private.v1.RangeArgument.query:type_name -> chat.chats.private.v1.Query
 	3,  // 3: chat.chats.private.v1.RangeRequest.arguments:type_name -> chat.chats.private.v1.RangeArgument
-	40, // 4: chat.chats.private.v1.RangeResponse.chunks:type_name -> chat.chats.private.v1.Chunk
-	39, // 5: chat.chats.private.v1.SelectArgument.query:type_name -> chat.chats.private.v1.Query
+	50, // 4: chat.chats.private.v1.RangeResponse.chunks:type_name -> chat.chats.private.v1.Chunk
+	49, // 5: chat.chats.private.v1.SelectArgument.query:type_name -> chat.chats.private.v1.Query
 	6,  // 6: chat.chats.private.v1.SelectRequest.arguments:type_name -> chat.chats.private.v1.SelectArgument
-	41, // 7: chat.chats.private.v1.SelectResponse.chats:type_name -> chat.chats.private.v1.Chat
-	42, // 8: chat.chats.private.v1.CreateArgument.kind:type_name -> chat.chats.private.v1.Kind
-	37, // 9: chat.chats.private.v1.CreateArgument.metadata:type_name -> chat.chats.private.v1.CreateArgument.MetadataEntry
-	9,  // 10: chat.chats.private.v1.CreateRequest.arguments:type_name -> chat.chats.private.v1.CreateArgument
-	41, // 11: chat.chats.private.v1.CreateResponse.chats:type_name -> chat.chats.private.v1.Chat
-	9,  // 12: chat.chats.private.v1.CreateMutation.foundation:type_name -> chat.chats.private.v1.CreateArgument
-	43, // 13: chat.chats.private.v1.CreateMutation.transient:type_name -> chat.chats.private.v1.Transient
-	12, // 14: chat.chats.private.v1.CreateTransaction.mutations:type_name -> chat.chats.private.v1.CreateMutation
-	39, // 15: chat.chats.private.v1.UpdateArgument.query:type_name -> chat.chats.private.v1.Query
-	44, // 16: chat.chats.private.v1.UpdateArgument.metadata:type_name -> chat.chats.private.v1.OptionalMap
-	14, // 17: chat.chats.private.v1.UpdateRequest.arguments:type_name -> chat.chats.private.v1.UpdateArgument
-	41, // 18: chat.chats.private.v1.UpdateResponse.chats:type_name -> chat.chats.private.v1.Chat
-	14, // 19: chat.chats.private.v1.UpdateMutation.foundation:type_name -> chat.chats.private.v1.UpdateArgument
-	43, // 20: chat.chats.private.v1.UpdateMutation.transient:type_name -> chat.chats.private.v1.Transient
-	17, // 21: chat.chats.private.v1.UpdateTransaction.mutations:type_name -> chat.chats.private.v1.UpdateMutation
-	39, // 22: chat.chats.private.v1.DeleteArgument.query:type_name -> chat.chats.private.v1.Query
-	19, // 23: chat.chats.private.v1.DeleteRequest.arguments:type_name -> chat.chats.private.v1.DeleteArgument
-	41, // 24: chat.chats.private.v1.DeleteResponse.chats:type_name -> chat.chats.private.v1.Chat
-	19, // 25: chat.chats.private.v1.DeleteMutation.foundation:type_name -> chat.chats.private.v1.DeleteArgument
-	23, // 26: chat.chats.private.v1.DeleteMutation.condition:type_name -> chat.chats.private.v1.DeleteCondition
-	43, // 27: chat.chats.private.v1.DeleteMutation.transient:type_name -> chat.chats.private.v1.Transient
-	45, // 28: chat.chats.private.v1.DeleteCondition.delete_member_mutations:type_name -> chat.members.private.v1.DeleteMutation
-	46, // 29: chat.chats.private.v1.DeleteCondition.delete_message_mutations:type_name -> chat.messages.private.v1.DeleteMutation
-	22, // 30: chat.chats.private.v1.DeleteTransaction.mutations:type_name -> chat.chats.private.v1.DeleteMutation
-	38, // 31: chat.chats.private.v1.EnterArgument.metadata:type_name -> chat.chats.private.v1.EnterArgument.MetadataEntry
-	25, // 32: chat.chats.private.v1.EnterRequest.arguments:type_name -> chat.chats.private.v1.EnterArgument
-	25, // 33: chat.chats.private.v1.EnterMutation.foundation:type_name -> chat.chats.private.v1.EnterArgument
-	29, // 34: chat.chats.private.v1.EnterMutation.condition:type_name -> chat.chats.private.v1.EnterCondition
-	47, // 35: chat.chats.private.v1.EnterCondition.create_member_mutations:type_name -> chat.members.private.v1.CreateMutation
-	48, // 36: chat.chats.private.v1.EnterCondition.update_member_mutations:type_name -> chat.members.private.v1.UpdateMutation
-	49, // 37: chat.chats.private.v1.EnterCondition.create_transponder_mutations:type_name -> gateway.transponders.private.v1.CreateMutation
-	28, // 38: chat.chats.private.v1.EnterTransaction.mutations:type_name -> chat.chats.private.v1.EnterMutation
-	31, // 39: chat.chats.private.v1.LeaveRequest.arguments:type_name -> chat.chats.private.v1.LeaveArgument
-	31, // 40: chat.chats.private.v1.LeaveMutation.foundation:type_name -> chat.chats.private.v1.LeaveArgument
-	35, // 41: chat.chats.private.v1.LeaveMutation.condition:type_name -> chat.chats.private.v1.LeaveCondition
-	48, // 42: chat.chats.private.v1.LeaveCondition.update_member_mutations:type_name -> chat.members.private.v1.UpdateMutation
-	50, // 43: chat.chats.private.v1.LeaveCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
-	34, // 44: chat.chats.private.v1.LeaveTransaction.mutations:type_name -> chat.chats.private.v1.LeaveMutation
-	45, // [45:45] is the sub-list for method output_type
-	45, // [45:45] is the sub-list for method input_type
-	45, // [45:45] is the sub-list for extension type_name
-	45, // [45:45] is the sub-list for extension extendee
-	0,  // [0:45] is the sub-list for field type_name
+	51, // 7: chat.chats.private.v1.SelectResponse.chats:type_name -> chat.chats.private.v1.Chat
+	52, // 8: chat.chats.private.v1.CreateArgument.kind:type_name -> chat.chats.private.v1.Kind
+	47, // 9: chat.chats.private.v1.CreateArgument.metadata:type_name -> chat.chats.private.v1.CreateArgument.MetadataEntry
+	53, // 10: chat.chats.private.v1.CreateArgument.slowmode:type_name -> chat.chats.private.v1.Slowmode
+	9,  // 11: chat.chats.private.v1.CreateRequest.arguments:type_name -> chat.chats.private.v1.CreateArgument
+	51, // 12: chat.chats.private.v1.CreateResponse.chats:type_name -> chat.chats.private.v1.Chat
+	9,  // 13: chat.chats.private.v1.CreateMutation.foundation:type_name -> chat.chats.private.v1.CreateArgument
+	54, // 14: chat.chats.private.v1.CreateMutation.transient:type_name -> chat.chats.private.v1.Transient
+	12, // 15: chat.chats.private.v1.CreateTransaction.mutations:type_name -> chat.chats.private.v1.CreateMutation
+	49, // 16: chat.chats.private.v1.UpdateArgument.query:type_name -> chat.chats.private.v1.Query
+	55, // 17: chat.chats.private.v1.UpdateArgument.metadata:type_name -> chat.chats.private.v1.OptionalMap
+	56, // 18: chat.chats.private.v1.UpdateArgument.slowmode:type_name -> chat.chats.private.v1.OptionalSlowmode
+	14, // 19: chat.chats.private.v1.UpdateRequest.arguments:type_name -> chat.chats.private.v1.UpdateArgument
+	51, // 20: chat.chats.private.v1.UpdateResponse.chats:type_name -> chat.chats.private.v1.Chat
+	14, // 21: chat.chats.private.v1.UpdateMutation.foundation:type_name -> chat.chats.private.v1.UpdateArgument
+	54, // 22: chat.chats.private.v1.UpdateMutation.transient:type_name -> chat.chats.private.v1.Transient
+	17, // 23: chat.chats.private.v1.UpdateTransaction.mutations:type_name -> chat.chats.private.v1.UpdateMutation
+	49, // 24: chat.chats.private.v1.DeleteArgument.query:type_name -> chat.chats.private.v1.Query
+	19, // 25: chat.chats.private.v1.DeleteRequest.arguments:type_name -> chat.chats.private.v1.DeleteArgument
+	51, // 26: chat.chats.private.v1.DeleteResponse.chats:type_name -> chat.chats.private.v1.Chat
+	19, // 27: chat.chats.private.v1.DeleteMutation.foundation:type_name -> chat.chats.private.v1.DeleteArgument
+	23, // 28: chat.chats.private.v1.DeleteMutation.condition:type_name -> chat.chats.private.v1.DeleteCondition
+	54, // 29: chat.chats.private.v1.DeleteMutation.transient:type_name -> chat.chats.private.v1.Transient
+	57, // 30: chat.chats.private.v1.DeleteCondition.delete_member_mutations:type_name -> chat.members.private.v1.DeleteMutation
+	58, // 31: chat.chats.private.v1.DeleteCondition.delete_message_mutations:type_name -> chat.messages.private.v1.DeleteMutation
+	22, // 32: chat.chats.private.v1.DeleteTransaction.mutations:type_name -> chat.chats.private.v1.DeleteMutation
+	48, // 33: chat.chats.private.v1.EnterArgument.metadata:type_name -> chat.chats.private.v1.EnterArgument.MetadataEntry
+	25, // 34: chat.chats.private.v1.EnterRequest.arguments:type_name -> chat.chats.private.v1.EnterArgument
+	25, // 35: chat.chats.private.v1.EnterMutation.foundation:type_name -> chat.chats.private.v1.EnterArgument
+	29, // 36: chat.chats.private.v1.EnterMutation.condition:type_name -> chat.chats.private.v1.EnterCondition
+	59, // 37: chat.chats.private.v1.EnterCondition.create_member_mutations:type_name -> chat.members.private.v1.CreateMutation
+	60, // 38: chat.chats.private.v1.EnterCondition.update_member_mutations:type_name -> chat.members.private.v1.UpdateMutation
+	61, // 39: chat.chats.private.v1.EnterCondition.create_transponder_mutations:type_name -> gateway.transponders.private.v1.CreateMutation
+	28, // 40: chat.chats.private.v1.EnterTransaction.mutations:type_name -> chat.chats.private.v1.EnterMutation
+	31, // 41: chat.chats.private.v1.LeaveRequest.arguments:type_name -> chat.chats.private.v1.LeaveArgument
+	31, // 42: chat.chats.private.v1.LeaveMutation.foundation:type_name -> chat.chats.private.v1.LeaveArgument
+	35, // 43: chat.chats.private.v1.LeaveMutation.condition:type_name -> chat.chats.private.v1.LeaveCondition
+	60, // 44: chat.chats.private.v1.LeaveCondition.update_member_mutations:type_name -> chat.members.private.v1.UpdateMutation
+	62, // 45: chat.chats.private.v1.LeaveCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
+	34, // 46: chat.chats.private.v1.LeaveTransaction.mutations:type_name -> chat.chats.private.v1.LeaveMutation
+	49, // 47: chat.chats.private.v1.EnableSlowmodeArgument.query:type_name -> chat.chats.private.v1.Query
+	37, // 48: chat.chats.private.v1.EnableSlowmodeRequest.arguments:type_name -> chat.chats.private.v1.EnableSlowmodeArgument
+	51, // 49: chat.chats.private.v1.EnableSlowmodeResponse.chats:type_name -> chat.chats.private.v1.Chat
+	37, // 50: chat.chats.private.v1.EnableSlowmodeMutation.foundation:type_name -> chat.chats.private.v1.EnableSlowmodeArgument
+	54, // 51: chat.chats.private.v1.EnableSlowmodeMutation.transient:type_name -> chat.chats.private.v1.Transient
+	40, // 52: chat.chats.private.v1.EnableSlowmodeTransaction.mutations:type_name -> chat.chats.private.v1.EnableSlowmodeMutation
+	49, // 53: chat.chats.private.v1.DisableSlowmodeArgument.query:type_name -> chat.chats.private.v1.Query
+	42, // 54: chat.chats.private.v1.DisableSlowmodeRequest.arguments:type_name -> chat.chats.private.v1.DisableSlowmodeArgument
+	51, // 55: chat.chats.private.v1.DisableSlowmodeResponse.chats:type_name -> chat.chats.private.v1.Chat
+	42, // 56: chat.chats.private.v1.DisableSlowmodeMutation.foundation:type_name -> chat.chats.private.v1.DisableSlowmodeArgument
+	54, // 57: chat.chats.private.v1.DisableSlowmodeMutation.transient:type_name -> chat.chats.private.v1.Transient
+	45, // 58: chat.chats.private.v1.DisableSlowmodeTransaction.mutations:type_name -> chat.chats.private.v1.DisableSlowmodeMutation
+	59, // [59:59] is the sub-list for method output_type
+	59, // [59:59] is the sub-list for method input_type
+	59, // [59:59] is the sub-list for extension type_name
+	59, // [59:59] is the sub-list for extension extendee
+	0,  // [0:59] is the sub-list for field type_name
 }
 
 func init() { file_chat_chats_private_v1_procedures_proto_init() }
@@ -2155,7 +2718,7 @@ func file_chat_chats_private_v1_procedures_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_chat_chats_private_v1_procedures_proto_rawDesc), len(file_chat_chats_private_v1_procedures_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   39,
+			NumMessages:   49,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

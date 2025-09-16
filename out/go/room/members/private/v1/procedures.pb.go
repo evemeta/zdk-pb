@@ -451,6 +451,7 @@ type CreateArgument struct {
 	UserId        string                 `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	RoomId        string                 `protobuf:"bytes,3,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
 	Status        Status                 `protobuf:"varint,4,opt,name=status,proto3,enum=room.members.private.v1.Status" json:"status,omitempty"`
+	Permissions   []Permission           `protobuf:"varint,8,rep,packed,name=permissions,proto3,enum=room.members.private.v1.Permission" json:"permissions,omitempty"`
 	Metadata      map[string]string      `protobuf:"bytes,5,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	EnterTime     int64                  `protobuf:"varint,6,opt,name=enter_time,json=enterTime,proto3" json:"enter_time,omitempty"`
 	LeaveTime     int64                  `protobuf:"varint,7,opt,name=leave_time,json=leaveTime,proto3" json:"leave_time,omitempty"`
@@ -514,6 +515,13 @@ func (x *CreateArgument) GetStatus() Status {
 		return x.Status
 	}
 	return StatusUnknown
+}
+
+func (x *CreateArgument) GetPermissions() []Permission {
+	if x != nil {
+		return x.Permissions
+	}
+	return nil
 }
 
 func (x *CreateArgument) GetMetadata() map[string]string {
@@ -795,6 +803,7 @@ type UpdateArgument struct {
 	UserId        *OptionalString        `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
 	RoomId        *OptionalString        `protobuf:"bytes,3,opt,name=room_id,json=roomId,proto3,oneof" json:"room_id,omitempty"`
 	Metadata      *OptionalMap           `protobuf:"bytes,4,opt,name=metadata,proto3,oneof" json:"metadata,omitempty"`
+	Permissions   *OptionalPermission    `protobuf:"bytes,5,opt,name=permissions,proto3,oneof" json:"permissions,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -853,6 +862,13 @@ func (x *UpdateArgument) GetRoomId() *OptionalString {
 func (x *UpdateArgument) GetMetadata() *OptionalMap {
 	if x != nil {
 		return x.Metadata
+	}
+	return nil
+}
+
+func (x *UpdateArgument) GetPermissions() *OptionalPermission {
+	if x != nil {
+		return x.Permissions
 	}
 	return nil
 }
@@ -1698,12 +1714,13 @@ const file_room_members_private_v1_procedures_proto_rawDesc = "" +
 	"\rSelectRequest\x12E\n" +
 	"\targuments\x18\x01 \x03(\v2'.room.members.private.v1.SelectArgumentR\targuments\"K\n" +
 	"\x0eSelectResponse\x129\n" +
-	"\amembers\x18\x01 \x03(\v2\x1f.room.members.private.v1.MemberR\amembers\"\xd9\x02\n" +
+	"\amembers\x18\x01 \x03(\v2\x1f.room.members.private.v1.MemberR\amembers\"\xa0\x03\n" +
 	"\x0eCreateArgument\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\x12\x17\n" +
 	"\aroom_id\x18\x03 \x01(\tR\x06roomId\x127\n" +
-	"\x06status\x18\x04 \x01(\x0e2\x1f.room.members.private.v1.StatusR\x06status\x12Q\n" +
+	"\x06status\x18\x04 \x01(\x0e2\x1f.room.members.private.v1.StatusR\x06status\x12E\n" +
+	"\vpermissions\x18\b \x03(\x0e2#.room.members.private.v1.PermissionR\vpermissions\x12Q\n" +
 	"\bmetadata\x18\x05 \x03(\v25.room.members.private.v1.CreateArgument.MetadataEntryR\bmetadata\x12\x1d\n" +
 	"\n" +
 	"enter_time\x18\x06 \x01(\x03R\tenterTime\x12\x1d\n" +
@@ -1727,17 +1744,19 @@ const file_room_members_private_v1_procedures_proto_rawDesc = "" +
 	"\x0fCreateCondition\x12q\n" +
 	"\x1ccreate_transponder_mutations\x18\x01 \x03(\v2/.gateway.transponders.private.v1.CreateMutationR\x1acreateTransponderMutations\"Z\n" +
 	"\x11CreateTransaction\x12E\n" +
-	"\tmutations\x18\x01 \x03(\v2'.room.members.private.v1.CreateMutationR\tmutations\"\xc0\x02\n" +
+	"\tmutations\x18\x01 \x03(\v2'.room.members.private.v1.CreateMutationR\tmutations\"\xa4\x03\n" +
 	"\x0eUpdateArgument\x124\n" +
 	"\x05query\x18\x01 \x01(\v2\x1e.room.members.private.v1.QueryR\x05query\x12E\n" +
 	"\auser_id\x18\x02 \x01(\v2'.room.members.private.v1.OptionalStringH\x00R\x06userId\x88\x01\x01\x12E\n" +
 	"\aroom_id\x18\x03 \x01(\v2'.room.members.private.v1.OptionalStringH\x01R\x06roomId\x88\x01\x01\x12E\n" +
-	"\bmetadata\x18\x04 \x01(\v2$.room.members.private.v1.OptionalMapH\x02R\bmetadata\x88\x01\x01B\n" +
+	"\bmetadata\x18\x04 \x01(\v2$.room.members.private.v1.OptionalMapH\x02R\bmetadata\x88\x01\x01\x12R\n" +
+	"\vpermissions\x18\x05 \x01(\v2+.room.members.private.v1.OptionalPermissionH\x03R\vpermissions\x88\x01\x01B\n" +
 	"\n" +
 	"\b_user_idB\n" +
 	"\n" +
 	"\b_room_idB\v\n" +
-	"\t_metadata\"V\n" +
+	"\t_metadataB\x0e\n" +
+	"\f_permissions\"V\n" +
 	"\rUpdateRequest\x12E\n" +
 	"\targuments\x18\x01 \x03(\v2'.room.members.private.v1.UpdateArgumentR\targuments\"K\n" +
 	"\x0eUpdateResponse\x129\n" +
@@ -1842,14 +1861,16 @@ var file_room_members_private_v1_procedures_proto_goTypes = []any{
 	(*Chunk)(nil),                  // 34: room.members.private.v1.Chunk
 	(*Member)(nil),                 // 35: room.members.private.v1.Member
 	(Status)(0),                    // 36: room.members.private.v1.Status
-	(*Transient)(nil),              // 37: room.members.private.v1.Transient
-	(*v1.CreateMutation)(nil),      // 38: gateway.transponders.private.v1.CreateMutation
-	(*OptionalString)(nil),         // 39: room.members.private.v1.OptionalString
-	(*OptionalMap)(nil),            // 40: room.members.private.v1.OptionalMap
-	(*v1.DeleteMutation)(nil),      // 41: gateway.transponders.private.v1.DeleteMutation
-	(*v11.DeleteMutation)(nil),     // 42: room.streams.private.v1.DeleteMutation
-	(*v12.DeleteMutation)(nil),     // 43: room.connections.private.v1.DeleteMutation
-	(*v13.DisconnectMutation)(nil), // 44: gateway.sfus.private.v1.DisconnectMutation
+	(Permission)(0),                // 37: room.members.private.v1.Permission
+	(*Transient)(nil),              // 38: room.members.private.v1.Transient
+	(*v1.CreateMutation)(nil),      // 39: gateway.transponders.private.v1.CreateMutation
+	(*OptionalString)(nil),         // 40: room.members.private.v1.OptionalString
+	(*OptionalMap)(nil),            // 41: room.members.private.v1.OptionalMap
+	(*OptionalPermission)(nil),     // 42: room.members.private.v1.OptionalPermission
+	(*v1.DeleteMutation)(nil),      // 43: gateway.transponders.private.v1.DeleteMutation
+	(*v11.DeleteMutation)(nil),     // 44: room.streams.private.v1.DeleteMutation
+	(*v12.DeleteMutation)(nil),     // 45: room.connections.private.v1.DeleteMutation
+	(*v13.DisconnectMutation)(nil), // 46: gateway.sfus.private.v1.DisconnectMutation
 }
 var file_room_members_private_v1_procedures_proto_depIdxs = []int32{
 	33, // 0: room.members.private.v1.CountArgument.query:type_name -> room.members.private.v1.Query
@@ -1861,46 +1882,48 @@ var file_room_members_private_v1_procedures_proto_depIdxs = []int32{
 	6,  // 6: room.members.private.v1.SelectRequest.arguments:type_name -> room.members.private.v1.SelectArgument
 	35, // 7: room.members.private.v1.SelectResponse.members:type_name -> room.members.private.v1.Member
 	36, // 8: room.members.private.v1.CreateArgument.status:type_name -> room.members.private.v1.Status
-	32, // 9: room.members.private.v1.CreateArgument.metadata:type_name -> room.members.private.v1.CreateArgument.MetadataEntry
-	9,  // 10: room.members.private.v1.CreateRequest.arguments:type_name -> room.members.private.v1.CreateArgument
-	35, // 11: room.members.private.v1.CreateResponse.members:type_name -> room.members.private.v1.Member
-	9,  // 12: room.members.private.v1.CreateMutation.foundation:type_name -> room.members.private.v1.CreateArgument
-	13, // 13: room.members.private.v1.CreateMutation.condition:type_name -> room.members.private.v1.CreateCondition
-	37, // 14: room.members.private.v1.CreateMutation.transient:type_name -> room.members.private.v1.Transient
-	38, // 15: room.members.private.v1.CreateCondition.create_transponder_mutations:type_name -> gateway.transponders.private.v1.CreateMutation
-	12, // 16: room.members.private.v1.CreateTransaction.mutations:type_name -> room.members.private.v1.CreateMutation
-	33, // 17: room.members.private.v1.UpdateArgument.query:type_name -> room.members.private.v1.Query
-	39, // 18: room.members.private.v1.UpdateArgument.user_id:type_name -> room.members.private.v1.OptionalString
-	39, // 19: room.members.private.v1.UpdateArgument.room_id:type_name -> room.members.private.v1.OptionalString
-	40, // 20: room.members.private.v1.UpdateArgument.metadata:type_name -> room.members.private.v1.OptionalMap
-	15, // 21: room.members.private.v1.UpdateRequest.arguments:type_name -> room.members.private.v1.UpdateArgument
-	35, // 22: room.members.private.v1.UpdateResponse.members:type_name -> room.members.private.v1.Member
-	15, // 23: room.members.private.v1.UpdateMutation.foundation:type_name -> room.members.private.v1.UpdateArgument
-	37, // 24: room.members.private.v1.UpdateMutation.transient:type_name -> room.members.private.v1.Transient
-	18, // 25: room.members.private.v1.UpdateTransaction.mutations:type_name -> room.members.private.v1.UpdateMutation
-	33, // 26: room.members.private.v1.DeleteArgument.query:type_name -> room.members.private.v1.Query
-	20, // 27: room.members.private.v1.DeleteRequest.arguments:type_name -> room.members.private.v1.DeleteArgument
-	35, // 28: room.members.private.v1.DeleteResponse.members:type_name -> room.members.private.v1.Member
-	20, // 29: room.members.private.v1.DeleteMutation.foundation:type_name -> room.members.private.v1.DeleteArgument
-	24, // 30: room.members.private.v1.DeleteMutation.condition:type_name -> room.members.private.v1.DeleteCondition
-	37, // 31: room.members.private.v1.DeleteMutation.transient:type_name -> room.members.private.v1.Transient
-	41, // 32: room.members.private.v1.DeleteCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
-	23, // 33: room.members.private.v1.DeleteTransaction.mutations:type_name -> room.members.private.v1.DeleteMutation
-	33, // 34: room.members.private.v1.KickArgument.query:type_name -> room.members.private.v1.Query
-	26, // 35: room.members.private.v1.KickRequest.arguments:type_name -> room.members.private.v1.KickArgument
-	26, // 36: room.members.private.v1.KickMutation.foundation:type_name -> room.members.private.v1.KickArgument
-	30, // 37: room.members.private.v1.KickMutation.condition:type_name -> room.members.private.v1.KickCondition
-	18, // 38: room.members.private.v1.KickCondition.update_mutations:type_name -> room.members.private.v1.UpdateMutation
-	42, // 39: room.members.private.v1.KickCondition.delete_stream_mutations:type_name -> room.streams.private.v1.DeleteMutation
-	43, // 40: room.members.private.v1.KickCondition.delete_connection_mutations:type_name -> room.connections.private.v1.DeleteMutation
-	41, // 41: room.members.private.v1.KickCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
-	44, // 42: room.members.private.v1.KickCondition.disconnect_connection_mutations:type_name -> gateway.sfus.private.v1.DisconnectMutation
-	29, // 43: room.members.private.v1.KickTransaction.mutations:type_name -> room.members.private.v1.KickMutation
-	44, // [44:44] is the sub-list for method output_type
-	44, // [44:44] is the sub-list for method input_type
-	44, // [44:44] is the sub-list for extension type_name
-	44, // [44:44] is the sub-list for extension extendee
-	0,  // [0:44] is the sub-list for field type_name
+	37, // 9: room.members.private.v1.CreateArgument.permissions:type_name -> room.members.private.v1.Permission
+	32, // 10: room.members.private.v1.CreateArgument.metadata:type_name -> room.members.private.v1.CreateArgument.MetadataEntry
+	9,  // 11: room.members.private.v1.CreateRequest.arguments:type_name -> room.members.private.v1.CreateArgument
+	35, // 12: room.members.private.v1.CreateResponse.members:type_name -> room.members.private.v1.Member
+	9,  // 13: room.members.private.v1.CreateMutation.foundation:type_name -> room.members.private.v1.CreateArgument
+	13, // 14: room.members.private.v1.CreateMutation.condition:type_name -> room.members.private.v1.CreateCondition
+	38, // 15: room.members.private.v1.CreateMutation.transient:type_name -> room.members.private.v1.Transient
+	39, // 16: room.members.private.v1.CreateCondition.create_transponder_mutations:type_name -> gateway.transponders.private.v1.CreateMutation
+	12, // 17: room.members.private.v1.CreateTransaction.mutations:type_name -> room.members.private.v1.CreateMutation
+	33, // 18: room.members.private.v1.UpdateArgument.query:type_name -> room.members.private.v1.Query
+	40, // 19: room.members.private.v1.UpdateArgument.user_id:type_name -> room.members.private.v1.OptionalString
+	40, // 20: room.members.private.v1.UpdateArgument.room_id:type_name -> room.members.private.v1.OptionalString
+	41, // 21: room.members.private.v1.UpdateArgument.metadata:type_name -> room.members.private.v1.OptionalMap
+	42, // 22: room.members.private.v1.UpdateArgument.permissions:type_name -> room.members.private.v1.OptionalPermission
+	15, // 23: room.members.private.v1.UpdateRequest.arguments:type_name -> room.members.private.v1.UpdateArgument
+	35, // 24: room.members.private.v1.UpdateResponse.members:type_name -> room.members.private.v1.Member
+	15, // 25: room.members.private.v1.UpdateMutation.foundation:type_name -> room.members.private.v1.UpdateArgument
+	38, // 26: room.members.private.v1.UpdateMutation.transient:type_name -> room.members.private.v1.Transient
+	18, // 27: room.members.private.v1.UpdateTransaction.mutations:type_name -> room.members.private.v1.UpdateMutation
+	33, // 28: room.members.private.v1.DeleteArgument.query:type_name -> room.members.private.v1.Query
+	20, // 29: room.members.private.v1.DeleteRequest.arguments:type_name -> room.members.private.v1.DeleteArgument
+	35, // 30: room.members.private.v1.DeleteResponse.members:type_name -> room.members.private.v1.Member
+	20, // 31: room.members.private.v1.DeleteMutation.foundation:type_name -> room.members.private.v1.DeleteArgument
+	24, // 32: room.members.private.v1.DeleteMutation.condition:type_name -> room.members.private.v1.DeleteCondition
+	38, // 33: room.members.private.v1.DeleteMutation.transient:type_name -> room.members.private.v1.Transient
+	43, // 34: room.members.private.v1.DeleteCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
+	23, // 35: room.members.private.v1.DeleteTransaction.mutations:type_name -> room.members.private.v1.DeleteMutation
+	33, // 36: room.members.private.v1.KickArgument.query:type_name -> room.members.private.v1.Query
+	26, // 37: room.members.private.v1.KickRequest.arguments:type_name -> room.members.private.v1.KickArgument
+	26, // 38: room.members.private.v1.KickMutation.foundation:type_name -> room.members.private.v1.KickArgument
+	30, // 39: room.members.private.v1.KickMutation.condition:type_name -> room.members.private.v1.KickCondition
+	18, // 40: room.members.private.v1.KickCondition.update_mutations:type_name -> room.members.private.v1.UpdateMutation
+	44, // 41: room.members.private.v1.KickCondition.delete_stream_mutations:type_name -> room.streams.private.v1.DeleteMutation
+	45, // 42: room.members.private.v1.KickCondition.delete_connection_mutations:type_name -> room.connections.private.v1.DeleteMutation
+	43, // 43: room.members.private.v1.KickCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
+	46, // 44: room.members.private.v1.KickCondition.disconnect_connection_mutations:type_name -> gateway.sfus.private.v1.DisconnectMutation
+	29, // 45: room.members.private.v1.KickTransaction.mutations:type_name -> room.members.private.v1.KickMutation
+	46, // [46:46] is the sub-list for method output_type
+	46, // [46:46] is the sub-list for method input_type
+	46, // [46:46] is the sub-list for extension type_name
+	46, // [46:46] is the sub-list for extension extendee
+	0,  // [0:46] is the sub-list for field type_name
 }
 
 func init() { file_room_members_private_v1_procedures_proto_init() }

@@ -119,6 +119,88 @@ func (Status) EnumDescriptor() ([]byte, []int) {
 	return file_room_members_private_v1_enums_proto_rawDescGZIP(), []int{1}
 }
 
+type Permission int32
+
+const (
+	PermissionUnknown            Permission = 0
+	PermissionChat               Permission = 100
+	PermissionChatBlock          Permission = 101
+	PermissionChatUnblock        Permission = 102
+	PermissionChatMute           Permission = 103
+	PermissionChatUnmute         Permission = 104
+	PermissionChatMessageDelete  Permission = 105
+	PermissionChatKick           Permission = 106
+	Permission_permissionChatSlowmode       Permission = 107
+	Permission_permissionChatSlowmodeBypass Permission = 108
+	PermissionRoom               Permission = 200
+	PermissionRoomBlock          Permission = 201
+	PermissionRoomUnblock        Permission = 202
+	PermissionRoomKick           Permission = 203
+)
+
+// Enum value maps for Permission.
+var (
+	Permission_name = map[int32]string{
+		0:   "PermissionUnknown",
+		100: "PermissionChat",
+		101: "PermissionChatBlock",
+		102: "PermissionChatUnblock",
+		103: "PermissionChatMute",
+		104: "PermissionChatUnmute",
+		105: "PermissionChatMessageDelete",
+		106: "PermissionChatKick",
+		107: "permissionChatSlowmode",
+		108: "permissionChatSlowmodeBypass",
+		200: "PermissionRoom",
+		201: "PermissionRoomBlock",
+		202: "PermissionRoomUnblock",
+		203: "PermissionRoomKick",
+	}
+	Permission_value = map[string]int32{
+		"PermissionUnknown":            0,
+		"PermissionChat":               100,
+		"PermissionChatBlock":          101,
+		"PermissionChatUnblock":        102,
+		"PermissionChatMute":           103,
+		"PermissionChatUnmute":         104,
+		"PermissionChatMessageDelete":  105,
+		"PermissionChatKick":           106,
+		"permissionChatSlowmode":       107,
+		"permissionChatSlowmodeBypass": 108,
+		"PermissionRoom":               200,
+		"PermissionRoomBlock":          201,
+		"PermissionRoomUnblock":        202,
+		"PermissionRoomKick":           203,
+	}
+)
+
+func (x Permission) Enum() *Permission {
+	p := new(Permission)
+	*p = x
+	return p
+}
+
+func (x Permission) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (Permission) Descriptor() protoreflect.EnumDescriptor {
+	return file_room_members_private_v1_enums_proto_enumTypes[2].Descriptor()
+}
+
+func (Permission) Type() protoreflect.EnumType {
+	return &file_room_members_private_v1_enums_proto_enumTypes[2]
+}
+
+func (x Permission) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use Permission.Descriptor instead.
+func (Permission) EnumDescriptor() ([]byte, []int) {
+	return file_room_members_private_v1_enums_proto_rawDescGZIP(), []int{2}
+}
+
 var File_room_members_private_v1_enums_proto protoreflect.FileDescriptor
 
 const file_room_members_private_v1_enums_proto_rawDesc = "" +
@@ -131,7 +213,23 @@ const file_room_members_private_v1_enums_proto_rawDesc = "" +
 	"\x06Status\x12\x11\n" +
 	"\rStatusUnknown\x10\x00\x12\x13\n" +
 	"\x0fStatusConnected\x10\x01\x12\x16\n" +
-	"\x12StatusDisconnected\x10\x02BDZBgitlab.com/evemeta/zdk/pb/out/go/room/members/private/v1;memberspbb\x06proto3"
+	"\x12StatusDisconnected\x10\x02*\xf8\x02\n" +
+	"\n" +
+	"Permission\x12\x15\n" +
+	"\x11PermissionUnknown\x10\x00\x12\x12\n" +
+	"\x0ePermissionChat\x10d\x12\x17\n" +
+	"\x13PermissionChatBlock\x10e\x12\x19\n" +
+	"\x15PermissionChatUnblock\x10f\x12\x16\n" +
+	"\x12PermissionChatMute\x10g\x12\x18\n" +
+	"\x14PermissionChatUnmute\x10h\x12\x1f\n" +
+	"\x1bPermissionChatMessageDelete\x10i\x12\x16\n" +
+	"\x12PermissionChatKick\x10j\x12\x1a\n" +
+	"\x16permissionChatSlowmode\x10k\x12 \n" +
+	"\x1cpermissionChatSlowmodeBypass\x10l\x12\x13\n" +
+	"\x0ePermissionRoom\x10\xc8\x01\x12\x18\n" +
+	"\x13PermissionRoomBlock\x10\xc9\x01\x12\x1a\n" +
+	"\x15PermissionRoomUnblock\x10\xca\x01\x12\x17\n" +
+	"\x12PermissionRoomKick\x10\xcb\x01BDZBgitlab.com/evemeta/zdk/pb/out/go/room/members/private/v1;memberspbb\x06proto3"
 
 var (
 	file_room_members_private_v1_enums_proto_rawDescOnce sync.Once
@@ -145,10 +243,11 @@ func file_room_members_private_v1_enums_proto_rawDescGZIP() []byte {
 	return file_room_members_private_v1_enums_proto_rawDescData
 }
 
-var file_room_members_private_v1_enums_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_room_members_private_v1_enums_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
 var file_room_members_private_v1_enums_proto_goTypes = []any{
-	(Order)(0),  // 0: room.members.private.v1.Order
-	(Status)(0), // 1: room.members.private.v1.Status
+	(Order)(0),      // 0: room.members.private.v1.Order
+	(Status)(0),     // 1: room.members.private.v1.Status
+	(Permission)(0), // 2: room.members.private.v1.Permission
 }
 var file_room_members_private_v1_enums_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -168,7 +267,7 @@ func file_room_members_private_v1_enums_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_room_members_private_v1_enums_proto_rawDesc), len(file_room_members_private_v1_enums_proto_rawDesc)),
-			NumEnums:      2,
+			NumEnums:      3,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   0,

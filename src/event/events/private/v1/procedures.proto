@@ -70,7 +70,6 @@ message CreateArgument {
     string                 id        = 1;
     events.private.v1.Kind kind      = 2;
     map<string, string>    metadata  = 3;
-    int64                  retention = 4;
 }
 
 message CreateRequest {
@@ -211,4 +210,73 @@ message LeaveCondition {
 
 message LeaveTransaction {
     repeated event.events.private.v1.LeaveMutation mutations = 1;
+}
+
+message StartArgument {
+    event.events.private.v1.Query query = 1;
+}
+
+message StartRequest {
+    repeated event.events.private.v1.StartArgument arguments = 1;
+}
+
+message StartResponse {
+    repeated event.events.private.v1.Event events = 1;
+}
+
+message StartMutation {
+    event.events.private.v1.StartArgument      foundation      = 1;
+    repeated event.events.private.v1.Transient transient       = 2;
+    int64                                      begin_timestamp = 3;
+    int64                                      close_timestamp = 4;
+}
+
+message StartTransaction {
+    repeated event.events.private.v1.StartMutation mutations = 1;
+}
+
+message FinishArgument {
+    event.events.private.v1.Query query = 1;
+}
+
+message FinishRequest {
+    repeated event.events.private.v1.FinishArgument arguments = 1;
+}
+
+message FinishResponse {
+    repeated event.events.private.v1.Event events = 1;
+}
+
+message FinishMutation {
+    event.events.private.v1.FinishArgument     foundation      = 1;
+    repeated event.events.private.v1.Transient transient       = 2;
+    int64                                      begin_timestamp = 3;
+    int64                                      close_timestamp = 4;
+}
+
+message FinishTransaction {
+    repeated event.events.private.v1.FinishMutation mutations = 1;
+}
+
+message CancelArgument {
+    event.events.private.v1.Query query = 1;
+}
+
+message CancelRequest {
+    repeated event.events.private.v1.CancelArgument arguments = 1;
+}
+
+message CancelResponse {
+    repeated event.events.private.v1.Event events = 1;
+}
+
+message CancelMutation {
+    event.events.private.v1.CancelArgument     foundation      = 1;
+    repeated event.events.private.v1.Transient transient       = 2;
+    int64                                      begin_timestamp = 3;
+    int64                                      close_timestamp = 4;
+}
+
+message CancelTransaction {
+    repeated event.events.private.v1.CancelMutation mutations = 1;
 }

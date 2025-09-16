@@ -11,6 +11,7 @@ import type { PartialMessage } from "@protobuf-ts/runtime";
 import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
 import { Status } from "./enums";
+import { Permission } from "./enums";
 import { Order } from "./enums";
 /**
  * Chunk represents a segmented portion of members used for pagination or segmented data retrieval.
@@ -121,6 +122,12 @@ export interface Member {
      * @generated from protobuf field: int64 update_time = 6;
      */
     updateTime: bigint;
+    /**
+     * Represents list of permission which member have inside this room.
+     *
+     * @generated from protobuf field: repeated room.members.public.server.v1.Permission permissions = 7;
+     */
+    permissions: Permission[];
 }
 /**
  * Condition represents a set of criteria designed to filter data during retrieval.
@@ -318,7 +325,8 @@ class Member$Type extends MessageType<Member> {
             { no: 3, name: "room_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 4, name: "metadata", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } },
             { no: 5, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 6, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 6, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 7, name: "permissions", kind: "enum", repeat: 1 /*RepeatType.PACKED*/, T: () => ["room.members.public.server.v1.Permission", Permission] }
         ]);
     }
     create(value?: PartialMessage<Member>): Member {
@@ -329,6 +337,7 @@ class Member$Type extends MessageType<Member> {
         message.metadata = {};
         message.createTime = 0n;
         message.updateTime = 0n;
+        message.permissions = [];
         if (value !== undefined)
             reflectionMergePartial<Member>(this, message, value);
         return message;
@@ -355,6 +364,13 @@ class Member$Type extends MessageType<Member> {
                     break;
                 case /* int64 update_time */ 6:
                     message.updateTime = reader.int64().toBigInt();
+                    break;
+                case /* repeated room.members.public.server.v1.Permission permissions */ 7:
+                    if (wireType === WireType.LengthDelimited)
+                        for (let e = reader.int32() + reader.pos; reader.pos < e;)
+                            message.permissions.push(reader.int32());
+                    else
+                        message.permissions.push(reader.int32());
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -402,6 +418,13 @@ class Member$Type extends MessageType<Member> {
         /* int64 update_time = 6; */
         if (message.updateTime !== 0n)
             writer.tag(6, WireType.Varint).int64(message.updateTime);
+        /* repeated room.members.public.server.v1.Permission permissions = 7; */
+        if (message.permissions.length) {
+            writer.tag(7, WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.permissions.length; i++)
+                writer.int32(message.permissions[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

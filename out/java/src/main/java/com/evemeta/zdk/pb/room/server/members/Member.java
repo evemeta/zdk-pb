@@ -35,6 +35,7 @@ private static final long serialVersionUID = 0L;
     id_ = "";
     userId_ = "";
     roomId_ = "";
+    permissions_ = emptyIntList();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -328,6 +329,84 @@ java.lang.String defaultValue) {
     return updateTime_;
   }
 
+  public static final int PERMISSIONS_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
+  private com.google.protobuf.Internal.IntList permissions_;
+  private static final com.google.protobuf.Internal.IntListAdapter.IntConverter<
+      com.evemeta.zdk.pb.room.server.members.Permission> permissions_converter_ =
+          new com.google.protobuf.Internal.IntListAdapter.IntConverter<
+              com.evemeta.zdk.pb.room.server.members.Permission>() {
+            public com.evemeta.zdk.pb.room.server.members.Permission convert(int from) {
+              com.evemeta.zdk.pb.room.server.members.Permission result = com.evemeta.zdk.pb.room.server.members.Permission.forNumber(from);
+              return result == null ? com.evemeta.zdk.pb.room.server.members.Permission.UNRECOGNIZED : result;
+            }
+          };
+  /**
+   * <pre>
+   * Represents list of permission which member have inside this room.
+   * </pre>
+   *
+   * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+   * @return A list containing the permissions.
+   */
+  @java.lang.Override
+  public java.util.List<com.evemeta.zdk.pb.room.server.members.Permission> getPermissionsList() {
+    return new com.google.protobuf.Internal.IntListAdapter<
+        com.evemeta.zdk.pb.room.server.members.Permission>(permissions_, permissions_converter_);
+  }
+  /**
+   * <pre>
+   * Represents list of permission which member have inside this room.
+   * </pre>
+   *
+   * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+   * @return The count of permissions.
+   */
+  @java.lang.Override
+  public int getPermissionsCount() {
+    return permissions_.size();
+  }
+  /**
+   * <pre>
+   * Represents list of permission which member have inside this room.
+   * </pre>
+   *
+   * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+   * @param index The index of the element to return.
+   * @return The permissions at the given index.
+   */
+  @java.lang.Override
+  public com.evemeta.zdk.pb.room.server.members.Permission getPermissions(int index) {
+    return permissions_converter_.convert(permissions_.getInt(index));
+  }
+  /**
+   * <pre>
+   * Represents list of permission which member have inside this room.
+   * </pre>
+   *
+   * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+   * @return A list containing the enum numeric values on the wire for permissions.
+   */
+  @java.lang.Override
+  public java.util.List<java.lang.Integer>
+  getPermissionsValueList() {
+    return permissions_;
+  }
+  /**
+   * <pre>
+   * Represents list of permission which member have inside this room.
+   * </pre>
+   *
+   * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+   * @param index The index of the value to return.
+   * @return The enum numeric value on the wire of permissions at the given index.
+   */
+  @java.lang.Override
+  public int getPermissionsValue(int index) {
+    return permissions_.getInt(index);
+  }
+  private int permissionsMemoizedSerializedSize;
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -342,6 +421,7 @@ java.lang.String defaultValue) {
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    getSerializedSize();
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(id_)) {
       com.google.protobuf.GeneratedMessage.writeString(output, 1, id_);
     }
@@ -362,6 +442,13 @@ java.lang.String defaultValue) {
     }
     if (updateTime_ != 0L) {
       output.writeInt64(6, updateTime_);
+    }
+    if (getPermissionsList().size() > 0) {
+      output.writeUInt32NoTag(58);
+      output.writeUInt32NoTag(permissionsMemoizedSerializedSize);
+    }
+    for (int i = 0; i < permissions_.size(); i++) {
+      output.writeEnumNoTag(permissions_.getInt(i));
     }
     getUnknownFields().writeTo(output);
   }
@@ -399,6 +486,18 @@ java.lang.String defaultValue) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(6, updateTime_);
     }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < permissions_.size(); i++) {
+        dataSize += com.google.protobuf.CodedOutputStream
+          .computeEnumSizeNoTag(permissions_.getInt(i));
+      }
+      size += dataSize;
+      if (!getPermissionsList().isEmpty()) {  size += 1;
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32SizeNoTag(dataSize);
+      }permissionsMemoizedSerializedSize = dataSize;
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -426,6 +525,7 @@ java.lang.String defaultValue) {
         != other.getCreateTime()) return false;
     if (getUpdateTime()
         != other.getUpdateTime()) return false;
+    if (!permissions_.equals(other.permissions_)) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -453,6 +553,10 @@ java.lang.String defaultValue) {
     hash = (37 * hash) + UPDATE_TIME_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getUpdateTime());
+    if (getPermissionsCount() > 0) {
+      hash = (37 * hash) + PERMISSIONS_FIELD_NUMBER;
+      hash = (53 * hash) + permissions_.hashCode();
+    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -617,6 +721,8 @@ java.lang.String defaultValue) {
       internalGetMutableMetadata().clear();
       createTime_ = 0L;
       updateTime_ = 0L;
+      permissions_ = emptyIntList();
+      bitField0_ = (bitField0_ & ~0x00000040);
       return this;
     }
 
@@ -643,9 +749,18 @@ java.lang.String defaultValue) {
     @java.lang.Override
     public com.evemeta.zdk.pb.room.server.members.Member buildPartial() {
       com.evemeta.zdk.pb.room.server.members.Member result = new com.evemeta.zdk.pb.room.server.members.Member(this);
+      buildPartialRepeatedFields(result);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.evemeta.zdk.pb.room.server.members.Member result) {
+      if (((bitField0_ & 0x00000040) != 0)) {
+        permissions_.makeImmutable();
+        bitField0_ = (bitField0_ & ~0x00000040);
+      }
+      result.permissions_ = permissions_;
     }
 
     private void buildPartial0(com.evemeta.zdk.pb.room.server.members.Member result) {
@@ -707,6 +822,16 @@ java.lang.String defaultValue) {
       if (other.getUpdateTime() != 0L) {
         setUpdateTime(other.getUpdateTime());
       }
+      if (!other.permissions_.isEmpty()) {
+        if (permissions_.isEmpty()) {
+          permissions_ = other.permissions_;
+          bitField0_ = (bitField0_ & ~0x00000040);
+        } else {
+          ensurePermissionsIsMutable();
+          permissions_.addAll(other.permissions_);
+        }
+        onChanged();
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -767,6 +892,23 @@ java.lang.String defaultValue) {
               bitField0_ |= 0x00000020;
               break;
             } // case 48
+            case 56: {
+              int tmpRaw = input.readEnum();
+              ensurePermissionsIsMutable();
+              permissions_.addInt(tmpRaw);
+              break;
+            } // case 56
+            case 58: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensurePermissionsIsMutable();
+                permissions_.addInt(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 58
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1299,6 +1441,194 @@ java.lang.String defaultValue) {
     public Builder clearUpdateTime() {
       bitField0_ = (bitField0_ & ~0x00000020);
       updateTime_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.Internal.IntList permissions_ =
+      emptyIntList();
+    private void ensurePermissionsIsMutable() {
+      if (!((bitField0_ & 0x00000040) != 0)) {
+        permissions_ = makeMutableCopy(permissions_);
+        bitField0_ |= 0x00000040;
+      }
+    }
+    /**
+     * <pre>
+     * Represents list of permission which member have inside this room.
+     * </pre>
+     *
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+     * @return A list containing the permissions.
+     */
+    public java.util.List<com.evemeta.zdk.pb.room.server.members.Permission> getPermissionsList() {
+      return new com.google.protobuf.Internal.IntListAdapter<
+          com.evemeta.zdk.pb.room.server.members.Permission>(permissions_, permissions_converter_);
+    }
+    /**
+     * <pre>
+     * Represents list of permission which member have inside this room.
+     * </pre>
+     *
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+     * @return The count of permissions.
+     */
+    public int getPermissionsCount() {
+      return permissions_.size();
+    }
+    /**
+     * <pre>
+     * Represents list of permission which member have inside this room.
+     * </pre>
+     *
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+     * @param index The index of the element to return.
+     * @return The permissions at the given index.
+     */
+    public com.evemeta.zdk.pb.room.server.members.Permission getPermissions(int index) {
+      return permissions_converter_.convert(permissions_.getInt(index));
+    }
+    /**
+     * <pre>
+     * Represents list of permission which member have inside this room.
+     * </pre>
+     *
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+     * @param index The index to set the value at.
+     * @param value The permissions to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPermissions(
+        int index, com.evemeta.zdk.pb.room.server.members.Permission value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      ensurePermissionsIsMutable();
+      permissions_.setInt(index, value.getNumber());
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Represents list of permission which member have inside this room.
+     * </pre>
+     *
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+     * @param value The permissions to add.
+     * @return This builder for chaining.
+     */
+    public Builder addPermissions(com.evemeta.zdk.pb.room.server.members.Permission value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      ensurePermissionsIsMutable();
+      permissions_.addInt(value.getNumber());
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Represents list of permission which member have inside this room.
+     * </pre>
+     *
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+     * @param values The permissions to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllPermissions(
+        java.lang.Iterable<? extends com.evemeta.zdk.pb.room.server.members.Permission> values) {
+      ensurePermissionsIsMutable();
+      for (com.evemeta.zdk.pb.room.server.members.Permission value : values) {
+        permissions_.addInt(value.getNumber());
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Represents list of permission which member have inside this room.
+     * </pre>
+     *
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPermissions() {
+      permissions_ = emptyIntList();
+      bitField0_ = (bitField0_ & ~0x00000040);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Represents list of permission which member have inside this room.
+     * </pre>
+     *
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+     * @return A list containing the enum numeric values on the wire for permissions.
+     */
+    public java.util.List<java.lang.Integer>
+    getPermissionsValueList() {
+      return java.util.Collections.unmodifiableList(permissions_);
+    }
+    /**
+     * <pre>
+     * Represents list of permission which member have inside this room.
+     * </pre>
+     *
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of permissions at the given index.
+     */
+    public int getPermissionsValue(int index) {
+      return permissions_.getInt(index);
+    }
+    /**
+     * <pre>
+     * Represents list of permission which member have inside this room.
+     * </pre>
+     *
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+     * @param index The index to set the value at.
+     * @param value The enum numeric value on the wire for permissions to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPermissionsValue(
+        int index, int value) {
+      ensurePermissionsIsMutable();
+      permissions_.setInt(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Represents list of permission which member have inside this room.
+     * </pre>
+     *
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+     * @param value The enum numeric value on the wire for permissions to add.
+     * @return This builder for chaining.
+     */
+    public Builder addPermissionsValue(int value) {
+      ensurePermissionsIsMutable();
+      permissions_.addInt(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Represents list of permission which member have inside this room.
+     * </pre>
+     *
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+     * @param values The enum numeric values on the wire for permissions to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllPermissionsValue(
+        java.lang.Iterable<java.lang.Integer> values) {
+      ensurePermissionsIsMutable();
+      for (int value : values) {
+        permissions_.addInt(value);
+      }
       onChanged();
       return this;
     }

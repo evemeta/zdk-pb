@@ -71,4 +71,24 @@ service Service {
     rpc AnnounceLeaveMutations(LeaveTransaction) returns (LeaveTransaction);
 
     rpc RollbackLeaveMutations(LeaveTransaction) returns (LeaveTransaction);
+
+    rpc EnableSlowmode(EnableSlowmodeRequest) returns (EnableSlowmodeResponse);
+
+    rpc InitiateEnableSlowmodeMutations(EnableSlowmodeTransaction) returns (EnableSlowmodeTransaction);
+
+    rpc FinalizeEnableSlowmodeMutations(EnableSlowmodeTransaction) returns (EnableSlowmodeTransaction);
+
+    rpc AnnounceEnableSlowmodeMutations(EnableSlowmodeTransaction) returns (EnableSlowmodeTransaction);
+
+    rpc RollbackEnableSlowmodeMutations(EnableSlowmodeTransaction) returns (EnableSlowmodeTransaction);
+
+    rpc DisableSlowmode(DisableSlowmodeRequest) returns (DisableSlowmodeResponse);
+
+    rpc InitiateDisableSlowmodeMutations(DisableSlowmodeTransaction) returns (DisableSlowmodeTransaction);
+
+    rpc FinalizeDisableSlowmodeMutations(DisableSlowmodeTransaction) returns (DisableSlowmodeTransaction);
+
+    rpc AnnounceDisableSlowmodeMutations(DisableSlowmodeTransaction) returns (DisableSlowmodeTransaction);
+
+    rpc RollbackDisableSlowmodeMutations(DisableSlowmodeTransaction) returns (DisableSlowmodeTransaction);
 }

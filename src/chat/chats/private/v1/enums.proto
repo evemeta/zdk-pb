@@ -29,3 +29,9 @@ enum Permission {
     PermissionChatSlowmode         = 107;
     PermissionChatSlowmodeBypass   = 108;
 }
+
+enum SlowmodeStatus {
+    SlowmodeStatusUnknown  = 0;
+    SlowmodeStatusEnabled  = 1;
+    SlowmodeStatusDisabled = 2;
+}

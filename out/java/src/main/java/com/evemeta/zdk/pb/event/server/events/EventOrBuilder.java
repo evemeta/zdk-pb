@@ -31,7 +31,7 @@ public interface EventOrBuilder extends
 
   /**
    * <pre>
-   * todo;
+   * Determines whatever the event is dependent or independent, it may depend on a parent object.
    * </pre>
    *
    * <code>.event.events.public.server.v1.Kind kind = 2;</code>
@@ -40,7 +40,7 @@ public interface EventOrBuilder extends
   int getKindValue();
   /**
    * <pre>
-   * todo;
+   * Determines whatever the event is dependent or independent, it may depend on a parent object.
    * </pre>
    *
    * <code>.event.events.public.server.v1.Kind kind = 2;</code>
@@ -50,10 +50,29 @@ public interface EventOrBuilder extends
 
   /**
    * <pre>
+   * Status of the event (pending, started, canceled, or finished).
+   * </pre>
+   *
+   * <code>.event.events.public.server.v1.Status status = 3;</code>
+   * @return The enum numeric value on the wire for status.
+   */
+  int getStatusValue();
+  /**
+   * <pre>
+   * Status of the event (pending, started, canceled, or finished).
+   * </pre>
+   *
+   * <code>.event.events.public.server.v1.Status status = 3;</code>
+   * @return The status.
+   */
+  com.evemeta.zdk.pb.event.server.events.Status getStatus();
+
+  /**
+   * <pre>
    * Represents a collection of key-value pairs providing additional context or information about this event.
    * </pre>
    *
-   * <code>map&lt;string, string&gt; metadata = 3;</code>
+   * <code>map&lt;string, string&gt; metadata = 4;</code>
    */
   int getMetadataCount();
   /**
@@ -61,7 +80,7 @@ public interface EventOrBuilder extends
    * Represents a collection of key-value pairs providing additional context or information about this event.
    * </pre>
    *
-   * <code>map&lt;string, string&gt; metadata = 3;</code>
+   * <code>map&lt;string, string&gt; metadata = 4;</code>
    */
   boolean containsMetadata(
       java.lang.String key);
@@ -76,7 +95,7 @@ public interface EventOrBuilder extends
    * Represents a collection of key-value pairs providing additional context or information about this event.
    * </pre>
    *
-   * <code>map&lt;string, string&gt; metadata = 3;</code>
+   * <code>map&lt;string, string&gt; metadata = 4;</code>
    */
   java.util.Map<java.lang.String, java.lang.String>
   getMetadataMap();
@@ -85,7 +104,7 @@ public interface EventOrBuilder extends
    * Represents a collection of key-value pairs providing additional context or information about this event.
    * </pre>
    *
-   * <code>map&lt;string, string&gt; metadata = 3;</code>
+   * <code>map&lt;string, string&gt; metadata = 4;</code>
    */
   /* nullable */
 java.lang.String getMetadataOrDefault(
@@ -97,17 +116,47 @@ java.lang.String defaultValue);
    * Represents a collection of key-value pairs providing additional context or information about this event.
    * </pre>
    *
-   * <code>map&lt;string, string&gt; metadata = 3;</code>
+   * <code>map&lt;string, string&gt; metadata = 4;</code>
    */
   java.lang.String getMetadataOrThrow(
       java.lang.String key);
 
   /**
    * <pre>
+   * Represents the timestamp indicating when this event was started.
+   * </pre>
+   *
+   * <code>int64 start_time = 5;</code>
+   * @return The startTime.
+   */
+  long getStartTime();
+
+  /**
+   * <pre>
+   * Represents the timestamp indicating when this event was finished.
+   * </pre>
+   *
+   * <code>int64 finish_time = 6;</code>
+   * @return The finishTime.
+   */
+  long getFinishTime();
+
+  /**
+   * <pre>
+   * Represents the timestamp indicating when this event was canceled.
+   * </pre>
+   *
+   * <code>int64 cancel_time = 7;</code>
+   * @return The cancelTime.
+   */
+  long getCancelTime();
+
+  /**
+   * <pre>
    * Represents the timestamp indicating when this event was created.
    * </pre>
    *
-   * <code>int64 create_time = 4;</code>
+   * <code>int64 create_time = 8;</code>
    * @return The createTime.
    */
   long getCreateTime();
@@ -117,7 +166,7 @@ java.lang.String defaultValue);
    * Represents the timestamp of the last update associated with this event.
    * </pre>
    *
-   * <code>int64 update_time = 5;</code>
+   * <code>int64 update_time = 9;</code>
    * @return The updateTime.
    */
   long getUpdateTime();

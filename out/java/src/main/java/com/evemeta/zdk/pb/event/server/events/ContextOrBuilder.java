@@ -65,7 +65,7 @@ public interface ContextOrBuilder extends
 
   /**
    * <pre>
-   * todo;
+   * Represents the comprehensive details of the chat associated with the event.
    * </pre>
    *
    * <code>.chat.chats.public.server.v1.Chat chat = 3;</code>
@@ -74,7 +74,7 @@ public interface ContextOrBuilder extends
   boolean hasChat();
   /**
    * <pre>
-   * todo;
+   * Represents the comprehensive details of the chat associated with the event.
    * </pre>
    *
    * <code>.chat.chats.public.server.v1.Chat chat = 3;</code>
@@ -83,7 +83,7 @@ public interface ContextOrBuilder extends
   com.evemeta.zdk.pb.chat.server.chats.Chat getChat();
   /**
    * <pre>
-   * todo;
+   * Represents the comprehensive details of the chat associated with the event.
    * </pre>
    *
    * <code>.chat.chats.public.server.v1.Chat chat = 3;</code>
@@ -173,47 +173,13 @@ public interface ContextOrBuilder extends
 
   /**
    * <pre>
-   * todo;
+   * Represents the total number of members who are presently online in the event.
    * </pre>
    *
-   * <code>repeated .event.members.public.server.v1.Member members = 7;</code>
+   * <code>int64 members = 7;</code>
+   * @return The members.
    */
-  java.util.List<com.evemeta.zdk.pb.event.server.members.Member> 
-      getMembersList();
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>repeated .event.members.public.server.v1.Member members = 7;</code>
-   */
-  com.evemeta.zdk.pb.event.server.members.Member getMembers(int index);
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>repeated .event.members.public.server.v1.Member members = 7;</code>
-   */
-  int getMembersCount();
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>repeated .event.members.public.server.v1.Member members = 7;</code>
-   */
-  java.util.List<? extends com.evemeta.zdk.pb.event.server.members.MemberOrBuilder> 
-      getMembersOrBuilderList();
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>repeated .event.members.public.server.v1.Member members = 7;</code>
-   */
-  com.evemeta.zdk.pb.event.server.members.MemberOrBuilder getMembersOrBuilder(
-      int index);
+  long getMembers();
 
   /**
    * <pre>
@@ -241,129 +207,4 @@ public interface ContextOrBuilder extends
    * <code>.event.events.public.server.v1.Timeframe members_timeframe = 8;</code>
    */
   com.evemeta.zdk.pb.event.server.events.TimeframeOrBuilder getMembersTimeframeOrBuilder();
-
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>.event.events.public.server.v1.Timeframe streams_timeframe = 9;</code>
-   * @return Whether the streamsTimeframe field is set.
-   */
-  boolean hasStreamsTimeframe();
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>.event.events.public.server.v1.Timeframe streams_timeframe = 9;</code>
-   * @return The streamsTimeframe.
-   */
-  com.evemeta.zdk.pb.event.server.events.Timeframe getStreamsTimeframe();
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>.event.events.public.server.v1.Timeframe streams_timeframe = 9;</code>
-   */
-  com.evemeta.zdk.pb.event.server.events.TimeframeOrBuilder getStreamsTimeframeOrBuilder();
-
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>.event.events.public.server.v1.Timeframe connections_timeframe = 10;</code>
-   * @return Whether the connectionsTimeframe field is set.
-   */
-  boolean hasConnectionsTimeframe();
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>.event.events.public.server.v1.Timeframe connections_timeframe = 10;</code>
-   * @return The connectionsTimeframe.
-   */
-  com.evemeta.zdk.pb.event.server.events.Timeframe getConnectionsTimeframe();
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>.event.events.public.server.v1.Timeframe connections_timeframe = 10;</code>
-   */
-  com.evemeta.zdk.pb.event.server.events.TimeframeOrBuilder getConnectionsTimeframeOrBuilder();
-
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
-   */
-  java.util.List<com.evemeta.zdk.pb.event.server.restrictions.Restriction> 
-      getRestrictionsList();
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
-   */
-  com.evemeta.zdk.pb.event.server.restrictions.Restriction getRestrictions(int index);
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
-   */
-  int getRestrictionsCount();
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
-   */
-  java.util.List<? extends com.evemeta.zdk.pb.event.server.restrictions.RestrictionOrBuilder> 
-      getRestrictionsOrBuilderList();
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;</code>
-   */
-  com.evemeta.zdk.pb.event.server.restrictions.RestrictionOrBuilder getRestrictionsOrBuilder(
-      int index);
-
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 12;</code>
-   * @return Whether the restrictionsTimeframe field is set.
-   */
-  boolean hasRestrictionsTimeframe();
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 12;</code>
-   * @return The restrictionsTimeframe.
-   */
-  com.evemeta.zdk.pb.event.server.events.Timeframe getRestrictionsTimeframe();
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 12;</code>
-   */
-  com.evemeta.zdk.pb.event.server.events.TimeframeOrBuilder getRestrictionsTimeframeOrBuilder();
 }

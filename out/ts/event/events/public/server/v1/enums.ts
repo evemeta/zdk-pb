@@ -2,7 +2,7 @@
 // @generated from protobuf file "event/events/public/server/v1/enums.proto" (package "event.events.public.server.v1", syntax proto3)
 // tslint:disable
 /**
- * Kind todo;
+ * Kind represents an enumeration that specifies the type or classification of an event, indicating whether it is dependent on a parent object or independent.
  *
  * @generated from protobuf enum event.events.public.server.v1.Kind
  */
@@ -38,4 +38,31 @@ export enum Order {
      * @generated from protobuf enum value: Descending = 2;
      */
     Descending = 2
+}
+/**
+ * Status represents an enumeration that specifies the current state of an event, indicating whether it is pending, started, canceled, or finished.
+ *
+ * @generated from protobuf enum event.events.public.server.v1.Status
+ */
+export enum Status {
+    /**
+     * @generated from protobuf enum value: Unknown = 0;
+     */
+    Unknown = 0,
+    /**
+     * @generated from protobuf enum value: Pending = 1;
+     */
+    Pending = 1,
+    /**
+     * @generated from protobuf enum value: Started = 2;
+     */
+    Started = 2,
+    /**
+     * @generated from protobuf enum value: Finished = 3;
+     */
+    Finished = 3,
+    /**
+     * @generated from protobuf enum value: Canceled = 4;
+     */
+    Canceled = 4
 }

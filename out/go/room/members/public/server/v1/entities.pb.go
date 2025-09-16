@@ -184,7 +184,9 @@ type Member struct {
 	// Represents the timestamp indicating when this member was created or added to the room.
 	CreateTime int64 `protobuf:"varint,5,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Represents the timestamp of the last update associated with this member.
-	UpdateTime    int64 `protobuf:"varint,6,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	UpdateTime int64 `protobuf:"varint,6,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	// Represents list of permission which member have inside this room.
+	Permissions   []Permission `protobuf:"varint,7,rep,packed,name=permissions,proto3,enum=room.members.public.server.v1.Permission" json:"permissions,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -259,6 +261,13 @@ func (x *Member) GetUpdateTime() int64 {
 		return x.UpdateTime
 	}
 	return 0
+}
+
+func (x *Member) GetPermissions() []Permission {
+	if x != nil {
+		return x.Permissions
+	}
+	return nil
 }
 
 // Condition represents a set of criteria designed to filter data during retrieval.
@@ -396,7 +405,7 @@ const file_room_members_public_server_v1_entities_proto_rawDesc = "" +
 	"\x05order\x18\x01 \x01(\x0e2$.room.members.public.server.v1.OrderR\x05order\x12\x14\n" +
 	"\x05limit\x18\x02 \x01(\x03R\x05limit\x12\x16\n" +
 	"\x06offset\x18\x03 \x01(\x03R\x06offset\x12F\n" +
-	"\tcondition\x18\x04 \x01(\v2(.room.members.public.server.v1.ConditionR\tcondition\"\x9a\x02\n" +
+	"\tcondition\x18\x04 \x01(\v2(.room.members.public.server.v1.ConditionR\tcondition\"\xe7\x02\n" +
 	"\x06Member\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\x12\x17\n" +
@@ -405,7 +414,8 @@ const file_room_members_public_server_v1_entities_proto_rawDesc = "" +
 	"\vcreate_time\x18\x05 \x01(\x03R\n" +
 	"createTime\x12\x1f\n" +
 	"\vupdate_time\x18\x06 \x01(\x03R\n" +
-	"updateTime\x1a;\n" +
+	"updateTime\x12K\n" +
+	"\vpermissions\x18\a \x03(\x0e2).room.members.public.server.v1.PermissionR\vpermissions\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"{\n" +
@@ -439,19 +449,21 @@ var file_room_members_public_server_v1_entities_proto_goTypes = []any{
 	(*Timeframe)(nil), // 4: room.members.public.server.v1.Timeframe
 	nil,               // 5: room.members.public.server.v1.Member.MetadataEntry
 	(Order)(0),        // 6: room.members.public.server.v1.Order
-	(Status)(0),       // 7: room.members.public.server.v1.Status
+	(Permission)(0),   // 7: room.members.public.server.v1.Permission
+	(Status)(0),       // 8: room.members.public.server.v1.Status
 }
 var file_room_members_public_server_v1_entities_proto_depIdxs = []int32{
 	2, // 0: room.members.public.server.v1.Chunk.entities:type_name -> room.members.public.server.v1.Member
 	6, // 1: room.members.public.server.v1.Query.order:type_name -> room.members.public.server.v1.Order
 	3, // 2: room.members.public.server.v1.Query.condition:type_name -> room.members.public.server.v1.Condition
 	5, // 3: room.members.public.server.v1.Member.metadata:type_name -> room.members.public.server.v1.Member.MetadataEntry
-	7, // 4: room.members.public.server.v1.Condition.statuses:type_name -> room.members.public.server.v1.Status
-	5, // [5:5] is the sub-list for method output_type
-	5, // [5:5] is the sub-list for method input_type
-	5, // [5:5] is the sub-list for extension type_name
-	5, // [5:5] is the sub-list for extension extendee
-	0, // [0:5] is the sub-list for field type_name
+	7, // 4: room.members.public.server.v1.Member.permissions:type_name -> room.members.public.server.v1.Permission
+	8, // 5: room.members.public.server.v1.Condition.statuses:type_name -> room.members.public.server.v1.Status
+	6, // [6:6] is the sub-list for method output_type
+	6, // [6:6] is the sub-list for method input_type
+	6, // [6:6] is the sub-list for extension type_name
+	6, // [6:6] is the sub-list for extension extendee
+	0, // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_room_members_public_server_v1_entities_proto_init() }

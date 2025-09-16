@@ -9,7 +9,6 @@ package eventspb
 import (
 	v1 "gitlab.com/evemeta/zdk/pb/out/go/chat/chats/public/server/v1"
 	v11 "gitlab.com/evemeta/zdk/pb/out/go/event/members/public/server/v1"
-	v12 "gitlab.com/evemeta/zdk/pb/out/go/event/restrictions/public/server/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -30,14 +29,22 @@ type Event struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Represents the unique identifier for this event.
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// todo;
+	// Determines whatever the event is dependent or independent, it may depend on a parent object.
 	Kind Kind `protobuf:"varint,2,opt,name=kind,proto3,enum=event.events.public.server.v1.Kind" json:"kind,omitempty"`
+	// Status of the event (pending, started, canceled, or finished).
+	Status Status `protobuf:"varint,3,opt,name=status,proto3,enum=event.events.public.server.v1.Status" json:"status,omitempty"`
 	// Represents a collection of key-value pairs providing additional context or information about this event.
-	Metadata map[string]string `protobuf:"bytes,3,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Metadata map[string]string `protobuf:"bytes,4,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	// Represents the timestamp indicating when this event was started.
+	StartTime int64 `protobuf:"varint,5,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	// Represents the timestamp indicating when this event was finished.
+	FinishTime int64 `protobuf:"varint,6,opt,name=finish_time,json=finishTime,proto3" json:"finish_time,omitempty"`
+	// Represents the timestamp indicating when this event was canceled.
+	CancelTime int64 `protobuf:"varint,7,opt,name=cancel_time,json=cancelTime,proto3" json:"cancel_time,omitempty"`
 	// Represents the timestamp indicating when this event was created.
-	CreateTime int64 `protobuf:"varint,4,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime int64 `protobuf:"varint,8,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Represents the timestamp of the last update associated with this event.
-	UpdateTime    int64 `protobuf:"varint,5,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	UpdateTime    int64 `protobuf:"varint,9,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -86,11 +93,39 @@ func (x *Event) GetKind() Kind {
 	return KindUnknown
 }
 
+func (x *Event) GetStatus() Status {
+	if x != nil {
+		return x.Status
+	}
+	return StatusUnknown
+}
+
 func (x *Event) GetMetadata() map[string]string {
 	if x != nil {
 		return x.Metadata
 	}
 	return nil
+}
+
+func (x *Event) GetStartTime() int64 {
+	if x != nil {
+		return x.StartTime
+	}
+	return 0
+}
+
+func (x *Event) GetFinishTime() int64 {
+	if x != nil {
+		return x.FinishTime
+	}
+	return 0
+}
+
+func (x *Event) GetCancelTime() int64 {
+	if x != nil {
+		return x.CancelTime
+	}
+	return 0
 }
 
 func (x *Event) GetCreateTime() int64 {
@@ -263,7 +298,7 @@ type Context struct {
 	Event *Event `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"`
 	// Represents the specific span of time, containing the commence and complete timestamps associated with the retrieval of event from the database.
 	EventTimeframe *Timeframe `protobuf:"bytes,2,opt,name=event_timeframe,json=eventTimeframe,proto3" json:"event_timeframe,omitempty"`
-	// todo;
+	// Represents the comprehensive details of the chat associated with the event.
 	Chat *v1.Chat `protobuf:"bytes,3,opt,name=chat,proto3" json:"chat,omitempty"`
 	// Represents the specific span of time, containing the commence and complete timestamps associated with the retrieval of chat from the database.
 	ChatTimeframe *Timeframe `protobuf:"bytes,4,opt,name=chat_timeframe,json=chatTimeframe,proto3" json:"chat_timeframe,omitempty"`
@@ -271,20 +306,12 @@ type Context struct {
 	Member *v11.Member `protobuf:"bytes,5,opt,name=member,proto3" json:"member,omitempty"`
 	// Represents the specific span of time, containing the commence and complete timestamps associated with the retrieval of member from the database.
 	MemberTimeframe *Timeframe `protobuf:"bytes,6,opt,name=member_timeframe,json=memberTimeframe,proto3" json:"member_timeframe,omitempty"`
-	// todo;
-	Members []*v11.Member `protobuf:"bytes,7,rep,name=members,proto3" json:"members,omitempty"`
+	// Represents the total number of members who are presently online in the event.
+	Members int64 `protobuf:"varint,7,opt,name=members,proto3" json:"members,omitempty"`
 	// Represents the specific span of time, containing the commence and complete timestamps associated with the retrieval of members from the database.
 	MembersTimeframe *Timeframe `protobuf:"bytes,8,opt,name=members_timeframe,json=membersTimeframe,proto3" json:"members_timeframe,omitempty"`
-	// todo;
-	StreamsTimeframe *Timeframe `protobuf:"bytes,9,opt,name=streams_timeframe,json=streamsTimeframe,proto3" json:"streams_timeframe,omitempty"`
-	// todo;
-	ConnectionsTimeframe *Timeframe `protobuf:"bytes,10,opt,name=connections_timeframe,json=connectionsTimeframe,proto3" json:"connections_timeframe,omitempty"`
-	// todo;
-	Restrictions []*v12.Restriction `protobuf:"bytes,11,rep,name=restrictions,proto3" json:"restrictions,omitempty"`
-	// todo;
-	RestrictionsTimeframe *Timeframe `protobuf:"bytes,12,opt,name=restrictions_timeframe,json=restrictionsTimeframe,proto3" json:"restrictions_timeframe,omitempty"`
-	unknownFields         protoimpl.UnknownFields
-	sizeCache             protoimpl.SizeCache
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *Context) Reset() {
@@ -359,44 +386,16 @@ func (x *Context) GetMemberTimeframe() *Timeframe {
 	return nil
 }
 
-func (x *Context) GetMembers() []*v11.Member {
+func (x *Context) GetMembers() int64 {
 	if x != nil {
 		return x.Members
 	}
-	return nil
+	return 0
 }
 
 func (x *Context) GetMembersTimeframe() *Timeframe {
 	if x != nil {
 		return x.MembersTimeframe
-	}
-	return nil
-}
-
-func (x *Context) GetStreamsTimeframe() *Timeframe {
-	if x != nil {
-		return x.StreamsTimeframe
-	}
-	return nil
-}
-
-func (x *Context) GetConnectionsTimeframe() *Timeframe {
-	if x != nil {
-		return x.ConnectionsTimeframe
-	}
-	return nil
-}
-
-func (x *Context) GetRestrictions() []*v12.Restriction {
-	if x != nil {
-		return x.Restrictions
-	}
-	return nil
-}
-
-func (x *Context) GetRestrictionsTimeframe() *Timeframe {
-	if x != nil {
-		return x.RestrictionsTimeframe
 	}
 	return nil
 }
@@ -508,14 +507,21 @@ var File_event_events_public_server_v1_entities_proto protoreflect.FileDescripto
 
 const file_event_events_public_server_v1_entities_proto_rawDesc = "" +
 	"\n" +
-	",event/events/public/server/v1/entities.proto\x12\x1devent.events.public.server.v1\x1a)event/events/public/server/v1/enums.proto\x1a*chat/chats/public/server/v1/entities.proto\x1a-event/members/public/server/v1/entities.proto\x1a2event/restrictions/public/server/v1/entities.proto\"\x9f\x02\n" +
+	",event/events/public/server/v1/entities.proto\x12\x1devent.events.public.server.v1\x1a)event/events/public/server/v1/enums.proto\x1a*chat/chats/public/server/v1/entities.proto\x1a-event/members/public/server/v1/entities.proto\"\xbf\x03\n" +
 	"\x05Event\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x127\n" +
-	"\x04kind\x18\x02 \x01(\x0e2#.event.events.public.server.v1.KindR\x04kind\x12N\n" +
-	"\bmetadata\x18\x03 \x03(\v22.event.events.public.server.v1.Event.MetadataEntryR\bmetadata\x12\x1f\n" +
-	"\vcreate_time\x18\x04 \x01(\x03R\n" +
+	"\x04kind\x18\x02 \x01(\x0e2#.event.events.public.server.v1.KindR\x04kind\x12=\n" +
+	"\x06status\x18\x03 \x01(\x0e2%.event.events.public.server.v1.StatusR\x06status\x12N\n" +
+	"\bmetadata\x18\x04 \x03(\v22.event.events.public.server.v1.Event.MetadataEntryR\bmetadata\x12\x1d\n" +
+	"\n" +
+	"start_time\x18\x05 \x01(\x03R\tstartTime\x12\x1f\n" +
+	"\vfinish_time\x18\x06 \x01(\x03R\n" +
+	"finishTime\x12\x1f\n" +
+	"\vcancel_time\x18\a \x01(\x03R\n" +
+	"cancelTime\x12\x1f\n" +
+	"\vcreate_time\x18\b \x01(\x03R\n" +
 	"createTime\x12\x1f\n" +
-	"\vupdate_time\x18\x05 \x01(\x03R\n" +
+	"\vupdate_time\x18\t \x01(\x03R\n" +
 	"updateTime\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
@@ -529,21 +535,16 @@ const file_event_events_public_server_v1_entities_proto_rawDesc = "" +
 	"\x05order\x18\x01 \x01(\x0e2$.event.events.public.server.v1.OrderR\x05order\x12\x14\n" +
 	"\x05limit\x18\x02 \x01(\x03R\x05limit\x12\x16\n" +
 	"\x06offset\x18\x03 \x01(\x03R\x06offset\x12F\n" +
-	"\tcondition\x18\x04 \x01(\v2(.event.events.public.server.v1.ConditionR\tcondition\"\xbb\a\n" +
+	"\tcondition\x18\x04 \x01(\v2(.event.events.public.server.v1.ConditionR\tcondition\"\xa6\x04\n" +
 	"\aContext\x12:\n" +
 	"\x05event\x18\x01 \x01(\v2$.event.events.public.server.v1.EventR\x05event\x12Q\n" +
 	"\x0fevent_timeframe\x18\x02 \x01(\v2(.event.events.public.server.v1.TimeframeR\x0eeventTimeframe\x125\n" +
 	"\x04chat\x18\x03 \x01(\v2!.chat.chats.public.server.v1.ChatR\x04chat\x12O\n" +
 	"\x0echat_timeframe\x18\x04 \x01(\v2(.event.events.public.server.v1.TimeframeR\rchatTimeframe\x12>\n" +
 	"\x06member\x18\x05 \x01(\v2&.event.members.public.server.v1.MemberR\x06member\x12S\n" +
-	"\x10member_timeframe\x18\x06 \x01(\v2(.event.events.public.server.v1.TimeframeR\x0fmemberTimeframe\x12@\n" +
-	"\amembers\x18\a \x03(\v2&.event.members.public.server.v1.MemberR\amembers\x12U\n" +
-	"\x11members_timeframe\x18\b \x01(\v2(.event.events.public.server.v1.TimeframeR\x10membersTimeframe\x12U\n" +
-	"\x11streams_timeframe\x18\t \x01(\v2(.event.events.public.server.v1.TimeframeR\x10streamsTimeframe\x12]\n" +
-	"\x15connections_timeframe\x18\n" +
-	" \x01(\v2(.event.events.public.server.v1.TimeframeR\x14connectionsTimeframe\x12T\n" +
-	"\frestrictions\x18\v \x03(\v20.event.restrictions.public.server.v1.RestrictionR\frestrictions\x12_\n" +
-	"\x16restrictions_timeframe\x18\f \x01(\v2(.event.events.public.server.v1.TimeframeR\x15restrictionsTimeframe\"\x1d\n" +
+	"\x10member_timeframe\x18\x06 \x01(\v2(.event.events.public.server.v1.TimeframeR\x0fmemberTimeframe\x12\x18\n" +
+	"\amembers\x18\a \x01(\x03R\amembers\x12U\n" +
+	"\x11members_timeframe\x18\b \x01(\v2(.event.events.public.server.v1.TimeframeR\x10membersTimeframe\"\x1d\n" +
 	"\tCondition\x12\x10\n" +
 	"\x03ids\x18\x01 \x03(\tR\x03ids\"C\n" +
 	"\tTimeframe\x12\x1a\n" +
@@ -565,42 +566,38 @@ func file_event_events_public_server_v1_entities_proto_rawDescGZIP() []byte {
 
 var file_event_events_public_server_v1_entities_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_event_events_public_server_v1_entities_proto_goTypes = []any{
-	(*Event)(nil),           // 0: event.events.public.server.v1.Event
-	(*Chunk)(nil),           // 1: event.events.public.server.v1.Chunk
-	(*Query)(nil),           // 2: event.events.public.server.v1.Query
-	(*Context)(nil),         // 3: event.events.public.server.v1.Context
-	(*Condition)(nil),       // 4: event.events.public.server.v1.Condition
-	(*Timeframe)(nil),       // 5: event.events.public.server.v1.Timeframe
-	nil,                     // 6: event.events.public.server.v1.Event.MetadataEntry
-	(Kind)(0),               // 7: event.events.public.server.v1.Kind
-	(Order)(0),              // 8: event.events.public.server.v1.Order
-	(*v1.Chat)(nil),         // 9: chat.chats.public.server.v1.Chat
-	(*v11.Member)(nil),      // 10: event.members.public.server.v1.Member
-	(*v12.Restriction)(nil), // 11: event.restrictions.public.server.v1.Restriction
+	(*Event)(nil),      // 0: event.events.public.server.v1.Event
+	(*Chunk)(nil),      // 1: event.events.public.server.v1.Chunk
+	(*Query)(nil),      // 2: event.events.public.server.v1.Query
+	(*Context)(nil),    // 3: event.events.public.server.v1.Context
+	(*Condition)(nil),  // 4: event.events.public.server.v1.Condition
+	(*Timeframe)(nil),  // 5: event.events.public.server.v1.Timeframe
+	nil,                // 6: event.events.public.server.v1.Event.MetadataEntry
+	(Kind)(0),          // 7: event.events.public.server.v1.Kind
+	(Status)(0),        // 8: event.events.public.server.v1.Status
+	(Order)(0),         // 9: event.events.public.server.v1.Order
+	(*v1.Chat)(nil),    // 10: chat.chats.public.server.v1.Chat
+	(*v11.Member)(nil), // 11: event.members.public.server.v1.Member
 }
 var file_event_events_public_server_v1_entities_proto_depIdxs = []int32{
 	7,  // 0: event.events.public.server.v1.Event.kind:type_name -> event.events.public.server.v1.Kind
-	6,  // 1: event.events.public.server.v1.Event.metadata:type_name -> event.events.public.server.v1.Event.MetadataEntry
-	0,  // 2: event.events.public.server.v1.Chunk.entities:type_name -> event.events.public.server.v1.Event
-	8,  // 3: event.events.public.server.v1.Query.order:type_name -> event.events.public.server.v1.Order
-	4,  // 4: event.events.public.server.v1.Query.condition:type_name -> event.events.public.server.v1.Condition
-	0,  // 5: event.events.public.server.v1.Context.event:type_name -> event.events.public.server.v1.Event
-	5,  // 6: event.events.public.server.v1.Context.event_timeframe:type_name -> event.events.public.server.v1.Timeframe
-	9,  // 7: event.events.public.server.v1.Context.chat:type_name -> chat.chats.public.server.v1.Chat
-	5,  // 8: event.events.public.server.v1.Context.chat_timeframe:type_name -> event.events.public.server.v1.Timeframe
-	10, // 9: event.events.public.server.v1.Context.member:type_name -> event.members.public.server.v1.Member
-	5,  // 10: event.events.public.server.v1.Context.member_timeframe:type_name -> event.events.public.server.v1.Timeframe
-	10, // 11: event.events.public.server.v1.Context.members:type_name -> event.members.public.server.v1.Member
+	8,  // 1: event.events.public.server.v1.Event.status:type_name -> event.events.public.server.v1.Status
+	6,  // 2: event.events.public.server.v1.Event.metadata:type_name -> event.events.public.server.v1.Event.MetadataEntry
+	0,  // 3: event.events.public.server.v1.Chunk.entities:type_name -> event.events.public.server.v1.Event
+	9,  // 4: event.events.public.server.v1.Query.order:type_name -> event.events.public.server.v1.Order
+	4,  // 5: event.events.public.server.v1.Query.condition:type_name -> event.events.public.server.v1.Condition
+	0,  // 6: event.events.public.server.v1.Context.event:type_name -> event.events.public.server.v1.Event
+	5,  // 7: event.events.public.server.v1.Context.event_timeframe:type_name -> event.events.public.server.v1.Timeframe
+	10, // 8: event.events.public.server.v1.Context.chat:type_name -> chat.chats.public.server.v1.Chat
+	5,  // 9: event.events.public.server.v1.Context.chat_timeframe:type_name -> event.events.public.server.v1.Timeframe
+	11, // 10: event.events.public.server.v1.Context.member:type_name -> event.members.public.server.v1.Member
+	5,  // 11: event.events.public.server.v1.Context.member_timeframe:type_name -> event.events.public.server.v1.Timeframe
 	5,  // 12: event.events.public.server.v1.Context.members_timeframe:type_name -> event.events.public.server.v1.Timeframe
-	5,  // 13: event.events.public.server.v1.Context.streams_timeframe:type_name -> event.events.public.server.v1.Timeframe
-	5,  // 14: event.events.public.server.v1.Context.connections_timeframe:type_name -> event.events.public.server.v1.Timeframe
-	11, // 15: event.events.public.server.v1.Context.restrictions:type_name -> event.restrictions.public.server.v1.Restriction
-	5,  // 16: event.events.public.server.v1.Context.restrictions_timeframe:type_name -> event.events.public.server.v1.Timeframe
-	17, // [17:17] is the sub-list for method output_type
-	17, // [17:17] is the sub-list for method input_type
-	17, // [17:17] is the sub-list for extension type_name
-	17, // [17:17] is the sub-list for extension extendee
-	0,  // [0:17] is the sub-list for field type_name
+	13, // [13:13] is the sub-list for method output_type
+	13, // [13:13] is the sub-list for method input_type
+	13, // [13:13] is the sub-list for extension type_name
+	13, // [13:13] is the sub-list for extension extendee
+	0,  // [0:13] is the sub-list for field type_name
 }
 
 func init() { file_event_events_public_server_v1_entities_proto_init() }

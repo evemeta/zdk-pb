@@ -67,6 +67,104 @@ func (x *OptionalMap) GetValue() map[string]string {
 	return nil
 }
 
+// OptionalInt64 todo;
+type OptionalInt64 struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Value         int64                  `protobuf:"varint,1,opt,name=value,proto3" json:"value,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OptionalInt64) Reset() {
+	*x = OptionalInt64{}
+	mi := &file_chat_chats_private_v1_optionals_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OptionalInt64) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OptionalInt64) ProtoMessage() {}
+
+func (x *OptionalInt64) ProtoReflect() protoreflect.Message {
+	mi := &file_chat_chats_private_v1_optionals_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OptionalInt64.ProtoReflect.Descriptor instead.
+func (*OptionalInt64) Descriptor() ([]byte, []int) {
+	return file_chat_chats_private_v1_optionals_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *OptionalInt64) GetValue() int64 {
+	if x != nil {
+		return x.Value
+	}
+	return 0
+}
+
+// OptionalSlowmode todo;
+type OptionalSlowmode struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Limit         *OptionalInt64         `protobuf:"bytes,1,opt,name=limit,proto3,oneof" json:"limit,omitempty"`
+	Window        *OptionalInt64         `protobuf:"bytes,2,opt,name=window,proto3,oneof" json:"window,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OptionalSlowmode) Reset() {
+	*x = OptionalSlowmode{}
+	mi := &file_chat_chats_private_v1_optionals_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OptionalSlowmode) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OptionalSlowmode) ProtoMessage() {}
+
+func (x *OptionalSlowmode) ProtoReflect() protoreflect.Message {
+	mi := &file_chat_chats_private_v1_optionals_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OptionalSlowmode.ProtoReflect.Descriptor instead.
+func (*OptionalSlowmode) Descriptor() ([]byte, []int) {
+	return file_chat_chats_private_v1_optionals_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *OptionalSlowmode) GetLimit() *OptionalInt64 {
+	if x != nil {
+		return x.Limit
+	}
+	return nil
+}
+
+func (x *OptionalSlowmode) GetWindow() *OptionalInt64 {
+	if x != nil {
+		return x.Window
+	}
+	return nil
+}
+
 var File_chat_chats_private_v1_optionals_proto protoreflect.FileDescriptor
 
 const file_chat_chats_private_v1_optionals_proto_rawDesc = "" +
@@ -77,7 +175,14 @@ const file_chat_chats_private_v1_optionals_proto_rawDesc = "" +
 	"\n" +
 	"ValueEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B@Z>gitlab.com/evemeta/zdk/pb/out/go/chat/chats/private/v1;chatspbb\x06proto3"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"%\n" +
+	"\rOptionalInt64\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\x03R\x05value\"\xab\x01\n" +
+	"\x10OptionalSlowmode\x12?\n" +
+	"\x05limit\x18\x01 \x01(\v2$.chat.chats.private.v1.OptionalInt64H\x00R\x05limit\x88\x01\x01\x12A\n" +
+	"\x06window\x18\x02 \x01(\v2$.chat.chats.private.v1.OptionalInt64H\x01R\x06window\x88\x01\x01B\b\n" +
+	"\x06_limitB\t\n" +
+	"\a_windowB@Z>gitlab.com/evemeta/zdk/pb/out/go/chat/chats/private/v1;chatspbb\x06proto3"
 
 var (
 	file_chat_chats_private_v1_optionals_proto_rawDescOnce sync.Once
@@ -91,18 +196,22 @@ func file_chat_chats_private_v1_optionals_proto_rawDescGZIP() []byte {
 	return file_chat_chats_private_v1_optionals_proto_rawDescData
 }
 
-var file_chat_chats_private_v1_optionals_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_chat_chats_private_v1_optionals_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_chat_chats_private_v1_optionals_proto_goTypes = []any{
-	(*OptionalMap)(nil), // 0: chat.chats.private.v1.OptionalMap
-	nil,                 // 1: chat.chats.private.v1.OptionalMap.ValueEntry
+	(*OptionalMap)(nil),      // 0: chat.chats.private.v1.OptionalMap
+	(*OptionalInt64)(nil),    // 1: chat.chats.private.v1.OptionalInt64
+	(*OptionalSlowmode)(nil), // 2: chat.chats.private.v1.OptionalSlowmode
+	nil,                      // 3: chat.chats.private.v1.OptionalMap.ValueEntry
 }
 var file_chat_chats_private_v1_optionals_proto_depIdxs = []int32{
-	1, // 0: chat.chats.private.v1.OptionalMap.value:type_name -> chat.chats.private.v1.OptionalMap.ValueEntry
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	3, // 0: chat.chats.private.v1.OptionalMap.value:type_name -> chat.chats.private.v1.OptionalMap.ValueEntry
+	1, // 1: chat.chats.private.v1.OptionalSlowmode.limit:type_name -> chat.chats.private.v1.OptionalInt64
+	1, // 2: chat.chats.private.v1.OptionalSlowmode.window:type_name -> chat.chats.private.v1.OptionalInt64
+	3, // [3:3] is the sub-list for method output_type
+	3, // [3:3] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_chat_chats_private_v1_optionals_proto_init() }
@@ -110,13 +219,14 @@ func file_chat_chats_private_v1_optionals_proto_init() {
 	if File_chat_chats_private_v1_optionals_proto != nil {
 		return
 	}
+	file_chat_chats_private_v1_optionals_proto_msgTypes[2].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_chat_chats_private_v1_optionals_proto_rawDesc), len(file_chat_chats_private_v1_optionals_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

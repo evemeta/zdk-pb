@@ -27,11 +27,14 @@ type Event struct {
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	ChatId        string                 `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
 	Kind          Kind                   `protobuf:"varint,3,opt,name=kind,proto3,enum=event.events.private.v1.Kind" json:"kind,omitempty"`
-	Metadata      map[string]string      `protobuf:"bytes,4,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	Retention     int64                  `protobuf:"varint,5,opt,name=retention,proto3" json:"retention,omitempty"`
-	AccessTime    int64                  `protobuf:"varint,6,opt,name=access_time,json=accessTime,proto3" json:"access_time,omitempty"`
-	CreateTime    int64                  `protobuf:"varint,7,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
-	UpdateTime    int64                  `protobuf:"varint,8,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	Status        Status                 `protobuf:"varint,4,opt,name=status,proto3,enum=event.events.private.v1.Status" json:"status,omitempty"`
+	Metadata      map[string]string      `protobuf:"bytes,5,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	StartTime     int64                  `protobuf:"varint,6,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	FinishTime    int64                  `protobuf:"varint,7,opt,name=finish_time,json=finishTime,proto3" json:"finish_time,omitempty"`
+	CancelTime    int64                  `protobuf:"varint,8,opt,name=cancel_time,json=cancelTime,proto3" json:"cancel_time,omitempty"`
+	AccessTime    int64                  `protobuf:"varint,9,opt,name=access_time,json=accessTime,proto3" json:"access_time,omitempty"`
+	CreateTime    int64                  `protobuf:"varint,10,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	UpdateTime    int64                  `protobuf:"varint,11,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -87,6 +90,13 @@ func (x *Event) GetKind() Kind {
 	return KindUnknown
 }
 
+func (x *Event) GetStatus() Status {
+	if x != nil {
+		return x.Status
+	}
+	return StatusUnknown
+}
+
 func (x *Event) GetMetadata() map[string]string {
 	if x != nil {
 		return x.Metadata
@@ -94,9 +104,23 @@ func (x *Event) GetMetadata() map[string]string {
 	return nil
 }
 
-func (x *Event) GetRetention() int64 {
+func (x *Event) GetStartTime() int64 {
 	if x != nil {
-		return x.Retention
+		return x.StartTime
+	}
+	return 0
+}
+
+func (x *Event) GetFinishTime() int64 {
+	if x != nil {
+		return x.FinishTime
+	}
+	return 0
+}
+
+func (x *Event) GetCancelTime() int64 {
+	if x != nil {
+		return x.CancelTime
 	}
 	return 0
 }
@@ -261,7 +285,9 @@ func (x *Query) GetConditions() []*Condition {
 type Condition struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Ids           []string               `protobuf:"bytes,1,rep,name=ids,proto3" json:"ids,omitempty"`
-	Members       []*v1.Query            `protobuf:"bytes,2,rep,name=members,proto3" json:"members,omitempty"`
+	ChatIds       []string               `protobuf:"bytes,2,rep,name=chat_ids,json=chatIds,proto3" json:"chat_ids,omitempty"`
+	Statuses      []Status               `protobuf:"varint,3,rep,packed,name=statuses,proto3,enum=event.events.private.v1.Status" json:"statuses,omitempty"`
+	Members       []*v1.Query            `protobuf:"bytes,4,rep,name=members,proto3" json:"members,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -299,6 +325,20 @@ func (*Condition) Descriptor() ([]byte, []int) {
 func (x *Condition) GetIds() []string {
 	if x != nil {
 		return x.Ids
+	}
+	return nil
+}
+
+func (x *Condition) GetChatIds() []string {
+	if x != nil {
+		return x.ChatIds
+	}
+	return nil
+}
+
+func (x *Condition) GetStatuses() []Status {
+	if x != nil {
+		return x.Statuses
 	}
 	return nil
 }
@@ -374,18 +414,25 @@ var File_event_events_private_v1_entities_proto protoreflect.FileDescriptor
 
 const file_event_events_private_v1_entities_proto_rawDesc = "" +
 	"\n" +
-	"&event/events/private/v1/entities.proto\x12\x17event.events.private.v1\x1a#event/events/private/v1/enums.proto\x1a'event/members/private/v1/entities.proto\"\xeb\x02\n" +
+	"&event/events/private/v1/entities.proto\x12\x17event.events.private.v1\x1a#event/events/private/v1/enums.proto\x1a'event/members/private/v1/entities.proto\"\xe7\x03\n" +
 	"\x05Event\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
 	"\achat_id\x18\x02 \x01(\tR\x06chatId\x121\n" +
-	"\x04kind\x18\x03 \x01(\x0e2\x1d.event.events.private.v1.KindR\x04kind\x12H\n" +
-	"\bmetadata\x18\x04 \x03(\v2,.event.events.private.v1.Event.MetadataEntryR\bmetadata\x12\x1c\n" +
-	"\tretention\x18\x05 \x01(\x03R\tretention\x12\x1f\n" +
-	"\vaccess_time\x18\x06 \x01(\x03R\n" +
+	"\x04kind\x18\x03 \x01(\x0e2\x1d.event.events.private.v1.KindR\x04kind\x127\n" +
+	"\x06status\x18\x04 \x01(\x0e2\x1f.event.events.private.v1.StatusR\x06status\x12H\n" +
+	"\bmetadata\x18\x05 \x03(\v2,.event.events.private.v1.Event.MetadataEntryR\bmetadata\x12\x1d\n" +
+	"\n" +
+	"start_time\x18\x06 \x01(\x03R\tstartTime\x12\x1f\n" +
+	"\vfinish_time\x18\a \x01(\x03R\n" +
+	"finishTime\x12\x1f\n" +
+	"\vcancel_time\x18\b \x01(\x03R\n" +
+	"cancelTime\x12\x1f\n" +
+	"\vaccess_time\x18\t \x01(\x03R\n" +
 	"accessTime\x12\x1f\n" +
-	"\vcreate_time\x18\a \x01(\x03R\n" +
+	"\vcreate_time\x18\n" +
+	" \x01(\x03R\n" +
 	"createTime\x12\x1f\n" +
-	"\vupdate_time\x18\b \x01(\x03R\n" +
+	"\vupdate_time\x18\v \x01(\x03R\n" +
 	"updateTime\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
@@ -401,10 +448,12 @@ const file_event_events_private_v1_entities_proto_rawDesc = "" +
 	"\x06offset\x18\x03 \x01(\x03R\x06offset\x12B\n" +
 	"\n" +
 	"conditions\x18\x04 \x03(\v2\".event.events.private.v1.ConditionR\n" +
-	"conditions\"X\n" +
+	"conditions\"\xb0\x01\n" +
 	"\tCondition\x12\x10\n" +
-	"\x03ids\x18\x01 \x03(\tR\x03ids\x129\n" +
-	"\amembers\x18\x02 \x03(\v2\x1f.event.members.private.v1.QueryR\amembers\"\xb9\x01\n" +
+	"\x03ids\x18\x01 \x03(\tR\x03ids\x12\x19\n" +
+	"\bchat_ids\x18\x02 \x03(\tR\achatIds\x12;\n" +
+	"\bstatuses\x18\x03 \x03(\x0e2\x1f.event.events.private.v1.StatusR\bstatuses\x129\n" +
+	"\amembers\x18\x04 \x03(\v2\x1f.event.members.private.v1.QueryR\amembers\"\xb9\x01\n" +
 	"\tTransient\x126\n" +
 	"\x06future\x18\x01 \x01(\v2\x1e.event.events.private.v1.EventR\x06future\x128\n" +
 	"\acurrent\x18\x02 \x01(\v2\x1e.event.events.private.v1.EventR\acurrent\x12:\n" +
@@ -431,24 +480,27 @@ var file_event_events_private_v1_entities_proto_goTypes = []any{
 	(*Transient)(nil), // 4: event.events.private.v1.Transient
 	nil,               // 5: event.events.private.v1.Event.MetadataEntry
 	(Kind)(0),         // 6: event.events.private.v1.Kind
-	(Order)(0),        // 7: event.events.private.v1.Order
-	(*v1.Query)(nil),  // 8: event.members.private.v1.Query
+	(Status)(0),       // 7: event.events.private.v1.Status
+	(Order)(0),        // 8: event.events.private.v1.Order
+	(*v1.Query)(nil),  // 9: event.members.private.v1.Query
 }
 var file_event_events_private_v1_entities_proto_depIdxs = []int32{
-	6, // 0: event.events.private.v1.Event.kind:type_name -> event.events.private.v1.Kind
-	5, // 1: event.events.private.v1.Event.metadata:type_name -> event.events.private.v1.Event.MetadataEntry
-	0, // 2: event.events.private.v1.Chunk.entities:type_name -> event.events.private.v1.Event
-	7, // 3: event.events.private.v1.Query.order:type_name -> event.events.private.v1.Order
-	3, // 4: event.events.private.v1.Query.conditions:type_name -> event.events.private.v1.Condition
-	8, // 5: event.events.private.v1.Condition.members:type_name -> event.members.private.v1.Query
-	0, // 6: event.events.private.v1.Transient.future:type_name -> event.events.private.v1.Event
-	0, // 7: event.events.private.v1.Transient.current:type_name -> event.events.private.v1.Event
-	0, // 8: event.events.private.v1.Transient.previous:type_name -> event.events.private.v1.Event
-	9, // [9:9] is the sub-list for method output_type
-	9, // [9:9] is the sub-list for method input_type
-	9, // [9:9] is the sub-list for extension type_name
-	9, // [9:9] is the sub-list for extension extendee
-	0, // [0:9] is the sub-list for field type_name
+	6,  // 0: event.events.private.v1.Event.kind:type_name -> event.events.private.v1.Kind
+	7,  // 1: event.events.private.v1.Event.status:type_name -> event.events.private.v1.Status
+	5,  // 2: event.events.private.v1.Event.metadata:type_name -> event.events.private.v1.Event.MetadataEntry
+	0,  // 3: event.events.private.v1.Chunk.entities:type_name -> event.events.private.v1.Event
+	8,  // 4: event.events.private.v1.Query.order:type_name -> event.events.private.v1.Order
+	3,  // 5: event.events.private.v1.Query.conditions:type_name -> event.events.private.v1.Condition
+	7,  // 6: event.events.private.v1.Condition.statuses:type_name -> event.events.private.v1.Status
+	9,  // 7: event.events.private.v1.Condition.members:type_name -> event.members.private.v1.Query
+	0,  // 8: event.events.private.v1.Transient.future:type_name -> event.events.private.v1.Event
+	0,  // 9: event.events.private.v1.Transient.current:type_name -> event.events.private.v1.Event
+	0,  // 10: event.events.private.v1.Transient.previous:type_name -> event.events.private.v1.Event
+	11, // [11:11] is the sub-list for method output_type
+	11, // [11:11] is the sub-list for method input_type
+	11, // [11:11] is the sub-list for extension type_name
+	11, // [11:11] is the sub-list for extension extendee
+	0,  // [0:11] is the sub-list for field type_name
 }
 
 func init() { file_event_events_private_v1_entities_proto_init() }
