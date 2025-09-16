@@ -91,6 +91,38 @@ public object EventKt {
     }
 
     /**
+     * ```
+     * todo;
+     * ```
+     *
+     * `.event.events.public.server.v1.Status status = 3;`
+     */
+    public var status: com.evemeta.zdk.pb.event.server.events.Status
+      @JvmName("getStatus")
+      get() = _builder.status
+      @JvmName("setStatus")
+      set(value) {
+        _builder.status = value
+      }
+    public var statusValue: kotlin.Int
+      @JvmName("getStatusValue")
+      get() = _builder.statusValue
+      @JvmName("setStatusValue")
+      set(value) {
+        _builder.statusValue = value
+      }
+    /**
+     * ```
+     * todo;
+     * ```
+     *
+     * `.event.events.public.server.v1.Status status = 3;`
+     */
+    public fun clearStatus() {
+      _builder.clearStatus()
+    }
+
+    /**
      * An uninstantiable, behaviorless type to represent the field in
      * generics.
      */
@@ -101,7 +133,7 @@ public object EventKt {
      * Represents a collection of key-value pairs providing additional context or information about this event.
      * ```
      *
-     * `map<string, string> metadata = 3;`
+     * `map<string, string> metadata = 4;`
      */
      public val metadata: com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       @kotlin.jvm.JvmSynthetic
@@ -114,7 +146,7 @@ public object EventKt {
      * Represents a collection of key-value pairs providing additional context or information about this event.
      * ```
      *
-     * `map<string, string> metadata = 3;`
+     * `map<string, string> metadata = 4;`
      */
     @JvmName("putMetadata")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
@@ -126,7 +158,7 @@ public object EventKt {
      * Represents a collection of key-value pairs providing additional context or information about this event.
      * ```
      *
-     * `map<string, string> metadata = 3;`
+     * `map<string, string> metadata = 4;`
      */
     @kotlin.jvm.JvmSynthetic
     @JvmName("setMetadata")
@@ -140,7 +172,7 @@ public object EventKt {
      * Represents a collection of key-value pairs providing additional context or information about this event.
      * ```
      *
-     * `map<string, string> metadata = 3;`
+     * `map<string, string> metadata = 4;`
      */
     @kotlin.jvm.JvmSynthetic
     @JvmName("removeMetadata")
@@ -153,7 +185,7 @@ public object EventKt {
      * Represents a collection of key-value pairs providing additional context or information about this event.
      * ```
      *
-     * `map<string, string> metadata = 3;`
+     * `map<string, string> metadata = 4;`
      */
     @kotlin.jvm.JvmSynthetic
     @JvmName("putAllMetadata")
@@ -166,7 +198,7 @@ public object EventKt {
      * Represents a collection of key-value pairs providing additional context or information about this event.
      * ```
      *
-     * `map<string, string> metadata = 3;`
+     * `map<string, string> metadata = 4;`
      */
     @kotlin.jvm.JvmSynthetic
     @JvmName("clearMetadata")
@@ -177,10 +209,85 @@ public object EventKt {
 
     /**
      * ```
+     * todo;
+     * ```
+     *
+     * `int64 start_time = 5;`
+     */
+    public var startTime: kotlin.Long
+      @JvmName("getStartTime")
+      get() = _builder.startTime
+      @JvmName("setStartTime")
+      set(value) {
+        _builder.startTime = value
+      }
+    /**
+     * ```
+     * todo;
+     * ```
+     *
+     * `int64 start_time = 5;`
+     */
+    public fun clearStartTime() {
+      _builder.clearStartTime()
+    }
+
+    /**
+     * ```
+     * todo;
+     * ```
+     *
+     * `int64 cancel_time = 6;`
+     */
+    public var cancelTime: kotlin.Long
+      @JvmName("getCancelTime")
+      get() = _builder.cancelTime
+      @JvmName("setCancelTime")
+      set(value) {
+        _builder.cancelTime = value
+      }
+    /**
+     * ```
+     * todo;
+     * ```
+     *
+     * `int64 cancel_time = 6;`
+     */
+    public fun clearCancelTime() {
+      _builder.clearCancelTime()
+    }
+
+    /**
+     * ```
+     * todo;
+     * ```
+     *
+     * `int64 finish_time = 7;`
+     */
+    public var finishTime: kotlin.Long
+      @JvmName("getFinishTime")
+      get() = _builder.finishTime
+      @JvmName("setFinishTime")
+      set(value) {
+        _builder.finishTime = value
+      }
+    /**
+     * ```
+     * todo;
+     * ```
+     *
+     * `int64 finish_time = 7;`
+     */
+    public fun clearFinishTime() {
+      _builder.clearFinishTime()
+    }
+
+    /**
+     * ```
      * Represents the timestamp indicating when this event was created.
      * ```
      *
-     * `int64 create_time = 4;`
+     * `int64 create_time = 8;`
      */
     public var createTime: kotlin.Long
       @JvmName("getCreateTime")
@@ -194,7 +301,7 @@ public object EventKt {
      * Represents the timestamp indicating when this event was created.
      * ```
      *
-     * `int64 create_time = 4;`
+     * `int64 create_time = 8;`
      */
     public fun clearCreateTime() {
       _builder.clearCreateTime()
@@ -205,7 +312,7 @@ public object EventKt {
      * Represents the timestamp of the last update associated with this event.
      * ```
      *
-     * `int64 update_time = 5;`
+     * `int64 update_time = 9;`
      */
     public var updateTime: kotlin.Long
       @JvmName("getUpdateTime")
@@ -219,7 +326,7 @@ public object EventKt {
      * Represents the timestamp of the last update associated with this event.
      * ```
      *
-     * `int64 update_time = 5;`
+     * `int64 update_time = 9;`
      */
     public fun clearUpdateTime() {
       _builder.clearUpdateTime()

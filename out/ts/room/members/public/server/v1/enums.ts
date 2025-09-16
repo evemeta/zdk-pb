@@ -39,3 +39,12 @@ export enum Status {
      */
     Disconnected = 2
 }
+/**
+ * @generated from protobuf enum room.members.public.server.v1.Permission
+ */
+export enum Permission {
+    /**
+     * @generated from protobuf enum value: Unknown = 0;
+     */
+    Unknown = 0
+}
