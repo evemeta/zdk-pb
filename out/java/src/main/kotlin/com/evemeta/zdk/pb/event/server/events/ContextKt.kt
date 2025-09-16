@@ -113,7 +113,7 @@ public object ContextKt {
 
     /**
      * ```
-     * todo;
+     * Represents the comprehensive details of the chat associated with the event.
      * ```
      *
      * `.chat.chats.public.server.v1.Chat chat = 3;`
@@ -127,7 +127,7 @@ public object ContextKt {
       }
     /**
      * ```
-     * todo;
+     * Represents the comprehensive details of the chat associated with the event.
      * ```
      *
      * `.chat.chats.public.server.v1.Chat chat = 3;`
@@ -137,7 +137,7 @@ public object ContextKt {
     }
     /**
      * ```
-     * todo;
+     * Represents the comprehensive details of the chat associated with the event.
      * ```
      *
      * `.chat.chats.public.server.v1.Chat chat = 3;`
@@ -268,104 +268,29 @@ public object ContextKt {
       get() = _builder.memberTimeframeOrNull
 
     /**
-     * An uninstantiable, behaviorless type to represent the field in
-     * generics.
-     */
-    @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class MembersProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
-    /**
      * ```
-     * todo;
+     * Represents the total number of members who are presently online in the event.
      * ```
      *
-     * `repeated .event.members.public.server.v1.Member members = 7;`
+     * `int64 members = 7;`
      */
-     public val members: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.members.Member, MembersProxy>
-      @kotlin.jvm.JvmSynthetic
-      get() = com.google.protobuf.kotlin.DslList(
-        _builder.membersList
-      )
+    public var members: kotlin.Long
+      @JvmName("getMembers")
+      get() = _builder.members
+      @JvmName("setMembers")
+      set(value) {
+        _builder.members = value
+      }
     /**
      * ```
-     * todo;
+     * Represents the total number of members who are presently online in the event.
      * ```
      *
-     * `repeated .event.members.public.server.v1.Member members = 7;`
-     * @param value The members to add.
+     * `int64 members = 7;`
      */
-    @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addMembers")
-    public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.members.Member, MembersProxy>.add(value: com.evemeta.zdk.pb.event.server.members.Member) {
-      _builder.addMembers(value)
-    }
-    /**
-     * ```
-     * todo;
-     * ```
-     *
-     * `repeated .event.members.public.server.v1.Member members = 7;`
-     * @param value The members to add.
-     */
-    @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignMembers")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.members.Member, MembersProxy>.plusAssign(value: com.evemeta.zdk.pb.event.server.members.Member) {
-      add(value)
-    }
-    /**
-     * ```
-     * todo;
-     * ```
-     *
-     * `repeated .event.members.public.server.v1.Member members = 7;`
-     * @param values The members to add.
-     */
-    @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addAllMembers")
-    public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.members.Member, MembersProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.event.server.members.Member>) {
-      _builder.addAllMembers(values)
-    }
-    /**
-     * ```
-     * todo;
-     * ```
-     *
-     * `repeated .event.members.public.server.v1.Member members = 7;`
-     * @param values The members to add.
-     */
-    @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignAllMembers")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.members.Member, MembersProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.event.server.members.Member>) {
-      addAll(values)
-    }
-    /**
-     * ```
-     * todo;
-     * ```
-     *
-     * `repeated .event.members.public.server.v1.Member members = 7;`
-     * @param index The index to set the value at.
-     * @param value The members to set.
-     */
-    @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("setMembers")
-    public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.members.Member, MembersProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.event.server.members.Member) {
-      _builder.setMembers(index, value)
-    }
-    /**
-     * ```
-     * todo;
-     * ```
-     *
-     * `repeated .event.members.public.server.v1.Member members = 7;`
-     */
-    @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("clearMembers")
-    public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.members.Member, MembersProxy>.clear() {
+    public fun clearMembers() {
       _builder.clearMembers()
     }
-
 
     /**
      * ```
@@ -405,223 +330,6 @@ public object ContextKt {
 
     public val ContextKt.Dsl.membersTimeframeOrNull: com.evemeta.zdk.pb.event.server.events.Timeframe?
       get() = _builder.membersTimeframeOrNull
-
-    /**
-     * ```
-     * todo;
-     * ```
-     *
-     * `.event.events.public.server.v1.Timeframe streams_timeframe = 9;`
-     */
-    public var streamsTimeframe: com.evemeta.zdk.pb.event.server.events.Timeframe
-      @JvmName("getStreamsTimeframe")
-      get() = _builder.streamsTimeframe
-      @JvmName("setStreamsTimeframe")
-      set(value) {
-        _builder.streamsTimeframe = value
-      }
-    /**
-     * ```
-     * todo;
-     * ```
-     *
-     * `.event.events.public.server.v1.Timeframe streams_timeframe = 9;`
-     */
-    public fun clearStreamsTimeframe() {
-      _builder.clearStreamsTimeframe()
-    }
-    /**
-     * ```
-     * todo;
-     * ```
-     *
-     * `.event.events.public.server.v1.Timeframe streams_timeframe = 9;`
-     * @return Whether the streamsTimeframe field is set.
-     */
-    public fun hasStreamsTimeframe(): kotlin.Boolean {
-      return _builder.hasStreamsTimeframe()
-    }
-
-    public val ContextKt.Dsl.streamsTimeframeOrNull: com.evemeta.zdk.pb.event.server.events.Timeframe?
-      get() = _builder.streamsTimeframeOrNull
-
-    /**
-     * ```
-     * todo;
-     * ```
-     *
-     * `.event.events.public.server.v1.Timeframe connections_timeframe = 10;`
-     */
-    public var connectionsTimeframe: com.evemeta.zdk.pb.event.server.events.Timeframe
-      @JvmName("getConnectionsTimeframe")
-      get() = _builder.connectionsTimeframe
-      @JvmName("setConnectionsTimeframe")
-      set(value) {
-        _builder.connectionsTimeframe = value
-      }
-    /**
-     * ```
-     * todo;
-     * ```
-     *
-     * `.event.events.public.server.v1.Timeframe connections_timeframe = 10;`
-     */
-    public fun clearConnectionsTimeframe() {
-      _builder.clearConnectionsTimeframe()
-    }
-    /**
-     * ```
-     * todo;
-     * ```
-     *
-     * `.event.events.public.server.v1.Timeframe connections_timeframe = 10;`
-     * @return Whether the connectionsTimeframe field is set.
-     */
-    public fun hasConnectionsTimeframe(): kotlin.Boolean {
-      return _builder.hasConnectionsTimeframe()
-    }
-
-    public val ContextKt.Dsl.connectionsTimeframeOrNull: com.evemeta.zdk.pb.event.server.events.Timeframe?
-      get() = _builder.connectionsTimeframeOrNull
-
-    /**
-     * An uninstantiable, behaviorless type to represent the field in
-     * generics.
-     */
-    @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class RestrictionsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
-    /**
-     * ```
-     * todo;
-     * ```
-     *
-     * `repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;`
-     */
-     public val restrictions: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.restrictions.Restriction, RestrictionsProxy>
-      @kotlin.jvm.JvmSynthetic
-      get() = com.google.protobuf.kotlin.DslList(
-        _builder.restrictionsList
-      )
-    /**
-     * ```
-     * todo;
-     * ```
-     *
-     * `repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;`
-     * @param value The restrictions to add.
-     */
-    @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addRestrictions")
-    public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.restrictions.Restriction, RestrictionsProxy>.add(value: com.evemeta.zdk.pb.event.server.restrictions.Restriction) {
-      _builder.addRestrictions(value)
-    }
-    /**
-     * ```
-     * todo;
-     * ```
-     *
-     * `repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;`
-     * @param value The restrictions to add.
-     */
-    @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignRestrictions")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.restrictions.Restriction, RestrictionsProxy>.plusAssign(value: com.evemeta.zdk.pb.event.server.restrictions.Restriction) {
-      add(value)
-    }
-    /**
-     * ```
-     * todo;
-     * ```
-     *
-     * `repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;`
-     * @param values The restrictions to add.
-     */
-    @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addAllRestrictions")
-    public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.restrictions.Restriction, RestrictionsProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.event.server.restrictions.Restriction>) {
-      _builder.addAllRestrictions(values)
-    }
-    /**
-     * ```
-     * todo;
-     * ```
-     *
-     * `repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;`
-     * @param values The restrictions to add.
-     */
-    @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignAllRestrictions")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.restrictions.Restriction, RestrictionsProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.event.server.restrictions.Restriction>) {
-      addAll(values)
-    }
-    /**
-     * ```
-     * todo;
-     * ```
-     *
-     * `repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;`
-     * @param index The index to set the value at.
-     * @param value The restrictions to set.
-     */
-    @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("setRestrictions")
-    public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.restrictions.Restriction, RestrictionsProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.event.server.restrictions.Restriction) {
-      _builder.setRestrictions(index, value)
-    }
-    /**
-     * ```
-     * todo;
-     * ```
-     *
-     * `repeated .event.restrictions.public.server.v1.Restriction restrictions = 11;`
-     */
-    @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("clearRestrictions")
-    public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.restrictions.Restriction, RestrictionsProxy>.clear() {
-      _builder.clearRestrictions()
-    }
-
-
-    /**
-     * ```
-     * todo;
-     * ```
-     *
-     * `.event.events.public.server.v1.Timeframe restrictions_timeframe = 12;`
-     */
-    public var restrictionsTimeframe: com.evemeta.zdk.pb.event.server.events.Timeframe
-      @JvmName("getRestrictionsTimeframe")
-      get() = _builder.restrictionsTimeframe
-      @JvmName("setRestrictionsTimeframe")
-      set(value) {
-        _builder.restrictionsTimeframe = value
-      }
-    /**
-     * ```
-     * todo;
-     * ```
-     *
-     * `.event.events.public.server.v1.Timeframe restrictions_timeframe = 12;`
-     */
-    public fun clearRestrictionsTimeframe() {
-      _builder.clearRestrictionsTimeframe()
-    }
-    /**
-     * ```
-     * todo;
-     * ```
-     *
-     * `.event.events.public.server.v1.Timeframe restrictions_timeframe = 12;`
-     * @return Whether the restrictionsTimeframe field is set.
-     */
-    public fun hasRestrictionsTimeframe(): kotlin.Boolean {
-      return _builder.hasRestrictionsTimeframe()
-    }
-
-    public val ContextKt.Dsl.restrictionsTimeframeOrNull: com.evemeta.zdk.pb.event.server.events.Timeframe?
-      get() = _builder.restrictionsTimeframeOrNull
   }
 }
 @kotlin.jvm.JvmSynthetic
@@ -648,13 +356,4 @@ public val com.evemeta.zdk.pb.event.server.events.ContextOrBuilder.memberTimefra
 
 public val com.evemeta.zdk.pb.event.server.events.ContextOrBuilder.membersTimeframeOrNull: com.evemeta.zdk.pb.event.server.events.Timeframe?
   get() = if (hasMembersTimeframe()) getMembersTimeframe() else null
-
-public val com.evemeta.zdk.pb.event.server.events.ContextOrBuilder.streamsTimeframeOrNull: com.evemeta.zdk.pb.event.server.events.Timeframe?
-  get() = if (hasStreamsTimeframe()) getStreamsTimeframe() else null
-
-public val com.evemeta.zdk.pb.event.server.events.ContextOrBuilder.connectionsTimeframeOrNull: com.evemeta.zdk.pb.event.server.events.Timeframe?
-  get() = if (hasConnectionsTimeframe()) getConnectionsTimeframe() else null
-
-public val com.evemeta.zdk.pb.event.server.events.ContextOrBuilder.restrictionsTimeframeOrNull: com.evemeta.zdk.pb.event.server.events.Timeframe?
-  get() = if (hasRestrictionsTimeframe()) getRestrictionsTimeframe() else null
 

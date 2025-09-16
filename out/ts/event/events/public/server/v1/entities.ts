@@ -10,7 +10,6 @@ import { UnknownFieldHandler } from "@protobuf-ts/runtime";
 import type { PartialMessage } from "@protobuf-ts/runtime";
 import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
-import { Restriction } from "../../../../restrictions/public/server/v1/entities";
 import { Member } from "../../../../members/public/server/v1/entities";
 import { Chat } from "../../../../../chat/chats/public/server/v1/entities";
 import { Order } from "./enums";
@@ -164,7 +163,7 @@ export interface Context {
      */
     eventTimeframe?: Timeframe;
     /**
-     * todo;
+     * Represents the comprehensive details of the chat associated with the event.
      *
      * @generated from protobuf field: chat.chats.public.server.v1.Chat chat = 3;
      */
@@ -188,29 +187,17 @@ export interface Context {
      */
     memberTimeframe?: Timeframe;
     /**
-     * todo;
+     * Represents the total number of members who are presently online in the event.
      *
-     * @generated from protobuf field: repeated event.members.public.server.v1.Member members = 7;
+     * @generated from protobuf field: int64 members = 7;
      */
-    members: Member[];
+    members: bigint;
     /**
      * Represents the specific span of time, containing the commence and complete timestamps associated with the retrieval of members from the database.
      *
      * @generated from protobuf field: event.events.public.server.v1.Timeframe members_timeframe = 8;
      */
     membersTimeframe?: Timeframe;
-    /**
-     * todo;
-     *
-     * @generated from protobuf field: repeated event.restrictions.public.server.v1.Restriction restrictions = 9;
-     */
-    restrictions: Restriction[];
-    /**
-     * todo;
-     *
-     * @generated from protobuf field: event.events.public.server.v1.Timeframe restrictions_timeframe = 10;
-     */
-    restrictionsTimeframe?: Timeframe;
 }
 /**
  * Condition represents a set of criteria designed to filter data during retrieval.
@@ -380,7 +367,7 @@ class Chunk$Type extends MessageType<Chunk> {
             { no: 1, name: "size", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 2, name: "index", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 3, name: "total", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 4, name: "entities", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => Event }
+            { no: 4, name: "entities", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => Event }
         ]);
     }
     create(value?: PartialMessage<Chunk>): Chunk {
@@ -524,16 +511,13 @@ class Context$Type extends MessageType<Context> {
             { no: 4, name: "chat_timeframe", kind: "message", T: () => Timeframe },
             { no: 5, name: "member", kind: "message", T: () => Member },
             { no: 6, name: "member_timeframe", kind: "message", T: () => Timeframe },
-            { no: 7, name: "members", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => Member },
-            { no: 8, name: "members_timeframe", kind: "message", T: () => Timeframe },
-            { no: 9, name: "restrictions", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => Restriction },
-            { no: 10, name: "restrictions_timeframe", kind: "message", T: () => Timeframe }
+            { no: 7, name: "members", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 8, name: "members_timeframe", kind: "message", T: () => Timeframe }
         ]);
     }
     create(value?: PartialMessage<Context>): Context {
         const message = globalThis.Object.create((this.messagePrototype!));
-        message.members = [];
-        message.restrictions = [];
+        message.members = 0n;
         if (value !== undefined)
             reflectionMergePartial<Context>(this, message, value);
         return message;
@@ -561,17 +545,11 @@ class Context$Type extends MessageType<Context> {
                 case /* event.events.public.server.v1.Timeframe member_timeframe */ 6:
                     message.memberTimeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.memberTimeframe);
                     break;
-                case /* repeated event.members.public.server.v1.Member members */ 7:
-                    message.members.push(Member.internalBinaryRead(reader, reader.uint32(), options));
+                case /* int64 members */ 7:
+                    message.members = reader.int64().toBigInt();
                     break;
                 case /* event.events.public.server.v1.Timeframe members_timeframe */ 8:
                     message.membersTimeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.membersTimeframe);
-                    break;
-                case /* repeated event.restrictions.public.server.v1.Restriction restrictions */ 9:
-                    message.restrictions.push(Restriction.internalBinaryRead(reader, reader.uint32(), options));
-                    break;
-                case /* event.events.public.server.v1.Timeframe restrictions_timeframe */ 10:
-                    message.restrictionsTimeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.restrictionsTimeframe);
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -603,18 +581,12 @@ class Context$Type extends MessageType<Context> {
         /* event.events.public.server.v1.Timeframe member_timeframe = 6; */
         if (message.memberTimeframe)
             Timeframe.internalBinaryWrite(message.memberTimeframe, writer.tag(6, WireType.LengthDelimited).fork(), options).join();
-        /* repeated event.members.public.server.v1.Member members = 7; */
-        for (let i = 0; i < message.members.length; i++)
-            Member.internalBinaryWrite(message.members[i], writer.tag(7, WireType.LengthDelimited).fork(), options).join();
+        /* int64 members = 7; */
+        if (message.members !== 0n)
+            writer.tag(7, WireType.Varint).int64(message.members);
         /* event.events.public.server.v1.Timeframe members_timeframe = 8; */
         if (message.membersTimeframe)
             Timeframe.internalBinaryWrite(message.membersTimeframe, writer.tag(8, WireType.LengthDelimited).fork(), options).join();
-        /* repeated event.restrictions.public.server.v1.Restriction restrictions = 9; */
-        for (let i = 0; i < message.restrictions.length; i++)
-            Restriction.internalBinaryWrite(message.restrictions[i], writer.tag(9, WireType.LengthDelimited).fork(), options).join();
-        /* event.events.public.server.v1.Timeframe restrictions_timeframe = 10; */
-        if (message.restrictionsTimeframe)
-            Timeframe.internalBinaryWrite(message.restrictionsTimeframe, writer.tag(10, WireType.LengthDelimited).fork(), options).join();
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
