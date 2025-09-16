@@ -49,13 +49,14 @@ message SelectResponse {
 }
 
 message CreateArgument {
-    string                                       id           = 1;
-    string                                       user_id      = 2;
-    string                                       chat_id      = 3;
-    chat.members.private.v1.Status               status       = 4;
-    map<string, string>                          metadata     = 5;
-    int64                                        enter_time   = 7;
-    int64                                        leave_time   = 8;
+    string                                      id           = 1;
+    string                                      user_id      = 2;
+    string                                      chat_id      = 3;
+    chat.members.private.v1.Status              status       = 4;
+    repeated chat.members.private.v1.Permission permissions  = 9;
+    map<string, string>                         metadata     = 5;
+    int64                                       enter_time   = 7;
+    int64                                       leave_time   = 8;
 }
 
 message CreateRequest {
