@@ -84,10 +84,11 @@ message CreateTransaction {
 }
 
 message UpdateArgument {
-    chat.members.private.v1.Query                   query    = 1;
-    optional chat.members.private.v1.OptionalString user_id  = 2;
-    optional chat.members.private.v1.OptionalString chat_id  = 3;
-    optional chat.members.private.v1.OptionalMap    metadata = 4;
+    chat.members.private.v1.Query                       query    = 1;
+    optional chat.members.private.v1.OptionalString     user_id  = 2;
+    optional chat.members.private.v1.OptionalString     chat_id  = 3;
+    optional chat.members.private.v1.OptionalMap        metadata = 4;
+    optional chat.members.private.v1.OptionalPermission permissions = 5;
 }
 
 message UpdateRequest {
