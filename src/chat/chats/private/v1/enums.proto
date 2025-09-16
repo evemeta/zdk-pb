@@ -16,3 +16,16 @@ enum Order {
     OrderAscending  = 1;
     OrderDescending = 2;
 }
+
+enum Permission {
+    PermissionUnknown              = 0;
+    PermissionChat                 = 100;
+    PermissionChatBlock            = 101;
+    PermissionChatUnblock          = 102;
+    PermissionChatMute             = 103;
+    PermissionChatUnmute           = 104;
+    PermissionChatMessageDelete    = 105;
+    PermissionChatKick             = 106;
+    PermissionChatSlowmode         = 107;
+    PermissionChatSlowmodeBypass   = 108;
+}
