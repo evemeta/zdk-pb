@@ -84,10 +84,11 @@ message CreateTransaction {
 }
 
 message UpdateArgument {
-    event.members.private.v1.Query                   query    = 1;
-    optional event.members.private.v1.OptionalString user_id  = 2;
-    optional event.members.private.v1.OptionalString event_id = 3;
-    optional event.members.private.v1.OptionalMap    metadata = 4;
+    event.members.private.v1.Query                       query       = 1;
+    optional event.members.private.v1.OptionalString     user_id     = 2;
+    optional event.members.private.v1.OptionalString     event_id    = 3;
+    optional event.members.private.v1.OptionalMap        metadata    = 4;
+    optional event.members.private.v1.OptionalPermission permissions = 5;
 }
 
 message UpdateRequest {
