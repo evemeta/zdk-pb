@@ -8,26 +8,17 @@ import "event/members/private/v1/entities.proto";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/events/private/v1;eventspb";
 
 message Event {
-    string                            id                  = 1;
-    string                            chat_id             = 2;
-    string                            room_id             = 3;
-    event.events.private.v1.Kind      kind                = 4;
-    event.events.private.v1.Status    status              = 5;
-    map<string, string>               metadata            = 6;
-    event.events.private.v1.Schedule  schedule            = 7;
-    event.events.private.v1.Broadcast broadcast           = 8;
-    int64                             planned_start_time  = 9;
-    int64                             start_time          = 10;
-    int64                             planned_finish_time = 11;
-    int64                             finish_time         = 12;
-    int64                             cancel_time         = 13;
-    int64                             access_time         = 14;
-    int64                             create_time         = 15;
-    int64                             update_time         = 16;
-}
-
-message Broadcast {
-    events.private.v1.BroadcastOrientation orientation = 1;
+    string                         id          = 1;
+    string                         chat_id     = 2;
+    event.events.private.v1.Kind   kind        = 3;
+    event.events.private.v1.Status status      = 4;
+    map<string, string>            metadata    = 5;
+    int64                          start_time  = 6;
+    int64                          finish_time = 7;
+    int64                          cancel_time = 8;
+    int64                          access_time = 9;
+    int64                          create_time = 10;
+    int64                          update_time = 11;
 }
 
 message Chunk {
@@ -47,9 +38,8 @@ message Query {
 message Condition {
     repeated string                         ids      = 1;
     repeated string                         chat_ids = 2;
-    repeated string                         room_ids = 3;
-    repeated event.events.private.v1.Status statuses = 4;
-    repeated event.members.private.v1.Query members  = 5;
+    repeated event.events.private.v1.Status statuses = 3;
+    repeated event.members.private.v1.Query members  = 4;
 }
 
 message Transient {

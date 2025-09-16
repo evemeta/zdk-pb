@@ -66,15 +66,15 @@ public final class Packets {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_event_events_public_server_v1_StartEventPacket_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_event_events_public_server_v1_CancelEventPacket_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_event_events_public_server_v1_CancelEventPacket_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_event_events_public_server_v1_FinishEventPacket_descriptor;
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_event_events_public_server_v1_FinishEventPacket_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_event_events_public_server_v1_CancelEventPacket_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_event_events_public_server_v1_CancelEventPacket_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -113,10 +113,10 @@ public final class Packets {
       "ataEntry\032+\n\tDataEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
       "lue\030\002 \001(\t:\0028\001\"[\n\020StartEventPacket\022\n\n\002id\030" +
       "\001 \001(\t\022;\n\ttimeframe\030\002 \001(\0132(.event.events." +
-      "public.server.v1.Timeframe\"\\\n\021CancelEven" +
+      "public.server.v1.Timeframe\"\\\n\021FinishEven" +
       "tPacket\022\n\n\002id\030\001 \001(\t\022;\n\ttimeframe\030\002 \001(\0132(" +
       ".event.events.public.server.v1.Timeframe" +
-      "\"\\\n\021FinishEventPacket\022\n\n\002id\030\001 \001(\t\022;\n\ttim" +
+      "\"\\\n\021CancelEventPacket\022\n\n\002id\030\001 \001(\t\022;\n\ttim" +
       "eframe\030\002 \001(\0132(.event.events.public.serve" +
       "r.v1.TimeframeBs\n&com.evemeta.zdk.pb.eve" +
       "nt.server.eventsP\001ZGgitlab.com/evemeta/z" +
@@ -178,17 +178,17 @@ public final class Packets {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_event_events_public_server_v1_StartEventPacket_descriptor,
         new java.lang.String[] { "Id", "Timeframe", });
-    internal_static_event_events_public_server_v1_CancelEventPacket_descriptor =
-      getDescriptor().getMessageTypes().get(7);
-    internal_static_event_events_public_server_v1_CancelEventPacket_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_event_events_public_server_v1_CancelEventPacket_descriptor,
-        new java.lang.String[] { "Id", "Timeframe", });
     internal_static_event_events_public_server_v1_FinishEventPacket_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_event_events_public_server_v1_FinishEventPacket_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_event_events_public_server_v1_FinishEventPacket_descriptor,
+        new java.lang.String[] { "Id", "Timeframe", });
+    internal_static_event_events_public_server_v1_CancelEventPacket_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_event_events_public_server_v1_CancelEventPacket_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_event_events_public_server_v1_CancelEventPacket_descriptor,
         new java.lang.String[] { "Id", "Timeframe", });
     descriptor.resolveAllFeaturesImmutable();
     com.evemeta.zdk.pb.event.server.events.Entities.getDescriptor();

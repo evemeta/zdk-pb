@@ -41,7 +41,7 @@ public final class Enums {
       "nown\020\000\022\022\n\016OrderAscending\020\001\022\023\n\017OrderDesce" +
       "nding\020\002*i\n\006Status\022\021\n\rStatusUnknown\020\000\022\021\n\r" +
       "StatusPending\020\001\022\021\n\rStatusStarted\020\002\022\022\n\016St" +
-      "atusCanceled\020\003\022\022\n\016StatusFinished\020\004Bs\n&co" +
+      "atusFinished\020\003\022\022\n\016StatusCanceled\020\004Bs\n&co" +
       "m.evemeta.zdk.pb.event.server.eventsP\001ZG" +
       "gitlab.com/evemeta/zdk/pb/out/go/event/e" +
       "vents/public/server/v1;eventspbb\006proto3"

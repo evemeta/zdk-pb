@@ -78,18 +78,18 @@ message StartEventPacket {
     event.events.public.server.v1.Timeframe timeframe = 2;
 }
 
-// CancelEventPacket is a notification sent to clients when a event has been canceled.
+// FinishEventPacket is a notification sent to clients when a event has been finished.
 // It provides the identifier of the event and the relevant timeframe associated with the event.
-message CancelEventPacket {
+message FinishEventPacket {
     // Represents the unique identifier of the event.
     string id = 1;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
     event.events.public.server.v1.Timeframe timeframe = 2;
 }
 
-// FinishEventPacket is a notification sent to clients when a event has been finished.
+// CancelEventPacket is a notification sent to clients when a event has been canceled.
 // It provides the identifier of the event and the relevant timeframe associated with the event.
-message FinishEventPacket {
+message CancelEventPacket {
     // Represents the unique identifier of the event.
     string id = 1;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the event.

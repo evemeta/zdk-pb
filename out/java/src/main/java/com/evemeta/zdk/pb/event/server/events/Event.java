@@ -113,7 +113,7 @@ private static final long serialVersionUID = 0L;
   private int kind_ = 0;
   /**
    * <pre>
-   * todo;
+   * Determines whatever the event is dependent or independent, it may depend on a parent object.
    * </pre>
    *
    * <code>.event.events.public.server.v1.Kind kind = 2;</code>
@@ -124,7 +124,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * todo;
+   * Determines whatever the event is dependent or independent, it may depend on a parent object.
    * </pre>
    *
    * <code>.event.events.public.server.v1.Kind kind = 2;</code>
@@ -139,7 +139,7 @@ private static final long serialVersionUID = 0L;
   private int status_ = 0;
   /**
    * <pre>
-   * todo;
+   * Status of the event (pending, started, canceled, or finished).
    * </pre>
    *
    * <code>.event.events.public.server.v1.Status status = 3;</code>
@@ -150,7 +150,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * todo;
+   * Status of the event (pending, started, canceled, or finished).
    * </pre>
    *
    * <code>.event.events.public.server.v1.Status status = 3;</code>
@@ -260,7 +260,7 @@ java.lang.String defaultValue) {
   private long startTime_ = 0L;
   /**
    * <pre>
-   * todo;
+   * Represents the timestamp indicating when this event was started.
    * </pre>
    *
    * <code>int64 start_time = 5;</code>
@@ -271,34 +271,34 @@ java.lang.String defaultValue) {
     return startTime_;
   }
 
-  public static final int CANCEL_TIME_FIELD_NUMBER = 6;
-  private long cancelTime_ = 0L;
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>int64 cancel_time = 6;</code>
-   * @return The cancelTime.
-   */
-  @java.lang.Override
-  public long getCancelTime() {
-    return cancelTime_;
-  }
-
-  public static final int FINISH_TIME_FIELD_NUMBER = 7;
+  public static final int FINISH_TIME_FIELD_NUMBER = 6;
   private long finishTime_ = 0L;
   /**
    * <pre>
-   * todo;
+   * Represents the timestamp indicating when this event was finished.
    * </pre>
    *
-   * <code>int64 finish_time = 7;</code>
+   * <code>int64 finish_time = 6;</code>
    * @return The finishTime.
    */
   @java.lang.Override
   public long getFinishTime() {
     return finishTime_;
+  }
+
+  public static final int CANCEL_TIME_FIELD_NUMBER = 7;
+  private long cancelTime_ = 0L;
+  /**
+   * <pre>
+   * Represents the timestamp indicating when this event was canceled.
+   * </pre>
+   *
+   * <code>int64 cancel_time = 7;</code>
+   * @return The cancelTime.
+   */
+  @java.lang.Override
+  public long getCancelTime() {
+    return cancelTime_;
   }
 
   public static final int CREATE_TIME_FIELD_NUMBER = 8;
@@ -363,11 +363,11 @@ java.lang.String defaultValue) {
     if (startTime_ != 0L) {
       output.writeInt64(5, startTime_);
     }
-    if (cancelTime_ != 0L) {
-      output.writeInt64(6, cancelTime_);
-    }
     if (finishTime_ != 0L) {
-      output.writeInt64(7, finishTime_);
+      output.writeInt64(6, finishTime_);
+    }
+    if (cancelTime_ != 0L) {
+      output.writeInt64(7, cancelTime_);
     }
     if (createTime_ != 0L) {
       output.writeInt64(8, createTime_);
@@ -409,13 +409,13 @@ java.lang.String defaultValue) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(5, startTime_);
     }
-    if (cancelTime_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(6, cancelTime_);
-    }
     if (finishTime_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(7, finishTime_);
+        .computeInt64Size(6, finishTime_);
+    }
+    if (cancelTime_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(7, cancelTime_);
     }
     if (createTime_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
@@ -448,10 +448,10 @@ java.lang.String defaultValue) {
         other.internalGetMetadata())) return false;
     if (getStartTime()
         != other.getStartTime()) return false;
-    if (getCancelTime()
-        != other.getCancelTime()) return false;
     if (getFinishTime()
         != other.getFinishTime()) return false;
+    if (getCancelTime()
+        != other.getCancelTime()) return false;
     if (getCreateTime()
         != other.getCreateTime()) return false;
     if (getUpdateTime()
@@ -480,12 +480,12 @@ java.lang.String defaultValue) {
     hash = (37 * hash) + START_TIME_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getStartTime());
-    hash = (37 * hash) + CANCEL_TIME_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getCancelTime());
     hash = (37 * hash) + FINISH_TIME_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getFinishTime());
+    hash = (37 * hash) + CANCEL_TIME_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getCancelTime());
     hash = (37 * hash) + CREATE_TIME_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getCreateTime());
@@ -655,8 +655,8 @@ java.lang.String defaultValue) {
       status_ = 0;
       internalGetMutableMetadata().clear();
       startTime_ = 0L;
-      cancelTime_ = 0L;
       finishTime_ = 0L;
+      cancelTime_ = 0L;
       createTime_ = 0L;
       updateTime_ = 0L;
       return this;
@@ -709,10 +709,10 @@ java.lang.String defaultValue) {
         result.startTime_ = startTime_;
       }
       if (((from_bitField0_ & 0x00000020) != 0)) {
-        result.cancelTime_ = cancelTime_;
+        result.finishTime_ = finishTime_;
       }
       if (((from_bitField0_ & 0x00000040) != 0)) {
-        result.finishTime_ = finishTime_;
+        result.cancelTime_ = cancelTime_;
       }
       if (((from_bitField0_ & 0x00000080) != 0)) {
         result.createTime_ = createTime_;
@@ -751,11 +751,11 @@ java.lang.String defaultValue) {
       if (other.getStartTime() != 0L) {
         setStartTime(other.getStartTime());
       }
-      if (other.getCancelTime() != 0L) {
-        setCancelTime(other.getCancelTime());
-      }
       if (other.getFinishTime() != 0L) {
         setFinishTime(other.getFinishTime());
+      }
+      if (other.getCancelTime() != 0L) {
+        setCancelTime(other.getCancelTime());
       }
       if (other.getCreateTime() != 0L) {
         setCreateTime(other.getCreateTime());
@@ -819,12 +819,12 @@ java.lang.String defaultValue) {
               break;
             } // case 40
             case 48: {
-              cancelTime_ = input.readInt64();
+              finishTime_ = input.readInt64();
               bitField0_ |= 0x00000020;
               break;
             } // case 48
             case 56: {
-              finishTime_ = input.readInt64();
+              cancelTime_ = input.readInt64();
               bitField0_ |= 0x00000040;
               break;
             } // case 56
@@ -950,7 +950,7 @@ java.lang.String defaultValue) {
     private int kind_ = 0;
     /**
      * <pre>
-     * todo;
+     * Determines whatever the event is dependent or independent, it may depend on a parent object.
      * </pre>
      *
      * <code>.event.events.public.server.v1.Kind kind = 2;</code>
@@ -961,7 +961,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Determines whatever the event is dependent or independent, it may depend on a parent object.
      * </pre>
      *
      * <code>.event.events.public.server.v1.Kind kind = 2;</code>
@@ -976,7 +976,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Determines whatever the event is dependent or independent, it may depend on a parent object.
      * </pre>
      *
      * <code>.event.events.public.server.v1.Kind kind = 2;</code>
@@ -989,7 +989,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Determines whatever the event is dependent or independent, it may depend on a parent object.
      * </pre>
      *
      * <code>.event.events.public.server.v1.Kind kind = 2;</code>
@@ -1007,7 +1007,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Determines whatever the event is dependent or independent, it may depend on a parent object.
      * </pre>
      *
      * <code>.event.events.public.server.v1.Kind kind = 2;</code>
@@ -1023,7 +1023,7 @@ java.lang.String defaultValue) {
     private int status_ = 0;
     /**
      * <pre>
-     * todo;
+     * Status of the event (pending, started, canceled, or finished).
      * </pre>
      *
      * <code>.event.events.public.server.v1.Status status = 3;</code>
@@ -1034,7 +1034,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Status of the event (pending, started, canceled, or finished).
      * </pre>
      *
      * <code>.event.events.public.server.v1.Status status = 3;</code>
@@ -1049,7 +1049,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Status of the event (pending, started, canceled, or finished).
      * </pre>
      *
      * <code>.event.events.public.server.v1.Status status = 3;</code>
@@ -1062,7 +1062,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Status of the event (pending, started, canceled, or finished).
      * </pre>
      *
      * <code>.event.events.public.server.v1.Status status = 3;</code>
@@ -1080,7 +1080,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Status of the event (pending, started, canceled, or finished).
      * </pre>
      *
      * <code>.event.events.public.server.v1.Status status = 3;</code>
@@ -1251,7 +1251,7 @@ java.lang.String defaultValue) {
     private long startTime_ ;
     /**
      * <pre>
-     * todo;
+     * Represents the timestamp indicating when this event was started.
      * </pre>
      *
      * <code>int64 start_time = 5;</code>
@@ -1263,7 +1263,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Represents the timestamp indicating when this event was started.
      * </pre>
      *
      * <code>int64 start_time = 5;</code>
@@ -1279,7 +1279,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Represents the timestamp indicating when this event was started.
      * </pre>
      *
      * <code>int64 start_time = 5;</code>
@@ -1292,57 +1292,13 @@ java.lang.String defaultValue) {
       return this;
     }
 
-    private long cancelTime_ ;
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>int64 cancel_time = 6;</code>
-     * @return The cancelTime.
-     */
-    @java.lang.Override
-    public long getCancelTime() {
-      return cancelTime_;
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>int64 cancel_time = 6;</code>
-     * @param value The cancelTime to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCancelTime(long value) {
-
-      cancelTime_ = value;
-      bitField0_ |= 0x00000020;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>int64 cancel_time = 6;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearCancelTime() {
-      bitField0_ = (bitField0_ & ~0x00000020);
-      cancelTime_ = 0L;
-      onChanged();
-      return this;
-    }
-
     private long finishTime_ ;
     /**
      * <pre>
-     * todo;
+     * Represents the timestamp indicating when this event was finished.
      * </pre>
      *
-     * <code>int64 finish_time = 7;</code>
+     * <code>int64 finish_time = 6;</code>
      * @return The finishTime.
      */
     @java.lang.Override
@@ -1351,31 +1307,75 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Represents the timestamp indicating when this event was finished.
      * </pre>
      *
-     * <code>int64 finish_time = 7;</code>
+     * <code>int64 finish_time = 6;</code>
      * @param value The finishTime to set.
      * @return This builder for chaining.
      */
     public Builder setFinishTime(long value) {
 
       finishTime_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Represents the timestamp indicating when this event was finished.
+     * </pre>
+     *
+     * <code>int64 finish_time = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFinishTime() {
+      bitField0_ = (bitField0_ & ~0x00000020);
+      finishTime_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long cancelTime_ ;
+    /**
+     * <pre>
+     * Represents the timestamp indicating when this event was canceled.
+     * </pre>
+     *
+     * <code>int64 cancel_time = 7;</code>
+     * @return The cancelTime.
+     */
+    @java.lang.Override
+    public long getCancelTime() {
+      return cancelTime_;
+    }
+    /**
+     * <pre>
+     * Represents the timestamp indicating when this event was canceled.
+     * </pre>
+     *
+     * <code>int64 cancel_time = 7;</code>
+     * @param value The cancelTime to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCancelTime(long value) {
+
+      cancelTime_ = value;
       bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * todo;
+     * Represents the timestamp indicating when this event was canceled.
      * </pre>
      *
-     * <code>int64 finish_time = 7;</code>
+     * <code>int64 cancel_time = 7;</code>
      * @return This builder for chaining.
      */
-    public Builder clearFinishTime() {
+    public Builder clearCancelTime() {
       bitField0_ = (bitField0_ & ~0x00000040);
-      finishTime_ = 0L;
+      cancelTime_ = 0L;
       onChanged();
       return this;
     }
