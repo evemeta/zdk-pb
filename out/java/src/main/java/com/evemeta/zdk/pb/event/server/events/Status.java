@@ -28,13 +28,13 @@ public enum Status
    */
   StatusStarted(2),
   /**
-   * <code>StatusCanceled = 3;</code>
+   * <code>StatusFinished = 3;</code>
    */
-  StatusCanceled(3),
+  StatusFinished(3),
   /**
-   * <code>StatusFinished = 4;</code>
+   * <code>StatusCanceled = 4;</code>
    */
-  StatusFinished(4),
+  StatusCanceled(4),
   UNRECOGNIZED(-1),
   ;
 
@@ -60,13 +60,13 @@ public enum Status
    */
   public static final int StatusStarted_VALUE = 2;
   /**
-   * <code>StatusCanceled = 3;</code>
+   * <code>StatusFinished = 3;</code>
    */
-  public static final int StatusCanceled_VALUE = 3;
+  public static final int StatusFinished_VALUE = 3;
   /**
-   * <code>StatusFinished = 4;</code>
+   * <code>StatusCanceled = 4;</code>
    */
-  public static final int StatusFinished_VALUE = 4;
+  public static final int StatusCanceled_VALUE = 4;
 
 
   public final int getNumber() {
@@ -96,8 +96,8 @@ public enum Status
       case 0: return StatusUnknown;
       case 1: return StatusPending;
       case 2: return StatusStarted;
-      case 3: return StatusCanceled;
-      case 4: return StatusFinished;
+      case 3: return StatusFinished;
+      case 4: return StatusCanceled;
       default: return null;
     }
   }

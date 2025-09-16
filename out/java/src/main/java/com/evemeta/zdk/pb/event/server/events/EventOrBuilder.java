@@ -134,23 +134,23 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * Represents the timestamp indicating when this event was canceled.
-   * </pre>
-   *
-   * <code>int64 cancel_time = 6;</code>
-   * @return The cancelTime.
-   */
-  long getCancelTime();
-
-  /**
-   * <pre>
    * Represents the timestamp indicating when this event was finished.
    * </pre>
    *
-   * <code>int64 finish_time = 7;</code>
+   * <code>int64 finish_time = 6;</code>
    * @return The finishTime.
    */
   long getFinishTime();
+
+  /**
+   * <pre>
+   * Represents the timestamp indicating when this event was canceled.
+   * </pre>
+   *
+   * <code>int64 cancel_time = 7;</code>
+   * @return The cancelTime.
+   */
+  long getCancelTime();
 
   /**
    * <pre>

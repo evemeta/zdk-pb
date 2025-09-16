@@ -69,7 +69,6 @@ message CreateArgument {
     string                 id        = 1;
     events.private.v1.Kind kind      = 2;
     map<string, string>    metadata  = 3;
-    int64                  retention = 4;
 }
 
 message CreateRequest {
@@ -234,29 +233,6 @@ message StartTransaction {
     repeated event.events.private.v1.StartMutation mutations = 1;
 }
 
-message CancelArgument {
-    event.events.private.v1.Query query = 1;
-}
-
-message CancelRequest {
-    repeated event.events.private.v1.CancelArgument arguments = 1;
-}
-
-message CancelResponse {
-    repeated event.events.private.v1.Event events = 1;
-}
-
-message CancelMutation {
-    event.events.private.v1.CancelArgument     foundation      = 1;
-    repeated event.events.private.v1.Transient transient       = 2;
-    int64                                      begin_timestamp = 3;
-    int64                                      close_timestamp = 4;
-}
-
-message CancelTransaction {
-    repeated event.events.private.v1.CancelMutation mutations = 1;
-}
-
 message FinishArgument {
     event.events.private.v1.Query query = 1;
 }
@@ -278,4 +254,27 @@ message FinishMutation {
 
 message FinishTransaction {
     repeated event.events.private.v1.FinishMutation mutations = 1;
+}
+
+message CancelArgument {
+    event.events.private.v1.Query query = 1;
+}
+
+message CancelRequest {
+    repeated event.events.private.v1.CancelArgument arguments = 1;
+}
+
+message CancelResponse {
+    repeated event.events.private.v1.Event events = 1;
+}
+
+message CancelMutation {
+    event.events.private.v1.CancelArgument     foundation      = 1;
+    repeated event.events.private.v1.Transient transient       = 2;
+    int64                                      begin_timestamp = 3;
+    int64                                      close_timestamp = 4;
+}
+
+message CancelTransaction {
+    repeated event.events.private.v1.CancelMutation mutations = 1;
 }

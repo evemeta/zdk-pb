@@ -7,8 +7,8 @@ object Registry {
     private val builders: MutableMap<String, com.google.protobuf.Message.Builder> = mutableMapOf()
 
     init {
-        registerMessage(common.timeframes.public.v1.Entities::class)
         registerMessage(common.messages.public.v1.Entities::class)
+        registerMessage(common.timeframes.public.v1.Entities::class)
         registerMessage(com.evemeta.zdk.pb.websocket.server.websocket.AcknowledgePacket::class)
         registerMessage(com.evemeta.zdk.pb.websocket.server.websocket.HandshakePacket::class)
         registerMessage(com.evemeta.zdk.pb.websocket.server.websocket.HeartbeatPacket::class)

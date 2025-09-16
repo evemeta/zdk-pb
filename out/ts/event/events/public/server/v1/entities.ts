@@ -10,7 +10,6 @@ import { UnknownFieldHandler } from "@protobuf-ts/runtime";
 import type { PartialMessage } from "@protobuf-ts/runtime";
 import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
-import { Restriction } from "../../../../restrictions/public/server/v1/entities";
 import { Member } from "../../../../members/public/server/v1/entities";
 import { Chat } from "../../../../../chat/chats/public/server/v1/entities";
 import { Order } from "./enums";
@@ -56,17 +55,17 @@ export interface Event {
      */
     startTime: bigint;
     /**
-     * Represents the timestamp indicating when this event was canceled.
-     *
-     * @generated from protobuf field: int64 cancel_time = 6;
-     */
-    cancelTime: bigint;
-    /**
      * Represents the timestamp indicating when this event was finished.
      *
-     * @generated from protobuf field: int64 finish_time = 7;
+     * @generated from protobuf field: int64 finish_time = 6;
      */
     finishTime: bigint;
+    /**
+     * Represents the timestamp indicating when this event was canceled.
+     *
+     * @generated from protobuf field: int64 cancel_time = 7;
+     */
+    cancelTime: bigint;
     /**
      * Represents the timestamp indicating when this event was created.
      *
@@ -199,18 +198,6 @@ export interface Context {
      * @generated from protobuf field: event.events.public.server.v1.Timeframe members_timeframe = 8;
      */
     membersTimeframe?: Timeframe;
-    /**
-     * todo;
-     *
-     * @generated from protobuf field: repeated event.restrictions.public.server.v1.Restriction restrictions = 9;
-     */
-    restrictions: Restriction[];
-    /**
-     * todo;
-     *
-     * @generated from protobuf field: event.events.public.server.v1.Timeframe restrictions_timeframe = 10;
-     */
-    restrictionsTimeframe?: Timeframe;
 }
 /**
  * Condition represents a set of criteria designed to filter data during retrieval.
@@ -255,8 +242,8 @@ class Event$Type extends MessageType<Event> {
             { no: 3, name: "status", kind: "enum", T: () => ["event.events.public.server.v1.Status", Status] },
             { no: 4, name: "metadata", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } },
             { no: 5, name: "start_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 6, name: "cancel_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 7, name: "finish_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 6, name: "finish_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 7, name: "cancel_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 8, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 9, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
@@ -268,8 +255,8 @@ class Event$Type extends MessageType<Event> {
         message.status = 0;
         message.metadata = {};
         message.startTime = 0n;
-        message.cancelTime = 0n;
         message.finishTime = 0n;
+        message.cancelTime = 0n;
         message.createTime = 0n;
         message.updateTime = 0n;
         if (value !== undefined)
@@ -296,11 +283,11 @@ class Event$Type extends MessageType<Event> {
                 case /* int64 start_time */ 5:
                     message.startTime = reader.int64().toBigInt();
                     break;
-                case /* int64 cancel_time */ 6:
-                    message.cancelTime = reader.int64().toBigInt();
-                    break;
-                case /* int64 finish_time */ 7:
+                case /* int64 finish_time */ 6:
                     message.finishTime = reader.int64().toBigInt();
+                    break;
+                case /* int64 cancel_time */ 7:
+                    message.cancelTime = reader.int64().toBigInt();
                     break;
                 case /* int64 create_time */ 8:
                     message.createTime = reader.int64().toBigInt();
@@ -351,12 +338,12 @@ class Event$Type extends MessageType<Event> {
         /* int64 start_time = 5; */
         if (message.startTime !== 0n)
             writer.tag(5, WireType.Varint).int64(message.startTime);
-        /* int64 cancel_time = 6; */
-        if (message.cancelTime !== 0n)
-            writer.tag(6, WireType.Varint).int64(message.cancelTime);
-        /* int64 finish_time = 7; */
+        /* int64 finish_time = 6; */
         if (message.finishTime !== 0n)
-            writer.tag(7, WireType.Varint).int64(message.finishTime);
+            writer.tag(6, WireType.Varint).int64(message.finishTime);
+        /* int64 cancel_time = 7; */
+        if (message.cancelTime !== 0n)
+            writer.tag(7, WireType.Varint).int64(message.cancelTime);
         /* int64 create_time = 8; */
         if (message.createTime !== 0n)
             writer.tag(8, WireType.Varint).int64(message.createTime);
@@ -525,15 +512,12 @@ class Context$Type extends MessageType<Context> {
             { no: 5, name: "member", kind: "message", T: () => Member },
             { no: 6, name: "member_timeframe", kind: "message", T: () => Timeframe },
             { no: 7, name: "members", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => Member },
-            { no: 8, name: "members_timeframe", kind: "message", T: () => Timeframe },
-            { no: 9, name: "restrictions", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => Restriction },
-            { no: 10, name: "restrictions_timeframe", kind: "message", T: () => Timeframe }
+            { no: 8, name: "members_timeframe", kind: "message", T: () => Timeframe }
         ]);
     }
     create(value?: PartialMessage<Context>): Context {
         const message = globalThis.Object.create((this.messagePrototype!));
         message.members = [];
-        message.restrictions = [];
         if (value !== undefined)
             reflectionMergePartial<Context>(this, message, value);
         return message;
@@ -566,12 +550,6 @@ class Context$Type extends MessageType<Context> {
                     break;
                 case /* event.events.public.server.v1.Timeframe members_timeframe */ 8:
                     message.membersTimeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.membersTimeframe);
-                    break;
-                case /* repeated event.restrictions.public.server.v1.Restriction restrictions */ 9:
-                    message.restrictions.push(Restriction.internalBinaryRead(reader, reader.uint32(), options));
-                    break;
-                case /* event.events.public.server.v1.Timeframe restrictions_timeframe */ 10:
-                    message.restrictionsTimeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.restrictionsTimeframe);
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -609,12 +587,6 @@ class Context$Type extends MessageType<Context> {
         /* event.events.public.server.v1.Timeframe members_timeframe = 8; */
         if (message.membersTimeframe)
             Timeframe.internalBinaryWrite(message.membersTimeframe, writer.tag(8, WireType.LengthDelimited).fork(), options).join();
-        /* repeated event.restrictions.public.server.v1.Restriction restrictions = 9; */
-        for (let i = 0; i < message.restrictions.length; i++)
-            Restriction.internalBinaryWrite(message.restrictions[i], writer.tag(9, WireType.LengthDelimited).fork(), options).join();
-        /* event.events.public.server.v1.Timeframe restrictions_timeframe = 10; */
-        if (message.restrictionsTimeframe)
-            Timeframe.internalBinaryWrite(message.restrictionsTimeframe, writer.tag(10, WireType.LengthDelimited).fork(), options).join();
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

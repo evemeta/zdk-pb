@@ -34,7 +34,6 @@ private static final long serialVersionUID = 0L;
   }
   private Context() {
     members_ = java.util.Collections.emptyList();
-    restrictions_ = java.util.Collections.emptyList();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -378,105 +377,6 @@ private static final long serialVersionUID = 0L;
     return membersTimeframe_ == null ? com.evemeta.zdk.pb.event.server.events.Timeframe.getDefaultInstance() : membersTimeframe_;
   }
 
-  public static final int RESTRICTIONS_FIELD_NUMBER = 9;
-  @SuppressWarnings("serial")
-  private java.util.List<com.evemeta.zdk.pb.event.server.restrictions.Restriction> restrictions_;
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
-   */
-  @java.lang.Override
-  public java.util.List<com.evemeta.zdk.pb.event.server.restrictions.Restriction> getRestrictionsList() {
-    return restrictions_;
-  }
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
-   */
-  @java.lang.Override
-  public java.util.List<? extends com.evemeta.zdk.pb.event.server.restrictions.RestrictionOrBuilder> 
-      getRestrictionsOrBuilderList() {
-    return restrictions_;
-  }
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
-   */
-  @java.lang.Override
-  public int getRestrictionsCount() {
-    return restrictions_.size();
-  }
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
-   */
-  @java.lang.Override
-  public com.evemeta.zdk.pb.event.server.restrictions.Restriction getRestrictions(int index) {
-    return restrictions_.get(index);
-  }
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
-   */
-  @java.lang.Override
-  public com.evemeta.zdk.pb.event.server.restrictions.RestrictionOrBuilder getRestrictionsOrBuilder(
-      int index) {
-    return restrictions_.get(index);
-  }
-
-  public static final int RESTRICTIONS_TIMEFRAME_FIELD_NUMBER = 10;
-  private com.evemeta.zdk.pb.event.server.events.Timeframe restrictionsTimeframe_;
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 10;</code>
-   * @return Whether the restrictionsTimeframe field is set.
-   */
-  @java.lang.Override
-  public boolean hasRestrictionsTimeframe() {
-    return ((bitField0_ & 0x00000080) != 0);
-  }
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 10;</code>
-   * @return The restrictionsTimeframe.
-   */
-  @java.lang.Override
-  public com.evemeta.zdk.pb.event.server.events.Timeframe getRestrictionsTimeframe() {
-    return restrictionsTimeframe_ == null ? com.evemeta.zdk.pb.event.server.events.Timeframe.getDefaultInstance() : restrictionsTimeframe_;
-  }
-  /**
-   * <pre>
-   * todo;
-   * </pre>
-   *
-   * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 10;</code>
-   */
-  @java.lang.Override
-  public com.evemeta.zdk.pb.event.server.events.TimeframeOrBuilder getRestrictionsTimeframeOrBuilder() {
-    return restrictionsTimeframe_ == null ? com.evemeta.zdk.pb.event.server.events.Timeframe.getDefaultInstance() : restrictionsTimeframe_;
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -514,12 +414,6 @@ private static final long serialVersionUID = 0L;
     }
     if (((bitField0_ & 0x00000040) != 0)) {
       output.writeMessage(8, getMembersTimeframe());
-    }
-    for (int i = 0; i < restrictions_.size(); i++) {
-      output.writeMessage(9, restrictions_.get(i));
-    }
-    if (((bitField0_ & 0x00000080) != 0)) {
-      output.writeMessage(10, getRestrictionsTimeframe());
     }
     getUnknownFields().writeTo(output);
   }
@@ -561,14 +455,6 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000040) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getMembersTimeframe());
-    }
-    for (int i = 0; i < restrictions_.size(); i++) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(9, restrictions_.get(i));
-    }
-    if (((bitField0_ & 0x00000080) != 0)) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(10, getRestrictionsTimeframe());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -622,13 +508,6 @@ private static final long serialVersionUID = 0L;
       if (!getMembersTimeframe()
           .equals(other.getMembersTimeframe())) return false;
     }
-    if (!getRestrictionsList()
-        .equals(other.getRestrictionsList())) return false;
-    if (hasRestrictionsTimeframe() != other.hasRestrictionsTimeframe()) return false;
-    if (hasRestrictionsTimeframe()) {
-      if (!getRestrictionsTimeframe()
-          .equals(other.getRestrictionsTimeframe())) return false;
-    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -671,14 +550,6 @@ private static final long serialVersionUID = 0L;
     if (hasMembersTimeframe()) {
       hash = (37 * hash) + MEMBERS_TIMEFRAME_FIELD_NUMBER;
       hash = (53 * hash) + getMembersTimeframe().hashCode();
-    }
-    if (getRestrictionsCount() > 0) {
-      hash = (37 * hash) + RESTRICTIONS_FIELD_NUMBER;
-      hash = (53 * hash) + getRestrictionsList().hashCode();
-    }
-    if (hasRestrictionsTimeframe()) {
-      hash = (37 * hash) + RESTRICTIONS_TIMEFRAME_FIELD_NUMBER;
-      hash = (53 * hash) + getRestrictionsTimeframe().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -823,8 +694,6 @@ private static final long serialVersionUID = 0L;
         internalGetMemberTimeframeFieldBuilder();
         internalGetMembersFieldBuilder();
         internalGetMembersTimeframeFieldBuilder();
-        internalGetRestrictionsFieldBuilder();
-        internalGetRestrictionsTimeframeFieldBuilder();
       }
     }
     @java.lang.Override
@@ -873,18 +742,6 @@ private static final long serialVersionUID = 0L;
         membersTimeframeBuilder_.dispose();
         membersTimeframeBuilder_ = null;
       }
-      if (restrictionsBuilder_ == null) {
-        restrictions_ = java.util.Collections.emptyList();
-      } else {
-        restrictions_ = null;
-        restrictionsBuilder_.clear();
-      }
-      bitField0_ = (bitField0_ & ~0x00000100);
-      restrictionsTimeframe_ = null;
-      if (restrictionsTimeframeBuilder_ != null) {
-        restrictionsTimeframeBuilder_.dispose();
-        restrictionsTimeframeBuilder_ = null;
-      }
       return this;
     }
 
@@ -926,15 +783,6 @@ private static final long serialVersionUID = 0L;
         result.members_ = members_;
       } else {
         result.members_ = membersBuilder_.build();
-      }
-      if (restrictionsBuilder_ == null) {
-        if (((bitField0_ & 0x00000100) != 0)) {
-          restrictions_ = java.util.Collections.unmodifiableList(restrictions_);
-          bitField0_ = (bitField0_ & ~0x00000100);
-        }
-        result.restrictions_ = restrictions_;
-      } else {
-        result.restrictions_ = restrictionsBuilder_.build();
       }
     }
 
@@ -982,12 +830,6 @@ private static final long serialVersionUID = 0L;
             ? membersTimeframe_
             : membersTimeframeBuilder_.build();
         to_bitField0_ |= 0x00000040;
-      }
-      if (((from_bitField0_ & 0x00000200) != 0)) {
-        result.restrictionsTimeframe_ = restrictionsTimeframeBuilder_ == null
-            ? restrictionsTimeframe_
-            : restrictionsTimeframeBuilder_.build();
-        to_bitField0_ |= 0x00000080;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -1050,35 +892,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasMembersTimeframe()) {
         mergeMembersTimeframe(other.getMembersTimeframe());
-      }
-      if (restrictionsBuilder_ == null) {
-        if (!other.restrictions_.isEmpty()) {
-          if (restrictions_.isEmpty()) {
-            restrictions_ = other.restrictions_;
-            bitField0_ = (bitField0_ & ~0x00000100);
-          } else {
-            ensureRestrictionsIsMutable();
-            restrictions_.addAll(other.restrictions_);
-          }
-          onChanged();
-        }
-      } else {
-        if (!other.restrictions_.isEmpty()) {
-          if (restrictionsBuilder_.isEmpty()) {
-            restrictionsBuilder_.dispose();
-            restrictionsBuilder_ = null;
-            restrictions_ = other.restrictions_;
-            bitField0_ = (bitField0_ & ~0x00000100);
-            restrictionsBuilder_ = 
-              com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                 internalGetRestrictionsFieldBuilder() : null;
-          } else {
-            restrictionsBuilder_.addAllMessages(other.restrictions_);
-          }
-        }
-      }
-      if (other.hasRestrictionsTimeframe()) {
-        mergeRestrictionsTimeframe(other.getRestrictionsTimeframe());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -1168,26 +981,6 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000080;
               break;
             } // case 66
-            case 74: {
-              com.evemeta.zdk.pb.event.server.restrictions.Restriction m =
-                  input.readMessage(
-                      com.evemeta.zdk.pb.event.server.restrictions.Restriction.parser(),
-                      extensionRegistry);
-              if (restrictionsBuilder_ == null) {
-                ensureRestrictionsIsMutable();
-                restrictions_.add(m);
-              } else {
-                restrictionsBuilder_.addMessage(m);
-              }
-              break;
-            } // case 74
-            case 82: {
-              input.readMessage(
-                  internalGetRestrictionsTimeframeFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              bitField0_ |= 0x00000200;
-              break;
-            } // case 82
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -2614,475 +2407,6 @@ private static final long serialVersionUID = 0L;
         membersTimeframe_ = null;
       }
       return membersTimeframeBuilder_;
-    }
-
-    private java.util.List<com.evemeta.zdk.pb.event.server.restrictions.Restriction> restrictions_ =
-      java.util.Collections.emptyList();
-    private void ensureRestrictionsIsMutable() {
-      if (!((bitField0_ & 0x00000100) != 0)) {
-        restrictions_ = new java.util.ArrayList<com.evemeta.zdk.pb.event.server.restrictions.Restriction>(restrictions_);
-        bitField0_ |= 0x00000100;
-       }
-    }
-
-    private com.google.protobuf.RepeatedFieldBuilder<
-        com.evemeta.zdk.pb.event.server.restrictions.Restriction, com.evemeta.zdk.pb.event.server.restrictions.Restriction.Builder, com.evemeta.zdk.pb.event.server.restrictions.RestrictionOrBuilder> restrictionsBuilder_;
-
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
-     */
-    public java.util.List<com.evemeta.zdk.pb.event.server.restrictions.Restriction> getRestrictionsList() {
-      if (restrictionsBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(restrictions_);
-      } else {
-        return restrictionsBuilder_.getMessageList();
-      }
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
-     */
-    public int getRestrictionsCount() {
-      if (restrictionsBuilder_ == null) {
-        return restrictions_.size();
-      } else {
-        return restrictionsBuilder_.getCount();
-      }
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
-     */
-    public com.evemeta.zdk.pb.event.server.restrictions.Restriction getRestrictions(int index) {
-      if (restrictionsBuilder_ == null) {
-        return restrictions_.get(index);
-      } else {
-        return restrictionsBuilder_.getMessage(index);
-      }
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
-     */
-    public Builder setRestrictions(
-        int index, com.evemeta.zdk.pb.event.server.restrictions.Restriction value) {
-      if (restrictionsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureRestrictionsIsMutable();
-        restrictions_.set(index, value);
-        onChanged();
-      } else {
-        restrictionsBuilder_.setMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
-     */
-    public Builder setRestrictions(
-        int index, com.evemeta.zdk.pb.event.server.restrictions.Restriction.Builder builderForValue) {
-      if (restrictionsBuilder_ == null) {
-        ensureRestrictionsIsMutable();
-        restrictions_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        restrictionsBuilder_.setMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
-     */
-    public Builder addRestrictions(com.evemeta.zdk.pb.event.server.restrictions.Restriction value) {
-      if (restrictionsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureRestrictionsIsMutable();
-        restrictions_.add(value);
-        onChanged();
-      } else {
-        restrictionsBuilder_.addMessage(value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
-     */
-    public Builder addRestrictions(
-        int index, com.evemeta.zdk.pb.event.server.restrictions.Restriction value) {
-      if (restrictionsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureRestrictionsIsMutable();
-        restrictions_.add(index, value);
-        onChanged();
-      } else {
-        restrictionsBuilder_.addMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
-     */
-    public Builder addRestrictions(
-        com.evemeta.zdk.pb.event.server.restrictions.Restriction.Builder builderForValue) {
-      if (restrictionsBuilder_ == null) {
-        ensureRestrictionsIsMutable();
-        restrictions_.add(builderForValue.build());
-        onChanged();
-      } else {
-        restrictionsBuilder_.addMessage(builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
-     */
-    public Builder addRestrictions(
-        int index, com.evemeta.zdk.pb.event.server.restrictions.Restriction.Builder builderForValue) {
-      if (restrictionsBuilder_ == null) {
-        ensureRestrictionsIsMutable();
-        restrictions_.add(index, builderForValue.build());
-        onChanged();
-      } else {
-        restrictionsBuilder_.addMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
-     */
-    public Builder addAllRestrictions(
-        java.lang.Iterable<? extends com.evemeta.zdk.pb.event.server.restrictions.Restriction> values) {
-      if (restrictionsBuilder_ == null) {
-        ensureRestrictionsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, restrictions_);
-        onChanged();
-      } else {
-        restrictionsBuilder_.addAllMessages(values);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
-     */
-    public Builder clearRestrictions() {
-      if (restrictionsBuilder_ == null) {
-        restrictions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000100);
-        onChanged();
-      } else {
-        restrictionsBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
-     */
-    public Builder removeRestrictions(int index) {
-      if (restrictionsBuilder_ == null) {
-        ensureRestrictionsIsMutable();
-        restrictions_.remove(index);
-        onChanged();
-      } else {
-        restrictionsBuilder_.remove(index);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
-     */
-    public com.evemeta.zdk.pb.event.server.restrictions.Restriction.Builder getRestrictionsBuilder(
-        int index) {
-      return internalGetRestrictionsFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
-     */
-    public com.evemeta.zdk.pb.event.server.restrictions.RestrictionOrBuilder getRestrictionsOrBuilder(
-        int index) {
-      if (restrictionsBuilder_ == null) {
-        return restrictions_.get(index);  } else {
-        return restrictionsBuilder_.getMessageOrBuilder(index);
-      }
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
-     */
-    public java.util.List<? extends com.evemeta.zdk.pb.event.server.restrictions.RestrictionOrBuilder> 
-         getRestrictionsOrBuilderList() {
-      if (restrictionsBuilder_ != null) {
-        return restrictionsBuilder_.getMessageOrBuilderList();
-      } else {
-        return java.util.Collections.unmodifiableList(restrictions_);
-      }
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
-     */
-    public com.evemeta.zdk.pb.event.server.restrictions.Restriction.Builder addRestrictionsBuilder() {
-      return internalGetRestrictionsFieldBuilder().addBuilder(
-          com.evemeta.zdk.pb.event.server.restrictions.Restriction.getDefaultInstance());
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
-     */
-    public com.evemeta.zdk.pb.event.server.restrictions.Restriction.Builder addRestrictionsBuilder(
-        int index) {
-      return internalGetRestrictionsFieldBuilder().addBuilder(
-          index, com.evemeta.zdk.pb.event.server.restrictions.Restriction.getDefaultInstance());
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>repeated .event.restrictions.public.server.v1.Restriction restrictions = 9;</code>
-     */
-    public java.util.List<com.evemeta.zdk.pb.event.server.restrictions.Restriction.Builder> 
-         getRestrictionsBuilderList() {
-      return internalGetRestrictionsFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilder<
-        com.evemeta.zdk.pb.event.server.restrictions.Restriction, com.evemeta.zdk.pb.event.server.restrictions.Restriction.Builder, com.evemeta.zdk.pb.event.server.restrictions.RestrictionOrBuilder> 
-        internalGetRestrictionsFieldBuilder() {
-      if (restrictionsBuilder_ == null) {
-        restrictionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-            com.evemeta.zdk.pb.event.server.restrictions.Restriction, com.evemeta.zdk.pb.event.server.restrictions.Restriction.Builder, com.evemeta.zdk.pb.event.server.restrictions.RestrictionOrBuilder>(
-                restrictions_,
-                ((bitField0_ & 0x00000100) != 0),
-                getParentForChildren(),
-                isClean());
-        restrictions_ = null;
-      }
-      return restrictionsBuilder_;
-    }
-
-    private com.evemeta.zdk.pb.event.server.events.Timeframe restrictionsTimeframe_;
-    private com.google.protobuf.SingleFieldBuilder<
-        com.evemeta.zdk.pb.event.server.events.Timeframe, com.evemeta.zdk.pb.event.server.events.Timeframe.Builder, com.evemeta.zdk.pb.event.server.events.TimeframeOrBuilder> restrictionsTimeframeBuilder_;
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 10;</code>
-     * @return Whether the restrictionsTimeframe field is set.
-     */
-    public boolean hasRestrictionsTimeframe() {
-      return ((bitField0_ & 0x00000200) != 0);
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 10;</code>
-     * @return The restrictionsTimeframe.
-     */
-    public com.evemeta.zdk.pb.event.server.events.Timeframe getRestrictionsTimeframe() {
-      if (restrictionsTimeframeBuilder_ == null) {
-        return restrictionsTimeframe_ == null ? com.evemeta.zdk.pb.event.server.events.Timeframe.getDefaultInstance() : restrictionsTimeframe_;
-      } else {
-        return restrictionsTimeframeBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 10;</code>
-     */
-    public Builder setRestrictionsTimeframe(com.evemeta.zdk.pb.event.server.events.Timeframe value) {
-      if (restrictionsTimeframeBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        restrictionsTimeframe_ = value;
-      } else {
-        restrictionsTimeframeBuilder_.setMessage(value);
-      }
-      bitField0_ |= 0x00000200;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 10;</code>
-     */
-    public Builder setRestrictionsTimeframe(
-        com.evemeta.zdk.pb.event.server.events.Timeframe.Builder builderForValue) {
-      if (restrictionsTimeframeBuilder_ == null) {
-        restrictionsTimeframe_ = builderForValue.build();
-      } else {
-        restrictionsTimeframeBuilder_.setMessage(builderForValue.build());
-      }
-      bitField0_ |= 0x00000200;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 10;</code>
-     */
-    public Builder mergeRestrictionsTimeframe(com.evemeta.zdk.pb.event.server.events.Timeframe value) {
-      if (restrictionsTimeframeBuilder_ == null) {
-        if (((bitField0_ & 0x00000200) != 0) &&
-          restrictionsTimeframe_ != null &&
-          restrictionsTimeframe_ != com.evemeta.zdk.pb.event.server.events.Timeframe.getDefaultInstance()) {
-          getRestrictionsTimeframeBuilder().mergeFrom(value);
-        } else {
-          restrictionsTimeframe_ = value;
-        }
-      } else {
-        restrictionsTimeframeBuilder_.mergeFrom(value);
-      }
-      if (restrictionsTimeframe_ != null) {
-        bitField0_ |= 0x00000200;
-        onChanged();
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 10;</code>
-     */
-    public Builder clearRestrictionsTimeframe() {
-      bitField0_ = (bitField0_ & ~0x00000200);
-      restrictionsTimeframe_ = null;
-      if (restrictionsTimeframeBuilder_ != null) {
-        restrictionsTimeframeBuilder_.dispose();
-        restrictionsTimeframeBuilder_ = null;
-      }
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 10;</code>
-     */
-    public com.evemeta.zdk.pb.event.server.events.Timeframe.Builder getRestrictionsTimeframeBuilder() {
-      bitField0_ |= 0x00000200;
-      onChanged();
-      return internalGetRestrictionsTimeframeFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 10;</code>
-     */
-    public com.evemeta.zdk.pb.event.server.events.TimeframeOrBuilder getRestrictionsTimeframeOrBuilder() {
-      if (restrictionsTimeframeBuilder_ != null) {
-        return restrictionsTimeframeBuilder_.getMessageOrBuilder();
-      } else {
-        return restrictionsTimeframe_ == null ?
-            com.evemeta.zdk.pb.event.server.events.Timeframe.getDefaultInstance() : restrictionsTimeframe_;
-      }
-    }
-    /**
-     * <pre>
-     * todo;
-     * </pre>
-     *
-     * <code>.event.events.public.server.v1.Timeframe restrictions_timeframe = 10;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilder<
-        com.evemeta.zdk.pb.event.server.events.Timeframe, com.evemeta.zdk.pb.event.server.events.Timeframe.Builder, com.evemeta.zdk.pb.event.server.events.TimeframeOrBuilder> 
-        internalGetRestrictionsTimeframeFieldBuilder() {
-      if (restrictionsTimeframeBuilder_ == null) {
-        restrictionsTimeframeBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-            com.evemeta.zdk.pb.event.server.events.Timeframe, com.evemeta.zdk.pb.event.server.events.Timeframe.Builder, com.evemeta.zdk.pb.event.server.events.TimeframeOrBuilder>(
-                getRestrictionsTimeframe(),
-                getParentForChildren(),
-                isClean());
-        restrictionsTimeframe_ = null;
-      }
-      return restrictionsTimeframeBuilder_;
     }
 
     // @@protoc_insertion_point(builder_scope:event.events.public.server.v1.Context)
