@@ -71,7 +71,7 @@ message Context {
     event.events.public.server.v1.Event event = 1;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the retrieval of event from the database.
     event.events.public.server.v1.Timeframe event_timeframe = 2;
-    // todo;
+    // Represents the comprehensive details of the chat associated with the event.
     chat.chats.public.server.v1.Chat chat = 3;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the retrieval of chat from the database.
     event.events.public.server.v1.Timeframe chat_timeframe = 4;
@@ -79,14 +79,10 @@ message Context {
     event.members.public.server.v1.Member member = 5;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the retrieval of member from the database.
     event.events.public.server.v1.Timeframe member_timeframe = 6;
-    // todo;
-    repeated event.members.public.server.v1.Member members = 7;
+    // Represents the total number of members who are presently online in the event.
+    int64 members = 7;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the retrieval of members from the database.
     event.events.public.server.v1.Timeframe members_timeframe = 8;
-    // todo;
-    repeated event.restrictions.public.server.v1.Restriction restrictions = 9;
-    // todo;
-    event.events.public.server.v1.Timeframe restrictions_timeframe = 10;
 }
 
 // Condition represents a set of criteria designed to filter data during retrieval.
