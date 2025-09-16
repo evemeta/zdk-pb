@@ -60,7 +60,7 @@ public object EventKt {
 
     /**
      * ```
-     * todo;
+     * Determines whatever the event is dependent or independent, it may depend on a parent object.
      * ```
      *
      * `.event.events.public.server.v1.Kind kind = 2;`
@@ -81,7 +81,7 @@ public object EventKt {
       }
     /**
      * ```
-     * todo;
+     * Determines whatever the event is dependent or independent, it may depend on a parent object.
      * ```
      *
      * `.event.events.public.server.v1.Kind kind = 2;`
@@ -92,7 +92,7 @@ public object EventKt {
 
     /**
      * ```
-     * todo;
+     * Status of the event (pending, started, canceled, or finished).
      * ```
      *
      * `.event.events.public.server.v1.Status status = 3;`
@@ -113,7 +113,7 @@ public object EventKt {
       }
     /**
      * ```
-     * todo;
+     * Status of the event (pending, started, canceled, or finished).
      * ```
      *
      * `.event.events.public.server.v1.Status status = 3;`
@@ -209,7 +209,7 @@ public object EventKt {
 
     /**
      * ```
-     * todo;
+     * Represents the timestamp indicating when this event was started.
      * ```
      *
      * `int64 start_time = 5;`
@@ -223,7 +223,7 @@ public object EventKt {
       }
     /**
      * ```
-     * todo;
+     * Represents the timestamp indicating when this event was started.
      * ```
      *
      * `int64 start_time = 5;`
@@ -234,35 +234,10 @@ public object EventKt {
 
     /**
      * ```
-     * todo;
+     * Represents the timestamp indicating when this event was finished.
      * ```
      *
-     * `int64 cancel_time = 6;`
-     */
-    public var cancelTime: kotlin.Long
-      @JvmName("getCancelTime")
-      get() = _builder.cancelTime
-      @JvmName("setCancelTime")
-      set(value) {
-        _builder.cancelTime = value
-      }
-    /**
-     * ```
-     * todo;
-     * ```
-     *
-     * `int64 cancel_time = 6;`
-     */
-    public fun clearCancelTime() {
-      _builder.clearCancelTime()
-    }
-
-    /**
-     * ```
-     * todo;
-     * ```
-     *
-     * `int64 finish_time = 7;`
+     * `int64 finish_time = 6;`
      */
     public var finishTime: kotlin.Long
       @JvmName("getFinishTime")
@@ -273,13 +248,38 @@ public object EventKt {
       }
     /**
      * ```
-     * todo;
+     * Represents the timestamp indicating when this event was finished.
      * ```
      *
-     * `int64 finish_time = 7;`
+     * `int64 finish_time = 6;`
      */
     public fun clearFinishTime() {
       _builder.clearFinishTime()
+    }
+
+    /**
+     * ```
+     * Represents the timestamp indicating when this event was canceled.
+     * ```
+     *
+     * `int64 cancel_time = 7;`
+     */
+    public var cancelTime: kotlin.Long
+      @JvmName("getCancelTime")
+      get() = _builder.cancelTime
+      @JvmName("setCancelTime")
+      set(value) {
+        _builder.cancelTime = value
+      }
+    /**
+     * ```
+     * Represents the timestamp indicating when this event was canceled.
+     * ```
+     *
+     * `int64 cancel_time = 7;`
+     */
+    public fun clearCancelTime() {
+      _builder.clearCancelTime()
     }
 
     /**

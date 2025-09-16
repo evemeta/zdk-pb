@@ -21,7 +21,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Kind todo;
+// Kind represents an enumeration that specifies the type or classification of an event, indicating whether it is dependent on a parent object or independent.
 type Kind int32
 
 const (
@@ -121,14 +121,15 @@ func (Order) EnumDescriptor() ([]byte, []int) {
 	return file_event_events_public_server_v1_enums_proto_rawDescGZIP(), []int{1}
 }
 
+// Status represents an enumeration that specifies the current state of an event, indicating whether it is pending, started, canceled, or finished.
 type Status int32
 
 const (
 	StatusUnknown  Status = 0
 	StatusPending  Status = 1
 	StatusStarted  Status = 2
-	StatusCanceled Status = 3
-	StatusFinished Status = 4
+	StatusFinished Status = 3
+	StatusCanceled Status = 4
 )
 
 // Enum value maps for Status.
@@ -137,15 +138,15 @@ var (
 		0: "StatusUnknown",
 		1: "StatusPending",
 		2: "StatusStarted",
-		3: "StatusCanceled",
-		4: "StatusFinished",
+		3: "StatusFinished",
+		4: "StatusCanceled",
 	}
 	Status_value = map[string]int32{
 		"StatusUnknown":  0,
 		"StatusPending":  1,
 		"StatusStarted":  2,
-		"StatusCanceled": 3,
-		"StatusFinished": 4,
+		"StatusFinished": 3,
+		"StatusCanceled": 4,
 	}
 )
 
@@ -193,8 +194,8 @@ const file_event_events_public_server_v1_enums_proto_rawDesc = "" +
 	"\rStatusUnknown\x10\x00\x12\x11\n" +
 	"\rStatusPending\x10\x01\x12\x11\n" +
 	"\rStatusStarted\x10\x02\x12\x12\n" +
-	"\x0eStatusCanceled\x10\x03\x12\x12\n" +
-	"\x0eStatusFinished\x10\x04Bs\n" +
+	"\x0eStatusFinished\x10\x03\x12\x12\n" +
+	"\x0eStatusCanceled\x10\x04Bs\n" +
 	"&com.evemeta.zdk.pb.event.server.eventsP\x01ZGgitlab.com/evemeta/zdk/pb/out/go/event/events/public/server/v1;eventspbb\x06proto3"
 
 var (

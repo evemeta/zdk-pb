@@ -9,7 +9,6 @@ package eventspb
 import (
 	v1 "gitlab.com/evemeta/zdk/pb/out/go/chat/chats/public/server/v1"
 	v11 "gitlab.com/evemeta/zdk/pb/out/go/event/members/public/server/v1"
-	_ "gitlab.com/evemeta/zdk/pb/out/go/event/restrictions/public/server/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -30,18 +29,18 @@ type Event struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Represents the unique identifier for this event.
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// todo;
+	// Determines whatever the event is dependent or independent, it may depend on a parent object.
 	Kind Kind `protobuf:"varint,2,opt,name=kind,proto3,enum=event.events.public.server.v1.Kind" json:"kind,omitempty"`
-	// todo;
+	// Status of the event (pending, started, canceled, or finished).
 	Status Status `protobuf:"varint,3,opt,name=status,proto3,enum=event.events.public.server.v1.Status" json:"status,omitempty"`
 	// Represents a collection of key-value pairs providing additional context or information about this event.
 	Metadata map[string]string `protobuf:"bytes,4,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	// todo;
+	// Represents the timestamp indicating when this event was started.
 	StartTime int64 `protobuf:"varint,5,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
-	// todo;
-	CancelTime int64 `protobuf:"varint,6,opt,name=cancel_time,json=cancelTime,proto3" json:"cancel_time,omitempty"`
-	// todo;
-	FinishTime int64 `protobuf:"varint,7,opt,name=finish_time,json=finishTime,proto3" json:"finish_time,omitempty"`
+	// Represents the timestamp indicating when this event was finished.
+	FinishTime int64 `protobuf:"varint,6,opt,name=finish_time,json=finishTime,proto3" json:"finish_time,omitempty"`
+	// Represents the timestamp indicating when this event was canceled.
+	CancelTime int64 `protobuf:"varint,7,opt,name=cancel_time,json=cancelTime,proto3" json:"cancel_time,omitempty"`
 	// Represents the timestamp indicating when this event was created.
 	CreateTime int64 `protobuf:"varint,8,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Represents the timestamp of the last update associated with this event.
@@ -115,16 +114,16 @@ func (x *Event) GetStartTime() int64 {
 	return 0
 }
 
-func (x *Event) GetCancelTime() int64 {
+func (x *Event) GetFinishTime() int64 {
 	if x != nil {
-		return x.CancelTime
+		return x.FinishTime
 	}
 	return 0
 }
 
-func (x *Event) GetFinishTime() int64 {
+func (x *Event) GetCancelTime() int64 {
 	if x != nil {
-		return x.FinishTime
+		return x.CancelTime
 	}
 	return 0
 }
@@ -508,7 +507,7 @@ var File_event_events_public_server_v1_entities_proto protoreflect.FileDescripto
 
 const file_event_events_public_server_v1_entities_proto_rawDesc = "" +
 	"\n" +
-	",event/events/public/server/v1/entities.proto\x12\x1devent.events.public.server.v1\x1a)event/events/public/server/v1/enums.proto\x1a*chat/chats/public/server/v1/entities.proto\x1a-event/members/public/server/v1/entities.proto\x1a2event/restrictions/public/server/v1/entities.proto\"\xbf\x03\n" +
+	",event/events/public/server/v1/entities.proto\x12\x1devent.events.public.server.v1\x1a)event/events/public/server/v1/enums.proto\x1a*chat/chats/public/server/v1/entities.proto\x1a-event/members/public/server/v1/entities.proto\"\xbf\x03\n" +
 	"\x05Event\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x127\n" +
 	"\x04kind\x18\x02 \x01(\x0e2#.event.events.public.server.v1.KindR\x04kind\x12=\n" +
@@ -516,10 +515,10 @@ const file_event_events_public_server_v1_entities_proto_rawDesc = "" +
 	"\bmetadata\x18\x04 \x03(\v22.event.events.public.server.v1.Event.MetadataEntryR\bmetadata\x12\x1d\n" +
 	"\n" +
 	"start_time\x18\x05 \x01(\x03R\tstartTime\x12\x1f\n" +
-	"\vcancel_time\x18\x06 \x01(\x03R\n" +
-	"cancelTime\x12\x1f\n" +
-	"\vfinish_time\x18\a \x01(\x03R\n" +
+	"\vfinish_time\x18\x06 \x01(\x03R\n" +
 	"finishTime\x12\x1f\n" +
+	"\vcancel_time\x18\a \x01(\x03R\n" +
+	"cancelTime\x12\x1f\n" +
 	"\vcreate_time\x18\b \x01(\x03R\n" +
 	"createTime\x12\x1f\n" +
 	"\vupdate_time\x18\t \x01(\x03R\n" +

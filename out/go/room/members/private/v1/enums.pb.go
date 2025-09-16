@@ -122,20 +122,20 @@ func (Status) EnumDescriptor() ([]byte, []int) {
 type Permission int32
 
 const (
-	PermissionUnknown                       Permission = 0
-	PermissionChat                          Permission = 100
-	PermissionChatBlock                     Permission = 101
-	PermissionChatUnblock                   Permission = 102
-	PermissionChatMute                      Permission = 103
-	PermissionChatUnmute                    Permission = 104
-	PermissionChatMessageDelete             Permission = 105
-	PermissionChatKick                      Permission = 106
+	PermissionUnknown            Permission = 0
+	PermissionChat               Permission = 100
+	PermissionChatBlock          Permission = 101
+	PermissionChatUnblock        Permission = 102
+	PermissionChatMute           Permission = 103
+	PermissionChatUnmute         Permission = 104
+	PermissionChatMessageDelete  Permission = 105
+	PermissionChatKick           Permission = 106
 	Permission_permissionChatSlowmode       Permission = 107
 	Permission_permissionChatSlowmodeBypass Permission = 108
-	PermissionRoom                          Permission = 200
-	PermissionRoomBlock                     Permission = 201
-	PermissionRoomUnblock                   Permission = 202
-	PermissionRoomKick                      Permission = 203
+	PermissionRoom               Permission = 200
+	PermissionRoomBlock          Permission = 201
+	PermissionRoomUnblock        Permission = 202
+	PermissionRoomKick           Permission = 203
 )
 
 // Enum value maps for Permission.
