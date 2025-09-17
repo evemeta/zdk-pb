@@ -36,6 +36,7 @@ private static final long serialVersionUID = 0L;
     id_ = "";
     kind_ = 0;
     status_ = 0;
+    schedule_ = 0;
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -63,6 +64,7 @@ private static final long serialVersionUID = 0L;
             com.evemeta.zdk.pb.event.server.events.Event.class, com.evemeta.zdk.pb.event.server.events.Event.Builder.class);
   }
 
+  private int bitField0_;
   public static final int ID_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
   private volatile java.lang.Object id_ = "";
@@ -257,14 +259,93 @@ java.lang.String defaultValue) {
     return map.get(key);
   }
 
-  public static final int START_TIME_FIELD_NUMBER = 5;
+  public static final int SCHEDULE_FIELD_NUMBER = 5;
+  private int schedule_ = 0;
+  /**
+   * <pre>
+   * todo;
+   * </pre>
+   *
+   * <code>.event.events.public.server.v1.Schedule schedule = 5;</code>
+   * @return The enum numeric value on the wire for schedule.
+   */
+  @java.lang.Override public int getScheduleValue() {
+    return schedule_;
+  }
+  /**
+   * <pre>
+   * todo;
+   * </pre>
+   *
+   * <code>.event.events.public.server.v1.Schedule schedule = 5;</code>
+   * @return The schedule.
+   */
+  @java.lang.Override public com.evemeta.zdk.pb.event.server.events.Schedule getSchedule() {
+    com.evemeta.zdk.pb.event.server.events.Schedule result = com.evemeta.zdk.pb.event.server.events.Schedule.forNumber(schedule_);
+    return result == null ? com.evemeta.zdk.pb.event.server.events.Schedule.UNRECOGNIZED : result;
+  }
+
+  public static final int BROADCAST_FIELD_NUMBER = 6;
+  private com.evemeta.zdk.pb.event.server.events.Broadcast broadcast_;
+  /**
+   * <pre>
+   * todo;
+   * </pre>
+   *
+   * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
+   * @return Whether the broadcast field is set.
+   */
+  @java.lang.Override
+  public boolean hasBroadcast() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <pre>
+   * todo;
+   * </pre>
+   *
+   * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
+   * @return The broadcast.
+   */
+  @java.lang.Override
+  public com.evemeta.zdk.pb.event.server.events.Broadcast getBroadcast() {
+    return broadcast_ == null ? com.evemeta.zdk.pb.event.server.events.Broadcast.getDefaultInstance() : broadcast_;
+  }
+  /**
+   * <pre>
+   * todo;
+   * </pre>
+   *
+   * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
+   */
+  @java.lang.Override
+  public com.evemeta.zdk.pb.event.server.events.BroadcastOrBuilder getBroadcastOrBuilder() {
+    return broadcast_ == null ? com.evemeta.zdk.pb.event.server.events.Broadcast.getDefaultInstance() : broadcast_;
+  }
+
+  public static final int PLANNED_START_TIME_FIELD_NUMBER = 7;
+  private long plannedStartTime_ = 0L;
+  /**
+   * <pre>
+   * todo;
+   * </pre>
+   *
+   * <code>int64 planned_start_time = 7;</code>
+   * @return The plannedStartTime.
+   */
+  @java.lang.Override
+  public long getPlannedStartTime() {
+    return plannedStartTime_;
+  }
+
+  public static final int START_TIME_FIELD_NUMBER = 8;
   private long startTime_ = 0L;
   /**
    * <pre>
    * Represents the timestamp indicating when this event was started.
    * </pre>
    *
-   * <code>int64 start_time = 5;</code>
+   * <code>int64 start_time = 8;</code>
    * @return The startTime.
    */
   @java.lang.Override
@@ -272,14 +353,29 @@ java.lang.String defaultValue) {
     return startTime_;
   }
 
-  public static final int FINISH_TIME_FIELD_NUMBER = 6;
+  public static final int PLANNED_FINISH_TIME_FIELD_NUMBER = 9;
+  private long plannedFinishTime_ = 0L;
+  /**
+   * <pre>
+   * todo;
+   * </pre>
+   *
+   * <code>int64 planned_finish_time = 9;</code>
+   * @return The plannedFinishTime.
+   */
+  @java.lang.Override
+  public long getPlannedFinishTime() {
+    return plannedFinishTime_;
+  }
+
+  public static final int FINISH_TIME_FIELD_NUMBER = 10;
   private long finishTime_ = 0L;
   /**
    * <pre>
    * Represents the timestamp indicating when this event was finished.
    * </pre>
    *
-   * <code>int64 finish_time = 6;</code>
+   * <code>int64 finish_time = 10;</code>
    * @return The finishTime.
    */
   @java.lang.Override
@@ -287,14 +383,14 @@ java.lang.String defaultValue) {
     return finishTime_;
   }
 
-  public static final int CANCEL_TIME_FIELD_NUMBER = 7;
+  public static final int CANCEL_TIME_FIELD_NUMBER = 11;
   private long cancelTime_ = 0L;
   /**
    * <pre>
    * Represents the timestamp indicating when this event was canceled.
    * </pre>
    *
-   * <code>int64 cancel_time = 7;</code>
+   * <code>int64 cancel_time = 11;</code>
    * @return The cancelTime.
    */
   @java.lang.Override
@@ -302,14 +398,14 @@ java.lang.String defaultValue) {
     return cancelTime_;
   }
 
-  public static final int CREATE_TIME_FIELD_NUMBER = 8;
+  public static final int CREATE_TIME_FIELD_NUMBER = 12;
   private long createTime_ = 0L;
   /**
    * <pre>
    * Represents the timestamp indicating when this event was created.
    * </pre>
    *
-   * <code>int64 create_time = 8;</code>
+   * <code>int64 create_time = 12;</code>
    * @return The createTime.
    */
   @java.lang.Override
@@ -317,14 +413,14 @@ java.lang.String defaultValue) {
     return createTime_;
   }
 
-  public static final int UPDATE_TIME_FIELD_NUMBER = 9;
+  public static final int UPDATE_TIME_FIELD_NUMBER = 13;
   private long updateTime_ = 0L;
   /**
    * <pre>
    * Represents the timestamp of the last update associated with this event.
    * </pre>
    *
-   * <code>int64 update_time = 9;</code>
+   * <code>int64 update_time = 13;</code>
    * @return The updateTime.
    */
   @java.lang.Override
@@ -361,20 +457,32 @@ java.lang.String defaultValue) {
         internalGetMetadata(),
         MetadataDefaultEntryHolder.defaultEntry,
         4);
+    if (schedule_ != com.evemeta.zdk.pb.event.server.events.Schedule.ScheduleUnknown.getNumber()) {
+      output.writeEnum(5, schedule_);
+    }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeMessage(6, getBroadcast());
+    }
+    if (plannedStartTime_ != 0L) {
+      output.writeInt64(7, plannedStartTime_);
+    }
     if (startTime_ != 0L) {
-      output.writeInt64(5, startTime_);
+      output.writeInt64(8, startTime_);
+    }
+    if (plannedFinishTime_ != 0L) {
+      output.writeInt64(9, plannedFinishTime_);
     }
     if (finishTime_ != 0L) {
-      output.writeInt64(6, finishTime_);
+      output.writeInt64(10, finishTime_);
     }
     if (cancelTime_ != 0L) {
-      output.writeInt64(7, cancelTime_);
+      output.writeInt64(11, cancelTime_);
     }
     if (createTime_ != 0L) {
-      output.writeInt64(8, createTime_);
+      output.writeInt64(12, createTime_);
     }
     if (updateTime_ != 0L) {
-      output.writeInt64(9, updateTime_);
+      output.writeInt64(13, updateTime_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -406,25 +514,41 @@ java.lang.String defaultValue) {
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, metadata__);
     }
+    if (schedule_ != com.evemeta.zdk.pb.event.server.events.Schedule.ScheduleUnknown.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(5, schedule_);
+    }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(6, getBroadcast());
+    }
+    if (plannedStartTime_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(7, plannedStartTime_);
+    }
     if (startTime_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(5, startTime_);
+        .computeInt64Size(8, startTime_);
+    }
+    if (plannedFinishTime_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(9, plannedFinishTime_);
     }
     if (finishTime_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(6, finishTime_);
+        .computeInt64Size(10, finishTime_);
     }
     if (cancelTime_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(7, cancelTime_);
+        .computeInt64Size(11, cancelTime_);
     }
     if (createTime_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(8, createTime_);
+        .computeInt64Size(12, createTime_);
     }
     if (updateTime_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(9, updateTime_);
+        .computeInt64Size(13, updateTime_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -447,8 +571,18 @@ java.lang.String defaultValue) {
     if (status_ != other.status_) return false;
     if (!internalGetMetadata().equals(
         other.internalGetMetadata())) return false;
+    if (schedule_ != other.schedule_) return false;
+    if (hasBroadcast() != other.hasBroadcast()) return false;
+    if (hasBroadcast()) {
+      if (!getBroadcast()
+          .equals(other.getBroadcast())) return false;
+    }
+    if (getPlannedStartTime()
+        != other.getPlannedStartTime()) return false;
     if (getStartTime()
         != other.getStartTime()) return false;
+    if (getPlannedFinishTime()
+        != other.getPlannedFinishTime()) return false;
     if (getFinishTime()
         != other.getFinishTime()) return false;
     if (getCancelTime()
@@ -478,9 +612,21 @@ java.lang.String defaultValue) {
       hash = (37 * hash) + METADATA_FIELD_NUMBER;
       hash = (53 * hash) + internalGetMetadata().hashCode();
     }
+    hash = (37 * hash) + SCHEDULE_FIELD_NUMBER;
+    hash = (53 * hash) + schedule_;
+    if (hasBroadcast()) {
+      hash = (37 * hash) + BROADCAST_FIELD_NUMBER;
+      hash = (53 * hash) + getBroadcast().hashCode();
+    }
+    hash = (37 * hash) + PLANNED_START_TIME_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getPlannedStartTime());
     hash = (37 * hash) + START_TIME_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getStartTime());
+    hash = (37 * hash) + PLANNED_FINISH_TIME_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getPlannedFinishTime());
     hash = (37 * hash) + FINISH_TIME_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getFinishTime());
@@ -639,13 +785,19 @@ java.lang.String defaultValue) {
 
     // Construct using com.evemeta.zdk.pb.event.server.events.Event.newBuilder()
     private Builder() {
-
+      maybeForceBuilderInitialization();
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+      maybeForceBuilderInitialization();
+    }
+    private void maybeForceBuilderInitialization() {
+      if (com.google.protobuf.GeneratedMessage
+              .alwaysUseFieldBuilders) {
+        internalGetBroadcastFieldBuilder();
+      }
     }
     @java.lang.Override
     public Builder clear() {
@@ -655,7 +807,15 @@ java.lang.String defaultValue) {
       kind_ = 0;
       status_ = 0;
       internalGetMutableMetadata().clear();
+      schedule_ = 0;
+      broadcast_ = null;
+      if (broadcastBuilder_ != null) {
+        broadcastBuilder_.dispose();
+        broadcastBuilder_ = null;
+      }
+      plannedStartTime_ = 0L;
       startTime_ = 0L;
+      plannedFinishTime_ = 0L;
       finishTime_ = 0L;
       cancelTime_ = 0L;
       createTime_ = 0L;
@@ -707,20 +867,37 @@ java.lang.String defaultValue) {
         result.metadata_.makeImmutable();
       }
       if (((from_bitField0_ & 0x00000010) != 0)) {
-        result.startTime_ = startTime_;
+        result.schedule_ = schedule_;
       }
+      int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000020) != 0)) {
-        result.finishTime_ = finishTime_;
+        result.broadcast_ = broadcastBuilder_ == null
+            ? broadcast_
+            : broadcastBuilder_.build();
+        to_bitField0_ |= 0x00000001;
       }
       if (((from_bitField0_ & 0x00000040) != 0)) {
-        result.cancelTime_ = cancelTime_;
+        result.plannedStartTime_ = plannedStartTime_;
       }
       if (((from_bitField0_ & 0x00000080) != 0)) {
-        result.createTime_ = createTime_;
+        result.startTime_ = startTime_;
       }
       if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.plannedFinishTime_ = plannedFinishTime_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.finishTime_ = finishTime_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.cancelTime_ = cancelTime_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.createTime_ = createTime_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
         result.updateTime_ = updateTime_;
       }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -749,8 +926,20 @@ java.lang.String defaultValue) {
       internalGetMutableMetadata().mergeFrom(
           other.internalGetMetadata());
       bitField0_ |= 0x00000008;
+      if (other.schedule_ != 0) {
+        setScheduleValue(other.getScheduleValue());
+      }
+      if (other.hasBroadcast()) {
+        mergeBroadcast(other.getBroadcast());
+      }
+      if (other.getPlannedStartTime() != 0L) {
+        setPlannedStartTime(other.getPlannedStartTime());
+      }
       if (other.getStartTime() != 0L) {
         setStartTime(other.getStartTime());
+      }
+      if (other.getPlannedFinishTime() != 0L) {
+        setPlannedFinishTime(other.getPlannedFinishTime());
       }
       if (other.getFinishTime() != 0L) {
         setFinishTime(other.getFinishTime());
@@ -815,30 +1004,52 @@ java.lang.String defaultValue) {
               break;
             } // case 34
             case 40: {
-              startTime_ = input.readInt64();
+              schedule_ = input.readEnum();
               bitField0_ |= 0x00000010;
               break;
             } // case 40
-            case 48: {
-              finishTime_ = input.readInt64();
+            case 50: {
+              input.readMessage(
+                  internalGetBroadcastFieldBuilder().getBuilder(),
+                  extensionRegistry);
               bitField0_ |= 0x00000020;
               break;
-            } // case 48
+            } // case 50
             case 56: {
-              cancelTime_ = input.readInt64();
+              plannedStartTime_ = input.readInt64();
               bitField0_ |= 0x00000040;
               break;
             } // case 56
             case 64: {
-              createTime_ = input.readInt64();
+              startTime_ = input.readInt64();
               bitField0_ |= 0x00000080;
               break;
             } // case 64
             case 72: {
-              updateTime_ = input.readInt64();
+              plannedFinishTime_ = input.readInt64();
               bitField0_ |= 0x00000100;
               break;
             } // case 72
+            case 80: {
+              finishTime_ = input.readInt64();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 80
+            case 88: {
+              cancelTime_ = input.readInt64();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 88
+            case 96: {
+              createTime_ = input.readInt64();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 96
+            case 104: {
+              updateTime_ = input.readInt64();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 104
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1245,13 +1456,285 @@ java.lang.String defaultValue) {
       return this;
     }
 
+    private int schedule_ = 0;
+    /**
+     * <pre>
+     * todo;
+     * </pre>
+     *
+     * <code>.event.events.public.server.v1.Schedule schedule = 5;</code>
+     * @return The enum numeric value on the wire for schedule.
+     */
+    @java.lang.Override public int getScheduleValue() {
+      return schedule_;
+    }
+    /**
+     * <pre>
+     * todo;
+     * </pre>
+     *
+     * <code>.event.events.public.server.v1.Schedule schedule = 5;</code>
+     * @param value The enum numeric value on the wire for schedule to set.
+     * @return This builder for chaining.
+     */
+    public Builder setScheduleValue(int value) {
+      schedule_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * todo;
+     * </pre>
+     *
+     * <code>.event.events.public.server.v1.Schedule schedule = 5;</code>
+     * @return The schedule.
+     */
+    @java.lang.Override
+    public com.evemeta.zdk.pb.event.server.events.Schedule getSchedule() {
+      com.evemeta.zdk.pb.event.server.events.Schedule result = com.evemeta.zdk.pb.event.server.events.Schedule.forNumber(schedule_);
+      return result == null ? com.evemeta.zdk.pb.event.server.events.Schedule.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * todo;
+     * </pre>
+     *
+     * <code>.event.events.public.server.v1.Schedule schedule = 5;</code>
+     * @param value The schedule to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSchedule(com.evemeta.zdk.pb.event.server.events.Schedule value) {
+      if (value == null) { throw new NullPointerException(); }
+      bitField0_ |= 0x00000010;
+      schedule_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * todo;
+     * </pre>
+     *
+     * <code>.event.events.public.server.v1.Schedule schedule = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSchedule() {
+      bitField0_ = (bitField0_ & ~0x00000010);
+      schedule_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private com.evemeta.zdk.pb.event.server.events.Broadcast broadcast_;
+    private com.google.protobuf.SingleFieldBuilder<
+        com.evemeta.zdk.pb.event.server.events.Broadcast, com.evemeta.zdk.pb.event.server.events.Broadcast.Builder, com.evemeta.zdk.pb.event.server.events.BroadcastOrBuilder> broadcastBuilder_;
+    /**
+     * <pre>
+     * todo;
+     * </pre>
+     *
+     * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
+     * @return Whether the broadcast field is set.
+     */
+    public boolean hasBroadcast() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <pre>
+     * todo;
+     * </pre>
+     *
+     * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
+     * @return The broadcast.
+     */
+    public com.evemeta.zdk.pb.event.server.events.Broadcast getBroadcast() {
+      if (broadcastBuilder_ == null) {
+        return broadcast_ == null ? com.evemeta.zdk.pb.event.server.events.Broadcast.getDefaultInstance() : broadcast_;
+      } else {
+        return broadcastBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * todo;
+     * </pre>
+     *
+     * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
+     */
+    public Builder setBroadcast(com.evemeta.zdk.pb.event.server.events.Broadcast value) {
+      if (broadcastBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        broadcast_ = value;
+      } else {
+        broadcastBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * todo;
+     * </pre>
+     *
+     * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
+     */
+    public Builder setBroadcast(
+        com.evemeta.zdk.pb.event.server.events.Broadcast.Builder builderForValue) {
+      if (broadcastBuilder_ == null) {
+        broadcast_ = builderForValue.build();
+      } else {
+        broadcastBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * todo;
+     * </pre>
+     *
+     * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
+     */
+    public Builder mergeBroadcast(com.evemeta.zdk.pb.event.server.events.Broadcast value) {
+      if (broadcastBuilder_ == null) {
+        if (((bitField0_ & 0x00000020) != 0) &&
+          broadcast_ != null &&
+          broadcast_ != com.evemeta.zdk.pb.event.server.events.Broadcast.getDefaultInstance()) {
+          getBroadcastBuilder().mergeFrom(value);
+        } else {
+          broadcast_ = value;
+        }
+      } else {
+        broadcastBuilder_.mergeFrom(value);
+      }
+      if (broadcast_ != null) {
+        bitField0_ |= 0x00000020;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * todo;
+     * </pre>
+     *
+     * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
+     */
+    public Builder clearBroadcast() {
+      bitField0_ = (bitField0_ & ~0x00000020);
+      broadcast_ = null;
+      if (broadcastBuilder_ != null) {
+        broadcastBuilder_.dispose();
+        broadcastBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * todo;
+     * </pre>
+     *
+     * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
+     */
+    public com.evemeta.zdk.pb.event.server.events.Broadcast.Builder getBroadcastBuilder() {
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return internalGetBroadcastFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * todo;
+     * </pre>
+     *
+     * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
+     */
+    public com.evemeta.zdk.pb.event.server.events.BroadcastOrBuilder getBroadcastOrBuilder() {
+      if (broadcastBuilder_ != null) {
+        return broadcastBuilder_.getMessageOrBuilder();
+      } else {
+        return broadcast_ == null ?
+            com.evemeta.zdk.pb.event.server.events.Broadcast.getDefaultInstance() : broadcast_;
+      }
+    }
+    /**
+     * <pre>
+     * todo;
+     * </pre>
+     *
+     * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.evemeta.zdk.pb.event.server.events.Broadcast, com.evemeta.zdk.pb.event.server.events.Broadcast.Builder, com.evemeta.zdk.pb.event.server.events.BroadcastOrBuilder> 
+        internalGetBroadcastFieldBuilder() {
+      if (broadcastBuilder_ == null) {
+        broadcastBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.evemeta.zdk.pb.event.server.events.Broadcast, com.evemeta.zdk.pb.event.server.events.Broadcast.Builder, com.evemeta.zdk.pb.event.server.events.BroadcastOrBuilder>(
+                getBroadcast(),
+                getParentForChildren(),
+                isClean());
+        broadcast_ = null;
+      }
+      return broadcastBuilder_;
+    }
+
+    private long plannedStartTime_ ;
+    /**
+     * <pre>
+     * todo;
+     * </pre>
+     *
+     * <code>int64 planned_start_time = 7;</code>
+     * @return The plannedStartTime.
+     */
+    @java.lang.Override
+    public long getPlannedStartTime() {
+      return plannedStartTime_;
+    }
+    /**
+     * <pre>
+     * todo;
+     * </pre>
+     *
+     * <code>int64 planned_start_time = 7;</code>
+     * @param value The plannedStartTime to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPlannedStartTime(long value) {
+
+      plannedStartTime_ = value;
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * todo;
+     * </pre>
+     *
+     * <code>int64 planned_start_time = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPlannedStartTime() {
+      bitField0_ = (bitField0_ & ~0x00000040);
+      plannedStartTime_ = 0L;
+      onChanged();
+      return this;
+    }
+
     private long startTime_ ;
     /**
      * <pre>
      * Represents the timestamp indicating when this event was started.
      * </pre>
      *
-     * <code>int64 start_time = 5;</code>
+     * <code>int64 start_time = 8;</code>
      * @return The startTime.
      */
     @java.lang.Override
@@ -1263,14 +1746,14 @@ java.lang.String defaultValue) {
      * Represents the timestamp indicating when this event was started.
      * </pre>
      *
-     * <code>int64 start_time = 5;</code>
+     * <code>int64 start_time = 8;</code>
      * @param value The startTime to set.
      * @return This builder for chaining.
      */
     public Builder setStartTime(long value) {
 
       startTime_ = value;
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1279,12 +1762,56 @@ java.lang.String defaultValue) {
      * Represents the timestamp indicating when this event was started.
      * </pre>
      *
-     * <code>int64 start_time = 5;</code>
+     * <code>int64 start_time = 8;</code>
      * @return This builder for chaining.
      */
     public Builder clearStartTime() {
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000080);
       startTime_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long plannedFinishTime_ ;
+    /**
+     * <pre>
+     * todo;
+     * </pre>
+     *
+     * <code>int64 planned_finish_time = 9;</code>
+     * @return The plannedFinishTime.
+     */
+    @java.lang.Override
+    public long getPlannedFinishTime() {
+      return plannedFinishTime_;
+    }
+    /**
+     * <pre>
+     * todo;
+     * </pre>
+     *
+     * <code>int64 planned_finish_time = 9;</code>
+     * @param value The plannedFinishTime to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPlannedFinishTime(long value) {
+
+      plannedFinishTime_ = value;
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * todo;
+     * </pre>
+     *
+     * <code>int64 planned_finish_time = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPlannedFinishTime() {
+      bitField0_ = (bitField0_ & ~0x00000100);
+      plannedFinishTime_ = 0L;
       onChanged();
       return this;
     }
@@ -1295,7 +1822,7 @@ java.lang.String defaultValue) {
      * Represents the timestamp indicating when this event was finished.
      * </pre>
      *
-     * <code>int64 finish_time = 6;</code>
+     * <code>int64 finish_time = 10;</code>
      * @return The finishTime.
      */
     @java.lang.Override
@@ -1307,14 +1834,14 @@ java.lang.String defaultValue) {
      * Represents the timestamp indicating when this event was finished.
      * </pre>
      *
-     * <code>int64 finish_time = 6;</code>
+     * <code>int64 finish_time = 10;</code>
      * @param value The finishTime to set.
      * @return This builder for chaining.
      */
     public Builder setFinishTime(long value) {
 
       finishTime_ = value;
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -1323,11 +1850,11 @@ java.lang.String defaultValue) {
      * Represents the timestamp indicating when this event was finished.
      * </pre>
      *
-     * <code>int64 finish_time = 6;</code>
+     * <code>int64 finish_time = 10;</code>
      * @return This builder for chaining.
      */
     public Builder clearFinishTime() {
-      bitField0_ = (bitField0_ & ~0x00000020);
+      bitField0_ = (bitField0_ & ~0x00000200);
       finishTime_ = 0L;
       onChanged();
       return this;
@@ -1339,7 +1866,7 @@ java.lang.String defaultValue) {
      * Represents the timestamp indicating when this event was canceled.
      * </pre>
      *
-     * <code>int64 cancel_time = 7;</code>
+     * <code>int64 cancel_time = 11;</code>
      * @return The cancelTime.
      */
     @java.lang.Override
@@ -1351,14 +1878,14 @@ java.lang.String defaultValue) {
      * Represents the timestamp indicating when this event was canceled.
      * </pre>
      *
-     * <code>int64 cancel_time = 7;</code>
+     * <code>int64 cancel_time = 11;</code>
      * @param value The cancelTime to set.
      * @return This builder for chaining.
      */
     public Builder setCancelTime(long value) {
 
       cancelTime_ = value;
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -1367,11 +1894,11 @@ java.lang.String defaultValue) {
      * Represents the timestamp indicating when this event was canceled.
      * </pre>
      *
-     * <code>int64 cancel_time = 7;</code>
+     * <code>int64 cancel_time = 11;</code>
      * @return This builder for chaining.
      */
     public Builder clearCancelTime() {
-      bitField0_ = (bitField0_ & ~0x00000040);
+      bitField0_ = (bitField0_ & ~0x00000400);
       cancelTime_ = 0L;
       onChanged();
       return this;
@@ -1383,7 +1910,7 @@ java.lang.String defaultValue) {
      * Represents the timestamp indicating when this event was created.
      * </pre>
      *
-     * <code>int64 create_time = 8;</code>
+     * <code>int64 create_time = 12;</code>
      * @return The createTime.
      */
     @java.lang.Override
@@ -1395,14 +1922,14 @@ java.lang.String defaultValue) {
      * Represents the timestamp indicating when this event was created.
      * </pre>
      *
-     * <code>int64 create_time = 8;</code>
+     * <code>int64 create_time = 12;</code>
      * @param value The createTime to set.
      * @return This builder for chaining.
      */
     public Builder setCreateTime(long value) {
 
       createTime_ = value;
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -1411,11 +1938,11 @@ java.lang.String defaultValue) {
      * Represents the timestamp indicating when this event was created.
      * </pre>
      *
-     * <code>int64 create_time = 8;</code>
+     * <code>int64 create_time = 12;</code>
      * @return This builder for chaining.
      */
     public Builder clearCreateTime() {
-      bitField0_ = (bitField0_ & ~0x00000080);
+      bitField0_ = (bitField0_ & ~0x00000800);
       createTime_ = 0L;
       onChanged();
       return this;
@@ -1427,7 +1954,7 @@ java.lang.String defaultValue) {
      * Represents the timestamp of the last update associated with this event.
      * </pre>
      *
-     * <code>int64 update_time = 9;</code>
+     * <code>int64 update_time = 13;</code>
      * @return The updateTime.
      */
     @java.lang.Override
@@ -1439,14 +1966,14 @@ java.lang.String defaultValue) {
      * Represents the timestamp of the last update associated with this event.
      * </pre>
      *
-     * <code>int64 update_time = 9;</code>
+     * <code>int64 update_time = 13;</code>
      * @param value The updateTime to set.
      * @return This builder for chaining.
      */
     public Builder setUpdateTime(long value) {
 
       updateTime_ = value;
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -1455,11 +1982,11 @@ java.lang.String defaultValue) {
      * Represents the timestamp of the last update associated with this event.
      * </pre>
      *
-     * <code>int64 update_time = 9;</code>
+     * <code>int64 update_time = 13;</code>
      * @return This builder for chaining.
      */
     public Builder clearUpdateTime() {
-      bitField0_ = (bitField0_ & ~0x00000100);
+      bitField0_ = (bitField0_ & ~0x00001000);
       updateTime_ = 0L;
       onChanged();
       return this;

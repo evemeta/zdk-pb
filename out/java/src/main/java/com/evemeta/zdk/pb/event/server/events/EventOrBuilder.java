@@ -124,20 +124,86 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
+   * todo;
+   * </pre>
+   *
+   * <code>.event.events.public.server.v1.Schedule schedule = 5;</code>
+   * @return The enum numeric value on the wire for schedule.
+   */
+  int getScheduleValue();
+  /**
+   * <pre>
+   * todo;
+   * </pre>
+   *
+   * <code>.event.events.public.server.v1.Schedule schedule = 5;</code>
+   * @return The schedule.
+   */
+  com.evemeta.zdk.pb.event.server.events.Schedule getSchedule();
+
+  /**
+   * <pre>
+   * todo;
+   * </pre>
+   *
+   * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
+   * @return Whether the broadcast field is set.
+   */
+  boolean hasBroadcast();
+  /**
+   * <pre>
+   * todo;
+   * </pre>
+   *
+   * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
+   * @return The broadcast.
+   */
+  com.evemeta.zdk.pb.event.server.events.Broadcast getBroadcast();
+  /**
+   * <pre>
+   * todo;
+   * </pre>
+   *
+   * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
+   */
+  com.evemeta.zdk.pb.event.server.events.BroadcastOrBuilder getBroadcastOrBuilder();
+
+  /**
+   * <pre>
+   * todo;
+   * </pre>
+   *
+   * <code>int64 planned_start_time = 7;</code>
+   * @return The plannedStartTime.
+   */
+  long getPlannedStartTime();
+
+  /**
+   * <pre>
    * Represents the timestamp indicating when this event was started.
    * </pre>
    *
-   * <code>int64 start_time = 5;</code>
+   * <code>int64 start_time = 8;</code>
    * @return The startTime.
    */
   long getStartTime();
 
   /**
    * <pre>
+   * todo;
+   * </pre>
+   *
+   * <code>int64 planned_finish_time = 9;</code>
+   * @return The plannedFinishTime.
+   */
+  long getPlannedFinishTime();
+
+  /**
+   * <pre>
    * Represents the timestamp indicating when this event was finished.
    * </pre>
    *
-   * <code>int64 finish_time = 6;</code>
+   * <code>int64 finish_time = 10;</code>
    * @return The finishTime.
    */
   long getFinishTime();
@@ -147,7 +213,7 @@ java.lang.String defaultValue);
    * Represents the timestamp indicating when this event was canceled.
    * </pre>
    *
-   * <code>int64 cancel_time = 7;</code>
+   * <code>int64 cancel_time = 11;</code>
    * @return The cancelTime.
    */
   long getCancelTime();
@@ -157,7 +223,7 @@ java.lang.String defaultValue);
    * Represents the timestamp indicating when this event was created.
    * </pre>
    *
-   * <code>int64 create_time = 8;</code>
+   * <code>int64 create_time = 12;</code>
    * @return The createTime.
    */
   long getCreateTime();
@@ -167,7 +233,7 @@ java.lang.String defaultValue);
    * Represents the timestamp of the last update associated with this event.
    * </pre>
    *
-   * <code>int64 update_time = 9;</code>
+   * <code>int64 update_time = 13;</code>
    * @return The updateTime.
    */
   long getUpdateTime();
