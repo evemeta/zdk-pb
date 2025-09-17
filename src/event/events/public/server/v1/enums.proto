@@ -26,6 +26,6 @@ enum Status {
     StatusUnknown  = 0;
     StatusPending  = 1;
     StatusStarted  = 2;
-    StatusCanceled = 3;
-    StatusFinished = 4;
+    StatusFinished = 3;
+    StatusCanceled = 4;
 }

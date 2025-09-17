@@ -5,7 +5,6 @@ package event.events.public.server.v1;
 import "event/events/public/server/v1/enums.proto";
 import "chat/chats/public/server/v1/entities.proto";
 import "event/members/public/server/v1/entities.proto";
-import "event/restrictions/public/server/v1/entities.proto";
 
 option java_multiple_files = true;
 option java_package = "com.evemeta.zdk.pb.event.server.events";
@@ -24,10 +23,10 @@ message Event {
     map<string, string> metadata = 4;
     // Represents the timestamp indicating when this event was started.
     int64 start_time  = 5;
-    // Represents the timestamp indicating when this event was canceled.
-    int64 cancel_time = 6;
     // Represents the timestamp indicating when this event was finished.
-    int64 finish_time = 7;
+    int64 finish_time = 6;
+    // Represents the timestamp indicating when this event was canceled.
+    int64 cancel_time = 7;
     // Represents the timestamp indicating when this event was created.
     int64 create_time = 8;
     // Represents the timestamp of the last update associated with this event.

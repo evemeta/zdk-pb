@@ -58,11 +58,11 @@ export enum Status {
      */
     Started = 2,
     /**
-     * @generated from protobuf enum value: Canceled = 3;
+     * @generated from protobuf enum value: Finished = 3;
      */
-    Canceled = 3,
+    Finished = 3,
     /**
-     * @generated from protobuf enum value: Finished = 4;
+     * @generated from protobuf enum value: Canceled = 4;
      */
-    Finished = 4
+    Canceled = 4
 }
