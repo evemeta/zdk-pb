@@ -261,7 +261,7 @@ export const SelectRequest = new SelectRequest$Type();
 class SelectResponse$Type extends MessageType<SelectResponse> {
     constructor() {
         super("event.events.public.server.v1.SelectResponse", [
-            { no: 1, name: "events", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => Event }
+            { no: 1, name: "events", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => Event }
         ]);
     }
     create(value?: PartialMessage<SelectResponse>): SelectResponse {

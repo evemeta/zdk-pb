@@ -4,15 +4,12 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
 
 /**
  */
-@javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.54.1)",
-    comments = "Source: event/members/public/server/v1/services.proto")
 @io.grpc.stub.annotations.GrpcGenerated
 public final class ServiceGrpc {
 
   private ServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "event.members.public.server.v1.Service";
+  public static final java.lang.String SERVICE_NAME = "event.members.public.server.v1.Service";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.evemeta.zdk.pb.event.server.members.CountRequest,
@@ -151,6 +148,21 @@ public final class ServiceGrpc {
         }
       };
     return ServiceStub.newStub(factory, channel);
+  }
+
+  /**
+   * Creates a new blocking-style stub that supports all types of calls on the service
+   */
+  public static ServiceBlockingV2Stub newBlockingV2Stub(
+      io.grpc.Channel channel) {
+    io.grpc.stub.AbstractStub.StubFactory<ServiceBlockingV2Stub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<ServiceBlockingV2Stub>() {
+        @java.lang.Override
+        public ServiceBlockingV2Stub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new ServiceBlockingV2Stub(channel, callOptions);
+        }
+      };
+    return ServiceBlockingV2Stub.newStub(factory, channel);
   }
 
   /**
@@ -302,6 +314,63 @@ public final class ServiceGrpc {
 
   /**
    * A stub to allow clients to do synchronous rpc calls to service Service.
+   */
+  public static final class ServiceBlockingV2Stub
+      extends io.grpc.stub.AbstractBlockingStub<ServiceBlockingV2Stub> {
+    private ServiceBlockingV2Stub(
+        io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+      super(channel, callOptions);
+    }
+
+    @java.lang.Override
+    protected ServiceBlockingV2Stub build(
+        io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+      return new ServiceBlockingV2Stub(channel, callOptions);
+    }
+
+    /**
+     * <pre>
+     * Count represents a procedure that retrieves the total number of members based on a specific query.
+     * </pre>
+     */
+    public com.evemeta.zdk.pb.event.server.members.CountResponse count(com.evemeta.zdk.pb.event.server.members.CountRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
+          getChannel(), getCountMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * Range represents a procedure that retrieves a chunk of members based on a specific query.
+     * </pre>
+     */
+    public com.evemeta.zdk.pb.event.server.members.RangeResponse range(com.evemeta.zdk.pb.event.server.members.RangeRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
+          getChannel(), getRangeMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * Select represents a procedure that retrieves specific members based on a specific query.
+     * </pre>
+     */
+    public com.evemeta.zdk.pb.event.server.members.SelectResponse select(com.evemeta.zdk.pb.event.server.members.SelectRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
+          getChannel(), getSelectMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * Kick represents a procedure that forcefully removes a member from a event for a specific reason.
+     * </pre>
+     */
+    public com.evemeta.zdk.pb.event.server.members.KickResponse kick(com.evemeta.zdk.pb.event.server.members.KickRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
+          getChannel(), getKickMethod(), getCallOptions(), request);
+    }
+  }
+
+  /**
+   * A stub to allow clients to do limited synchronous rpc calls to service Service.
    */
   public static final class ServiceBlockingStub
       extends io.grpc.stub.AbstractBlockingStub<ServiceBlockingStub> {
@@ -528,9 +597,9 @@ public final class ServiceGrpc {
   private static final class ServiceMethodDescriptorSupplier
       extends ServiceBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoMethodDescriptorSupplier {
-    private final String methodName;
+    private final java.lang.String methodName;
 
-    ServiceMethodDescriptorSupplier(String methodName) {
+    ServiceMethodDescriptorSupplier(java.lang.String methodName) {
       this.methodName = methodName;
     }
 
