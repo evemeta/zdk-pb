@@ -45,11 +45,13 @@ message Query {
 }
 
 message Condition {
-    repeated string                         ids      = 1;
-    repeated string                         chat_ids = 2;
-    repeated string                         room_ids = 3;
-    repeated event.events.private.v1.Status statuses = 4;
-    repeated event.members.private.v1.Query members  = 5;
+    repeated string                           ids       = 1;
+    repeated string                           chat_ids  = 2;
+    repeated string                           room_ids  = 3;
+    repeated event.events.private.v1.Kind     kinds     = 4;
+    repeated event.events.private.v1.Status   statuses  = 5;
+    repeated event.events.private.v1.Schedule schedules = 6;
+    repeated event.members.private.v1.Query   members   = 7;
 }
 
 message Transient {
