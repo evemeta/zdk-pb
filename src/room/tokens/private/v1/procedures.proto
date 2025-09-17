@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package room.tokens.private.v1;
 
-import "room/rooms/private/v1/enums.proto";
-import "room/rooms/private/v1/entities.proto";
 import "room/members/private/v1/enums.proto";
 import "room/members/private/v1/entities.proto";
 
