@@ -6,6 +6,7 @@ import "event/events/private/v1/enums.proto";
 import "event/events/private/v1/entities.proto";
 import "event/events/private/v1/optionals.proto";
 import "chat/chats/private/v1/procedures.proto";
+import "room/rooms/private/v1/procedures.proto";
 import "event/members/private/v1/procedures.proto";
 import "event/restrictions/private/v1/procedures.proto";
 import "gateway/transponders/private/v1/procedures.proto";
@@ -93,7 +94,8 @@ message CreateMutation {
 
 message CreateCondition {
     repeated chat.chats.private.v1.CreateMutation           create_chat_mutations        = 1;
-    repeated gateway.transponders.private.v1.CreateMutation create_transponder_mutations = 2;
+    repeated room.rooms.private.v1.CreateMutation           create_room_mutations        = 2;
+    repeated gateway.transponders.private.v1.CreateMutation create_transponder_mutations = 3;
 }
 
 message CreateTransaction {
@@ -146,9 +148,10 @@ message DeleteMutation {
 
 message DeleteCondition {
     repeated chat.chats.private.v1.DeleteMutation           delete_chat_mutations        = 1;
-    repeated event.members.private.v1.DeleteMutation        delete_member_mutations      = 2;
-    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 3;
-    repeated event.restrictions.private.v1.DeleteMutation   delete_restriction_mutations = 4;
+    repeated room.rooms.private.v1.DeleteMutation           delete_room_mutations        = 2;
+    repeated event.members.private.v1.DeleteMutation        delete_member_mutations      = 3;
+    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 4;
+    repeated event.restrictions.private.v1.DeleteMutation   delete_restriction_mutations = 5;
 }
 
 message DeleteTransaction {
