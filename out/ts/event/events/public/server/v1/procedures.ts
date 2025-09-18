@@ -118,6 +118,32 @@ export interface ContextResponse {
      */
     context?: Context;
 }
+/**
+ * GenerateBroadcastAccessUrlRequest represents a message designed to generate a broadcast access url for a specific event based on its unique identifier.
+ *
+ * @generated from protobuf message event.events.public.server.v1.GenerateBroadcastAccessUrlRequest
+ */
+export interface GenerateBroadcastAccessUrlRequest {
+    /**
+     * Represents the unique identifier for the event for which the broadcast access url should be generated.
+     *
+     * @generated from protobuf field: string id = 1;
+     */
+    id: string;
+}
+/**
+ * GenerateBroadcastAccessUrlResponse represents a message that provides the result of the generate broadcast access url procedure.
+ *
+ * @generated from protobuf message event.events.public.server.v1.GenerateBroadcastAccessUrlResponse
+ */
+export interface GenerateBroadcastAccessUrlResponse {
+    /**
+     * Represents the broadcast access url corresponding to the unique identifier specified in the request.
+     *
+     * @generated from protobuf field: string url = 1;
+     */
+    url: string;
+}
 // @generated message type with reflection information, may provide speed optimized methods
 class CountRequest$Type extends MessageType<CountRequest> {
     constructor() {
@@ -489,3 +515,97 @@ class ContextResponse$Type extends MessageType<ContextResponse> {
  * @generated MessageType for protobuf message event.events.public.server.v1.ContextResponse
  */
 export const ContextResponse = new ContextResponse$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class GenerateBroadcastAccessUrlRequest$Type extends MessageType<GenerateBroadcastAccessUrlRequest> {
+    constructor() {
+        super("event.events.public.server.v1.GenerateBroadcastAccessUrlRequest", [
+            { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
+        ]);
+    }
+    create(value?: PartialMessage<GenerateBroadcastAccessUrlRequest>): GenerateBroadcastAccessUrlRequest {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.id = "";
+        if (value !== undefined)
+            reflectionMergePartial<GenerateBroadcastAccessUrlRequest>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: GenerateBroadcastAccessUrlRequest): GenerateBroadcastAccessUrlRequest {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string id */ 1:
+                    message.id = reader.string();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: GenerateBroadcastAccessUrlRequest, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string id = 1; */
+        if (message.id !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.id);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message event.events.public.server.v1.GenerateBroadcastAccessUrlRequest
+ */
+export const GenerateBroadcastAccessUrlRequest = new GenerateBroadcastAccessUrlRequest$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class GenerateBroadcastAccessUrlResponse$Type extends MessageType<GenerateBroadcastAccessUrlResponse> {
+    constructor() {
+        super("event.events.public.server.v1.GenerateBroadcastAccessUrlResponse", [
+            { no: 1, name: "url", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
+        ]);
+    }
+    create(value?: PartialMessage<GenerateBroadcastAccessUrlResponse>): GenerateBroadcastAccessUrlResponse {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.url = "";
+        if (value !== undefined)
+            reflectionMergePartial<GenerateBroadcastAccessUrlResponse>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: GenerateBroadcastAccessUrlResponse): GenerateBroadcastAccessUrlResponse {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string url */ 1:
+                    message.url = reader.string();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: GenerateBroadcastAccessUrlResponse, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string url = 1; */
+        if (message.url !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.url);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message event.events.public.server.v1.GenerateBroadcastAccessUrlResponse
+ */
+export const GenerateBroadcastAccessUrlResponse = new GenerateBroadcastAccessUrlResponse$Type();

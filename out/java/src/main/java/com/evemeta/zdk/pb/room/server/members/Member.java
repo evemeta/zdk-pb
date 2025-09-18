@@ -299,37 +299,7 @@ java.lang.String defaultValue) {
     return map.get(key);
   }
 
-  public static final int CREATE_TIME_FIELD_NUMBER = 5;
-  private long createTime_ = 0L;
-  /**
-   * <pre>
-   * Represents the timestamp indicating when this member was created or added to the room.
-   * </pre>
-   *
-   * <code>int64 create_time = 5;</code>
-   * @return The createTime.
-   */
-  @java.lang.Override
-  public long getCreateTime() {
-    return createTime_;
-  }
-
-  public static final int UPDATE_TIME_FIELD_NUMBER = 6;
-  private long updateTime_ = 0L;
-  /**
-   * <pre>
-   * Represents the timestamp of the last update associated with this member.
-   * </pre>
-   *
-   * <code>int64 update_time = 6;</code>
-   * @return The updateTime.
-   */
-  @java.lang.Override
-  public long getUpdateTime() {
-    return updateTime_;
-  }
-
-  public static final int PERMISSIONS_FIELD_NUMBER = 7;
+  public static final int PERMISSIONS_FIELD_NUMBER = 5;
   @SuppressWarnings("serial")
   private com.google.protobuf.Internal.IntList permissions_;
   private static final com.google.protobuf.Internal.IntListAdapter.IntConverter<
@@ -346,7 +316,7 @@ java.lang.String defaultValue) {
    * Represents list of permission which member have inside this room.
    * </pre>
    *
-   * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+   * <code>repeated .room.members.public.server.v1.Permission permissions = 5;</code>
    * @return A list containing the permissions.
    */
   @java.lang.Override
@@ -359,7 +329,7 @@ java.lang.String defaultValue) {
    * Represents list of permission which member have inside this room.
    * </pre>
    *
-   * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+   * <code>repeated .room.members.public.server.v1.Permission permissions = 5;</code>
    * @return The count of permissions.
    */
   @java.lang.Override
@@ -371,7 +341,7 @@ java.lang.String defaultValue) {
    * Represents list of permission which member have inside this room.
    * </pre>
    *
-   * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+   * <code>repeated .room.members.public.server.v1.Permission permissions = 5;</code>
    * @param index The index of the element to return.
    * @return The permissions at the given index.
    */
@@ -384,7 +354,7 @@ java.lang.String defaultValue) {
    * Represents list of permission which member have inside this room.
    * </pre>
    *
-   * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+   * <code>repeated .room.members.public.server.v1.Permission permissions = 5;</code>
    * @return A list containing the enum numeric values on the wire for permissions.
    */
   @java.lang.Override
@@ -397,7 +367,7 @@ java.lang.String defaultValue) {
    * Represents list of permission which member have inside this room.
    * </pre>
    *
-   * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+   * <code>repeated .room.members.public.server.v1.Permission permissions = 5;</code>
    * @param index The index of the value to return.
    * @return The enum numeric value on the wire of permissions at the given index.
    */
@@ -406,6 +376,36 @@ java.lang.String defaultValue) {
     return permissions_.getInt(index);
   }
   private int permissionsMemoizedSerializedSize;
+
+  public static final int CREATE_TIME_FIELD_NUMBER = 6;
+  private long createTime_ = 0L;
+  /**
+   * <pre>
+   * Represents the timestamp indicating when this member was created or added to the room.
+   * </pre>
+   *
+   * <code>int64 create_time = 6;</code>
+   * @return The createTime.
+   */
+  @java.lang.Override
+  public long getCreateTime() {
+    return createTime_;
+  }
+
+  public static final int UPDATE_TIME_FIELD_NUMBER = 7;
+  private long updateTime_ = 0L;
+  /**
+   * <pre>
+   * Represents the timestamp of the last update associated with this member.
+   * </pre>
+   *
+   * <code>int64 update_time = 7;</code>
+   * @return The updateTime.
+   */
+  @java.lang.Override
+  public long getUpdateTime() {
+    return updateTime_;
+  }
 
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
@@ -437,18 +437,18 @@ java.lang.String defaultValue) {
         internalGetMetadata(),
         MetadataDefaultEntryHolder.defaultEntry,
         4);
-    if (createTime_ != 0L) {
-      output.writeInt64(5, createTime_);
-    }
-    if (updateTime_ != 0L) {
-      output.writeInt64(6, updateTime_);
-    }
     if (getPermissionsList().size() > 0) {
-      output.writeUInt32NoTag(58);
+      output.writeUInt32NoTag(42);
       output.writeUInt32NoTag(permissionsMemoizedSerializedSize);
     }
     for (int i = 0; i < permissions_.size(); i++) {
       output.writeEnumNoTag(permissions_.getInt(i));
+    }
+    if (createTime_ != 0L) {
+      output.writeInt64(6, createTime_);
+    }
+    if (updateTime_ != 0L) {
+      output.writeInt64(7, updateTime_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -478,14 +478,6 @@ java.lang.String defaultValue) {
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, metadata__);
     }
-    if (createTime_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(5, createTime_);
-    }
-    if (updateTime_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(6, updateTime_);
-    }
     {
       int dataSize = 0;
       for (int i = 0; i < permissions_.size(); i++) {
@@ -497,6 +489,14 @@ java.lang.String defaultValue) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32SizeNoTag(dataSize);
       }permissionsMemoizedSerializedSize = dataSize;
+    }
+    if (createTime_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(6, createTime_);
+    }
+    if (updateTime_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(7, updateTime_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -521,11 +521,11 @@ java.lang.String defaultValue) {
         .equals(other.getRoomId())) return false;
     if (!internalGetMetadata().equals(
         other.internalGetMetadata())) return false;
+    if (!permissions_.equals(other.permissions_)) return false;
     if (getCreateTime()
         != other.getCreateTime()) return false;
     if (getUpdateTime()
         != other.getUpdateTime()) return false;
-    if (!permissions_.equals(other.permissions_)) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -547,16 +547,16 @@ java.lang.String defaultValue) {
       hash = (37 * hash) + METADATA_FIELD_NUMBER;
       hash = (53 * hash) + internalGetMetadata().hashCode();
     }
+    if (getPermissionsCount() > 0) {
+      hash = (37 * hash) + PERMISSIONS_FIELD_NUMBER;
+      hash = (53 * hash) + permissions_.hashCode();
+    }
     hash = (37 * hash) + CREATE_TIME_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getCreateTime());
     hash = (37 * hash) + UPDATE_TIME_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getUpdateTime());
-    if (getPermissionsCount() > 0) {
-      hash = (37 * hash) + PERMISSIONS_FIELD_NUMBER;
-      hash = (53 * hash) + permissions_.hashCode();
-    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -719,10 +719,10 @@ java.lang.String defaultValue) {
       userId_ = "";
       roomId_ = "";
       internalGetMutableMetadata().clear();
+      permissions_ = emptyIntList();
+      bitField0_ = (bitField0_ & ~0x00000010);
       createTime_ = 0L;
       updateTime_ = 0L;
-      permissions_ = emptyIntList();
-      bitField0_ = (bitField0_ & ~0x00000040);
       return this;
     }
 
@@ -756,9 +756,9 @@ java.lang.String defaultValue) {
     }
 
     private void buildPartialRepeatedFields(com.evemeta.zdk.pb.room.server.members.Member result) {
-      if (((bitField0_ & 0x00000040) != 0)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         permissions_.makeImmutable();
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000010);
       }
       result.permissions_ = permissions_;
     }
@@ -778,10 +778,10 @@ java.lang.String defaultValue) {
         result.metadata_ = internalGetMetadata();
         result.metadata_.makeImmutable();
       }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
+      if (((from_bitField0_ & 0x00000020) != 0)) {
         result.createTime_ = createTime_;
       }
-      if (((from_bitField0_ & 0x00000020) != 0)) {
+      if (((from_bitField0_ & 0x00000040) != 0)) {
         result.updateTime_ = updateTime_;
       }
     }
@@ -816,21 +816,21 @@ java.lang.String defaultValue) {
       internalGetMutableMetadata().mergeFrom(
           other.internalGetMetadata());
       bitField0_ |= 0x00000008;
-      if (other.getCreateTime() != 0L) {
-        setCreateTime(other.getCreateTime());
-      }
-      if (other.getUpdateTime() != 0L) {
-        setUpdateTime(other.getUpdateTime());
-      }
       if (!other.permissions_.isEmpty()) {
         if (permissions_.isEmpty()) {
           permissions_ = other.permissions_;
-          bitField0_ = (bitField0_ & ~0x00000040);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensurePermissionsIsMutable();
           permissions_.addAll(other.permissions_);
         }
         onChanged();
+      }
+      if (other.getCreateTime() != 0L) {
+        setCreateTime(other.getCreateTime());
+      }
+      if (other.getUpdateTime() != 0L) {
+        setUpdateTime(other.getUpdateTime());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -883,22 +883,12 @@ java.lang.String defaultValue) {
               break;
             } // case 34
             case 40: {
-              createTime_ = input.readInt64();
-              bitField0_ |= 0x00000010;
-              break;
-            } // case 40
-            case 48: {
-              updateTime_ = input.readInt64();
-              bitField0_ |= 0x00000020;
-              break;
-            } // case 48
-            case 56: {
               int tmpRaw = input.readEnum();
               ensurePermissionsIsMutable();
               permissions_.addInt(tmpRaw);
               break;
-            } // case 56
-            case 58: {
+            } // case 40
+            case 42: {
               int length = input.readRawVarint32();
               int oldLimit = input.pushLimit(length);
               while(input.getBytesUntilLimit() > 0) {
@@ -908,7 +898,17 @@ java.lang.String defaultValue) {
               }
               input.popLimit(oldLimit);
               break;
-            } // case 58
+            } // case 42
+            case 48: {
+              createTime_ = input.readInt64();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              updateTime_ = input.readInt64();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1357,100 +1357,12 @@ java.lang.String defaultValue) {
       return this;
     }
 
-    private long createTime_ ;
-    /**
-     * <pre>
-     * Represents the timestamp indicating when this member was created or added to the room.
-     * </pre>
-     *
-     * <code>int64 create_time = 5;</code>
-     * @return The createTime.
-     */
-    @java.lang.Override
-    public long getCreateTime() {
-      return createTime_;
-    }
-    /**
-     * <pre>
-     * Represents the timestamp indicating when this member was created or added to the room.
-     * </pre>
-     *
-     * <code>int64 create_time = 5;</code>
-     * @param value The createTime to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCreateTime(long value) {
-
-      createTime_ = value;
-      bitField0_ |= 0x00000010;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Represents the timestamp indicating when this member was created or added to the room.
-     * </pre>
-     *
-     * <code>int64 create_time = 5;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearCreateTime() {
-      bitField0_ = (bitField0_ & ~0x00000010);
-      createTime_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private long updateTime_ ;
-    /**
-     * <pre>
-     * Represents the timestamp of the last update associated with this member.
-     * </pre>
-     *
-     * <code>int64 update_time = 6;</code>
-     * @return The updateTime.
-     */
-    @java.lang.Override
-    public long getUpdateTime() {
-      return updateTime_;
-    }
-    /**
-     * <pre>
-     * Represents the timestamp of the last update associated with this member.
-     * </pre>
-     *
-     * <code>int64 update_time = 6;</code>
-     * @param value The updateTime to set.
-     * @return This builder for chaining.
-     */
-    public Builder setUpdateTime(long value) {
-
-      updateTime_ = value;
-      bitField0_ |= 0x00000020;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Represents the timestamp of the last update associated with this member.
-     * </pre>
-     *
-     * <code>int64 update_time = 6;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearUpdateTime() {
-      bitField0_ = (bitField0_ & ~0x00000020);
-      updateTime_ = 0L;
-      onChanged();
-      return this;
-    }
-
     private com.google.protobuf.Internal.IntList permissions_ =
       emptyIntList();
     private void ensurePermissionsIsMutable() {
-      if (!((bitField0_ & 0x00000040) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         permissions_ = makeMutableCopy(permissions_);
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000010;
       }
     }
     /**
@@ -1458,7 +1370,7 @@ java.lang.String defaultValue) {
      * Represents list of permission which member have inside this room.
      * </pre>
      *
-     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 5;</code>
      * @return A list containing the permissions.
      */
     public java.util.List<com.evemeta.zdk.pb.room.server.members.Permission> getPermissionsList() {
@@ -1470,7 +1382,7 @@ java.lang.String defaultValue) {
      * Represents list of permission which member have inside this room.
      * </pre>
      *
-     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 5;</code>
      * @return The count of permissions.
      */
     public int getPermissionsCount() {
@@ -1481,7 +1393,7 @@ java.lang.String defaultValue) {
      * Represents list of permission which member have inside this room.
      * </pre>
      *
-     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 5;</code>
      * @param index The index of the element to return.
      * @return The permissions at the given index.
      */
@@ -1493,7 +1405,7 @@ java.lang.String defaultValue) {
      * Represents list of permission which member have inside this room.
      * </pre>
      *
-     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 5;</code>
      * @param index The index to set the value at.
      * @param value The permissions to set.
      * @return This builder for chaining.
@@ -1513,7 +1425,7 @@ java.lang.String defaultValue) {
      * Represents list of permission which member have inside this room.
      * </pre>
      *
-     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 5;</code>
      * @param value The permissions to add.
      * @return This builder for chaining.
      */
@@ -1531,7 +1443,7 @@ java.lang.String defaultValue) {
      * Represents list of permission which member have inside this room.
      * </pre>
      *
-     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 5;</code>
      * @param values The permissions to add.
      * @return This builder for chaining.
      */
@@ -1549,12 +1461,12 @@ java.lang.String defaultValue) {
      * Represents list of permission which member have inside this room.
      * </pre>
      *
-     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearPermissions() {
       permissions_ = emptyIntList();
-      bitField0_ = (bitField0_ & ~0x00000040);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1563,7 +1475,7 @@ java.lang.String defaultValue) {
      * Represents list of permission which member have inside this room.
      * </pre>
      *
-     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 5;</code>
      * @return A list containing the enum numeric values on the wire for permissions.
      */
     public java.util.List<java.lang.Integer>
@@ -1575,7 +1487,7 @@ java.lang.String defaultValue) {
      * Represents list of permission which member have inside this room.
      * </pre>
      *
-     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 5;</code>
      * @param index The index of the value to return.
      * @return The enum numeric value on the wire of permissions at the given index.
      */
@@ -1587,7 +1499,7 @@ java.lang.String defaultValue) {
      * Represents list of permission which member have inside this room.
      * </pre>
      *
-     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 5;</code>
      * @param index The index to set the value at.
      * @param value The enum numeric value on the wire for permissions to set.
      * @return This builder for chaining.
@@ -1604,7 +1516,7 @@ java.lang.String defaultValue) {
      * Represents list of permission which member have inside this room.
      * </pre>
      *
-     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 5;</code>
      * @param value The enum numeric value on the wire for permissions to add.
      * @return This builder for chaining.
      */
@@ -1619,7 +1531,7 @@ java.lang.String defaultValue) {
      * Represents list of permission which member have inside this room.
      * </pre>
      *
-     * <code>repeated .room.members.public.server.v1.Permission permissions = 7;</code>
+     * <code>repeated .room.members.public.server.v1.Permission permissions = 5;</code>
      * @param values The enum numeric values on the wire for permissions to add.
      * @return This builder for chaining.
      */
@@ -1629,6 +1541,94 @@ java.lang.String defaultValue) {
       for (int value : values) {
         permissions_.addInt(value);
       }
+      onChanged();
+      return this;
+    }
+
+    private long createTime_ ;
+    /**
+     * <pre>
+     * Represents the timestamp indicating when this member was created or added to the room.
+     * </pre>
+     *
+     * <code>int64 create_time = 6;</code>
+     * @return The createTime.
+     */
+    @java.lang.Override
+    public long getCreateTime() {
+      return createTime_;
+    }
+    /**
+     * <pre>
+     * Represents the timestamp indicating when this member was created or added to the room.
+     * </pre>
+     *
+     * <code>int64 create_time = 6;</code>
+     * @param value The createTime to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCreateTime(long value) {
+
+      createTime_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Represents the timestamp indicating when this member was created or added to the room.
+     * </pre>
+     *
+     * <code>int64 create_time = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCreateTime() {
+      bitField0_ = (bitField0_ & ~0x00000020);
+      createTime_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long updateTime_ ;
+    /**
+     * <pre>
+     * Represents the timestamp of the last update associated with this member.
+     * </pre>
+     *
+     * <code>int64 update_time = 7;</code>
+     * @return The updateTime.
+     */
+    @java.lang.Override
+    public long getUpdateTime() {
+      return updateTime_;
+    }
+    /**
+     * <pre>
+     * Represents the timestamp of the last update associated with this member.
+     * </pre>
+     *
+     * <code>int64 update_time = 7;</code>
+     * @param value The updateTime to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUpdateTime(long value) {
+
+      updateTime_ = value;
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Represents the timestamp of the last update associated with this member.
+     * </pre>
+     *
+     * <code>int64 update_time = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUpdateTime() {
+      bitField0_ = (bitField0_ & ~0x00000040);
+      updateTime_ = 0L;
       onChanged();
       return this;
     }

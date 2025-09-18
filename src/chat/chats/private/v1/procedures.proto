@@ -8,6 +8,7 @@ import "chat/chats/private/v1/enums.proto";
 import "chat/members/private/v1/procedures.proto";
 import "chat/messages/private/v1/procedures.proto";
 import "gateway/transponders/private/v1/procedures.proto";
+import "chat/members/private/v1/enums.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/chats/private/v1;chatspb";
 
@@ -131,11 +132,12 @@ message DeleteTransaction {
 }
 
 message EnterArgument {
-    string              id         = 1;
-    string              user_id    = 2;
-    string              session_id = 3;
-    map<string, string> metadata   = 4;
-    bool                override   = 5;
+    string                                      id          = 1;
+    string                                      user_id     = 2;
+    string                                      session_id  = 3;
+    map<string, string>                         metadata    = 4;
+    repeated chat.members.private.v1.Permission permissions = 5;
+    bool                                        override    = 6;
 }
 
 message EnterRequest {

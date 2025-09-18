@@ -7,7 +7,6 @@
 package tokenspb
 
 import (
-	_ "gitlab.com/evemeta/zdk/pb/out/go/event/events/public/server/v1"
 	v1 "gitlab.com/evemeta/zdk/pb/out/go/event/members/public/server/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -25,6 +24,7 @@ const (
 
 type ExtractRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Token         string                 `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -57,6 +57,13 @@ func (x *ExtractRequest) ProtoReflect() protoreflect.Message {
 // Deprecated: Use ExtractRequest.ProtoReflect.Descriptor instead.
 func (*ExtractRequest) Descriptor() ([]byte, []int) {
 	return file_event_tokens_public_server_v1_procedures_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *ExtractRequest) GetToken() string {
+	if x != nil {
+		return x.Token
+	}
+	return ""
 }
 
 type ExtractResponse struct {
@@ -107,8 +114,9 @@ var File_event_tokens_public_server_v1_procedures_proto protoreflect.FileDescrip
 
 const file_event_tokens_public_server_v1_procedures_proto_rawDesc = "" +
 	"\n" +
-	".event/tokens/public/server/v1/procedures.proto\x12\x1devent.tokens.public.server.v1\x1a,event/events/public/server/v1/entities.proto\x1a-event/members/public/server/v1/entities.proto\"\x10\n" +
-	"\x0eExtractRequest\"Q\n" +
+	".event/tokens/public/server/v1/procedures.proto\x12\x1devent.tokens.public.server.v1\x1a-event/members/public/server/v1/entities.proto\"&\n" +
+	"\x0eExtractRequest\x12\x14\n" +
+	"\x05token\x18\x01 \x01(\tR\x05token\"Q\n" +
 	"\x0fExtractResponse\x12>\n" +
 	"\x06member\x18\x01 \x01(\v2&.event.members.public.server.v1.MemberR\x06memberBs\n" +
 	"&com.evemeta.zdk.pb.event.server.tokensP\x01ZGgitlab.com/evemeta/zdk/pb/out/go/event/tokens/public/server/v1;tokenspbb\x06proto3"

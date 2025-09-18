@@ -139,6 +139,37 @@ public final class ServiceGrpc {
     return getContextMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.evemeta.zdk.pb.event.server.events.GenerateBroadcastAccessUrlRequest,
+      com.evemeta.zdk.pb.event.server.events.GenerateBroadcastAccessUrlResponse> getGenerateBroadcastAccessUrlMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GenerateBroadcastAccessUrl",
+      requestType = com.evemeta.zdk.pb.event.server.events.GenerateBroadcastAccessUrlRequest.class,
+      responseType = com.evemeta.zdk.pb.event.server.events.GenerateBroadcastAccessUrlResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.evemeta.zdk.pb.event.server.events.GenerateBroadcastAccessUrlRequest,
+      com.evemeta.zdk.pb.event.server.events.GenerateBroadcastAccessUrlResponse> getGenerateBroadcastAccessUrlMethod() {
+    io.grpc.MethodDescriptor<com.evemeta.zdk.pb.event.server.events.GenerateBroadcastAccessUrlRequest, com.evemeta.zdk.pb.event.server.events.GenerateBroadcastAccessUrlResponse> getGenerateBroadcastAccessUrlMethod;
+    if ((getGenerateBroadcastAccessUrlMethod = ServiceGrpc.getGenerateBroadcastAccessUrlMethod) == null) {
+      synchronized (ServiceGrpc.class) {
+        if ((getGenerateBroadcastAccessUrlMethod = ServiceGrpc.getGenerateBroadcastAccessUrlMethod) == null) {
+          ServiceGrpc.getGenerateBroadcastAccessUrlMethod = getGenerateBroadcastAccessUrlMethod =
+              io.grpc.MethodDescriptor.<com.evemeta.zdk.pb.event.server.events.GenerateBroadcastAccessUrlRequest, com.evemeta.zdk.pb.event.server.events.GenerateBroadcastAccessUrlResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GenerateBroadcastAccessUrl"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.evemeta.zdk.pb.event.server.events.GenerateBroadcastAccessUrlRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.evemeta.zdk.pb.event.server.events.GenerateBroadcastAccessUrlResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new ServiceMethodDescriptorSupplier("GenerateBroadcastAccessUrl"))
+              .build();
+        }
+      }
+    }
+    return getGenerateBroadcastAccessUrlMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -226,6 +257,16 @@ public final class ServiceGrpc {
         io.grpc.stub.StreamObserver<com.evemeta.zdk.pb.event.server.events.ContextResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getContextMethod(), responseObserver);
     }
+
+    /**
+     * <pre>
+     * GenerateBroadcastAccessUrl represents a procedure that generates a broadcast access url for a specific event based on its unique identifier.
+     * </pre>
+     */
+    default void generateBroadcastAccessUrl(com.evemeta.zdk.pb.event.server.events.GenerateBroadcastAccessUrlRequest request,
+        io.grpc.stub.StreamObserver<com.evemeta.zdk.pb.event.server.events.GenerateBroadcastAccessUrlResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGenerateBroadcastAccessUrlMethod(), responseObserver);
+    }
   }
 
   /**
@@ -298,6 +339,17 @@ public final class ServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getContextMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     * GenerateBroadcastAccessUrl represents a procedure that generates a broadcast access url for a specific event based on its unique identifier.
+     * </pre>
+     */
+    public void generateBroadcastAccessUrl(com.evemeta.zdk.pb.event.server.events.GenerateBroadcastAccessUrlRequest request,
+        io.grpc.stub.StreamObserver<com.evemeta.zdk.pb.event.server.events.GenerateBroadcastAccessUrlResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGenerateBroadcastAccessUrlMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -354,6 +406,16 @@ public final class ServiceGrpc {
     public com.evemeta.zdk.pb.event.server.events.ContextResponse context(com.evemeta.zdk.pb.event.server.events.ContextRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getContextMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * GenerateBroadcastAccessUrl represents a procedure that generates a broadcast access url for a specific event based on its unique identifier.
+     * </pre>
+     */
+    public com.evemeta.zdk.pb.event.server.events.GenerateBroadcastAccessUrlResponse generateBroadcastAccessUrl(com.evemeta.zdk.pb.event.server.events.GenerateBroadcastAccessUrlRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGenerateBroadcastAccessUrlMethod(), getCallOptions(), request);
     }
   }
 
@@ -416,12 +478,24 @@ public final class ServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getContextMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     * GenerateBroadcastAccessUrl represents a procedure that generates a broadcast access url for a specific event based on its unique identifier.
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.evemeta.zdk.pb.event.server.events.GenerateBroadcastAccessUrlResponse> generateBroadcastAccessUrl(
+        com.evemeta.zdk.pb.event.server.events.GenerateBroadcastAccessUrlRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGenerateBroadcastAccessUrlMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_COUNT = 0;
   private static final int METHODID_RANGE = 1;
   private static final int METHODID_SELECT = 2;
   private static final int METHODID_CONTEXT = 3;
+  private static final int METHODID_GENERATE_BROADCAST_ACCESS_URL = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -455,6 +529,10 @@ public final class ServiceGrpc {
         case METHODID_CONTEXT:
           serviceImpl.context((com.evemeta.zdk.pb.event.server.events.ContextRequest) request,
               (io.grpc.stub.StreamObserver<com.evemeta.zdk.pb.event.server.events.ContextResponse>) responseObserver);
+          break;
+        case METHODID_GENERATE_BROADCAST_ACCESS_URL:
+          serviceImpl.generateBroadcastAccessUrl((com.evemeta.zdk.pb.event.server.events.GenerateBroadcastAccessUrlRequest) request,
+              (io.grpc.stub.StreamObserver<com.evemeta.zdk.pb.event.server.events.GenerateBroadcastAccessUrlResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -502,6 +580,13 @@ public final class ServiceGrpc {
               com.evemeta.zdk.pb.event.server.events.ContextRequest,
               com.evemeta.zdk.pb.event.server.events.ContextResponse>(
                 service, METHODID_CONTEXT)))
+        .addMethod(
+          getGenerateBroadcastAccessUrlMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              com.evemeta.zdk.pb.event.server.events.GenerateBroadcastAccessUrlRequest,
+              com.evemeta.zdk.pb.event.server.events.GenerateBroadcastAccessUrlResponse>(
+                service, METHODID_GENERATE_BROADCAST_ACCESS_URL)))
         .build();
   }
 
@@ -554,6 +639,7 @@ public final class ServiceGrpc {
               .addMethod(getRangeMethod())
               .addMethod(getSelectMethod())
               .addMethod(getContextMethod())
+              .addMethod(getGenerateBroadcastAccessUrlMethod())
               .build();
         }
       }

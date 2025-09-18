@@ -25,8 +25,8 @@ const (
 // It contains the unique identifier of the room that the client wishes to enter.
 type EnterRoomPacket struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Represents the unique identifier of the room the client is attempting to enter.
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Represents the token containing data of the room the client is attempting to enter.
+	Token string `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
 	// Represents a control mechanism that automatically disconnects any other sessions from any room linked to the user, allowing a new session to enter without issues.
 	Override      bool `protobuf:"varint,2,opt,name=override,proto3" json:"override,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -63,9 +63,9 @@ func (*EnterRoomPacket) Descriptor() ([]byte, []int) {
 	return file_room_rooms_public_client_v1_packets_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *EnterRoomPacket) GetId() string {
+func (x *EnterRoomPacket) GetToken() string {
 	if x != nil {
-		return x.Id
+		return x.Token
 	}
 	return ""
 }
@@ -184,9 +184,9 @@ var File_room_rooms_public_client_v1_packets_proto protoreflect.FileDescriptor
 
 const file_room_rooms_public_client_v1_packets_proto_rawDesc = "" +
 	"\n" +
-	")room/rooms/public/client/v1/packets.proto\x12\x1broom.rooms.public.client.v1\"=\n" +
-	"\x0fEnterRoomPacket\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1a\n" +
+	")room/rooms/public/client/v1/packets.proto\x12\x1broom.rooms.public.client.v1\"C\n" +
+	"\x0fEnterRoomPacket\x12\x14\n" +
+	"\x05token\x18\x01 \x01(\tR\x05token\x12\x1a\n" +
 	"\boverride\x18\x02 \x01(\bR\boverride\"!\n" +
 	"\x0fLeaveRoomPacket\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\"\xb8\x01\n" +

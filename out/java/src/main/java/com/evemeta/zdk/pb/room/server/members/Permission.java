@@ -6,6 +6,10 @@
 package com.evemeta.zdk.pb.room.server.members;
 
 /**
+ * <pre>
+ * Permission todo;
+ * </pre>
+ *
  * Protobuf enum {@code room.members.public.server.v1.Permission}
  */
 public enum Permission
@@ -14,6 +18,58 @@ public enum Permission
    * <code>PermissionUnknown = 0;</code>
    */
   PermissionUnknown(0),
+  /**
+   * <code>PermissionChat = 100;</code>
+   */
+  PermissionChat(100),
+  /**
+   * <code>PermissionChatBlock = 101;</code>
+   */
+  PermissionChatBlock(101),
+  /**
+   * <code>PermissionChatUnblock = 102;</code>
+   */
+  PermissionChatUnblock(102),
+  /**
+   * <code>PermissionChatMute = 103;</code>
+   */
+  PermissionChatMute(103),
+  /**
+   * <code>PermissionChatUnmute = 104;</code>
+   */
+  PermissionChatUnmute(104),
+  /**
+   * <code>PermissionChatMessageDelete = 105;</code>
+   */
+  PermissionChatMessageDelete(105),
+  /**
+   * <code>PermissionChatKick = 106;</code>
+   */
+  PermissionChatKick(106),
+  /**
+   * <code>PermissionChatSlowmode = 107;</code>
+   */
+  PermissionChatSlowmode(107),
+  /**
+   * <code>PermissionChatSlowmodeBypass = 108;</code>
+   */
+  PermissionChatSlowmodeBypass(108),
+  /**
+   * <code>PermissionRoom = 200;</code>
+   */
+  PermissionRoom(200),
+  /**
+   * <code>PermissionRoomBlock = 201;</code>
+   */
+  PermissionRoomBlock(201),
+  /**
+   * <code>PermissionRoomUnblock = 202;</code>
+   */
+  PermissionRoomUnblock(202),
+  /**
+   * <code>PermissionRoomKick = 203;</code>
+   */
+  PermissionRoomKick(203),
   UNRECOGNIZED(-1),
   ;
 
@@ -30,6 +86,58 @@ public enum Permission
    * <code>PermissionUnknown = 0;</code>
    */
   public static final int PermissionUnknown_VALUE = 0;
+  /**
+   * <code>PermissionChat = 100;</code>
+   */
+  public static final int PermissionChat_VALUE = 100;
+  /**
+   * <code>PermissionChatBlock = 101;</code>
+   */
+  public static final int PermissionChatBlock_VALUE = 101;
+  /**
+   * <code>PermissionChatUnblock = 102;</code>
+   */
+  public static final int PermissionChatUnblock_VALUE = 102;
+  /**
+   * <code>PermissionChatMute = 103;</code>
+   */
+  public static final int PermissionChatMute_VALUE = 103;
+  /**
+   * <code>PermissionChatUnmute = 104;</code>
+   */
+  public static final int PermissionChatUnmute_VALUE = 104;
+  /**
+   * <code>PermissionChatMessageDelete = 105;</code>
+   */
+  public static final int PermissionChatMessageDelete_VALUE = 105;
+  /**
+   * <code>PermissionChatKick = 106;</code>
+   */
+  public static final int PermissionChatKick_VALUE = 106;
+  /**
+   * <code>PermissionChatSlowmode = 107;</code>
+   */
+  public static final int PermissionChatSlowmode_VALUE = 107;
+  /**
+   * <code>PermissionChatSlowmodeBypass = 108;</code>
+   */
+  public static final int PermissionChatSlowmodeBypass_VALUE = 108;
+  /**
+   * <code>PermissionRoom = 200;</code>
+   */
+  public static final int PermissionRoom_VALUE = 200;
+  /**
+   * <code>PermissionRoomBlock = 201;</code>
+   */
+  public static final int PermissionRoomBlock_VALUE = 201;
+  /**
+   * <code>PermissionRoomUnblock = 202;</code>
+   */
+  public static final int PermissionRoomUnblock_VALUE = 202;
+  /**
+   * <code>PermissionRoomKick = 203;</code>
+   */
+  public static final int PermissionRoomKick_VALUE = 203;
 
 
   public final int getNumber() {
@@ -57,6 +165,19 @@ public enum Permission
   public static Permission forNumber(int value) {
     switch (value) {
       case 0: return PermissionUnknown;
+      case 100: return PermissionChat;
+      case 101: return PermissionChatBlock;
+      case 102: return PermissionChatUnblock;
+      case 103: return PermissionChatMute;
+      case 104: return PermissionChatUnmute;
+      case 105: return PermissionChatMessageDelete;
+      case 106: return PermissionChatKick;
+      case 107: return PermissionChatSlowmode;
+      case 108: return PermissionChatSlowmodeBypass;
+      case 200: return PermissionRoom;
+      case 201: return PermissionRoomBlock;
+      case 202: return PermissionRoomUnblock;
+      case 203: return PermissionRoomKick;
       default: return null;
     }
   }

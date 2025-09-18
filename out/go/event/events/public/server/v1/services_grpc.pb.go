@@ -19,10 +19,11 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Service_Count_FullMethodName   = "/event.events.public.server.v1.Service/Count"
-	Service_Range_FullMethodName   = "/event.events.public.server.v1.Service/Range"
-	Service_Select_FullMethodName  = "/event.events.public.server.v1.Service/Select"
-	Service_Context_FullMethodName = "/event.events.public.server.v1.Service/Context"
+	Service_Count_FullMethodName                      = "/event.events.public.server.v1.Service/Count"
+	Service_Range_FullMethodName                      = "/event.events.public.server.v1.Service/Range"
+	Service_Select_FullMethodName                     = "/event.events.public.server.v1.Service/Select"
+	Service_Context_FullMethodName                    = "/event.events.public.server.v1.Service/Context"
+	Service_GenerateBroadcastAccessUrl_FullMethodName = "/event.events.public.server.v1.Service/GenerateBroadcastAccessUrl"
 )
 
 // ServiceClient is the client API for Service service.
@@ -37,6 +38,8 @@ type ServiceClient interface {
 	Select(ctx context.Context, in *SelectRequest, opts ...grpc.CallOption) (*SelectResponse, error)
 	// Context represents a procedure that retrieves the context associated with a specific event based on its unique identifier.
 	Context(ctx context.Context, in *ContextRequest, opts ...grpc.CallOption) (*ContextResponse, error)
+	// GenerateBroadcastAccessUrl represents a procedure that generates a broadcast access url for a specific event based on its unique identifier.
+	GenerateBroadcastAccessUrl(ctx context.Context, in *GenerateBroadcastAccessUrlRequest, opts ...grpc.CallOption) (*GenerateBroadcastAccessUrlResponse, error)
 }
 
 type serviceClient struct {
@@ -87,6 +90,16 @@ func (c *serviceClient) Context(ctx context.Context, in *ContextRequest, opts ..
 	return out, nil
 }
 
+func (c *serviceClient) GenerateBroadcastAccessUrl(ctx context.Context, in *GenerateBroadcastAccessUrlRequest, opts ...grpc.CallOption) (*GenerateBroadcastAccessUrlResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GenerateBroadcastAccessUrlResponse)
+	err := c.cc.Invoke(ctx, Service_GenerateBroadcastAccessUrl_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ServiceServer is the server API for Service service.
 // All implementations must embed UnimplementedServiceServer
 // for forward compatibility.
@@ -99,6 +112,8 @@ type ServiceServer interface {
 	Select(context.Context, *SelectRequest) (*SelectResponse, error)
 	// Context represents a procedure that retrieves the context associated with a specific event based on its unique identifier.
 	Context(context.Context, *ContextRequest) (*ContextResponse, error)
+	// GenerateBroadcastAccessUrl represents a procedure that generates a broadcast access url for a specific event based on its unique identifier.
+	GenerateBroadcastAccessUrl(context.Context, *GenerateBroadcastAccessUrlRequest) (*GenerateBroadcastAccessUrlResponse, error)
 	mustEmbedUnimplementedServiceServer()
 }
 
@@ -120,6 +135,9 @@ func (UnimplementedServiceServer) Select(context.Context, *SelectRequest) (*Sele
 }
 func (UnimplementedServiceServer) Context(context.Context, *ContextRequest) (*ContextResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Context not implemented")
+}
+func (UnimplementedServiceServer) GenerateBroadcastAccessUrl(context.Context, *GenerateBroadcastAccessUrlRequest) (*GenerateBroadcastAccessUrlResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GenerateBroadcastAccessUrl not implemented")
 }
 func (UnimplementedServiceServer) mustEmbedUnimplementedServiceServer() {}
 func (UnimplementedServiceServer) testEmbeddedByValue()                 {}
@@ -214,6 +232,24 @@ func _Service_Context_Handler(srv interface{}, ctx context.Context, dec func(int
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Service_GenerateBroadcastAccessUrl_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GenerateBroadcastAccessUrlRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).GenerateBroadcastAccessUrl(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_GenerateBroadcastAccessUrl_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).GenerateBroadcastAccessUrl(ctx, req.(*GenerateBroadcastAccessUrlRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Service_ServiceDesc is the grpc.ServiceDesc for Service service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -236,6 +272,10 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Context",
 			Handler:    _Service_Context_Handler,
+		},
+		{
+			MethodName: "GenerateBroadcastAccessUrl",
+			Handler:    _Service_GenerateBroadcastAccessUrl_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

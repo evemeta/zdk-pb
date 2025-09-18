@@ -21,4 +21,7 @@ service Service {
 
     // Context represents a procedure that retrieves the context associated with a specific event based on its unique identifier.
     rpc Context(ContextRequest) returns (ContextResponse);
+
+    // GenerateBroadcastAccessUrl represents a procedure that generates a broadcast access url for a specific event based on its unique identifier.
+    rpc GenerateBroadcastAccessUrl(GenerateBroadcastAccessUrlRequest) returns (GenerateBroadcastAccessUrlResponse);
 }

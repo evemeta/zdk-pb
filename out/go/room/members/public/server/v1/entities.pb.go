@@ -181,12 +181,12 @@ type Member struct {
 	RoomId string `protobuf:"bytes,3,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
 	// Represents a collection of key-value pairs providing additional context or information about this member.
 	Metadata map[string]string `protobuf:"bytes,4,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	// Represents the timestamp indicating when this member was created or added to the room.
-	CreateTime int64 `protobuf:"varint,5,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
-	// Represents the timestamp of the last update associated with this member.
-	UpdateTime int64 `protobuf:"varint,6,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	// Represents list of permission which member have inside this room.
-	Permissions   []Permission `protobuf:"varint,7,rep,packed,name=permissions,proto3,enum=room.members.public.server.v1.Permission" json:"permissions,omitempty"`
+	Permissions []Permission `protobuf:"varint,5,rep,packed,name=permissions,proto3,enum=room.members.public.server.v1.Permission" json:"permissions,omitempty"`
+	// Represents the timestamp indicating when this member was created or added to the room.
+	CreateTime int64 `protobuf:"varint,6,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	// Represents the timestamp of the last update associated with this member.
+	UpdateTime    int64 `protobuf:"varint,7,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -249,6 +249,13 @@ func (x *Member) GetMetadata() map[string]string {
 	return nil
 }
 
+func (x *Member) GetPermissions() []Permission {
+	if x != nil {
+		return x.Permissions
+	}
+	return nil
+}
+
 func (x *Member) GetCreateTime() int64 {
 	if x != nil {
 		return x.CreateTime
@@ -261,13 +268,6 @@ func (x *Member) GetUpdateTime() int64 {
 		return x.UpdateTime
 	}
 	return 0
-}
-
-func (x *Member) GetPermissions() []Permission {
-	if x != nil {
-		return x.Permissions
-	}
-	return nil
 }
 
 // Condition represents a set of criteria designed to filter data during retrieval.
@@ -410,12 +410,12 @@ const file_room_members_public_server_v1_entities_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\x12\x17\n" +
 	"\aroom_id\x18\x03 \x01(\tR\x06roomId\x12O\n" +
-	"\bmetadata\x18\x04 \x03(\v23.room.members.public.server.v1.Member.MetadataEntryR\bmetadata\x12\x1f\n" +
-	"\vcreate_time\x18\x05 \x01(\x03R\n" +
+	"\bmetadata\x18\x04 \x03(\v23.room.members.public.server.v1.Member.MetadataEntryR\bmetadata\x12K\n" +
+	"\vpermissions\x18\x05 \x03(\x0e2).room.members.public.server.v1.PermissionR\vpermissions\x12\x1f\n" +
+	"\vcreate_time\x18\x06 \x01(\x03R\n" +
 	"createTime\x12\x1f\n" +
-	"\vupdate_time\x18\x06 \x01(\x03R\n" +
-	"updateTime\x12K\n" +
-	"\vpermissions\x18\a \x03(\x0e2).room.members.public.server.v1.PermissionR\vpermissions\x1a;\n" +
+	"\vupdate_time\x18\a \x01(\x03R\n" +
+	"updateTime\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"{\n" +

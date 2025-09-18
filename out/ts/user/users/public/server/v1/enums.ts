@@ -14,143 +14,67 @@ export enum Permission {
      */
     Chat = 100,
     /**
-     * @generated from protobuf enum value: ChatSelect = 101;
+     * @generated from protobuf enum value: ChatBlock = 101;
      */
-    ChatSelect = 101,
+    ChatBlock = 101,
     /**
-     * @generated from protobuf enum value: ChatEnter = 102;
+     * @generated from protobuf enum value: ChatUnblock = 102;
      */
-    ChatEnter = 102,
+    ChatUnblock = 102,
     /**
-     * @generated from protobuf enum value: ChatLeave = 103;
+     * @generated from protobuf enum value: ChatMute = 103;
      */
-    ChatLeave = 103,
+    ChatMute = 103,
     /**
-     * @generated from protobuf enum value: ChatMember = 200;
+     * @generated from protobuf enum value: ChatUnmute = 104;
      */
-    ChatMember = 200,
+    ChatUnmute = 104,
     /**
-     * @generated from protobuf enum value: ChatMemberSelect = 201;
+     * @generated from protobuf enum value: ChatMessageDelete = 105;
      */
-    ChatMemberSelect = 201,
+    ChatMessageDelete = 105,
     /**
-     * @generated from protobuf enum value: ChatMemberKick = 202;
+     * @generated from protobuf enum value: ChatKick = 106;
      */
-    ChatMemberKick = 202,
+    ChatKick = 106,
     /**
-     * @generated from protobuf enum value: ChatMemberMute = 203;
+     * @generated from protobuf enum value: ChatSlowmode = 107;
      */
-    ChatMemberMute = 203,
+    ChatSlowmode = 107,
     /**
-     * @generated from protobuf enum value: ChatMemberUnmute = 204;
+     * @generated from protobuf enum value: ChatSlowmodeBypass = 108;
      */
-    ChatMemberUnmute = 204,
+    ChatSlowmodeBypass = 108,
     /**
-     * @generated from protobuf enum value: ChatMemberBlock = 205;
+     * @generated from protobuf enum value: Room = 200;
      */
-    ChatMemberBlock = 205,
+    Room = 200,
     /**
-     * @generated from protobuf enum value: ChatMemberUnblock = 206;
+     * @generated from protobuf enum value: RoomBlock = 201;
      */
-    ChatMemberUnblock = 206,
+    RoomBlock = 201,
     /**
-     * @generated from protobuf enum value: ChatMessage = 300;
+     * @generated from protobuf enum value: RoomUnblock = 202;
      */
-    ChatMessage = 300,
+    RoomUnblock = 202,
     /**
-     * @generated from protobuf enum value: ChatMessageSelect = 301;
+     * @generated from protobuf enum value: RoomKick = 203;
      */
-    ChatMessageSelect = 301,
+    RoomKick = 203,
     /**
-     * @generated from protobuf enum value: ChatMessageCreate = 302;
+     * @generated from protobuf enum value: Event = 300;
      */
-    ChatMessageCreate = 302,
+    Event = 300,
     /**
-     * @generated from protobuf enum value: ChatMessageUpdate = 303;
+     * @generated from protobuf enum value: EventBlock = 301;
      */
-    ChatMessageUpdate = 303,
+    EventBlock = 301,
     /**
-     * @generated from protobuf enum value: ChatMessageUpdateContent = 304;
+     * @generated from protobuf enum value: EventUnblock = 302;
      */
-    ChatMessageUpdateContent = 304,
+    EventUnblock = 302,
     /**
-     * @generated from protobuf enum value: ChatMessageOwnDelete = 305;
+     * @generated from protobuf enum value: EventKick = 303;
      */
-    ChatMessageOwnDelete = 305,
-    /**
-     * @generated from protobuf enum value: ChatMessageAnyDelete = 306;
-     */
-    ChatMessageAnyDelete = 306,
-    /**
-     * @generated from protobuf enum value: Room = 400;
-     */
-    Room = 400,
-    /**
-     * @generated from protobuf enum value: RoomSelect = 401;
-     */
-    RoomSelect = 401,
-    /**
-     * @generated from protobuf enum value: RoomEnter = 402;
-     */
-    RoomEnter = 402,
-    /**
-     * @generated from protobuf enum value: RoomLeave = 403;
-     */
-    RoomLeave = 403,
-    /**
-     * @generated from protobuf enum value: RoomMember = 500;
-     */
-    RoomMember = 500,
-    /**
-     * @generated from protobuf enum value: RoomMemberSelect = 501;
-     */
-    RoomMemberSelect = 501,
-    /**
-     * @generated from protobuf enum value: RoomMemberKick = 502;
-     */
-    RoomMemberKick = 502,
-    /**
-     * @generated from protobuf enum value: RoomConnection = 600;
-     */
-    RoomConnection = 600,
-    /**
-     * @generated from protobuf enum value: RoomConnectionSelect = 601;
-     */
-    RoomConnectionSelect = 601,
-    /**
-     * @generated from protobuf enum value: RoomStream = 700;
-     */
-    RoomStream = 700,
-    /**
-     * @generated from protobuf enum value: RoomStreamSelect = 701;
-     */
-    RoomStreamSelect = 701,
-    /**
-     * @generated from protobuf enum value: RoomStreamCreate = 702;
-     */
-    RoomStreamCreate = 702,
-    /**
-     * @generated from protobuf enum value: RoomStreamUpdate = 703;
-     */
-    RoomStreamUpdate = 703,
-    /**
-     * @generated from protobuf enum value: RoomStreamDelete = 704;
-     */
-    RoomStreamDelete = 704,
-    /**
-     * @generated from protobuf enum value: RoomRestriction = 800;
-     */
-    RoomRestriction = 800,
-    /**
-     * @generated from protobuf enum value: RoomRestrictionSelect = 801;
-     */
-    RoomRestrictionSelect = 801,
-    /**
-     * @generated from protobuf enum value: RoomRestrictionCreate = 802;
-     */
-    RoomRestrictionCreate = 802,
-    /**
-     * @generated from protobuf enum value: RoomRestrictionDelete = 803;
-     */
-    RoomRestrictionDelete = 803
+    EventKick = 303
 }

@@ -2,14 +2,15 @@ syntax = "proto3";
 
 package event.tokens.public.server.v1;
 
-import "event/events/public/server/v1/entities.proto";
 import "event/members/public/server/v1/entities.proto";
 
 option java_multiple_files = true;
 option java_package = "com.evemeta.zdk.pb.event.server.tokens";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/tokens/public/server/v1;tokenspb";
 
-message ExtractRequest {}
+message ExtractRequest {
+    string token = 1;
+}
 
 message ExtractResponse {
     members.public.server.v1.Member member = 1;

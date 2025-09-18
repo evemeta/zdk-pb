@@ -35,27 +35,27 @@ public object EnterRoomPacketKt {
 
     /**
      * ```
-     * Represents the unique identifier of the room the client is attempting to enter.
+     * Represents the token containing data of the room the client is attempting to enter.
      * ```
      *
-     * `string id = 1;`
+     * `string token = 1;`
      */
-    public var id: kotlin.String
-      @JvmName("getId")
-      get() = _builder.id
-      @JvmName("setId")
+    public var token: kotlin.String
+      @JvmName("getToken")
+      get() = _builder.token
+      @JvmName("setToken")
       set(value) {
-        _builder.id = value
+        _builder.token = value
       }
     /**
      * ```
-     * Represents the unique identifier of the room the client is attempting to enter.
+     * Represents the token containing data of the room the client is attempting to enter.
      * ```
      *
-     * `string id = 1;`
+     * `string token = 1;`
      */
-    public fun clearId() {
-      _builder.clearId()
+    public fun clearToken() {
+      _builder.clearToken()
     }
 
     /**

@@ -4,6 +4,8 @@
 import type { RpcTransport } from "@protobuf-ts/runtime-rpc";
 import type { ServiceInfo } from "@protobuf-ts/runtime-rpc";
 import { Service } from "./services";
+import type { GenerateBroadcastAccessUrlResponse } from "./procedures";
+import type { GenerateBroadcastAccessUrlRequest } from "./procedures";
 import type { ContextResponse } from "./procedures";
 import type { ContextRequest } from "./procedures";
 import type { SelectResponse } from "./procedures";
@@ -43,6 +45,12 @@ export interface IServiceClient {
      * @generated from protobuf rpc: Context(event.events.public.server.v1.ContextRequest) returns (event.events.public.server.v1.ContextResponse);
      */
     context(input: ContextRequest, options?: RpcOptions): UnaryCall<ContextRequest, ContextResponse>;
+    /**
+     * GenerateBroadcastAccessUrl represents a procedure that generates a broadcast access url for a specific event based on its unique identifier.
+     *
+     * @generated from protobuf rpc: GenerateBroadcastAccessUrl(event.events.public.server.v1.GenerateBroadcastAccessUrlRequest) returns (event.events.public.server.v1.GenerateBroadcastAccessUrlResponse);
+     */
+    generateBroadcastAccessUrl(input: GenerateBroadcastAccessUrlRequest, options?: RpcOptions): UnaryCall<GenerateBroadcastAccessUrlRequest, GenerateBroadcastAccessUrlResponse>;
 }
 /**
  * @generated from protobuf service event.events.public.server.v1.Service
@@ -88,5 +96,14 @@ export class ServiceClient implements IServiceClient, ServiceInfo {
     context(input: ContextRequest, options?: RpcOptions): UnaryCall<ContextRequest, ContextResponse> {
         const method = this.methods[3], opt = this._transport.mergeOptions(options);
         return stackIntercept<ContextRequest, ContextResponse>("unary", this._transport, method, opt, input);
+    }
+    /**
+     * GenerateBroadcastAccessUrl represents a procedure that generates a broadcast access url for a specific event based on its unique identifier.
+     *
+     * @generated from protobuf rpc: GenerateBroadcastAccessUrl(event.events.public.server.v1.GenerateBroadcastAccessUrlRequest) returns (event.events.public.server.v1.GenerateBroadcastAccessUrlResponse);
+     */
+    generateBroadcastAccessUrl(input: GenerateBroadcastAccessUrlRequest, options?: RpcOptions): UnaryCall<GenerateBroadcastAccessUrlRequest, GenerateBroadcastAccessUrlResponse> {
+        const method = this.methods[4], opt = this._transport.mergeOptions(options);
+        return stackIntercept<GenerateBroadcastAccessUrlRequest, GenerateBroadcastAccessUrlResponse>("unary", this._transport, method, opt, input);
     }
 }

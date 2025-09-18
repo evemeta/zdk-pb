@@ -7,7 +7,6 @@
 package tokenspb
 
 import (
-	_ "gitlab.com/evemeta/zdk/pb/out/go/event/events/private/v1"
 	v1 "gitlab.com/evemeta/zdk/pb/out/go/event/members/private/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -315,7 +314,7 @@ var File_event_tokens_private_v1_procedures_proto protoreflect.FileDescriptor
 
 const file_event_tokens_private_v1_procedures_proto_rawDesc = "" +
 	"\n" +
-	"(event/tokens/private/v1/procedures.proto\x12\x17event.tokens.private.v1\x1a#event/events/private/v1/enums.proto\x1a&event/events/private/v1/entities.proto\x1a$event/members/private/v1/enums.proto\x1a'event/members/private/v1/entities.proto\"\x9c\x02\n" +
+	"(event/tokens/private/v1/procedures.proto\x12\x17event.tokens.private.v1\x1a$event/members/private/v1/enums.proto\x1a'event/members/private/v1/entities.proto\"\x9c\x02\n" +
 	"\x0eCreateArgument\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x19\n" +
 	"\bevent_id\x18\x02 \x01(\tR\aeventId\x12Q\n" +

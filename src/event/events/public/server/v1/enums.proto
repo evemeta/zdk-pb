@@ -2,12 +2,11 @@ syntax = "proto3";
 
 package event.events.public.server.v1;
 
-
 option java_multiple_files = true;
 option java_package = "com.evemeta.zdk.pb.event.server.events";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/events/public/server/v1;eventspb";
 
-// Kind todo;
+// Kind represents an enumeration that specifies the type or classification of an event, indicating whether it is dependent on a parent object or independent.
 enum Kind {
     KindUnknown     = 0;
     KindDependent   = 1;
@@ -21,10 +20,25 @@ enum Order {
     OrderDescending = 2;
 }
 
+// Status represents an enumeration that specifies the current state of an event, indicating whether it is pending, started, canceled, or finished.
 enum Status {
     StatusUnknown  = 0;
     StatusPending  = 1;
     StatusStarted  = 2;
-    StatusCanceled = 3;
-    StatusFinished = 4;
+    StatusFinished = 3;
+    StatusCanceled = 4;
+}
+
+// Schedule todo;
+enum Schedule {
+    ScheduleUnknown   = 0;
+    SchedulePlanned   = 1;
+    ScheduleUnplanned = 2;
+}
+
+// BroadcastOrientation todo;
+enum BroadcastOrientation {
+    BroadcastOrientationUnknown    = 0;
+    BroadcastOrientationVertical   = 1;
+    BroadcastOrientationHorizontal = 2;
 }

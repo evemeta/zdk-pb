@@ -24,35 +24,40 @@ var File_event_events_public_server_v1_services_proto protoreflect.FileDescripto
 
 const file_event_events_public_server_v1_services_proto_rawDesc = "" +
 	"\n" +
-	",event/events/public/server/v1/services.proto\x12\x1devent.events.public.server.v1\x1a.event/events/public/server/v1/procedures.proto2\xa2\x03\n" +
+	",event/events/public/server/v1/services.proto\x12\x1devent.events.public.server.v1\x1a.event/events/public/server/v1/procedures.proto2\xc6\x04\n" +
 	"\aService\x12b\n" +
 	"\x05Count\x12+.event.events.public.server.v1.CountRequest\x1a,.event.events.public.server.v1.CountResponse\x12b\n" +
 	"\x05Range\x12+.event.events.public.server.v1.RangeRequest\x1a,.event.events.public.server.v1.RangeResponse\x12e\n" +
 	"\x06Select\x12,.event.events.public.server.v1.SelectRequest\x1a-.event.events.public.server.v1.SelectResponse\x12h\n" +
-	"\aContext\x12-.event.events.public.server.v1.ContextRequest\x1a..event.events.public.server.v1.ContextResponseBs\n" +
+	"\aContext\x12-.event.events.public.server.v1.ContextRequest\x1a..event.events.public.server.v1.ContextResponse\x12\xa1\x01\n" +
+	"\x1aGenerateBroadcastAccessUrl\x12@.event.events.public.server.v1.GenerateBroadcastAccessUrlRequest\x1aA.event.events.public.server.v1.GenerateBroadcastAccessUrlResponseBs\n" +
 	"&com.evemeta.zdk.pb.event.server.eventsP\x01ZGgitlab.com/evemeta/zdk/pb/out/go/event/events/public/server/v1;eventspbb\x06proto3"
 
 var file_event_events_public_server_v1_services_proto_goTypes = []any{
-	(*CountRequest)(nil),    // 0: event.events.public.server.v1.CountRequest
-	(*RangeRequest)(nil),    // 1: event.events.public.server.v1.RangeRequest
-	(*SelectRequest)(nil),   // 2: event.events.public.server.v1.SelectRequest
-	(*ContextRequest)(nil),  // 3: event.events.public.server.v1.ContextRequest
-	(*CountResponse)(nil),   // 4: event.events.public.server.v1.CountResponse
-	(*RangeResponse)(nil),   // 5: event.events.public.server.v1.RangeResponse
-	(*SelectResponse)(nil),  // 6: event.events.public.server.v1.SelectResponse
-	(*ContextResponse)(nil), // 7: event.events.public.server.v1.ContextResponse
+	(*CountRequest)(nil),                       // 0: event.events.public.server.v1.CountRequest
+	(*RangeRequest)(nil),                       // 1: event.events.public.server.v1.RangeRequest
+	(*SelectRequest)(nil),                      // 2: event.events.public.server.v1.SelectRequest
+	(*ContextRequest)(nil),                     // 3: event.events.public.server.v1.ContextRequest
+	(*GenerateBroadcastAccessUrlRequest)(nil),  // 4: event.events.public.server.v1.GenerateBroadcastAccessUrlRequest
+	(*CountResponse)(nil),                      // 5: event.events.public.server.v1.CountResponse
+	(*RangeResponse)(nil),                      // 6: event.events.public.server.v1.RangeResponse
+	(*SelectResponse)(nil),                     // 7: event.events.public.server.v1.SelectResponse
+	(*ContextResponse)(nil),                    // 8: event.events.public.server.v1.ContextResponse
+	(*GenerateBroadcastAccessUrlResponse)(nil), // 9: event.events.public.server.v1.GenerateBroadcastAccessUrlResponse
 }
 var file_event_events_public_server_v1_services_proto_depIdxs = []int32{
 	0, // 0: event.events.public.server.v1.Service.Count:input_type -> event.events.public.server.v1.CountRequest
 	1, // 1: event.events.public.server.v1.Service.Range:input_type -> event.events.public.server.v1.RangeRequest
 	2, // 2: event.events.public.server.v1.Service.Select:input_type -> event.events.public.server.v1.SelectRequest
 	3, // 3: event.events.public.server.v1.Service.Context:input_type -> event.events.public.server.v1.ContextRequest
-	4, // 4: event.events.public.server.v1.Service.Count:output_type -> event.events.public.server.v1.CountResponse
-	5, // 5: event.events.public.server.v1.Service.Range:output_type -> event.events.public.server.v1.RangeResponse
-	6, // 6: event.events.public.server.v1.Service.Select:output_type -> event.events.public.server.v1.SelectResponse
-	7, // 7: event.events.public.server.v1.Service.Context:output_type -> event.events.public.server.v1.ContextResponse
-	4, // [4:8] is the sub-list for method output_type
-	0, // [0:4] is the sub-list for method input_type
+	4, // 4: event.events.public.server.v1.Service.GenerateBroadcastAccessUrl:input_type -> event.events.public.server.v1.GenerateBroadcastAccessUrlRequest
+	5, // 5: event.events.public.server.v1.Service.Count:output_type -> event.events.public.server.v1.CountResponse
+	6, // 6: event.events.public.server.v1.Service.Range:output_type -> event.events.public.server.v1.RangeResponse
+	7, // 7: event.events.public.server.v1.Service.Select:output_type -> event.events.public.server.v1.SelectResponse
+	8, // 8: event.events.public.server.v1.Service.Context:output_type -> event.events.public.server.v1.ContextResponse
+	9, // 9: event.events.public.server.v1.Service.GenerateBroadcastAccessUrl:output_type -> event.events.public.server.v1.GenerateBroadcastAccessUrlResponse
+	5, // [5:10] is the sub-list for method output_type
+	0, // [0:5] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name

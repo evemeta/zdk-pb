@@ -21,7 +21,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// OptionalStatus todo;
 type OptionalStatus struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Value         Status                 `protobuf:"varint,1,opt,name=value,proto3,enum=room.connections.private.v1.Status" json:"value,omitempty"`
@@ -66,8 +65,6 @@ func (x *OptionalStatus) GetValue() Status {
 	return StatusUnknown
 }
 
-// OptionalString represents a string value that can be intentionally left unset or null.
-// It allows for explicit control over the presence or absence of the string, accommodating scenarios where the string might be optional or intentionally omitted.
 type OptionalString struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Value         string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`

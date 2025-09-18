@@ -6,6 +6,10 @@
 package com.evemeta.zdk.pb.room.server.connections;
 
 /**
+ * <pre>
+ * Kind todo;
+ * </pre>
+ *
  * Protobuf enum {@code room.connections.public.server.v1.Kind}
  */
 public enum Kind

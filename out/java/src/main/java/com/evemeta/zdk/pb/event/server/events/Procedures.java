@@ -65,6 +65,16 @@ public final class Procedures {
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_event_events_public_server_v1_ContextResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_event_events_public_server_v1_GenerateBroadcastAccessUrlRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_event_events_public_server_v1_GenerateBroadcastAccessUrlRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_event_events_public_server_v1_GenerateBroadcastAccessUrlResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_event_events_public_server_v1_GenerateBroadcastAccessUrlResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -89,10 +99,12 @@ public final class Procedures {
       "ents.public.server.v1.Chunk\"\034\n\016ContextRe" +
       "quest\022\n\n\002id\030\001 \001(\t\"J\n\017ContextResponse\0227\n\007" +
       "context\030\001 \001(\0132&.event.events.public.serv" +
-      "er.v1.ContextBs\n&com.evemeta.zdk.pb.even" +
-      "t.server.eventsP\001ZGgitlab.com/evemeta/zd" +
-      "k/pb/out/go/event/events/public/server/v" +
-      "1;eventspbb\006proto3"
+      "er.v1.Context\"/\n!GenerateBroadcastAccess" +
+      "UrlRequest\022\n\n\002id\030\001 \001(\t\"1\n\"GenerateBroadc" +
+      "astAccessUrlResponse\022\013\n\003url\030\001 \001(\tBs\n&com" +
+      ".evemeta.zdk.pb.event.server.eventsP\001ZGg" +
+      "itlab.com/evemeta/zdk/pb/out/go/event/ev" +
+      "ents/public/server/v1;eventspbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -147,6 +159,18 @@ public final class Procedures {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_event_events_public_server_v1_ContextResponse_descriptor,
         new java.lang.String[] { "Context", });
+    internal_static_event_events_public_server_v1_GenerateBroadcastAccessUrlRequest_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_event_events_public_server_v1_GenerateBroadcastAccessUrlRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_event_events_public_server_v1_GenerateBroadcastAccessUrlRequest_descriptor,
+        new java.lang.String[] { "Id", });
+    internal_static_event_events_public_server_v1_GenerateBroadcastAccessUrlResponse_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_event_events_public_server_v1_GenerateBroadcastAccessUrlResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_event_events_public_server_v1_GenerateBroadcastAccessUrlResponse_descriptor,
+        new java.lang.String[] { "Url", });
     descriptor.resolveAllFeaturesImmutable();
     com.evemeta.zdk.pb.event.server.events.Entities.getDescriptor();
   }

@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package chat.members.public.server.v1;
 
-
 option java_multiple_files = true;
 option java_package = "com.evemeta.zdk.pb.chat.server.members";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/members/public/server/v1;memberspb";

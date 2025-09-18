@@ -10,16 +10,16 @@ public interface EnterChatPacketOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string id = 1;</code>
-   * @return The id.
+   * <code>string token = 1;</code>
+   * @return The token.
    */
-  java.lang.String getId();
+  java.lang.String getToken();
   /**
-   * <code>string id = 1;</code>
-   * @return The bytes for id.
+   * <code>string token = 1;</code>
+   * @return The bytes for token.
    */
   com.google.protobuf.ByteString
-      getIdBytes();
+      getTokenBytes();
 
   /**
    * <code>bool override = 2;</code>

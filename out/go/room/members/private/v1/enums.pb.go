@@ -122,20 +122,20 @@ func (Status) EnumDescriptor() ([]byte, []int) {
 type Permission int32
 
 const (
-	PermissionUnknown                       Permission = 0
-	PermissionChat                          Permission = 100
-	PermissionChatBlock                     Permission = 101
-	PermissionChatUnblock                   Permission = 102
-	PermissionChatMute                      Permission = 103
-	PermissionChatUnmute                    Permission = 104
-	PermissionChatMessageDelete             Permission = 105
-	PermissionChatKick                      Permission = 106
-	Permission_permissionChatSlowmode       Permission = 107
-	Permission_permissionChatSlowmodeBypass Permission = 108
-	PermissionRoom                          Permission = 200
-	PermissionRoomBlock                     Permission = 201
-	PermissionRoomUnblock                   Permission = 202
-	PermissionRoomKick                      Permission = 203
+	PermissionUnknown            Permission = 0
+	PermissionChat               Permission = 100
+	PermissionChatBlock          Permission = 101
+	PermissionChatUnblock        Permission = 102
+	PermissionChatMute           Permission = 103
+	PermissionChatUnmute         Permission = 104
+	PermissionChatMessageDelete  Permission = 105
+	PermissionChatKick           Permission = 106
+	PermissionChatSlowmode       Permission = 107
+	PermissionChatSlowmodeBypass Permission = 108
+	PermissionRoom               Permission = 200
+	PermissionRoomBlock          Permission = 201
+	PermissionRoomUnblock        Permission = 202
+	PermissionRoomKick           Permission = 203
 )
 
 // Enum value maps for Permission.
@@ -149,8 +149,8 @@ var (
 		104: "PermissionChatUnmute",
 		105: "PermissionChatMessageDelete",
 		106: "PermissionChatKick",
-		107: "permissionChatSlowmode",
-		108: "permissionChatSlowmodeBypass",
+		107: "PermissionChatSlowmode",
+		108: "PermissionChatSlowmodeBypass",
 		200: "PermissionRoom",
 		201: "PermissionRoomBlock",
 		202: "PermissionRoomUnblock",
@@ -165,8 +165,8 @@ var (
 		"PermissionChatUnmute":         104,
 		"PermissionChatMessageDelete":  105,
 		"PermissionChatKick":           106,
-		"permissionChatSlowmode":       107,
-		"permissionChatSlowmodeBypass": 108,
+		"PermissionChatSlowmode":       107,
+		"PermissionChatSlowmodeBypass": 108,
 		"PermissionRoom":               200,
 		"PermissionRoomBlock":          201,
 		"PermissionRoomUnblock":        202,
@@ -224,8 +224,8 @@ const file_room_members_private_v1_enums_proto_rawDesc = "" +
 	"\x14PermissionChatUnmute\x10h\x12\x1f\n" +
 	"\x1bPermissionChatMessageDelete\x10i\x12\x16\n" +
 	"\x12PermissionChatKick\x10j\x12\x1a\n" +
-	"\x16permissionChatSlowmode\x10k\x12 \n" +
-	"\x1cpermissionChatSlowmodeBypass\x10l\x12\x13\n" +
+	"\x16PermissionChatSlowmode\x10k\x12 \n" +
+	"\x1cPermissionChatSlowmodeBypass\x10l\x12\x13\n" +
 	"\x0ePermissionRoom\x10\xc8\x01\x12\x18\n" +
 	"\x13PermissionRoomBlock\x10\xc9\x01\x12\x1a\n" +
 	"\x15PermissionRoomUnblock\x10\xca\x01\x12\x17\n" +

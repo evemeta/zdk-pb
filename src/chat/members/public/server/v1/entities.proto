@@ -45,10 +45,12 @@ message Member {
     string chat_id = 3;
     // Represents a collection of key-value pairs providing additional context or information about this member.
     map<string, string> metadata = 4;
+    // Represents list of permission which member have inside this room.
+    repeated chat.members.public.server.v1.Permission permissions = 5;
     // Represents the timestamp indicating when this member was created or added to the chat.
-    int64 create_time = 5;
+    int64 create_time = 6;
     // Represents the timestamp of the last update associated with this member.
-    int64 update_time = 6;
+    int64 update_time = 7;
 }
 
 // Condition represents a set of criteria designed to filter data during retrieval.

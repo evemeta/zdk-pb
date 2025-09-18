@@ -26,18 +26,18 @@ type Kind int32
 
 const (
 	KindUnknown Kind = 0
-	KindEnter   Kind = 1
+	KindBlock   Kind = 1
 )
 
 // Enum value maps for Kind.
 var (
 	Kind_name = map[int32]string{
 		0: "KindUnknown",
-		1: "KindEnter",
+		1: "KindBlock",
 	}
 	Kind_value = map[string]int32{
 		"KindUnknown": 0,
-		"KindEnter":   1,
+		"KindBlock":   1,
 	}
 )
 
@@ -125,7 +125,7 @@ const file_room_restrictions_public_server_v1_enums_proto_rawDesc = "" +
 	".room/restrictions/public/server/v1/enums.proto\x12\"room.restrictions.public.server.v1*&\n" +
 	"\x04Kind\x12\x0f\n" +
 	"\vKindUnknown\x10\x00\x12\r\n" +
-	"\tKindEnter\x10\x01*B\n" +
+	"\tKindBlock\x10\x01*B\n" +
 	"\x05Order\x12\x10\n" +
 	"\fOrderUnknown\x10\x00\x12\x12\n" +
 	"\x0eOrderAscending\x10\x01\x12\x13\n" +

@@ -76,10 +76,10 @@ public final class Entities {
       "ublic.server.v1.Condition\"\230\002\n\006Member\022\n\n\002" +
       "id\030\001 \001(\t\022\017\n\007user_id\030\002 \001(\t\022\017\n\007room_id\030\003 \001" +
       "(\t\022E\n\010metadata\030\004 \003(\01323.room.members.publ" +
-      "ic.server.v1.Member.MetadataEntry\022\023\n\013cre" +
-      "ate_time\030\005 \001(\003\022\023\n\013update_time\030\006 \001(\003\022>\n\013p" +
-      "ermissions\030\007 \003(\0162).room.members.public.s" +
-      "erver.v1.Permission\032/\n\rMetadataEntry\022\013\n\003" +
+      "ic.server.v1.Member.MetadataEntry\022>\n\013per" +
+      "missions\030\005 \003(\0162).room.members.public.ser" +
+      "ver.v1.Permission\022\023\n\013create_time\030\006 \001(\003\022\023" +
+      "\n\013update_time\030\007 \001(\003\032/\n\rMetadataEntry\022\013\n\003" +
       "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"c\n\tConditio" +
       "n\022\013\n\003ids\030\001 \003(\t\022\020\n\010room_ids\030\002 \003(\t\0227\n\010stat" +
       "uses\030\003 \003(\0162%.room.members.public.server." +
@@ -111,7 +111,7 @@ public final class Entities {
     internal_static_room_members_public_server_v1_Member_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_room_members_public_server_v1_Member_descriptor,
-        new java.lang.String[] { "Id", "UserId", "RoomId", "Metadata", "CreateTime", "UpdateTime", "Permissions", });
+        new java.lang.String[] { "Id", "UserId", "RoomId", "Metadata", "Permissions", "CreateTime", "UpdateTime", });
     internal_static_room_members_public_server_v1_Member_MetadataEntry_descriptor =
       internal_static_room_members_public_server_v1_Member_descriptor.getNestedTypes().get(0);
     internal_static_room_members_public_server_v1_Member_MetadataEntry_fieldAccessorTable = new

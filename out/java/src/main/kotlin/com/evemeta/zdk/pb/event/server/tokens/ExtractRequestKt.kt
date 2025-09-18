@@ -27,6 +27,23 @@ public object ExtractRequestKt {
     @kotlin.jvm.JvmSynthetic
   @kotlin.PublishedApi
     internal fun _build(): com.evemeta.zdk.pb.event.server.tokens.ExtractRequest = _builder.build()
+
+    /**
+     * `string token = 1;`
+     */
+    public var token: kotlin.String
+      @JvmName("getToken")
+      get() = _builder.token
+      @JvmName("setToken")
+      set(value) {
+        _builder.token = value
+      }
+    /**
+     * `string token = 1;`
+     */
+    public fun clearToken() {
+      _builder.clearToken()
+    }
   }
 }
 @kotlin.jvm.JvmSynthetic

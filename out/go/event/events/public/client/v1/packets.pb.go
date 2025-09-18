@@ -26,7 +26,7 @@ const (
 type EnterEventPacket struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Represents the unique identifier of the event the client is attempting to enter.
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Token string `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
 	// Represents a control mechanism that automatically disconnects any other sessions from any event linked to the user, allowing a new session to enter without issues.
 	Override      bool `protobuf:"varint,2,opt,name=override,proto3" json:"override,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -63,9 +63,9 @@ func (*EnterEventPacket) Descriptor() ([]byte, []int) {
 	return file_event_events_public_client_v1_packets_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *EnterEventPacket) GetId() string {
+func (x *EnterEventPacket) GetToken() string {
 	if x != nil {
-		return x.Id
+		return x.Token
 	}
 	return ""
 }
@@ -184,9 +184,9 @@ var File_event_events_public_client_v1_packets_proto protoreflect.FileDescriptor
 
 const file_event_events_public_client_v1_packets_proto_rawDesc = "" +
 	"\n" +
-	"+event/events/public/client/v1/packets.proto\x12\x1devent.events.public.client.v1\">\n" +
-	"\x10EnterEventPacket\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1a\n" +
+	"+event/events/public/client/v1/packets.proto\x12\x1devent.events.public.client.v1\"D\n" +
+	"\x10EnterEventPacket\x12\x14\n" +
+	"\x05token\x18\x01 \x01(\tR\x05token\x12\x1a\n" +
 	"\boverride\x18\x02 \x01(\bR\boverride\"\"\n" +
 	"\x10LeaveEventPacket\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\"\xbc\x01\n" +

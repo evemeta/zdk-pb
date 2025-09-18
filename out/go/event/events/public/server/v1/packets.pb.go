@@ -440,62 +440,6 @@ func (x *StartEventPacket) GetTimeframe() *Timeframe {
 	return nil
 }
 
-// CancelEventPacket is a notification sent to clients when a event has been canceled.
-// It provides the identifier of the event and the relevant timeframe associated with the event.
-type CancelEventPacket struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Represents the unique identifier of the event.
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// Represents the specific span of time, containing the commence and complete timestamps associated with the event.
-	Timeframe     *Timeframe `protobuf:"bytes,2,opt,name=timeframe,proto3" json:"timeframe,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CancelEventPacket) Reset() {
-	*x = CancelEventPacket{}
-	mi := &file_event_events_public_server_v1_packets_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CancelEventPacket) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CancelEventPacket) ProtoMessage() {}
-
-func (x *CancelEventPacket) ProtoReflect() protoreflect.Message {
-	mi := &file_event_events_public_server_v1_packets_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CancelEventPacket.ProtoReflect.Descriptor instead.
-func (*CancelEventPacket) Descriptor() ([]byte, []int) {
-	return file_event_events_public_server_v1_packets_proto_rawDescGZIP(), []int{7}
-}
-
-func (x *CancelEventPacket) GetId() string {
-	if x != nil {
-		return x.Id
-	}
-	return ""
-}
-
-func (x *CancelEventPacket) GetTimeframe() *Timeframe {
-	if x != nil {
-		return x.Timeframe
-	}
-	return nil
-}
-
 // FinishEventPacket is a notification sent to clients when a event has been finished.
 // It provides the identifier of the event and the relevant timeframe associated with the event.
 type FinishEventPacket struct {
@@ -510,7 +454,7 @@ type FinishEventPacket struct {
 
 func (x *FinishEventPacket) Reset() {
 	*x = FinishEventPacket{}
-	mi := &file_event_events_public_server_v1_packets_proto_msgTypes[8]
+	mi := &file_event_events_public_server_v1_packets_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -522,7 +466,7 @@ func (x *FinishEventPacket) String() string {
 func (*FinishEventPacket) ProtoMessage() {}
 
 func (x *FinishEventPacket) ProtoReflect() protoreflect.Message {
-	mi := &file_event_events_public_server_v1_packets_proto_msgTypes[8]
+	mi := &file_event_events_public_server_v1_packets_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -535,7 +479,7 @@ func (x *FinishEventPacket) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FinishEventPacket.ProtoReflect.Descriptor instead.
 func (*FinishEventPacket) Descriptor() ([]byte, []int) {
-	return file_event_events_public_server_v1_packets_proto_rawDescGZIP(), []int{8}
+	return file_event_events_public_server_v1_packets_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *FinishEventPacket) GetId() string {
@@ -546,6 +490,62 @@ func (x *FinishEventPacket) GetId() string {
 }
 
 func (x *FinishEventPacket) GetTimeframe() *Timeframe {
+	if x != nil {
+		return x.Timeframe
+	}
+	return nil
+}
+
+// CancelEventPacket is a notification sent to clients when a event has been canceled.
+// It provides the identifier of the event and the relevant timeframe associated with the event.
+type CancelEventPacket struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Represents the unique identifier of the event.
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+	Timeframe     *Timeframe `protobuf:"bytes,2,opt,name=timeframe,proto3" json:"timeframe,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CancelEventPacket) Reset() {
+	*x = CancelEventPacket{}
+	mi := &file_event_events_public_server_v1_packets_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CancelEventPacket) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CancelEventPacket) ProtoMessage() {}
+
+func (x *CancelEventPacket) ProtoReflect() protoreflect.Message {
+	mi := &file_event_events_public_server_v1_packets_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CancelEventPacket.ProtoReflect.Descriptor instead.
+func (*CancelEventPacket) Descriptor() ([]byte, []int) {
+	return file_event_events_public_server_v1_packets_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *CancelEventPacket) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *CancelEventPacket) GetTimeframe() *Timeframe {
 	if x != nil {
 		return x.Timeframe
 	}
@@ -585,10 +585,10 @@ const file_event_events_public_server_v1_packets_proto_rawDesc = "" +
 	"\x10StartEventPacket\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12F\n" +
 	"\ttimeframe\x18\x02 \x01(\v2(.event.events.public.server.v1.TimeframeR\ttimeframe\"k\n" +
-	"\x11CancelEventPacket\x12\x0e\n" +
+	"\x11FinishEventPacket\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12F\n" +
 	"\ttimeframe\x18\x02 \x01(\v2(.event.events.public.server.v1.TimeframeR\ttimeframe\"k\n" +
-	"\x11FinishEventPacket\x12\x0e\n" +
+	"\x11CancelEventPacket\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12F\n" +
 	"\ttimeframe\x18\x02 \x01(\v2(.event.events.public.server.v1.TimeframeR\ttimeframeBs\n" +
 	"&com.evemeta.zdk.pb.event.server.eventsP\x01ZGgitlab.com/evemeta/zdk/pb/out/go/event/events/public/server/v1;eventspbb\x06proto3"
@@ -614,8 +614,8 @@ var file_event_events_public_server_v1_packets_proto_goTypes = []any{
 	(*DeleteEventPacket)(nil),       // 4: event.events.public.server.v1.DeleteEventPacket
 	(*InvokeEventActionPacket)(nil), // 5: event.events.public.server.v1.InvokeEventActionPacket
 	(*StartEventPacket)(nil),        // 6: event.events.public.server.v1.StartEventPacket
-	(*CancelEventPacket)(nil),       // 7: event.events.public.server.v1.CancelEventPacket
-	(*FinishEventPacket)(nil),       // 8: event.events.public.server.v1.FinishEventPacket
+	(*FinishEventPacket)(nil),       // 7: event.events.public.server.v1.FinishEventPacket
+	(*CancelEventPacket)(nil),       // 8: event.events.public.server.v1.CancelEventPacket
 	nil,                             // 9: event.events.public.server.v1.InvokeEventActionPacket.DataEntry
 	(*v1.Member)(nil),               // 10: event.members.public.server.v1.Member
 	(*Timeframe)(nil),               // 11: event.events.public.server.v1.Timeframe
@@ -634,8 +634,8 @@ var file_event_events_public_server_v1_packets_proto_depIdxs = []int32{
 	11, // 8: event.events.public.server.v1.DeleteEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
 	9,  // 9: event.events.public.server.v1.InvokeEventActionPacket.data:type_name -> event.events.public.server.v1.InvokeEventActionPacket.DataEntry
 	11, // 10: event.events.public.server.v1.StartEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
-	11, // 11: event.events.public.server.v1.CancelEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
-	11, // 12: event.events.public.server.v1.FinishEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
+	11, // 11: event.events.public.server.v1.FinishEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
+	11, // 12: event.events.public.server.v1.CancelEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
 	13, // [13:13] is the sub-list for method output_type
 	13, // [13:13] is the sub-list for method input_type
 	13, // [13:13] is the sub-list for extension type_name

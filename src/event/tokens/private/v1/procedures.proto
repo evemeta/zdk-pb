@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package event.tokens.private.v1;
 
-import "event/events/private/v1/enums.proto";
-import "event/events/private/v1/entities.proto";
 import "event/members/private/v1/enums.proto";
 import "event/members/private/v1/entities.proto";
 

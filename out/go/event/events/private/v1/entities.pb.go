@@ -371,8 +371,10 @@ type Condition struct {
 	Ids           []string               `protobuf:"bytes,1,rep,name=ids,proto3" json:"ids,omitempty"`
 	ChatIds       []string               `protobuf:"bytes,2,rep,name=chat_ids,json=chatIds,proto3" json:"chat_ids,omitempty"`
 	RoomIds       []string               `protobuf:"bytes,3,rep,name=room_ids,json=roomIds,proto3" json:"room_ids,omitempty"`
-	Statuses      []Status               `protobuf:"varint,4,rep,packed,name=statuses,proto3,enum=event.events.private.v1.Status" json:"statuses,omitempty"`
-	Members       []*v1.Query            `protobuf:"bytes,5,rep,name=members,proto3" json:"members,omitempty"`
+	Kinds         []Kind                 `protobuf:"varint,4,rep,packed,name=kinds,proto3,enum=event.events.private.v1.Kind" json:"kinds,omitempty"`
+	Statuses      []Status               `protobuf:"varint,5,rep,packed,name=statuses,proto3,enum=event.events.private.v1.Status" json:"statuses,omitempty"`
+	Schedules     []Schedule             `protobuf:"varint,6,rep,packed,name=schedules,proto3,enum=event.events.private.v1.Schedule" json:"schedules,omitempty"`
+	Members       []*v1.Query            `protobuf:"bytes,7,rep,name=members,proto3" json:"members,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -428,9 +430,23 @@ func (x *Condition) GetRoomIds() []string {
 	return nil
 }
 
+func (x *Condition) GetKinds() []Kind {
+	if x != nil {
+		return x.Kinds
+	}
+	return nil
+}
+
 func (x *Condition) GetStatuses() []Status {
 	if x != nil {
 		return x.Statuses
+	}
+	return nil
+}
+
+func (x *Condition) GetSchedules() []Schedule {
+	if x != nil {
+		return x.Schedules
 	}
 	return nil
 }
@@ -547,13 +563,15 @@ const file_event_events_private_v1_entities_proto_rawDesc = "" +
 	"\x06offset\x18\x03 \x01(\x03R\x06offset\x12B\n" +
 	"\n" +
 	"conditions\x18\x04 \x03(\v2\".event.events.private.v1.ConditionR\n" +
-	"conditions\"\xcb\x01\n" +
+	"conditions\"\xc1\x02\n" +
 	"\tCondition\x12\x10\n" +
 	"\x03ids\x18\x01 \x03(\tR\x03ids\x12\x19\n" +
 	"\bchat_ids\x18\x02 \x03(\tR\achatIds\x12\x19\n" +
-	"\broom_ids\x18\x03 \x03(\tR\aroomIds\x12;\n" +
-	"\bstatuses\x18\x04 \x03(\x0e2\x1f.event.events.private.v1.StatusR\bstatuses\x129\n" +
-	"\amembers\x18\x05 \x03(\v2\x1f.event.members.private.v1.QueryR\amembers\"\xb9\x01\n" +
+	"\broom_ids\x18\x03 \x03(\tR\aroomIds\x123\n" +
+	"\x05kinds\x18\x04 \x03(\x0e2\x1d.event.events.private.v1.KindR\x05kinds\x12;\n" +
+	"\bstatuses\x18\x05 \x03(\x0e2\x1f.event.events.private.v1.StatusR\bstatuses\x12?\n" +
+	"\tschedules\x18\x06 \x03(\x0e2!.event.events.private.v1.ScheduleR\tschedules\x129\n" +
+	"\amembers\x18\a \x03(\v2\x1f.event.members.private.v1.QueryR\amembers\"\xb9\x01\n" +
 	"\tTransient\x126\n" +
 	"\x06future\x18\x01 \x01(\v2\x1e.event.events.private.v1.EventR\x06future\x128\n" +
 	"\acurrent\x18\x02 \x01(\v2\x1e.event.events.private.v1.EventR\acurrent\x12:\n" +
@@ -597,16 +615,18 @@ var file_event_events_private_v1_entities_proto_depIdxs = []int32{
 	0,  // 6: event.events.private.v1.Chunk.entities:type_name -> event.events.private.v1.Event
 	11, // 7: event.events.private.v1.Query.order:type_name -> event.events.private.v1.Order
 	4,  // 8: event.events.private.v1.Query.conditions:type_name -> event.events.private.v1.Condition
-	8,  // 9: event.events.private.v1.Condition.statuses:type_name -> event.events.private.v1.Status
-	12, // 10: event.events.private.v1.Condition.members:type_name -> event.members.private.v1.Query
-	0,  // 11: event.events.private.v1.Transient.future:type_name -> event.events.private.v1.Event
-	0,  // 12: event.events.private.v1.Transient.current:type_name -> event.events.private.v1.Event
-	0,  // 13: event.events.private.v1.Transient.previous:type_name -> event.events.private.v1.Event
-	14, // [14:14] is the sub-list for method output_type
-	14, // [14:14] is the sub-list for method input_type
-	14, // [14:14] is the sub-list for extension type_name
-	14, // [14:14] is the sub-list for extension extendee
-	0,  // [0:14] is the sub-list for field type_name
+	7,  // 9: event.events.private.v1.Condition.kinds:type_name -> event.events.private.v1.Kind
+	8,  // 10: event.events.private.v1.Condition.statuses:type_name -> event.events.private.v1.Status
+	9,  // 11: event.events.private.v1.Condition.schedules:type_name -> event.events.private.v1.Schedule
+	12, // 12: event.events.private.v1.Condition.members:type_name -> event.members.private.v1.Query
+	0,  // 13: event.events.private.v1.Transient.future:type_name -> event.events.private.v1.Event
+	0,  // 14: event.events.private.v1.Transient.current:type_name -> event.events.private.v1.Event
+	0,  // 15: event.events.private.v1.Transient.previous:type_name -> event.events.private.v1.Event
+	16, // [16:16] is the sub-list for method output_type
+	16, // [16:16] is the sub-list for method input_type
+	16, // [16:16] is the sub-list for extension type_name
+	16, // [16:16] is the sub-list for extension extendee
+	0,  // [0:16] is the sub-list for field type_name
 }
 
 func init() { file_event_events_private_v1_entities_proto_init() }

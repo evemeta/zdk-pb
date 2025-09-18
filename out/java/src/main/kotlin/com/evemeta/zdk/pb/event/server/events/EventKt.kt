@@ -60,7 +60,7 @@ public object EventKt {
 
     /**
      * ```
-     * todo;
+     * Determines whatever the event is dependent or independent, it may depend on a parent object.
      * ```
      *
      * `.event.events.public.server.v1.Kind kind = 2;`
@@ -81,7 +81,7 @@ public object EventKt {
       }
     /**
      * ```
-     * todo;
+     * Determines whatever the event is dependent or independent, it may depend on a parent object.
      * ```
      *
      * `.event.events.public.server.v1.Kind kind = 2;`
@@ -92,7 +92,7 @@ public object EventKt {
 
     /**
      * ```
-     * todo;
+     * Status of the event (pending, started, canceled, or finished).
      * ```
      *
      * `.event.events.public.server.v1.Status status = 3;`
@@ -113,7 +113,7 @@ public object EventKt {
       }
     /**
      * ```
-     * todo;
+     * Status of the event (pending, started, canceled, or finished).
      * ```
      *
      * `.event.events.public.server.v1.Status status = 3;`
@@ -212,7 +212,103 @@ public object EventKt {
      * todo;
      * ```
      *
-     * `int64 start_time = 5;`
+     * `.event.events.public.server.v1.Schedule schedule = 5;`
+     */
+    public var schedule: com.evemeta.zdk.pb.event.server.events.Schedule
+      @JvmName("getSchedule")
+      get() = _builder.schedule
+      @JvmName("setSchedule")
+      set(value) {
+        _builder.schedule = value
+      }
+    public var scheduleValue: kotlin.Int
+      @JvmName("getScheduleValue")
+      get() = _builder.scheduleValue
+      @JvmName("setScheduleValue")
+      set(value) {
+        _builder.scheduleValue = value
+      }
+    /**
+     * ```
+     * todo;
+     * ```
+     *
+     * `.event.events.public.server.v1.Schedule schedule = 5;`
+     */
+    public fun clearSchedule() {
+      _builder.clearSchedule()
+    }
+
+    /**
+     * ```
+     * todo;
+     * ```
+     *
+     * `.event.events.public.server.v1.Broadcast broadcast = 6;`
+     */
+    public var broadcast: com.evemeta.zdk.pb.event.server.events.Broadcast
+      @JvmName("getBroadcast")
+      get() = _builder.broadcast
+      @JvmName("setBroadcast")
+      set(value) {
+        _builder.broadcast = value
+      }
+    /**
+     * ```
+     * todo;
+     * ```
+     *
+     * `.event.events.public.server.v1.Broadcast broadcast = 6;`
+     */
+    public fun clearBroadcast() {
+      _builder.clearBroadcast()
+    }
+    /**
+     * ```
+     * todo;
+     * ```
+     *
+     * `.event.events.public.server.v1.Broadcast broadcast = 6;`
+     * @return Whether the broadcast field is set.
+     */
+    public fun hasBroadcast(): kotlin.Boolean {
+      return _builder.hasBroadcast()
+    }
+
+    public val EventKt.Dsl.broadcastOrNull: com.evemeta.zdk.pb.event.server.events.Broadcast?
+      get() = _builder.broadcastOrNull
+
+    /**
+     * ```
+     * todo;
+     * ```
+     *
+     * `int64 planned_start_time = 7;`
+     */
+    public var plannedStartTime: kotlin.Long
+      @JvmName("getPlannedStartTime")
+      get() = _builder.plannedStartTime
+      @JvmName("setPlannedStartTime")
+      set(value) {
+        _builder.plannedStartTime = value
+      }
+    /**
+     * ```
+     * todo;
+     * ```
+     *
+     * `int64 planned_start_time = 7;`
+     */
+    public fun clearPlannedStartTime() {
+      _builder.clearPlannedStartTime()
+    }
+
+    /**
+     * ```
+     * Represents the timestamp indicating when this event was started.
+     * ```
+     *
+     * `int64 start_time = 8;`
      */
     public var startTime: kotlin.Long
       @JvmName("getStartTime")
@@ -223,10 +319,10 @@ public object EventKt {
       }
     /**
      * ```
-     * todo;
+     * Represents the timestamp indicating when this event was started.
      * ```
      *
-     * `int64 start_time = 5;`
+     * `int64 start_time = 8;`
      */
     public fun clearStartTime() {
       _builder.clearStartTime()
@@ -237,32 +333,32 @@ public object EventKt {
      * todo;
      * ```
      *
-     * `int64 cancel_time = 6;`
+     * `int64 planned_finish_time = 9;`
      */
-    public var cancelTime: kotlin.Long
-      @JvmName("getCancelTime")
-      get() = _builder.cancelTime
-      @JvmName("setCancelTime")
+    public var plannedFinishTime: kotlin.Long
+      @JvmName("getPlannedFinishTime")
+      get() = _builder.plannedFinishTime
+      @JvmName("setPlannedFinishTime")
       set(value) {
-        _builder.cancelTime = value
+        _builder.plannedFinishTime = value
       }
     /**
      * ```
      * todo;
      * ```
      *
-     * `int64 cancel_time = 6;`
+     * `int64 planned_finish_time = 9;`
      */
-    public fun clearCancelTime() {
-      _builder.clearCancelTime()
+    public fun clearPlannedFinishTime() {
+      _builder.clearPlannedFinishTime()
     }
 
     /**
      * ```
-     * todo;
+     * Represents the timestamp indicating when this event was finished.
      * ```
      *
-     * `int64 finish_time = 7;`
+     * `int64 finish_time = 10;`
      */
     public var finishTime: kotlin.Long
       @JvmName("getFinishTime")
@@ -273,10 +369,10 @@ public object EventKt {
       }
     /**
      * ```
-     * todo;
+     * Represents the timestamp indicating when this event was finished.
      * ```
      *
-     * `int64 finish_time = 7;`
+     * `int64 finish_time = 10;`
      */
     public fun clearFinishTime() {
       _builder.clearFinishTime()
@@ -284,10 +380,35 @@ public object EventKt {
 
     /**
      * ```
+     * Represents the timestamp indicating when this event was canceled.
+     * ```
+     *
+     * `int64 cancel_time = 11;`
+     */
+    public var cancelTime: kotlin.Long
+      @JvmName("getCancelTime")
+      get() = _builder.cancelTime
+      @JvmName("setCancelTime")
+      set(value) {
+        _builder.cancelTime = value
+      }
+    /**
+     * ```
+     * Represents the timestamp indicating when this event was canceled.
+     * ```
+     *
+     * `int64 cancel_time = 11;`
+     */
+    public fun clearCancelTime() {
+      _builder.clearCancelTime()
+    }
+
+    /**
+     * ```
      * Represents the timestamp indicating when this event was created.
      * ```
      *
-     * `int64 create_time = 8;`
+     * `int64 create_time = 12;`
      */
     public var createTime: kotlin.Long
       @JvmName("getCreateTime")
@@ -301,7 +422,7 @@ public object EventKt {
      * Represents the timestamp indicating when this event was created.
      * ```
      *
-     * `int64 create_time = 8;`
+     * `int64 create_time = 12;`
      */
     public fun clearCreateTime() {
       _builder.clearCreateTime()
@@ -312,7 +433,7 @@ public object EventKt {
      * Represents the timestamp of the last update associated with this event.
      * ```
      *
-     * `int64 update_time = 9;`
+     * `int64 update_time = 13;`
      */
     public var updateTime: kotlin.Long
       @JvmName("getUpdateTime")
@@ -326,7 +447,7 @@ public object EventKt {
      * Represents the timestamp of the last update associated with this event.
      * ```
      *
-     * `int64 update_time = 9;`
+     * `int64 update_time = 13;`
      */
     public fun clearUpdateTime() {
       _builder.clearUpdateTime()
@@ -336,4 +457,7 @@ public object EventKt {
 @kotlin.jvm.JvmSynthetic
 public inline fun com.evemeta.zdk.pb.event.server.events.Event.copy(block: `com.evemeta.zdk.pb.event.server.events`.EventKt.Dsl.() -> kotlin.Unit): com.evemeta.zdk.pb.event.server.events.Event =
   `com.evemeta.zdk.pb.event.server.events`.EventKt.Dsl._create(this.toBuilder()).apply { block() }._build()
+
+public val com.evemeta.zdk.pb.event.server.events.EventOrBuilder.broadcastOrNull: com.evemeta.zdk.pb.event.server.events.Broadcast?
+  get() = if (hasBroadcast()) getBroadcast() else null
 

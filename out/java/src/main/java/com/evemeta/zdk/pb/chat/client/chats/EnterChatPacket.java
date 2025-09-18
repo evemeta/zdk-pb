@@ -27,7 +27,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private EnterChatPacket() {
-    id_ = "";
+    token_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -43,39 +43,39 @@ private static final long serialVersionUID = 0L;
             com.evemeta.zdk.pb.chat.client.chats.EnterChatPacket.class, com.evemeta.zdk.pb.chat.client.chats.EnterChatPacket.Builder.class);
   }
 
-  public static final int ID_FIELD_NUMBER = 1;
+  public static final int TOKEN_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
-  private volatile java.lang.Object id_ = "";
+  private volatile java.lang.Object token_ = "";
   /**
-   * <code>string id = 1;</code>
-   * @return The id.
+   * <code>string token = 1;</code>
+   * @return The token.
    */
   @java.lang.Override
-  public java.lang.String getId() {
-    java.lang.Object ref = id_;
+  public java.lang.String getToken() {
+    java.lang.Object ref = token_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      id_ = s;
+      token_ = s;
       return s;
     }
   }
   /**
-   * <code>string id = 1;</code>
-   * @return The bytes for id.
+   * <code>string token = 1;</code>
+   * @return The bytes for token.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getIdBytes() {
-    java.lang.Object ref = id_;
+      getTokenBytes() {
+    java.lang.Object ref = token_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      id_ = b;
+      token_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -107,8 +107,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(id_)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 1, id_);
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(token_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 1, token_);
     }
     if (override_ != false) {
       output.writeBool(2, override_);
@@ -122,8 +122,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(id_)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(1, id_);
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(token_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(1, token_);
     }
     if (override_ != false) {
       size += com.google.protobuf.CodedOutputStream
@@ -144,8 +144,8 @@ private static final long serialVersionUID = 0L;
     }
     com.evemeta.zdk.pb.chat.client.chats.EnterChatPacket other = (com.evemeta.zdk.pb.chat.client.chats.EnterChatPacket) obj;
 
-    if (!getId()
-        .equals(other.getId())) return false;
+    if (!getToken()
+        .equals(other.getToken())) return false;
     if (getOverride()
         != other.getOverride()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -159,8 +159,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ID_FIELD_NUMBER;
-    hash = (53 * hash) + getId().hashCode();
+    hash = (37 * hash) + TOKEN_FIELD_NUMBER;
+    hash = (53 * hash) + getToken().hashCode();
     hash = (37 * hash) + OVERRIDE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getOverride());
@@ -295,7 +295,7 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      id_ = "";
+      token_ = "";
       override_ = false;
       return this;
     }
@@ -331,7 +331,7 @@ private static final long serialVersionUID = 0L;
     private void buildPartial0(com.evemeta.zdk.pb.chat.client.chats.EnterChatPacket result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.id_ = id_;
+        result.token_ = token_;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.override_ = override_;
@@ -350,8 +350,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.evemeta.zdk.pb.chat.client.chats.EnterChatPacket other) {
       if (other == com.evemeta.zdk.pb.chat.client.chats.EnterChatPacket.getDefaultInstance()) return this;
-      if (!other.getId().isEmpty()) {
-        id_ = other.id_;
+      if (!other.getToken().isEmpty()) {
+        token_ = other.token_;
         bitField0_ |= 0x00000001;
         onChanged();
       }
@@ -385,7 +385,7 @@ private static final long serialVersionUID = 0L;
               done = true;
               break;
             case 10: {
-              id_ = input.readStringRequireUtf8();
+              token_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000001;
               break;
             } // case 10
@@ -411,73 +411,73 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object id_ = "";
+    private java.lang.Object token_ = "";
     /**
-     * <code>string id = 1;</code>
-     * @return The id.
+     * <code>string token = 1;</code>
+     * @return The token.
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
+    public java.lang.String getToken() {
+      java.lang.Object ref = token_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        id_ = s;
+        token_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
+     * <code>string token = 1;</code>
+     * @return The bytes for token.
      */
     public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
+        getTokenBytes() {
+      java.lang.Object ref = token_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        id_ = b;
+        token_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string id = 1;</code>
-     * @param value The id to set.
+     * <code>string token = 1;</code>
+     * @param value The token to set.
      * @return This builder for chaining.
      */
-    public Builder setId(
+    public Builder setToken(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
-      id_ = value;
+      token_ = value;
       bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
-     * <code>string id = 1;</code>
+     * <code>string token = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearId() {
-      id_ = getDefaultInstance().getId();
+    public Builder clearToken() {
+      token_ = getDefaultInstance().getToken();
       bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
-     * <code>string id = 1;</code>
-     * @param value The bytes for id to set.
+     * <code>string token = 1;</code>
+     * @param value The bytes for token to set.
      * @return This builder for chaining.
      */
-    public Builder setIdBytes(
+    public Builder setTokenBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
-      id_ = value;
+      token_ = value;
       bitField0_ |= 0x00000001;
       onChanged();
       return this;

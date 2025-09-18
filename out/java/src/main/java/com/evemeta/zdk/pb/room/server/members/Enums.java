@@ -39,11 +39,20 @@ public final class Enums {
       "der\022\020\n\014OrderUnknown\020\000\022\022\n\016OrderAscending\020" +
       "\001\022\023\n\017OrderDescending\020\002*H\n\006Status\022\021\n\rStat" +
       "usUnknown\020\000\022\023\n\017StatusConnected\020\001\022\026\n\022Stat" +
-      "usDisconnected\020\002*#\n\nPermission\022\025\n\021Permis" +
-      "sionUnknown\020\000Bt\n&com.evemeta.zdk.pb.room" +
-      ".server.membersP\001ZHgitlab.com/evemeta/zd" +
-      "k/pb/out/go/room/members/public/server/v" +
-      "1;memberspbb\006proto3"
+      "usDisconnected\020\002*\370\002\n\nPermission\022\025\n\021Permi" +
+      "ssionUnknown\020\000\022\022\n\016PermissionChat\020d\022\027\n\023Pe" +
+      "rmissionChatBlock\020e\022\031\n\025PermissionChatUnb" +
+      "lock\020f\022\026\n\022PermissionChatMute\020g\022\030\n\024Permis" +
+      "sionChatUnmute\020h\022\037\n\033PermissionChatMessag" +
+      "eDelete\020i\022\026\n\022PermissionChatKick\020j\022\032\n\026Per" +
+      "missionChatSlowmode\020k\022 \n\034PermissionChatS" +
+      "lowmodeBypass\020l\022\023\n\016PermissionRoom\020\310\001\022\030\n\023" +
+      "PermissionRoomBlock\020\311\001\022\032\n\025PermissionRoom" +
+      "Unblock\020\312\001\022\027\n\022PermissionRoomKick\020\313\001Bt\n&c" +
+      "om.evemeta.zdk.pb.room.server.membersP\001Z" +
+      "Hgitlab.com/evemeta/zdk/pb/out/go/room/m" +
+      "embers/public/server/v1;memberspbb\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

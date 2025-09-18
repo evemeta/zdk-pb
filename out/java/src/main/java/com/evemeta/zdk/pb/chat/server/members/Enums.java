@@ -39,10 +39,17 @@ public final class Enums {
       "der\022\020\n\014OrderUnknown\020\000\022\022\n\016OrderAscending\020" +
       "\001\022\023\n\017OrderDescending\020\002*H\n\006Status\022\021\n\rStat" +
       "usUnknown\020\000\022\023\n\017StatusConnected\020\001\022\026\n\022Stat" +
-      "usDisconnected\020\002Bt\n&com.evemeta.zdk.pb.c" +
-      "hat.server.membersP\001ZHgitlab.com/evemeta" +
-      "/zdk/pb/out/go/chat/members/public/serve" +
-      "r/v1;memberspbb\006proto3"
+      "usDisconnected\020\002*\224\002\n\nPermission\022\025\n\021Permi" +
+      "ssionUnknown\020\000\022\022\n\016PermissionChat\020d\022\027\n\023Pe" +
+      "rmissionChatBlock\020e\022\031\n\025PermissionChatUnb" +
+      "lock\020f\022\026\n\022PermissionChatMute\020g\022\030\n\024Permis" +
+      "sionChatUnmute\020h\022\037\n\033PermissionChatMessag" +
+      "eDelete\020i\022\026\n\022PermissionChatKick\020j\022\032\n\026Per" +
+      "missionChatSlowmode\020k\022 \n\034PermissionChatS" +
+      "lowmodeBypass\020lBt\n&com.evemeta.zdk.pb.ch" +
+      "at.server.membersP\001ZHgitlab.com/evemeta/" +
+      "zdk/pb/out/go/chat/members/public/server" +
+      "/v1;memberspbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

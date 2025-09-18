@@ -449,6 +449,7 @@ type CreateArgument struct {
 	ChatId        string                 `protobuf:"bytes,3,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
 	Status        Status                 `protobuf:"varint,4,opt,name=status,proto3,enum=chat.members.private.v1.Status" json:"status,omitempty"`
 	Metadata      map[string]string      `protobuf:"bytes,5,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Permissions   []Permission           `protobuf:"varint,6,rep,packed,name=permissions,proto3,enum=chat.members.private.v1.Permission" json:"permissions,omitempty"`
 	EnterTime     int64                  `protobuf:"varint,7,opt,name=enter_time,json=enterTime,proto3" json:"enter_time,omitempty"`
 	LeaveTime     int64                  `protobuf:"varint,8,opt,name=leave_time,json=leaveTime,proto3" json:"leave_time,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -516,6 +517,13 @@ func (x *CreateArgument) GetStatus() Status {
 func (x *CreateArgument) GetMetadata() map[string]string {
 	if x != nil {
 		return x.Metadata
+	}
+	return nil
+}
+
+func (x *CreateArgument) GetPermissions() []Permission {
+	if x != nil {
+		return x.Permissions
 	}
 	return nil
 }
@@ -792,6 +800,7 @@ type UpdateArgument struct {
 	UserId        *OptionalString        `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
 	ChatId        *OptionalString        `protobuf:"bytes,3,opt,name=chat_id,json=chatId,proto3,oneof" json:"chat_id,omitempty"`
 	Metadata      *OptionalMap           `protobuf:"bytes,4,opt,name=metadata,proto3,oneof" json:"metadata,omitempty"`
+	Permissions   *OptionalPermissions   `protobuf:"bytes,5,opt,name=permissions,proto3,oneof" json:"permissions,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -850,6 +859,13 @@ func (x *UpdateArgument) GetChatId() *OptionalString {
 func (x *UpdateArgument) GetMetadata() *OptionalMap {
 	if x != nil {
 		return x.Metadata
+	}
+	return nil
+}
+
+func (x *UpdateArgument) GetPermissions() *OptionalPermissions {
+	if x != nil {
+		return x.Permissions
 	}
 	return nil
 }
@@ -1671,13 +1687,14 @@ const file_chat_members_private_v1_procedures_proto_rawDesc = "" +
 	"\rSelectRequest\x12E\n" +
 	"\targuments\x18\x01 \x03(\v2'.chat.members.private.v1.SelectArgumentR\targuments\"K\n" +
 	"\x0eSelectResponse\x129\n" +
-	"\amembers\x18\x01 \x03(\v2\x1f.chat.members.private.v1.MemberR\amembers\"\xd9\x02\n" +
+	"\amembers\x18\x01 \x03(\v2\x1f.chat.members.private.v1.MemberR\amembers\"\xa0\x03\n" +
 	"\x0eCreateArgument\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\x12\x17\n" +
 	"\achat_id\x18\x03 \x01(\tR\x06chatId\x127\n" +
 	"\x06status\x18\x04 \x01(\x0e2\x1f.chat.members.private.v1.StatusR\x06status\x12Q\n" +
-	"\bmetadata\x18\x05 \x03(\v25.chat.members.private.v1.CreateArgument.MetadataEntryR\bmetadata\x12\x1d\n" +
+	"\bmetadata\x18\x05 \x03(\v25.chat.members.private.v1.CreateArgument.MetadataEntryR\bmetadata\x12E\n" +
+	"\vpermissions\x18\x06 \x03(\x0e2#.chat.members.private.v1.PermissionR\vpermissions\x12\x1d\n" +
 	"\n" +
 	"enter_time\x18\a \x01(\x03R\tenterTime\x12\x1d\n" +
 	"\n" +
@@ -1700,17 +1717,19 @@ const file_chat_members_private_v1_procedures_proto_rawDesc = "" +
 	"\x0fCreateCondition\x12q\n" +
 	"\x1ccreate_transponder_mutations\x18\x01 \x03(\v2/.gateway.transponders.private.v1.CreateMutationR\x1acreateTransponderMutations\"Z\n" +
 	"\x11CreateTransaction\x12E\n" +
-	"\tmutations\x18\x01 \x03(\v2'.chat.members.private.v1.CreateMutationR\tmutations\"\xc0\x02\n" +
+	"\tmutations\x18\x01 \x03(\v2'.chat.members.private.v1.CreateMutationR\tmutations\"\xa5\x03\n" +
 	"\x0eUpdateArgument\x124\n" +
 	"\x05query\x18\x01 \x01(\v2\x1e.chat.members.private.v1.QueryR\x05query\x12E\n" +
 	"\auser_id\x18\x02 \x01(\v2'.chat.members.private.v1.OptionalStringH\x00R\x06userId\x88\x01\x01\x12E\n" +
 	"\achat_id\x18\x03 \x01(\v2'.chat.members.private.v1.OptionalStringH\x01R\x06chatId\x88\x01\x01\x12E\n" +
-	"\bmetadata\x18\x04 \x01(\v2$.chat.members.private.v1.OptionalMapH\x02R\bmetadata\x88\x01\x01B\n" +
+	"\bmetadata\x18\x04 \x01(\v2$.chat.members.private.v1.OptionalMapH\x02R\bmetadata\x88\x01\x01\x12S\n" +
+	"\vpermissions\x18\x05 \x01(\v2,.chat.members.private.v1.OptionalPermissionsH\x03R\vpermissions\x88\x01\x01B\n" +
 	"\n" +
 	"\b_user_idB\n" +
 	"\n" +
 	"\b_chat_idB\v\n" +
-	"\t_metadata\"V\n" +
+	"\t_metadataB\x0e\n" +
+	"\f_permissions\"V\n" +
 	"\rUpdateRequest\x12E\n" +
 	"\targuments\x18\x01 \x03(\v2'.chat.members.private.v1.UpdateArgumentR\targuments\"K\n" +
 	"\x0eUpdateResponse\x129\n" +
@@ -1775,48 +1794,50 @@ func file_chat_members_private_v1_procedures_proto_rawDescGZIP() []byte {
 
 var file_chat_members_private_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 33)
 var file_chat_members_private_v1_procedures_proto_goTypes = []any{
-	(*CountArgument)(nil),     // 0: chat.members.private.v1.CountArgument
-	(*CountRequest)(nil),      // 1: chat.members.private.v1.CountRequest
-	(*CountResponse)(nil),     // 2: chat.members.private.v1.CountResponse
-	(*RangeArgument)(nil),     // 3: chat.members.private.v1.RangeArgument
-	(*RangeRequest)(nil),      // 4: chat.members.private.v1.RangeRequest
-	(*RangeResponse)(nil),     // 5: chat.members.private.v1.RangeResponse
-	(*SelectArgument)(nil),    // 6: chat.members.private.v1.SelectArgument
-	(*SelectRequest)(nil),     // 7: chat.members.private.v1.SelectRequest
-	(*SelectResponse)(nil),    // 8: chat.members.private.v1.SelectResponse
-	(*CreateArgument)(nil),    // 9: chat.members.private.v1.CreateArgument
-	(*CreateRequest)(nil),     // 10: chat.members.private.v1.CreateRequest
-	(*CreateResponse)(nil),    // 11: chat.members.private.v1.CreateResponse
-	(*CreateMutation)(nil),    // 12: chat.members.private.v1.CreateMutation
-	(*CreateCondition)(nil),   // 13: chat.members.private.v1.CreateCondition
-	(*CreateTransaction)(nil), // 14: chat.members.private.v1.CreateTransaction
-	(*UpdateArgument)(nil),    // 15: chat.members.private.v1.UpdateArgument
-	(*UpdateRequest)(nil),     // 16: chat.members.private.v1.UpdateRequest
-	(*UpdateResponse)(nil),    // 17: chat.members.private.v1.UpdateResponse
-	(*UpdateMutation)(nil),    // 18: chat.members.private.v1.UpdateMutation
-	(*UpdateTransaction)(nil), // 19: chat.members.private.v1.UpdateTransaction
-	(*DeleteArgument)(nil),    // 20: chat.members.private.v1.DeleteArgument
-	(*DeleteRequest)(nil),     // 21: chat.members.private.v1.DeleteRequest
-	(*DeleteResponse)(nil),    // 22: chat.members.private.v1.DeleteResponse
-	(*DeleteMutation)(nil),    // 23: chat.members.private.v1.DeleteMutation
-	(*DeleteCondition)(nil),   // 24: chat.members.private.v1.DeleteCondition
-	(*DeleteTransaction)(nil), // 25: chat.members.private.v1.DeleteTransaction
-	(*KickArgument)(nil),      // 26: chat.members.private.v1.KickArgument
-	(*KickRequest)(nil),       // 27: chat.members.private.v1.KickRequest
-	(*KickResponse)(nil),      // 28: chat.members.private.v1.KickResponse
-	(*KickMutation)(nil),      // 29: chat.members.private.v1.KickMutation
-	(*KickCondition)(nil),     // 30: chat.members.private.v1.KickCondition
-	(*KickTransaction)(nil),   // 31: chat.members.private.v1.KickTransaction
-	nil,                       // 32: chat.members.private.v1.CreateArgument.MetadataEntry
-	(*Query)(nil),             // 33: chat.members.private.v1.Query
-	(*Chunk)(nil),             // 34: chat.members.private.v1.Chunk
-	(*Member)(nil),            // 35: chat.members.private.v1.Member
-	(Status)(0),               // 36: chat.members.private.v1.Status
-	(*Transient)(nil),         // 37: chat.members.private.v1.Transient
-	(*v1.CreateMutation)(nil), // 38: gateway.transponders.private.v1.CreateMutation
-	(*OptionalString)(nil),    // 39: chat.members.private.v1.OptionalString
-	(*OptionalMap)(nil),       // 40: chat.members.private.v1.OptionalMap
-	(*v1.DeleteMutation)(nil), // 41: gateway.transponders.private.v1.DeleteMutation
+	(*CountArgument)(nil),       // 0: chat.members.private.v1.CountArgument
+	(*CountRequest)(nil),        // 1: chat.members.private.v1.CountRequest
+	(*CountResponse)(nil),       // 2: chat.members.private.v1.CountResponse
+	(*RangeArgument)(nil),       // 3: chat.members.private.v1.RangeArgument
+	(*RangeRequest)(nil),        // 4: chat.members.private.v1.RangeRequest
+	(*RangeResponse)(nil),       // 5: chat.members.private.v1.RangeResponse
+	(*SelectArgument)(nil),      // 6: chat.members.private.v1.SelectArgument
+	(*SelectRequest)(nil),       // 7: chat.members.private.v1.SelectRequest
+	(*SelectResponse)(nil),      // 8: chat.members.private.v1.SelectResponse
+	(*CreateArgument)(nil),      // 9: chat.members.private.v1.CreateArgument
+	(*CreateRequest)(nil),       // 10: chat.members.private.v1.CreateRequest
+	(*CreateResponse)(nil),      // 11: chat.members.private.v1.CreateResponse
+	(*CreateMutation)(nil),      // 12: chat.members.private.v1.CreateMutation
+	(*CreateCondition)(nil),     // 13: chat.members.private.v1.CreateCondition
+	(*CreateTransaction)(nil),   // 14: chat.members.private.v1.CreateTransaction
+	(*UpdateArgument)(nil),      // 15: chat.members.private.v1.UpdateArgument
+	(*UpdateRequest)(nil),       // 16: chat.members.private.v1.UpdateRequest
+	(*UpdateResponse)(nil),      // 17: chat.members.private.v1.UpdateResponse
+	(*UpdateMutation)(nil),      // 18: chat.members.private.v1.UpdateMutation
+	(*UpdateTransaction)(nil),   // 19: chat.members.private.v1.UpdateTransaction
+	(*DeleteArgument)(nil),      // 20: chat.members.private.v1.DeleteArgument
+	(*DeleteRequest)(nil),       // 21: chat.members.private.v1.DeleteRequest
+	(*DeleteResponse)(nil),      // 22: chat.members.private.v1.DeleteResponse
+	(*DeleteMutation)(nil),      // 23: chat.members.private.v1.DeleteMutation
+	(*DeleteCondition)(nil),     // 24: chat.members.private.v1.DeleteCondition
+	(*DeleteTransaction)(nil),   // 25: chat.members.private.v1.DeleteTransaction
+	(*KickArgument)(nil),        // 26: chat.members.private.v1.KickArgument
+	(*KickRequest)(nil),         // 27: chat.members.private.v1.KickRequest
+	(*KickResponse)(nil),        // 28: chat.members.private.v1.KickResponse
+	(*KickMutation)(nil),        // 29: chat.members.private.v1.KickMutation
+	(*KickCondition)(nil),       // 30: chat.members.private.v1.KickCondition
+	(*KickTransaction)(nil),     // 31: chat.members.private.v1.KickTransaction
+	nil,                         // 32: chat.members.private.v1.CreateArgument.MetadataEntry
+	(*Query)(nil),               // 33: chat.members.private.v1.Query
+	(*Chunk)(nil),               // 34: chat.members.private.v1.Chunk
+	(*Member)(nil),              // 35: chat.members.private.v1.Member
+	(Status)(0),                 // 36: chat.members.private.v1.Status
+	(Permission)(0),             // 37: chat.members.private.v1.Permission
+	(*Transient)(nil),           // 38: chat.members.private.v1.Transient
+	(*v1.CreateMutation)(nil),   // 39: gateway.transponders.private.v1.CreateMutation
+	(*OptionalString)(nil),      // 40: chat.members.private.v1.OptionalString
+	(*OptionalMap)(nil),         // 41: chat.members.private.v1.OptionalMap
+	(*OptionalPermissions)(nil), // 42: chat.members.private.v1.OptionalPermissions
+	(*v1.DeleteMutation)(nil),   // 43: gateway.transponders.private.v1.DeleteMutation
 }
 var file_chat_members_private_v1_procedures_proto_depIdxs = []int32{
 	33, // 0: chat.members.private.v1.CountArgument.query:type_name -> chat.members.private.v1.Query
@@ -1829,42 +1850,44 @@ var file_chat_members_private_v1_procedures_proto_depIdxs = []int32{
 	35, // 7: chat.members.private.v1.SelectResponse.members:type_name -> chat.members.private.v1.Member
 	36, // 8: chat.members.private.v1.CreateArgument.status:type_name -> chat.members.private.v1.Status
 	32, // 9: chat.members.private.v1.CreateArgument.metadata:type_name -> chat.members.private.v1.CreateArgument.MetadataEntry
-	9,  // 10: chat.members.private.v1.CreateRequest.arguments:type_name -> chat.members.private.v1.CreateArgument
-	35, // 11: chat.members.private.v1.CreateResponse.members:type_name -> chat.members.private.v1.Member
-	9,  // 12: chat.members.private.v1.CreateMutation.foundation:type_name -> chat.members.private.v1.CreateArgument
-	13, // 13: chat.members.private.v1.CreateMutation.condition:type_name -> chat.members.private.v1.CreateCondition
-	37, // 14: chat.members.private.v1.CreateMutation.transient:type_name -> chat.members.private.v1.Transient
-	38, // 15: chat.members.private.v1.CreateCondition.create_transponder_mutations:type_name -> gateway.transponders.private.v1.CreateMutation
-	12, // 16: chat.members.private.v1.CreateTransaction.mutations:type_name -> chat.members.private.v1.CreateMutation
-	33, // 17: chat.members.private.v1.UpdateArgument.query:type_name -> chat.members.private.v1.Query
-	39, // 18: chat.members.private.v1.UpdateArgument.user_id:type_name -> chat.members.private.v1.OptionalString
-	39, // 19: chat.members.private.v1.UpdateArgument.chat_id:type_name -> chat.members.private.v1.OptionalString
-	40, // 20: chat.members.private.v1.UpdateArgument.metadata:type_name -> chat.members.private.v1.OptionalMap
-	15, // 21: chat.members.private.v1.UpdateRequest.arguments:type_name -> chat.members.private.v1.UpdateArgument
-	35, // 22: chat.members.private.v1.UpdateResponse.members:type_name -> chat.members.private.v1.Member
-	15, // 23: chat.members.private.v1.UpdateMutation.foundation:type_name -> chat.members.private.v1.UpdateArgument
-	37, // 24: chat.members.private.v1.UpdateMutation.transient:type_name -> chat.members.private.v1.Transient
-	18, // 25: chat.members.private.v1.UpdateTransaction.mutations:type_name -> chat.members.private.v1.UpdateMutation
-	33, // 26: chat.members.private.v1.DeleteArgument.query:type_name -> chat.members.private.v1.Query
-	20, // 27: chat.members.private.v1.DeleteRequest.arguments:type_name -> chat.members.private.v1.DeleteArgument
-	35, // 28: chat.members.private.v1.DeleteResponse.members:type_name -> chat.members.private.v1.Member
-	20, // 29: chat.members.private.v1.DeleteMutation.foundation:type_name -> chat.members.private.v1.DeleteArgument
-	24, // 30: chat.members.private.v1.DeleteMutation.condition:type_name -> chat.members.private.v1.DeleteCondition
-	37, // 31: chat.members.private.v1.DeleteMutation.transient:type_name -> chat.members.private.v1.Transient
-	41, // 32: chat.members.private.v1.DeleteCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
-	23, // 33: chat.members.private.v1.DeleteTransaction.mutations:type_name -> chat.members.private.v1.DeleteMutation
-	33, // 34: chat.members.private.v1.KickArgument.query:type_name -> chat.members.private.v1.Query
-	26, // 35: chat.members.private.v1.KickRequest.arguments:type_name -> chat.members.private.v1.KickArgument
-	26, // 36: chat.members.private.v1.KickMutation.foundation:type_name -> chat.members.private.v1.KickArgument
-	30, // 37: chat.members.private.v1.KickMutation.condition:type_name -> chat.members.private.v1.KickCondition
-	18, // 38: chat.members.private.v1.KickCondition.update_mutations:type_name -> chat.members.private.v1.UpdateMutation
-	41, // 39: chat.members.private.v1.KickCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
-	29, // 40: chat.members.private.v1.KickTransaction.mutations:type_name -> chat.members.private.v1.KickMutation
-	41, // [41:41] is the sub-list for method output_type
-	41, // [41:41] is the sub-list for method input_type
-	41, // [41:41] is the sub-list for extension type_name
-	41, // [41:41] is the sub-list for extension extendee
-	0,  // [0:41] is the sub-list for field type_name
+	37, // 10: chat.members.private.v1.CreateArgument.permissions:type_name -> chat.members.private.v1.Permission
+	9,  // 11: chat.members.private.v1.CreateRequest.arguments:type_name -> chat.members.private.v1.CreateArgument
+	35, // 12: chat.members.private.v1.CreateResponse.members:type_name -> chat.members.private.v1.Member
+	9,  // 13: chat.members.private.v1.CreateMutation.foundation:type_name -> chat.members.private.v1.CreateArgument
+	13, // 14: chat.members.private.v1.CreateMutation.condition:type_name -> chat.members.private.v1.CreateCondition
+	38, // 15: chat.members.private.v1.CreateMutation.transient:type_name -> chat.members.private.v1.Transient
+	39, // 16: chat.members.private.v1.CreateCondition.create_transponder_mutations:type_name -> gateway.transponders.private.v1.CreateMutation
+	12, // 17: chat.members.private.v1.CreateTransaction.mutations:type_name -> chat.members.private.v1.CreateMutation
+	33, // 18: chat.members.private.v1.UpdateArgument.query:type_name -> chat.members.private.v1.Query
+	40, // 19: chat.members.private.v1.UpdateArgument.user_id:type_name -> chat.members.private.v1.OptionalString
+	40, // 20: chat.members.private.v1.UpdateArgument.chat_id:type_name -> chat.members.private.v1.OptionalString
+	41, // 21: chat.members.private.v1.UpdateArgument.metadata:type_name -> chat.members.private.v1.OptionalMap
+	42, // 22: chat.members.private.v1.UpdateArgument.permissions:type_name -> chat.members.private.v1.OptionalPermissions
+	15, // 23: chat.members.private.v1.UpdateRequest.arguments:type_name -> chat.members.private.v1.UpdateArgument
+	35, // 24: chat.members.private.v1.UpdateResponse.members:type_name -> chat.members.private.v1.Member
+	15, // 25: chat.members.private.v1.UpdateMutation.foundation:type_name -> chat.members.private.v1.UpdateArgument
+	38, // 26: chat.members.private.v1.UpdateMutation.transient:type_name -> chat.members.private.v1.Transient
+	18, // 27: chat.members.private.v1.UpdateTransaction.mutations:type_name -> chat.members.private.v1.UpdateMutation
+	33, // 28: chat.members.private.v1.DeleteArgument.query:type_name -> chat.members.private.v1.Query
+	20, // 29: chat.members.private.v1.DeleteRequest.arguments:type_name -> chat.members.private.v1.DeleteArgument
+	35, // 30: chat.members.private.v1.DeleteResponse.members:type_name -> chat.members.private.v1.Member
+	20, // 31: chat.members.private.v1.DeleteMutation.foundation:type_name -> chat.members.private.v1.DeleteArgument
+	24, // 32: chat.members.private.v1.DeleteMutation.condition:type_name -> chat.members.private.v1.DeleteCondition
+	38, // 33: chat.members.private.v1.DeleteMutation.transient:type_name -> chat.members.private.v1.Transient
+	43, // 34: chat.members.private.v1.DeleteCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
+	23, // 35: chat.members.private.v1.DeleteTransaction.mutations:type_name -> chat.members.private.v1.DeleteMutation
+	33, // 36: chat.members.private.v1.KickArgument.query:type_name -> chat.members.private.v1.Query
+	26, // 37: chat.members.private.v1.KickRequest.arguments:type_name -> chat.members.private.v1.KickArgument
+	26, // 38: chat.members.private.v1.KickMutation.foundation:type_name -> chat.members.private.v1.KickArgument
+	30, // 39: chat.members.private.v1.KickMutation.condition:type_name -> chat.members.private.v1.KickCondition
+	18, // 40: chat.members.private.v1.KickCondition.update_mutations:type_name -> chat.members.private.v1.UpdateMutation
+	43, // 41: chat.members.private.v1.KickCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
+	29, // 42: chat.members.private.v1.KickTransaction.mutations:type_name -> chat.members.private.v1.KickMutation
+	43, // [43:43] is the sub-list for method output_type
+	43, // [43:43] is the sub-list for method input_type
+	43, // [43:43] is the sub-list for extension type_name
+	43, // [43:43] is the sub-list for extension extendee
+	0,  // [0:43] is the sub-list for field type_name
 }
 
 func init() { file_chat_members_private_v1_procedures_proto_init() }

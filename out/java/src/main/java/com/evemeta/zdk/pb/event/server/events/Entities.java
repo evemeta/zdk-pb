@@ -36,6 +36,11 @@ public final class Entities {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_event_events_public_server_v1_Event_MetadataEntry_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_event_events_public_server_v1_Broadcast_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_event_events_public_server_v1_Broadcast_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_event_events_public_server_v1_Chunk_descriptor;
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -74,40 +79,45 @@ public final class Entities {
       "vent/events/public/server/v1/enums.proto" +
       "\032*chat/chats/public/server/v1/entities.p" +
       "roto\032-event/members/public/server/v1/ent" +
-      "ities.proto\0322event/restrictions/public/s" +
-      "erver/v1/entities.proto\"\334\002\n\005Event\022\n\n\002id\030" +
-      "\001 \001(\t\0221\n\004kind\030\002 \001(\0162#.event.events.publi" +
-      "c.server.v1.Kind\0225\n\006status\030\003 \001(\0162%.event" +
-      ".events.public.server.v1.Status\022D\n\010metad" +
-      "ata\030\004 \003(\01322.event.events.public.server.v" +
-      "1.Event.MetadataEntry\022\022\n\nstart_time\030\005 \001(" +
-      "\003\022\023\n\013cancel_time\030\006 \001(\003\022\023\n\013finish_time\030\007 " +
-      "\001(\003\022\023\n\013create_time\030\010 \001(\003\022\023\n\013update_time\030" +
-      "\t \001(\003\032/\n\rMetadataEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v" +
-      "alue\030\002 \001(\t:\0028\001\"k\n\005Chunk\022\014\n\004size\030\001 \001(\003\022\r\n" +
-      "\005index\030\002 \001(\003\022\r\n\005total\030\003 \001(\003\0226\n\010entities\030" +
-      "\004 \003(\0132$.event.events.public.server.v1.Ev" +
-      "ent\"\230\001\n\005Query\0223\n\005order\030\001 \001(\0162$.event.eve" +
-      "nts.public.server.v1.Order\022\r\n\005limit\030\002 \001(" +
-      "\003\022\016\n\006offset\030\003 \001(\003\022;\n\tcondition\030\004 \001(\0132(.e" +
-      "vent.events.public.server.v1.Condition\"\306" +
-      "\003\n\007Context\0223\n\005event\030\001 \001(\0132$.event.events" +
-      ".public.server.v1.Event\022A\n\017event_timefra" +
-      "me\030\002 \001(\0132(.event.events.public.server.v1" +
-      ".Timeframe\022/\n\004chat\030\003 \001(\0132!.chat.chats.pu" +
-      "blic.server.v1.Chat\022@\n\016chat_timeframe\030\004 " +
-      "\001(\0132(.event.events.public.server.v1.Time" +
-      "frame\0226\n\006member\030\005 \001(\0132&.event.members.pu" +
-      "blic.server.v1.Member\022B\n\020member_timefram" +
-      "e\030\006 \001(\0132(.event.events.public.server.v1." +
-      "Timeframe\022\017\n\007members\030\007 \001(\003\022C\n\021members_ti" +
-      "meframe\030\010 \001(\0132(.event.events.public.serv" +
-      "er.v1.Timeframe\"\030\n\tCondition\022\013\n\003ids\030\001 \003(" +
-      "\t\"/\n\tTimeframe\022\020\n\010commence\030\001 \001(\003\022\020\n\010comp" +
-      "lete\030\002 \001(\003Bs\n&com.evemeta.zdk.pb.event.s" +
-      "erver.eventsP\001ZGgitlab.com/evemeta/zdk/p" +
-      "b/out/go/event/events/public/server/v1;e" +
-      "ventspbb\006proto3"
+      "ities.proto\"\215\004\n\005Event\022\n\n\002id\030\001 \001(\t\0221\n\004kin" +
+      "d\030\002 \001(\0162#.event.events.public.server.v1." +
+      "Kind\0225\n\006status\030\003 \001(\0162%.event.events.publ" +
+      "ic.server.v1.Status\022D\n\010metadata\030\004 \003(\01322." +
+      "event.events.public.server.v1.Event.Meta" +
+      "dataEntry\0229\n\010schedule\030\005 \001(\0162\'.event.even" +
+      "ts.public.server.v1.Schedule\022;\n\tbroadcas" +
+      "t\030\006 \001(\0132(.event.events.public.server.v1." +
+      "Broadcast\022\032\n\022planned_start_time\030\007 \001(\003\022\022\n" +
+      "\nstart_time\030\010 \001(\003\022\033\n\023planned_finish_time" +
+      "\030\t \001(\003\022\023\n\013finish_time\030\n \001(\003\022\023\n\013cancel_ti" +
+      "me\030\013 \001(\003\022\023\n\013create_time\030\014 \001(\003\022\023\n\013update_" +
+      "time\030\r \001(\003\032/\n\rMetadataEntry\022\013\n\003key\030\001 \001(\t" +
+      "\022\r\n\005value\030\002 \001(\t:\0028\001\"U\n\tBroadcast\022H\n\013orie" +
+      "ntation\030\001 \001(\01623.event.events.public.serv" +
+      "er.v1.BroadcastOrientation\"k\n\005Chunk\022\014\n\004s" +
+      "ize\030\001 \001(\003\022\r\n\005index\030\002 \001(\003\022\r\n\005total\030\003 \001(\003\022" +
+      "6\n\010entities\030\004 \003(\0132$.event.events.public." +
+      "server.v1.Event\"\230\001\n\005Query\0223\n\005order\030\001 \001(\016" +
+      "2$.event.events.public.server.v1.Order\022\r" +
+      "\n\005limit\030\002 \001(\003\022\016\n\006offset\030\003 \001(\003\022;\n\tconditi" +
+      "on\030\004 \001(\0132(.event.events.public.server.v1" +
+      ".Condition\"\306\003\n\007Context\0223\n\005event\030\001 \001(\0132$." +
+      "event.events.public.server.v1.Event\022A\n\017e" +
+      "vent_timeframe\030\002 \001(\0132(.event.events.publ" +
+      "ic.server.v1.Timeframe\022/\n\004chat\030\003 \001(\0132!.c" +
+      "hat.chats.public.server.v1.Chat\022@\n\016chat_" +
+      "timeframe\030\004 \001(\0132(.event.events.public.se" +
+      "rver.v1.Timeframe\0226\n\006member\030\005 \001(\0132&.even" +
+      "t.members.public.server.v1.Member\022B\n\020mem" +
+      "ber_timeframe\030\006 \001(\0132(.event.events.publi" +
+      "c.server.v1.Timeframe\022\017\n\007members\030\007 \001(\003\022C" +
+      "\n\021members_timeframe\030\010 \001(\0132(.event.events" +
+      ".public.server.v1.Timeframe\"\030\n\tCondition" +
+      "\022\013\n\003ids\030\001 \003(\t\"/\n\tTimeframe\022\020\n\010commence\030\001" +
+      " \001(\003\022\020\n\010complete\030\002 \001(\003Bs\n&com.evemeta.zd" +
+      "k.pb.event.server.eventsP\001ZGgitlab.com/e" +
+      "vemeta/zdk/pb/out/go/event/events/public" +
+      "/server/v1;eventspbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -115,46 +125,51 @@ public final class Entities {
           com.evemeta.zdk.pb.event.server.events.Enums.getDescriptor(),
           com.evemeta.zdk.pb.chat.server.chats.Entities.getDescriptor(),
           com.evemeta.zdk.pb.event.server.members.Entities.getDescriptor(),
-          com.evemeta.zdk.pb.event.server.restrictions.Entities.getDescriptor(),
         });
     internal_static_event_events_public_server_v1_Event_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_event_events_public_server_v1_Event_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_event_events_public_server_v1_Event_descriptor,
-        new java.lang.String[] { "Id", "Kind", "Status", "Metadata", "StartTime", "CancelTime", "FinishTime", "CreateTime", "UpdateTime", });
+        new java.lang.String[] { "Id", "Kind", "Status", "Metadata", "Schedule", "Broadcast", "PlannedStartTime", "StartTime", "PlannedFinishTime", "FinishTime", "CancelTime", "CreateTime", "UpdateTime", });
     internal_static_event_events_public_server_v1_Event_MetadataEntry_descriptor =
       internal_static_event_events_public_server_v1_Event_descriptor.getNestedTypes().get(0);
     internal_static_event_events_public_server_v1_Event_MetadataEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_event_events_public_server_v1_Event_MetadataEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_event_events_public_server_v1_Chunk_descriptor =
+    internal_static_event_events_public_server_v1_Broadcast_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_event_events_public_server_v1_Broadcast_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_event_events_public_server_v1_Broadcast_descriptor,
+        new java.lang.String[] { "Orientation", });
+    internal_static_event_events_public_server_v1_Chunk_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_event_events_public_server_v1_Chunk_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_event_events_public_server_v1_Chunk_descriptor,
         new java.lang.String[] { "Size", "Index", "Total", "Entities", });
     internal_static_event_events_public_server_v1_Query_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_event_events_public_server_v1_Query_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_event_events_public_server_v1_Query_descriptor,
         new java.lang.String[] { "Order", "Limit", "Offset", "Condition", });
     internal_static_event_events_public_server_v1_Context_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_event_events_public_server_v1_Context_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_event_events_public_server_v1_Context_descriptor,
         new java.lang.String[] { "Event", "EventTimeframe", "Chat", "ChatTimeframe", "Member", "MemberTimeframe", "Members", "MembersTimeframe", });
     internal_static_event_events_public_server_v1_Condition_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_event_events_public_server_v1_Condition_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_event_events_public_server_v1_Condition_descriptor,
         new java.lang.String[] { "Ids", });
     internal_static_event_events_public_server_v1_Timeframe_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_event_events_public_server_v1_Timeframe_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_event_events_public_server_v1_Timeframe_descriptor,
@@ -163,7 +178,6 @@ public final class Entities {
     com.evemeta.zdk.pb.event.server.events.Enums.getDescriptor();
     com.evemeta.zdk.pb.chat.server.chats.Entities.getDescriptor();
     com.evemeta.zdk.pb.event.server.members.Entities.getDescriptor();
-    com.evemeta.zdk.pb.event.server.restrictions.Entities.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
