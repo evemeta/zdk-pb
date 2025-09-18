@@ -389,6 +389,98 @@ func (x *ContextResponse) GetContext() *Context {
 	return nil
 }
 
+// GenerateBroadcastAccessUrlRequest represents a message designed to generate a broadcast access url for a specific event based on its unique identifier.
+type GenerateBroadcastAccessUrlRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Represents the unique identifier for the event for which the broadcast access url should be generated.
+	Id            string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GenerateBroadcastAccessUrlRequest) Reset() {
+	*x = GenerateBroadcastAccessUrlRequest{}
+	mi := &file_event_events_public_server_v1_procedures_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GenerateBroadcastAccessUrlRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GenerateBroadcastAccessUrlRequest) ProtoMessage() {}
+
+func (x *GenerateBroadcastAccessUrlRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_event_events_public_server_v1_procedures_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GenerateBroadcastAccessUrlRequest.ProtoReflect.Descriptor instead.
+func (*GenerateBroadcastAccessUrlRequest) Descriptor() ([]byte, []int) {
+	return file_event_events_public_server_v1_procedures_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *GenerateBroadcastAccessUrlRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+// GenerateBroadcastAccessUrlResponse represents a message that provides the result of the generate broadcast access url procedure.
+type GenerateBroadcastAccessUrlResponse struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Represents the broadcast access url corresponding to the unique identifier specified in the request.
+	Url           string `protobuf:"bytes,1,opt,name=url,proto3" json:"url,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GenerateBroadcastAccessUrlResponse) Reset() {
+	*x = GenerateBroadcastAccessUrlResponse{}
+	mi := &file_event_events_public_server_v1_procedures_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GenerateBroadcastAccessUrlResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GenerateBroadcastAccessUrlResponse) ProtoMessage() {}
+
+func (x *GenerateBroadcastAccessUrlResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_event_events_public_server_v1_procedures_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GenerateBroadcastAccessUrlResponse.ProtoReflect.Descriptor instead.
+func (*GenerateBroadcastAccessUrlResponse) Descriptor() ([]byte, []int) {
+	return file_event_events_public_server_v1_procedures_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GenerateBroadcastAccessUrlResponse) GetUrl() string {
+	if x != nil {
+		return x.Url
+	}
+	return ""
+}
+
 var File_event_events_public_server_v1_procedures_proto protoreflect.FileDescriptor
 
 const file_event_events_public_server_v1_procedures_proto_rawDesc = "" +
@@ -409,7 +501,11 @@ const file_event_events_public_server_v1_procedures_proto_rawDesc = "" +
 	"\x0eContextRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\"S\n" +
 	"\x0fContextResponse\x12@\n" +
-	"\acontext\x18\x01 \x01(\v2&.event.events.public.server.v1.ContextR\acontextBs\n" +
+	"\acontext\x18\x01 \x01(\v2&.event.events.public.server.v1.ContextR\acontext\"3\n" +
+	"!GenerateBroadcastAccessUrlRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"6\n" +
+	"\"GenerateBroadcastAccessUrlResponse\x12\x10\n" +
+	"\x03url\x18\x01 \x01(\tR\x03urlBs\n" +
 	"&com.evemeta.zdk.pb.event.server.eventsP\x01ZGgitlab.com/evemeta/zdk/pb/out/go/event/events/public/server/v1;eventspbb\x06proto3"
 
 var (
@@ -424,28 +520,30 @@ func file_event_events_public_server_v1_procedures_proto_rawDescGZIP() []byte {
 	return file_event_events_public_server_v1_procedures_proto_rawDescData
 }
 
-var file_event_events_public_server_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_event_events_public_server_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_event_events_public_server_v1_procedures_proto_goTypes = []any{
-	(*CountRequest)(nil),    // 0: event.events.public.server.v1.CountRequest
-	(*CountResponse)(nil),   // 1: event.events.public.server.v1.CountResponse
-	(*SelectRequest)(nil),   // 2: event.events.public.server.v1.SelectRequest
-	(*SelectResponse)(nil),  // 3: event.events.public.server.v1.SelectResponse
-	(*RangeRequest)(nil),    // 4: event.events.public.server.v1.RangeRequest
-	(*RangeResponse)(nil),   // 5: event.events.public.server.v1.RangeResponse
-	(*ContextRequest)(nil),  // 6: event.events.public.server.v1.ContextRequest
-	(*ContextResponse)(nil), // 7: event.events.public.server.v1.ContextResponse
-	(*Query)(nil),           // 8: event.events.public.server.v1.Query
-	(*Event)(nil),           // 9: event.events.public.server.v1.Event
-	(*Chunk)(nil),           // 10: event.events.public.server.v1.Chunk
-	(*Context)(nil),         // 11: event.events.public.server.v1.Context
+	(*CountRequest)(nil),                       // 0: event.events.public.server.v1.CountRequest
+	(*CountResponse)(nil),                      // 1: event.events.public.server.v1.CountResponse
+	(*SelectRequest)(nil),                      // 2: event.events.public.server.v1.SelectRequest
+	(*SelectResponse)(nil),                     // 3: event.events.public.server.v1.SelectResponse
+	(*RangeRequest)(nil),                       // 4: event.events.public.server.v1.RangeRequest
+	(*RangeResponse)(nil),                      // 5: event.events.public.server.v1.RangeResponse
+	(*ContextRequest)(nil),                     // 6: event.events.public.server.v1.ContextRequest
+	(*ContextResponse)(nil),                    // 7: event.events.public.server.v1.ContextResponse
+	(*GenerateBroadcastAccessUrlRequest)(nil),  // 8: event.events.public.server.v1.GenerateBroadcastAccessUrlRequest
+	(*GenerateBroadcastAccessUrlResponse)(nil), // 9: event.events.public.server.v1.GenerateBroadcastAccessUrlResponse
+	(*Query)(nil),                              // 10: event.events.public.server.v1.Query
+	(*Event)(nil),                              // 11: event.events.public.server.v1.Event
+	(*Chunk)(nil),                              // 12: event.events.public.server.v1.Chunk
+	(*Context)(nil),                            // 13: event.events.public.server.v1.Context
 }
 var file_event_events_public_server_v1_procedures_proto_depIdxs = []int32{
-	8,  // 0: event.events.public.server.v1.CountRequest.query:type_name -> event.events.public.server.v1.Query
-	8,  // 1: event.events.public.server.v1.SelectRequest.query:type_name -> event.events.public.server.v1.Query
-	9,  // 2: event.events.public.server.v1.SelectResponse.events:type_name -> event.events.public.server.v1.Event
-	8,  // 3: event.events.public.server.v1.RangeRequest.query:type_name -> event.events.public.server.v1.Query
-	10, // 4: event.events.public.server.v1.RangeResponse.chunk:type_name -> event.events.public.server.v1.Chunk
-	11, // 5: event.events.public.server.v1.ContextResponse.context:type_name -> event.events.public.server.v1.Context
+	10, // 0: event.events.public.server.v1.CountRequest.query:type_name -> event.events.public.server.v1.Query
+	10, // 1: event.events.public.server.v1.SelectRequest.query:type_name -> event.events.public.server.v1.Query
+	11, // 2: event.events.public.server.v1.SelectResponse.events:type_name -> event.events.public.server.v1.Event
+	10, // 3: event.events.public.server.v1.RangeRequest.query:type_name -> event.events.public.server.v1.Query
+	12, // 4: event.events.public.server.v1.RangeResponse.chunk:type_name -> event.events.public.server.v1.Chunk
+	13, // 5: event.events.public.server.v1.ContextResponse.context:type_name -> event.events.public.server.v1.Context
 	6,  // [6:6] is the sub-list for method output_type
 	6,  // [6:6] is the sub-list for method input_type
 	6,  // [6:6] is the sub-list for extension type_name
@@ -465,7 +563,7 @@ func file_event_events_public_server_v1_procedures_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_event_events_public_server_v1_procedures_proto_rawDesc), len(file_event_events_public_server_v1_procedures_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   8,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

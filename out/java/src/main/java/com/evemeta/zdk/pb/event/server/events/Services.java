@@ -37,7 +37,7 @@ public final class Services {
       "\n,event/events/public/server/v1/services" +
       ".proto\022\035event.events.public.server.v1\032.e" +
       "vent/events/public/server/v1/procedures." +
-      "proto2\242\003\n\007Service\022b\n\005Count\022+.event.event" +
+      "proto2\306\004\n\007Service\022b\n\005Count\022+.event.event" +
       "s.public.server.v1.CountRequest\032,.event." +
       "events.public.server.v1.CountResponse\022b\n" +
       "\005Range\022+.event.events.public.server.v1.R" +
@@ -47,10 +47,14 @@ public final class Services {
       "t.events.public.server.v1.SelectResponse" +
       "\022h\n\007Context\022-.event.events.public.server" +
       ".v1.ContextRequest\032..event.events.public" +
-      ".server.v1.ContextResponseBs\n&com.evemet" +
-      "a.zdk.pb.event.server.eventsP\001ZGgitlab.c" +
-      "om/evemeta/zdk/pb/out/go/event/events/pu" +
-      "blic/server/v1;eventspbb\006proto3"
+      ".server.v1.ContextResponse\022\241\001\n\032GenerateB" +
+      "roadcastAccessUrl\022@.event.events.public." +
+      "server.v1.GenerateBroadcastAccessUrlRequ" +
+      "est\032A.event.events.public.server.v1.Gene" +
+      "rateBroadcastAccessUrlResponseBs\n&com.ev" +
+      "emeta.zdk.pb.event.server.eventsP\001ZGgitl" +
+      "ab.com/evemeta/zdk/pb/out/go/event/event" +
+      "s/public/server/v1;eventspbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

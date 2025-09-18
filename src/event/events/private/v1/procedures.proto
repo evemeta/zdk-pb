@@ -290,9 +290,6 @@ message CancelTransaction {
     repeated event.events.private.v1.CancelMutation mutations = 1;
 }
 
-
-///
-
 message GenerateBroadcastAccessUrlRequest {
     event.events.private.v1.Query query = 1;
 }
