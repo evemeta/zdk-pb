@@ -6,6 +6,10 @@
 package com.evemeta.zdk.pb.chat.server.chats;
 
 /**
+ * <pre>
+ * Kind todo;
+ * </pre>
+ *
  * Protobuf enum {@code chat.chats.public.server.v1.Kind}
  */
 public enum Kind

@@ -1282,7 +1282,8 @@ type EnterArgument struct {
 	UserId        string                 `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	SessionId     string                 `protobuf:"bytes,3,opt,name=session_id,json=sessionId,proto3" json:"session_id,omitempty"`
 	Metadata      map[string]string      `protobuf:"bytes,4,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	Override      bool                   `protobuf:"varint,5,opt,name=override,proto3" json:"override,omitempty"`
+	Permissions   []v1.Permission        `protobuf:"varint,5,rep,packed,name=permissions,proto3,enum=chat.members.private.v1.Permission" json:"permissions,omitempty"`
+	Override      bool                   `protobuf:"varint,6,opt,name=override,proto3" json:"override,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1341,6 +1342,13 @@ func (x *EnterArgument) GetSessionId() string {
 func (x *EnterArgument) GetMetadata() map[string]string {
 	if x != nil {
 		return x.Metadata
+	}
+	return nil
+}
+
+func (x *EnterArgument) GetPermissions() []v1.Permission {
+	if x != nil {
+		return x.Permissions
 	}
 	return nil
 }
@@ -2400,7 +2408,7 @@ var File_chat_chats_private_v1_procedures_proto protoreflect.FileDescriptor
 
 const file_chat_chats_private_v1_procedures_proto_rawDesc = "" +
 	"\n" +
-	"&chat/chats/private/v1/procedures.proto\x12\x15chat.chats.private.v1\x1a$chat/chats/private/v1/entities.proto\x1a%chat/chats/private/v1/optionals.proto\x1a!chat/chats/private/v1/enums.proto\x1a(chat/members/private/v1/procedures.proto\x1a)chat/messages/private/v1/procedures.proto\x1a0gateway/transponders/private/v1/procedures.proto\"Y\n" +
+	"&chat/chats/private/v1/procedures.proto\x12\x15chat.chats.private.v1\x1a$chat/chats/private/v1/entities.proto\x1a%chat/chats/private/v1/optionals.proto\x1a!chat/chats/private/v1/enums.proto\x1a(chat/members/private/v1/procedures.proto\x1a)chat/messages/private/v1/procedures.proto\x1a0gateway/transponders/private/v1/procedures.proto\x1a#chat/members/private/v1/enums.proto\"Y\n" +
 	"\rCountArgument\x12\x14\n" +
 	"\x05cache\x18\x01 \x01(\bR\x05cache\x122\n" +
 	"\x05query\x18\x02 \x01(\v2\x1c.chat.chats.private.v1.QueryR\x05query\"R\n" +
@@ -2480,14 +2488,15 @@ const file_chat_chats_private_v1_procedures_proto_rawDesc = "" +
 	"\x17delete_member_mutations\x18\x01 \x03(\v2'.chat.members.private.v1.DeleteMutationR\x15deleteMemberMutations\x12b\n" +
 	"\x18delete_message_mutations\x18\x02 \x03(\v2(.chat.messages.private.v1.DeleteMutationR\x16deleteMessageMutations\"X\n" +
 	"\x11DeleteTransaction\x12C\n" +
-	"\tmutations\x18\x01 \x03(\v2%.chat.chats.private.v1.DeleteMutationR\tmutations\"\x80\x02\n" +
+	"\tmutations\x18\x01 \x03(\v2%.chat.chats.private.v1.DeleteMutationR\tmutations\"\xc7\x02\n" +
 	"\rEnterArgument\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\x12\x1d\n" +
 	"\n" +
 	"session_id\x18\x03 \x01(\tR\tsessionId\x12N\n" +
-	"\bmetadata\x18\x04 \x03(\v22.chat.chats.private.v1.EnterArgument.MetadataEntryR\bmetadata\x12\x1a\n" +
-	"\boverride\x18\x05 \x01(\bR\boverride\x1a;\n" +
+	"\bmetadata\x18\x04 \x03(\v22.chat.chats.private.v1.EnterArgument.MetadataEntryR\bmetadata\x12E\n" +
+	"\vpermissions\x18\x05 \x03(\x0e2#.chat.members.private.v1.PermissionR\vpermissions\x12\x1a\n" +
+	"\boverride\x18\x06 \x01(\bR\boverride\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"R\n" +
@@ -2631,10 +2640,11 @@ var file_chat_chats_private_v1_procedures_proto_goTypes = []any{
 	(*OptionalSlowmode)(nil),           // 56: chat.chats.private.v1.OptionalSlowmode
 	(*v1.DeleteMutation)(nil),          // 57: chat.members.private.v1.DeleteMutation
 	(*v11.DeleteMutation)(nil),         // 58: chat.messages.private.v1.DeleteMutation
-	(*v1.CreateMutation)(nil),          // 59: chat.members.private.v1.CreateMutation
-	(*v1.UpdateMutation)(nil),          // 60: chat.members.private.v1.UpdateMutation
-	(*v12.CreateMutation)(nil),         // 61: gateway.transponders.private.v1.CreateMutation
-	(*v12.DeleteMutation)(nil),         // 62: gateway.transponders.private.v1.DeleteMutation
+	(v1.Permission)(0),                 // 59: chat.members.private.v1.Permission
+	(*v1.CreateMutation)(nil),          // 60: chat.members.private.v1.CreateMutation
+	(*v1.UpdateMutation)(nil),          // 61: chat.members.private.v1.UpdateMutation
+	(*v12.CreateMutation)(nil),         // 62: gateway.transponders.private.v1.CreateMutation
+	(*v12.DeleteMutation)(nil),         // 63: gateway.transponders.private.v1.DeleteMutation
 }
 var file_chat_chats_private_v1_procedures_proto_depIdxs = []int32{
 	49, // 0: chat.chats.private.v1.CountArgument.query:type_name -> chat.chats.private.v1.Query
@@ -2671,36 +2681,37 @@ var file_chat_chats_private_v1_procedures_proto_depIdxs = []int32{
 	58, // 31: chat.chats.private.v1.DeleteCondition.delete_message_mutations:type_name -> chat.messages.private.v1.DeleteMutation
 	22, // 32: chat.chats.private.v1.DeleteTransaction.mutations:type_name -> chat.chats.private.v1.DeleteMutation
 	48, // 33: chat.chats.private.v1.EnterArgument.metadata:type_name -> chat.chats.private.v1.EnterArgument.MetadataEntry
-	25, // 34: chat.chats.private.v1.EnterRequest.arguments:type_name -> chat.chats.private.v1.EnterArgument
-	25, // 35: chat.chats.private.v1.EnterMutation.foundation:type_name -> chat.chats.private.v1.EnterArgument
-	29, // 36: chat.chats.private.v1.EnterMutation.condition:type_name -> chat.chats.private.v1.EnterCondition
-	59, // 37: chat.chats.private.v1.EnterCondition.create_member_mutations:type_name -> chat.members.private.v1.CreateMutation
-	60, // 38: chat.chats.private.v1.EnterCondition.update_member_mutations:type_name -> chat.members.private.v1.UpdateMutation
-	61, // 39: chat.chats.private.v1.EnterCondition.create_transponder_mutations:type_name -> gateway.transponders.private.v1.CreateMutation
-	28, // 40: chat.chats.private.v1.EnterTransaction.mutations:type_name -> chat.chats.private.v1.EnterMutation
-	31, // 41: chat.chats.private.v1.LeaveRequest.arguments:type_name -> chat.chats.private.v1.LeaveArgument
-	31, // 42: chat.chats.private.v1.LeaveMutation.foundation:type_name -> chat.chats.private.v1.LeaveArgument
-	35, // 43: chat.chats.private.v1.LeaveMutation.condition:type_name -> chat.chats.private.v1.LeaveCondition
-	60, // 44: chat.chats.private.v1.LeaveCondition.update_member_mutations:type_name -> chat.members.private.v1.UpdateMutation
-	62, // 45: chat.chats.private.v1.LeaveCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
-	34, // 46: chat.chats.private.v1.LeaveTransaction.mutations:type_name -> chat.chats.private.v1.LeaveMutation
-	49, // 47: chat.chats.private.v1.EnableSlowmodeArgument.query:type_name -> chat.chats.private.v1.Query
-	37, // 48: chat.chats.private.v1.EnableSlowmodeRequest.arguments:type_name -> chat.chats.private.v1.EnableSlowmodeArgument
-	51, // 49: chat.chats.private.v1.EnableSlowmodeResponse.chats:type_name -> chat.chats.private.v1.Chat
-	37, // 50: chat.chats.private.v1.EnableSlowmodeMutation.foundation:type_name -> chat.chats.private.v1.EnableSlowmodeArgument
-	54, // 51: chat.chats.private.v1.EnableSlowmodeMutation.transient:type_name -> chat.chats.private.v1.Transient
-	40, // 52: chat.chats.private.v1.EnableSlowmodeTransaction.mutations:type_name -> chat.chats.private.v1.EnableSlowmodeMutation
-	49, // 53: chat.chats.private.v1.DisableSlowmodeArgument.query:type_name -> chat.chats.private.v1.Query
-	42, // 54: chat.chats.private.v1.DisableSlowmodeRequest.arguments:type_name -> chat.chats.private.v1.DisableSlowmodeArgument
-	51, // 55: chat.chats.private.v1.DisableSlowmodeResponse.chats:type_name -> chat.chats.private.v1.Chat
-	42, // 56: chat.chats.private.v1.DisableSlowmodeMutation.foundation:type_name -> chat.chats.private.v1.DisableSlowmodeArgument
-	54, // 57: chat.chats.private.v1.DisableSlowmodeMutation.transient:type_name -> chat.chats.private.v1.Transient
-	45, // 58: chat.chats.private.v1.DisableSlowmodeTransaction.mutations:type_name -> chat.chats.private.v1.DisableSlowmodeMutation
-	59, // [59:59] is the sub-list for method output_type
-	59, // [59:59] is the sub-list for method input_type
-	59, // [59:59] is the sub-list for extension type_name
-	59, // [59:59] is the sub-list for extension extendee
-	0,  // [0:59] is the sub-list for field type_name
+	59, // 34: chat.chats.private.v1.EnterArgument.permissions:type_name -> chat.members.private.v1.Permission
+	25, // 35: chat.chats.private.v1.EnterRequest.arguments:type_name -> chat.chats.private.v1.EnterArgument
+	25, // 36: chat.chats.private.v1.EnterMutation.foundation:type_name -> chat.chats.private.v1.EnterArgument
+	29, // 37: chat.chats.private.v1.EnterMutation.condition:type_name -> chat.chats.private.v1.EnterCondition
+	60, // 38: chat.chats.private.v1.EnterCondition.create_member_mutations:type_name -> chat.members.private.v1.CreateMutation
+	61, // 39: chat.chats.private.v1.EnterCondition.update_member_mutations:type_name -> chat.members.private.v1.UpdateMutation
+	62, // 40: chat.chats.private.v1.EnterCondition.create_transponder_mutations:type_name -> gateway.transponders.private.v1.CreateMutation
+	28, // 41: chat.chats.private.v1.EnterTransaction.mutations:type_name -> chat.chats.private.v1.EnterMutation
+	31, // 42: chat.chats.private.v1.LeaveRequest.arguments:type_name -> chat.chats.private.v1.LeaveArgument
+	31, // 43: chat.chats.private.v1.LeaveMutation.foundation:type_name -> chat.chats.private.v1.LeaveArgument
+	35, // 44: chat.chats.private.v1.LeaveMutation.condition:type_name -> chat.chats.private.v1.LeaveCondition
+	61, // 45: chat.chats.private.v1.LeaveCondition.update_member_mutations:type_name -> chat.members.private.v1.UpdateMutation
+	63, // 46: chat.chats.private.v1.LeaveCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
+	34, // 47: chat.chats.private.v1.LeaveTransaction.mutations:type_name -> chat.chats.private.v1.LeaveMutation
+	49, // 48: chat.chats.private.v1.EnableSlowmodeArgument.query:type_name -> chat.chats.private.v1.Query
+	37, // 49: chat.chats.private.v1.EnableSlowmodeRequest.arguments:type_name -> chat.chats.private.v1.EnableSlowmodeArgument
+	51, // 50: chat.chats.private.v1.EnableSlowmodeResponse.chats:type_name -> chat.chats.private.v1.Chat
+	37, // 51: chat.chats.private.v1.EnableSlowmodeMutation.foundation:type_name -> chat.chats.private.v1.EnableSlowmodeArgument
+	54, // 52: chat.chats.private.v1.EnableSlowmodeMutation.transient:type_name -> chat.chats.private.v1.Transient
+	40, // 53: chat.chats.private.v1.EnableSlowmodeTransaction.mutations:type_name -> chat.chats.private.v1.EnableSlowmodeMutation
+	49, // 54: chat.chats.private.v1.DisableSlowmodeArgument.query:type_name -> chat.chats.private.v1.Query
+	42, // 55: chat.chats.private.v1.DisableSlowmodeRequest.arguments:type_name -> chat.chats.private.v1.DisableSlowmodeArgument
+	51, // 56: chat.chats.private.v1.DisableSlowmodeResponse.chats:type_name -> chat.chats.private.v1.Chat
+	42, // 57: chat.chats.private.v1.DisableSlowmodeMutation.foundation:type_name -> chat.chats.private.v1.DisableSlowmodeArgument
+	54, // 58: chat.chats.private.v1.DisableSlowmodeMutation.transient:type_name -> chat.chats.private.v1.Transient
+	45, // 59: chat.chats.private.v1.DisableSlowmodeTransaction.mutations:type_name -> chat.chats.private.v1.DisableSlowmodeMutation
+	60, // [60:60] is the sub-list for method output_type
+	60, // [60:60] is the sub-list for method input_type
+	60, // [60:60] is the sub-list for extension type_name
+	60, // [60:60] is the sub-list for extension extendee
+	0,  // [0:60] is the sub-list for field type_name
 }
 
 func init() { file_chat_chats_private_v1_procedures_proto_init() }

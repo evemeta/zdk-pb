@@ -8,9 +8,9 @@ import "room/members/private/v1/entities.proto";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/tokens/private/v1;tokenspb";
 
 message CreateArgument {
-    string                                       user_id     = 1;
-    string                                       room_id    = 2;
-    map<string, string>                          metadata    = 3;
+    string                                      user_id     = 1;
+    string                                      room_id     = 2;
+    map<string, string>                         metadata    = 3;
     repeated room.members.private.v1.Permission permissions = 4;
 }
 

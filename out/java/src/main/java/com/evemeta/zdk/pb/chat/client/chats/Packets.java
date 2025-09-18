@@ -45,12 +45,12 @@ public final class Packets {
   static {
     java.lang.String[] descriptorData = {
       "\n)chat/chats/public/client/v1/packets.pr" +
-      "oto\022\033chat.chats.public.client.v1\"/\n\017Ente" +
-      "rChatPacket\022\n\n\002id\030\001 \001(\t\022\020\n\010override\030\002 \001(" +
-      "\010\"\035\n\017LeaveChatPacket\022\n\n\002id\030\001 \001(\tBn\n$com." +
-      "evemeta.zdk.pb.chat.client.chatsP\001ZDgitl" +
-      "ab.com/evemeta/zdk/pb/out/go/chat/chats/" +
-      "public/client/v1;chatspbb\006proto3"
+      "oto\022\033chat.chats.public.client.v1\"2\n\017Ente" +
+      "rChatPacket\022\r\n\005token\030\001 \001(\t\022\020\n\010override\030\002" +
+      " \001(\010\"\035\n\017LeaveChatPacket\022\n\n\002id\030\001 \001(\tBn\n$c" +
+      "om.evemeta.zdk.pb.chat.client.chatsP\001ZDg" +
+      "itlab.com/evemeta/zdk/pb/out/go/chat/cha" +
+      "ts/public/client/v1;chatspbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -61,7 +61,7 @@ public final class Packets {
     internal_static_chat_chats_public_client_v1_EnterChatPacket_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_chat_chats_public_client_v1_EnterChatPacket_descriptor,
-        new java.lang.String[] { "Id", "Override", });
+        new java.lang.String[] { "Token", "Override", });
     internal_static_chat_chats_public_client_v1_LeaveChatPacket_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_chat_chats_public_client_v1_LeaveChatPacket_fieldAccessorTable = new

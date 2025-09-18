@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package chat.members.public.server.v1;
 
-
 option java_multiple_files = true;
 option java_package = "com.evemeta.zdk.pb.chat.server.members";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/members/public/server/v1;memberspb";
@@ -21,15 +20,16 @@ enum Status {
     StatusDisconnected = 2;
 }
 
+// Permission todo;
 enum Permission {
-    PermissionUnknown              = 0;
-    PermissionChat                 = 100;
-    PermissionChatBlock            = 101;
-    PermissionChatUnblock          = 102;
-    PermissionChatMute             = 103;
-    PermissionChatUnmute           = 104;
-    PermissionChatMessageDelete    = 105;
-    PermissionChatKick             = 106;
-    PermissionChatSlowmode         = 107;
-    PermissionChatSlowmodeBypass   = 108;
+    PermissionUnknown            = 0;
+    PermissionChat               = 100;
+    PermissionChatBlock          = 101;
+    PermissionChatUnblock        = 102;
+    PermissionChatMute           = 103;
+    PermissionChatUnmute         = 104;
+    PermissionChatMessageDelete  = 105;
+    PermissionChatKick           = 106;
+    PermissionChatSlowmode       = 107;
+    PermissionChatSlowmodeBypass = 108;
 }

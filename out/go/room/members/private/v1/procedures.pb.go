@@ -451,10 +451,10 @@ type CreateArgument struct {
 	UserId        string                 `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	RoomId        string                 `protobuf:"bytes,3,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
 	Status        Status                 `protobuf:"varint,4,opt,name=status,proto3,enum=room.members.private.v1.Status" json:"status,omitempty"`
-	Permissions   []Permission           `protobuf:"varint,8,rep,packed,name=permissions,proto3,enum=room.members.private.v1.Permission" json:"permissions,omitempty"`
 	Metadata      map[string]string      `protobuf:"bytes,5,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	EnterTime     int64                  `protobuf:"varint,6,opt,name=enter_time,json=enterTime,proto3" json:"enter_time,omitempty"`
-	LeaveTime     int64                  `protobuf:"varint,7,opt,name=leave_time,json=leaveTime,proto3" json:"leave_time,omitempty"`
+	Permissions   []Permission           `protobuf:"varint,6,rep,packed,name=permissions,proto3,enum=room.members.private.v1.Permission" json:"permissions,omitempty"`
+	EnterTime     int64                  `protobuf:"varint,7,opt,name=enter_time,json=enterTime,proto3" json:"enter_time,omitempty"`
+	LeaveTime     int64                  `protobuf:"varint,8,opt,name=leave_time,json=leaveTime,proto3" json:"leave_time,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -517,16 +517,16 @@ func (x *CreateArgument) GetStatus() Status {
 	return StatusUnknown
 }
 
-func (x *CreateArgument) GetPermissions() []Permission {
+func (x *CreateArgument) GetMetadata() map[string]string {
 	if x != nil {
-		return x.Permissions
+		return x.Metadata
 	}
 	return nil
 }
 
-func (x *CreateArgument) GetMetadata() map[string]string {
+func (x *CreateArgument) GetPermissions() []Permission {
 	if x != nil {
-		return x.Metadata
+		return x.Permissions
 	}
 	return nil
 }
@@ -803,7 +803,7 @@ type UpdateArgument struct {
 	UserId        *OptionalString        `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
 	RoomId        *OptionalString        `protobuf:"bytes,3,opt,name=room_id,json=roomId,proto3,oneof" json:"room_id,omitempty"`
 	Metadata      *OptionalMap           `protobuf:"bytes,4,opt,name=metadata,proto3,oneof" json:"metadata,omitempty"`
-	Permissions   *OptionalPermission    `protobuf:"bytes,5,opt,name=permissions,proto3,oneof" json:"permissions,omitempty"`
+	Permissions   *OptionalPermissions   `protobuf:"bytes,5,opt,name=permissions,proto3,oneof" json:"permissions,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -866,7 +866,7 @@ func (x *UpdateArgument) GetMetadata() *OptionalMap {
 	return nil
 }
 
-func (x *UpdateArgument) GetPermissions() *OptionalPermission {
+func (x *UpdateArgument) GetPermissions() *OptionalPermissions {
 	if x != nil {
 		return x.Permissions
 	}
@@ -1719,13 +1719,13 @@ const file_room_members_private_v1_procedures_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\x12\x17\n" +
 	"\aroom_id\x18\x03 \x01(\tR\x06roomId\x127\n" +
-	"\x06status\x18\x04 \x01(\x0e2\x1f.room.members.private.v1.StatusR\x06status\x12E\n" +
-	"\vpermissions\x18\b \x03(\x0e2#.room.members.private.v1.PermissionR\vpermissions\x12Q\n" +
-	"\bmetadata\x18\x05 \x03(\v25.room.members.private.v1.CreateArgument.MetadataEntryR\bmetadata\x12\x1d\n" +
+	"\x06status\x18\x04 \x01(\x0e2\x1f.room.members.private.v1.StatusR\x06status\x12Q\n" +
+	"\bmetadata\x18\x05 \x03(\v25.room.members.private.v1.CreateArgument.MetadataEntryR\bmetadata\x12E\n" +
+	"\vpermissions\x18\x06 \x03(\x0e2#.room.members.private.v1.PermissionR\vpermissions\x12\x1d\n" +
 	"\n" +
-	"enter_time\x18\x06 \x01(\x03R\tenterTime\x12\x1d\n" +
+	"enter_time\x18\a \x01(\x03R\tenterTime\x12\x1d\n" +
 	"\n" +
-	"leave_time\x18\a \x01(\x03R\tleaveTime\x1a;\n" +
+	"leave_time\x18\b \x01(\x03R\tleaveTime\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"V\n" +
@@ -1744,13 +1744,13 @@ const file_room_members_private_v1_procedures_proto_rawDesc = "" +
 	"\x0fCreateCondition\x12q\n" +
 	"\x1ccreate_transponder_mutations\x18\x01 \x03(\v2/.gateway.transponders.private.v1.CreateMutationR\x1acreateTransponderMutations\"Z\n" +
 	"\x11CreateTransaction\x12E\n" +
-	"\tmutations\x18\x01 \x03(\v2'.room.members.private.v1.CreateMutationR\tmutations\"\xa4\x03\n" +
+	"\tmutations\x18\x01 \x03(\v2'.room.members.private.v1.CreateMutationR\tmutations\"\xa5\x03\n" +
 	"\x0eUpdateArgument\x124\n" +
 	"\x05query\x18\x01 \x01(\v2\x1e.room.members.private.v1.QueryR\x05query\x12E\n" +
 	"\auser_id\x18\x02 \x01(\v2'.room.members.private.v1.OptionalStringH\x00R\x06userId\x88\x01\x01\x12E\n" +
 	"\aroom_id\x18\x03 \x01(\v2'.room.members.private.v1.OptionalStringH\x01R\x06roomId\x88\x01\x01\x12E\n" +
-	"\bmetadata\x18\x04 \x01(\v2$.room.members.private.v1.OptionalMapH\x02R\bmetadata\x88\x01\x01\x12R\n" +
-	"\vpermissions\x18\x05 \x01(\v2+.room.members.private.v1.OptionalPermissionH\x03R\vpermissions\x88\x01\x01B\n" +
+	"\bmetadata\x18\x04 \x01(\v2$.room.members.private.v1.OptionalMapH\x02R\bmetadata\x88\x01\x01\x12S\n" +
+	"\vpermissions\x18\x05 \x01(\v2,.room.members.private.v1.OptionalPermissionsH\x03R\vpermissions\x88\x01\x01B\n" +
 	"\n" +
 	"\b_user_idB\n" +
 	"\n" +
@@ -1866,7 +1866,7 @@ var file_room_members_private_v1_procedures_proto_goTypes = []any{
 	(*v1.CreateMutation)(nil),      // 39: gateway.transponders.private.v1.CreateMutation
 	(*OptionalString)(nil),         // 40: room.members.private.v1.OptionalString
 	(*OptionalMap)(nil),            // 41: room.members.private.v1.OptionalMap
-	(*OptionalPermission)(nil),     // 42: room.members.private.v1.OptionalPermission
+	(*OptionalPermissions)(nil),    // 42: room.members.private.v1.OptionalPermissions
 	(*v1.DeleteMutation)(nil),      // 43: gateway.transponders.private.v1.DeleteMutation
 	(*v11.DeleteMutation)(nil),     // 44: room.streams.private.v1.DeleteMutation
 	(*v12.DeleteMutation)(nil),     // 45: room.connections.private.v1.DeleteMutation
@@ -1882,8 +1882,8 @@ var file_room_members_private_v1_procedures_proto_depIdxs = []int32{
 	6,  // 6: room.members.private.v1.SelectRequest.arguments:type_name -> room.members.private.v1.SelectArgument
 	35, // 7: room.members.private.v1.SelectResponse.members:type_name -> room.members.private.v1.Member
 	36, // 8: room.members.private.v1.CreateArgument.status:type_name -> room.members.private.v1.Status
-	37, // 9: room.members.private.v1.CreateArgument.permissions:type_name -> room.members.private.v1.Permission
-	32, // 10: room.members.private.v1.CreateArgument.metadata:type_name -> room.members.private.v1.CreateArgument.MetadataEntry
+	32, // 9: room.members.private.v1.CreateArgument.metadata:type_name -> room.members.private.v1.CreateArgument.MetadataEntry
+	37, // 10: room.members.private.v1.CreateArgument.permissions:type_name -> room.members.private.v1.Permission
 	9,  // 11: room.members.private.v1.CreateRequest.arguments:type_name -> room.members.private.v1.CreateArgument
 	35, // 12: room.members.private.v1.CreateResponse.members:type_name -> room.members.private.v1.Member
 	9,  // 13: room.members.private.v1.CreateMutation.foundation:type_name -> room.members.private.v1.CreateArgument
@@ -1895,7 +1895,7 @@ var file_room_members_private_v1_procedures_proto_depIdxs = []int32{
 	40, // 19: room.members.private.v1.UpdateArgument.user_id:type_name -> room.members.private.v1.OptionalString
 	40, // 20: room.members.private.v1.UpdateArgument.room_id:type_name -> room.members.private.v1.OptionalString
 	41, // 21: room.members.private.v1.UpdateArgument.metadata:type_name -> room.members.private.v1.OptionalMap
-	42, // 22: room.members.private.v1.UpdateArgument.permissions:type_name -> room.members.private.v1.OptionalPermission
+	42, // 22: room.members.private.v1.UpdateArgument.permissions:type_name -> room.members.private.v1.OptionalPermissions
 	15, // 23: room.members.private.v1.UpdateRequest.arguments:type_name -> room.members.private.v1.UpdateArgument
 	35, // 24: room.members.private.v1.UpdateResponse.members:type_name -> room.members.private.v1.Member
 	15, // 25: room.members.private.v1.UpdateMutation.foundation:type_name -> room.members.private.v1.UpdateArgument

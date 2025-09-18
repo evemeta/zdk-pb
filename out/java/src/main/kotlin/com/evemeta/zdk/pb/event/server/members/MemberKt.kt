@@ -194,11 +194,104 @@ public object MemberKt {
        }
 
     /**
+     * An uninstantiable, behaviorless type to represent the field in
+     * generics.
+     */
+    @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
+    public class PermissionsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    /**
+     * ```
+     * Represents list of permission which member have inside this room.
+     * ```
+     *
+     * `repeated .event.members.public.server.v1.Permission permissions = 5;`
+     */
+    public val permissions: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.members.Permission, PermissionsProxy>
+      @kotlin.jvm.JvmSynthetic
+      get() = com.google.protobuf.kotlin.DslList(
+        _builder.permissionsList
+      )
+    /**
+     * ```
+     * Represents list of permission which member have inside this room.
+     * ```
+     *
+     * `repeated .event.members.public.server.v1.Permission permissions = 5;`
+     * @param value The permissions to add.
+     */
+    @kotlin.jvm.JvmSynthetic
+    @kotlin.jvm.JvmName("addPermissions")
+    public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.members.Permission, PermissionsProxy>.add(value: com.evemeta.zdk.pb.event.server.members.Permission) {
+      _builder.addPermissions(value)
+    }/**
+     * ```
+     * Represents list of permission which member have inside this room.
+     * ```
+     *
+     * `repeated .event.members.public.server.v1.Permission permissions = 5;`
+     * @param value The permissions to add.
+     */
+    @kotlin.jvm.JvmSynthetic
+    @kotlin.jvm.JvmName("plusAssignPermissions")
+    @Suppress("NOTHING_TO_INLINE")
+    public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.members.Permission, PermissionsProxy>.plusAssign(value: com.evemeta.zdk.pb.event.server.members.Permission) {
+      add(value)
+    }/**
+     * ```
+     * Represents list of permission which member have inside this room.
+     * ```
+     *
+     * `repeated .event.members.public.server.v1.Permission permissions = 5;`
+     * @param values The permissions to add.
+     */
+    @kotlin.jvm.JvmSynthetic
+    @kotlin.jvm.JvmName("addAllPermissions")
+    public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.members.Permission, PermissionsProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.event.server.members.Permission>) {
+      _builder.addAllPermissions(values)
+    }/**
+     * ```
+     * Represents list of permission which member have inside this room.
+     * ```
+     *
+     * `repeated .event.members.public.server.v1.Permission permissions = 5;`
+     * @param values The permissions to add.
+     */
+    @kotlin.jvm.JvmSynthetic
+    @kotlin.jvm.JvmName("plusAssignAllPermissions")
+    @Suppress("NOTHING_TO_INLINE")
+    public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.members.Permission, PermissionsProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.event.server.members.Permission>) {
+      addAll(values)
+    }/**
+     * ```
+     * Represents list of permission which member have inside this room.
+     * ```
+     *
+     * `repeated .event.members.public.server.v1.Permission permissions = 5;`
+     * @param index The index to set the value at.
+     * @param value The permissions to set.
+     */
+    @kotlin.jvm.JvmSynthetic
+    @kotlin.jvm.JvmName("setPermissions")
+    public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.members.Permission, PermissionsProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.event.server.members.Permission) {
+      _builder.setPermissions(index, value)
+    }/**
+     * ```
+     * Represents list of permission which member have inside this room.
+     * ```
+     *
+     * `repeated .event.members.public.server.v1.Permission permissions = 5;`
+     */
+    @kotlin.jvm.JvmSynthetic
+    @kotlin.jvm.JvmName("clearPermissions")
+    public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.members.Permission, PermissionsProxy>.clear() {
+      _builder.clearPermissions()
+    }
+    /**
      * ```
      * Represents the timestamp indicating when this member was created or added to the event.
      * ```
      *
-     * `int64 create_time = 5;`
+     * `int64 create_time = 6;`
      */
     public var createTime: kotlin.Long
       @JvmName("getCreateTime")
@@ -212,7 +305,7 @@ public object MemberKt {
      * Represents the timestamp indicating when this member was created or added to the event.
      * ```
      *
-     * `int64 create_time = 5;`
+     * `int64 create_time = 6;`
      */
     public fun clearCreateTime() {
       _builder.clearCreateTime()
@@ -223,7 +316,7 @@ public object MemberKt {
      * Represents the timestamp of the last update associated with this member.
      * ```
      *
-     * `int64 update_time = 6;`
+     * `int64 update_time = 7;`
      */
     public var updateTime: kotlin.Long
       @JvmName("getUpdateTime")
@@ -237,7 +330,7 @@ public object MemberKt {
      * Represents the timestamp of the last update associated with this member.
      * ```
      *
-     * `int64 update_time = 6;`
+     * `int64 update_time = 7;`
      */
     public fun clearUpdateTime() {
       _builder.clearUpdateTime()

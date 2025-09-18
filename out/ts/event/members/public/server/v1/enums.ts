@@ -39,3 +39,66 @@ export enum Status {
      */
     Disconnected = 2
 }
+/**
+ * Permission todo;
+ *
+ * @generated from protobuf enum event.members.public.server.v1.Permission
+ */
+export enum Permission {
+    /**
+     * @generated from protobuf enum value: Unknown = 0;
+     */
+    Unknown = 0,
+    /**
+     * @generated from protobuf enum value: Chat = 100;
+     */
+    Chat = 100,
+    /**
+     * @generated from protobuf enum value: ChatBlock = 101;
+     */
+    ChatBlock = 101,
+    /**
+     * @generated from protobuf enum value: ChatUnblock = 102;
+     */
+    ChatUnblock = 102,
+    /**
+     * @generated from protobuf enum value: ChatMute = 103;
+     */
+    ChatMute = 103,
+    /**
+     * @generated from protobuf enum value: ChatUnmute = 104;
+     */
+    ChatUnmute = 104,
+    /**
+     * @generated from protobuf enum value: ChatMessageDelete = 105;
+     */
+    ChatMessageDelete = 105,
+    /**
+     * @generated from protobuf enum value: ChatKick = 106;
+     */
+    ChatKick = 106,
+    /**
+     * @generated from protobuf enum value: ChatSlowmode = 107;
+     */
+    ChatSlowmode = 107,
+    /**
+     * @generated from protobuf enum value: ChatSlowmodeBypass = 108;
+     */
+    ChatSlowmodeBypass = 108,
+    /**
+     * @generated from protobuf enum value: Event = 300;
+     */
+    Event = 300,
+    /**
+     * @generated from protobuf enum value: EventBlock = 301;
+     */
+    EventBlock = 301,
+    /**
+     * @generated from protobuf enum value: EventUnblock = 302;
+     */
+    EventUnblock = 302,
+    /**
+     * @generated from protobuf enum value: EventKick = 303;
+     */
+    EventKick = 303
+}

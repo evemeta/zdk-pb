@@ -46,19 +46,17 @@ public final class Procedures {
     java.lang.String[] descriptorData = {
       "\n.event/tokens/public/server/v1/procedur" +
       "es.proto\022\035event.tokens.public.server.v1\032" +
-      ",event/events/public/server/v1/entities." +
-      "proto\032-event/members/public/server/v1/en" +
-      "tities.proto\"\020\n\016ExtractRequest\"I\n\017Extrac" +
-      "tResponse\0226\n\006member\030\001 \001(\0132&.event.member" +
-      "s.public.server.v1.MemberBs\n&com.evemeta" +
-      ".zdk.pb.event.server.tokensP\001ZGgitlab.co" +
-      "m/evemeta/zdk/pb/out/go/event/tokens/pub" +
-      "lic/server/v1;tokenspbb\006proto3"
+      "-event/members/public/server/v1/entities" +
+      ".proto\"\020\n\016ExtractRequest\"I\n\017ExtractRespo" +
+      "nse\0226\n\006member\030\001 \001(\0132&.event.members.publ" +
+      "ic.server.v1.MemberBs\n&com.evemeta.zdk.p" +
+      "b.event.server.tokensP\001ZGgitlab.com/evem" +
+      "eta/zdk/pb/out/go/event/tokens/public/se" +
+      "rver/v1;tokenspbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.evemeta.zdk.pb.event.server.events.Entities.getDescriptor(),
           com.evemeta.zdk.pb.event.server.members.Entities.getDescriptor(),
         });
     internal_static_event_tokens_public_server_v1_ExtractRequest_descriptor =
@@ -74,7 +72,6 @@ public final class Procedures {
         internal_static_event_tokens_public_server_v1_ExtractResponse_descriptor,
         new java.lang.String[] { "Member", });
     descriptor.resolveAllFeaturesImmutable();
-    com.evemeta.zdk.pb.event.server.events.Entities.getDescriptor();
     com.evemeta.zdk.pb.event.server.members.Entities.getDescriptor();
   }
 

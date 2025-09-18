@@ -121,6 +121,89 @@ func (Status) EnumDescriptor() ([]byte, []int) {
 	return file_event_members_public_server_v1_enums_proto_rawDescGZIP(), []int{1}
 }
 
+// Permission todo;
+type Permission int32
+
+const (
+	PermissionUnknown            Permission = 0
+	PermissionChat               Permission = 100
+	PermissionChatBlock          Permission = 101
+	PermissionChatUnblock        Permission = 102
+	PermissionChatMute           Permission = 103
+	PermissionChatUnmute         Permission = 104
+	PermissionChatMessageDelete  Permission = 105
+	PermissionChatKick           Permission = 106
+	PermissionChatSlowmode       Permission = 107
+	PermissionChatSlowmodeBypass Permission = 108
+	PermissionEvent              Permission = 300
+	PermissionEventBlock         Permission = 301
+	PermissionEventUnblock       Permission = 302
+	PermissionEventKick          Permission = 303
+)
+
+// Enum value maps for Permission.
+var (
+	Permission_name = map[int32]string{
+		0:   "PermissionUnknown",
+		100: "PermissionChat",
+		101: "PermissionChatBlock",
+		102: "PermissionChatUnblock",
+		103: "PermissionChatMute",
+		104: "PermissionChatUnmute",
+		105: "PermissionChatMessageDelete",
+		106: "PermissionChatKick",
+		107: "PermissionChatSlowmode",
+		108: "PermissionChatSlowmodeBypass",
+		300: "PermissionEvent",
+		301: "PermissionEventBlock",
+		302: "PermissionEventUnblock",
+		303: "PermissionEventKick",
+	}
+	Permission_value = map[string]int32{
+		"PermissionUnknown":            0,
+		"PermissionChat":               100,
+		"PermissionChatBlock":          101,
+		"PermissionChatUnblock":        102,
+		"PermissionChatMute":           103,
+		"PermissionChatUnmute":         104,
+		"PermissionChatMessageDelete":  105,
+		"PermissionChatKick":           106,
+		"PermissionChatSlowmode":       107,
+		"PermissionChatSlowmodeBypass": 108,
+		"PermissionEvent":              300,
+		"PermissionEventBlock":         301,
+		"PermissionEventUnblock":       302,
+		"PermissionEventKick":          303,
+	}
+)
+
+func (x Permission) Enum() *Permission {
+	p := new(Permission)
+	*p = x
+	return p
+}
+
+func (x Permission) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (Permission) Descriptor() protoreflect.EnumDescriptor {
+	return file_event_members_public_server_v1_enums_proto_enumTypes[2].Descriptor()
+}
+
+func (Permission) Type() protoreflect.EnumType {
+	return &file_event_members_public_server_v1_enums_proto_enumTypes[2]
+}
+
+func (x Permission) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use Permission.Descriptor instead.
+func (Permission) EnumDescriptor() ([]byte, []int) {
+	return file_event_members_public_server_v1_enums_proto_rawDescGZIP(), []int{2}
+}
+
 var File_event_members_public_server_v1_enums_proto protoreflect.FileDescriptor
 
 const file_event_members_public_server_v1_enums_proto_rawDesc = "" +
@@ -133,7 +216,23 @@ const file_event_members_public_server_v1_enums_proto_rawDesc = "" +
 	"\x06Status\x12\x11\n" +
 	"\rStatusUnknown\x10\x00\x12\x13\n" +
 	"\x0fStatusConnected\x10\x01\x12\x16\n" +
-	"\x12StatusDisconnected\x10\x02Bv\n" +
+	"\x12StatusDisconnected\x10\x02*\xfc\x02\n" +
+	"\n" +
+	"Permission\x12\x15\n" +
+	"\x11PermissionUnknown\x10\x00\x12\x12\n" +
+	"\x0ePermissionChat\x10d\x12\x17\n" +
+	"\x13PermissionChatBlock\x10e\x12\x19\n" +
+	"\x15PermissionChatUnblock\x10f\x12\x16\n" +
+	"\x12PermissionChatMute\x10g\x12\x18\n" +
+	"\x14PermissionChatUnmute\x10h\x12\x1f\n" +
+	"\x1bPermissionChatMessageDelete\x10i\x12\x16\n" +
+	"\x12PermissionChatKick\x10j\x12\x1a\n" +
+	"\x16PermissionChatSlowmode\x10k\x12 \n" +
+	"\x1cPermissionChatSlowmodeBypass\x10l\x12\x14\n" +
+	"\x0fPermissionEvent\x10\xac\x02\x12\x19\n" +
+	"\x14PermissionEventBlock\x10\xad\x02\x12\x1b\n" +
+	"\x16PermissionEventUnblock\x10\xae\x02\x12\x18\n" +
+	"\x13PermissionEventKick\x10\xaf\x02Bv\n" +
 	"'com.evemeta.zdk.pb.event.server.membersP\x01ZIgitlab.com/evemeta/zdk/pb/out/go/event/members/public/server/v1;memberspbb\x06proto3"
 
 var (
@@ -148,10 +247,11 @@ func file_event_members_public_server_v1_enums_proto_rawDescGZIP() []byte {
 	return file_event_members_public_server_v1_enums_proto_rawDescData
 }
 
-var file_event_members_public_server_v1_enums_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_event_members_public_server_v1_enums_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
 var file_event_members_public_server_v1_enums_proto_goTypes = []any{
-	(Order)(0),  // 0: event.members.public.server.v1.Order
-	(Status)(0), // 1: event.members.public.server.v1.Status
+	(Order)(0),      // 0: event.members.public.server.v1.Order
+	(Status)(0),     // 1: event.members.public.server.v1.Status
+	(Permission)(0), // 2: event.members.public.server.v1.Permission
 }
 var file_event_members_public_server_v1_enums_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -171,7 +271,7 @@ func file_event_members_public_server_v1_enums_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_event_members_public_server_v1_enums_proto_rawDesc), len(file_event_members_public_server_v1_enums_proto_rawDesc)),
-			NumEnums:      2,
+			NumEnums:      3,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   0,

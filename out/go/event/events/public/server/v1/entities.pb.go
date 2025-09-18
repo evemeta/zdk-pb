@@ -35,16 +35,24 @@ type Event struct {
 	Status Status `protobuf:"varint,3,opt,name=status,proto3,enum=event.events.public.server.v1.Status" json:"status,omitempty"`
 	// Represents a collection of key-value pairs providing additional context or information about this event.
 	Metadata map[string]string `protobuf:"bytes,4,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	// todo;
+	Schedule Schedule `protobuf:"varint,5,opt,name=schedule,proto3,enum=event.events.public.server.v1.Schedule" json:"schedule,omitempty"`
+	// todo;
+	Broadcast *Broadcast `protobuf:"bytes,6,opt,name=broadcast,proto3" json:"broadcast,omitempty"`
+	// todo;
+	PlannedStartTime int64 `protobuf:"varint,7,opt,name=planned_start_time,json=plannedStartTime,proto3" json:"planned_start_time,omitempty"`
 	// Represents the timestamp indicating when this event was started.
-	StartTime int64 `protobuf:"varint,5,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	StartTime int64 `protobuf:"varint,8,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	// todo;
+	PlannedFinishTime int64 `protobuf:"varint,9,opt,name=planned_finish_time,json=plannedFinishTime,proto3" json:"planned_finish_time,omitempty"`
 	// Represents the timestamp indicating when this event was finished.
-	FinishTime int64 `protobuf:"varint,6,opt,name=finish_time,json=finishTime,proto3" json:"finish_time,omitempty"`
+	FinishTime int64 `protobuf:"varint,10,opt,name=finish_time,json=finishTime,proto3" json:"finish_time,omitempty"`
 	// Represents the timestamp indicating when this event was canceled.
-	CancelTime int64 `protobuf:"varint,7,opt,name=cancel_time,json=cancelTime,proto3" json:"cancel_time,omitempty"`
+	CancelTime int64 `protobuf:"varint,11,opt,name=cancel_time,json=cancelTime,proto3" json:"cancel_time,omitempty"`
 	// Represents the timestamp indicating when this event was created.
-	CreateTime int64 `protobuf:"varint,8,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime int64 `protobuf:"varint,12,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Represents the timestamp of the last update associated with this event.
-	UpdateTime    int64 `protobuf:"varint,9,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	UpdateTime    int64 `protobuf:"varint,13,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -107,9 +115,37 @@ func (x *Event) GetMetadata() map[string]string {
 	return nil
 }
 
+func (x *Event) GetSchedule() Schedule {
+	if x != nil {
+		return x.Schedule
+	}
+	return ScheduleUnknown
+}
+
+func (x *Event) GetBroadcast() *Broadcast {
+	if x != nil {
+		return x.Broadcast
+	}
+	return nil
+}
+
+func (x *Event) GetPlannedStartTime() int64 {
+	if x != nil {
+		return x.PlannedStartTime
+	}
+	return 0
+}
+
 func (x *Event) GetStartTime() int64 {
 	if x != nil {
 		return x.StartTime
+	}
+	return 0
+}
+
+func (x *Event) GetPlannedFinishTime() int64 {
+	if x != nil {
+		return x.PlannedFinishTime
 	}
 	return 0
 }
@@ -142,6 +178,50 @@ func (x *Event) GetUpdateTime() int64 {
 	return 0
 }
 
+type Broadcast struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Orientation   BroadcastOrientation   `protobuf:"varint,1,opt,name=orientation,proto3,enum=event.events.public.server.v1.BroadcastOrientation" json:"orientation,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Broadcast) Reset() {
+	*x = Broadcast{}
+	mi := &file_event_events_public_server_v1_entities_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Broadcast) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Broadcast) ProtoMessage() {}
+
+func (x *Broadcast) ProtoReflect() protoreflect.Message {
+	mi := &file_event_events_public_server_v1_entities_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Broadcast.ProtoReflect.Descriptor instead.
+func (*Broadcast) Descriptor() ([]byte, []int) {
+	return file_event_events_public_server_v1_entities_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *Broadcast) GetOrientation() BroadcastOrientation {
+	if x != nil {
+		return x.Orientation
+	}
+	return BroadcastOrientationUnknown
+}
+
 // Chunk represents a segmented portion of events used for pagination or segmented data retrieval.
 // It provides insights about the desired chunk size, its position within the overall dataset, and the actual events it contains.
 type Chunk struct {
@@ -160,7 +240,7 @@ type Chunk struct {
 
 func (x *Chunk) Reset() {
 	*x = Chunk{}
-	mi := &file_event_events_public_server_v1_entities_proto_msgTypes[1]
+	mi := &file_event_events_public_server_v1_entities_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -172,7 +252,7 @@ func (x *Chunk) String() string {
 func (*Chunk) ProtoMessage() {}
 
 func (x *Chunk) ProtoReflect() protoreflect.Message {
-	mi := &file_event_events_public_server_v1_entities_proto_msgTypes[1]
+	mi := &file_event_events_public_server_v1_entities_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -185,7 +265,7 @@ func (x *Chunk) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Chunk.ProtoReflect.Descriptor instead.
 func (*Chunk) Descriptor() ([]byte, []int) {
-	return file_event_events_public_server_v1_entities_proto_rawDescGZIP(), []int{1}
+	return file_event_events_public_server_v1_entities_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *Chunk) GetSize() int64 {
@@ -234,7 +314,7 @@ type Query struct {
 
 func (x *Query) Reset() {
 	*x = Query{}
-	mi := &file_event_events_public_server_v1_entities_proto_msgTypes[2]
+	mi := &file_event_events_public_server_v1_entities_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -246,7 +326,7 @@ func (x *Query) String() string {
 func (*Query) ProtoMessage() {}
 
 func (x *Query) ProtoReflect() protoreflect.Message {
-	mi := &file_event_events_public_server_v1_entities_proto_msgTypes[2]
+	mi := &file_event_events_public_server_v1_entities_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -259,7 +339,7 @@ func (x *Query) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Query.ProtoReflect.Descriptor instead.
 func (*Query) Descriptor() ([]byte, []int) {
-	return file_event_events_public_server_v1_entities_proto_rawDescGZIP(), []int{2}
+	return file_event_events_public_server_v1_entities_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *Query) GetOrder() Order {
@@ -316,7 +396,7 @@ type Context struct {
 
 func (x *Context) Reset() {
 	*x = Context{}
-	mi := &file_event_events_public_server_v1_entities_proto_msgTypes[3]
+	mi := &file_event_events_public_server_v1_entities_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -328,7 +408,7 @@ func (x *Context) String() string {
 func (*Context) ProtoMessage() {}
 
 func (x *Context) ProtoReflect() protoreflect.Message {
-	mi := &file_event_events_public_server_v1_entities_proto_msgTypes[3]
+	mi := &file_event_events_public_server_v1_entities_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -341,7 +421,7 @@ func (x *Context) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Context.ProtoReflect.Descriptor instead.
 func (*Context) Descriptor() ([]byte, []int) {
-	return file_event_events_public_server_v1_entities_proto_rawDescGZIP(), []int{3}
+	return file_event_events_public_server_v1_entities_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *Context) GetEvent() *Event {
@@ -412,7 +492,7 @@ type Condition struct {
 
 func (x *Condition) Reset() {
 	*x = Condition{}
-	mi := &file_event_events_public_server_v1_entities_proto_msgTypes[4]
+	mi := &file_event_events_public_server_v1_entities_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -424,7 +504,7 @@ func (x *Condition) String() string {
 func (*Condition) ProtoMessage() {}
 
 func (x *Condition) ProtoReflect() protoreflect.Message {
-	mi := &file_event_events_public_server_v1_entities_proto_msgTypes[4]
+	mi := &file_event_events_public_server_v1_entities_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -437,7 +517,7 @@ func (x *Condition) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Condition.ProtoReflect.Descriptor instead.
 func (*Condition) Descriptor() ([]byte, []int) {
-	return file_event_events_public_server_v1_entities_proto_rawDescGZIP(), []int{4}
+	return file_event_events_public_server_v1_entities_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *Condition) GetIds() []string {
@@ -461,7 +541,7 @@ type Timeframe struct {
 
 func (x *Timeframe) Reset() {
 	*x = Timeframe{}
-	mi := &file_event_events_public_server_v1_entities_proto_msgTypes[5]
+	mi := &file_event_events_public_server_v1_entities_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -473,7 +553,7 @@ func (x *Timeframe) String() string {
 func (*Timeframe) ProtoMessage() {}
 
 func (x *Timeframe) ProtoReflect() protoreflect.Message {
-	mi := &file_event_events_public_server_v1_entities_proto_msgTypes[5]
+	mi := &file_event_events_public_server_v1_entities_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -486,7 +566,7 @@ func (x *Timeframe) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Timeframe.ProtoReflect.Descriptor instead.
 func (*Timeframe) Descriptor() ([]byte, []int) {
-	return file_event_events_public_server_v1_entities_proto_rawDescGZIP(), []int{5}
+	return file_event_events_public_server_v1_entities_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *Timeframe) GetCommence() int64 {
@@ -507,25 +587,32 @@ var File_event_events_public_server_v1_entities_proto protoreflect.FileDescripto
 
 const file_event_events_public_server_v1_entities_proto_rawDesc = "" +
 	"\n" +
-	",event/events/public/server/v1/entities.proto\x12\x1devent.events.public.server.v1\x1a)event/events/public/server/v1/enums.proto\x1a*chat/chats/public/server/v1/entities.proto\x1a-event/members/public/server/v1/entities.proto\"\xbf\x03\n" +
+	",event/events/public/server/v1/entities.proto\x12\x1devent.events.public.server.v1\x1a)event/events/public/server/v1/enums.proto\x1a*chat/chats/public/server/v1/entities.proto\x1a-event/members/public/server/v1/entities.proto\"\xaa\x05\n" +
 	"\x05Event\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x127\n" +
 	"\x04kind\x18\x02 \x01(\x0e2#.event.events.public.server.v1.KindR\x04kind\x12=\n" +
 	"\x06status\x18\x03 \x01(\x0e2%.event.events.public.server.v1.StatusR\x06status\x12N\n" +
-	"\bmetadata\x18\x04 \x03(\v22.event.events.public.server.v1.Event.MetadataEntryR\bmetadata\x12\x1d\n" +
+	"\bmetadata\x18\x04 \x03(\v22.event.events.public.server.v1.Event.MetadataEntryR\bmetadata\x12C\n" +
+	"\bschedule\x18\x05 \x01(\x0e2'.event.events.public.server.v1.ScheduleR\bschedule\x12F\n" +
+	"\tbroadcast\x18\x06 \x01(\v2(.event.events.public.server.v1.BroadcastR\tbroadcast\x12,\n" +
+	"\x12planned_start_time\x18\a \x01(\x03R\x10plannedStartTime\x12\x1d\n" +
 	"\n" +
-	"start_time\x18\x05 \x01(\x03R\tstartTime\x12\x1f\n" +
-	"\vfinish_time\x18\x06 \x01(\x03R\n" +
+	"start_time\x18\b \x01(\x03R\tstartTime\x12.\n" +
+	"\x13planned_finish_time\x18\t \x01(\x03R\x11plannedFinishTime\x12\x1f\n" +
+	"\vfinish_time\x18\n" +
+	" \x01(\x03R\n" +
 	"finishTime\x12\x1f\n" +
-	"\vcancel_time\x18\a \x01(\x03R\n" +
+	"\vcancel_time\x18\v \x01(\x03R\n" +
 	"cancelTime\x12\x1f\n" +
-	"\vcreate_time\x18\b \x01(\x03R\n" +
+	"\vcreate_time\x18\f \x01(\x03R\n" +
 	"createTime\x12\x1f\n" +
-	"\vupdate_time\x18\t \x01(\x03R\n" +
+	"\vupdate_time\x18\r \x01(\x03R\n" +
 	"updateTime\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\x89\x01\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"b\n" +
+	"\tBroadcast\x12U\n" +
+	"\vorientation\x18\x01 \x01(\x0e23.event.events.public.server.v1.BroadcastOrientationR\vorientation\"\x89\x01\n" +
 	"\x05Chunk\x12\x12\n" +
 	"\x04size\x18\x01 \x01(\x03R\x04size\x12\x14\n" +
 	"\x05index\x18\x02 \x01(\x03R\x05index\x12\x14\n" +
@@ -564,40 +651,46 @@ func file_event_events_public_server_v1_entities_proto_rawDescGZIP() []byte {
 	return file_event_events_public_server_v1_entities_proto_rawDescData
 }
 
-var file_event_events_public_server_v1_entities_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_event_events_public_server_v1_entities_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_event_events_public_server_v1_entities_proto_goTypes = []any{
-	(*Event)(nil),      // 0: event.events.public.server.v1.Event
-	(*Chunk)(nil),      // 1: event.events.public.server.v1.Chunk
-	(*Query)(nil),      // 2: event.events.public.server.v1.Query
-	(*Context)(nil),    // 3: event.events.public.server.v1.Context
-	(*Condition)(nil),  // 4: event.events.public.server.v1.Condition
-	(*Timeframe)(nil),  // 5: event.events.public.server.v1.Timeframe
-	nil,                // 6: event.events.public.server.v1.Event.MetadataEntry
-	(Kind)(0),          // 7: event.events.public.server.v1.Kind
-	(Status)(0),        // 8: event.events.public.server.v1.Status
-	(Order)(0),         // 9: event.events.public.server.v1.Order
-	(*v1.Chat)(nil),    // 10: chat.chats.public.server.v1.Chat
-	(*v11.Member)(nil), // 11: event.members.public.server.v1.Member
+	(*Event)(nil),             // 0: event.events.public.server.v1.Event
+	(*Broadcast)(nil),         // 1: event.events.public.server.v1.Broadcast
+	(*Chunk)(nil),             // 2: event.events.public.server.v1.Chunk
+	(*Query)(nil),             // 3: event.events.public.server.v1.Query
+	(*Context)(nil),           // 4: event.events.public.server.v1.Context
+	(*Condition)(nil),         // 5: event.events.public.server.v1.Condition
+	(*Timeframe)(nil),         // 6: event.events.public.server.v1.Timeframe
+	nil,                       // 7: event.events.public.server.v1.Event.MetadataEntry
+	(Kind)(0),                 // 8: event.events.public.server.v1.Kind
+	(Status)(0),               // 9: event.events.public.server.v1.Status
+	(Schedule)(0),             // 10: event.events.public.server.v1.Schedule
+	(BroadcastOrientation)(0), // 11: event.events.public.server.v1.BroadcastOrientation
+	(Order)(0),                // 12: event.events.public.server.v1.Order
+	(*v1.Chat)(nil),           // 13: chat.chats.public.server.v1.Chat
+	(*v11.Member)(nil),        // 14: event.members.public.server.v1.Member
 }
 var file_event_events_public_server_v1_entities_proto_depIdxs = []int32{
-	7,  // 0: event.events.public.server.v1.Event.kind:type_name -> event.events.public.server.v1.Kind
-	8,  // 1: event.events.public.server.v1.Event.status:type_name -> event.events.public.server.v1.Status
-	6,  // 2: event.events.public.server.v1.Event.metadata:type_name -> event.events.public.server.v1.Event.MetadataEntry
-	0,  // 3: event.events.public.server.v1.Chunk.entities:type_name -> event.events.public.server.v1.Event
-	9,  // 4: event.events.public.server.v1.Query.order:type_name -> event.events.public.server.v1.Order
-	4,  // 5: event.events.public.server.v1.Query.condition:type_name -> event.events.public.server.v1.Condition
-	0,  // 6: event.events.public.server.v1.Context.event:type_name -> event.events.public.server.v1.Event
-	5,  // 7: event.events.public.server.v1.Context.event_timeframe:type_name -> event.events.public.server.v1.Timeframe
-	10, // 8: event.events.public.server.v1.Context.chat:type_name -> chat.chats.public.server.v1.Chat
-	5,  // 9: event.events.public.server.v1.Context.chat_timeframe:type_name -> event.events.public.server.v1.Timeframe
-	11, // 10: event.events.public.server.v1.Context.member:type_name -> event.members.public.server.v1.Member
-	5,  // 11: event.events.public.server.v1.Context.member_timeframe:type_name -> event.events.public.server.v1.Timeframe
-	5,  // 12: event.events.public.server.v1.Context.members_timeframe:type_name -> event.events.public.server.v1.Timeframe
-	13, // [13:13] is the sub-list for method output_type
-	13, // [13:13] is the sub-list for method input_type
-	13, // [13:13] is the sub-list for extension type_name
-	13, // [13:13] is the sub-list for extension extendee
-	0,  // [0:13] is the sub-list for field type_name
+	8,  // 0: event.events.public.server.v1.Event.kind:type_name -> event.events.public.server.v1.Kind
+	9,  // 1: event.events.public.server.v1.Event.status:type_name -> event.events.public.server.v1.Status
+	7,  // 2: event.events.public.server.v1.Event.metadata:type_name -> event.events.public.server.v1.Event.MetadataEntry
+	10, // 3: event.events.public.server.v1.Event.schedule:type_name -> event.events.public.server.v1.Schedule
+	1,  // 4: event.events.public.server.v1.Event.broadcast:type_name -> event.events.public.server.v1.Broadcast
+	11, // 5: event.events.public.server.v1.Broadcast.orientation:type_name -> event.events.public.server.v1.BroadcastOrientation
+	0,  // 6: event.events.public.server.v1.Chunk.entities:type_name -> event.events.public.server.v1.Event
+	12, // 7: event.events.public.server.v1.Query.order:type_name -> event.events.public.server.v1.Order
+	5,  // 8: event.events.public.server.v1.Query.condition:type_name -> event.events.public.server.v1.Condition
+	0,  // 9: event.events.public.server.v1.Context.event:type_name -> event.events.public.server.v1.Event
+	6,  // 10: event.events.public.server.v1.Context.event_timeframe:type_name -> event.events.public.server.v1.Timeframe
+	13, // 11: event.events.public.server.v1.Context.chat:type_name -> chat.chats.public.server.v1.Chat
+	6,  // 12: event.events.public.server.v1.Context.chat_timeframe:type_name -> event.events.public.server.v1.Timeframe
+	14, // 13: event.events.public.server.v1.Context.member:type_name -> event.members.public.server.v1.Member
+	6,  // 14: event.events.public.server.v1.Context.member_timeframe:type_name -> event.events.public.server.v1.Timeframe
+	6,  // 15: event.events.public.server.v1.Context.members_timeframe:type_name -> event.events.public.server.v1.Timeframe
+	16, // [16:16] is the sub-list for method output_type
+	16, // [16:16] is the sub-list for method input_type
+	16, // [16:16] is the sub-list for extension type_name
+	16, // [16:16] is the sub-list for extension extendee
+	0,  // [0:16] is the sub-list for field type_name
 }
 
 func init() { file_event_events_public_server_v1_entities_proto_init() }
@@ -612,7 +705,7 @@ func file_event_events_public_server_v1_entities_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_event_events_public_server_v1_entities_proto_rawDesc), len(file_event_events_public_server_v1_entities_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

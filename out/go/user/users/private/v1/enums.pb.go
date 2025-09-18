@@ -24,43 +24,24 @@ const (
 type Permission int32
 
 const (
-	PermissionUnknown                  Permission = 0
-	PermissionChat                     Permission = 100
-	PermissionChatSelect               Permission = 101
-	PermissionChatEnter                Permission = 102
-	PermissionChatLeave                Permission = 103
-	PermissionChatMember               Permission = 200
-	PermissionChatMemberSelect         Permission = 201
-	PermissionChatMemberKick           Permission = 202
-	PermissionChatMessage              Permission = 300
-	PermissionChatMessageSelect        Permission = 301
-	PermissionChatMessageCreate        Permission = 302
-	PermissionChatMessageUpdate        Permission = 303
-	PermissionChatMessageUpdateContent Permission = 304
-	PermissionChatMessageOwnDelete     Permission = 305
-	PermissionChatMessageAnyDelete     Permission = 306
-	PermissionRoom                     Permission = 400
-	PermissionRoomSelect               Permission = 401
-	PermissionRoomEnter                Permission = 402
-	PermissionRoomLeave                Permission = 403
-	PermissionRoomMember               Permission = 500
-	PermissionRoomMemberSelect         Permission = 501
-	PermissionRoomMemberKick           Permission = 502
-	PermissionRoomConnection           Permission = 600
-	PermissionRoomConnectionSelect     Permission = 601
-	PermissionRoomStream               Permission = 700
-	PermissionRoomStreamSelect         Permission = 701
-	PermissionRoomStreamCreate         Permission = 702
-	PermissionRoomStreamUpdate         Permission = 703
-	PermissionRoomStreamDelete         Permission = 704
-	PermissionRoomRestriction          Permission = 800
-	PermissionRoomRestrictionSelect    Permission = 801
-	PermissionRoomRestrictionCreate    Permission = 802
-	PermissionRoomRestrictionDelete    Permission = 803
-	PermissionChatRestriction          Permission = 900
-	PermissionChatRestrictionSelect    Permission = 901
-	PermissionChatRestrictionCreate    Permission = 902
-	PermissionChatRestrictionDelete    Permission = 903
+	PermissionUnknown            Permission = 0
+	PermissionChat               Permission = 100
+	PermissionChatBlock          Permission = 101
+	PermissionChatUnblock        Permission = 102
+	PermissionChatMute           Permission = 103
+	PermissionChatUnmute         Permission = 104
+	PermissionChatMessageDelete  Permission = 105
+	PermissionChatKick           Permission = 106
+	PermissionChatSlowmode       Permission = 107
+	PermissionChatSlowmodeBypass Permission = 108
+	PermissionRoom               Permission = 200
+	PermissionRoomBlock          Permission = 201
+	PermissionRoomUnblock        Permission = 202
+	PermissionRoomKick           Permission = 203
+	PermissionEvent              Permission = 300
+	PermissionEventBlock         Permission = 301
+	PermissionEventUnblock       Permission = 302
+	PermissionEventKick          Permission = 303
 )
 
 // Enum value maps for Permission.
@@ -68,80 +49,42 @@ var (
 	Permission_name = map[int32]string{
 		0:   "PermissionUnknown",
 		100: "PermissionChat",
-		101: "PermissionChatSelect",
-		102: "PermissionChatEnter",
-		103: "PermissionChatLeave",
-		200: "PermissionChatMember",
-		201: "PermissionChatMemberSelect",
-		202: "PermissionChatMemberKick",
-		300: "PermissionChatMessage",
-		301: "PermissionChatMessageSelect",
-		302: "PermissionChatMessageCreate",
-		303: "PermissionChatMessageUpdate",
-		304: "PermissionChatMessageUpdateContent",
-		305: "PermissionChatMessageOwnDelete",
-		306: "PermissionChatMessageAnyDelete",
-		400: "PermissionRoom",
-		401: "PermissionRoomSelect",
-		402: "PermissionRoomEnter",
-		403: "PermissionRoomLeave",
-		500: "PermissionRoomMember",
-		501: "PermissionRoomMemberSelect",
-		502: "PermissionRoomMemberKick",
-		600: "PermissionRoomConnection",
-		601: "PermissionRoomConnectionSelect",
-		700: "PermissionRoomStream",
-		701: "PermissionRoomStreamSelect",
-		702: "PermissionRoomStreamCreate",
-		703: "PermissionRoomStreamUpdate",
-		704: "PermissionRoomStreamDelete",
-		800: "PermissionRoomRestriction",
-		801: "PermissionRoomRestrictionSelect",
-		802: "PermissionRoomRestrictionCreate",
-		803: "PermissionRoomRestrictionDelete",
-		900: "PermissionChatRestriction",
-		901: "PermissionChatRestrictionSelect",
-		902: "PermissionChatRestrictionCreate",
-		903: "PermissionChatRestrictionDelete",
+		101: "PermissionChatBlock",
+		102: "PermissionChatUnblock",
+		103: "PermissionChatMute",
+		104: "PermissionChatUnmute",
+		105: "PermissionChatMessageDelete",
+		106: "PermissionChatKick",
+		107: "PermissionChatSlowmode",
+		108: "PermissionChatSlowmodeBypass",
+		200: "PermissionRoom",
+		201: "PermissionRoomBlock",
+		202: "PermissionRoomUnblock",
+		203: "PermissionRoomKick",
+		300: "PermissionEvent",
+		301: "PermissionEventBlock",
+		302: "PermissionEventUnblock",
+		303: "PermissionEventKick",
 	}
 	Permission_value = map[string]int32{
-		"PermissionUnknown":                  0,
-		"PermissionChat":                     100,
-		"PermissionChatSelect":               101,
-		"PermissionChatEnter":                102,
-		"PermissionChatLeave":                103,
-		"PermissionChatMember":               200,
-		"PermissionChatMemberSelect":         201,
-		"PermissionChatMemberKick":           202,
-		"PermissionChatMessage":              300,
-		"PermissionChatMessageSelect":        301,
-		"PermissionChatMessageCreate":        302,
-		"PermissionChatMessageUpdate":        303,
-		"PermissionChatMessageUpdateContent": 304,
-		"PermissionChatMessageOwnDelete":     305,
-		"PermissionChatMessageAnyDelete":     306,
-		"PermissionRoom":                     400,
-		"PermissionRoomSelect":               401,
-		"PermissionRoomEnter":                402,
-		"PermissionRoomLeave":                403,
-		"PermissionRoomMember":               500,
-		"PermissionRoomMemberSelect":         501,
-		"PermissionRoomMemberKick":           502,
-		"PermissionRoomConnection":           600,
-		"PermissionRoomConnectionSelect":     601,
-		"PermissionRoomStream":               700,
-		"PermissionRoomStreamSelect":         701,
-		"PermissionRoomStreamCreate":         702,
-		"PermissionRoomStreamUpdate":         703,
-		"PermissionRoomStreamDelete":         704,
-		"PermissionRoomRestriction":          800,
-		"PermissionRoomRestrictionSelect":    801,
-		"PermissionRoomRestrictionCreate":    802,
-		"PermissionRoomRestrictionDelete":    803,
-		"PermissionChatRestriction":          900,
-		"PermissionChatRestrictionSelect":    901,
-		"PermissionChatRestrictionCreate":    902,
-		"PermissionChatRestrictionDelete":    903,
+		"PermissionUnknown":            0,
+		"PermissionChat":               100,
+		"PermissionChatBlock":          101,
+		"PermissionChatUnblock":        102,
+		"PermissionChatMute":           103,
+		"PermissionChatUnmute":         104,
+		"PermissionChatMessageDelete":  105,
+		"PermissionChatKick":           106,
+		"PermissionChatSlowmode":       107,
+		"PermissionChatSlowmodeBypass": 108,
+		"PermissionRoom":               200,
+		"PermissionRoomBlock":          201,
+		"PermissionRoomUnblock":        202,
+		"PermissionRoomKick":           203,
+		"PermissionEvent":              300,
+		"PermissionEventBlock":         301,
+		"PermissionEventUnblock":       302,
+		"PermissionEventKick":          303,
 	}
 )
 
@@ -176,46 +119,27 @@ var File_user_users_private_v1_enums_proto protoreflect.FileDescriptor
 
 const file_user_users_private_v1_enums_proto_rawDesc = "" +
 	"\n" +
-	"!user/users/private/v1/enums.proto\x12\x15user.users.private.v1*\x99\t\n" +
+	"!user/users/private/v1/enums.proto\x12\x15user.users.private.v1*\xe0\x03\n" +
 	"\n" +
 	"Permission\x12\x15\n" +
 	"\x11PermissionUnknown\x10\x00\x12\x12\n" +
-	"\x0ePermissionChat\x10d\x12\x18\n" +
-	"\x14PermissionChatSelect\x10e\x12\x17\n" +
-	"\x13PermissionChatEnter\x10f\x12\x17\n" +
-	"\x13PermissionChatLeave\x10g\x12\x19\n" +
-	"\x14PermissionChatMember\x10\xc8\x01\x12\x1f\n" +
-	"\x1aPermissionChatMemberSelect\x10\xc9\x01\x12\x1d\n" +
-	"\x18PermissionChatMemberKick\x10\xca\x01\x12\x1a\n" +
-	"\x15PermissionChatMessage\x10\xac\x02\x12 \n" +
-	"\x1bPermissionChatMessageSelect\x10\xad\x02\x12 \n" +
-	"\x1bPermissionChatMessageCreate\x10\xae\x02\x12 \n" +
-	"\x1bPermissionChatMessageUpdate\x10\xaf\x02\x12'\n" +
-	"\"PermissionChatMessageUpdateContent\x10\xb0\x02\x12#\n" +
-	"\x1ePermissionChatMessageOwnDelete\x10\xb1\x02\x12#\n" +
-	"\x1ePermissionChatMessageAnyDelete\x10\xb2\x02\x12\x13\n" +
-	"\x0ePermissionRoom\x10\x90\x03\x12\x19\n" +
-	"\x14PermissionRoomSelect\x10\x91\x03\x12\x18\n" +
-	"\x13PermissionRoomEnter\x10\x92\x03\x12\x18\n" +
-	"\x13PermissionRoomLeave\x10\x93\x03\x12\x19\n" +
-	"\x14PermissionRoomMember\x10\xf4\x03\x12\x1f\n" +
-	"\x1aPermissionRoomMemberSelect\x10\xf5\x03\x12\x1d\n" +
-	"\x18PermissionRoomMemberKick\x10\xf6\x03\x12\x1d\n" +
-	"\x18PermissionRoomConnection\x10\xd8\x04\x12#\n" +
-	"\x1ePermissionRoomConnectionSelect\x10\xd9\x04\x12\x19\n" +
-	"\x14PermissionRoomStream\x10\xbc\x05\x12\x1f\n" +
-	"\x1aPermissionRoomStreamSelect\x10\xbd\x05\x12\x1f\n" +
-	"\x1aPermissionRoomStreamCreate\x10\xbe\x05\x12\x1f\n" +
-	"\x1aPermissionRoomStreamUpdate\x10\xbf\x05\x12\x1f\n" +
-	"\x1aPermissionRoomStreamDelete\x10\xc0\x05\x12\x1e\n" +
-	"\x19PermissionRoomRestriction\x10\xa0\x06\x12$\n" +
-	"\x1fPermissionRoomRestrictionSelect\x10\xa1\x06\x12$\n" +
-	"\x1fPermissionRoomRestrictionCreate\x10\xa2\x06\x12$\n" +
-	"\x1fPermissionRoomRestrictionDelete\x10\xa3\x06\x12\x1e\n" +
-	"\x19PermissionChatRestriction\x10\x84\a\x12$\n" +
-	"\x1fPermissionChatRestrictionSelect\x10\x85\a\x12$\n" +
-	"\x1fPermissionChatRestrictionCreate\x10\x86\a\x12$\n" +
-	"\x1fPermissionChatRestrictionDelete\x10\x87\aB@Z>gitlab.com/evemeta/zdk/pb/out/go/user/users/private/v1;userspbb\x06proto3"
+	"\x0ePermissionChat\x10d\x12\x17\n" +
+	"\x13PermissionChatBlock\x10e\x12\x19\n" +
+	"\x15PermissionChatUnblock\x10f\x12\x16\n" +
+	"\x12PermissionChatMute\x10g\x12\x18\n" +
+	"\x14PermissionChatUnmute\x10h\x12\x1f\n" +
+	"\x1bPermissionChatMessageDelete\x10i\x12\x16\n" +
+	"\x12PermissionChatKick\x10j\x12\x1a\n" +
+	"\x16PermissionChatSlowmode\x10k\x12 \n" +
+	"\x1cPermissionChatSlowmodeBypass\x10l\x12\x13\n" +
+	"\x0ePermissionRoom\x10\xc8\x01\x12\x18\n" +
+	"\x13PermissionRoomBlock\x10\xc9\x01\x12\x1a\n" +
+	"\x15PermissionRoomUnblock\x10\xca\x01\x12\x17\n" +
+	"\x12PermissionRoomKick\x10\xcb\x01\x12\x14\n" +
+	"\x0fPermissionEvent\x10\xac\x02\x12\x19\n" +
+	"\x14PermissionEventBlock\x10\xad\x02\x12\x1b\n" +
+	"\x16PermissionEventUnblock\x10\xae\x02\x12\x18\n" +
+	"\x13PermissionEventKick\x10\xaf\x02B@Z>gitlab.com/evemeta/zdk/pb/out/go/user/users/private/v1;userspbb\x06proto3"
 
 var (
 	file_user_users_private_v1_enums_proto_rawDescOnce sync.Once

@@ -4,18 +4,14 @@ package chat.chats.private.v1;
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/chats/private/v1;chatspb";
 
-// OptionalMap represents a mapping of key-value pairs that can be intentionally left unset or null.
-// It allows for explicit control over the presence or absence of the map, accommodating scenarios where the map might be optional or intentionally omitted.
 message OptionalMap {
     map<string, string> value = 1;
 }
 
-// OptionalInt64 todo;
 message OptionalInt64 {
     int64 value = 1;
 }
 
-// OptionalSlowmode todo;
 message OptionalSlowmode {
     optional chat.chats.private.v1.OptionalInt64 limit = 1;
     optional chat.chats.private.v1.OptionalInt64 window = 2;

@@ -55,17 +55,17 @@ public final class Packets {
   static {
     java.lang.String[] descriptorData = {
       "\n+event/events/public/client/v1/packets." +
-      "proto\022\035event.events.public.client.v1\"0\n\020" +
-      "EnterEventPacket\022\n\n\002id\030\001 \001(\t\022\020\n\010override" +
-      "\030\002 \001(\010\"\036\n\020LeaveEventPacket\022\n\n\002id\030\001 \001(\t\"\244" +
-      "\001\n\027InvokeEventActionPacket\022\014\n\004name\030\001 \001(\t" +
-      "\022N\n\004data\030\002 \003(\0132@.event.events.public.cli" +
-      "ent.v1.InvokeEventActionPacket.DataEntry" +
-      "\032+\n\tDataEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(" +
-      "\t:\0028\001Bs\n&com.evemeta.zdk.pb.event.client" +
-      ".eventsP\001ZGgitlab.com/evemeta/zdk/pb/out" +
-      "/go/event/events/public/client/v1;events" +
-      "pbb\006proto3"
+      "proto\022\035event.events.public.client.v1\"3\n\020" +
+      "EnterEventPacket\022\r\n\005token\030\001 \001(\t\022\020\n\010overr" +
+      "ide\030\002 \001(\010\"\036\n\020LeaveEventPacket\022\n\n\002id\030\001 \001(" +
+      "\t\"\244\001\n\027InvokeEventActionPacket\022\014\n\004name\030\001 " +
+      "\001(\t\022N\n\004data\030\002 \003(\0132@.event.events.public." +
+      "client.v1.InvokeEventActionPacket.DataEn" +
+      "try\032+\n\tDataEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002" +
+      " \001(\t:\0028\001Bs\n&com.evemeta.zdk.pb.event.cli" +
+      "ent.eventsP\001ZGgitlab.com/evemeta/zdk/pb/" +
+      "out/go/event/events/public/client/v1;eve" +
+      "ntspbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -76,7 +76,7 @@ public final class Packets {
     internal_static_event_events_public_client_v1_EnterEventPacket_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_event_events_public_client_v1_EnterEventPacket_descriptor,
-        new java.lang.String[] { "Id", "Override", });
+        new java.lang.String[] { "Token", "Override", });
     internal_static_event_events_public_client_v1_LeaveEventPacket_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_event_events_public_client_v1_LeaveEventPacket_fieldAccessorTable = new

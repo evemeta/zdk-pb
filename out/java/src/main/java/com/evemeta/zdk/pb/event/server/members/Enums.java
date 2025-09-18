@@ -39,10 +39,20 @@ public final class Enums {
       "Order\022\020\n\014OrderUnknown\020\000\022\022\n\016OrderAscendin" +
       "g\020\001\022\023\n\017OrderDescending\020\002*H\n\006Status\022\021\n\rSt" +
       "atusUnknown\020\000\022\023\n\017StatusConnected\020\001\022\026\n\022St" +
-      "atusDisconnected\020\002Bv\n\'com.evemeta.zdk.pb" +
-      ".event.server.membersP\001ZIgitlab.com/evem" +
-      "eta/zdk/pb/out/go/event/members/public/s" +
-      "erver/v1;memberspbb\006proto3"
+      "atusDisconnected\020\002*\374\002\n\nPermission\022\025\n\021Per" +
+      "missionUnknown\020\000\022\022\n\016PermissionChat\020d\022\027\n\023" +
+      "PermissionChatBlock\020e\022\031\n\025PermissionChatU" +
+      "nblock\020f\022\026\n\022PermissionChatMute\020g\022\030\n\024Perm" +
+      "issionChatUnmute\020h\022\037\n\033PermissionChatMess" +
+      "ageDelete\020i\022\026\n\022PermissionChatKick\020j\022\032\n\026P" +
+      "ermissionChatSlowmode\020k\022 \n\034PermissionCha" +
+      "tSlowmodeBypass\020l\022\024\n\017PermissionEvent\020\254\002\022" +
+      "\031\n\024PermissionEventBlock\020\255\002\022\033\n\026Permission" +
+      "EventUnblock\020\256\002\022\030\n\023PermissionEventKick\020\257" +
+      "\002Bv\n\'com.evemeta.zdk.pb.event.server.mem" +
+      "bersP\001ZIgitlab.com/evemeta/zdk/pb/out/go" +
+      "/event/members/public/server/v1;membersp" +
+      "bb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

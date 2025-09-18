@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package event.events.public.server.v1;
 
-
 option java_multiple_files = true;
 option java_package = "com.evemeta.zdk.pb.event.server.events";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/events/public/server/v1;eventspb";
@@ -28,4 +27,18 @@ enum Status {
     StatusStarted  = 2;
     StatusFinished = 3;
     StatusCanceled = 4;
+}
+
+// Schedule todo;
+enum Schedule {
+    ScheduleUnknown   = 0;
+    SchedulePlanned   = 1;
+    ScheduleUnplanned = 2;
+}
+
+// BroadcastOrientation todo;
+enum BroadcastOrientation {
+    BroadcastOrientationUnknown    = 0;
+    BroadcastOrientationVertical   = 1;
+    BroadcastOrientationHorizontal = 2;
 }

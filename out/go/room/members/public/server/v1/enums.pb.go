@@ -121,19 +121,59 @@ func (Status) EnumDescriptor() ([]byte, []int) {
 	return file_room_members_public_server_v1_enums_proto_rawDescGZIP(), []int{1}
 }
 
+// Permission todo;
 type Permission int32
 
 const (
-	PermissionUnknown Permission = 0
+	PermissionUnknown            Permission = 0
+	PermissionChat               Permission = 100
+	PermissionChatBlock          Permission = 101
+	PermissionChatUnblock        Permission = 102
+	PermissionChatMute           Permission = 103
+	PermissionChatUnmute         Permission = 104
+	PermissionChatMessageDelete  Permission = 105
+	PermissionChatKick           Permission = 106
+	PermissionChatSlowmode       Permission = 107
+	PermissionChatSlowmodeBypass Permission = 108
+	PermissionRoom               Permission = 200
+	PermissionRoomBlock          Permission = 201
+	PermissionRoomUnblock        Permission = 202
+	PermissionRoomKick           Permission = 203
 )
 
 // Enum value maps for Permission.
 var (
 	Permission_name = map[int32]string{
-		0: "PermissionUnknown",
+		0:   "PermissionUnknown",
+		100: "PermissionChat",
+		101: "PermissionChatBlock",
+		102: "PermissionChatUnblock",
+		103: "PermissionChatMute",
+		104: "PermissionChatUnmute",
+		105: "PermissionChatMessageDelete",
+		106: "PermissionChatKick",
+		107: "PermissionChatSlowmode",
+		108: "PermissionChatSlowmodeBypass",
+		200: "PermissionRoom",
+		201: "PermissionRoomBlock",
+		202: "PermissionRoomUnblock",
+		203: "PermissionRoomKick",
 	}
 	Permission_value = map[string]int32{
-		"PermissionUnknown": 0,
+		"PermissionUnknown":            0,
+		"PermissionChat":               100,
+		"PermissionChatBlock":          101,
+		"PermissionChatUnblock":        102,
+		"PermissionChatMute":           103,
+		"PermissionChatUnmute":         104,
+		"PermissionChatMessageDelete":  105,
+		"PermissionChatKick":           106,
+		"PermissionChatSlowmode":       107,
+		"PermissionChatSlowmodeBypass": 108,
+		"PermissionRoom":               200,
+		"PermissionRoomBlock":          201,
+		"PermissionRoomUnblock":        202,
+		"PermissionRoomKick":           203,
 	}
 )
 
@@ -176,10 +216,23 @@ const file_room_members_public_server_v1_enums_proto_rawDesc = "" +
 	"\x06Status\x12\x11\n" +
 	"\rStatusUnknown\x10\x00\x12\x13\n" +
 	"\x0fStatusConnected\x10\x01\x12\x16\n" +
-	"\x12StatusDisconnected\x10\x02*#\n" +
+	"\x12StatusDisconnected\x10\x02*\xf8\x02\n" +
 	"\n" +
 	"Permission\x12\x15\n" +
-	"\x11PermissionUnknown\x10\x00Bt\n" +
+	"\x11PermissionUnknown\x10\x00\x12\x12\n" +
+	"\x0ePermissionChat\x10d\x12\x17\n" +
+	"\x13PermissionChatBlock\x10e\x12\x19\n" +
+	"\x15PermissionChatUnblock\x10f\x12\x16\n" +
+	"\x12PermissionChatMute\x10g\x12\x18\n" +
+	"\x14PermissionChatUnmute\x10h\x12\x1f\n" +
+	"\x1bPermissionChatMessageDelete\x10i\x12\x16\n" +
+	"\x12PermissionChatKick\x10j\x12\x1a\n" +
+	"\x16PermissionChatSlowmode\x10k\x12 \n" +
+	"\x1cPermissionChatSlowmodeBypass\x10l\x12\x13\n" +
+	"\x0ePermissionRoom\x10\xc8\x01\x12\x18\n" +
+	"\x13PermissionRoomBlock\x10\xc9\x01\x12\x1a\n" +
+	"\x15PermissionRoomUnblock\x10\xca\x01\x12\x17\n" +
+	"\x12PermissionRoomKick\x10\xcb\x01Bt\n" +
 	"&com.evemeta.zdk.pb.room.server.membersP\x01ZHgitlab.com/evemeta/zdk/pb/out/go/room/members/public/server/v1;memberspbb\x06proto3"
 
 var (

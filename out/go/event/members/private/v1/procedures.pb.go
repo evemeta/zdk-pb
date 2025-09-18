@@ -7,6 +7,7 @@
 package memberspb
 
 import (
+	v11 "gitlab.com/evemeta/zdk/pb/out/go/chat/members/private/v1"
 	v1 "gitlab.com/evemeta/zdk/pb/out/go/gateway/transponders/private/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -449,8 +450,9 @@ type CreateArgument struct {
 	EventId       string                 `protobuf:"bytes,3,opt,name=event_id,json=eventId,proto3" json:"event_id,omitempty"`
 	Status        Status                 `protobuf:"varint,4,opt,name=status,proto3,enum=event.members.private.v1.Status" json:"status,omitempty"`
 	Metadata      map[string]string      `protobuf:"bytes,5,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	EnterTime     int64                  `protobuf:"varint,6,opt,name=enter_time,json=enterTime,proto3" json:"enter_time,omitempty"`
-	LeaveTime     int64                  `protobuf:"varint,7,opt,name=leave_time,json=leaveTime,proto3" json:"leave_time,omitempty"`
+	Permissions   []Permission           `protobuf:"varint,6,rep,packed,name=permissions,proto3,enum=event.members.private.v1.Permission" json:"permissions,omitempty"`
+	EnterTime     int64                  `protobuf:"varint,7,opt,name=enter_time,json=enterTime,proto3" json:"enter_time,omitempty"`
+	LeaveTime     int64                  `protobuf:"varint,8,opt,name=leave_time,json=leaveTime,proto3" json:"leave_time,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -516,6 +518,13 @@ func (x *CreateArgument) GetStatus() Status {
 func (x *CreateArgument) GetMetadata() map[string]string {
 	if x != nil {
 		return x.Metadata
+	}
+	return nil
+}
+
+func (x *CreateArgument) GetPermissions() []Permission {
+	if x != nil {
+		return x.Permissions
 	}
 	return nil
 }
@@ -792,6 +801,7 @@ type UpdateArgument struct {
 	UserId        *OptionalString        `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3,oneof" json:"user_id,omitempty"`
 	EventId       *OptionalString        `protobuf:"bytes,3,opt,name=event_id,json=eventId,proto3,oneof" json:"event_id,omitempty"`
 	Metadata      *OptionalMap           `protobuf:"bytes,4,opt,name=metadata,proto3,oneof" json:"metadata,omitempty"`
+	Permissions   *OptionalPermissions   `protobuf:"bytes,5,opt,name=permissions,proto3,oneof" json:"permissions,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -850,6 +860,13 @@ func (x *UpdateArgument) GetEventId() *OptionalString {
 func (x *UpdateArgument) GetMetadata() *OptionalMap {
 	if x != nil {
 		return x.Metadata
+	}
+	return nil
+}
+
+func (x *UpdateArgument) GetPermissions() *OptionalPermissions {
+	if x != nil {
+		return x.Permissions
 	}
 	return nil
 }
@@ -1553,7 +1570,8 @@ func (x *KickMutation) GetCloseTimestamp() int64 {
 type KickCondition struct {
 	state                      protoimpl.MessageState `protogen:"open.v1"`
 	UpdateMutations            []*UpdateMutation      `protobuf:"bytes,1,rep,name=update_mutations,json=updateMutations,proto3" json:"update_mutations,omitempty"`
-	DeleteTransponderMutations []*v1.DeleteMutation   `protobuf:"bytes,2,rep,name=delete_transponder_mutations,json=deleteTransponderMutations,proto3" json:"delete_transponder_mutations,omitempty"`
+	KickChatMemberMutations    []*v11.KickMutation    `protobuf:"bytes,2,rep,name=kick_chat_member_mutations,json=kickChatMemberMutations,proto3" json:"kick_chat_member_mutations,omitempty"`
+	DeleteTransponderMutations []*v1.DeleteMutation   `protobuf:"bytes,3,rep,name=delete_transponder_mutations,json=deleteTransponderMutations,proto3" json:"delete_transponder_mutations,omitempty"`
 	unknownFields              protoimpl.UnknownFields
 	sizeCache                  protoimpl.SizeCache
 }
@@ -1591,6 +1609,13 @@ func (*KickCondition) Descriptor() ([]byte, []int) {
 func (x *KickCondition) GetUpdateMutations() []*UpdateMutation {
 	if x != nil {
 		return x.UpdateMutations
+	}
+	return nil
+}
+
+func (x *KickCondition) GetKickChatMemberMutations() []*v11.KickMutation {
+	if x != nil {
+		return x.KickChatMemberMutations
 	}
 	return nil
 }
@@ -1650,7 +1675,7 @@ var File_event_members_private_v1_procedures_proto protoreflect.FileDescriptor
 
 const file_event_members_private_v1_procedures_proto_rawDesc = "" +
 	"\n" +
-	")event/members/private/v1/procedures.proto\x12\x18event.members.private.v1\x1a$event/members/private/v1/enums.proto\x1a'event/members/private/v1/entities.proto\x1a(event/members/private/v1/optionals.proto\x1a0gateway/transponders/private/v1/procedures.proto\"\\\n" +
+	")event/members/private/v1/procedures.proto\x12\x18event.members.private.v1\x1a$event/members/private/v1/enums.proto\x1a'event/members/private/v1/entities.proto\x1a(event/members/private/v1/optionals.proto\x1a(chat/members/private/v1/procedures.proto\x1a0gateway/transponders/private/v1/procedures.proto\"\\\n" +
 	"\rCountArgument\x12\x14\n" +
 	"\x05cache\x18\x01 \x01(\bR\x05cache\x125\n" +
 	"\x05query\x18\x02 \x01(\v2\x1f.event.members.private.v1.QueryR\x05query\"U\n" +
@@ -1671,17 +1696,18 @@ const file_event_members_private_v1_procedures_proto_rawDesc = "" +
 	"\rSelectRequest\x12F\n" +
 	"\targuments\x18\x01 \x03(\v2(.event.members.private.v1.SelectArgumentR\targuments\"L\n" +
 	"\x0eSelectResponse\x12:\n" +
-	"\amembers\x18\x01 \x03(\v2 .event.members.private.v1.MemberR\amembers\"\xdd\x02\n" +
+	"\amembers\x18\x01 \x03(\v2 .event.members.private.v1.MemberR\amembers\"\xa5\x03\n" +
 	"\x0eCreateArgument\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\x12\x19\n" +
 	"\bevent_id\x18\x03 \x01(\tR\aeventId\x128\n" +
 	"\x06status\x18\x04 \x01(\x0e2 .event.members.private.v1.StatusR\x06status\x12R\n" +
-	"\bmetadata\x18\x05 \x03(\v26.event.members.private.v1.CreateArgument.MetadataEntryR\bmetadata\x12\x1d\n" +
+	"\bmetadata\x18\x05 \x03(\v26.event.members.private.v1.CreateArgument.MetadataEntryR\bmetadata\x12F\n" +
+	"\vpermissions\x18\x06 \x03(\x0e2$.event.members.private.v1.PermissionR\vpermissions\x12\x1d\n" +
 	"\n" +
-	"enter_time\x18\x06 \x01(\x03R\tenterTime\x12\x1d\n" +
+	"enter_time\x18\a \x01(\x03R\tenterTime\x12\x1d\n" +
 	"\n" +
-	"leave_time\x18\a \x01(\x03R\tleaveTime\x1a;\n" +
+	"leave_time\x18\b \x01(\x03R\tleaveTime\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"W\n" +
@@ -1700,16 +1726,18 @@ const file_event_members_private_v1_procedures_proto_rawDesc = "" +
 	"\x0fCreateCondition\x12q\n" +
 	"\x1ccreate_transponder_mutations\x18\x01 \x03(\v2/.gateway.transponders.private.v1.CreateMutationR\x1acreateTransponderMutations\"[\n" +
 	"\x11CreateTransaction\x12F\n" +
-	"\tmutations\x18\x01 \x03(\v2(.event.members.private.v1.CreateMutationR\tmutations\"\xc7\x02\n" +
+	"\tmutations\x18\x01 \x03(\v2(.event.members.private.v1.CreateMutationR\tmutations\"\xad\x03\n" +
 	"\x0eUpdateArgument\x125\n" +
 	"\x05query\x18\x01 \x01(\v2\x1f.event.members.private.v1.QueryR\x05query\x12F\n" +
 	"\auser_id\x18\x02 \x01(\v2(.event.members.private.v1.OptionalStringH\x00R\x06userId\x88\x01\x01\x12H\n" +
 	"\bevent_id\x18\x03 \x01(\v2(.event.members.private.v1.OptionalStringH\x01R\aeventId\x88\x01\x01\x12F\n" +
-	"\bmetadata\x18\x04 \x01(\v2%.event.members.private.v1.OptionalMapH\x02R\bmetadata\x88\x01\x01B\n" +
+	"\bmetadata\x18\x04 \x01(\v2%.event.members.private.v1.OptionalMapH\x02R\bmetadata\x88\x01\x01\x12T\n" +
+	"\vpermissions\x18\x05 \x01(\v2-.event.members.private.v1.OptionalPermissionsH\x03R\vpermissions\x88\x01\x01B\n" +
 	"\n" +
 	"\b_user_idB\v\n" +
 	"\t_event_idB\v\n" +
-	"\t_metadata\"W\n" +
+	"\t_metadataB\x0e\n" +
+	"\f_permissions\"W\n" +
 	"\rUpdateRequest\x12F\n" +
 	"\targuments\x18\x01 \x03(\v2(.event.members.private.v1.UpdateArgumentR\targuments\"L\n" +
 	"\x0eUpdateResponse\x12:\n" +
@@ -1753,10 +1781,11 @@ const file_event_members_private_v1_procedures_proto_rawDesc = "" +
 	"foundation\x12E\n" +
 	"\tcondition\x18\x02 \x01(\v2'.event.members.private.v1.KickConditionR\tcondition\x12'\n" +
 	"\x0fbegin_timestamp\x18\x03 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
-	"\x0fclose_timestamp\x18\x04 \x01(\x03R\x0ecloseTimestamp\"\xd7\x01\n" +
+	"\x0fclose_timestamp\x18\x04 \x01(\x03R\x0ecloseTimestamp\"\xbb\x02\n" +
 	"\rKickCondition\x12S\n" +
-	"\x10update_mutations\x18\x01 \x03(\v2(.event.members.private.v1.UpdateMutationR\x0fupdateMutations\x12q\n" +
-	"\x1cdelete_transponder_mutations\x18\x02 \x03(\v2/.gateway.transponders.private.v1.DeleteMutationR\x1adeleteTransponderMutations\"W\n" +
+	"\x10update_mutations\x18\x01 \x03(\v2(.event.members.private.v1.UpdateMutationR\x0fupdateMutations\x12b\n" +
+	"\x1akick_chat_member_mutations\x18\x02 \x03(\v2%.chat.members.private.v1.KickMutationR\x17kickChatMemberMutations\x12q\n" +
+	"\x1cdelete_transponder_mutations\x18\x03 \x03(\v2/.gateway.transponders.private.v1.DeleteMutationR\x1adeleteTransponderMutations\"W\n" +
 	"\x0fKickTransaction\x12D\n" +
 	"\tmutations\x18\x01 \x03(\v2&.event.members.private.v1.KickMutationR\tmutationsBEZCgitlab.com/evemeta/zdk/pb/out/go/event/members/private/v1;memberspbb\x06proto3"
 
@@ -1774,48 +1803,51 @@ func file_event_members_private_v1_procedures_proto_rawDescGZIP() []byte {
 
 var file_event_members_private_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 33)
 var file_event_members_private_v1_procedures_proto_goTypes = []any{
-	(*CountArgument)(nil),     // 0: event.members.private.v1.CountArgument
-	(*CountRequest)(nil),      // 1: event.members.private.v1.CountRequest
-	(*CountResponse)(nil),     // 2: event.members.private.v1.CountResponse
-	(*RangeArgument)(nil),     // 3: event.members.private.v1.RangeArgument
-	(*RangeRequest)(nil),      // 4: event.members.private.v1.RangeRequest
-	(*RangeResponse)(nil),     // 5: event.members.private.v1.RangeResponse
-	(*SelectArgument)(nil),    // 6: event.members.private.v1.SelectArgument
-	(*SelectRequest)(nil),     // 7: event.members.private.v1.SelectRequest
-	(*SelectResponse)(nil),    // 8: event.members.private.v1.SelectResponse
-	(*CreateArgument)(nil),    // 9: event.members.private.v1.CreateArgument
-	(*CreateRequest)(nil),     // 10: event.members.private.v1.CreateRequest
-	(*CreateResponse)(nil),    // 11: event.members.private.v1.CreateResponse
-	(*CreateMutation)(nil),    // 12: event.members.private.v1.CreateMutation
-	(*CreateCondition)(nil),   // 13: event.members.private.v1.CreateCondition
-	(*CreateTransaction)(nil), // 14: event.members.private.v1.CreateTransaction
-	(*UpdateArgument)(nil),    // 15: event.members.private.v1.UpdateArgument
-	(*UpdateRequest)(nil),     // 16: event.members.private.v1.UpdateRequest
-	(*UpdateResponse)(nil),    // 17: event.members.private.v1.UpdateResponse
-	(*UpdateMutation)(nil),    // 18: event.members.private.v1.UpdateMutation
-	(*UpdateTransaction)(nil), // 19: event.members.private.v1.UpdateTransaction
-	(*DeleteArgument)(nil),    // 20: event.members.private.v1.DeleteArgument
-	(*DeleteRequest)(nil),     // 21: event.members.private.v1.DeleteRequest
-	(*DeleteResponse)(nil),    // 22: event.members.private.v1.DeleteResponse
-	(*DeleteMutation)(nil),    // 23: event.members.private.v1.DeleteMutation
-	(*DeleteCondition)(nil),   // 24: event.members.private.v1.DeleteCondition
-	(*DeleteTransaction)(nil), // 25: event.members.private.v1.DeleteTransaction
-	(*KickArgument)(nil),      // 26: event.members.private.v1.KickArgument
-	(*KickRequest)(nil),       // 27: event.members.private.v1.KickRequest
-	(*KickResponse)(nil),      // 28: event.members.private.v1.KickResponse
-	(*KickMutation)(nil),      // 29: event.members.private.v1.KickMutation
-	(*KickCondition)(nil),     // 30: event.members.private.v1.KickCondition
-	(*KickTransaction)(nil),   // 31: event.members.private.v1.KickTransaction
-	nil,                       // 32: event.members.private.v1.CreateArgument.MetadataEntry
-	(*Query)(nil),             // 33: event.members.private.v1.Query
-	(*Chunk)(nil),             // 34: event.members.private.v1.Chunk
-	(*Member)(nil),            // 35: event.members.private.v1.Member
-	(Status)(0),               // 36: event.members.private.v1.Status
-	(*Transient)(nil),         // 37: event.members.private.v1.Transient
-	(*v1.CreateMutation)(nil), // 38: gateway.transponders.private.v1.CreateMutation
-	(*OptionalString)(nil),    // 39: event.members.private.v1.OptionalString
-	(*OptionalMap)(nil),       // 40: event.members.private.v1.OptionalMap
-	(*v1.DeleteMutation)(nil), // 41: gateway.transponders.private.v1.DeleteMutation
+	(*CountArgument)(nil),       // 0: event.members.private.v1.CountArgument
+	(*CountRequest)(nil),        // 1: event.members.private.v1.CountRequest
+	(*CountResponse)(nil),       // 2: event.members.private.v1.CountResponse
+	(*RangeArgument)(nil),       // 3: event.members.private.v1.RangeArgument
+	(*RangeRequest)(nil),        // 4: event.members.private.v1.RangeRequest
+	(*RangeResponse)(nil),       // 5: event.members.private.v1.RangeResponse
+	(*SelectArgument)(nil),      // 6: event.members.private.v1.SelectArgument
+	(*SelectRequest)(nil),       // 7: event.members.private.v1.SelectRequest
+	(*SelectResponse)(nil),      // 8: event.members.private.v1.SelectResponse
+	(*CreateArgument)(nil),      // 9: event.members.private.v1.CreateArgument
+	(*CreateRequest)(nil),       // 10: event.members.private.v1.CreateRequest
+	(*CreateResponse)(nil),      // 11: event.members.private.v1.CreateResponse
+	(*CreateMutation)(nil),      // 12: event.members.private.v1.CreateMutation
+	(*CreateCondition)(nil),     // 13: event.members.private.v1.CreateCondition
+	(*CreateTransaction)(nil),   // 14: event.members.private.v1.CreateTransaction
+	(*UpdateArgument)(nil),      // 15: event.members.private.v1.UpdateArgument
+	(*UpdateRequest)(nil),       // 16: event.members.private.v1.UpdateRequest
+	(*UpdateResponse)(nil),      // 17: event.members.private.v1.UpdateResponse
+	(*UpdateMutation)(nil),      // 18: event.members.private.v1.UpdateMutation
+	(*UpdateTransaction)(nil),   // 19: event.members.private.v1.UpdateTransaction
+	(*DeleteArgument)(nil),      // 20: event.members.private.v1.DeleteArgument
+	(*DeleteRequest)(nil),       // 21: event.members.private.v1.DeleteRequest
+	(*DeleteResponse)(nil),      // 22: event.members.private.v1.DeleteResponse
+	(*DeleteMutation)(nil),      // 23: event.members.private.v1.DeleteMutation
+	(*DeleteCondition)(nil),     // 24: event.members.private.v1.DeleteCondition
+	(*DeleteTransaction)(nil),   // 25: event.members.private.v1.DeleteTransaction
+	(*KickArgument)(nil),        // 26: event.members.private.v1.KickArgument
+	(*KickRequest)(nil),         // 27: event.members.private.v1.KickRequest
+	(*KickResponse)(nil),        // 28: event.members.private.v1.KickResponse
+	(*KickMutation)(nil),        // 29: event.members.private.v1.KickMutation
+	(*KickCondition)(nil),       // 30: event.members.private.v1.KickCondition
+	(*KickTransaction)(nil),     // 31: event.members.private.v1.KickTransaction
+	nil,                         // 32: event.members.private.v1.CreateArgument.MetadataEntry
+	(*Query)(nil),               // 33: event.members.private.v1.Query
+	(*Chunk)(nil),               // 34: event.members.private.v1.Chunk
+	(*Member)(nil),              // 35: event.members.private.v1.Member
+	(Status)(0),                 // 36: event.members.private.v1.Status
+	(Permission)(0),             // 37: event.members.private.v1.Permission
+	(*Transient)(nil),           // 38: event.members.private.v1.Transient
+	(*v1.CreateMutation)(nil),   // 39: gateway.transponders.private.v1.CreateMutation
+	(*OptionalString)(nil),      // 40: event.members.private.v1.OptionalString
+	(*OptionalMap)(nil),         // 41: event.members.private.v1.OptionalMap
+	(*OptionalPermissions)(nil), // 42: event.members.private.v1.OptionalPermissions
+	(*v1.DeleteMutation)(nil),   // 43: gateway.transponders.private.v1.DeleteMutation
+	(*v11.KickMutation)(nil),    // 44: chat.members.private.v1.KickMutation
 }
 var file_event_members_private_v1_procedures_proto_depIdxs = []int32{
 	33, // 0: event.members.private.v1.CountArgument.query:type_name -> event.members.private.v1.Query
@@ -1828,42 +1860,45 @@ var file_event_members_private_v1_procedures_proto_depIdxs = []int32{
 	35, // 7: event.members.private.v1.SelectResponse.members:type_name -> event.members.private.v1.Member
 	36, // 8: event.members.private.v1.CreateArgument.status:type_name -> event.members.private.v1.Status
 	32, // 9: event.members.private.v1.CreateArgument.metadata:type_name -> event.members.private.v1.CreateArgument.MetadataEntry
-	9,  // 10: event.members.private.v1.CreateRequest.arguments:type_name -> event.members.private.v1.CreateArgument
-	35, // 11: event.members.private.v1.CreateResponse.members:type_name -> event.members.private.v1.Member
-	9,  // 12: event.members.private.v1.CreateMutation.foundation:type_name -> event.members.private.v1.CreateArgument
-	13, // 13: event.members.private.v1.CreateMutation.condition:type_name -> event.members.private.v1.CreateCondition
-	37, // 14: event.members.private.v1.CreateMutation.transient:type_name -> event.members.private.v1.Transient
-	38, // 15: event.members.private.v1.CreateCondition.create_transponder_mutations:type_name -> gateway.transponders.private.v1.CreateMutation
-	12, // 16: event.members.private.v1.CreateTransaction.mutations:type_name -> event.members.private.v1.CreateMutation
-	33, // 17: event.members.private.v1.UpdateArgument.query:type_name -> event.members.private.v1.Query
-	39, // 18: event.members.private.v1.UpdateArgument.user_id:type_name -> event.members.private.v1.OptionalString
-	39, // 19: event.members.private.v1.UpdateArgument.event_id:type_name -> event.members.private.v1.OptionalString
-	40, // 20: event.members.private.v1.UpdateArgument.metadata:type_name -> event.members.private.v1.OptionalMap
-	15, // 21: event.members.private.v1.UpdateRequest.arguments:type_name -> event.members.private.v1.UpdateArgument
-	35, // 22: event.members.private.v1.UpdateResponse.members:type_name -> event.members.private.v1.Member
-	15, // 23: event.members.private.v1.UpdateMutation.foundation:type_name -> event.members.private.v1.UpdateArgument
-	37, // 24: event.members.private.v1.UpdateMutation.transient:type_name -> event.members.private.v1.Transient
-	18, // 25: event.members.private.v1.UpdateTransaction.mutations:type_name -> event.members.private.v1.UpdateMutation
-	33, // 26: event.members.private.v1.DeleteArgument.query:type_name -> event.members.private.v1.Query
-	20, // 27: event.members.private.v1.DeleteRequest.arguments:type_name -> event.members.private.v1.DeleteArgument
-	35, // 28: event.members.private.v1.DeleteResponse.members:type_name -> event.members.private.v1.Member
-	20, // 29: event.members.private.v1.DeleteMutation.foundation:type_name -> event.members.private.v1.DeleteArgument
-	24, // 30: event.members.private.v1.DeleteMutation.condition:type_name -> event.members.private.v1.DeleteCondition
-	37, // 31: event.members.private.v1.DeleteMutation.transient:type_name -> event.members.private.v1.Transient
-	41, // 32: event.members.private.v1.DeleteCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
-	23, // 33: event.members.private.v1.DeleteTransaction.mutations:type_name -> event.members.private.v1.DeleteMutation
-	33, // 34: event.members.private.v1.KickArgument.query:type_name -> event.members.private.v1.Query
-	26, // 35: event.members.private.v1.KickRequest.arguments:type_name -> event.members.private.v1.KickArgument
-	26, // 36: event.members.private.v1.KickMutation.foundation:type_name -> event.members.private.v1.KickArgument
-	30, // 37: event.members.private.v1.KickMutation.condition:type_name -> event.members.private.v1.KickCondition
-	18, // 38: event.members.private.v1.KickCondition.update_mutations:type_name -> event.members.private.v1.UpdateMutation
-	41, // 39: event.members.private.v1.KickCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
-	29, // 40: event.members.private.v1.KickTransaction.mutations:type_name -> event.members.private.v1.KickMutation
-	41, // [41:41] is the sub-list for method output_type
-	41, // [41:41] is the sub-list for method input_type
-	41, // [41:41] is the sub-list for extension type_name
-	41, // [41:41] is the sub-list for extension extendee
-	0,  // [0:41] is the sub-list for field type_name
+	37, // 10: event.members.private.v1.CreateArgument.permissions:type_name -> event.members.private.v1.Permission
+	9,  // 11: event.members.private.v1.CreateRequest.arguments:type_name -> event.members.private.v1.CreateArgument
+	35, // 12: event.members.private.v1.CreateResponse.members:type_name -> event.members.private.v1.Member
+	9,  // 13: event.members.private.v1.CreateMutation.foundation:type_name -> event.members.private.v1.CreateArgument
+	13, // 14: event.members.private.v1.CreateMutation.condition:type_name -> event.members.private.v1.CreateCondition
+	38, // 15: event.members.private.v1.CreateMutation.transient:type_name -> event.members.private.v1.Transient
+	39, // 16: event.members.private.v1.CreateCondition.create_transponder_mutations:type_name -> gateway.transponders.private.v1.CreateMutation
+	12, // 17: event.members.private.v1.CreateTransaction.mutations:type_name -> event.members.private.v1.CreateMutation
+	33, // 18: event.members.private.v1.UpdateArgument.query:type_name -> event.members.private.v1.Query
+	40, // 19: event.members.private.v1.UpdateArgument.user_id:type_name -> event.members.private.v1.OptionalString
+	40, // 20: event.members.private.v1.UpdateArgument.event_id:type_name -> event.members.private.v1.OptionalString
+	41, // 21: event.members.private.v1.UpdateArgument.metadata:type_name -> event.members.private.v1.OptionalMap
+	42, // 22: event.members.private.v1.UpdateArgument.permissions:type_name -> event.members.private.v1.OptionalPermissions
+	15, // 23: event.members.private.v1.UpdateRequest.arguments:type_name -> event.members.private.v1.UpdateArgument
+	35, // 24: event.members.private.v1.UpdateResponse.members:type_name -> event.members.private.v1.Member
+	15, // 25: event.members.private.v1.UpdateMutation.foundation:type_name -> event.members.private.v1.UpdateArgument
+	38, // 26: event.members.private.v1.UpdateMutation.transient:type_name -> event.members.private.v1.Transient
+	18, // 27: event.members.private.v1.UpdateTransaction.mutations:type_name -> event.members.private.v1.UpdateMutation
+	33, // 28: event.members.private.v1.DeleteArgument.query:type_name -> event.members.private.v1.Query
+	20, // 29: event.members.private.v1.DeleteRequest.arguments:type_name -> event.members.private.v1.DeleteArgument
+	35, // 30: event.members.private.v1.DeleteResponse.members:type_name -> event.members.private.v1.Member
+	20, // 31: event.members.private.v1.DeleteMutation.foundation:type_name -> event.members.private.v1.DeleteArgument
+	24, // 32: event.members.private.v1.DeleteMutation.condition:type_name -> event.members.private.v1.DeleteCondition
+	38, // 33: event.members.private.v1.DeleteMutation.transient:type_name -> event.members.private.v1.Transient
+	43, // 34: event.members.private.v1.DeleteCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
+	23, // 35: event.members.private.v1.DeleteTransaction.mutations:type_name -> event.members.private.v1.DeleteMutation
+	33, // 36: event.members.private.v1.KickArgument.query:type_name -> event.members.private.v1.Query
+	26, // 37: event.members.private.v1.KickRequest.arguments:type_name -> event.members.private.v1.KickArgument
+	26, // 38: event.members.private.v1.KickMutation.foundation:type_name -> event.members.private.v1.KickArgument
+	30, // 39: event.members.private.v1.KickMutation.condition:type_name -> event.members.private.v1.KickCondition
+	18, // 40: event.members.private.v1.KickCondition.update_mutations:type_name -> event.members.private.v1.UpdateMutation
+	44, // 41: event.members.private.v1.KickCondition.kick_chat_member_mutations:type_name -> chat.members.private.v1.KickMutation
+	43, // 42: event.members.private.v1.KickCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
+	29, // 43: event.members.private.v1.KickTransaction.mutations:type_name -> event.members.private.v1.KickMutation
+	44, // [44:44] is the sub-list for method output_type
+	44, // [44:44] is the sub-list for method input_type
+	44, // [44:44] is the sub-list for extension type_name
+	44, // [44:44] is the sub-list for extension extendee
+	0,  // [0:44] is the sub-list for field type_name
 }
 
 func init() { file_event_members_private_v1_procedures_proto_init() }

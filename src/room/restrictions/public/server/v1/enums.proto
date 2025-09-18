@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package room.restrictions.public.server.v1;
 
-
 option java_multiple_files = true;
 option java_package = "com.evemeta.zdk.pb.room.server.restrictions";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/restrictions/public/server/v1;restrictionspb";

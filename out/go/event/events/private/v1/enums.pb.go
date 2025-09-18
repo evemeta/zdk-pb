@@ -174,6 +174,104 @@ func (Status) EnumDescriptor() ([]byte, []int) {
 	return file_event_events_private_v1_enums_proto_rawDescGZIP(), []int{2}
 }
 
+type Schedule int32
+
+const (
+	ScheduleUnknown   Schedule = 0
+	SchedulePlanned   Schedule = 1
+	ScheduleUnplanned Schedule = 2
+)
+
+// Enum value maps for Schedule.
+var (
+	Schedule_name = map[int32]string{
+		0: "ScheduleUnknown",
+		1: "SchedulePlanned",
+		2: "ScheduleUnplanned",
+	}
+	Schedule_value = map[string]int32{
+		"ScheduleUnknown":   0,
+		"SchedulePlanned":   1,
+		"ScheduleUnplanned": 2,
+	}
+)
+
+func (x Schedule) Enum() *Schedule {
+	p := new(Schedule)
+	*p = x
+	return p
+}
+
+func (x Schedule) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (Schedule) Descriptor() protoreflect.EnumDescriptor {
+	return file_event_events_private_v1_enums_proto_enumTypes[3].Descriptor()
+}
+
+func (Schedule) Type() protoreflect.EnumType {
+	return &file_event_events_private_v1_enums_proto_enumTypes[3]
+}
+
+func (x Schedule) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use Schedule.Descriptor instead.
+func (Schedule) EnumDescriptor() ([]byte, []int) {
+	return file_event_events_private_v1_enums_proto_rawDescGZIP(), []int{3}
+}
+
+type BroadcastOrientation int32
+
+const (
+	BroadcastOrientationUnknown    BroadcastOrientation = 0
+	BroadcastOrientationVertical   BroadcastOrientation = 1
+	BroadcastOrientationHorizontal BroadcastOrientation = 2
+)
+
+// Enum value maps for BroadcastOrientation.
+var (
+	BroadcastOrientation_name = map[int32]string{
+		0: "BroadcastOrientationUnknown",
+		1: "BroadcastOrientationVertical",
+		2: "BroadcastOrientationHorizontal",
+	}
+	BroadcastOrientation_value = map[string]int32{
+		"BroadcastOrientationUnknown":    0,
+		"BroadcastOrientationVertical":   1,
+		"BroadcastOrientationHorizontal": 2,
+	}
+)
+
+func (x BroadcastOrientation) Enum() *BroadcastOrientation {
+	p := new(BroadcastOrientation)
+	*p = x
+	return p
+}
+
+func (x BroadcastOrientation) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (BroadcastOrientation) Descriptor() protoreflect.EnumDescriptor {
+	return file_event_events_private_v1_enums_proto_enumTypes[4].Descriptor()
+}
+
+func (BroadcastOrientation) Type() protoreflect.EnumType {
+	return &file_event_events_private_v1_enums_proto_enumTypes[4]
+}
+
+func (x BroadcastOrientation) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use BroadcastOrientation.Descriptor instead.
+func (BroadcastOrientation) EnumDescriptor() ([]byte, []int) {
+	return file_event_events_private_v1_enums_proto_rawDescGZIP(), []int{4}
+}
+
 var File_event_events_private_v1_enums_proto protoreflect.FileDescriptor
 
 const file_event_events_private_v1_enums_proto_rawDesc = "" +
@@ -192,7 +290,15 @@ const file_event_events_private_v1_enums_proto_rawDesc = "" +
 	"\rStatusPending\x10\x01\x12\x11\n" +
 	"\rStatusStarted\x10\x02\x12\x12\n" +
 	"\x0eStatusFinished\x10\x03\x12\x12\n" +
-	"\x0eStatusCanceled\x10\x04BCZAgitlab.com/evemeta/zdk/pb/out/go/event/events/private/v1;eventspbb\x06proto3"
+	"\x0eStatusCanceled\x10\x04*K\n" +
+	"\bSchedule\x12\x13\n" +
+	"\x0fScheduleUnknown\x10\x00\x12\x13\n" +
+	"\x0fSchedulePlanned\x10\x01\x12\x15\n" +
+	"\x11ScheduleUnplanned\x10\x02*}\n" +
+	"\x14BroadcastOrientation\x12\x1f\n" +
+	"\x1bBroadcastOrientationUnknown\x10\x00\x12 \n" +
+	"\x1cBroadcastOrientationVertical\x10\x01\x12\"\n" +
+	"\x1eBroadcastOrientationHorizontal\x10\x02BCZAgitlab.com/evemeta/zdk/pb/out/go/event/events/private/v1;eventspbb\x06proto3"
 
 var (
 	file_event_events_private_v1_enums_proto_rawDescOnce sync.Once
@@ -206,11 +312,13 @@ func file_event_events_private_v1_enums_proto_rawDescGZIP() []byte {
 	return file_event_events_private_v1_enums_proto_rawDescData
 }
 
-var file_event_events_private_v1_enums_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
+var file_event_events_private_v1_enums_proto_enumTypes = make([]protoimpl.EnumInfo, 5)
 var file_event_events_private_v1_enums_proto_goTypes = []any{
-	(Kind)(0),   // 0: event.events.private.v1.Kind
-	(Order)(0),  // 1: event.events.private.v1.Order
-	(Status)(0), // 2: event.events.private.v1.Status
+	(Kind)(0),                 // 0: event.events.private.v1.Kind
+	(Order)(0),                // 1: event.events.private.v1.Order
+	(Status)(0),               // 2: event.events.private.v1.Status
+	(Schedule)(0),             // 3: event.events.private.v1.Schedule
+	(BroadcastOrientation)(0), // 4: event.events.private.v1.BroadcastOrientation
 }
 var file_event_events_private_v1_enums_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -230,7 +338,7 @@ func file_event_events_private_v1_enums_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_event_events_private_v1_enums_proto_rawDesc), len(file_event_events_private_v1_enums_proto_rawDesc)),
-			NumEnums:      3,
+			NumEnums:      5,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   0,

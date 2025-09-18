@@ -130,8 +130,8 @@ const (
 	PermissionChatUnmute         Permission = 104
 	PermissionChatMessageDelete  Permission = 105
 	PermissionChatKick           Permission = 106
-	Permission_permissionChatSlowmode       Permission = 107
-	Permission_permissionChatSlowmodeBypass Permission = 108
+	PermissionChatSlowmode       Permission = 107
+	PermissionChatSlowmodeBypass Permission = 108
 	PermissionEvent              Permission = 300
 	PermissionEventBlock         Permission = 301
 	PermissionEventUnblock       Permission = 302
@@ -149,8 +149,8 @@ var (
 		104: "PermissionChatUnmute",
 		105: "PermissionChatMessageDelete",
 		106: "PermissionChatKick",
-		107: "permissionChatSlowmode",
-		108: "permissionChatSlowmodeBypass",
+		107: "PermissionChatSlowmode",
+		108: "PermissionChatSlowmodeBypass",
 		300: "PermissionEvent",
 		301: "PermissionEventBlock",
 		302: "PermissionEventUnblock",
@@ -165,8 +165,8 @@ var (
 		"PermissionChatUnmute":         104,
 		"PermissionChatMessageDelete":  105,
 		"PermissionChatKick":           106,
-		"permissionChatSlowmode":       107,
-		"permissionChatSlowmodeBypass": 108,
+		"PermissionChatSlowmode":       107,
+		"PermissionChatSlowmodeBypass": 108,
 		"PermissionEvent":              300,
 		"PermissionEventBlock":         301,
 		"PermissionEventUnblock":       302,
@@ -224,8 +224,8 @@ const file_event_members_private_v1_enums_proto_rawDesc = "" +
 	"\x14PermissionChatUnmute\x10h\x12\x1f\n" +
 	"\x1bPermissionChatMessageDelete\x10i\x12\x16\n" +
 	"\x12PermissionChatKick\x10j\x12\x1a\n" +
-	"\x16permissionChatSlowmode\x10k\x12 \n" +
-	"\x1cpermissionChatSlowmodeBypass\x10l\x12\x14\n" +
+	"\x16PermissionChatSlowmode\x10k\x12 \n" +
+	"\x1cPermissionChatSlowmodeBypass\x10l\x12\x14\n" +
 	"\x0fPermissionEvent\x10\xac\x02\x12\x19\n" +
 	"\x14PermissionEventBlock\x10\xad\x02\x12\x1b\n" +
 	"\x16PermissionEventUnblock\x10\xae\x02\x12\x18\n" +

@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package event.events.private.v1;
 
-
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/events/private/v1;eventspb";
 
 enum Kind {
@@ -23,4 +22,16 @@ enum Status {
     StatusStarted  = 2;
     StatusFinished = 3;
     StatusCanceled = 4;
+}
+
+enum Schedule {
+    ScheduleUnknown   = 0;
+    SchedulePlanned   = 1;
+    ScheduleUnplanned = 2;
+}
+
+enum BroadcastOrientation {
+    BroadcastOrientationUnknown    = 0;
+    BroadcastOrientationVertical   = 1;
+    BroadcastOrientationHorizontal = 2;
 }

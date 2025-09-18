@@ -21,24 +21,24 @@ message Query {
 }
 
 message Member {
-    string                                         id           = 1;
-    string                                         user_id      = 2;
-    string                                         chat_id      = 3;
-    chat.members.private.v1.Status                 status       = 4;
-    map<string, string>                            metadata     = 5;
-    repeated chat.members.private.v1.Permission    permissions  = 11;
-    int64                                          enter_time   = 6;
-    int64                                          leave_time   = 7;
-    int64                                          access_time  = 8;
-    int64                                          create_time  = 9;
-    int64                                          update_time  = 10;
+    string                                      id          = 1;
+    string                                      user_id     = 2;
+    string                                      chat_id     = 3;
+    chat.members.private.v1.Status              status      = 4;
+    map<string, string>                         metadata    = 5;
+    repeated chat.members.private.v1.Permission permissions = 6;
+    int64                                       enter_time  = 7;
+    int64                                       leave_time  = 8;
+    int64                                       access_time = 9;
+    int64                                       create_time = 10;
+    int64                                       update_time = 11;
 }
 
 message Condition {
-    repeated string                                  ids               = 1;
-    repeated string                                  user_ids          = 2;
-    repeated string                                  chat_ids          = 3;
-    repeated chat.members.private.v1.Status          statuses          = 4;
+    repeated string                         ids      = 1;
+    repeated string                         user_ids = 2;
+    repeated string                         chat_ids = 3;
+    repeated chat.members.private.v1.Status statuses = 4;
 }
 
 message Transient {

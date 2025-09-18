@@ -35,39 +35,22 @@ public final class Enums {
   static {
     java.lang.String[] descriptorData = {
       "\n\'user/users/public/server/v1/enums.prot" +
-      "o\022\033user.users.public.server.v1*\211\t\n\nPermi" +
+      "o\022\033user.users.public.server.v1*\340\003\n\nPermi" +
       "ssion\022\025\n\021PermissionUnknown\020\000\022\022\n\016Permissi" +
-      "onChat\020d\022\030\n\024PermissionChatSelect\020e\022\027\n\023Pe" +
-      "rmissionChatEnter\020f\022\027\n\023PermissionChatLea" +
-      "ve\020g\022\031\n\024PermissionChatMember\020\310\001\022\037\n\032Permi" +
-      "ssionChatMemberSelect\020\311\001\022\035\n\030PermissionCh" +
-      "atMemberKick\020\312\001\022\035\n\030PermissionChatMemberM" +
-      "ute\020\313\001\022\037\n\032PermissionChatMemberUnmute\020\314\001\022" +
-      "\036\n\031PermissionChatMemberBlock\020\315\001\022 \n\033Permi" +
-      "ssionChatMemberUnblock\020\316\001\022\032\n\025PermissionC" +
-      "hatMessage\020\254\002\022 \n\033PermissionChatMessageSe" +
-      "lect\020\255\002\022 \n\033PermissionChatMessageCreate\020\256" +
-      "\002\022 \n\033PermissionChatMessageUpdate\020\257\002\022\'\n\"P" +
-      "ermissionChatMessageUpdateContent\020\260\002\022#\n\036" +
-      "PermissionChatMessageOwnDelete\020\261\002\022#\n\036Per" +
-      "missionChatMessageAnyDelete\020\262\002\022\023\n\016Permis" +
-      "sionRoom\020\220\003\022\031\n\024PermissionRoomSelect\020\221\003\022\030" +
-      "\n\023PermissionRoomEnter\020\222\003\022\030\n\023PermissionRo" +
-      "omLeave\020\223\003\022\031\n\024PermissionRoomMember\020\364\003\022\037\n" +
-      "\032PermissionRoomMemberSelect\020\365\003\022\035\n\030Permis" +
-      "sionRoomMemberKick\020\366\003\022\035\n\030PermissionRoomC" +
-      "onnection\020\330\004\022#\n\036PermissionRoomConnection" +
-      "Select\020\331\004\022\031\n\024PermissionRoomStream\020\274\005\022\037\n\032" +
-      "PermissionRoomStreamSelect\020\275\005\022\037\n\032Permiss" +
-      "ionRoomStreamCreate\020\276\005\022\037\n\032PermissionRoom" +
-      "StreamUpdate\020\277\005\022\037\n\032PermissionRoomStreamD" +
-      "elete\020\300\005\022\036\n\031PermissionRoomRestriction\020\240\006" +
-      "\022$\n\037PermissionRoomRestrictionSelect\020\241\006\022$" +
-      "\n\037PermissionRoomRestrictionCreate\020\242\006\022$\n\037" +
-      "PermissionRoomRestrictionDelete\020\243\006Bn\n$co" +
-      "m.evemeta.zdk.pb.user.server.usersP\001ZDgi" +
-      "tlab.com/evemeta/zdk/pb/out/go/user/user" +
-      "s/public/server/v1;userspbb\006proto3"
+      "onChat\020d\022\027\n\023PermissionChatBlock\020e\022\031\n\025Per" +
+      "missionChatUnblock\020f\022\026\n\022PermissionChatMu" +
+      "te\020g\022\030\n\024PermissionChatUnmute\020h\022\037\n\033Permis" +
+      "sionChatMessageDelete\020i\022\026\n\022PermissionCha" +
+      "tKick\020j\022\032\n\026PermissionChatSlowmode\020k\022 \n\034P" +
+      "ermissionChatSlowmodeBypass\020l\022\023\n\016Permiss" +
+      "ionRoom\020\310\001\022\030\n\023PermissionRoomBlock\020\311\001\022\032\n\025" +
+      "PermissionRoomUnblock\020\312\001\022\027\n\022PermissionRo" +
+      "omKick\020\313\001\022\024\n\017PermissionEvent\020\254\002\022\031\n\024Permi" +
+      "ssionEventBlock\020\255\002\022\033\n\026PermissionEventUnb" +
+      "lock\020\256\002\022\030\n\023PermissionEventKick\020\257\002Bn\n$com" +
+      ".evemeta.zdk.pb.user.server.usersP\001ZDgit" +
+      "lab.com/evemeta/zdk/pb/out/go/user/users" +
+      "/public/server/v1;userspbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

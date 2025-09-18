@@ -36,8 +36,8 @@ public final class Enums {
     java.lang.String[] descriptorData = {
       "\n.room/restrictions/public/server/v1/enu" +
       "ms.proto\022\"room.restrictions.public.serve" +
-      "r.v1*&\n\004Kind\022\017\n\013KindUnknown\020\000\022\r\n\tKindEnt" +
-      "er\020\001*B\n\005Order\022\020\n\014OrderUnknown\020\000\022\022\n\016Order" +
+      "r.v1*&\n\004Kind\022\017\n\013KindUnknown\020\000\022\r\n\tKindBlo" +
+      "ck\020\001*B\n\005Order\022\020\n\014OrderUnknown\020\000\022\022\n\016Order" +
       "Ascending\020\001\022\023\n\017OrderDescending\020\002B\203\001\n+com" +
       ".evemeta.zdk.pb.room.server.restrictions" +
       "P\001ZRgitlab.com/evemeta/zdk/pb/out/go/roo" +

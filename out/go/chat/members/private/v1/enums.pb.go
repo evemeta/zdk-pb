@@ -130,8 +130,8 @@ const (
 	PermissionChatUnmute         Permission = 104
 	PermissionChatMessageDelete  Permission = 105
 	PermissionChatKick           Permission = 106
-	Permission_permissionChatSlowmode       Permission = 107
-	Permission_permissionChatSlowmodeBypass Permission = 108
+	PermissionChatSlowmode       Permission = 107
+	PermissionChatSlowmodeBypass Permission = 108
 )
 
 // Enum value maps for Permission.
@@ -145,8 +145,8 @@ var (
 		104: "PermissionChatUnmute",
 		105: "PermissionChatMessageDelete",
 		106: "PermissionChatKick",
-		107: "permissionChatSlowmode",
-		108: "permissionChatSlowmodeBypass",
+		107: "PermissionChatSlowmode",
+		108: "PermissionChatSlowmodeBypass",
 	}
 	Permission_value = map[string]int32{
 		"PermissionUnknown":            0,
@@ -157,8 +157,8 @@ var (
 		"PermissionChatUnmute":         104,
 		"PermissionChatMessageDelete":  105,
 		"PermissionChatKick":           106,
-		"permissionChatSlowmode":       107,
-		"permissionChatSlowmodeBypass": 108,
+		"PermissionChatSlowmode":       107,
+		"PermissionChatSlowmodeBypass": 108,
 	}
 )
 
@@ -212,8 +212,8 @@ const file_chat_members_private_v1_enums_proto_rawDesc = "" +
 	"\x14PermissionChatUnmute\x10h\x12\x1f\n" +
 	"\x1bPermissionChatMessageDelete\x10i\x12\x16\n" +
 	"\x12PermissionChatKick\x10j\x12\x1a\n" +
-	"\x16permissionChatSlowmode\x10k\x12 \n" +
-	"\x1cpermissionChatSlowmodeBypass\x10lBDZBgitlab.com/evemeta/zdk/pb/out/go/chat/members/private/v1;memberspbb\x06proto3"
+	"\x16PermissionChatSlowmode\x10k\x12 \n" +
+	"\x1cPermissionChatSlowmodeBypass\x10lBDZBgitlab.com/evemeta/zdk/pb/out/go/chat/members/private/v1;memberspbb\x06proto3"
 
 var (
 	file_chat_members_private_v1_enums_proto_rawDescOnce sync.Once

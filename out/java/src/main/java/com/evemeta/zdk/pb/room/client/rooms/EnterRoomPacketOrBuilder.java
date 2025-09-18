@@ -11,23 +11,23 @@ public interface EnterRoomPacketOrBuilder extends
 
   /**
    * <pre>
-   * Represents the unique identifier of the room the client is attempting to enter.
+   * Represents the token containing data of the room the client is attempting to enter.
    * </pre>
    *
-   * <code>string id = 1;</code>
-   * @return The id.
+   * <code>string token = 1;</code>
+   * @return The token.
    */
-  java.lang.String getId();
+  java.lang.String getToken();
   /**
    * <pre>
-   * Represents the unique identifier of the room the client is attempting to enter.
+   * Represents the token containing data of the room the client is attempting to enter.
    * </pre>
    *
-   * <code>string id = 1;</code>
-   * @return The bytes for id.
+   * <code>string token = 1;</code>
+   * @return The bytes for token.
    */
   com.google.protobuf.ByteString
-      getIdBytes();
+      getTokenBytes();
 
   /**
    * <pre>

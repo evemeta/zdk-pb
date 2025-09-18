@@ -14,20 +14,20 @@ public interface EnterEventPacketOrBuilder extends
    * Represents the unique identifier of the event the client is attempting to enter.
    * </pre>
    *
-   * <code>string id = 1;</code>
-   * @return The id.
+   * <code>string token = 1;</code>
+   * @return The token.
    */
-  java.lang.String getId();
+  java.lang.String getToken();
   /**
    * <pre>
    * Represents the unique identifier of the event the client is attempting to enter.
    * </pre>
    *
-   * <code>string id = 1;</code>
-   * @return The bytes for id.
+   * <code>string token = 1;</code>
+   * @return The bytes for token.
    */
   com.google.protobuf.ByteString
-      getIdBytes();
+      getTokenBytes();
 
   /**
    * <pre>

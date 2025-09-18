@@ -21,6 +21,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// Kind todo;
 type Kind int32
 
 const (
@@ -120,6 +121,7 @@ func (Order) EnumDescriptor() ([]byte, []int) {
 	return file_room_connections_public_server_v1_enums_proto_rawDescGZIP(), []int{1}
 }
 
+// Status todo;
 type Status int32
 
 const (

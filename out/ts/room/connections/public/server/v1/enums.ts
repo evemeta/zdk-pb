@@ -2,6 +2,8 @@
 // @generated from protobuf file "room/connections/public/server/v1/enums.proto" (package "room.connections.public.server.v1", syntax proto3)
 // tslint:disable
 /**
+ * Kind todo;
+ *
  * @generated from protobuf enum room.connections.public.server.v1.Kind
  */
 export enum Kind {
@@ -38,6 +40,8 @@ export enum Order {
     Descending = 2
 }
 /**
+ * Status todo;
+ *
  * @generated from protobuf enum room.connections.public.server.v1.Status
  */
 export enum Status {

@@ -7,7 +7,6 @@
 package tokenspb
 
 import (
-	_ "gitlab.com/evemeta/zdk/pb/out/go/event/events/public/server/v1"
 	v1 "gitlab.com/evemeta/zdk/pb/out/go/event/members/public/server/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -107,7 +106,7 @@ var File_event_tokens_public_server_v1_procedures_proto protoreflect.FileDescrip
 
 const file_event_tokens_public_server_v1_procedures_proto_rawDesc = "" +
 	"\n" +
-	".event/tokens/public/server/v1/procedures.proto\x12\x1devent.tokens.public.server.v1\x1a,event/events/public/server/v1/entities.proto\x1a-event/members/public/server/v1/entities.proto\"\x10\n" +
+	".event/tokens/public/server/v1/procedures.proto\x12\x1devent.tokens.public.server.v1\x1a-event/members/public/server/v1/entities.proto\"\x10\n" +
 	"\x0eExtractRequest\"Q\n" +
 	"\x0fExtractResponse\x12>\n" +
 	"\x06member\x18\x01 \x01(\v2&.event.members.public.server.v1.MemberR\x06memberBs\n" +

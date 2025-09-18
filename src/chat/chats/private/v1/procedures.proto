@@ -136,8 +136,8 @@ message EnterArgument {
     string                                      user_id     = 2;
     string                                      session_id  = 3;
     map<string, string>                         metadata    = 4;
-    repeated chat.members.private.v1.Permission permissions = 6;
-    bool                                        override    = 5;
+    repeated chat.members.private.v1.Permission permissions = 5;
+    bool                                        override    = 6;
 }
 
 message EnterRequest {

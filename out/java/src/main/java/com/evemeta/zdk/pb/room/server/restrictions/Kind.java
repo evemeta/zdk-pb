@@ -19,9 +19,9 @@ public enum Kind
    */
   KindUnknown(0),
   /**
-   * <code>KindEnter = 1;</code>
+   * <code>KindBlock = 1;</code>
    */
-  KindEnter(1),
+  KindBlock(1),
   UNRECOGNIZED(-1),
   ;
 
@@ -39,9 +39,9 @@ public enum Kind
    */
   public static final int KindUnknown_VALUE = 0;
   /**
-   * <code>KindEnter = 1;</code>
+   * <code>KindBlock = 1;</code>
    */
-  public static final int KindEnter_VALUE = 1;
+  public static final int KindBlock_VALUE = 1;
 
 
   public final int getNumber() {
@@ -69,7 +69,7 @@ public enum Kind
   public static Kind forNumber(int value) {
     switch (value) {
       case 0: return KindUnknown;
-      case 1: return KindEnter;
+      case 1: return KindBlock;
       default: return null;
     }
   }

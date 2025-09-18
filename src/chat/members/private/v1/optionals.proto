@@ -6,18 +6,14 @@ import "chat/members/private/v1/enums.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/members/private/v1;memberspb";
 
-// OptionalMap represents a mapping of key-value pairs that can be intentionally left unset or null.
-// It allows for explicit control over the presence or absence of the map, accommodating scenarios where the map might be optional or intentionally omitted.
 message OptionalMap {
     map<string, string> value = 1;
 }
 
-// OptionalString represents a string value that can be intentionally left unset or null.
-// It allows for explicit control over the presence or absence of the string, accommodating scenarios where the string might be optional or intentionally omitted.
 message OptionalString {
     string value = 1;
 }
 
-message OptionalPermission {
+message OptionalPermissions {
     repeated chat.members.private.v1.Permission value = 1;
 }

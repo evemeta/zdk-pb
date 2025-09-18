@@ -2,11 +2,11 @@ syntax = "proto3";
 
 package room.connections.public.server.v1;
 
-
 option java_multiple_files = true;
 option java_package = "com.evemeta.zdk.pb.room.server.connections";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/connections/public/server/v1;connectionspb";
 
+// Kind todo;
 enum Kind {
     KindUnknown  = 0;
     KindReceive  = 1;
@@ -20,6 +20,7 @@ enum Order {
     OrderDescending = 2;
 }
 
+// Status todo;
 enum Status {
     StatusUnknown      = 0;
     StatusConnecting   = 1;

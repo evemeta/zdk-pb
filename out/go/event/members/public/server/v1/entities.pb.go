@@ -181,10 +181,12 @@ type Member struct {
 	EventId string `protobuf:"bytes,3,opt,name=event_id,json=eventId,proto3" json:"event_id,omitempty"`
 	// Represents a collection of key-value pairs providing additional context or information about this member.
 	Metadata map[string]string `protobuf:"bytes,4,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	// Represents list of permission which member have inside this room.
+	Permissions []Permission `protobuf:"varint,5,rep,packed,name=permissions,proto3,enum=event.members.public.server.v1.Permission" json:"permissions,omitempty"`
 	// Represents the timestamp indicating when this member was created or added to the event.
-	CreateTime int64 `protobuf:"varint,5,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime int64 `protobuf:"varint,6,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Represents the timestamp of the last update associated with this member.
-	UpdateTime    int64 `protobuf:"varint,6,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	UpdateTime    int64 `protobuf:"varint,7,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -243,6 +245,13 @@ func (x *Member) GetEventId() string {
 func (x *Member) GetMetadata() map[string]string {
 	if x != nil {
 		return x.Metadata
+	}
+	return nil
+}
+
+func (x *Member) GetPermissions() []Permission {
+	if x != nil {
+		return x.Permissions
 	}
 	return nil
 }
@@ -396,15 +405,16 @@ const file_event_members_public_server_v1_entities_proto_rawDesc = "" +
 	"\x05order\x18\x01 \x01(\x0e2%.event.members.public.server.v1.OrderR\x05order\x12\x14\n" +
 	"\x05limit\x18\x02 \x01(\x03R\x05limit\x12\x16\n" +
 	"\x06offset\x18\x03 \x01(\x03R\x06offset\x12G\n" +
-	"\tcondition\x18\x04 \x01(\v2).event.members.public.server.v1.ConditionR\tcondition\"\x9d\x02\n" +
+	"\tcondition\x18\x04 \x01(\v2).event.members.public.server.v1.ConditionR\tcondition\"\xeb\x02\n" +
 	"\x06Member\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\x12\x19\n" +
 	"\bevent_id\x18\x03 \x01(\tR\aeventId\x12P\n" +
-	"\bmetadata\x18\x04 \x03(\v24.event.members.public.server.v1.Member.MetadataEntryR\bmetadata\x12\x1f\n" +
-	"\vcreate_time\x18\x05 \x01(\x03R\n" +
+	"\bmetadata\x18\x04 \x03(\v24.event.members.public.server.v1.Member.MetadataEntryR\bmetadata\x12L\n" +
+	"\vpermissions\x18\x05 \x03(\x0e2*.event.members.public.server.v1.PermissionR\vpermissions\x12\x1f\n" +
+	"\vcreate_time\x18\x06 \x01(\x03R\n" +
 	"createTime\x12\x1f\n" +
-	"\vupdate_time\x18\x06 \x01(\x03R\n" +
+	"\vupdate_time\x18\a \x01(\x03R\n" +
 	"updateTime\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
@@ -439,19 +449,21 @@ var file_event_members_public_server_v1_entities_proto_goTypes = []any{
 	(*Timeframe)(nil), // 4: event.members.public.server.v1.Timeframe
 	nil,               // 5: event.members.public.server.v1.Member.MetadataEntry
 	(Order)(0),        // 6: event.members.public.server.v1.Order
-	(Status)(0),       // 7: event.members.public.server.v1.Status
+	(Permission)(0),   // 7: event.members.public.server.v1.Permission
+	(Status)(0),       // 8: event.members.public.server.v1.Status
 }
 var file_event_members_public_server_v1_entities_proto_depIdxs = []int32{
 	2, // 0: event.members.public.server.v1.Chunk.entities:type_name -> event.members.public.server.v1.Member
 	6, // 1: event.members.public.server.v1.Query.order:type_name -> event.members.public.server.v1.Order
 	3, // 2: event.members.public.server.v1.Query.condition:type_name -> event.members.public.server.v1.Condition
 	5, // 3: event.members.public.server.v1.Member.metadata:type_name -> event.members.public.server.v1.Member.MetadataEntry
-	7, // 4: event.members.public.server.v1.Condition.statuses:type_name -> event.members.public.server.v1.Status
-	5, // [5:5] is the sub-list for method output_type
-	5, // [5:5] is the sub-list for method input_type
-	5, // [5:5] is the sub-list for extension type_name
-	5, // [5:5] is the sub-list for extension extendee
-	0, // [0:5] is the sub-list for field type_name
+	7, // 4: event.members.public.server.v1.Member.permissions:type_name -> event.members.public.server.v1.Permission
+	8, // 5: event.members.public.server.v1.Condition.statuses:type_name -> event.members.public.server.v1.Status
+	6, // [6:6] is the sub-list for method output_type
+	6, // [6:6] is the sub-list for method input_type
+	6, // [6:6] is the sub-list for extension type_name
+	6, // [6:6] is the sub-list for extension extendee
+	0, // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_event_members_public_server_v1_entities_proto_init() }

@@ -164,11 +164,12 @@ type Member struct {
 	ChatId        string                 `protobuf:"bytes,3,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
 	Status        Status                 `protobuf:"varint,4,opt,name=status,proto3,enum=chat.members.private.v1.Status" json:"status,omitempty"`
 	Metadata      map[string]string      `protobuf:"bytes,5,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	EnterTime     int64                  `protobuf:"varint,6,opt,name=enter_time,json=enterTime,proto3" json:"enter_time,omitempty"`
-	LeaveTime     int64                  `protobuf:"varint,7,opt,name=leave_time,json=leaveTime,proto3" json:"leave_time,omitempty"`
-	AccessTime    int64                  `protobuf:"varint,8,opt,name=access_time,json=accessTime,proto3" json:"access_time,omitempty"`
-	CreateTime    int64                  `protobuf:"varint,9,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
-	UpdateTime    int64                  `protobuf:"varint,10,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	Permissions   []Permission           `protobuf:"varint,6,rep,packed,name=permissions,proto3,enum=chat.members.private.v1.Permission" json:"permissions,omitempty"`
+	EnterTime     int64                  `protobuf:"varint,7,opt,name=enter_time,json=enterTime,proto3" json:"enter_time,omitempty"`
+	LeaveTime     int64                  `protobuf:"varint,8,opt,name=leave_time,json=leaveTime,proto3" json:"leave_time,omitempty"`
+	AccessTime    int64                  `protobuf:"varint,9,opt,name=access_time,json=accessTime,proto3" json:"access_time,omitempty"`
+	CreateTime    int64                  `protobuf:"varint,10,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	UpdateTime    int64                  `protobuf:"varint,11,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -234,6 +235,13 @@ func (x *Member) GetStatus() Status {
 func (x *Member) GetMetadata() map[string]string {
 	if x != nil {
 		return x.Metadata
+	}
+	return nil
+}
+
+func (x *Member) GetPermissions() []Permission {
+	if x != nil {
+		return x.Permissions
 	}
 	return nil
 }
@@ -417,23 +425,24 @@ const file_chat_members_private_v1_entities_proto_rawDesc = "" +
 	"\x06offset\x18\x03 \x01(\x03R\x06offset\x12B\n" +
 	"\n" +
 	"conditions\x18\x04 \x03(\v2\".chat.members.private.v1.ConditionR\n" +
-	"conditions\"\xac\x03\n" +
+	"conditions\"\xf3\x03\n" +
 	"\x06Member\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\x12\x17\n" +
 	"\achat_id\x18\x03 \x01(\tR\x06chatId\x127\n" +
 	"\x06status\x18\x04 \x01(\x0e2\x1f.chat.members.private.v1.StatusR\x06status\x12I\n" +
-	"\bmetadata\x18\x05 \x03(\v2-.chat.members.private.v1.Member.MetadataEntryR\bmetadata\x12\x1d\n" +
+	"\bmetadata\x18\x05 \x03(\v2-.chat.members.private.v1.Member.MetadataEntryR\bmetadata\x12E\n" +
+	"\vpermissions\x18\x06 \x03(\x0e2#.chat.members.private.v1.PermissionR\vpermissions\x12\x1d\n" +
 	"\n" +
-	"enter_time\x18\x06 \x01(\x03R\tenterTime\x12\x1d\n" +
+	"enter_time\x18\a \x01(\x03R\tenterTime\x12\x1d\n" +
 	"\n" +
-	"leave_time\x18\a \x01(\x03R\tleaveTime\x12\x1f\n" +
-	"\vaccess_time\x18\b \x01(\x03R\n" +
+	"leave_time\x18\b \x01(\x03R\tleaveTime\x12\x1f\n" +
+	"\vaccess_time\x18\t \x01(\x03R\n" +
 	"accessTime\x12\x1f\n" +
-	"\vcreate_time\x18\t \x01(\x03R\n" +
-	"createTime\x12\x1f\n" +
-	"\vupdate_time\x18\n" +
+	"\vcreate_time\x18\n" +
 	" \x01(\x03R\n" +
+	"createTime\x12\x1f\n" +
+	"\vupdate_time\x18\v \x01(\x03R\n" +
 	"updateTime\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
@@ -470,22 +479,24 @@ var file_chat_members_private_v1_entities_proto_goTypes = []any{
 	nil,               // 5: chat.members.private.v1.Member.MetadataEntry
 	(Order)(0),        // 6: chat.members.private.v1.Order
 	(Status)(0),       // 7: chat.members.private.v1.Status
+	(Permission)(0),   // 8: chat.members.private.v1.Permission
 }
 var file_chat_members_private_v1_entities_proto_depIdxs = []int32{
-	2, // 0: chat.members.private.v1.Chunk.entities:type_name -> chat.members.private.v1.Member
-	6, // 1: chat.members.private.v1.Query.order:type_name -> chat.members.private.v1.Order
-	3, // 2: chat.members.private.v1.Query.conditions:type_name -> chat.members.private.v1.Condition
-	7, // 3: chat.members.private.v1.Member.status:type_name -> chat.members.private.v1.Status
-	5, // 4: chat.members.private.v1.Member.metadata:type_name -> chat.members.private.v1.Member.MetadataEntry
-	7, // 5: chat.members.private.v1.Condition.statuses:type_name -> chat.members.private.v1.Status
-	2, // 6: chat.members.private.v1.Transient.future:type_name -> chat.members.private.v1.Member
-	2, // 7: chat.members.private.v1.Transient.current:type_name -> chat.members.private.v1.Member
-	2, // 8: chat.members.private.v1.Transient.previous:type_name -> chat.members.private.v1.Member
-	9, // [9:9] is the sub-list for method output_type
-	9, // [9:9] is the sub-list for method input_type
-	9, // [9:9] is the sub-list for extension type_name
-	9, // [9:9] is the sub-list for extension extendee
-	0, // [0:9] is the sub-list for field type_name
+	2,  // 0: chat.members.private.v1.Chunk.entities:type_name -> chat.members.private.v1.Member
+	6,  // 1: chat.members.private.v1.Query.order:type_name -> chat.members.private.v1.Order
+	3,  // 2: chat.members.private.v1.Query.conditions:type_name -> chat.members.private.v1.Condition
+	7,  // 3: chat.members.private.v1.Member.status:type_name -> chat.members.private.v1.Status
+	5,  // 4: chat.members.private.v1.Member.metadata:type_name -> chat.members.private.v1.Member.MetadataEntry
+	8,  // 5: chat.members.private.v1.Member.permissions:type_name -> chat.members.private.v1.Permission
+	7,  // 6: chat.members.private.v1.Condition.statuses:type_name -> chat.members.private.v1.Status
+	2,  // 7: chat.members.private.v1.Transient.future:type_name -> chat.members.private.v1.Member
+	2,  // 8: chat.members.private.v1.Transient.current:type_name -> chat.members.private.v1.Member
+	2,  // 9: chat.members.private.v1.Transient.previous:type_name -> chat.members.private.v1.Member
+	10, // [10:10] is the sub-list for method output_type
+	10, // [10:10] is the sub-list for method input_type
+	10, // [10:10] is the sub-list for extension type_name
+	10, // [10:10] is the sub-list for extension extendee
+	0,  // [0:10] is the sub-list for field type_name
 }
 
 func init() { file_chat_members_private_v1_entities_proto_init() }

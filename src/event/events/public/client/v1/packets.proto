@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package event.events.public.client.v1;
 
-
 option java_multiple_files = true;
 option java_package = "com.evemeta.zdk.pb.event.client.events";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/events/public/client/v1;eventspb";

@@ -5,6 +5,7 @@ package event.members.private.v1;
 import "event/members/private/v1/enums.proto";
 import "event/members/private/v1/entities.proto";
 import "event/members/private/v1/optionals.proto";
+import "chat/members/private/v1/procedures.proto";
 import "gateway/transponders/private/v1/procedures.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/members/private/v1;memberspb";
@@ -54,9 +55,9 @@ message CreateArgument {
     string                                       event_id    = 3;
     event.members.private.v1.Status              status      = 4;
     map<string, string>                          metadata    = 5;
-    repeated event.members.private.v1.Permission permissions = 8;
-    int64                                        enter_time  = 6;
-    int64                                        leave_time  = 7;
+    repeated event.members.private.v1.Permission permissions = 6;
+    int64                                        enter_time  = 7;
+    int64                                        leave_time  = 8;
 }
 
 message CreateRequest {
@@ -84,11 +85,11 @@ message CreateTransaction {
 }
 
 message UpdateArgument {
-    event.members.private.v1.Query                       query       = 1;
-    optional event.members.private.v1.OptionalString     user_id     = 2;
-    optional event.members.private.v1.OptionalString     event_id    = 3;
-    optional event.members.private.v1.OptionalMap        metadata    = 4;
-    optional event.members.private.v1.OptionalPermission permissions = 5;
+    event.members.private.v1.Query                        query       = 1;
+    optional event.members.private.v1.OptionalString      user_id     = 2;
+    optional event.members.private.v1.OptionalString      event_id    = 3;
+    optional event.members.private.v1.OptionalMap         metadata    = 4;
+    optional event.members.private.v1.OptionalPermissions permissions = 5;
 }
 
 message UpdateRequest {
@@ -100,10 +101,10 @@ message UpdateResponse {
 }
 
 message UpdateMutation {
-    event.members.private.v1.UpdateArgument     foundation     = 1;
-    repeated event.members.private.v1.Transient transient      = 2;
-    int64                                      begin_timestamp = 3;
-    int64                                      close_timestamp = 4;
+    event.members.private.v1.UpdateArgument     foundation      = 1;
+    repeated event.members.private.v1.Transient transient       = 2;
+    int64                                       begin_timestamp = 3;
+    int64                                       close_timestamp = 4;
 }
 
 message UpdateTransaction {
@@ -158,7 +159,8 @@ message KickMutation {
 
 message KickCondition {
     repeated event.members.private.v1.UpdateMutation        update_mutations             = 1;
-    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 2;
+    repeated chat.members.private.v1.KickMutation           kick_chat_member_mutations   = 2;
+    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 3;
 }
 
 message KickTransaction {

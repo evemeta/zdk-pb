@@ -23,7 +23,7 @@ const (
 
 type EnterChatPacket struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Token         string                 `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
 	Override      bool                   `protobuf:"varint,2,opt,name=override,proto3" json:"override,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -59,9 +59,9 @@ func (*EnterChatPacket) Descriptor() ([]byte, []int) {
 	return file_chat_chats_public_client_v1_packets_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *EnterChatPacket) GetId() string {
+func (x *EnterChatPacket) GetToken() string {
 	if x != nil {
-		return x.Id
+		return x.Token
 	}
 	return ""
 }
@@ -121,9 +121,9 @@ var File_chat_chats_public_client_v1_packets_proto protoreflect.FileDescriptor
 
 const file_chat_chats_public_client_v1_packets_proto_rawDesc = "" +
 	"\n" +
-	")chat/chats/public/client/v1/packets.proto\x12\x1bchat.chats.public.client.v1\"=\n" +
-	"\x0fEnterChatPacket\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1a\n" +
+	")chat/chats/public/client/v1/packets.proto\x12\x1bchat.chats.public.client.v1\"C\n" +
+	"\x0fEnterChatPacket\x12\x14\n" +
+	"\x05token\x18\x01 \x01(\tR\x05token\x12\x1a\n" +
 	"\boverride\x18\x02 \x01(\bR\boverride\"!\n" +
 	"\x0fLeaveChatPacket\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02idBn\n" +
