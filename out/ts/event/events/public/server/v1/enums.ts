@@ -66,3 +66,41 @@ export enum Status {
      */
     Canceled = 4
 }
+/**
+ * todo;
+ *
+ * @generated from protobuf enum event.events.public.server.v1.Schedule
+ */
+export enum Schedule {
+    /**
+     * @generated from protobuf enum value: Unknown = 0;
+     */
+    Unknown = 0,
+    /**
+     * @generated from protobuf enum value: Planned = 1;
+     */
+    Planned = 1,
+    /**
+     * @generated from protobuf enum value: Unplanned = 2;
+     */
+    Unplanned = 2
+}
+/**
+ * todo;
+ *
+ * @generated from protobuf enum event.events.public.server.v1.BroadcastOrientation
+ */
+export enum BroadcastOrientation {
+    /**
+     * @generated from protobuf enum value: Unknown = 0;
+     */
+    Unknown = 0,
+    /**
+     * @generated from protobuf enum value: Vertical = 1;
+     */
+    Vertical = 1,
+    /**
+     * @generated from protobuf enum value: Horizontal = 2;
+     */
+    Horizontal = 2
+}

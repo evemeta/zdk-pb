@@ -103,4 +103,9 @@ service Service {
     rpc AnnounceCancelMutations(CancelTransaction) returns (CancelTransaction);
 
     rpc RollbackCancelMutations(CancelTransaction) returns (CancelTransaction);
+
+    //
+
+    rpc GenerateBroadcastAccessUrl(GenerateBroadcastAccessUrlRequest) returns (GenerateBroadcastAccessUrlResponse);
+
 }

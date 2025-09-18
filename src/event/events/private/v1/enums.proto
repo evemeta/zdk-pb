@@ -24,3 +24,15 @@ enum Status {
     StatusFinished = 3;
     StatusCanceled = 4;
 }
+
+enum Schedule {
+    ScheduleUnknown = 0;
+    SchedulePlanned = 1;
+    ScheduleUnplanned = 2;
+}
+
+enum BroadcastOrientation {
+    BroadcastOrientationUnknown = 0;
+    BroadcastOrientationVertical = 1;
+    BroadcastOrientationHorizontal = 2;
+}

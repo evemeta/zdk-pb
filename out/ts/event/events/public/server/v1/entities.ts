@@ -13,6 +13,8 @@ import { MessageType } from "@protobuf-ts/runtime";
 import { Member } from "../../../../members/public/server/v1/entities";
 import { Chat } from "../../../../../chat/chats/public/server/v1/entities";
 import { Order } from "./enums";
+import { BroadcastOrientation } from "./enums";
+import { Schedule } from "./enums";
 import { Status } from "./enums";
 import { Kind } from "./enums";
 /**
@@ -49,35 +51,68 @@ export interface Event {
         [key: string]: string;
     };
     /**
+     * todo;
+     *
+     * @generated from protobuf field: event.events.public.server.v1.Schedule schedule = 5;
+     */
+    schedule: Schedule;
+    /**
+     * todo;
+     *
+     * @generated from protobuf field: event.events.public.server.v1.Broadcast broadcast = 6;
+     */
+    broadcast?: Broadcast;
+    /**
+     * todo;
+     *
+     * @generated from protobuf field: int64 planned_start_time = 7;
+     */
+    plannedStartTime: bigint;
+    /**
      * Represents the timestamp indicating when this event was started.
      *
-     * @generated from protobuf field: int64 start_time = 5;
+     * @generated from protobuf field: int64 start_time = 8;
      */
     startTime: bigint;
     /**
+     * todo;
+     *
+     * @generated from protobuf field: int64 planned_finish_time = 9;
+     */
+    plannedFinishTime: bigint;
+    /**
      * Represents the timestamp indicating when this event was finished.
      *
-     * @generated from protobuf field: int64 finish_time = 6;
+     * @generated from protobuf field: int64 finish_time = 10;
      */
     finishTime: bigint;
     /**
      * Represents the timestamp indicating when this event was canceled.
      *
-     * @generated from protobuf field: int64 cancel_time = 7;
+     * @generated from protobuf field: int64 cancel_time = 11;
      */
     cancelTime: bigint;
     /**
      * Represents the timestamp indicating when this event was created.
      *
-     * @generated from protobuf field: int64 create_time = 8;
+     * @generated from protobuf field: int64 create_time = 12;
      */
     createTime: bigint;
     /**
      * Represents the timestamp of the last update associated with this event.
      *
-     * @generated from protobuf field: int64 update_time = 9;
+     * @generated from protobuf field: int64 update_time = 13;
      */
     updateTime: bigint;
+}
+/**
+ * @generated from protobuf message event.events.public.server.v1.Broadcast
+ */
+export interface Broadcast {
+    /**
+     * @generated from protobuf field: event.events.public.server.v1.BroadcastOrientation orientation = 1;
+     */
+    orientation: BroadcastOrientation;
 }
 /**
  * Chunk represents a segmented portion of events used for pagination or segmented data retrieval.
@@ -241,11 +276,15 @@ class Event$Type extends MessageType<Event> {
             { no: 2, name: "kind", kind: "enum", T: () => ["event.events.public.server.v1.Kind", Kind] },
             { no: 3, name: "status", kind: "enum", T: () => ["event.events.public.server.v1.Status", Status] },
             { no: 4, name: "metadata", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } },
-            { no: 5, name: "start_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 6, name: "finish_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 7, name: "cancel_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 8, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 9, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 5, name: "schedule", kind: "enum", T: () => ["event.events.public.server.v1.Schedule", Schedule] },
+            { no: 6, name: "broadcast", kind: "message", T: () => Broadcast },
+            { no: 7, name: "planned_start_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 8, name: "start_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 9, name: "planned_finish_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 10, name: "finish_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 11, name: "cancel_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 12, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 13, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value?: PartialMessage<Event>): Event {
@@ -254,7 +293,10 @@ class Event$Type extends MessageType<Event> {
         message.kind = 0;
         message.status = 0;
         message.metadata = {};
+        message.schedule = 0;
+        message.plannedStartTime = 0n;
         message.startTime = 0n;
+        message.plannedFinishTime = 0n;
         message.finishTime = 0n;
         message.cancelTime = 0n;
         message.createTime = 0n;
@@ -280,19 +322,31 @@ class Event$Type extends MessageType<Event> {
                 case /* map<string, string> metadata */ 4:
                     this.binaryReadMap4(message.metadata, reader, options);
                     break;
-                case /* int64 start_time */ 5:
+                case /* event.events.public.server.v1.Schedule schedule */ 5:
+                    message.schedule = reader.int32();
+                    break;
+                case /* event.events.public.server.v1.Broadcast broadcast */ 6:
+                    message.broadcast = Broadcast.internalBinaryRead(reader, reader.uint32(), options, message.broadcast);
+                    break;
+                case /* int64 planned_start_time */ 7:
+                    message.plannedStartTime = reader.int64().toBigInt();
+                    break;
+                case /* int64 start_time */ 8:
                     message.startTime = reader.int64().toBigInt();
                     break;
-                case /* int64 finish_time */ 6:
+                case /* int64 planned_finish_time */ 9:
+                    message.plannedFinishTime = reader.int64().toBigInt();
+                    break;
+                case /* int64 finish_time */ 10:
                     message.finishTime = reader.int64().toBigInt();
                     break;
-                case /* int64 cancel_time */ 7:
+                case /* int64 cancel_time */ 11:
                     message.cancelTime = reader.int64().toBigInt();
                     break;
-                case /* int64 create_time */ 8:
+                case /* int64 create_time */ 12:
                     message.createTime = reader.int64().toBigInt();
                     break;
-                case /* int64 update_time */ 9:
+                case /* int64 update_time */ 13:
                     message.updateTime = reader.int64().toBigInt();
                     break;
                 default:
@@ -335,21 +389,33 @@ class Event$Type extends MessageType<Event> {
         /* map<string, string> metadata = 4; */
         for (let k of globalThis.Object.keys(message.metadata))
             writer.tag(4, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.metadata[k]).join();
-        /* int64 start_time = 5; */
+        /* event.events.public.server.v1.Schedule schedule = 5; */
+        if (message.schedule !== 0)
+            writer.tag(5, WireType.Varint).int32(message.schedule);
+        /* event.events.public.server.v1.Broadcast broadcast = 6; */
+        if (message.broadcast)
+            Broadcast.internalBinaryWrite(message.broadcast, writer.tag(6, WireType.LengthDelimited).fork(), options).join();
+        /* int64 planned_start_time = 7; */
+        if (message.plannedStartTime !== 0n)
+            writer.tag(7, WireType.Varint).int64(message.plannedStartTime);
+        /* int64 start_time = 8; */
         if (message.startTime !== 0n)
-            writer.tag(5, WireType.Varint).int64(message.startTime);
-        /* int64 finish_time = 6; */
+            writer.tag(8, WireType.Varint).int64(message.startTime);
+        /* int64 planned_finish_time = 9; */
+        if (message.plannedFinishTime !== 0n)
+            writer.tag(9, WireType.Varint).int64(message.plannedFinishTime);
+        /* int64 finish_time = 10; */
         if (message.finishTime !== 0n)
-            writer.tag(6, WireType.Varint).int64(message.finishTime);
-        /* int64 cancel_time = 7; */
+            writer.tag(10, WireType.Varint).int64(message.finishTime);
+        /* int64 cancel_time = 11; */
         if (message.cancelTime !== 0n)
-            writer.tag(7, WireType.Varint).int64(message.cancelTime);
-        /* int64 create_time = 8; */
+            writer.tag(11, WireType.Varint).int64(message.cancelTime);
+        /* int64 create_time = 12; */
         if (message.createTime !== 0n)
-            writer.tag(8, WireType.Varint).int64(message.createTime);
-        /* int64 update_time = 9; */
+            writer.tag(12, WireType.Varint).int64(message.createTime);
+        /* int64 update_time = 13; */
         if (message.updateTime !== 0n)
-            writer.tag(9, WireType.Varint).int64(message.updateTime);
+            writer.tag(13, WireType.Varint).int64(message.updateTime);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -361,13 +427,60 @@ class Event$Type extends MessageType<Event> {
  */
 export const Event = new Event$Type();
 // @generated message type with reflection information, may provide speed optimized methods
+class Broadcast$Type extends MessageType<Broadcast> {
+    constructor() {
+        super("event.events.public.server.v1.Broadcast", [
+            { no: 1, name: "orientation", kind: "enum", T: () => ["event.events.public.server.v1.BroadcastOrientation", BroadcastOrientation] }
+        ]);
+    }
+    create(value?: PartialMessage<Broadcast>): Broadcast {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.orientation = 0;
+        if (value !== undefined)
+            reflectionMergePartial<Broadcast>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Broadcast): Broadcast {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* event.events.public.server.v1.BroadcastOrientation orientation */ 1:
+                    message.orientation = reader.int32();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: Broadcast, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* event.events.public.server.v1.BroadcastOrientation orientation = 1; */
+        if (message.orientation !== 0)
+            writer.tag(1, WireType.Varint).int32(message.orientation);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message event.events.public.server.v1.Broadcast
+ */
+export const Broadcast = new Broadcast$Type();
+// @generated message type with reflection information, may provide speed optimized methods
 class Chunk$Type extends MessageType<Chunk> {
     constructor() {
         super("event.events.public.server.v1.Chunk", [
             { no: 1, name: "size", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 2, name: "index", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 3, name: "total", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 4, name: "entities", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => Event }
+            { no: 4, name: "entities", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => Event }
         ]);
     }
     create(value?: PartialMessage<Chunk>): Chunk {

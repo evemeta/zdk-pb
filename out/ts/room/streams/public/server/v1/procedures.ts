@@ -333,7 +333,7 @@ export const SelectRequest = new SelectRequest$Type();
 class SelectResponse$Type extends MessageType<SelectResponse> {
     constructor() {
         super("room.streams.public.server.v1.SelectResponse", [
-            { no: 1, name: "streams", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => Stream }
+            { no: 1, name: "streams", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => Stream }
         ]);
     }
     create(value?: PartialMessage<SelectResponse>): SelectResponse {
