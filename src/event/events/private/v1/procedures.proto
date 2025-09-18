@@ -180,9 +180,10 @@ message EnterMutation {
 }
 
 message EnterCondition {
-    repeated event.members.private.v1.CreateMutation        create_member_mutations      = 1;
-    repeated event.members.private.v1.UpdateMutation        update_member_mutations      = 2;
-    repeated gateway.transponders.private.v1.CreateMutation create_transponder_mutations = 3;
+    repeated chat.chats.private.v1.EnterMutation            enter_chat_mutations         = 1;
+    repeated event.members.private.v1.CreateMutation        create_member_mutations      = 2;
+    repeated event.members.private.v1.UpdateMutation        update_member_mutations      = 3;
+    repeated gateway.transponders.private.v1.CreateMutation create_transponder_mutations = 4;
 }
 
 message EnterTransaction {
@@ -209,8 +210,9 @@ message LeaveMutation {
 }
 
 message LeaveCondition {
-    repeated event.members.private.v1.UpdateMutation        update_member_mutations      = 1;
-    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 2;
+    repeated chat.chats.private.v1.LeaveMutation            leave_chat_mutations         = 1;
+    repeated event.members.private.v1.UpdateMutation        update_member_mutations      = 2;
+    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 3;
 }
 
 message LeaveTransaction {
