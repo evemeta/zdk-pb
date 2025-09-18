@@ -8,9 +8,10 @@ package eventspb
 
 import (
 	v1 "gitlab.com/evemeta/zdk/pb/out/go/chat/chats/private/v1"
-	v12 "gitlab.com/evemeta/zdk/pb/out/go/event/members/private/v1"
-	v13 "gitlab.com/evemeta/zdk/pb/out/go/event/restrictions/private/v1"
-	v11 "gitlab.com/evemeta/zdk/pb/out/go/gateway/transponders/private/v1"
+	v13 "gitlab.com/evemeta/zdk/pb/out/go/event/members/private/v1"
+	v14 "gitlab.com/evemeta/zdk/pb/out/go/event/restrictions/private/v1"
+	v12 "gitlab.com/evemeta/zdk/pb/out/go/gateway/transponders/private/v1"
+	v11 "gitlab.com/evemeta/zdk/pb/out/go/room/rooms/private/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -602,12 +603,16 @@ func (*InvokeResponse) Descriptor() ([]byte, []int) {
 }
 
 type CreateArgument struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Kind          Kind                   `protobuf:"varint,2,opt,name=kind,proto3,enum=event.events.private.v1.Kind" json:"kind,omitempty"`
-	Metadata      map[string]string      `protobuf:"bytes,3,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state             protoimpl.MessageState `protogen:"open.v1"`
+	Id                string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Kind              Kind                   `protobuf:"varint,2,opt,name=kind,proto3,enum=event.events.private.v1.Kind" json:"kind,omitempty"`
+	Metadata          map[string]string      `protobuf:"bytes,3,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Schedule          Schedule               `protobuf:"varint,4,opt,name=schedule,proto3,enum=event.events.private.v1.Schedule" json:"schedule,omitempty"`
+	Broadcast         *Broadcast             `protobuf:"bytes,5,opt,name=broadcast,proto3" json:"broadcast,omitempty"`
+	PlannedStartTime  int64                  `protobuf:"varint,6,opt,name=planned_start_time,json=plannedStartTime,proto3" json:"planned_start_time,omitempty"`
+	PlannedFinishTime int64                  `protobuf:"varint,7,opt,name=planned_finish_time,json=plannedFinishTime,proto3" json:"planned_finish_time,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 func (x *CreateArgument) Reset() {
@@ -659,6 +664,34 @@ func (x *CreateArgument) GetMetadata() map[string]string {
 		return x.Metadata
 	}
 	return nil
+}
+
+func (x *CreateArgument) GetSchedule() Schedule {
+	if x != nil {
+		return x.Schedule
+	}
+	return ScheduleUnknown
+}
+
+func (x *CreateArgument) GetBroadcast() *Broadcast {
+	if x != nil {
+		return x.Broadcast
+	}
+	return nil
+}
+
+func (x *CreateArgument) GetPlannedStartTime() int64 {
+	if x != nil {
+		return x.PlannedStartTime
+	}
+	return 0
+}
+
+func (x *CreateArgument) GetPlannedFinishTime() int64 {
+	if x != nil {
+		return x.PlannedFinishTime
+	}
+	return 0
 }
 
 type CreateRequest struct {
@@ -828,7 +861,8 @@ func (x *CreateMutation) GetCloseTimestamp() int64 {
 type CreateCondition struct {
 	state                      protoimpl.MessageState `protogen:"open.v1"`
 	CreateChatMutations        []*v1.CreateMutation   `protobuf:"bytes,1,rep,name=create_chat_mutations,json=createChatMutations,proto3" json:"create_chat_mutations,omitempty"`
-	CreateTransponderMutations []*v11.CreateMutation  `protobuf:"bytes,2,rep,name=create_transponder_mutations,json=createTransponderMutations,proto3" json:"create_transponder_mutations,omitempty"`
+	CreateRoomMutations        []*v11.CreateMutation  `protobuf:"bytes,2,rep,name=create_room_mutations,json=createRoomMutations,proto3" json:"create_room_mutations,omitempty"`
+	CreateTransponderMutations []*v12.CreateMutation  `protobuf:"bytes,3,rep,name=create_transponder_mutations,json=createTransponderMutations,proto3" json:"create_transponder_mutations,omitempty"`
 	unknownFields              protoimpl.UnknownFields
 	sizeCache                  protoimpl.SizeCache
 }
@@ -870,7 +904,14 @@ func (x *CreateCondition) GetCreateChatMutations() []*v1.CreateMutation {
 	return nil
 }
 
-func (x *CreateCondition) GetCreateTransponderMutations() []*v11.CreateMutation {
+func (x *CreateCondition) GetCreateRoomMutations() []*v11.CreateMutation {
+	if x != nil {
+		return x.CreateRoomMutations
+	}
+	return nil
+}
+
+func (x *CreateCondition) GetCreateTransponderMutations() []*v12.CreateMutation {
 	if x != nil {
 		return x.CreateTransponderMutations
 	}
@@ -1384,9 +1425,10 @@ func (x *DeleteMutation) GetCloseTimestamp() int64 {
 type DeleteCondition struct {
 	state                      protoimpl.MessageState `protogen:"open.v1"`
 	DeleteChatMutations        []*v1.DeleteMutation   `protobuf:"bytes,1,rep,name=delete_chat_mutations,json=deleteChatMutations,proto3" json:"delete_chat_mutations,omitempty"`
-	DeleteMemberMutations      []*v12.DeleteMutation  `protobuf:"bytes,2,rep,name=delete_member_mutations,json=deleteMemberMutations,proto3" json:"delete_member_mutations,omitempty"`
-	DeleteTransponderMutations []*v11.DeleteMutation  `protobuf:"bytes,3,rep,name=delete_transponder_mutations,json=deleteTransponderMutations,proto3" json:"delete_transponder_mutations,omitempty"`
-	DeleteRestrictionMutations []*v13.DeleteMutation  `protobuf:"bytes,4,rep,name=delete_restriction_mutations,json=deleteRestrictionMutations,proto3" json:"delete_restriction_mutations,omitempty"`
+	DeleteRoomMutations        []*v11.DeleteMutation  `protobuf:"bytes,2,rep,name=delete_room_mutations,json=deleteRoomMutations,proto3" json:"delete_room_mutations,omitempty"`
+	DeleteMemberMutations      []*v13.DeleteMutation  `protobuf:"bytes,3,rep,name=delete_member_mutations,json=deleteMemberMutations,proto3" json:"delete_member_mutations,omitempty"`
+	DeleteTransponderMutations []*v12.DeleteMutation  `protobuf:"bytes,4,rep,name=delete_transponder_mutations,json=deleteTransponderMutations,proto3" json:"delete_transponder_mutations,omitempty"`
+	DeleteRestrictionMutations []*v14.DeleteMutation  `protobuf:"bytes,5,rep,name=delete_restriction_mutations,json=deleteRestrictionMutations,proto3" json:"delete_restriction_mutations,omitempty"`
 	unknownFields              protoimpl.UnknownFields
 	sizeCache                  protoimpl.SizeCache
 }
@@ -1428,21 +1470,28 @@ func (x *DeleteCondition) GetDeleteChatMutations() []*v1.DeleteMutation {
 	return nil
 }
 
-func (x *DeleteCondition) GetDeleteMemberMutations() []*v12.DeleteMutation {
+func (x *DeleteCondition) GetDeleteRoomMutations() []*v11.DeleteMutation {
+	if x != nil {
+		return x.DeleteRoomMutations
+	}
+	return nil
+}
+
+func (x *DeleteCondition) GetDeleteMemberMutations() []*v13.DeleteMutation {
 	if x != nil {
 		return x.DeleteMemberMutations
 	}
 	return nil
 }
 
-func (x *DeleteCondition) GetDeleteTransponderMutations() []*v11.DeleteMutation {
+func (x *DeleteCondition) GetDeleteTransponderMutations() []*v12.DeleteMutation {
 	if x != nil {
 		return x.DeleteTransponderMutations
 	}
 	return nil
 }
 
-func (x *DeleteCondition) GetDeleteRestrictionMutations() []*v13.DeleteMutation {
+func (x *DeleteCondition) GetDeleteRestrictionMutations() []*v14.DeleteMutation {
 	if x != nil {
 		return x.DeleteRestrictionMutations
 	}
@@ -1499,7 +1548,8 @@ type EnterArgument struct {
 	UserId        string                 `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	SessionId     string                 `protobuf:"bytes,3,opt,name=session_id,json=sessionId,proto3" json:"session_id,omitempty"`
 	Metadata      map[string]string      `protobuf:"bytes,4,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	Override      bool                   `protobuf:"varint,5,opt,name=override,proto3" json:"override,omitempty"`
+	Permissions   []v13.Permission       `protobuf:"varint,5,rep,packed,name=permissions,proto3,enum=event.members.private.v1.Permission" json:"permissions,omitempty"`
+	Override      bool                   `protobuf:"varint,6,opt,name=override,proto3" json:"override,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1558,6 +1608,13 @@ func (x *EnterArgument) GetSessionId() string {
 func (x *EnterArgument) GetMetadata() map[string]string {
 	if x != nil {
 		return x.Metadata
+	}
+	return nil
+}
+
+func (x *EnterArgument) GetPermissions() []v13.Permission {
+	if x != nil {
+		return x.Permissions
 	}
 	return nil
 }
@@ -1719,9 +1776,10 @@ func (x *EnterMutation) GetCloseTimestamp() int64 {
 
 type EnterCondition struct {
 	state                      protoimpl.MessageState `protogen:"open.v1"`
-	CreateMemberMutations      []*v12.CreateMutation  `protobuf:"bytes,1,rep,name=create_member_mutations,json=createMemberMutations,proto3" json:"create_member_mutations,omitempty"`
-	UpdateMemberMutations      []*v12.UpdateMutation  `protobuf:"bytes,2,rep,name=update_member_mutations,json=updateMemberMutations,proto3" json:"update_member_mutations,omitempty"`
-	CreateTransponderMutations []*v11.CreateMutation  `protobuf:"bytes,3,rep,name=create_transponder_mutations,json=createTransponderMutations,proto3" json:"create_transponder_mutations,omitempty"`
+	EnterChatMutations         []*v1.EnterMutation    `protobuf:"bytes,1,rep,name=enter_chat_mutations,json=enterChatMutations,proto3" json:"enter_chat_mutations,omitempty"`
+	CreateMemberMutations      []*v13.CreateMutation  `protobuf:"bytes,2,rep,name=create_member_mutations,json=createMemberMutations,proto3" json:"create_member_mutations,omitempty"`
+	UpdateMemberMutations      []*v13.UpdateMutation  `protobuf:"bytes,3,rep,name=update_member_mutations,json=updateMemberMutations,proto3" json:"update_member_mutations,omitempty"`
+	CreateTransponderMutations []*v12.CreateMutation  `protobuf:"bytes,4,rep,name=create_transponder_mutations,json=createTransponderMutations,proto3" json:"create_transponder_mutations,omitempty"`
 	unknownFields              protoimpl.UnknownFields
 	sizeCache                  protoimpl.SizeCache
 }
@@ -1756,21 +1814,28 @@ func (*EnterCondition) Descriptor() ([]byte, []int) {
 	return file_event_events_private_v1_procedures_proto_rawDescGZIP(), []int{33}
 }
 
-func (x *EnterCondition) GetCreateMemberMutations() []*v12.CreateMutation {
+func (x *EnterCondition) GetEnterChatMutations() []*v1.EnterMutation {
+	if x != nil {
+		return x.EnterChatMutations
+	}
+	return nil
+}
+
+func (x *EnterCondition) GetCreateMemberMutations() []*v13.CreateMutation {
 	if x != nil {
 		return x.CreateMemberMutations
 	}
 	return nil
 }
 
-func (x *EnterCondition) GetUpdateMemberMutations() []*v12.UpdateMutation {
+func (x *EnterCondition) GetUpdateMemberMutations() []*v13.UpdateMutation {
 	if x != nil {
 		return x.UpdateMemberMutations
 	}
 	return nil
 }
 
-func (x *EnterCondition) GetCreateTransponderMutations() []*v11.CreateMutation {
+func (x *EnterCondition) GetCreateTransponderMutations() []*v12.CreateMutation {
 	if x != nil {
 		return x.CreateTransponderMutations
 	}
@@ -2031,8 +2096,9 @@ func (x *LeaveMutation) GetCloseTimestamp() int64 {
 
 type LeaveCondition struct {
 	state                      protoimpl.MessageState `protogen:"open.v1"`
-	UpdateMemberMutations      []*v12.UpdateMutation  `protobuf:"bytes,1,rep,name=update_member_mutations,json=updateMemberMutations,proto3" json:"update_member_mutations,omitempty"`
-	DeleteTransponderMutations []*v11.DeleteMutation  `protobuf:"bytes,2,rep,name=delete_transponder_mutations,json=deleteTransponderMutations,proto3" json:"delete_transponder_mutations,omitempty"`
+	LeaveChatMutations         []*v1.LeaveMutation    `protobuf:"bytes,1,rep,name=leave_chat_mutations,json=leaveChatMutations,proto3" json:"leave_chat_mutations,omitempty"`
+	UpdateMemberMutations      []*v13.UpdateMutation  `protobuf:"bytes,2,rep,name=update_member_mutations,json=updateMemberMutations,proto3" json:"update_member_mutations,omitempty"`
+	DeleteTransponderMutations []*v12.DeleteMutation  `protobuf:"bytes,3,rep,name=delete_transponder_mutations,json=deleteTransponderMutations,proto3" json:"delete_transponder_mutations,omitempty"`
 	unknownFields              protoimpl.UnknownFields
 	sizeCache                  protoimpl.SizeCache
 }
@@ -2067,14 +2133,21 @@ func (*LeaveCondition) Descriptor() ([]byte, []int) {
 	return file_event_events_private_v1_procedures_proto_rawDescGZIP(), []int{39}
 }
 
-func (x *LeaveCondition) GetUpdateMemberMutations() []*v12.UpdateMutation {
+func (x *LeaveCondition) GetLeaveChatMutations() []*v1.LeaveMutation {
+	if x != nil {
+		return x.LeaveChatMutations
+	}
+	return nil
+}
+
+func (x *LeaveCondition) GetUpdateMemberMutations() []*v13.UpdateMutation {
 	if x != nil {
 		return x.UpdateMemberMutations
 	}
 	return nil
 }
 
-func (x *LeaveCondition) GetDeleteTransponderMutations() []*v11.DeleteMutation {
+func (x *LeaveCondition) GetDeleteTransponderMutations() []*v12.DeleteMutation {
 	if x != nil {
 		return x.DeleteTransponderMutations
 	}
@@ -2857,11 +2930,99 @@ func (x *CancelTransaction) GetMutations() []*CancelMutation {
 	return nil
 }
 
+type GenerateBroadcastAccessUrlRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Query         *Query                 `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GenerateBroadcastAccessUrlRequest) Reset() {
+	*x = GenerateBroadcastAccessUrlRequest{}
+	mi := &file_event_events_private_v1_procedures_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GenerateBroadcastAccessUrlRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GenerateBroadcastAccessUrlRequest) ProtoMessage() {}
+
+func (x *GenerateBroadcastAccessUrlRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_event_events_private_v1_procedures_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GenerateBroadcastAccessUrlRequest.ProtoReflect.Descriptor instead.
+func (*GenerateBroadcastAccessUrlRequest) Descriptor() ([]byte, []int) {
+	return file_event_events_private_v1_procedures_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *GenerateBroadcastAccessUrlRequest) GetQuery() *Query {
+	if x != nil {
+		return x.Query
+	}
+	return nil
+}
+
+type GenerateBroadcastAccessUrlResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Url           string                 `protobuf:"bytes,1,opt,name=url,proto3" json:"url,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GenerateBroadcastAccessUrlResponse) Reset() {
+	*x = GenerateBroadcastAccessUrlResponse{}
+	mi := &file_event_events_private_v1_procedures_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GenerateBroadcastAccessUrlResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GenerateBroadcastAccessUrlResponse) ProtoMessage() {}
+
+func (x *GenerateBroadcastAccessUrlResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_event_events_private_v1_procedures_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GenerateBroadcastAccessUrlResponse.ProtoReflect.Descriptor instead.
+func (*GenerateBroadcastAccessUrlResponse) Descriptor() ([]byte, []int) {
+	return file_event_events_private_v1_procedures_proto_rawDescGZIP(), []int{57}
+}
+
+func (x *GenerateBroadcastAccessUrlResponse) GetUrl() string {
+	if x != nil {
+		return x.Url
+	}
+	return ""
+}
+
 var File_event_events_private_v1_procedures_proto protoreflect.FileDescriptor
 
 const file_event_events_private_v1_procedures_proto_rawDesc = "" +
 	"\n" +
-	"(event/events/private/v1/procedures.proto\x12\x17event.events.private.v1\x1a#event/events/private/v1/enums.proto\x1a&event/events/private/v1/entities.proto\x1a'event/events/private/v1/optionals.proto\x1a&chat/chats/private/v1/procedures.proto\x1a)event/members/private/v1/procedures.proto\x1a.event/restrictions/private/v1/procedures.proto\x1a0gateway/transponders/private/v1/procedures.proto\"[\n" +
+	"(event/events/private/v1/procedures.proto\x12\x17event.events.private.v1\x1a#event/events/private/v1/enums.proto\x1a&event/events/private/v1/entities.proto\x1a'event/events/private/v1/optionals.proto\x1a&chat/chats/private/v1/procedures.proto\x1a&room/rooms/private/v1/procedures.proto\x1a)event/members/private/v1/procedures.proto\x1a.event/restrictions/private/v1/procedures.proto\x1a0gateway/transponders/private/v1/procedures.proto\x1a$event/members/private/v1/enums.proto\"[\n" +
 	"\rCountArgument\x12\x14\n" +
 	"\x05cache\x18\x01 \x01(\bR\x05cache\x124\n" +
 	"\x05query\x18\x02 \x01(\v2\x1e.event.events.private.v1.QueryR\x05query\"T\n" +
@@ -2895,11 +3056,15 @@ const file_event_events_private_v1_procedures_proto_rawDesc = "" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"V\n" +
 	"\rInvokeRequest\x12E\n" +
 	"\targuments\x18\x01 \x03(\v2'.event.events.private.v1.InvokeArgumentR\targuments\"\x10\n" +
-	"\x0eInvokeResponse\"\xe3\x01\n" +
+	"\x0eInvokeResponse\"\xc2\x03\n" +
 	"\x0eCreateArgument\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x121\n" +
 	"\x04kind\x18\x02 \x01(\x0e2\x1d.event.events.private.v1.KindR\x04kind\x12Q\n" +
-	"\bmetadata\x18\x03 \x03(\v25.event.events.private.v1.CreateArgument.MetadataEntryR\bmetadata\x1a;\n" +
+	"\bmetadata\x18\x03 \x03(\v25.event.events.private.v1.CreateArgument.MetadataEntryR\bmetadata\x12=\n" +
+	"\bschedule\x18\x04 \x01(\x0e2!.event.events.private.v1.ScheduleR\bschedule\x12@\n" +
+	"\tbroadcast\x18\x05 \x01(\v2\".event.events.private.v1.BroadcastR\tbroadcast\x12,\n" +
+	"\x12planned_start_time\x18\x06 \x01(\x03R\x10plannedStartTime\x12.\n" +
+	"\x13planned_finish_time\x18\a \x01(\x03R\x11plannedFinishTime\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"V\n" +
@@ -2914,10 +3079,11 @@ const file_event_events_private_v1_procedures_proto_rawDesc = "" +
 	"\tcondition\x18\x02 \x01(\v2(.event.events.private.v1.CreateConditionR\tcondition\x12@\n" +
 	"\ttransient\x18\x03 \x03(\v2\".event.events.private.v1.TransientR\ttransient\x12'\n" +
 	"\x0fbegin_timestamp\x18\x04 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
-	"\x0fclose_timestamp\x18\x05 \x01(\x03R\x0ecloseTimestamp\"\xdf\x01\n" +
+	"\x0fclose_timestamp\x18\x05 \x01(\x03R\x0ecloseTimestamp\"\xba\x02\n" +
 	"\x0fCreateCondition\x12Y\n" +
-	"\x15create_chat_mutations\x18\x01 \x03(\v2%.chat.chats.private.v1.CreateMutationR\x13createChatMutations\x12q\n" +
-	"\x1ccreate_transponder_mutations\x18\x02 \x03(\v2/.gateway.transponders.private.v1.CreateMutationR\x1acreateTransponderMutations\"Z\n" +
+	"\x15create_chat_mutations\x18\x01 \x03(\v2%.chat.chats.private.v1.CreateMutationR\x13createChatMutations\x12Y\n" +
+	"\x15create_room_mutations\x18\x02 \x03(\v2%.room.rooms.private.v1.CreateMutationR\x13createRoomMutations\x12q\n" +
+	"\x1ccreate_transponder_mutations\x18\x03 \x03(\v2/.gateway.transponders.private.v1.CreateMutationR\x1acreateTransponderMutations\"Z\n" +
 	"\x11CreateTransaction\x12E\n" +
 	"\tmutations\x18\x01 \x03(\v2'.event.events.private.v1.CreateMutationR\tmutations\"\x9a\x01\n" +
 	"\x0eUpdateArgument\x124\n" +
@@ -2950,21 +3116,23 @@ const file_event_events_private_v1_procedures_proto_rawDesc = "" +
 	"\tcondition\x18\x02 \x01(\v2(.event.events.private.v1.DeleteConditionR\tcondition\x12@\n" +
 	"\ttransient\x18\x03 \x03(\v2\".event.events.private.v1.TransientR\ttransient\x12'\n" +
 	"\x0fbegin_timestamp\x18\x04 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
-	"\x0fclose_timestamp\x18\x05 \x01(\x03R\x0ecloseTimestamp\"\xb2\x03\n" +
+	"\x0fclose_timestamp\x18\x05 \x01(\x03R\x0ecloseTimestamp\"\x8d\x04\n" +
 	"\x0fDeleteCondition\x12Y\n" +
-	"\x15delete_chat_mutations\x18\x01 \x03(\v2%.chat.chats.private.v1.DeleteMutationR\x13deleteChatMutations\x12`\n" +
-	"\x17delete_member_mutations\x18\x02 \x03(\v2(.event.members.private.v1.DeleteMutationR\x15deleteMemberMutations\x12q\n" +
-	"\x1cdelete_transponder_mutations\x18\x03 \x03(\v2/.gateway.transponders.private.v1.DeleteMutationR\x1adeleteTransponderMutations\x12o\n" +
-	"\x1cdelete_restriction_mutations\x18\x04 \x03(\v2-.event.restrictions.private.v1.DeleteMutationR\x1adeleteRestrictionMutations\"Z\n" +
+	"\x15delete_chat_mutations\x18\x01 \x03(\v2%.chat.chats.private.v1.DeleteMutationR\x13deleteChatMutations\x12Y\n" +
+	"\x15delete_room_mutations\x18\x02 \x03(\v2%.room.rooms.private.v1.DeleteMutationR\x13deleteRoomMutations\x12`\n" +
+	"\x17delete_member_mutations\x18\x03 \x03(\v2(.event.members.private.v1.DeleteMutationR\x15deleteMemberMutations\x12q\n" +
+	"\x1cdelete_transponder_mutations\x18\x04 \x03(\v2/.gateway.transponders.private.v1.DeleteMutationR\x1adeleteTransponderMutations\x12o\n" +
+	"\x1cdelete_restriction_mutations\x18\x05 \x03(\v2-.event.restrictions.private.v1.DeleteMutationR\x1adeleteRestrictionMutations\"Z\n" +
 	"\x11DeleteTransaction\x12E\n" +
-	"\tmutations\x18\x01 \x03(\v2'.event.events.private.v1.DeleteMutationR\tmutations\"\x82\x02\n" +
+	"\tmutations\x18\x01 \x03(\v2'.event.events.private.v1.DeleteMutationR\tmutations\"\xca\x02\n" +
 	"\rEnterArgument\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\x12\x1d\n" +
 	"\n" +
 	"session_id\x18\x03 \x01(\tR\tsessionId\x12P\n" +
-	"\bmetadata\x18\x04 \x03(\v24.event.events.private.v1.EnterArgument.MetadataEntryR\bmetadata\x12\x1a\n" +
-	"\boverride\x18\x05 \x01(\bR\boverride\x1a;\n" +
+	"\bmetadata\x18\x04 \x03(\v24.event.events.private.v1.EnterArgument.MetadataEntryR\bmetadata\x12F\n" +
+	"\vpermissions\x18\x05 \x03(\x0e2$.event.members.private.v1.PermissionR\vpermissions\x12\x1a\n" +
+	"\boverride\x18\x06 \x01(\bR\boverride\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"T\n" +
@@ -2977,11 +3145,12 @@ const file_event_events_private_v1_procedures_proto_rawDesc = "" +
 	"foundation\x12E\n" +
 	"\tcondition\x18\x02 \x01(\v2'.event.events.private.v1.EnterConditionR\tcondition\x12'\n" +
 	"\x0fbegin_timestamp\x18\x03 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
-	"\x0fclose_timestamp\x18\x04 \x01(\x03R\x0ecloseTimestamp\"\xc7\x02\n" +
-	"\x0eEnterCondition\x12`\n" +
-	"\x17create_member_mutations\x18\x01 \x03(\v2(.event.members.private.v1.CreateMutationR\x15createMemberMutations\x12`\n" +
-	"\x17update_member_mutations\x18\x02 \x03(\v2(.event.members.private.v1.UpdateMutationR\x15updateMemberMutations\x12q\n" +
-	"\x1ccreate_transponder_mutations\x18\x03 \x03(\v2/.gateway.transponders.private.v1.CreateMutationR\x1acreateTransponderMutations\"X\n" +
+	"\x0fclose_timestamp\x18\x04 \x01(\x03R\x0ecloseTimestamp\"\x9f\x03\n" +
+	"\x0eEnterCondition\x12V\n" +
+	"\x14enter_chat_mutations\x18\x01 \x03(\v2$.chat.chats.private.v1.EnterMutationR\x12enterChatMutations\x12`\n" +
+	"\x17create_member_mutations\x18\x02 \x03(\v2(.event.members.private.v1.CreateMutationR\x15createMemberMutations\x12`\n" +
+	"\x17update_member_mutations\x18\x03 \x03(\v2(.event.members.private.v1.UpdateMutationR\x15updateMemberMutations\x12q\n" +
+	"\x1ccreate_transponder_mutations\x18\x04 \x03(\v2/.gateway.transponders.private.v1.CreateMutationR\x1acreateTransponderMutations\"X\n" +
 	"\x10EnterTransaction\x12D\n" +
 	"\tmutations\x18\x01 \x03(\v2&.event.events.private.v1.EnterMutationR\tmutations\"W\n" +
 	"\rLeaveArgument\x12\x0e\n" +
@@ -2998,10 +3167,11 @@ const file_event_events_private_v1_procedures_proto_rawDesc = "" +
 	"foundation\x12E\n" +
 	"\tcondition\x18\x02 \x01(\v2'.event.events.private.v1.LeaveConditionR\tcondition\x12'\n" +
 	"\x0fbegin_timestamp\x18\x03 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
-	"\x0fclose_timestamp\x18\x04 \x01(\x03R\x0ecloseTimestamp\"\xe5\x01\n" +
-	"\x0eLeaveCondition\x12`\n" +
-	"\x17update_member_mutations\x18\x01 \x03(\v2(.event.members.private.v1.UpdateMutationR\x15updateMemberMutations\x12q\n" +
-	"\x1cdelete_transponder_mutations\x18\x02 \x03(\v2/.gateway.transponders.private.v1.DeleteMutationR\x1adeleteTransponderMutations\"X\n" +
+	"\x0fclose_timestamp\x18\x04 \x01(\x03R\x0ecloseTimestamp\"\xbd\x02\n" +
+	"\x0eLeaveCondition\x12V\n" +
+	"\x14leave_chat_mutations\x18\x01 \x03(\v2$.chat.chats.private.v1.LeaveMutationR\x12leaveChatMutations\x12`\n" +
+	"\x17update_member_mutations\x18\x02 \x03(\v2(.event.members.private.v1.UpdateMutationR\x15updateMemberMutations\x12q\n" +
+	"\x1cdelete_transponder_mutations\x18\x03 \x03(\v2/.gateway.transponders.private.v1.DeleteMutationR\x1adeleteTransponderMutations\"X\n" +
 	"\x10LeaveTransaction\x12D\n" +
 	"\tmutations\x18\x01 \x03(\v2&.event.events.private.v1.LeaveMutationR\tmutations\"E\n" +
 	"\rStartArgument\x124\n" +
@@ -3048,7 +3218,11 @@ const file_event_events_private_v1_procedures_proto_rawDesc = "" +
 	"\x0fbegin_timestamp\x18\x03 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
 	"\x0fclose_timestamp\x18\x04 \x01(\x03R\x0ecloseTimestamp\"Z\n" +
 	"\x11CancelTransaction\x12E\n" +
-	"\tmutations\x18\x01 \x03(\v2'.event.events.private.v1.CancelMutationR\tmutationsBCZAgitlab.com/evemeta/zdk/pb/out/go/event/events/private/v1;eventspbb\x06proto3"
+	"\tmutations\x18\x01 \x03(\v2'.event.events.private.v1.CancelMutationR\tmutations\"Y\n" +
+	"!GenerateBroadcastAccessUrlRequest\x124\n" +
+	"\x05query\x18\x01 \x01(\v2\x1e.event.events.private.v1.QueryR\x05query\"6\n" +
+	"\"GenerateBroadcastAccessUrlResponse\x12\x10\n" +
+	"\x03url\x18\x01 \x01(\tR\x03urlBCZAgitlab.com/evemeta/zdk/pb/out/go/event/events/private/v1;eventspbb\x06proto3"
 
 var (
 	file_event_events_private_v1_procedures_proto_rawDescOnce sync.Once
@@ -3062,158 +3236,175 @@ func file_event_events_private_v1_procedures_proto_rawDescGZIP() []byte {
 	return file_event_events_private_v1_procedures_proto_rawDescData
 }
 
-var file_event_events_private_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 59)
+var file_event_events_private_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 61)
 var file_event_events_private_v1_procedures_proto_goTypes = []any{
-	(*CountArgument)(nil),      // 0: event.events.private.v1.CountArgument
-	(*CountRequest)(nil),       // 1: event.events.private.v1.CountRequest
-	(*CountResponse)(nil),      // 2: event.events.private.v1.CountResponse
-	(*RangeArgument)(nil),      // 3: event.events.private.v1.RangeArgument
-	(*RangeRequest)(nil),       // 4: event.events.private.v1.RangeRequest
-	(*RangeResponse)(nil),      // 5: event.events.private.v1.RangeResponse
-	(*SelectArgument)(nil),     // 6: event.events.private.v1.SelectArgument
-	(*SelectRequest)(nil),      // 7: event.events.private.v1.SelectRequest
-	(*SelectResponse)(nil),     // 8: event.events.private.v1.SelectResponse
-	(*InvokeArgument)(nil),     // 9: event.events.private.v1.InvokeArgument
-	(*InvokeRequest)(nil),      // 10: event.events.private.v1.InvokeRequest
-	(*InvokeResponse)(nil),     // 11: event.events.private.v1.InvokeResponse
-	(*CreateArgument)(nil),     // 12: event.events.private.v1.CreateArgument
-	(*CreateRequest)(nil),      // 13: event.events.private.v1.CreateRequest
-	(*CreateResponse)(nil),     // 14: event.events.private.v1.CreateResponse
-	(*CreateMutation)(nil),     // 15: event.events.private.v1.CreateMutation
-	(*CreateCondition)(nil),    // 16: event.events.private.v1.CreateCondition
-	(*CreateTransaction)(nil),  // 17: event.events.private.v1.CreateTransaction
-	(*UpdateArgument)(nil),     // 18: event.events.private.v1.UpdateArgument
-	(*UpdateRequest)(nil),      // 19: event.events.private.v1.UpdateRequest
-	(*UpdateResponse)(nil),     // 20: event.events.private.v1.UpdateResponse
-	(*UpdateMutation)(nil),     // 21: event.events.private.v1.UpdateMutation
-	(*UpdateTransaction)(nil),  // 22: event.events.private.v1.UpdateTransaction
-	(*DeleteArgument)(nil),     // 23: event.events.private.v1.DeleteArgument
-	(*DeleteRequest)(nil),      // 24: event.events.private.v1.DeleteRequest
-	(*DeleteResponse)(nil),     // 25: event.events.private.v1.DeleteResponse
-	(*DeleteMutation)(nil),     // 26: event.events.private.v1.DeleteMutation
-	(*DeleteCondition)(nil),    // 27: event.events.private.v1.DeleteCondition
-	(*DeleteTransaction)(nil),  // 28: event.events.private.v1.DeleteTransaction
-	(*EnterArgument)(nil),      // 29: event.events.private.v1.EnterArgument
-	(*EnterRequest)(nil),       // 30: event.events.private.v1.EnterRequest
-	(*EnterResponse)(nil),      // 31: event.events.private.v1.EnterResponse
-	(*EnterMutation)(nil),      // 32: event.events.private.v1.EnterMutation
-	(*EnterCondition)(nil),     // 33: event.events.private.v1.EnterCondition
-	(*EnterTransaction)(nil),   // 34: event.events.private.v1.EnterTransaction
-	(*LeaveArgument)(nil),      // 35: event.events.private.v1.LeaveArgument
-	(*LeaveRequest)(nil),       // 36: event.events.private.v1.LeaveRequest
-	(*LeaveResponse)(nil),      // 37: event.events.private.v1.LeaveResponse
-	(*LeaveMutation)(nil),      // 38: event.events.private.v1.LeaveMutation
-	(*LeaveCondition)(nil),     // 39: event.events.private.v1.LeaveCondition
-	(*LeaveTransaction)(nil),   // 40: event.events.private.v1.LeaveTransaction
-	(*StartArgument)(nil),      // 41: event.events.private.v1.StartArgument
-	(*StartRequest)(nil),       // 42: event.events.private.v1.StartRequest
-	(*StartResponse)(nil),      // 43: event.events.private.v1.StartResponse
-	(*StartMutation)(nil),      // 44: event.events.private.v1.StartMutation
-	(*StartTransaction)(nil),   // 45: event.events.private.v1.StartTransaction
-	(*FinishArgument)(nil),     // 46: event.events.private.v1.FinishArgument
-	(*FinishRequest)(nil),      // 47: event.events.private.v1.FinishRequest
-	(*FinishResponse)(nil),     // 48: event.events.private.v1.FinishResponse
-	(*FinishMutation)(nil),     // 49: event.events.private.v1.FinishMutation
-	(*FinishTransaction)(nil),  // 50: event.events.private.v1.FinishTransaction
-	(*CancelArgument)(nil),     // 51: event.events.private.v1.CancelArgument
-	(*CancelRequest)(nil),      // 52: event.events.private.v1.CancelRequest
-	(*CancelResponse)(nil),     // 53: event.events.private.v1.CancelResponse
-	(*CancelMutation)(nil),     // 54: event.events.private.v1.CancelMutation
-	(*CancelTransaction)(nil),  // 55: event.events.private.v1.CancelTransaction
-	nil,                        // 56: event.events.private.v1.InvokeArgument.DataEntry
-	nil,                        // 57: event.events.private.v1.CreateArgument.MetadataEntry
-	nil,                        // 58: event.events.private.v1.EnterArgument.MetadataEntry
-	(*Query)(nil),              // 59: event.events.private.v1.Query
-	(*Chunk)(nil),              // 60: event.events.private.v1.Chunk
-	(*Event)(nil),              // 61: event.events.private.v1.Event
-	(Kind)(0),                  // 62: event.events.private.v1.Kind
-	(*Transient)(nil),          // 63: event.events.private.v1.Transient
-	(*v1.CreateMutation)(nil),  // 64: chat.chats.private.v1.CreateMutation
-	(*v11.CreateMutation)(nil), // 65: gateway.transponders.private.v1.CreateMutation
-	(*OptionalMap)(nil),        // 66: event.events.private.v1.OptionalMap
-	(*v1.DeleteMutation)(nil),  // 67: chat.chats.private.v1.DeleteMutation
-	(*v12.DeleteMutation)(nil), // 68: event.members.private.v1.DeleteMutation
-	(*v11.DeleteMutation)(nil), // 69: gateway.transponders.private.v1.DeleteMutation
-	(*v13.DeleteMutation)(nil), // 70: event.restrictions.private.v1.DeleteMutation
-	(*v12.CreateMutation)(nil), // 71: event.members.private.v1.CreateMutation
-	(*v12.UpdateMutation)(nil), // 72: event.members.private.v1.UpdateMutation
+	(*CountArgument)(nil),                      // 0: event.events.private.v1.CountArgument
+	(*CountRequest)(nil),                       // 1: event.events.private.v1.CountRequest
+	(*CountResponse)(nil),                      // 2: event.events.private.v1.CountResponse
+	(*RangeArgument)(nil),                      // 3: event.events.private.v1.RangeArgument
+	(*RangeRequest)(nil),                       // 4: event.events.private.v1.RangeRequest
+	(*RangeResponse)(nil),                      // 5: event.events.private.v1.RangeResponse
+	(*SelectArgument)(nil),                     // 6: event.events.private.v1.SelectArgument
+	(*SelectRequest)(nil),                      // 7: event.events.private.v1.SelectRequest
+	(*SelectResponse)(nil),                     // 8: event.events.private.v1.SelectResponse
+	(*InvokeArgument)(nil),                     // 9: event.events.private.v1.InvokeArgument
+	(*InvokeRequest)(nil),                      // 10: event.events.private.v1.InvokeRequest
+	(*InvokeResponse)(nil),                     // 11: event.events.private.v1.InvokeResponse
+	(*CreateArgument)(nil),                     // 12: event.events.private.v1.CreateArgument
+	(*CreateRequest)(nil),                      // 13: event.events.private.v1.CreateRequest
+	(*CreateResponse)(nil),                     // 14: event.events.private.v1.CreateResponse
+	(*CreateMutation)(nil),                     // 15: event.events.private.v1.CreateMutation
+	(*CreateCondition)(nil),                    // 16: event.events.private.v1.CreateCondition
+	(*CreateTransaction)(nil),                  // 17: event.events.private.v1.CreateTransaction
+	(*UpdateArgument)(nil),                     // 18: event.events.private.v1.UpdateArgument
+	(*UpdateRequest)(nil),                      // 19: event.events.private.v1.UpdateRequest
+	(*UpdateResponse)(nil),                     // 20: event.events.private.v1.UpdateResponse
+	(*UpdateMutation)(nil),                     // 21: event.events.private.v1.UpdateMutation
+	(*UpdateTransaction)(nil),                  // 22: event.events.private.v1.UpdateTransaction
+	(*DeleteArgument)(nil),                     // 23: event.events.private.v1.DeleteArgument
+	(*DeleteRequest)(nil),                      // 24: event.events.private.v1.DeleteRequest
+	(*DeleteResponse)(nil),                     // 25: event.events.private.v1.DeleteResponse
+	(*DeleteMutation)(nil),                     // 26: event.events.private.v1.DeleteMutation
+	(*DeleteCondition)(nil),                    // 27: event.events.private.v1.DeleteCondition
+	(*DeleteTransaction)(nil),                  // 28: event.events.private.v1.DeleteTransaction
+	(*EnterArgument)(nil),                      // 29: event.events.private.v1.EnterArgument
+	(*EnterRequest)(nil),                       // 30: event.events.private.v1.EnterRequest
+	(*EnterResponse)(nil),                      // 31: event.events.private.v1.EnterResponse
+	(*EnterMutation)(nil),                      // 32: event.events.private.v1.EnterMutation
+	(*EnterCondition)(nil),                     // 33: event.events.private.v1.EnterCondition
+	(*EnterTransaction)(nil),                   // 34: event.events.private.v1.EnterTransaction
+	(*LeaveArgument)(nil),                      // 35: event.events.private.v1.LeaveArgument
+	(*LeaveRequest)(nil),                       // 36: event.events.private.v1.LeaveRequest
+	(*LeaveResponse)(nil),                      // 37: event.events.private.v1.LeaveResponse
+	(*LeaveMutation)(nil),                      // 38: event.events.private.v1.LeaveMutation
+	(*LeaveCondition)(nil),                     // 39: event.events.private.v1.LeaveCondition
+	(*LeaveTransaction)(nil),                   // 40: event.events.private.v1.LeaveTransaction
+	(*StartArgument)(nil),                      // 41: event.events.private.v1.StartArgument
+	(*StartRequest)(nil),                       // 42: event.events.private.v1.StartRequest
+	(*StartResponse)(nil),                      // 43: event.events.private.v1.StartResponse
+	(*StartMutation)(nil),                      // 44: event.events.private.v1.StartMutation
+	(*StartTransaction)(nil),                   // 45: event.events.private.v1.StartTransaction
+	(*FinishArgument)(nil),                     // 46: event.events.private.v1.FinishArgument
+	(*FinishRequest)(nil),                      // 47: event.events.private.v1.FinishRequest
+	(*FinishResponse)(nil),                     // 48: event.events.private.v1.FinishResponse
+	(*FinishMutation)(nil),                     // 49: event.events.private.v1.FinishMutation
+	(*FinishTransaction)(nil),                  // 50: event.events.private.v1.FinishTransaction
+	(*CancelArgument)(nil),                     // 51: event.events.private.v1.CancelArgument
+	(*CancelRequest)(nil),                      // 52: event.events.private.v1.CancelRequest
+	(*CancelResponse)(nil),                     // 53: event.events.private.v1.CancelResponse
+	(*CancelMutation)(nil),                     // 54: event.events.private.v1.CancelMutation
+	(*CancelTransaction)(nil),                  // 55: event.events.private.v1.CancelTransaction
+	(*GenerateBroadcastAccessUrlRequest)(nil),  // 56: event.events.private.v1.GenerateBroadcastAccessUrlRequest
+	(*GenerateBroadcastAccessUrlResponse)(nil), // 57: event.events.private.v1.GenerateBroadcastAccessUrlResponse
+	nil,                        // 58: event.events.private.v1.InvokeArgument.DataEntry
+	nil,                        // 59: event.events.private.v1.CreateArgument.MetadataEntry
+	nil,                        // 60: event.events.private.v1.EnterArgument.MetadataEntry
+	(*Query)(nil),              // 61: event.events.private.v1.Query
+	(*Chunk)(nil),              // 62: event.events.private.v1.Chunk
+	(*Event)(nil),              // 63: event.events.private.v1.Event
+	(Kind)(0),                  // 64: event.events.private.v1.Kind
+	(Schedule)(0),              // 65: event.events.private.v1.Schedule
+	(*Broadcast)(nil),          // 66: event.events.private.v1.Broadcast
+	(*Transient)(nil),          // 67: event.events.private.v1.Transient
+	(*v1.CreateMutation)(nil),  // 68: chat.chats.private.v1.CreateMutation
+	(*v11.CreateMutation)(nil), // 69: room.rooms.private.v1.CreateMutation
+	(*v12.CreateMutation)(nil), // 70: gateway.transponders.private.v1.CreateMutation
+	(*OptionalMap)(nil),        // 71: event.events.private.v1.OptionalMap
+	(*v1.DeleteMutation)(nil),  // 72: chat.chats.private.v1.DeleteMutation
+	(*v11.DeleteMutation)(nil), // 73: room.rooms.private.v1.DeleteMutation
+	(*v13.DeleteMutation)(nil), // 74: event.members.private.v1.DeleteMutation
+	(*v12.DeleteMutation)(nil), // 75: gateway.transponders.private.v1.DeleteMutation
+	(*v14.DeleteMutation)(nil), // 76: event.restrictions.private.v1.DeleteMutation
+	(v13.Permission)(0),        // 77: event.members.private.v1.Permission
+	(*v1.EnterMutation)(nil),   // 78: chat.chats.private.v1.EnterMutation
+	(*v13.CreateMutation)(nil), // 79: event.members.private.v1.CreateMutation
+	(*v13.UpdateMutation)(nil), // 80: event.members.private.v1.UpdateMutation
+	(*v1.LeaveMutation)(nil),   // 81: chat.chats.private.v1.LeaveMutation
 }
 var file_event_events_private_v1_procedures_proto_depIdxs = []int32{
-	59, // 0: event.events.private.v1.CountArgument.query:type_name -> event.events.private.v1.Query
+	61, // 0: event.events.private.v1.CountArgument.query:type_name -> event.events.private.v1.Query
 	0,  // 1: event.events.private.v1.CountRequest.arguments:type_name -> event.events.private.v1.CountArgument
-	59, // 2: event.events.private.v1.RangeArgument.query:type_name -> event.events.private.v1.Query
+	61, // 2: event.events.private.v1.RangeArgument.query:type_name -> event.events.private.v1.Query
 	3,  // 3: event.events.private.v1.RangeRequest.arguments:type_name -> event.events.private.v1.RangeArgument
-	60, // 4: event.events.private.v1.RangeResponse.chunks:type_name -> event.events.private.v1.Chunk
-	59, // 5: event.events.private.v1.SelectArgument.query:type_name -> event.events.private.v1.Query
+	62, // 4: event.events.private.v1.RangeResponse.chunks:type_name -> event.events.private.v1.Chunk
+	61, // 5: event.events.private.v1.SelectArgument.query:type_name -> event.events.private.v1.Query
 	6,  // 6: event.events.private.v1.SelectRequest.arguments:type_name -> event.events.private.v1.SelectArgument
-	61, // 7: event.events.private.v1.SelectResponse.events:type_name -> event.events.private.v1.Event
-	56, // 8: event.events.private.v1.InvokeArgument.data:type_name -> event.events.private.v1.InvokeArgument.DataEntry
+	63, // 7: event.events.private.v1.SelectResponse.events:type_name -> event.events.private.v1.Event
+	58, // 8: event.events.private.v1.InvokeArgument.data:type_name -> event.events.private.v1.InvokeArgument.DataEntry
 	9,  // 9: event.events.private.v1.InvokeRequest.arguments:type_name -> event.events.private.v1.InvokeArgument
-	62, // 10: event.events.private.v1.CreateArgument.kind:type_name -> event.events.private.v1.Kind
-	57, // 11: event.events.private.v1.CreateArgument.metadata:type_name -> event.events.private.v1.CreateArgument.MetadataEntry
-	12, // 12: event.events.private.v1.CreateRequest.arguments:type_name -> event.events.private.v1.CreateArgument
-	61, // 13: event.events.private.v1.CreateResponse.events:type_name -> event.events.private.v1.Event
-	12, // 14: event.events.private.v1.CreateMutation.foundation:type_name -> event.events.private.v1.CreateArgument
-	16, // 15: event.events.private.v1.CreateMutation.condition:type_name -> event.events.private.v1.CreateCondition
-	63, // 16: event.events.private.v1.CreateMutation.transient:type_name -> event.events.private.v1.Transient
-	64, // 17: event.events.private.v1.CreateCondition.create_chat_mutations:type_name -> chat.chats.private.v1.CreateMutation
-	65, // 18: event.events.private.v1.CreateCondition.create_transponder_mutations:type_name -> gateway.transponders.private.v1.CreateMutation
-	15, // 19: event.events.private.v1.CreateTransaction.mutations:type_name -> event.events.private.v1.CreateMutation
-	59, // 20: event.events.private.v1.UpdateArgument.query:type_name -> event.events.private.v1.Query
-	66, // 21: event.events.private.v1.UpdateArgument.metadata:type_name -> event.events.private.v1.OptionalMap
-	18, // 22: event.events.private.v1.UpdateRequest.arguments:type_name -> event.events.private.v1.UpdateArgument
-	61, // 23: event.events.private.v1.UpdateResponse.events:type_name -> event.events.private.v1.Event
-	18, // 24: event.events.private.v1.UpdateMutation.foundation:type_name -> event.events.private.v1.UpdateArgument
-	63, // 25: event.events.private.v1.UpdateMutation.transient:type_name -> event.events.private.v1.Transient
-	21, // 26: event.events.private.v1.UpdateTransaction.mutations:type_name -> event.events.private.v1.UpdateMutation
-	59, // 27: event.events.private.v1.DeleteArgument.query:type_name -> event.events.private.v1.Query
-	23, // 28: event.events.private.v1.DeleteRequest.arguments:type_name -> event.events.private.v1.DeleteArgument
-	61, // 29: event.events.private.v1.DeleteResponse.events:type_name -> event.events.private.v1.Event
-	23, // 30: event.events.private.v1.DeleteMutation.foundation:type_name -> event.events.private.v1.DeleteArgument
-	27, // 31: event.events.private.v1.DeleteMutation.condition:type_name -> event.events.private.v1.DeleteCondition
-	63, // 32: event.events.private.v1.DeleteMutation.transient:type_name -> event.events.private.v1.Transient
-	67, // 33: event.events.private.v1.DeleteCondition.delete_chat_mutations:type_name -> chat.chats.private.v1.DeleteMutation
-	68, // 34: event.events.private.v1.DeleteCondition.delete_member_mutations:type_name -> event.members.private.v1.DeleteMutation
-	69, // 35: event.events.private.v1.DeleteCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
-	70, // 36: event.events.private.v1.DeleteCondition.delete_restriction_mutations:type_name -> event.restrictions.private.v1.DeleteMutation
-	26, // 37: event.events.private.v1.DeleteTransaction.mutations:type_name -> event.events.private.v1.DeleteMutation
-	58, // 38: event.events.private.v1.EnterArgument.metadata:type_name -> event.events.private.v1.EnterArgument.MetadataEntry
-	29, // 39: event.events.private.v1.EnterRequest.arguments:type_name -> event.events.private.v1.EnterArgument
-	29, // 40: event.events.private.v1.EnterMutation.foundation:type_name -> event.events.private.v1.EnterArgument
-	33, // 41: event.events.private.v1.EnterMutation.condition:type_name -> event.events.private.v1.EnterCondition
-	71, // 42: event.events.private.v1.EnterCondition.create_member_mutations:type_name -> event.members.private.v1.CreateMutation
-	72, // 43: event.events.private.v1.EnterCondition.update_member_mutations:type_name -> event.members.private.v1.UpdateMutation
-	65, // 44: event.events.private.v1.EnterCondition.create_transponder_mutations:type_name -> gateway.transponders.private.v1.CreateMutation
-	32, // 45: event.events.private.v1.EnterTransaction.mutations:type_name -> event.events.private.v1.EnterMutation
-	35, // 46: event.events.private.v1.LeaveRequest.arguments:type_name -> event.events.private.v1.LeaveArgument
-	35, // 47: event.events.private.v1.LeaveMutation.foundation:type_name -> event.events.private.v1.LeaveArgument
-	39, // 48: event.events.private.v1.LeaveMutation.condition:type_name -> event.events.private.v1.LeaveCondition
-	72, // 49: event.events.private.v1.LeaveCondition.update_member_mutations:type_name -> event.members.private.v1.UpdateMutation
-	69, // 50: event.events.private.v1.LeaveCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
-	38, // 51: event.events.private.v1.LeaveTransaction.mutations:type_name -> event.events.private.v1.LeaveMutation
-	59, // 52: event.events.private.v1.StartArgument.query:type_name -> event.events.private.v1.Query
-	41, // 53: event.events.private.v1.StartRequest.arguments:type_name -> event.events.private.v1.StartArgument
-	61, // 54: event.events.private.v1.StartResponse.events:type_name -> event.events.private.v1.Event
-	41, // 55: event.events.private.v1.StartMutation.foundation:type_name -> event.events.private.v1.StartArgument
-	63, // 56: event.events.private.v1.StartMutation.transient:type_name -> event.events.private.v1.Transient
-	44, // 57: event.events.private.v1.StartTransaction.mutations:type_name -> event.events.private.v1.StartMutation
-	59, // 58: event.events.private.v1.FinishArgument.query:type_name -> event.events.private.v1.Query
-	46, // 59: event.events.private.v1.FinishRequest.arguments:type_name -> event.events.private.v1.FinishArgument
-	61, // 60: event.events.private.v1.FinishResponse.events:type_name -> event.events.private.v1.Event
-	46, // 61: event.events.private.v1.FinishMutation.foundation:type_name -> event.events.private.v1.FinishArgument
-	63, // 62: event.events.private.v1.FinishMutation.transient:type_name -> event.events.private.v1.Transient
-	49, // 63: event.events.private.v1.FinishTransaction.mutations:type_name -> event.events.private.v1.FinishMutation
-	59, // 64: event.events.private.v1.CancelArgument.query:type_name -> event.events.private.v1.Query
-	51, // 65: event.events.private.v1.CancelRequest.arguments:type_name -> event.events.private.v1.CancelArgument
-	61, // 66: event.events.private.v1.CancelResponse.events:type_name -> event.events.private.v1.Event
-	51, // 67: event.events.private.v1.CancelMutation.foundation:type_name -> event.events.private.v1.CancelArgument
-	63, // 68: event.events.private.v1.CancelMutation.transient:type_name -> event.events.private.v1.Transient
-	54, // 69: event.events.private.v1.CancelTransaction.mutations:type_name -> event.events.private.v1.CancelMutation
-	70, // [70:70] is the sub-list for method output_type
-	70, // [70:70] is the sub-list for method input_type
-	70, // [70:70] is the sub-list for extension type_name
-	70, // [70:70] is the sub-list for extension extendee
-	0,  // [0:70] is the sub-list for field type_name
+	64, // 10: event.events.private.v1.CreateArgument.kind:type_name -> event.events.private.v1.Kind
+	59, // 11: event.events.private.v1.CreateArgument.metadata:type_name -> event.events.private.v1.CreateArgument.MetadataEntry
+	65, // 12: event.events.private.v1.CreateArgument.schedule:type_name -> event.events.private.v1.Schedule
+	66, // 13: event.events.private.v1.CreateArgument.broadcast:type_name -> event.events.private.v1.Broadcast
+	12, // 14: event.events.private.v1.CreateRequest.arguments:type_name -> event.events.private.v1.CreateArgument
+	63, // 15: event.events.private.v1.CreateResponse.events:type_name -> event.events.private.v1.Event
+	12, // 16: event.events.private.v1.CreateMutation.foundation:type_name -> event.events.private.v1.CreateArgument
+	16, // 17: event.events.private.v1.CreateMutation.condition:type_name -> event.events.private.v1.CreateCondition
+	67, // 18: event.events.private.v1.CreateMutation.transient:type_name -> event.events.private.v1.Transient
+	68, // 19: event.events.private.v1.CreateCondition.create_chat_mutations:type_name -> chat.chats.private.v1.CreateMutation
+	69, // 20: event.events.private.v1.CreateCondition.create_room_mutations:type_name -> room.rooms.private.v1.CreateMutation
+	70, // 21: event.events.private.v1.CreateCondition.create_transponder_mutations:type_name -> gateway.transponders.private.v1.CreateMutation
+	15, // 22: event.events.private.v1.CreateTransaction.mutations:type_name -> event.events.private.v1.CreateMutation
+	61, // 23: event.events.private.v1.UpdateArgument.query:type_name -> event.events.private.v1.Query
+	71, // 24: event.events.private.v1.UpdateArgument.metadata:type_name -> event.events.private.v1.OptionalMap
+	18, // 25: event.events.private.v1.UpdateRequest.arguments:type_name -> event.events.private.v1.UpdateArgument
+	63, // 26: event.events.private.v1.UpdateResponse.events:type_name -> event.events.private.v1.Event
+	18, // 27: event.events.private.v1.UpdateMutation.foundation:type_name -> event.events.private.v1.UpdateArgument
+	67, // 28: event.events.private.v1.UpdateMutation.transient:type_name -> event.events.private.v1.Transient
+	21, // 29: event.events.private.v1.UpdateTransaction.mutations:type_name -> event.events.private.v1.UpdateMutation
+	61, // 30: event.events.private.v1.DeleteArgument.query:type_name -> event.events.private.v1.Query
+	23, // 31: event.events.private.v1.DeleteRequest.arguments:type_name -> event.events.private.v1.DeleteArgument
+	63, // 32: event.events.private.v1.DeleteResponse.events:type_name -> event.events.private.v1.Event
+	23, // 33: event.events.private.v1.DeleteMutation.foundation:type_name -> event.events.private.v1.DeleteArgument
+	27, // 34: event.events.private.v1.DeleteMutation.condition:type_name -> event.events.private.v1.DeleteCondition
+	67, // 35: event.events.private.v1.DeleteMutation.transient:type_name -> event.events.private.v1.Transient
+	72, // 36: event.events.private.v1.DeleteCondition.delete_chat_mutations:type_name -> chat.chats.private.v1.DeleteMutation
+	73, // 37: event.events.private.v1.DeleteCondition.delete_room_mutations:type_name -> room.rooms.private.v1.DeleteMutation
+	74, // 38: event.events.private.v1.DeleteCondition.delete_member_mutations:type_name -> event.members.private.v1.DeleteMutation
+	75, // 39: event.events.private.v1.DeleteCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
+	76, // 40: event.events.private.v1.DeleteCondition.delete_restriction_mutations:type_name -> event.restrictions.private.v1.DeleteMutation
+	26, // 41: event.events.private.v1.DeleteTransaction.mutations:type_name -> event.events.private.v1.DeleteMutation
+	60, // 42: event.events.private.v1.EnterArgument.metadata:type_name -> event.events.private.v1.EnterArgument.MetadataEntry
+	77, // 43: event.events.private.v1.EnterArgument.permissions:type_name -> event.members.private.v1.Permission
+	29, // 44: event.events.private.v1.EnterRequest.arguments:type_name -> event.events.private.v1.EnterArgument
+	29, // 45: event.events.private.v1.EnterMutation.foundation:type_name -> event.events.private.v1.EnterArgument
+	33, // 46: event.events.private.v1.EnterMutation.condition:type_name -> event.events.private.v1.EnterCondition
+	78, // 47: event.events.private.v1.EnterCondition.enter_chat_mutations:type_name -> chat.chats.private.v1.EnterMutation
+	79, // 48: event.events.private.v1.EnterCondition.create_member_mutations:type_name -> event.members.private.v1.CreateMutation
+	80, // 49: event.events.private.v1.EnterCondition.update_member_mutations:type_name -> event.members.private.v1.UpdateMutation
+	70, // 50: event.events.private.v1.EnterCondition.create_transponder_mutations:type_name -> gateway.transponders.private.v1.CreateMutation
+	32, // 51: event.events.private.v1.EnterTransaction.mutations:type_name -> event.events.private.v1.EnterMutation
+	35, // 52: event.events.private.v1.LeaveRequest.arguments:type_name -> event.events.private.v1.LeaveArgument
+	35, // 53: event.events.private.v1.LeaveMutation.foundation:type_name -> event.events.private.v1.LeaveArgument
+	39, // 54: event.events.private.v1.LeaveMutation.condition:type_name -> event.events.private.v1.LeaveCondition
+	81, // 55: event.events.private.v1.LeaveCondition.leave_chat_mutations:type_name -> chat.chats.private.v1.LeaveMutation
+	80, // 56: event.events.private.v1.LeaveCondition.update_member_mutations:type_name -> event.members.private.v1.UpdateMutation
+	75, // 57: event.events.private.v1.LeaveCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
+	38, // 58: event.events.private.v1.LeaveTransaction.mutations:type_name -> event.events.private.v1.LeaveMutation
+	61, // 59: event.events.private.v1.StartArgument.query:type_name -> event.events.private.v1.Query
+	41, // 60: event.events.private.v1.StartRequest.arguments:type_name -> event.events.private.v1.StartArgument
+	63, // 61: event.events.private.v1.StartResponse.events:type_name -> event.events.private.v1.Event
+	41, // 62: event.events.private.v1.StartMutation.foundation:type_name -> event.events.private.v1.StartArgument
+	67, // 63: event.events.private.v1.StartMutation.transient:type_name -> event.events.private.v1.Transient
+	44, // 64: event.events.private.v1.StartTransaction.mutations:type_name -> event.events.private.v1.StartMutation
+	61, // 65: event.events.private.v1.FinishArgument.query:type_name -> event.events.private.v1.Query
+	46, // 66: event.events.private.v1.FinishRequest.arguments:type_name -> event.events.private.v1.FinishArgument
+	63, // 67: event.events.private.v1.FinishResponse.events:type_name -> event.events.private.v1.Event
+	46, // 68: event.events.private.v1.FinishMutation.foundation:type_name -> event.events.private.v1.FinishArgument
+	67, // 69: event.events.private.v1.FinishMutation.transient:type_name -> event.events.private.v1.Transient
+	49, // 70: event.events.private.v1.FinishTransaction.mutations:type_name -> event.events.private.v1.FinishMutation
+	61, // 71: event.events.private.v1.CancelArgument.query:type_name -> event.events.private.v1.Query
+	51, // 72: event.events.private.v1.CancelRequest.arguments:type_name -> event.events.private.v1.CancelArgument
+	63, // 73: event.events.private.v1.CancelResponse.events:type_name -> event.events.private.v1.Event
+	51, // 74: event.events.private.v1.CancelMutation.foundation:type_name -> event.events.private.v1.CancelArgument
+	67, // 75: event.events.private.v1.CancelMutation.transient:type_name -> event.events.private.v1.Transient
+	54, // 76: event.events.private.v1.CancelTransaction.mutations:type_name -> event.events.private.v1.CancelMutation
+	61, // 77: event.events.private.v1.GenerateBroadcastAccessUrlRequest.query:type_name -> event.events.private.v1.Query
+	78, // [78:78] is the sub-list for method output_type
+	78, // [78:78] is the sub-list for method input_type
+	78, // [78:78] is the sub-list for extension type_name
+	78, // [78:78] is the sub-list for extension extendee
+	0,  // [0:78] is the sub-list for field type_name
 }
 
 func init() { file_event_events_private_v1_procedures_proto_init() }
@@ -3231,7 +3422,7 @@ func file_event_events_private_v1_procedures_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_event_events_private_v1_procedures_proto_rawDesc), len(file_event_events_private_v1_procedures_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   59,
+			NumMessages:   61,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

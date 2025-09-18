@@ -11,6 +11,7 @@ import type { PartialMessage } from "@protobuf-ts/runtime";
 import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
 import { Status } from "./enums";
+import { Permission } from "./enums";
 import { Order } from "./enums";
 /**
  * Chunk represents a segmented portion of members used for pagination or segmented data retrieval.
@@ -110,15 +111,21 @@ export interface Member {
         [key: string]: string;
     };
     /**
+     * Represents list of permission which member have inside this room.
+     *
+     * @generated from protobuf field: repeated chat.members.public.server.v1.Permission permissions = 5;
+     */
+    permissions: Permission[];
+    /**
      * Represents the timestamp indicating when this member was created or added to the chat.
      *
-     * @generated from protobuf field: int64 create_time = 5;
+     * @generated from protobuf field: int64 create_time = 6;
      */
     createTime: bigint;
     /**
      * Represents the timestamp of the last update associated with this member.
      *
-     * @generated from protobuf field: int64 update_time = 6;
+     * @generated from protobuf field: int64 update_time = 7;
      */
     updateTime: bigint;
 }
@@ -175,7 +182,7 @@ class Chunk$Type extends MessageType<Chunk> {
             { no: 1, name: "size", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 2, name: "index", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 3, name: "total", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 4, name: "entities", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => Member }
+            { no: 4, name: "entities", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => Member }
         ]);
     }
     create(value?: PartialMessage<Chunk>): Chunk {
@@ -317,8 +324,9 @@ class Member$Type extends MessageType<Member> {
             { no: 2, name: "user_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 3, name: "chat_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 4, name: "metadata", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } },
-            { no: 5, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 6, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 5, name: "permissions", kind: "enum", repeat: 1 /*RepeatType.PACKED*/, T: () => ["chat.members.public.server.v1.Permission", Permission] },
+            { no: 6, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 7, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value?: PartialMessage<Member>): Member {
@@ -327,6 +335,7 @@ class Member$Type extends MessageType<Member> {
         message.userId = "";
         message.chatId = "";
         message.metadata = {};
+        message.permissions = [];
         message.createTime = 0n;
         message.updateTime = 0n;
         if (value !== undefined)
@@ -350,10 +359,17 @@ class Member$Type extends MessageType<Member> {
                 case /* map<string, string> metadata */ 4:
                     this.binaryReadMap4(message.metadata, reader, options);
                     break;
-                case /* int64 create_time */ 5:
+                case /* repeated chat.members.public.server.v1.Permission permissions */ 5:
+                    if (wireType === WireType.LengthDelimited)
+                        for (let e = reader.int32() + reader.pos; reader.pos < e;)
+                            message.permissions.push(reader.int32());
+                    else
+                        message.permissions.push(reader.int32());
+                    break;
+                case /* int64 create_time */ 6:
                     message.createTime = reader.int64().toBigInt();
                     break;
-                case /* int64 update_time */ 6:
+                case /* int64 update_time */ 7:
                     message.updateTime = reader.int64().toBigInt();
                     break;
                 default:
@@ -396,12 +412,19 @@ class Member$Type extends MessageType<Member> {
         /* map<string, string> metadata = 4; */
         for (let k of globalThis.Object.keys(message.metadata))
             writer.tag(4, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.metadata[k]).join();
-        /* int64 create_time = 5; */
+        /* repeated chat.members.public.server.v1.Permission permissions = 5; */
+        if (message.permissions.length) {
+            writer.tag(5, WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.permissions.length; i++)
+                writer.int32(message.permissions[i]);
+            writer.join();
+        }
+        /* int64 create_time = 6; */
         if (message.createTime !== 0n)
-            writer.tag(5, WireType.Varint).int64(message.createTime);
-        /* int64 update_time = 6; */
+            writer.tag(6, WireType.Varint).int64(message.createTime);
+        /* int64 update_time = 7; */
         if (message.updateTime !== 0n)
-            writer.tag(6, WireType.Varint).int64(message.updateTime);
+            writer.tag(7, WireType.Varint).int64(message.updateTime);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

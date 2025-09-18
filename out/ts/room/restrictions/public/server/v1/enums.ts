@@ -12,9 +12,9 @@ export enum Kind {
      */
     Unknown = 0,
     /**
-     * @generated from protobuf enum value: Enter = 1;
+     * @generated from protobuf enum value: Block = 1;
      */
-    Enter = 1
+    Block = 1
 }
 /**
  * Order represents an enumeration that specifies the sort order for data retrieval, particularly in the context of querying.

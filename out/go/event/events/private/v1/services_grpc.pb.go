@@ -19,54 +19,55 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Service_Count_FullMethodName                   = "/event.events.private.v1.Service/Count"
-	Service_Range_FullMethodName                   = "/event.events.private.v1.Service/Range"
-	Service_Select_FullMethodName                  = "/event.events.private.v1.Service/Select"
-	Service_Invoke_FullMethodName                  = "/event.events.private.v1.Service/Invoke"
-	Service_Create_FullMethodName                  = "/event.events.private.v1.Service/Create"
-	Service_InitiateCreateMutations_FullMethodName = "/event.events.private.v1.Service/InitiateCreateMutations"
-	Service_ValidateCreateMutations_FullMethodName = "/event.events.private.v1.Service/ValidateCreateMutations"
-	Service_FinalizeCreateMutations_FullMethodName = "/event.events.private.v1.Service/FinalizeCreateMutations"
-	Service_AnnounceCreateMutations_FullMethodName = "/event.events.private.v1.Service/AnnounceCreateMutations"
-	Service_RollbackCreateMutations_FullMethodName = "/event.events.private.v1.Service/RollbackCreateMutations"
-	Service_Update_FullMethodName                  = "/event.events.private.v1.Service/Update"
-	Service_InitiateUpdateMutations_FullMethodName = "/event.events.private.v1.Service/InitiateUpdateMutations"
-	Service_ValidateUpdateMutations_FullMethodName = "/event.events.private.v1.Service/ValidateUpdateMutations"
-	Service_FinalizeUpdateMutations_FullMethodName = "/event.events.private.v1.Service/FinalizeUpdateMutations"
-	Service_AnnounceUpdateMutations_FullMethodName = "/event.events.private.v1.Service/AnnounceUpdateMutations"
-	Service_RollbackUpdateMutations_FullMethodName = "/event.events.private.v1.Service/RollbackUpdateMutations"
-	Service_Delete_FullMethodName                  = "/event.events.private.v1.Service/Delete"
-	Service_InitiateDeleteMutations_FullMethodName = "/event.events.private.v1.Service/InitiateDeleteMutations"
-	Service_FinalizeDeleteMutations_FullMethodName = "/event.events.private.v1.Service/FinalizeDeleteMutations"
-	Service_AnnounceDeleteMutations_FullMethodName = "/event.events.private.v1.Service/AnnounceDeleteMutations"
-	Service_RollbackDeleteMutations_FullMethodName = "/event.events.private.v1.Service/RollbackDeleteMutations"
-	Service_Enter_FullMethodName                   = "/event.events.private.v1.Service/Enter"
-	Service_InitiateEnterMutations_FullMethodName  = "/event.events.private.v1.Service/InitiateEnterMutations"
-	Service_ValidateEnterMutations_FullMethodName  = "/event.events.private.v1.Service/ValidateEnterMutations"
-	Service_FinalizeEnterMutations_FullMethodName  = "/event.events.private.v1.Service/FinalizeEnterMutations"
-	Service_AnnounceEnterMutations_FullMethodName  = "/event.events.private.v1.Service/AnnounceEnterMutations"
-	Service_RollbackEnterMutations_FullMethodName  = "/event.events.private.v1.Service/RollbackEnterMutations"
-	Service_Leave_FullMethodName                   = "/event.events.private.v1.Service/Leave"
-	Service_InitiateLeaveMutations_FullMethodName  = "/event.events.private.v1.Service/InitiateLeaveMutations"
-	Service_ValidateLeaveMutations_FullMethodName  = "/event.events.private.v1.Service/ValidateLeaveMutations"
-	Service_FinalizeLeaveMutations_FullMethodName  = "/event.events.private.v1.Service/FinalizeLeaveMutations"
-	Service_AnnounceLeaveMutations_FullMethodName  = "/event.events.private.v1.Service/AnnounceLeaveMutations"
-	Service_RollbackLeaveMutations_FullMethodName  = "/event.events.private.v1.Service/RollbackLeaveMutations"
-	Service_Start_FullMethodName                   = "/event.events.private.v1.Service/Start"
-	Service_InitiateStartMutations_FullMethodName  = "/event.events.private.v1.Service/InitiateStartMutations"
-	Service_FinalizeStartMutations_FullMethodName  = "/event.events.private.v1.Service/FinalizeStartMutations"
-	Service_AnnounceStartMutations_FullMethodName  = "/event.events.private.v1.Service/AnnounceStartMutations"
-	Service_RollbackStartMutations_FullMethodName  = "/event.events.private.v1.Service/RollbackStartMutations"
-	Service_Finish_FullMethodName                  = "/event.events.private.v1.Service/Finish"
-	Service_InitiateFinishMutations_FullMethodName = "/event.events.private.v1.Service/InitiateFinishMutations"
-	Service_FinalizeFinishMutations_FullMethodName = "/event.events.private.v1.Service/FinalizeFinishMutations"
-	Service_AnnounceFinishMutations_FullMethodName = "/event.events.private.v1.Service/AnnounceFinishMutations"
-	Service_RollbackFinishMutations_FullMethodName = "/event.events.private.v1.Service/RollbackFinishMutations"
-	Service_Cancel_FullMethodName                  = "/event.events.private.v1.Service/Cancel"
-	Service_InitiateCancelMutations_FullMethodName = "/event.events.private.v1.Service/InitiateCancelMutations"
-	Service_FinalizeCancelMutations_FullMethodName = "/event.events.private.v1.Service/FinalizeCancelMutations"
-	Service_AnnounceCancelMutations_FullMethodName = "/event.events.private.v1.Service/AnnounceCancelMutations"
-	Service_RollbackCancelMutations_FullMethodName = "/event.events.private.v1.Service/RollbackCancelMutations"
+	Service_Count_FullMethodName                      = "/event.events.private.v1.Service/Count"
+	Service_Range_FullMethodName                      = "/event.events.private.v1.Service/Range"
+	Service_Select_FullMethodName                     = "/event.events.private.v1.Service/Select"
+	Service_Invoke_FullMethodName                     = "/event.events.private.v1.Service/Invoke"
+	Service_Create_FullMethodName                     = "/event.events.private.v1.Service/Create"
+	Service_InitiateCreateMutations_FullMethodName    = "/event.events.private.v1.Service/InitiateCreateMutations"
+	Service_ValidateCreateMutations_FullMethodName    = "/event.events.private.v1.Service/ValidateCreateMutations"
+	Service_FinalizeCreateMutations_FullMethodName    = "/event.events.private.v1.Service/FinalizeCreateMutations"
+	Service_AnnounceCreateMutations_FullMethodName    = "/event.events.private.v1.Service/AnnounceCreateMutations"
+	Service_RollbackCreateMutations_FullMethodName    = "/event.events.private.v1.Service/RollbackCreateMutations"
+	Service_Update_FullMethodName                     = "/event.events.private.v1.Service/Update"
+	Service_InitiateUpdateMutations_FullMethodName    = "/event.events.private.v1.Service/InitiateUpdateMutations"
+	Service_ValidateUpdateMutations_FullMethodName    = "/event.events.private.v1.Service/ValidateUpdateMutations"
+	Service_FinalizeUpdateMutations_FullMethodName    = "/event.events.private.v1.Service/FinalizeUpdateMutations"
+	Service_AnnounceUpdateMutations_FullMethodName    = "/event.events.private.v1.Service/AnnounceUpdateMutations"
+	Service_RollbackUpdateMutations_FullMethodName    = "/event.events.private.v1.Service/RollbackUpdateMutations"
+	Service_Delete_FullMethodName                     = "/event.events.private.v1.Service/Delete"
+	Service_InitiateDeleteMutations_FullMethodName    = "/event.events.private.v1.Service/InitiateDeleteMutations"
+	Service_FinalizeDeleteMutations_FullMethodName    = "/event.events.private.v1.Service/FinalizeDeleteMutations"
+	Service_AnnounceDeleteMutations_FullMethodName    = "/event.events.private.v1.Service/AnnounceDeleteMutations"
+	Service_RollbackDeleteMutations_FullMethodName    = "/event.events.private.v1.Service/RollbackDeleteMutations"
+	Service_Enter_FullMethodName                      = "/event.events.private.v1.Service/Enter"
+	Service_InitiateEnterMutations_FullMethodName     = "/event.events.private.v1.Service/InitiateEnterMutations"
+	Service_ValidateEnterMutations_FullMethodName     = "/event.events.private.v1.Service/ValidateEnterMutations"
+	Service_FinalizeEnterMutations_FullMethodName     = "/event.events.private.v1.Service/FinalizeEnterMutations"
+	Service_AnnounceEnterMutations_FullMethodName     = "/event.events.private.v1.Service/AnnounceEnterMutations"
+	Service_RollbackEnterMutations_FullMethodName     = "/event.events.private.v1.Service/RollbackEnterMutations"
+	Service_Leave_FullMethodName                      = "/event.events.private.v1.Service/Leave"
+	Service_InitiateLeaveMutations_FullMethodName     = "/event.events.private.v1.Service/InitiateLeaveMutations"
+	Service_ValidateLeaveMutations_FullMethodName     = "/event.events.private.v1.Service/ValidateLeaveMutations"
+	Service_FinalizeLeaveMutations_FullMethodName     = "/event.events.private.v1.Service/FinalizeLeaveMutations"
+	Service_AnnounceLeaveMutations_FullMethodName     = "/event.events.private.v1.Service/AnnounceLeaveMutations"
+	Service_RollbackLeaveMutations_FullMethodName     = "/event.events.private.v1.Service/RollbackLeaveMutations"
+	Service_Start_FullMethodName                      = "/event.events.private.v1.Service/Start"
+	Service_InitiateStartMutations_FullMethodName     = "/event.events.private.v1.Service/InitiateStartMutations"
+	Service_FinalizeStartMutations_FullMethodName     = "/event.events.private.v1.Service/FinalizeStartMutations"
+	Service_AnnounceStartMutations_FullMethodName     = "/event.events.private.v1.Service/AnnounceStartMutations"
+	Service_RollbackStartMutations_FullMethodName     = "/event.events.private.v1.Service/RollbackStartMutations"
+	Service_Finish_FullMethodName                     = "/event.events.private.v1.Service/Finish"
+	Service_InitiateFinishMutations_FullMethodName    = "/event.events.private.v1.Service/InitiateFinishMutations"
+	Service_FinalizeFinishMutations_FullMethodName    = "/event.events.private.v1.Service/FinalizeFinishMutations"
+	Service_AnnounceFinishMutations_FullMethodName    = "/event.events.private.v1.Service/AnnounceFinishMutations"
+	Service_RollbackFinishMutations_FullMethodName    = "/event.events.private.v1.Service/RollbackFinishMutations"
+	Service_Cancel_FullMethodName                     = "/event.events.private.v1.Service/Cancel"
+	Service_InitiateCancelMutations_FullMethodName    = "/event.events.private.v1.Service/InitiateCancelMutations"
+	Service_FinalizeCancelMutations_FullMethodName    = "/event.events.private.v1.Service/FinalizeCancelMutations"
+	Service_AnnounceCancelMutations_FullMethodName    = "/event.events.private.v1.Service/AnnounceCancelMutations"
+	Service_RollbackCancelMutations_FullMethodName    = "/event.events.private.v1.Service/RollbackCancelMutations"
+	Service_GenerateBroadcastAccessUrl_FullMethodName = "/event.events.private.v1.Service/GenerateBroadcastAccessUrl"
 )
 
 // ServiceClient is the client API for Service service.
@@ -121,6 +122,7 @@ type ServiceClient interface {
 	FinalizeCancelMutations(ctx context.Context, in *CancelTransaction, opts ...grpc.CallOption) (*CancelTransaction, error)
 	AnnounceCancelMutations(ctx context.Context, in *CancelTransaction, opts ...grpc.CallOption) (*CancelTransaction, error)
 	RollbackCancelMutations(ctx context.Context, in *CancelTransaction, opts ...grpc.CallOption) (*CancelTransaction, error)
+	GenerateBroadcastAccessUrl(ctx context.Context, in *GenerateBroadcastAccessUrlRequest, opts ...grpc.CallOption) (*GenerateBroadcastAccessUrlResponse, error)
 }
 
 type serviceClient struct {
@@ -611,6 +613,16 @@ func (c *serviceClient) RollbackCancelMutations(ctx context.Context, in *CancelT
 	return out, nil
 }
 
+func (c *serviceClient) GenerateBroadcastAccessUrl(ctx context.Context, in *GenerateBroadcastAccessUrlRequest, opts ...grpc.CallOption) (*GenerateBroadcastAccessUrlResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GenerateBroadcastAccessUrlResponse)
+	err := c.cc.Invoke(ctx, Service_GenerateBroadcastAccessUrl_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ServiceServer is the server API for Service service.
 // All implementations must embed UnimplementedServiceServer
 // for forward compatibility.
@@ -663,6 +675,7 @@ type ServiceServer interface {
 	FinalizeCancelMutations(context.Context, *CancelTransaction) (*CancelTransaction, error)
 	AnnounceCancelMutations(context.Context, *CancelTransaction) (*CancelTransaction, error)
 	RollbackCancelMutations(context.Context, *CancelTransaction) (*CancelTransaction, error)
+	GenerateBroadcastAccessUrl(context.Context, *GenerateBroadcastAccessUrlRequest) (*GenerateBroadcastAccessUrlResponse, error)
 	mustEmbedUnimplementedServiceServer()
 }
 
@@ -816,6 +829,9 @@ func (UnimplementedServiceServer) AnnounceCancelMutations(context.Context, *Canc
 }
 func (UnimplementedServiceServer) RollbackCancelMutations(context.Context, *CancelTransaction) (*CancelTransaction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RollbackCancelMutations not implemented")
+}
+func (UnimplementedServiceServer) GenerateBroadcastAccessUrl(context.Context, *GenerateBroadcastAccessUrlRequest) (*GenerateBroadcastAccessUrlResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GenerateBroadcastAccessUrl not implemented")
 }
 func (UnimplementedServiceServer) mustEmbedUnimplementedServiceServer() {}
 func (UnimplementedServiceServer) testEmbeddedByValue()                 {}
@@ -1702,6 +1718,24 @@ func _Service_RollbackCancelMutations_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Service_GenerateBroadcastAccessUrl_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GenerateBroadcastAccessUrlRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).GenerateBroadcastAccessUrl(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_GenerateBroadcastAccessUrl_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).GenerateBroadcastAccessUrl(ctx, req.(*GenerateBroadcastAccessUrlRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Service_ServiceDesc is the grpc.ServiceDesc for Service service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -1900,6 +1934,10 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RollbackCancelMutations",
 			Handler:    _Service_RollbackCancelMutations_Handler,
+		},
+		{
+			MethodName: "GenerateBroadcastAccessUrl",
+			Handler:    _Service_GenerateBroadcastAccessUrl_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

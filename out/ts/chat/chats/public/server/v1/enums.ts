@@ -2,6 +2,8 @@
 // @generated from protobuf file "chat/chats/public/server/v1/enums.proto" (package "chat.chats.public.server.v1", syntax proto3)
 // tslint:disable
 /**
+ * Kind todo;
+ *
  * @generated from protobuf enum chat.chats.public.server.v1.Kind
  */
 export enum Kind {

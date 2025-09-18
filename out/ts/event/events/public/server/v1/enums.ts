@@ -67,7 +67,7 @@ export enum Status {
     Canceled = 4
 }
 /**
- * todo;
+ * Schedule todo;
  *
  * @generated from protobuf enum event.events.public.server.v1.Schedule
  */
@@ -86,7 +86,7 @@ export enum Schedule {
     Unplanned = 2
 }
 /**
- * todo;
+ * BroadcastOrientation todo;
  *
  * @generated from protobuf enum event.events.public.server.v1.BroadcastOrientation
  */

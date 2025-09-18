@@ -20,9 +20,9 @@ export interface EnterEventPacket {
     /**
      * Represents the unique identifier of the event the client is attempting to enter.
      *
-     * @generated from protobuf field: string id = 1;
+     * @generated from protobuf field: string token = 1;
      */
-    id: string;
+    token: string;
     /**
      * Represents a control mechanism that automatically disconnects any other sessions from any event linked to the user, allowing a new session to enter without issues.
      *
@@ -70,13 +70,13 @@ export interface InvokeEventActionPacket {
 class EnterEventPacket$Type extends MessageType<EnterEventPacket> {
     constructor() {
         super("event.events.public.client.v1.EnterEventPacket", [
-            { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 1, name: "token", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 2, name: "override", kind: "scalar", T: 8 /*ScalarType.BOOL*/ }
         ]);
     }
     create(value?: PartialMessage<EnterEventPacket>): EnterEventPacket {
         const message = globalThis.Object.create((this.messagePrototype!));
-        message.id = "";
+        message.token = "";
         message.override = false;
         if (value !== undefined)
             reflectionMergePartial<EnterEventPacket>(this, message, value);
@@ -87,8 +87,8 @@ class EnterEventPacket$Type extends MessageType<EnterEventPacket> {
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* string id */ 1:
-                    message.id = reader.string();
+                case /* string token */ 1:
+                    message.token = reader.string();
                     break;
                 case /* bool override */ 2:
                     message.override = reader.bool();
@@ -105,9 +105,9 @@ class EnterEventPacket$Type extends MessageType<EnterEventPacket> {
         return message;
     }
     internalBinaryWrite(message: EnterEventPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* string id = 1; */
-        if (message.id !== "")
-            writer.tag(1, WireType.LengthDelimited).string(message.id);
+        /* string token = 1; */
+        if (message.token !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.token);
         /* bool override = 2; */
         if (message.override !== false)
             writer.tag(2, WireType.Varint).bool(message.override);
