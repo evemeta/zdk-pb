@@ -24,6 +24,7 @@ const (
 
 type ExtractRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Token         string                 `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -56,6 +57,13 @@ func (x *ExtractRequest) ProtoReflect() protoreflect.Message {
 // Deprecated: Use ExtractRequest.ProtoReflect.Descriptor instead.
 func (*ExtractRequest) Descriptor() ([]byte, []int) {
 	return file_room_tokens_public_server_v1_procedures_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *ExtractRequest) GetToken() string {
+	if x != nil {
+		return x.Token
+	}
+	return ""
 }
 
 type ExtractResponse struct {
@@ -106,8 +114,9 @@ var File_room_tokens_public_server_v1_procedures_proto protoreflect.FileDescript
 
 const file_room_tokens_public_server_v1_procedures_proto_rawDesc = "" +
 	"\n" +
-	"-room/tokens/public/server/v1/procedures.proto\x12\x1croom.tokens.public.server.v1\x1a,room/members/public/server/v1/entities.proto\"\x10\n" +
-	"\x0eExtractRequest\"P\n" +
+	"-room/tokens/public/server/v1/procedures.proto\x12\x1croom.tokens.public.server.v1\x1a,room/members/public/server/v1/entities.proto\"&\n" +
+	"\x0eExtractRequest\x12\x14\n" +
+	"\x05token\x18\x01 \x01(\tR\x05token\"P\n" +
 	"\x0fExtractResponse\x12=\n" +
 	"\x06member\x18\x01 \x01(\v2%.room.members.public.server.v1.MemberR\x06memberBq\n" +
 	"%com.evemeta.zdk.pb.room.server.tokensP\x01ZFgitlab.com/evemeta/zdk/pb/out/go/room/tokens/public/server/v1;tokenspbb\x06proto3"

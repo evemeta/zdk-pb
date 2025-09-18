@@ -8,7 +8,9 @@ option java_multiple_files = true;
 option java_package = "com.evemeta.zdk.pb.chat.server.tokens";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/tokens/public/server/v1;tokenspb";
 
-message ExtractRequest {}
+message ExtractRequest {
+    string token = 1;
+}
 
 message ExtractResponse {
     members.public.server.v1.Member member = 1;

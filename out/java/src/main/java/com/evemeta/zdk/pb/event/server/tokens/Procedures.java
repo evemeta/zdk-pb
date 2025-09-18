@@ -47,12 +47,12 @@ public final class Procedures {
       "\n.event/tokens/public/server/v1/procedur" +
       "es.proto\022\035event.tokens.public.server.v1\032" +
       "-event/members/public/server/v1/entities" +
-      ".proto\"\020\n\016ExtractRequest\"I\n\017ExtractRespo" +
-      "nse\0226\n\006member\030\001 \001(\0132&.event.members.publ" +
-      "ic.server.v1.MemberBs\n&com.evemeta.zdk.p" +
-      "b.event.server.tokensP\001ZGgitlab.com/evem" +
-      "eta/zdk/pb/out/go/event/tokens/public/se" +
-      "rver/v1;tokenspbb\006proto3"
+      ".proto\"\037\n\016ExtractRequest\022\r\n\005token\030\001 \001(\t\"" +
+      "I\n\017ExtractResponse\0226\n\006member\030\001 \001(\0132&.eve" +
+      "nt.members.public.server.v1.MemberBs\n&co" +
+      "m.evemeta.zdk.pb.event.server.tokensP\001ZG" +
+      "gitlab.com/evemeta/zdk/pb/out/go/event/t" +
+      "okens/public/server/v1;tokenspbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -64,7 +64,7 @@ public final class Procedures {
     internal_static_event_tokens_public_server_v1_ExtractRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_event_tokens_public_server_v1_ExtractRequest_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "Token", });
     internal_static_event_tokens_public_server_v1_ExtractResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_event_tokens_public_server_v1_ExtractResponse_fieldAccessorTable = new
