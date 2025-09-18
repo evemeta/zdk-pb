@@ -49,6 +49,8 @@ message Member {
     int64 create_time = 5;
     // Represents the timestamp of the last update associated with this member.
     int64 update_time = 6;
+    // Represents list of permission which member have inside this room.
+    repeated event.members.public.server.v1.Permission permissions = 7;
 }
 
 // Condition represents a set of criteria designed to filter data during retrieval.

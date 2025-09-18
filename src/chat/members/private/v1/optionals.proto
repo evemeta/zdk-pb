@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package chat.members.private.v1;
 
+import "chat/members/private/v1/enums.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/members/private/v1;memberspb";
 
@@ -15,4 +16,8 @@ message OptionalMap {
 // It allows for explicit control over the presence or absence of the string, accommodating scenarios where the string might be optional or intentionally omitted.
 message OptionalString {
     string value = 1;
+}
+
+message OptionalPermission {
+    repeated chat.members.private.v1.Permission value = 1;
 }

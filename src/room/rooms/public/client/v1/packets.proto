@@ -10,8 +10,8 @@ option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/rooms/public/client/v
 // EnterRoomPacket is a directive sent from the client to the server when the client intends to enter a specific room.
 // It contains the unique identifier of the room that the client wishes to enter.
 message EnterRoomPacket {
-    // Represents the unique identifier of the room the client is attempting to enter.
-    string id = 1;
+    // Represents the token containing data of the room the client is attempting to enter.
+    string token = 1;
     // Represents a control mechanism that automatically disconnects any other sessions from any room linked to the user, allowing a new session to enter without issues.
     bool override = 2;
 }
