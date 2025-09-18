@@ -26,12 +26,12 @@ message Member {
     string                                       event_id    = 3;
     event.members.private.v1.Status              status      = 4;
     map<string, string>                          metadata    = 5;
-    repeated event.members.private.v1.Permission permissions = 11;
-    int64                                        enter_time  = 6;
-    int64                                        leave_time  = 7;
-    int64                                        access_time = 8;
-    int64                                        create_time = 9;
-    int64                                        update_time = 10;
+    repeated event.members.private.v1.Permission permissions = 6;
+    int64                                        enter_time  = 7;
+    int64                                        leave_time  = 8;
+    int64                                        access_time = 9;
+    int64                                        create_time = 10;
+    int64                                        update_time = 11;
 }
 
 message Condition {

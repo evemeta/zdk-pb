@@ -8,9 +8,9 @@ import "chat/members/private/v1/entities.proto";
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/tokens/private/v1;tokenspb";
 
 message CreateArgument {
-    string                                       user_id     = 1;
-    string                                       chat_id    = 2;
-    map<string, string>                          metadata    = 3;
+    string                                      user_id     = 1;
+    string                                      chat_id     = 2;
+    map<string, string>                         metadata    = 3;
     repeated chat.members.private.v1.Permission permissions = 4;
 }
 

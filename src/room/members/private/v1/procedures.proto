@@ -52,14 +52,14 @@ message SelectResponse {
 }
 
 message CreateArgument {
-    string                             id                       = 1;
-    string                             user_id                  = 2;
-    string                             room_id                  = 3;
-    room.members.private.v1.Status     status                   = 4;
-    repeated room.members.private.v1.Permission permissions     = 8;
-    map<string, string>                metadata                 = 5;
-    int64                              enter_time               = 6;
-    int64                              leave_time               = 7;
+    string                                      id          = 1;
+    string                                      user_id     = 2;
+    string                                      room_id     = 3;
+    room.members.private.v1.Status              status      = 4;
+    map<string, string>                         metadata    = 5;
+    repeated room.members.private.v1.Permission permissions = 6;
+    int64                                       enter_time  = 7;
+    int64                                       leave_time  = 8;
 }
 
 message CreateRequest {
@@ -87,11 +87,11 @@ message CreateTransaction {
 }
 
 message UpdateArgument {
-    room.members.private.v1.Query                       query       = 1;
-    optional room.members.private.v1.OptionalString     user_id     = 2;
-    optional room.members.private.v1.OptionalString     room_id     = 3;
-    optional room.members.private.v1.OptionalMap        metadata    = 4;
-    optional room.members.private.v1.OptionalPermission permissions = 5;
+    room.members.private.v1.Query                        query       = 1;
+    optional room.members.private.v1.OptionalString      user_id     = 2;
+    optional room.members.private.v1.OptionalString      room_id     = 3;
+    optional room.members.private.v1.OptionalMap         metadata    = 4;
+    optional room.members.private.v1.OptionalPermissions permissions = 5;
 }
 
 message UpdateRequest {

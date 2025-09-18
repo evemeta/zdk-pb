@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package event.members.private.v1;
 
-
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/members/private/v1;memberspb";
 
 enum Order {
@@ -18,18 +17,18 @@ enum Status {
 }
 
 enum Permission {
-    PermissionUnknown              = 0;
-    PermissionChat                 = 100;
-    PermissionChatBlock            = 101;
-    PermissionChatUnblock          = 102;
-    PermissionChatMute             = 103;
-    PermissionChatUnmute           = 104;
-    PermissionChatMessageDelete    = 105;
-    PermissionChatKick             = 106;
-    PermissionChatSlowmode         = 107;
-    PermissionChatSlowmodeBypass   = 108;
-    PermissionEvent                = 300;
-    PermissionEventBlock           = 301;
-    PermissionEventUnblock         = 302;
-    PermissionEventKick            = 303;
+    PermissionUnknown            = 0;
+    PermissionChat               = 100;
+    PermissionChatBlock          = 101;
+    PermissionChatUnblock        = 102;
+    PermissionChatMute           = 103;
+    PermissionChatUnmute         = 104;
+    PermissionChatMessageDelete  = 105;
+    PermissionChatKick           = 106;
+    PermissionChatSlowmode       = 107;
+    PermissionChatSlowmodeBypass = 108;
+    PermissionEvent              = 300;
+    PermissionEventBlock         = 301;
+    PermissionEventUnblock       = 302;
+    PermissionEventKick          = 303;
 }

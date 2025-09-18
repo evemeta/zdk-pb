@@ -6,13 +6,10 @@ import "room/connections/private/v1/enums.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/connections/private/v1;connectionspb";
 
-// OptionalStatus todo;
 message OptionalStatus {
     room.connections.private.v1.Status value = 1;
 }
 
-// OptionalString represents a string value that can be intentionally left unset or null.
-// It allows for explicit control over the presence or absence of the string, accommodating scenarios where the string might be optional or intentionally omitted.
 message OptionalString {
     string value = 1;
 }

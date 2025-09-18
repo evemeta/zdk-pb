@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package chat.messages.private.v1;
 
-
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/messages/private/v1;messagespb";
 
 enum Order {
