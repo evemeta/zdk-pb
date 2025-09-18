@@ -5,6 +5,7 @@ package event.members.private.v1;
 import "event/members/private/v1/enums.proto";
 import "event/members/private/v1/entities.proto";
 import "event/members/private/v1/optionals.proto";
+import "chat/members/private/v1/procedures.proto";
 import "gateway/transponders/private/v1/procedures.proto";
 
 option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/members/private/v1;memberspb";
@@ -155,8 +156,9 @@ message KickMutation {
 }
 
 message KickCondition {
-    repeated event.members.private.v1.UpdateMutation        update_mutations             = 1;
-    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 2;
+    repeated chat.members.private.v1.KickMutation           kick_chat_member_mutations   = 1;
+    repeated event.members.private.v1.UpdateMutation        update_mutations             = 2;
+    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 3;
 }
 
 message KickTransaction {
