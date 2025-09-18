@@ -99,10 +99,10 @@ message UpdateResponse {
 }
 
 message UpdateMutation {
-    event.members.private.v1.UpdateArgument     foundation     = 1;
-    repeated event.members.private.v1.Transient transient      = 2;
-    int64                                      begin_timestamp = 3;
-    int64                                      close_timestamp = 4;
+    event.members.private.v1.UpdateArgument     foundation      = 1;
+    repeated event.members.private.v1.Transient transient       = 2;
+    int64                                       begin_timestamp = 3;
+    int64                                       close_timestamp = 4;
 }
 
 message UpdateTransaction {
@@ -156,8 +156,8 @@ message KickMutation {
 }
 
 message KickCondition {
-    repeated chat.members.private.v1.KickMutation           kick_chat_member_mutations   = 1;
-    repeated event.members.private.v1.UpdateMutation        update_mutations             = 2;
+    repeated event.members.private.v1.UpdateMutation        update_mutations             = 1;
+    repeated chat.members.private.v1.KickMutation           kick_chat_member_mutations   = 2;
     repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 3;
 }
 
