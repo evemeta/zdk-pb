@@ -5,6 +5,7 @@ package room.members.private.v1;
 import "room/members/private/v1/enums.proto";
 import "room/members/private/v1/entities.proto";
 import "room/members/private/v1/optionals.proto";
+import "chat/members/private/v1/procedures.proto";
 import "room/streams/private/v1/procedures.proto";
 import "room/connections/private/v1/procedures.proto";
 import "gateway/sfus/private/v1/procedures.proto";
@@ -162,9 +163,10 @@ message KickMutation {
 message KickCondition {
     repeated room.members.private.v1.UpdateMutation         update_mutations                = 1;
     repeated room.streams.private.v1.DeleteMutation         delete_stream_mutations         = 2;
-    repeated room.connections.private.v1.DeleteMutation     delete_connection_mutations     = 3;
-    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations    = 4;
-    repeated gateway.sfus.private.v1.DisconnectMutation     disconnect_connection_mutations = 5;
+    repeated chat.members.private.v1.KickMutation           kick_chat_member_mutations      = 3;
+    repeated room.connections.private.v1.DeleteMutation     delete_connection_mutations     = 4;
+    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations    = 5;
+    repeated gateway.sfus.private.v1.DisconnectMutation     disconnect_connection_mutations = 6;
 }
 
 message KickTransaction {
