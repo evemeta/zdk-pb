@@ -104,10 +104,37 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
+   * represents an enumeration that specifies whether numbers of messages user can send in specified window of time is limited
+   * </pre>
+   *
+   * <code>.chat.chats.public.server.v1.Slowmode slowmode = 4;</code>
+   * @return Whether the slowmode field is set.
+   */
+  boolean hasSlowmode();
+  /**
+   * <pre>
+   * represents an enumeration that specifies whether numbers of messages user can send in specified window of time is limited
+   * </pre>
+   *
+   * <code>.chat.chats.public.server.v1.Slowmode slowmode = 4;</code>
+   * @return The slowmode.
+   */
+  com.evemeta.zdk.pb.chat.server.chats.Slowmode getSlowmode();
+  /**
+   * <pre>
+   * represents an enumeration that specifies whether numbers of messages user can send in specified window of time is limited
+   * </pre>
+   *
+   * <code>.chat.chats.public.server.v1.Slowmode slowmode = 4;</code>
+   */
+  com.evemeta.zdk.pb.chat.server.chats.SlowmodeOrBuilder getSlowmodeOrBuilder();
+
+  /**
+   * <pre>
    * Represents the timestamp indicating when this chat was created.
    * </pre>
    *
-   * <code>int64 create_time = 4;</code>
+   * <code>int64 create_time = 5;</code>
    * @return The createTime.
    */
   long getCreateTime();
@@ -117,7 +144,7 @@ java.lang.String defaultValue);
    * Represents the timestamp of the last update associated with this chat.
    * </pre>
    *
-   * <code>int64 update_time = 5;</code>
+   * <code>int64 update_time = 6;</code>
    * @return The updateTime.
    */
   long getUpdateTime();

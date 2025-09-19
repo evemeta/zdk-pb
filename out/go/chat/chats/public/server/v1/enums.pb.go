@@ -121,6 +121,56 @@ func (Order) EnumDescriptor() ([]byte, []int) {
 	return file_chat_chats_public_server_v1_enums_proto_rawDescGZIP(), []int{1}
 }
 
+// SlowmodeStatus represents an enumeration that specifies whether numbers of messages user can send in specified window of time is limited
+type SlowmodeStatus int32
+
+const (
+	SlowmodeStatusUnknown  SlowmodeStatus = 0
+	SlowmodeStatusEnabled  SlowmodeStatus = 1
+	SlowmodeStatusDisabled SlowmodeStatus = 2
+)
+
+// Enum value maps for SlowmodeStatus.
+var (
+	SlowmodeStatus_name = map[int32]string{
+		0: "SlowmodeStatusUnknown",
+		1: "SlowmodeStatusEnabled",
+		2: "SlowmodeStatusDisabled",
+	}
+	SlowmodeStatus_value = map[string]int32{
+		"SlowmodeStatusUnknown":  0,
+		"SlowmodeStatusEnabled":  1,
+		"SlowmodeStatusDisabled": 2,
+	}
+)
+
+func (x SlowmodeStatus) Enum() *SlowmodeStatus {
+	p := new(SlowmodeStatus)
+	*p = x
+	return p
+}
+
+func (x SlowmodeStatus) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (SlowmodeStatus) Descriptor() protoreflect.EnumDescriptor {
+	return file_chat_chats_public_server_v1_enums_proto_enumTypes[2].Descriptor()
+}
+
+func (SlowmodeStatus) Type() protoreflect.EnumType {
+	return &file_chat_chats_public_server_v1_enums_proto_enumTypes[2]
+}
+
+func (x SlowmodeStatus) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use SlowmodeStatus.Descriptor instead.
+func (SlowmodeStatus) EnumDescriptor() ([]byte, []int) {
+	return file_chat_chats_public_server_v1_enums_proto_rawDescGZIP(), []int{2}
+}
+
 var File_chat_chats_public_server_v1_enums_proto protoreflect.FileDescriptor
 
 const file_chat_chats_public_server_v1_enums_proto_rawDesc = "" +
@@ -133,7 +183,11 @@ const file_chat_chats_public_server_v1_enums_proto_rawDesc = "" +
 	"\x05Order\x12\x10\n" +
 	"\fOrderUnknown\x10\x00\x12\x12\n" +
 	"\x0eOrderAscending\x10\x01\x12\x13\n" +
-	"\x0fOrderDescending\x10\x02Bn\n" +
+	"\x0fOrderDescending\x10\x02*b\n" +
+	"\x0eSlowmodeStatus\x12\x19\n" +
+	"\x15SlowmodeStatusUnknown\x10\x00\x12\x19\n" +
+	"\x15SlowmodeStatusEnabled\x10\x01\x12\x1a\n" +
+	"\x16SlowmodeStatusDisabled\x10\x02Bn\n" +
 	"$com.evemeta.zdk.pb.chat.server.chatsP\x01ZDgitlab.com/evemeta/zdk/pb/out/go/chat/chats/public/server/v1;chatspbb\x06proto3"
 
 var (
@@ -148,10 +202,11 @@ func file_chat_chats_public_server_v1_enums_proto_rawDescGZIP() []byte {
 	return file_chat_chats_public_server_v1_enums_proto_rawDescData
 }
 
-var file_chat_chats_public_server_v1_enums_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_chat_chats_public_server_v1_enums_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
 var file_chat_chats_public_server_v1_enums_proto_goTypes = []any{
-	(Kind)(0),  // 0: chat.chats.public.server.v1.Kind
-	(Order)(0), // 1: chat.chats.public.server.v1.Order
+	(Kind)(0),           // 0: chat.chats.public.server.v1.Kind
+	(Order)(0),          // 1: chat.chats.public.server.v1.Order
+	(SlowmodeStatus)(0), // 2: chat.chats.public.server.v1.SlowmodeStatus
 }
 var file_chat_chats_public_server_v1_enums_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -171,7 +226,7 @@ func file_chat_chats_public_server_v1_enums_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_chat_chats_public_server_v1_enums_proto_rawDesc), len(file_chat_chats_public_server_v1_enums_proto_rawDesc)),
-			NumEnums:      2,
+			NumEnums:      3,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   0,

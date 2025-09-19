@@ -36,6 +36,11 @@ public final class Entities {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_chat_chats_public_server_v1_Chat_MetadataEntry_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_chat_chats_public_server_v1_Slowmode_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_chat_chats_public_server_v1_Slowmode_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_chat_chats_public_server_v1_Chunk_descriptor;
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -74,35 +79,39 @@ public final class Entities {
       "chats/public/server/v1/enums.proto\032,chat" +
       "/members/public/server/v1/entities.proto" +
       "\032-chat/messages/public/server/v1/entitie" +
-      "s.proto\"\341\001\n\004Chat\022\n\n\002id\030\001 \001(\t\022/\n\004kind\030\002 \001" +
+      "s.proto\"\232\002\n\004Chat\022\n\n\002id\030\001 \001(\t\022/\n\004kind\030\002 \001" +
       "(\0162!.chat.chats.public.server.v1.Kind\022A\n" +
       "\010metadata\030\003 \003(\0132/.chat.chats.public.serv" +
-      "er.v1.Chat.MetadataEntry\022\023\n\013create_time\030" +
-      "\004 \001(\003\022\023\n\013update_time\030\005 \001(\003\032/\n\rMetadataEn" +
-      "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"h\n\005C" +
-      "hunk\022\014\n\004size\030\001 \001(\003\022\r\n\005index\030\002 \001(\003\022\r\n\005tot" +
-      "al\030\003 \001(\003\0223\n\010entities\030\004 \003(\0132!.chat.chats." +
-      "public.server.v1.Chat\"\224\001\n\005Query\0221\n\005order" +
-      "\030\001 \001(\0162\".chat.chats.public.server.v1.Ord" +
-      "er\022\r\n\005limit\030\002 \001(\003\022\016\n\006offset\030\003 \001(\003\0229\n\tcon" +
-      "dition\030\004 \001(\0132&.chat.chats.public.server." +
-      "v1.Condition\"\304\003\n\007Context\022/\n\004chat\030\001 \001(\0132!" +
-      ".chat.chats.public.server.v1.Chat\022>\n\016cha" +
-      "t_timeframe\030\002 \001(\0132&.chat.chats.public.se" +
-      "rver.v1.Timeframe\0225\n\006member\030\003 \001(\0132%.chat" +
-      ".members.public.server.v1.Member\022@\n\020memb" +
-      "er_timeframe\030\004 \001(\0132&.chat.chats.public.s" +
-      "erver.v1.Timeframe\022\017\n\007members\030\005 \001(\003\022A\n\021m" +
-      "embers_timeframe\030\006 \001(\0132&.chat.chats.publ" +
-      "ic.server.v1.Timeframe\0227\n\010messages\030\007 \001(\013" +
-      "2%.chat.messages.public.server.v1.Chunk\022" +
-      "B\n\022messages_timeframe\030\010 \001(\0132&.chat.chats" +
-      ".public.server.v1.Timeframe\"\030\n\tCondition" +
-      "\022\013\n\003ids\030\001 \003(\t\"/\n\tTimeframe\022\020\n\010commence\030\001" +
-      " \001(\003\022\020\n\010complete\030\002 \001(\003Bn\n$com.evemeta.zd" +
-      "k.pb.chat.server.chatsP\001ZDgitlab.com/eve" +
-      "meta/zdk/pb/out/go/chat/chats/public/ser" +
-      "ver/v1;chatspbb\006proto3"
+      "er.v1.Chat.MetadataEntry\0227\n\010slowmode\030\004 \001" +
+      "(\0132%.chat.chats.public.server.v1.Slowmod" +
+      "e\022\023\n\013create_time\030\005 \001(\003\022\023\n\013update_time\030\006 " +
+      "\001(\003\032/\n\rMetadataEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005val" +
+      "ue\030\002 \001(\t:\0028\001\"f\n\010Slowmode\022;\n\006status\030\001 \001(\016" +
+      "2+.chat.chats.public.server.v1.SlowmodeS" +
+      "tatus\022\r\n\005limit\030\002 \001(\003\022\016\n\006window\030\003 \001(\003\"h\n\005" +
+      "Chunk\022\014\n\004size\030\001 \001(\003\022\r\n\005index\030\002 \001(\003\022\r\n\005to" +
+      "tal\030\003 \001(\003\0223\n\010entities\030\004 \003(\0132!.chat.chats" +
+      ".public.server.v1.Chat\"\224\001\n\005Query\0221\n\005orde" +
+      "r\030\001 \001(\0162\".chat.chats.public.server.v1.Or" +
+      "der\022\r\n\005limit\030\002 \001(\003\022\016\n\006offset\030\003 \001(\003\0229\n\tco" +
+      "ndition\030\004 \001(\0132&.chat.chats.public.server" +
+      ".v1.Condition\"\304\003\n\007Context\022/\n\004chat\030\001 \001(\0132" +
+      "!.chat.chats.public.server.v1.Chat\022>\n\016ch" +
+      "at_timeframe\030\002 \001(\0132&.chat.chats.public.s" +
+      "erver.v1.Timeframe\0225\n\006member\030\003 \001(\0132%.cha" +
+      "t.members.public.server.v1.Member\022@\n\020mem" +
+      "ber_timeframe\030\004 \001(\0132&.chat.chats.public." +
+      "server.v1.Timeframe\022\017\n\007members\030\005 \001(\003\022A\n\021" +
+      "members_timeframe\030\006 \001(\0132&.chat.chats.pub" +
+      "lic.server.v1.Timeframe\0227\n\010messages\030\007 \001(" +
+      "\0132%.chat.messages.public.server.v1.Chunk" +
+      "\022B\n\022messages_timeframe\030\010 \001(\0132&.chat.chat" +
+      "s.public.server.v1.Timeframe\"\030\n\tConditio" +
+      "n\022\013\n\003ids\030\001 \003(\t\"/\n\tTimeframe\022\020\n\010commence\030" +
+      "\001 \001(\003\022\020\n\010complete\030\002 \001(\003Bn\n$com.evemeta.z" +
+      "dk.pb.chat.server.chatsP\001ZDgitlab.com/ev" +
+      "emeta/zdk/pb/out/go/chat/chats/public/se" +
+      "rver/v1;chatspbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -116,39 +125,45 @@ public final class Entities {
     internal_static_chat_chats_public_server_v1_Chat_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_chat_chats_public_server_v1_Chat_descriptor,
-        new java.lang.String[] { "Id", "Kind", "Metadata", "CreateTime", "UpdateTime", });
+        new java.lang.String[] { "Id", "Kind", "Metadata", "Slowmode", "CreateTime", "UpdateTime", });
     internal_static_chat_chats_public_server_v1_Chat_MetadataEntry_descriptor =
       internal_static_chat_chats_public_server_v1_Chat_descriptor.getNestedTypes().get(0);
     internal_static_chat_chats_public_server_v1_Chat_MetadataEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_chat_chats_public_server_v1_Chat_MetadataEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_chat_chats_public_server_v1_Chunk_descriptor =
+    internal_static_chat_chats_public_server_v1_Slowmode_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_chat_chats_public_server_v1_Slowmode_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_chat_chats_public_server_v1_Slowmode_descriptor,
+        new java.lang.String[] { "Status", "Limit", "Window", });
+    internal_static_chat_chats_public_server_v1_Chunk_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_chat_chats_public_server_v1_Chunk_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_chat_chats_public_server_v1_Chunk_descriptor,
         new java.lang.String[] { "Size", "Index", "Total", "Entities", });
     internal_static_chat_chats_public_server_v1_Query_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_chat_chats_public_server_v1_Query_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_chat_chats_public_server_v1_Query_descriptor,
         new java.lang.String[] { "Order", "Limit", "Offset", "Condition", });
     internal_static_chat_chats_public_server_v1_Context_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_chat_chats_public_server_v1_Context_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_chat_chats_public_server_v1_Context_descriptor,
         new java.lang.String[] { "Chat", "ChatTimeframe", "Member", "MemberTimeframe", "Members", "MembersTimeframe", "Messages", "MessagesTimeframe", });
     internal_static_chat_chats_public_server_v1_Condition_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_chat_chats_public_server_v1_Condition_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_chat_chats_public_server_v1_Condition_descriptor,
         new java.lang.String[] { "Ids", });
     internal_static_chat_chats_public_server_v1_Timeframe_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_chat_chats_public_server_v1_Timeframe_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_chat_chats_public_server_v1_Timeframe_descriptor,

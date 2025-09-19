@@ -101,6 +101,46 @@ export interface UpdateChatPacket {
     timeframe?: Timeframe;
 }
 /**
+ * EnableSlowmodePacket is a notification sent to clients when slowmode has been enabled.
+ * It provides the identifier of the chat and the relevant timeframe associated with the event.
+ *
+ * @generated from protobuf message chat.chats.public.server.v1.EnableSlowmodePacket
+ */
+export interface EnableSlowmodePacket {
+    /**
+     * Represents the unique identifier of the chat.
+     *
+     * @generated from protobuf field: string id = 1;
+     */
+    id: string;
+    /**
+     * Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+     *
+     * @generated from protobuf field: chat.chats.public.server.v1.Timeframe timeframe = 2;
+     */
+    timeframe?: Timeframe;
+}
+/**
+ * DisableSlowmodePacket is a notification sent to clients when slowmode has been disabled.
+ * It provides the identifier of the chat and the relevant timeframe associated with the event.
+ *
+ * @generated from protobuf message chat.chats.public.server.v1.DisableSlowmodePacket
+ */
+export interface DisableSlowmodePacket {
+    /**
+     * Represents the unique identifier of the chat.
+     *
+     * @generated from protobuf field: string id = 1;
+     */
+    id: string;
+    /**
+     * Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+     *
+     * @generated from protobuf field: chat.chats.public.server.v1.Timeframe timeframe = 2;
+     */
+    timeframe?: Timeframe;
+}
+/**
  * DeleteChatPacket is a notification sent to clients when a chat has been deleted.
  * It provides the identifier of the chat and the relevant timeframe associated with the event.
  *
@@ -340,6 +380,114 @@ class UpdateChatPacket$Type extends MessageType<UpdateChatPacket> {
  * @generated MessageType for protobuf message chat.chats.public.server.v1.UpdateChatPacket
  */
 export const UpdateChatPacket = new UpdateChatPacket$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class EnableSlowmodePacket$Type extends MessageType<EnableSlowmodePacket> {
+    constructor() {
+        super("chat.chats.public.server.v1.EnableSlowmodePacket", [
+            { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "timeframe", kind: "message", T: () => Timeframe }
+        ]);
+    }
+    create(value?: PartialMessage<EnableSlowmodePacket>): EnableSlowmodePacket {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.id = "";
+        if (value !== undefined)
+            reflectionMergePartial<EnableSlowmodePacket>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: EnableSlowmodePacket): EnableSlowmodePacket {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string id */ 1:
+                    message.id = reader.string();
+                    break;
+                case /* chat.chats.public.server.v1.Timeframe timeframe */ 2:
+                    message.timeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.timeframe);
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: EnableSlowmodePacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string id = 1; */
+        if (message.id !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.id);
+        /* chat.chats.public.server.v1.Timeframe timeframe = 2; */
+        if (message.timeframe)
+            Timeframe.internalBinaryWrite(message.timeframe, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message chat.chats.public.server.v1.EnableSlowmodePacket
+ */
+export const EnableSlowmodePacket = new EnableSlowmodePacket$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class DisableSlowmodePacket$Type extends MessageType<DisableSlowmodePacket> {
+    constructor() {
+        super("chat.chats.public.server.v1.DisableSlowmodePacket", [
+            { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "timeframe", kind: "message", T: () => Timeframe }
+        ]);
+    }
+    create(value?: PartialMessage<DisableSlowmodePacket>): DisableSlowmodePacket {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.id = "";
+        if (value !== undefined)
+            reflectionMergePartial<DisableSlowmodePacket>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: DisableSlowmodePacket): DisableSlowmodePacket {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string id */ 1:
+                    message.id = reader.string();
+                    break;
+                case /* chat.chats.public.server.v1.Timeframe timeframe */ 2:
+                    message.timeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.timeframe);
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: DisableSlowmodePacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string id = 1; */
+        if (message.id !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.id);
+        /* chat.chats.public.server.v1.Timeframe timeframe = 2; */
+        if (message.timeframe)
+            Timeframe.internalBinaryWrite(message.timeframe, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message chat.chats.public.server.v1.DisableSlowmodePacket
+ */
+export const DisableSlowmodePacket = new DisableSlowmodePacket$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class DeleteChatPacket$Type extends MessageType<DeleteChatPacket> {
     constructor() {

@@ -33,10 +33,12 @@ type Chat struct {
 	Kind Kind `protobuf:"varint,2,opt,name=kind,proto3,enum=chat.chats.public.server.v1.Kind" json:"kind,omitempty"`
 	// Represents a collection of key-value pairs providing additional context or information about this chat.
 	Metadata map[string]string `protobuf:"bytes,3,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	// represents an enumeration that specifies whether numbers of messages user can send in specified window of time is limited
+	Slowmode *Slowmode `protobuf:"bytes,4,opt,name=slowmode,proto3" json:"slowmode,omitempty"`
 	// Represents the timestamp indicating when this chat was created.
-	CreateTime int64 `protobuf:"varint,4,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime int64 `protobuf:"varint,5,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Represents the timestamp of the last update associated with this chat.
-	UpdateTime    int64 `protobuf:"varint,5,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	UpdateTime    int64 `protobuf:"varint,6,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -92,6 +94,13 @@ func (x *Chat) GetMetadata() map[string]string {
 	return nil
 }
 
+func (x *Chat) GetSlowmode() *Slowmode {
+	if x != nil {
+		return x.Slowmode
+	}
+	return nil
+}
+
 func (x *Chat) GetCreateTime() int64 {
 	if x != nil {
 		return x.CreateTime
@@ -102,6 +111,67 @@ func (x *Chat) GetCreateTime() int64 {
 func (x *Chat) GetUpdateTime() int64 {
 	if x != nil {
 		return x.UpdateTime
+	}
+	return 0
+}
+
+// Slowmode todo;
+type Slowmode struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Status        SlowmodeStatus         `protobuf:"varint,1,opt,name=status,proto3,enum=chat.chats.public.server.v1.SlowmodeStatus" json:"status,omitempty"`
+	Limit         int64                  `protobuf:"varint,2,opt,name=limit,proto3" json:"limit,omitempty"`
+	Window        int64                  `protobuf:"varint,3,opt,name=window,proto3" json:"window,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Slowmode) Reset() {
+	*x = Slowmode{}
+	mi := &file_chat_chats_public_server_v1_entities_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Slowmode) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Slowmode) ProtoMessage() {}
+
+func (x *Slowmode) ProtoReflect() protoreflect.Message {
+	mi := &file_chat_chats_public_server_v1_entities_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Slowmode.ProtoReflect.Descriptor instead.
+func (*Slowmode) Descriptor() ([]byte, []int) {
+	return file_chat_chats_public_server_v1_entities_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *Slowmode) GetStatus() SlowmodeStatus {
+	if x != nil {
+		return x.Status
+	}
+	return SlowmodeStatusUnknown
+}
+
+func (x *Slowmode) GetLimit() int64 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
+func (x *Slowmode) GetWindow() int64 {
+	if x != nil {
+		return x.Window
 	}
 	return 0
 }
@@ -124,7 +194,7 @@ type Chunk struct {
 
 func (x *Chunk) Reset() {
 	*x = Chunk{}
-	mi := &file_chat_chats_public_server_v1_entities_proto_msgTypes[1]
+	mi := &file_chat_chats_public_server_v1_entities_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -136,7 +206,7 @@ func (x *Chunk) String() string {
 func (*Chunk) ProtoMessage() {}
 
 func (x *Chunk) ProtoReflect() protoreflect.Message {
-	mi := &file_chat_chats_public_server_v1_entities_proto_msgTypes[1]
+	mi := &file_chat_chats_public_server_v1_entities_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -149,7 +219,7 @@ func (x *Chunk) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Chunk.ProtoReflect.Descriptor instead.
 func (*Chunk) Descriptor() ([]byte, []int) {
-	return file_chat_chats_public_server_v1_entities_proto_rawDescGZIP(), []int{1}
+	return file_chat_chats_public_server_v1_entities_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *Chunk) GetSize() int64 {
@@ -198,7 +268,7 @@ type Query struct {
 
 func (x *Query) Reset() {
 	*x = Query{}
-	mi := &file_chat_chats_public_server_v1_entities_proto_msgTypes[2]
+	mi := &file_chat_chats_public_server_v1_entities_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -210,7 +280,7 @@ func (x *Query) String() string {
 func (*Query) ProtoMessage() {}
 
 func (x *Query) ProtoReflect() protoreflect.Message {
-	mi := &file_chat_chats_public_server_v1_entities_proto_msgTypes[2]
+	mi := &file_chat_chats_public_server_v1_entities_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -223,7 +293,7 @@ func (x *Query) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Query.ProtoReflect.Descriptor instead.
 func (*Query) Descriptor() ([]byte, []int) {
-	return file_chat_chats_public_server_v1_entities_proto_rawDescGZIP(), []int{2}
+	return file_chat_chats_public_server_v1_entities_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *Query) GetOrder() Order {
@@ -280,7 +350,7 @@ type Context struct {
 
 func (x *Context) Reset() {
 	*x = Context{}
-	mi := &file_chat_chats_public_server_v1_entities_proto_msgTypes[3]
+	mi := &file_chat_chats_public_server_v1_entities_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -292,7 +362,7 @@ func (x *Context) String() string {
 func (*Context) ProtoMessage() {}
 
 func (x *Context) ProtoReflect() protoreflect.Message {
-	mi := &file_chat_chats_public_server_v1_entities_proto_msgTypes[3]
+	mi := &file_chat_chats_public_server_v1_entities_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -305,7 +375,7 @@ func (x *Context) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Context.ProtoReflect.Descriptor instead.
 func (*Context) Descriptor() ([]byte, []int) {
-	return file_chat_chats_public_server_v1_entities_proto_rawDescGZIP(), []int{3}
+	return file_chat_chats_public_server_v1_entities_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *Context) GetChat() *Chat {
@@ -376,7 +446,7 @@ type Condition struct {
 
 func (x *Condition) Reset() {
 	*x = Condition{}
-	mi := &file_chat_chats_public_server_v1_entities_proto_msgTypes[4]
+	mi := &file_chat_chats_public_server_v1_entities_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -388,7 +458,7 @@ func (x *Condition) String() string {
 func (*Condition) ProtoMessage() {}
 
 func (x *Condition) ProtoReflect() protoreflect.Message {
-	mi := &file_chat_chats_public_server_v1_entities_proto_msgTypes[4]
+	mi := &file_chat_chats_public_server_v1_entities_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -401,7 +471,7 @@ func (x *Condition) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Condition.ProtoReflect.Descriptor instead.
 func (*Condition) Descriptor() ([]byte, []int) {
-	return file_chat_chats_public_server_v1_entities_proto_rawDescGZIP(), []int{4}
+	return file_chat_chats_public_server_v1_entities_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *Condition) GetIds() []string {
@@ -425,7 +495,7 @@ type Timeframe struct {
 
 func (x *Timeframe) Reset() {
 	*x = Timeframe{}
-	mi := &file_chat_chats_public_server_v1_entities_proto_msgTypes[5]
+	mi := &file_chat_chats_public_server_v1_entities_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -437,7 +507,7 @@ func (x *Timeframe) String() string {
 func (*Timeframe) ProtoMessage() {}
 
 func (x *Timeframe) ProtoReflect() protoreflect.Message {
-	mi := &file_chat_chats_public_server_v1_entities_proto_msgTypes[5]
+	mi := &file_chat_chats_public_server_v1_entities_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -450,7 +520,7 @@ func (x *Timeframe) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Timeframe.ProtoReflect.Descriptor instead.
 func (*Timeframe) Descriptor() ([]byte, []int) {
-	return file_chat_chats_public_server_v1_entities_proto_rawDescGZIP(), []int{5}
+	return file_chat_chats_public_server_v1_entities_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *Timeframe) GetCommence() int64 {
@@ -471,18 +541,23 @@ var File_chat_chats_public_server_v1_entities_proto protoreflect.FileDescriptor
 
 const file_chat_chats_public_server_v1_entities_proto_rawDesc = "" +
 	"\n" +
-	"*chat/chats/public/server/v1/entities.proto\x12\x1bchat.chats.public.server.v1\x1a'chat/chats/public/server/v1/enums.proto\x1a,chat/members/public/server/v1/entities.proto\x1a-chat/messages/public/server/v1/entities.proto\"\x99\x02\n" +
+	"*chat/chats/public/server/v1/entities.proto\x12\x1bchat.chats.public.server.v1\x1a'chat/chats/public/server/v1/enums.proto\x1a,chat/members/public/server/v1/entities.proto\x1a-chat/messages/public/server/v1/entities.proto\"\xdc\x02\n" +
 	"\x04Chat\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x125\n" +
 	"\x04kind\x18\x02 \x01(\x0e2!.chat.chats.public.server.v1.KindR\x04kind\x12K\n" +
-	"\bmetadata\x18\x03 \x03(\v2/.chat.chats.public.server.v1.Chat.MetadataEntryR\bmetadata\x12\x1f\n" +
-	"\vcreate_time\x18\x04 \x01(\x03R\n" +
+	"\bmetadata\x18\x03 \x03(\v2/.chat.chats.public.server.v1.Chat.MetadataEntryR\bmetadata\x12A\n" +
+	"\bslowmode\x18\x04 \x01(\v2%.chat.chats.public.server.v1.SlowmodeR\bslowmode\x12\x1f\n" +
+	"\vcreate_time\x18\x05 \x01(\x03R\n" +
 	"createTime\x12\x1f\n" +
-	"\vupdate_time\x18\x05 \x01(\x03R\n" +
+	"\vupdate_time\x18\x06 \x01(\x03R\n" +
 	"updateTime\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\x86\x01\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"}\n" +
+	"\bSlowmode\x12C\n" +
+	"\x06status\x18\x01 \x01(\x0e2+.chat.chats.public.server.v1.SlowmodeStatusR\x06status\x12\x14\n" +
+	"\x05limit\x18\x02 \x01(\x03R\x05limit\x12\x16\n" +
+	"\x06window\x18\x03 \x01(\x03R\x06window\"\x86\x01\n" +
 	"\x05Chunk\x12\x12\n" +
 	"\x04size\x18\x01 \x01(\x03R\x04size\x12\x14\n" +
 	"\x05index\x18\x02 \x01(\x03R\x05index\x12\x14\n" +
@@ -521,38 +596,42 @@ func file_chat_chats_public_server_v1_entities_proto_rawDescGZIP() []byte {
 	return file_chat_chats_public_server_v1_entities_proto_rawDescData
 }
 
-var file_chat_chats_public_server_v1_entities_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_chat_chats_public_server_v1_entities_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_chat_chats_public_server_v1_entities_proto_goTypes = []any{
-	(*Chat)(nil),      // 0: chat.chats.public.server.v1.Chat
-	(*Chunk)(nil),     // 1: chat.chats.public.server.v1.Chunk
-	(*Query)(nil),     // 2: chat.chats.public.server.v1.Query
-	(*Context)(nil),   // 3: chat.chats.public.server.v1.Context
-	(*Condition)(nil), // 4: chat.chats.public.server.v1.Condition
-	(*Timeframe)(nil), // 5: chat.chats.public.server.v1.Timeframe
-	nil,               // 6: chat.chats.public.server.v1.Chat.MetadataEntry
-	(Kind)(0),         // 7: chat.chats.public.server.v1.Kind
-	(Order)(0),        // 8: chat.chats.public.server.v1.Order
-	(*v1.Member)(nil), // 9: chat.members.public.server.v1.Member
-	(*v11.Chunk)(nil), // 10: chat.messages.public.server.v1.Chunk
+	(*Chat)(nil),        // 0: chat.chats.public.server.v1.Chat
+	(*Slowmode)(nil),    // 1: chat.chats.public.server.v1.Slowmode
+	(*Chunk)(nil),       // 2: chat.chats.public.server.v1.Chunk
+	(*Query)(nil),       // 3: chat.chats.public.server.v1.Query
+	(*Context)(nil),     // 4: chat.chats.public.server.v1.Context
+	(*Condition)(nil),   // 5: chat.chats.public.server.v1.Condition
+	(*Timeframe)(nil),   // 6: chat.chats.public.server.v1.Timeframe
+	nil,                 // 7: chat.chats.public.server.v1.Chat.MetadataEntry
+	(Kind)(0),           // 8: chat.chats.public.server.v1.Kind
+	(SlowmodeStatus)(0), // 9: chat.chats.public.server.v1.SlowmodeStatus
+	(Order)(0),          // 10: chat.chats.public.server.v1.Order
+	(*v1.Member)(nil),   // 11: chat.members.public.server.v1.Member
+	(*v11.Chunk)(nil),   // 12: chat.messages.public.server.v1.Chunk
 }
 var file_chat_chats_public_server_v1_entities_proto_depIdxs = []int32{
-	7,  // 0: chat.chats.public.server.v1.Chat.kind:type_name -> chat.chats.public.server.v1.Kind
-	6,  // 1: chat.chats.public.server.v1.Chat.metadata:type_name -> chat.chats.public.server.v1.Chat.MetadataEntry
-	0,  // 2: chat.chats.public.server.v1.Chunk.entities:type_name -> chat.chats.public.server.v1.Chat
-	8,  // 3: chat.chats.public.server.v1.Query.order:type_name -> chat.chats.public.server.v1.Order
-	4,  // 4: chat.chats.public.server.v1.Query.condition:type_name -> chat.chats.public.server.v1.Condition
-	0,  // 5: chat.chats.public.server.v1.Context.chat:type_name -> chat.chats.public.server.v1.Chat
-	5,  // 6: chat.chats.public.server.v1.Context.chat_timeframe:type_name -> chat.chats.public.server.v1.Timeframe
-	9,  // 7: chat.chats.public.server.v1.Context.member:type_name -> chat.members.public.server.v1.Member
-	5,  // 8: chat.chats.public.server.v1.Context.member_timeframe:type_name -> chat.chats.public.server.v1.Timeframe
-	5,  // 9: chat.chats.public.server.v1.Context.members_timeframe:type_name -> chat.chats.public.server.v1.Timeframe
-	10, // 10: chat.chats.public.server.v1.Context.messages:type_name -> chat.messages.public.server.v1.Chunk
-	5,  // 11: chat.chats.public.server.v1.Context.messages_timeframe:type_name -> chat.chats.public.server.v1.Timeframe
-	12, // [12:12] is the sub-list for method output_type
-	12, // [12:12] is the sub-list for method input_type
-	12, // [12:12] is the sub-list for extension type_name
-	12, // [12:12] is the sub-list for extension extendee
-	0,  // [0:12] is the sub-list for field type_name
+	8,  // 0: chat.chats.public.server.v1.Chat.kind:type_name -> chat.chats.public.server.v1.Kind
+	7,  // 1: chat.chats.public.server.v1.Chat.metadata:type_name -> chat.chats.public.server.v1.Chat.MetadataEntry
+	1,  // 2: chat.chats.public.server.v1.Chat.slowmode:type_name -> chat.chats.public.server.v1.Slowmode
+	9,  // 3: chat.chats.public.server.v1.Slowmode.status:type_name -> chat.chats.public.server.v1.SlowmodeStatus
+	0,  // 4: chat.chats.public.server.v1.Chunk.entities:type_name -> chat.chats.public.server.v1.Chat
+	10, // 5: chat.chats.public.server.v1.Query.order:type_name -> chat.chats.public.server.v1.Order
+	5,  // 6: chat.chats.public.server.v1.Query.condition:type_name -> chat.chats.public.server.v1.Condition
+	0,  // 7: chat.chats.public.server.v1.Context.chat:type_name -> chat.chats.public.server.v1.Chat
+	6,  // 8: chat.chats.public.server.v1.Context.chat_timeframe:type_name -> chat.chats.public.server.v1.Timeframe
+	11, // 9: chat.chats.public.server.v1.Context.member:type_name -> chat.members.public.server.v1.Member
+	6,  // 10: chat.chats.public.server.v1.Context.member_timeframe:type_name -> chat.chats.public.server.v1.Timeframe
+	6,  // 11: chat.chats.public.server.v1.Context.members_timeframe:type_name -> chat.chats.public.server.v1.Timeframe
+	12, // 12: chat.chats.public.server.v1.Context.messages:type_name -> chat.messages.public.server.v1.Chunk
+	6,  // 13: chat.chats.public.server.v1.Context.messages_timeframe:type_name -> chat.chats.public.server.v1.Timeframe
+	14, // [14:14] is the sub-list for method output_type
+	14, // [14:14] is the sub-list for method input_type
+	14, // [14:14] is the sub-list for extension type_name
+	14, // [14:14] is the sub-list for extension extendee
+	0,  // [0:14] is the sub-list for field type_name
 }
 
 func init() { file_chat_chats_public_server_v1_entities_proto_init() }
@@ -567,7 +646,7 @@ func file_chat_chats_public_server_v1_entities_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_chat_chats_public_server_v1_entities_proto_rawDesc), len(file_chat_chats_public_server_v1_entities_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

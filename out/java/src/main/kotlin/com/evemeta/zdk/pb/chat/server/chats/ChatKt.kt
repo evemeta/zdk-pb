@@ -177,10 +177,49 @@ public object ChatKt {
 
     /**
      * ```
+     * represents an enumeration that specifies whether numbers of messages user can send in specified window of time is limited
+     * ```
+     *
+     * `.chat.chats.public.server.v1.Slowmode slowmode = 4;`
+     */
+    public var slowmode: com.evemeta.zdk.pb.chat.server.chats.Slowmode
+      @JvmName("getSlowmode")
+      get() = _builder.slowmode
+      @JvmName("setSlowmode")
+      set(value) {
+        _builder.slowmode = value
+      }
+    /**
+     * ```
+     * represents an enumeration that specifies whether numbers of messages user can send in specified window of time is limited
+     * ```
+     *
+     * `.chat.chats.public.server.v1.Slowmode slowmode = 4;`
+     */
+    public fun clearSlowmode() {
+      _builder.clearSlowmode()
+    }
+    /**
+     * ```
+     * represents an enumeration that specifies whether numbers of messages user can send in specified window of time is limited
+     * ```
+     *
+     * `.chat.chats.public.server.v1.Slowmode slowmode = 4;`
+     * @return Whether the slowmode field is set.
+     */
+    public fun hasSlowmode(): kotlin.Boolean {
+      return _builder.hasSlowmode()
+    }
+
+    public val ChatKt.Dsl.slowmodeOrNull: com.evemeta.zdk.pb.chat.server.chats.Slowmode?
+      get() = _builder.slowmodeOrNull
+
+    /**
+     * ```
      * Represents the timestamp indicating when this chat was created.
      * ```
      *
-     * `int64 create_time = 4;`
+     * `int64 create_time = 5;`
      */
     public var createTime: kotlin.Long
       @JvmName("getCreateTime")
@@ -194,7 +233,7 @@ public object ChatKt {
      * Represents the timestamp indicating when this chat was created.
      * ```
      *
-     * `int64 create_time = 4;`
+     * `int64 create_time = 5;`
      */
     public fun clearCreateTime() {
       _builder.clearCreateTime()
@@ -205,7 +244,7 @@ public object ChatKt {
      * Represents the timestamp of the last update associated with this chat.
      * ```
      *
-     * `int64 update_time = 5;`
+     * `int64 update_time = 6;`
      */
     public var updateTime: kotlin.Long
       @JvmName("getUpdateTime")
@@ -219,7 +258,7 @@ public object ChatKt {
      * Represents the timestamp of the last update associated with this chat.
      * ```
      *
-     * `int64 update_time = 5;`
+     * `int64 update_time = 6;`
      */
     public fun clearUpdateTime() {
       _builder.clearUpdateTime()
@@ -229,4 +268,7 @@ public object ChatKt {
 @kotlin.jvm.JvmSynthetic
 public inline fun com.evemeta.zdk.pb.chat.server.chats.Chat.copy(block: `com.evemeta.zdk.pb.chat.server.chats`.ChatKt.Dsl.() -> kotlin.Unit): com.evemeta.zdk.pb.chat.server.chats.Chat =
   `com.evemeta.zdk.pb.chat.server.chats`.ChatKt.Dsl._create(this.toBuilder()).apply { block() }._build()
+
+public val com.evemeta.zdk.pb.chat.server.chats.ChatOrBuilder.slowmodeOrNull: com.evemeta.zdk.pb.chat.server.chats.Slowmode?
+  get() = if (hasSlowmode()) getSlowmode() else null
 

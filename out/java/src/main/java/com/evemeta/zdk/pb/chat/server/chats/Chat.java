@@ -61,6 +61,7 @@ private static final long serialVersionUID = 0L;
             com.evemeta.zdk.pb.chat.server.chats.Chat.class, com.evemeta.zdk.pb.chat.server.chats.Chat.Builder.class);
   }
 
+  private int bitField0_;
   public static final int ID_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
   private volatile java.lang.Object id_ = "";
@@ -229,14 +230,52 @@ java.lang.String defaultValue) {
     return map.get(key);
   }
 
-  public static final int CREATE_TIME_FIELD_NUMBER = 4;
+  public static final int SLOWMODE_FIELD_NUMBER = 4;
+  private com.evemeta.zdk.pb.chat.server.chats.Slowmode slowmode_;
+  /**
+   * <pre>
+   * represents an enumeration that specifies whether numbers of messages user can send in specified window of time is limited
+   * </pre>
+   *
+   * <code>.chat.chats.public.server.v1.Slowmode slowmode = 4;</code>
+   * @return Whether the slowmode field is set.
+   */
+  @java.lang.Override
+  public boolean hasSlowmode() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <pre>
+   * represents an enumeration that specifies whether numbers of messages user can send in specified window of time is limited
+   * </pre>
+   *
+   * <code>.chat.chats.public.server.v1.Slowmode slowmode = 4;</code>
+   * @return The slowmode.
+   */
+  @java.lang.Override
+  public com.evemeta.zdk.pb.chat.server.chats.Slowmode getSlowmode() {
+    return slowmode_ == null ? com.evemeta.zdk.pb.chat.server.chats.Slowmode.getDefaultInstance() : slowmode_;
+  }
+  /**
+   * <pre>
+   * represents an enumeration that specifies whether numbers of messages user can send in specified window of time is limited
+   * </pre>
+   *
+   * <code>.chat.chats.public.server.v1.Slowmode slowmode = 4;</code>
+   */
+  @java.lang.Override
+  public com.evemeta.zdk.pb.chat.server.chats.SlowmodeOrBuilder getSlowmodeOrBuilder() {
+    return slowmode_ == null ? com.evemeta.zdk.pb.chat.server.chats.Slowmode.getDefaultInstance() : slowmode_;
+  }
+
+  public static final int CREATE_TIME_FIELD_NUMBER = 5;
   private long createTime_ = 0L;
   /**
    * <pre>
    * Represents the timestamp indicating when this chat was created.
    * </pre>
    *
-   * <code>int64 create_time = 4;</code>
+   * <code>int64 create_time = 5;</code>
    * @return The createTime.
    */
   @java.lang.Override
@@ -244,14 +283,14 @@ java.lang.String defaultValue) {
     return createTime_;
   }
 
-  public static final int UPDATE_TIME_FIELD_NUMBER = 5;
+  public static final int UPDATE_TIME_FIELD_NUMBER = 6;
   private long updateTime_ = 0L;
   /**
    * <pre>
    * Represents the timestamp of the last update associated with this chat.
    * </pre>
    *
-   * <code>int64 update_time = 5;</code>
+   * <code>int64 update_time = 6;</code>
    * @return The updateTime.
    */
   @java.lang.Override
@@ -285,11 +324,14 @@ java.lang.String defaultValue) {
         internalGetMetadata(),
         MetadataDefaultEntryHolder.defaultEntry,
         3);
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeMessage(4, getSlowmode());
+    }
     if (createTime_ != 0L) {
-      output.writeInt64(4, createTime_);
+      output.writeInt64(5, createTime_);
     }
     if (updateTime_ != 0L) {
-      output.writeInt64(5, updateTime_);
+      output.writeInt64(6, updateTime_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -317,13 +359,17 @@ java.lang.String defaultValue) {
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, metadata__);
     }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, getSlowmode());
+    }
     if (createTime_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(4, createTime_);
+        .computeInt64Size(5, createTime_);
     }
     if (updateTime_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(5, updateTime_);
+        .computeInt64Size(6, updateTime_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -345,6 +391,11 @@ java.lang.String defaultValue) {
     if (kind_ != other.kind_) return false;
     if (!internalGetMetadata().equals(
         other.internalGetMetadata())) return false;
+    if (hasSlowmode() != other.hasSlowmode()) return false;
+    if (hasSlowmode()) {
+      if (!getSlowmode()
+          .equals(other.getSlowmode())) return false;
+    }
     if (getCreateTime()
         != other.getCreateTime()) return false;
     if (getUpdateTime()
@@ -367,6 +418,10 @@ java.lang.String defaultValue) {
     if (!internalGetMetadata().getMap().isEmpty()) {
       hash = (37 * hash) + METADATA_FIELD_NUMBER;
       hash = (53 * hash) + internalGetMetadata().hashCode();
+    }
+    if (hasSlowmode()) {
+      hash = (37 * hash) + SLOWMODE_FIELD_NUMBER;
+      hash = (53 * hash) + getSlowmode().hashCode();
     }
     hash = (37 * hash) + CREATE_TIME_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -520,13 +575,19 @@ java.lang.String defaultValue) {
 
     // Construct using com.evemeta.zdk.pb.chat.server.chats.Chat.newBuilder()
     private Builder() {
-
+      maybeForceBuilderInitialization();
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+      maybeForceBuilderInitialization();
+    }
+    private void maybeForceBuilderInitialization() {
+      if (com.google.protobuf.GeneratedMessage
+              .alwaysUseFieldBuilders) {
+        getSlowmodeFieldBuilder();
+      }
     }
     @java.lang.Override
     public Builder clear() {
@@ -535,6 +596,11 @@ java.lang.String defaultValue) {
       id_ = "";
       kind_ = 0;
       internalGetMutableMetadata().clear();
+      slowmode_ = null;
+      if (slowmodeBuilder_ != null) {
+        slowmodeBuilder_.dispose();
+        slowmodeBuilder_ = null;
+      }
       createTime_ = 0L;
       updateTime_ = 0L;
       return this;
@@ -580,12 +646,20 @@ java.lang.String defaultValue) {
         result.metadata_ = internalGetMetadata();
         result.metadata_.makeImmutable();
       }
+      int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.createTime_ = createTime_;
+        result.slowmode_ = slowmodeBuilder_ == null
+            ? slowmode_
+            : slowmodeBuilder_.build();
+        to_bitField0_ |= 0x00000001;
       }
       if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.createTime_ = createTime_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
         result.updateTime_ = updateTime_;
       }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -611,6 +685,9 @@ java.lang.String defaultValue) {
       internalGetMutableMetadata().mergeFrom(
           other.internalGetMetadata());
       bitField0_ |= 0x00000004;
+      if (other.hasSlowmode()) {
+        mergeSlowmode(other.getSlowmode());
+      }
       if (other.getCreateTime() != 0L) {
         setCreateTime(other.getCreateTime());
       }
@@ -662,16 +739,23 @@ java.lang.String defaultValue) {
               bitField0_ |= 0x00000004;
               break;
             } // case 26
-            case 32: {
-              createTime_ = input.readInt64();
+            case 34: {
+              input.readMessage(
+                  getSlowmodeFieldBuilder().getBuilder(),
+                  extensionRegistry);
               bitField0_ |= 0x00000008;
               break;
-            } // case 32
+            } // case 34
             case 40: {
-              updateTime_ = input.readInt64();
+              createTime_ = input.readInt64();
               bitField0_ |= 0x00000010;
               break;
             } // case 40
+            case 48: {
+              updateTime_ = input.readInt64();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1009,13 +1093,170 @@ java.lang.String defaultValue) {
       return this;
     }
 
+    private com.evemeta.zdk.pb.chat.server.chats.Slowmode slowmode_;
+    private com.google.protobuf.SingleFieldBuilder<
+        com.evemeta.zdk.pb.chat.server.chats.Slowmode, com.evemeta.zdk.pb.chat.server.chats.Slowmode.Builder, com.evemeta.zdk.pb.chat.server.chats.SlowmodeOrBuilder> slowmodeBuilder_;
+    /**
+     * <pre>
+     * represents an enumeration that specifies whether numbers of messages user can send in specified window of time is limited
+     * </pre>
+     *
+     * <code>.chat.chats.public.server.v1.Slowmode slowmode = 4;</code>
+     * @return Whether the slowmode field is set.
+     */
+    public boolean hasSlowmode() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <pre>
+     * represents an enumeration that specifies whether numbers of messages user can send in specified window of time is limited
+     * </pre>
+     *
+     * <code>.chat.chats.public.server.v1.Slowmode slowmode = 4;</code>
+     * @return The slowmode.
+     */
+    public com.evemeta.zdk.pb.chat.server.chats.Slowmode getSlowmode() {
+      if (slowmodeBuilder_ == null) {
+        return slowmode_ == null ? com.evemeta.zdk.pb.chat.server.chats.Slowmode.getDefaultInstance() : slowmode_;
+      } else {
+        return slowmodeBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * represents an enumeration that specifies whether numbers of messages user can send in specified window of time is limited
+     * </pre>
+     *
+     * <code>.chat.chats.public.server.v1.Slowmode slowmode = 4;</code>
+     */
+    public Builder setSlowmode(com.evemeta.zdk.pb.chat.server.chats.Slowmode value) {
+      if (slowmodeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        slowmode_ = value;
+      } else {
+        slowmodeBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * represents an enumeration that specifies whether numbers of messages user can send in specified window of time is limited
+     * </pre>
+     *
+     * <code>.chat.chats.public.server.v1.Slowmode slowmode = 4;</code>
+     */
+    public Builder setSlowmode(
+        com.evemeta.zdk.pb.chat.server.chats.Slowmode.Builder builderForValue) {
+      if (slowmodeBuilder_ == null) {
+        slowmode_ = builderForValue.build();
+      } else {
+        slowmodeBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * represents an enumeration that specifies whether numbers of messages user can send in specified window of time is limited
+     * </pre>
+     *
+     * <code>.chat.chats.public.server.v1.Slowmode slowmode = 4;</code>
+     */
+    public Builder mergeSlowmode(com.evemeta.zdk.pb.chat.server.chats.Slowmode value) {
+      if (slowmodeBuilder_ == null) {
+        if (((bitField0_ & 0x00000008) != 0) &&
+          slowmode_ != null &&
+          slowmode_ != com.evemeta.zdk.pb.chat.server.chats.Slowmode.getDefaultInstance()) {
+          getSlowmodeBuilder().mergeFrom(value);
+        } else {
+          slowmode_ = value;
+        }
+      } else {
+        slowmodeBuilder_.mergeFrom(value);
+      }
+      if (slowmode_ != null) {
+        bitField0_ |= 0x00000008;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * represents an enumeration that specifies whether numbers of messages user can send in specified window of time is limited
+     * </pre>
+     *
+     * <code>.chat.chats.public.server.v1.Slowmode slowmode = 4;</code>
+     */
+    public Builder clearSlowmode() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      slowmode_ = null;
+      if (slowmodeBuilder_ != null) {
+        slowmodeBuilder_.dispose();
+        slowmodeBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * represents an enumeration that specifies whether numbers of messages user can send in specified window of time is limited
+     * </pre>
+     *
+     * <code>.chat.chats.public.server.v1.Slowmode slowmode = 4;</code>
+     */
+    public com.evemeta.zdk.pb.chat.server.chats.Slowmode.Builder getSlowmodeBuilder() {
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return getSlowmodeFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * represents an enumeration that specifies whether numbers of messages user can send in specified window of time is limited
+     * </pre>
+     *
+     * <code>.chat.chats.public.server.v1.Slowmode slowmode = 4;</code>
+     */
+    public com.evemeta.zdk.pb.chat.server.chats.SlowmodeOrBuilder getSlowmodeOrBuilder() {
+      if (slowmodeBuilder_ != null) {
+        return slowmodeBuilder_.getMessageOrBuilder();
+      } else {
+        return slowmode_ == null ?
+            com.evemeta.zdk.pb.chat.server.chats.Slowmode.getDefaultInstance() : slowmode_;
+      }
+    }
+    /**
+     * <pre>
+     * represents an enumeration that specifies whether numbers of messages user can send in specified window of time is limited
+     * </pre>
+     *
+     * <code>.chat.chats.public.server.v1.Slowmode slowmode = 4;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.evemeta.zdk.pb.chat.server.chats.Slowmode, com.evemeta.zdk.pb.chat.server.chats.Slowmode.Builder, com.evemeta.zdk.pb.chat.server.chats.SlowmodeOrBuilder> 
+        getSlowmodeFieldBuilder() {
+      if (slowmodeBuilder_ == null) {
+        slowmodeBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.evemeta.zdk.pb.chat.server.chats.Slowmode, com.evemeta.zdk.pb.chat.server.chats.Slowmode.Builder, com.evemeta.zdk.pb.chat.server.chats.SlowmodeOrBuilder>(
+                getSlowmode(),
+                getParentForChildren(),
+                isClean());
+        slowmode_ = null;
+      }
+      return slowmodeBuilder_;
+    }
+
     private long createTime_ ;
     /**
      * <pre>
      * Represents the timestamp indicating when this chat was created.
      * </pre>
      *
-     * <code>int64 create_time = 4;</code>
+     * <code>int64 create_time = 5;</code>
      * @return The createTime.
      */
     @java.lang.Override
@@ -1027,14 +1268,14 @@ java.lang.String defaultValue) {
      * Represents the timestamp indicating when this chat was created.
      * </pre>
      *
-     * <code>int64 create_time = 4;</code>
+     * <code>int64 create_time = 5;</code>
      * @param value The createTime to set.
      * @return This builder for chaining.
      */
     public Builder setCreateTime(long value) {
 
       createTime_ = value;
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1043,11 +1284,11 @@ java.lang.String defaultValue) {
      * Represents the timestamp indicating when this chat was created.
      * </pre>
      *
-     * <code>int64 create_time = 4;</code>
+     * <code>int64 create_time = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearCreateTime() {
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000010);
       createTime_ = 0L;
       onChanged();
       return this;
@@ -1059,7 +1300,7 @@ java.lang.String defaultValue) {
      * Represents the timestamp of the last update associated with this chat.
      * </pre>
      *
-     * <code>int64 update_time = 5;</code>
+     * <code>int64 update_time = 6;</code>
      * @return The updateTime.
      */
     @java.lang.Override
@@ -1071,14 +1312,14 @@ java.lang.String defaultValue) {
      * Represents the timestamp of the last update associated with this chat.
      * </pre>
      *
-     * <code>int64 update_time = 5;</code>
+     * <code>int64 update_time = 6;</code>
      * @param value The updateTime to set.
      * @return This builder for chaining.
      */
     public Builder setUpdateTime(long value) {
 
       updateTime_ = value;
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1087,11 +1328,11 @@ java.lang.String defaultValue) {
      * Represents the timestamp of the last update associated with this chat.
      * </pre>
      *
-     * <code>int64 update_time = 5;</code>
+     * <code>int64 update_time = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearUpdateTime() {
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000020);
       updateTime_ = 0L;
       onChanged();
       return this;

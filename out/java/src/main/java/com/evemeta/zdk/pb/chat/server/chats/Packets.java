@@ -46,6 +46,16 @@ public final class Packets {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_chat_chats_public_server_v1_UpdateChatPacket_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_chat_chats_public_server_v1_EnableSlowmodePacket_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_chat_chats_public_server_v1_EnableSlowmodePacket_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_chat_chats_public_server_v1_DisableSlowmodePacket_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_chat_chats_public_server_v1_DisableSlowmodePacket_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_chat_chats_public_server_v1_DeleteChatPacket_descriptor;
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -78,12 +88,17 @@ public final class Packets {
       "metadata\030\002 \001(\0132(.chat.chats.public.serve" +
       "r.v1.OptionalMapH\000\210\001\001\0229\n\ttimeframe\030\003 \001(\013" +
       "2&.chat.chats.public.server.v1.Timeframe" +
-      "B\013\n\t_metadata\"Y\n\020DeleteChatPacket\022\n\n\002id\030" +
-      "\001 \001(\t\0229\n\ttimeframe\030\002 \001(\0132&.chat.chats.pu" +
-      "blic.server.v1.TimeframeBn\n$com.evemeta." +
-      "zdk.pb.chat.server.chatsP\001ZDgitlab.com/e" +
-      "vemeta/zdk/pb/out/go/chat/chats/public/s" +
-      "erver/v1;chatspbb\006proto3"
+      "B\013\n\t_metadata\"]\n\024EnableSlowmodePacket\022\n\n" +
+      "\002id\030\001 \001(\t\0229\n\ttimeframe\030\002 \001(\0132&.chat.chat" +
+      "s.public.server.v1.Timeframe\"^\n\025DisableS" +
+      "lowmodePacket\022\n\n\002id\030\001 \001(\t\0229\n\ttimeframe\030\002" +
+      " \001(\0132&.chat.chats.public.server.v1.Timef" +
+      "rame\"Y\n\020DeleteChatPacket\022\n\n\002id\030\001 \001(\t\0229\n\t" +
+      "timeframe\030\002 \001(\0132&.chat.chats.public.serv" +
+      "er.v1.TimeframeBn\n$com.evemeta.zdk.pb.ch" +
+      "at.server.chatsP\001ZDgitlab.com/evemeta/zd" +
+      "k/pb/out/go/chat/chats/public/server/v1;" +
+      "chatspbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -116,8 +131,20 @@ public final class Packets {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_chat_chats_public_server_v1_UpdateChatPacket_descriptor,
         new java.lang.String[] { "Id", "Metadata", "Timeframe", });
-    internal_static_chat_chats_public_server_v1_DeleteChatPacket_descriptor =
+    internal_static_chat_chats_public_server_v1_EnableSlowmodePacket_descriptor =
       getDescriptor().getMessageTypes().get(4);
+    internal_static_chat_chats_public_server_v1_EnableSlowmodePacket_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_chat_chats_public_server_v1_EnableSlowmodePacket_descriptor,
+        new java.lang.String[] { "Id", "Timeframe", });
+    internal_static_chat_chats_public_server_v1_DisableSlowmodePacket_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_chat_chats_public_server_v1_DisableSlowmodePacket_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_chat_chats_public_server_v1_DisableSlowmodePacket_descriptor,
+        new java.lang.String[] { "Id", "Timeframe", });
+    internal_static_chat_chats_public_server_v1_DeleteChatPacket_descriptor =
+      getDescriptor().getMessageTypes().get(6);
     internal_static_chat_chats_public_server_v1_DeleteChatPacket_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_chat_chats_public_server_v1_DeleteChatPacket_descriptor,

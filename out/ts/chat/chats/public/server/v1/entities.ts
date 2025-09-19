@@ -13,6 +13,7 @@ import { MessageType } from "@protobuf-ts/runtime";
 import { Chunk as Chunk$ } from "../../../../messages/public/server/v1/entities";
 import { Member } from "../../../../members/public/server/v1/entities";
 import { Order } from "./enums";
+import { SlowmodeStatus } from "./enums";
 import { Kind } from "./enums";
 /**
  * Chat represents a conversation environment.
@@ -42,17 +43,42 @@ export interface Chat {
         [key: string]: string;
     };
     /**
+     * represents an enumeration that specifies whether numbers of messages user can send in specified window of time is limited
+     *
+     * @generated from protobuf field: chat.chats.public.server.v1.Slowmode slowmode = 4;
+     */
+    slowmode?: Slowmode;
+    /**
      * Represents the timestamp indicating when this chat was created.
      *
-     * @generated from protobuf field: int64 create_time = 4;
+     * @generated from protobuf field: int64 create_time = 5;
      */
     createTime: bigint;
     /**
      * Represents the timestamp of the last update associated with this chat.
      *
-     * @generated from protobuf field: int64 update_time = 5;
+     * @generated from protobuf field: int64 update_time = 6;
      */
     updateTime: bigint;
+}
+/**
+ * Slowmode todo;
+ *
+ * @generated from protobuf message chat.chats.public.server.v1.Slowmode
+ */
+export interface Slowmode {
+    /**
+     * @generated from protobuf field: chat.chats.public.server.v1.SlowmodeStatus status = 1;
+     */
+    status: SlowmodeStatus;
+    /**
+     * @generated from protobuf field: int64 limit = 2;
+     */
+    limit: bigint;
+    /**
+     * @generated from protobuf field: int64 window = 3;
+     */
+    window: bigint;
 }
 /**
  * Chunk represents a segmented portion of chats used for pagination or segmented data retrieval.
@@ -215,8 +241,9 @@ class Chat$Type extends MessageType<Chat> {
             { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 2, name: "kind", kind: "enum", T: () => ["chat.chats.public.server.v1.Kind", Kind] },
             { no: 3, name: "metadata", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } },
-            { no: 4, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 5, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 4, name: "slowmode", kind: "message", T: () => Slowmode },
+            { no: 5, name: "create_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 6, name: "update_time", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value?: PartialMessage<Chat>): Chat {
@@ -244,10 +271,13 @@ class Chat$Type extends MessageType<Chat> {
                 case /* map<string, string> metadata */ 3:
                     this.binaryReadMap3(message.metadata, reader, options);
                     break;
-                case /* int64 create_time */ 4:
+                case /* chat.chats.public.server.v1.Slowmode slowmode */ 4:
+                    message.slowmode = Slowmode.internalBinaryRead(reader, reader.uint32(), options, message.slowmode);
+                    break;
+                case /* int64 create_time */ 5:
                     message.createTime = reader.int64().toBigInt();
                     break;
-                case /* int64 update_time */ 5:
+                case /* int64 update_time */ 6:
                     message.updateTime = reader.int64().toBigInt();
                     break;
                 default:
@@ -287,12 +317,15 @@ class Chat$Type extends MessageType<Chat> {
         /* map<string, string> metadata = 3; */
         for (let k of globalThis.Object.keys(message.metadata))
             writer.tag(3, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.metadata[k]).join();
-        /* int64 create_time = 4; */
+        /* chat.chats.public.server.v1.Slowmode slowmode = 4; */
+        if (message.slowmode)
+            Slowmode.internalBinaryWrite(message.slowmode, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
+        /* int64 create_time = 5; */
         if (message.createTime !== 0n)
-            writer.tag(4, WireType.Varint).int64(message.createTime);
-        /* int64 update_time = 5; */
+            writer.tag(5, WireType.Varint).int64(message.createTime);
+        /* int64 update_time = 6; */
         if (message.updateTime !== 0n)
-            writer.tag(5, WireType.Varint).int64(message.updateTime);
+            writer.tag(6, WireType.Varint).int64(message.updateTime);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -303,6 +336,69 @@ class Chat$Type extends MessageType<Chat> {
  * @generated MessageType for protobuf message chat.chats.public.server.v1.Chat
  */
 export const Chat = new Chat$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class Slowmode$Type extends MessageType<Slowmode> {
+    constructor() {
+        super("chat.chats.public.server.v1.Slowmode", [
+            { no: 1, name: "status", kind: "enum", T: () => ["chat.chats.public.server.v1.SlowmodeStatus", SlowmodeStatus] },
+            { no: 2, name: "limit", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 3, name: "window", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+        ]);
+    }
+    create(value?: PartialMessage<Slowmode>): Slowmode {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.status = 0;
+        message.limit = 0n;
+        message.window = 0n;
+        if (value !== undefined)
+            reflectionMergePartial<Slowmode>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Slowmode): Slowmode {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* chat.chats.public.server.v1.SlowmodeStatus status */ 1:
+                    message.status = reader.int32();
+                    break;
+                case /* int64 limit */ 2:
+                    message.limit = reader.int64().toBigInt();
+                    break;
+                case /* int64 window */ 3:
+                    message.window = reader.int64().toBigInt();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: Slowmode, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* chat.chats.public.server.v1.SlowmodeStatus status = 1; */
+        if (message.status !== 0)
+            writer.tag(1, WireType.Varint).int32(message.status);
+        /* int64 limit = 2; */
+        if (message.limit !== 0n)
+            writer.tag(2, WireType.Varint).int64(message.limit);
+        /* int64 window = 3; */
+        if (message.window !== 0n)
+            writer.tag(3, WireType.Varint).int64(message.window);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message chat.chats.public.server.v1.Slowmode
+ */
+export const Slowmode = new Slowmode$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class Chunk$Type extends MessageType<Chunk> {
     constructor() {

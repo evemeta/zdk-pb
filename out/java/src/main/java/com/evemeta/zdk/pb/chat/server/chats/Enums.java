@@ -39,10 +39,12 @@ public final class Enums {
       "\n\013KindUnknown\020\000\022\021\n\rKindDependent\020\001\022\023\n\017Ki" +
       "ndIndependent\020\002*B\n\005Order\022\020\n\014OrderUnknown" +
       "\020\000\022\022\n\016OrderAscending\020\001\022\023\n\017OrderDescendin" +
-      "g\020\002Bn\n$com.evemeta.zdk.pb.chat.server.ch" +
-      "atsP\001ZDgitlab.com/evemeta/zdk/pb/out/go/" +
-      "chat/chats/public/server/v1;chatspbb\006pro" +
-      "to3"
+      "g\020\002*b\n\016SlowmodeStatus\022\031\n\025SlowmodeStatusU" +
+      "nknown\020\000\022\031\n\025SlowmodeStatusEnabled\020\001\022\032\n\026S" +
+      "lowmodeStatusDisabled\020\002Bn\n$com.evemeta.z" +
+      "dk.pb.chat.server.chatsP\001ZDgitlab.com/ev" +
+      "emeta/zdk/pb/out/go/chat/chats/public/se" +
+      "rver/v1;chatspbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

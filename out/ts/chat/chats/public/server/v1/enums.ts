@@ -39,3 +39,22 @@ export enum Order {
      */
     Descending = 2
 }
+/**
+ * SlowmodeStatus represents an enumeration that specifies whether numbers of messages user can send in specified window of time is limited
+ *
+ * @generated from protobuf enum chat.chats.public.server.v1.SlowmodeStatus
+ */
+export enum SlowmodeStatus {
+    /**
+     * @generated from protobuf enum value: Unknown = 0;
+     */
+    Unknown = 0,
+    /**
+     * @generated from protobuf enum value: Enabled = 1;
+     */
+    Enabled = 1,
+    /**
+     * @generated from protobuf enum value: Disabled = 2;
+     */
+    Disabled = 2
+}

@@ -20,11 +20,18 @@ message Chat {
     // Represents a collection of key-value pairs providing additional context or information about this chat.
     map<string, string> metadata = 3;
     // represents an enumeration that specifies whether numbers of messages user can send in specified window of time is limited
-    chat.chats.public.server.v1.SlowmodeStatus SlowmodeStatus = 6;
+    chat.chats.public.server.v1.Slowmode slowmode = 4;
     // Represents the timestamp indicating when this chat was created.
-    int64 create_time = 4;
+    int64 create_time = 5;
     // Represents the timestamp of the last update associated with this chat.
-    int64 update_time = 5;
+    int64 update_time = 6;
+}
+
+// Slowmode todo;
+message Slowmode {
+    chat.chats.public.server.v1.SlowmodeStatus status = 1;
+    int64 limit = 2;
+    int64 window = 3;
 }
 
 // Chunk represents a segmented portion of chats used for pagination or segmented data retrieval.

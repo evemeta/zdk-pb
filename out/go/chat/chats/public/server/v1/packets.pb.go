@@ -255,6 +255,118 @@ func (x *UpdateChatPacket) GetTimeframe() *Timeframe {
 	return nil
 }
 
+// EnableSlowmodePacket is a notification sent to clients when slowmode has been enabled.
+// It provides the identifier of the chat and the relevant timeframe associated with the event.
+type EnableSlowmodePacket struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Represents the unique identifier of the chat.
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+	Timeframe     *Timeframe `protobuf:"bytes,2,opt,name=timeframe,proto3" json:"timeframe,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EnableSlowmodePacket) Reset() {
+	*x = EnableSlowmodePacket{}
+	mi := &file_chat_chats_public_server_v1_packets_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EnableSlowmodePacket) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EnableSlowmodePacket) ProtoMessage() {}
+
+func (x *EnableSlowmodePacket) ProtoReflect() protoreflect.Message {
+	mi := &file_chat_chats_public_server_v1_packets_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EnableSlowmodePacket.ProtoReflect.Descriptor instead.
+func (*EnableSlowmodePacket) Descriptor() ([]byte, []int) {
+	return file_chat_chats_public_server_v1_packets_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *EnableSlowmodePacket) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *EnableSlowmodePacket) GetTimeframe() *Timeframe {
+	if x != nil {
+		return x.Timeframe
+	}
+	return nil
+}
+
+// DisableSlowmodePacket is a notification sent to clients when slowmode has been disabled.
+// It provides the identifier of the chat and the relevant timeframe associated with the event.
+type DisableSlowmodePacket struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Represents the unique identifier of the chat.
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+	Timeframe     *Timeframe `protobuf:"bytes,2,opt,name=timeframe,proto3" json:"timeframe,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DisableSlowmodePacket) Reset() {
+	*x = DisableSlowmodePacket{}
+	mi := &file_chat_chats_public_server_v1_packets_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DisableSlowmodePacket) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DisableSlowmodePacket) ProtoMessage() {}
+
+func (x *DisableSlowmodePacket) ProtoReflect() protoreflect.Message {
+	mi := &file_chat_chats_public_server_v1_packets_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DisableSlowmodePacket.ProtoReflect.Descriptor instead.
+func (*DisableSlowmodePacket) Descriptor() ([]byte, []int) {
+	return file_chat_chats_public_server_v1_packets_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *DisableSlowmodePacket) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *DisableSlowmodePacket) GetTimeframe() *Timeframe {
+	if x != nil {
+		return x.Timeframe
+	}
+	return nil
+}
+
 // DeleteChatPacket is a notification sent to clients when a chat has been deleted.
 // It provides the identifier of the chat and the relevant timeframe associated with the event.
 type DeleteChatPacket struct {
@@ -269,7 +381,7 @@ type DeleteChatPacket struct {
 
 func (x *DeleteChatPacket) Reset() {
 	*x = DeleteChatPacket{}
-	mi := &file_chat_chats_public_server_v1_packets_proto_msgTypes[4]
+	mi := &file_chat_chats_public_server_v1_packets_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -281,7 +393,7 @@ func (x *DeleteChatPacket) String() string {
 func (*DeleteChatPacket) ProtoMessage() {}
 
 func (x *DeleteChatPacket) ProtoReflect() protoreflect.Message {
-	mi := &file_chat_chats_public_server_v1_packets_proto_msgTypes[4]
+	mi := &file_chat_chats_public_server_v1_packets_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -294,7 +406,7 @@ func (x *DeleteChatPacket) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteChatPacket.ProtoReflect.Descriptor instead.
 func (*DeleteChatPacket) Descriptor() ([]byte, []int) {
-	return file_chat_chats_public_server_v1_packets_proto_rawDescGZIP(), []int{4}
+	return file_chat_chats_public_server_v1_packets_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *DeleteChatPacket) GetId() string {
@@ -329,7 +441,13 @@ const file_chat_chats_public_server_v1_packets_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12I\n" +
 	"\bmetadata\x18\x02 \x01(\v2(.chat.chats.public.server.v1.OptionalMapH\x00R\bmetadata\x88\x01\x01\x12D\n" +
 	"\ttimeframe\x18\x03 \x01(\v2&.chat.chats.public.server.v1.TimeframeR\ttimeframeB\v\n" +
-	"\t_metadata\"h\n" +
+	"\t_metadata\"l\n" +
+	"\x14EnableSlowmodePacket\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12D\n" +
+	"\ttimeframe\x18\x02 \x01(\v2&.chat.chats.public.server.v1.TimeframeR\ttimeframe\"m\n" +
+	"\x15DisableSlowmodePacket\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12D\n" +
+	"\ttimeframe\x18\x02 \x01(\v2&.chat.chats.public.server.v1.TimeframeR\ttimeframe\"h\n" +
 	"\x10DeleteChatPacket\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12D\n" +
 	"\ttimeframe\x18\x02 \x01(\v2&.chat.chats.public.server.v1.TimeframeR\ttimeframeBn\n" +
@@ -347,33 +465,37 @@ func file_chat_chats_public_server_v1_packets_proto_rawDescGZIP() []byte {
 	return file_chat_chats_public_server_v1_packets_proto_rawDescData
 }
 
-var file_chat_chats_public_server_v1_packets_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_chat_chats_public_server_v1_packets_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_chat_chats_public_server_v1_packets_proto_goTypes = []any{
-	(*EnterChatPacket)(nil),  // 0: chat.chats.public.server.v1.EnterChatPacket
-	(*LeaveChatPacket)(nil),  // 1: chat.chats.public.server.v1.LeaveChatPacket
-	(*CreateChatPacket)(nil), // 2: chat.chats.public.server.v1.CreateChatPacket
-	(*UpdateChatPacket)(nil), // 3: chat.chats.public.server.v1.UpdateChatPacket
-	(*DeleteChatPacket)(nil), // 4: chat.chats.public.server.v1.DeleteChatPacket
-	(*v1.Member)(nil),        // 5: chat.members.public.server.v1.Member
-	(*Timeframe)(nil),        // 6: chat.chats.public.server.v1.Timeframe
-	(*Chat)(nil),             // 7: chat.chats.public.server.v1.Chat
-	(*OptionalMap)(nil),      // 8: chat.chats.public.server.v1.OptionalMap
+	(*EnterChatPacket)(nil),       // 0: chat.chats.public.server.v1.EnterChatPacket
+	(*LeaveChatPacket)(nil),       // 1: chat.chats.public.server.v1.LeaveChatPacket
+	(*CreateChatPacket)(nil),      // 2: chat.chats.public.server.v1.CreateChatPacket
+	(*UpdateChatPacket)(nil),      // 3: chat.chats.public.server.v1.UpdateChatPacket
+	(*EnableSlowmodePacket)(nil),  // 4: chat.chats.public.server.v1.EnableSlowmodePacket
+	(*DisableSlowmodePacket)(nil), // 5: chat.chats.public.server.v1.DisableSlowmodePacket
+	(*DeleteChatPacket)(nil),      // 6: chat.chats.public.server.v1.DeleteChatPacket
+	(*v1.Member)(nil),             // 7: chat.members.public.server.v1.Member
+	(*Timeframe)(nil),             // 8: chat.chats.public.server.v1.Timeframe
+	(*Chat)(nil),                  // 9: chat.chats.public.server.v1.Chat
+	(*OptionalMap)(nil),           // 10: chat.chats.public.server.v1.OptionalMap
 }
 var file_chat_chats_public_server_v1_packets_proto_depIdxs = []int32{
-	5, // 0: chat.chats.public.server.v1.EnterChatPacket.member:type_name -> chat.members.public.server.v1.Member
-	6, // 1: chat.chats.public.server.v1.EnterChatPacket.timeframe:type_name -> chat.chats.public.server.v1.Timeframe
-	5, // 2: chat.chats.public.server.v1.LeaveChatPacket.member:type_name -> chat.members.public.server.v1.Member
-	6, // 3: chat.chats.public.server.v1.LeaveChatPacket.timeframe:type_name -> chat.chats.public.server.v1.Timeframe
-	7, // 4: chat.chats.public.server.v1.CreateChatPacket.chat:type_name -> chat.chats.public.server.v1.Chat
-	6, // 5: chat.chats.public.server.v1.CreateChatPacket.timeframe:type_name -> chat.chats.public.server.v1.Timeframe
-	8, // 6: chat.chats.public.server.v1.UpdateChatPacket.metadata:type_name -> chat.chats.public.server.v1.OptionalMap
-	6, // 7: chat.chats.public.server.v1.UpdateChatPacket.timeframe:type_name -> chat.chats.public.server.v1.Timeframe
-	6, // 8: chat.chats.public.server.v1.DeleteChatPacket.timeframe:type_name -> chat.chats.public.server.v1.Timeframe
-	9, // [9:9] is the sub-list for method output_type
-	9, // [9:9] is the sub-list for method input_type
-	9, // [9:9] is the sub-list for extension type_name
-	9, // [9:9] is the sub-list for extension extendee
-	0, // [0:9] is the sub-list for field type_name
+	7,  // 0: chat.chats.public.server.v1.EnterChatPacket.member:type_name -> chat.members.public.server.v1.Member
+	8,  // 1: chat.chats.public.server.v1.EnterChatPacket.timeframe:type_name -> chat.chats.public.server.v1.Timeframe
+	7,  // 2: chat.chats.public.server.v1.LeaveChatPacket.member:type_name -> chat.members.public.server.v1.Member
+	8,  // 3: chat.chats.public.server.v1.LeaveChatPacket.timeframe:type_name -> chat.chats.public.server.v1.Timeframe
+	9,  // 4: chat.chats.public.server.v1.CreateChatPacket.chat:type_name -> chat.chats.public.server.v1.Chat
+	8,  // 5: chat.chats.public.server.v1.CreateChatPacket.timeframe:type_name -> chat.chats.public.server.v1.Timeframe
+	10, // 6: chat.chats.public.server.v1.UpdateChatPacket.metadata:type_name -> chat.chats.public.server.v1.OptionalMap
+	8,  // 7: chat.chats.public.server.v1.UpdateChatPacket.timeframe:type_name -> chat.chats.public.server.v1.Timeframe
+	8,  // 8: chat.chats.public.server.v1.EnableSlowmodePacket.timeframe:type_name -> chat.chats.public.server.v1.Timeframe
+	8,  // 9: chat.chats.public.server.v1.DisableSlowmodePacket.timeframe:type_name -> chat.chats.public.server.v1.Timeframe
+	8,  // 10: chat.chats.public.server.v1.DeleteChatPacket.timeframe:type_name -> chat.chats.public.server.v1.Timeframe
+	11, // [11:11] is the sub-list for method output_type
+	11, // [11:11] is the sub-list for method input_type
+	11, // [11:11] is the sub-list for extension type_name
+	11, // [11:11] is the sub-list for extension extendee
+	0,  // [0:11] is the sub-list for field type_name
 }
 
 func init() { file_chat_chats_public_server_v1_packets_proto_init() }
@@ -390,7 +512,7 @@ func file_chat_chats_public_server_v1_packets_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_chat_chats_public_server_v1_packets_proto_rawDesc), len(file_chat_chats_public_server_v1_packets_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
