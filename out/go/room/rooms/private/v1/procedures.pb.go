@@ -1778,9 +1778,10 @@ func (x *EnterMutation) GetCloseTimestamp() int64 {
 
 type EnterCondition struct {
 	state                      protoimpl.MessageState `protogen:"open.v1"`
-	CreateMemberMutations      []*v12.CreateMutation  `protobuf:"bytes,1,rep,name=create_member_mutations,json=createMemberMutations,proto3" json:"create_member_mutations,omitempty"`
-	UpdateMemberMutations      []*v12.UpdateMutation  `protobuf:"bytes,2,rep,name=update_member_mutations,json=updateMemberMutations,proto3" json:"update_member_mutations,omitempty"`
-	CreateTransponderMutations []*v11.CreateMutation  `protobuf:"bytes,3,rep,name=create_transponder_mutations,json=createTransponderMutations,proto3" json:"create_transponder_mutations,omitempty"`
+	EnterChatMutations         []*v1.EnterMutation    `protobuf:"bytes,1,rep,name=enter_chat_mutations,json=enterChatMutations,proto3" json:"enter_chat_mutations,omitempty"`
+	CreateMemberMutations      []*v12.CreateMutation  `protobuf:"bytes,2,rep,name=create_member_mutations,json=createMemberMutations,proto3" json:"create_member_mutations,omitempty"`
+	UpdateMemberMutations      []*v12.UpdateMutation  `protobuf:"bytes,3,rep,name=update_member_mutations,json=updateMemberMutations,proto3" json:"update_member_mutations,omitempty"`
+	CreateTransponderMutations []*v11.CreateMutation  `protobuf:"bytes,4,rep,name=create_transponder_mutations,json=createTransponderMutations,proto3" json:"create_transponder_mutations,omitempty"`
 	unknownFields              protoimpl.UnknownFields
 	sizeCache                  protoimpl.SizeCache
 }
@@ -1813,6 +1814,13 @@ func (x *EnterCondition) ProtoReflect() protoreflect.Message {
 // Deprecated: Use EnterCondition.ProtoReflect.Descriptor instead.
 func (*EnterCondition) Descriptor() ([]byte, []int) {
 	return file_room_rooms_private_v1_procedures_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *EnterCondition) GetEnterChatMutations() []*v1.EnterMutation {
+	if x != nil {
+		return x.EnterChatMutations
+	}
+	return nil
 }
 
 func (x *EnterCondition) GetCreateMemberMutations() []*v12.CreateMutation {
@@ -2090,11 +2098,12 @@ func (x *LeaveMutation) GetCloseTimestamp() int64 {
 
 type LeaveCondition struct {
 	state                         protoimpl.MessageState    `protogen:"open.v1"`
-	UpdateMemberMutations         []*v12.UpdateMutation     `protobuf:"bytes,1,rep,name=update_member_mutations,json=updateMemberMutations,proto3" json:"update_member_mutations,omitempty"`
-	DeleteStreamMutations         []*v13.DeleteMutation     `protobuf:"bytes,2,rep,name=delete_stream_mutations,json=deleteStreamMutations,proto3" json:"delete_stream_mutations,omitempty"`
-	DeleteConnectionMutations     []*v14.DeleteMutation     `protobuf:"bytes,3,rep,name=delete_connection_mutations,json=deleteConnectionMutations,proto3" json:"delete_connection_mutations,omitempty"`
-	DeleteTransponderMutations    []*v11.DeleteMutation     `protobuf:"bytes,4,rep,name=delete_transponder_mutations,json=deleteTransponderMutations,proto3" json:"delete_transponder_mutations,omitempty"`
-	DisconnectConnectionMutations []*v16.DisconnectMutation `protobuf:"bytes,5,rep,name=disconnect_connection_mutations,json=disconnectConnectionMutations,proto3" json:"disconnect_connection_mutations,omitempty"`
+	LeaveChatMutations            []*v1.LeaveMutation       `protobuf:"bytes,1,rep,name=leave_chat_mutations,json=leaveChatMutations,proto3" json:"leave_chat_mutations,omitempty"`
+	UpdateMemberMutations         []*v12.UpdateMutation     `protobuf:"bytes,2,rep,name=update_member_mutations,json=updateMemberMutations,proto3" json:"update_member_mutations,omitempty"`
+	DeleteStreamMutations         []*v13.DeleteMutation     `protobuf:"bytes,3,rep,name=delete_stream_mutations,json=deleteStreamMutations,proto3" json:"delete_stream_mutations,omitempty"`
+	DeleteConnectionMutations     []*v14.DeleteMutation     `protobuf:"bytes,4,rep,name=delete_connection_mutations,json=deleteConnectionMutations,proto3" json:"delete_connection_mutations,omitempty"`
+	DeleteTransponderMutations    []*v11.DeleteMutation     `protobuf:"bytes,5,rep,name=delete_transponder_mutations,json=deleteTransponderMutations,proto3" json:"delete_transponder_mutations,omitempty"`
+	DisconnectConnectionMutations []*v16.DisconnectMutation `protobuf:"bytes,6,rep,name=disconnect_connection_mutations,json=disconnectConnectionMutations,proto3" json:"disconnect_connection_mutations,omitempty"`
 	unknownFields                 protoimpl.UnknownFields
 	sizeCache                     protoimpl.SizeCache
 }
@@ -2127,6 +2136,13 @@ func (x *LeaveCondition) ProtoReflect() protoreflect.Message {
 // Deprecated: Use LeaveCondition.ProtoReflect.Descriptor instead.
 func (*LeaveCondition) Descriptor() ([]byte, []int) {
 	return file_room_rooms_private_v1_procedures_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *LeaveCondition) GetLeaveChatMutations() []*v1.LeaveMutation {
+	if x != nil {
+		return x.LeaveChatMutations
+	}
+	return nil
 }
 
 func (x *LeaveCondition) GetUpdateMemberMutations() []*v12.UpdateMutation {
@@ -2336,11 +2352,12 @@ const file_room_rooms_private_v1_procedures_proto_rawDesc = "" +
 	"foundation\x12C\n" +
 	"\tcondition\x18\x02 \x01(\v2%.room.rooms.private.v1.EnterConditionR\tcondition\x12'\n" +
 	"\x0fbegin_timestamp\x18\x03 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
-	"\x0fclose_timestamp\x18\x04 \x01(\x03R\x0ecloseTimestamp\"\xc5\x02\n" +
-	"\x0eEnterCondition\x12_\n" +
-	"\x17create_member_mutations\x18\x01 \x03(\v2'.room.members.private.v1.CreateMutationR\x15createMemberMutations\x12_\n" +
-	"\x17update_member_mutations\x18\x02 \x03(\v2'.room.members.private.v1.UpdateMutationR\x15updateMemberMutations\x12q\n" +
-	"\x1ccreate_transponder_mutations\x18\x03 \x03(\v2/.gateway.transponders.private.v1.CreateMutationR\x1acreateTransponderMutations\"V\n" +
+	"\x0fclose_timestamp\x18\x04 \x01(\x03R\x0ecloseTimestamp\"\x9d\x03\n" +
+	"\x0eEnterCondition\x12V\n" +
+	"\x14enter_chat_mutations\x18\x01 \x03(\v2$.chat.chats.private.v1.EnterMutationR\x12enterChatMutations\x12_\n" +
+	"\x17create_member_mutations\x18\x02 \x03(\v2'.room.members.private.v1.CreateMutationR\x15createMemberMutations\x12_\n" +
+	"\x17update_member_mutations\x18\x03 \x03(\v2'.room.members.private.v1.UpdateMutationR\x15updateMemberMutations\x12q\n" +
+	"\x1ccreate_transponder_mutations\x18\x04 \x03(\v2/.gateway.transponders.private.v1.CreateMutationR\x1acreateTransponderMutations\"V\n" +
 	"\x10EnterTransaction\x12B\n" +
 	"\tmutations\x18\x01 \x03(\v2$.room.rooms.private.v1.EnterMutationR\tmutations\"W\n" +
 	"\rLeaveArgument\x12\x0e\n" +
@@ -2357,13 +2374,14 @@ const file_room_rooms_private_v1_procedures_proto_rawDesc = "" +
 	"foundation\x12C\n" +
 	"\tcondition\x18\x02 \x01(\v2%.room.rooms.private.v1.LeaveConditionR\tcondition\x12'\n" +
 	"\x0fbegin_timestamp\x18\x03 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
-	"\x0fclose_timestamp\x18\x04 \x01(\x03R\x0ecloseTimestamp\"\xa7\x04\n" +
-	"\x0eLeaveCondition\x12_\n" +
-	"\x17update_member_mutations\x18\x01 \x03(\v2'.room.members.private.v1.UpdateMutationR\x15updateMemberMutations\x12_\n" +
-	"\x17delete_stream_mutations\x18\x02 \x03(\v2'.room.streams.private.v1.DeleteMutationR\x15deleteStreamMutations\x12k\n" +
-	"\x1bdelete_connection_mutations\x18\x03 \x03(\v2+.room.connections.private.v1.DeleteMutationR\x19deleteConnectionMutations\x12q\n" +
-	"\x1cdelete_transponder_mutations\x18\x04 \x03(\v2/.gateway.transponders.private.v1.DeleteMutationR\x1adeleteTransponderMutations\x12s\n" +
-	"\x1fdisconnect_connection_mutations\x18\x05 \x03(\v2+.gateway.sfus.private.v1.DisconnectMutationR\x1ddisconnectConnectionMutations\"V\n" +
+	"\x0fclose_timestamp\x18\x04 \x01(\x03R\x0ecloseTimestamp\"\xff\x04\n" +
+	"\x0eLeaveCondition\x12V\n" +
+	"\x14leave_chat_mutations\x18\x01 \x03(\v2$.chat.chats.private.v1.LeaveMutationR\x12leaveChatMutations\x12_\n" +
+	"\x17update_member_mutations\x18\x02 \x03(\v2'.room.members.private.v1.UpdateMutationR\x15updateMemberMutations\x12_\n" +
+	"\x17delete_stream_mutations\x18\x03 \x03(\v2'.room.streams.private.v1.DeleteMutationR\x15deleteStreamMutations\x12k\n" +
+	"\x1bdelete_connection_mutations\x18\x04 \x03(\v2+.room.connections.private.v1.DeleteMutationR\x19deleteConnectionMutations\x12q\n" +
+	"\x1cdelete_transponder_mutations\x18\x05 \x03(\v2/.gateway.transponders.private.v1.DeleteMutationR\x1adeleteTransponderMutations\x12s\n" +
+	"\x1fdisconnect_connection_mutations\x18\x06 \x03(\v2+.gateway.sfus.private.v1.DisconnectMutationR\x1ddisconnectConnectionMutations\"V\n" +
 	"\x10LeaveTransaction\x12B\n" +
 	"\tmutations\x18\x01 \x03(\v2$.room.rooms.private.v1.LeaveMutationR\tmutationsB@Z>gitlab.com/evemeta/zdk/pb/out/go/room/rooms/private/v1;roomspbb\x06proto3"
 
@@ -2442,8 +2460,10 @@ var file_room_rooms_private_v1_procedures_proto_goTypes = []any{
 	(*v15.DeleteMutation)(nil),     // 58: room.restrictions.private.v1.DeleteMutation
 	(*v16.DisconnectMutation)(nil), // 59: gateway.sfus.private.v1.DisconnectMutation
 	(v12.Permission)(0),            // 60: room.members.private.v1.Permission
-	(*v12.CreateMutation)(nil),     // 61: room.members.private.v1.CreateMutation
-	(*v12.UpdateMutation)(nil),     // 62: room.members.private.v1.UpdateMutation
+	(*v1.EnterMutation)(nil),       // 61: chat.chats.private.v1.EnterMutation
+	(*v12.CreateMutation)(nil),     // 62: room.members.private.v1.CreateMutation
+	(*v12.UpdateMutation)(nil),     // 63: room.members.private.v1.UpdateMutation
+	(*v1.LeaveMutation)(nil),       // 64: chat.chats.private.v1.LeaveMutation
 }
 var file_room_rooms_private_v1_procedures_proto_depIdxs = []int32{
 	44, // 0: room.rooms.private.v1.CountArgument.query:type_name -> room.rooms.private.v1.Query
@@ -2493,24 +2513,26 @@ var file_room_rooms_private_v1_procedures_proto_depIdxs = []int32{
 	29, // 44: room.rooms.private.v1.EnterRequest.arguments:type_name -> room.rooms.private.v1.EnterArgument
 	29, // 45: room.rooms.private.v1.EnterMutation.foundation:type_name -> room.rooms.private.v1.EnterArgument
 	33, // 46: room.rooms.private.v1.EnterMutation.condition:type_name -> room.rooms.private.v1.EnterCondition
-	61, // 47: room.rooms.private.v1.EnterCondition.create_member_mutations:type_name -> room.members.private.v1.CreateMutation
-	62, // 48: room.rooms.private.v1.EnterCondition.update_member_mutations:type_name -> room.members.private.v1.UpdateMutation
-	50, // 49: room.rooms.private.v1.EnterCondition.create_transponder_mutations:type_name -> gateway.transponders.private.v1.CreateMutation
-	32, // 50: room.rooms.private.v1.EnterTransaction.mutations:type_name -> room.rooms.private.v1.EnterMutation
-	35, // 51: room.rooms.private.v1.LeaveRequest.arguments:type_name -> room.rooms.private.v1.LeaveArgument
-	35, // 52: room.rooms.private.v1.LeaveMutation.foundation:type_name -> room.rooms.private.v1.LeaveArgument
-	39, // 53: room.rooms.private.v1.LeaveMutation.condition:type_name -> room.rooms.private.v1.LeaveCondition
-	62, // 54: room.rooms.private.v1.LeaveCondition.update_member_mutations:type_name -> room.members.private.v1.UpdateMutation
-	55, // 55: room.rooms.private.v1.LeaveCondition.delete_stream_mutations:type_name -> room.streams.private.v1.DeleteMutation
-	56, // 56: room.rooms.private.v1.LeaveCondition.delete_connection_mutations:type_name -> room.connections.private.v1.DeleteMutation
-	57, // 57: room.rooms.private.v1.LeaveCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
-	59, // 58: room.rooms.private.v1.LeaveCondition.disconnect_connection_mutations:type_name -> gateway.sfus.private.v1.DisconnectMutation
-	38, // 59: room.rooms.private.v1.LeaveTransaction.mutations:type_name -> room.rooms.private.v1.LeaveMutation
-	60, // [60:60] is the sub-list for method output_type
-	60, // [60:60] is the sub-list for method input_type
-	60, // [60:60] is the sub-list for extension type_name
-	60, // [60:60] is the sub-list for extension extendee
-	0,  // [0:60] is the sub-list for field type_name
+	61, // 47: room.rooms.private.v1.EnterCondition.enter_chat_mutations:type_name -> chat.chats.private.v1.EnterMutation
+	62, // 48: room.rooms.private.v1.EnterCondition.create_member_mutations:type_name -> room.members.private.v1.CreateMutation
+	63, // 49: room.rooms.private.v1.EnterCondition.update_member_mutations:type_name -> room.members.private.v1.UpdateMutation
+	50, // 50: room.rooms.private.v1.EnterCondition.create_transponder_mutations:type_name -> gateway.transponders.private.v1.CreateMutation
+	32, // 51: room.rooms.private.v1.EnterTransaction.mutations:type_name -> room.rooms.private.v1.EnterMutation
+	35, // 52: room.rooms.private.v1.LeaveRequest.arguments:type_name -> room.rooms.private.v1.LeaveArgument
+	35, // 53: room.rooms.private.v1.LeaveMutation.foundation:type_name -> room.rooms.private.v1.LeaveArgument
+	39, // 54: room.rooms.private.v1.LeaveMutation.condition:type_name -> room.rooms.private.v1.LeaveCondition
+	64, // 55: room.rooms.private.v1.LeaveCondition.leave_chat_mutations:type_name -> chat.chats.private.v1.LeaveMutation
+	63, // 56: room.rooms.private.v1.LeaveCondition.update_member_mutations:type_name -> room.members.private.v1.UpdateMutation
+	55, // 57: room.rooms.private.v1.LeaveCondition.delete_stream_mutations:type_name -> room.streams.private.v1.DeleteMutation
+	56, // 58: room.rooms.private.v1.LeaveCondition.delete_connection_mutations:type_name -> room.connections.private.v1.DeleteMutation
+	57, // 59: room.rooms.private.v1.LeaveCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
+	59, // 60: room.rooms.private.v1.LeaveCondition.disconnect_connection_mutations:type_name -> gateway.sfus.private.v1.DisconnectMutation
+	38, // 61: room.rooms.private.v1.LeaveTransaction.mutations:type_name -> room.rooms.private.v1.LeaveMutation
+	62, // [62:62] is the sub-list for method output_type
+	62, // [62:62] is the sub-list for method input_type
+	62, // [62:62] is the sub-list for extension type_name
+	62, // [62:62] is the sub-list for extension extendee
+	0,  // [0:62] is the sub-list for field type_name
 }
 
 func init() { file_room_rooms_private_v1_procedures_proto_init() }
