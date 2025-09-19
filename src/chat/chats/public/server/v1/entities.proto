@@ -19,6 +19,8 @@ message Chat {
     chat.chats.public.server.v1.Kind kind = 2;
     // Represents a collection of key-value pairs providing additional context or information about this chat.
     map<string, string> metadata = 3;
+    // represents an enumeration that specifies whether numbers of messages user can send in specified window of time is limited
+    chat.chats.public.server.v1.SlowmodeStatus SlowmodeStatus = 6;
     // Represents the timestamp indicating when this chat was created.
     int64 create_time = 4;
     // Represents the timestamp of the last update associated with this chat.

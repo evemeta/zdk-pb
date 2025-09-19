@@ -19,3 +19,10 @@ enum Order {
     OrderAscending  = 1;
     OrderDescending = 2;
 }
+
+// SlowmodeStatus represents an enumeration that specifies whether numbers of messages user can send in specified window of time is limited
+enum SlowmodeStatus {
+    SlowmodeStatusUnknown  = 0;
+    SlowmodeStatusEnabled  = 1;
+    SlowmodeStatusDisabled = 2;
+}

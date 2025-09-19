@@ -48,6 +48,24 @@ message UpdateChatPacket {
     chat.chats.public.server.v1.Timeframe timeframe = 3;
 }
 
+// EnableSlowmodePacket is a notification sent to clients when slowmode has been enabled.
+// It provides the identifier of the chat and the relevant timeframe associated with the event.
+message EnableSlowmodePacket {
+    // Represents the unique identifier of the chat.
+    string id = 1;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+    chat.chats.public.server.v1.Timeframe timeframe = 2;
+}
+
+// DisableSlowmodePacket is a notification sent to clients when slowmode has been disabled.
+// It provides the identifier of the chat and the relevant timeframe associated with the event.
+message DisableSlowmodePacket {
+    // Represents the unique identifier of the chat.
+    string id = 1;
+    // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+    chat.chats.public.server.v1.Timeframe timeframe = 2;
+}
+
 // DeleteChatPacket is a notification sent to clients when a chat has been deleted.
 // It provides the identifier of the chat and the relevant timeframe associated with the event.
 message DeleteChatPacket {
