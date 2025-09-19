@@ -7,9 +7,10 @@
 package memberspb
 
 import (
-	v13 "gitlab.com/evemeta/zdk/pb/out/go/gateway/sfus/private/v1"
+	v12 "gitlab.com/evemeta/zdk/pb/out/go/chat/members/private/v1"
+	v14 "gitlab.com/evemeta/zdk/pb/out/go/gateway/sfus/private/v1"
 	v1 "gitlab.com/evemeta/zdk/pb/out/go/gateway/transponders/private/v1"
-	v12 "gitlab.com/evemeta/zdk/pb/out/go/room/connections/private/v1"
+	v13 "gitlab.com/evemeta/zdk/pb/out/go/room/connections/private/v1"
 	v11 "gitlab.com/evemeta/zdk/pb/out/go/room/streams/private/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -1573,9 +1574,10 @@ type KickCondition struct {
 	state                         protoimpl.MessageState    `protogen:"open.v1"`
 	UpdateMutations               []*UpdateMutation         `protobuf:"bytes,1,rep,name=update_mutations,json=updateMutations,proto3" json:"update_mutations,omitempty"`
 	DeleteStreamMutations         []*v11.DeleteMutation     `protobuf:"bytes,2,rep,name=delete_stream_mutations,json=deleteStreamMutations,proto3" json:"delete_stream_mutations,omitempty"`
-	DeleteConnectionMutations     []*v12.DeleteMutation     `protobuf:"bytes,3,rep,name=delete_connection_mutations,json=deleteConnectionMutations,proto3" json:"delete_connection_mutations,omitempty"`
-	DeleteTransponderMutations    []*v1.DeleteMutation      `protobuf:"bytes,4,rep,name=delete_transponder_mutations,json=deleteTransponderMutations,proto3" json:"delete_transponder_mutations,omitempty"`
-	DisconnectConnectionMutations []*v13.DisconnectMutation `protobuf:"bytes,5,rep,name=disconnect_connection_mutations,json=disconnectConnectionMutations,proto3" json:"disconnect_connection_mutations,omitempty"`
+	KickChatMemberMutations       []*v12.KickMutation       `protobuf:"bytes,3,rep,name=kick_chat_member_mutations,json=kickChatMemberMutations,proto3" json:"kick_chat_member_mutations,omitempty"`
+	DeleteConnectionMutations     []*v13.DeleteMutation     `protobuf:"bytes,4,rep,name=delete_connection_mutations,json=deleteConnectionMutations,proto3" json:"delete_connection_mutations,omitempty"`
+	DeleteTransponderMutations    []*v1.DeleteMutation      `protobuf:"bytes,5,rep,name=delete_transponder_mutations,json=deleteTransponderMutations,proto3" json:"delete_transponder_mutations,omitempty"`
+	DisconnectConnectionMutations []*v14.DisconnectMutation `protobuf:"bytes,6,rep,name=disconnect_connection_mutations,json=disconnectConnectionMutations,proto3" json:"disconnect_connection_mutations,omitempty"`
 	unknownFields                 protoimpl.UnknownFields
 	sizeCache                     protoimpl.SizeCache
 }
@@ -1624,7 +1626,14 @@ func (x *KickCondition) GetDeleteStreamMutations() []*v11.DeleteMutation {
 	return nil
 }
 
-func (x *KickCondition) GetDeleteConnectionMutations() []*v12.DeleteMutation {
+func (x *KickCondition) GetKickChatMemberMutations() []*v12.KickMutation {
+	if x != nil {
+		return x.KickChatMemberMutations
+	}
+	return nil
+}
+
+func (x *KickCondition) GetDeleteConnectionMutations() []*v13.DeleteMutation {
 	if x != nil {
 		return x.DeleteConnectionMutations
 	}
@@ -1638,7 +1647,7 @@ func (x *KickCondition) GetDeleteTransponderMutations() []*v1.DeleteMutation {
 	return nil
 }
 
-func (x *KickCondition) GetDisconnectConnectionMutations() []*v13.DisconnectMutation {
+func (x *KickCondition) GetDisconnectConnectionMutations() []*v14.DisconnectMutation {
 	if x != nil {
 		return x.DisconnectConnectionMutations
 	}
@@ -1693,7 +1702,7 @@ var File_room_members_private_v1_procedures_proto protoreflect.FileDescriptor
 
 const file_room_members_private_v1_procedures_proto_rawDesc = "" +
 	"\n" +
-	"(room/members/private/v1/procedures.proto\x12\x17room.members.private.v1\x1a#room/members/private/v1/enums.proto\x1a&room/members/private/v1/entities.proto\x1a'room/members/private/v1/optionals.proto\x1a(room/streams/private/v1/procedures.proto\x1a,room/connections/private/v1/procedures.proto\x1a(gateway/sfus/private/v1/procedures.proto\x1a0gateway/transponders/private/v1/procedures.proto\"[\n" +
+	"(room/members/private/v1/procedures.proto\x12\x17room.members.private.v1\x1a#room/members/private/v1/enums.proto\x1a&room/members/private/v1/entities.proto\x1a'room/members/private/v1/optionals.proto\x1a(chat/members/private/v1/procedures.proto\x1a(room/streams/private/v1/procedures.proto\x1a,room/connections/private/v1/procedures.proto\x1a(gateway/sfus/private/v1/procedures.proto\x1a0gateway/transponders/private/v1/procedures.proto\"[\n" +
 	"\rCountArgument\x12\x14\n" +
 	"\x05cache\x18\x01 \x01(\bR\x05cache\x124\n" +
 	"\x05query\x18\x02 \x01(\v2\x1e.room.members.private.v1.QueryR\x05query\"T\n" +
@@ -1800,13 +1809,14 @@ const file_room_members_private_v1_procedures_proto_rawDesc = "" +
 	"foundation\x12D\n" +
 	"\tcondition\x18\x02 \x01(\v2&.room.members.private.v1.KickConditionR\tcondition\x12'\n" +
 	"\x0fbegin_timestamp\x18\x03 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
-	"\x0fclose_timestamp\x18\x04 \x01(\x03R\x0ecloseTimestamp\"\x99\x04\n" +
+	"\x0fclose_timestamp\x18\x04 \x01(\x03R\x0ecloseTimestamp\"\xfd\x04\n" +
 	"\rKickCondition\x12R\n" +
 	"\x10update_mutations\x18\x01 \x03(\v2'.room.members.private.v1.UpdateMutationR\x0fupdateMutations\x12_\n" +
-	"\x17delete_stream_mutations\x18\x02 \x03(\v2'.room.streams.private.v1.DeleteMutationR\x15deleteStreamMutations\x12k\n" +
-	"\x1bdelete_connection_mutations\x18\x03 \x03(\v2+.room.connections.private.v1.DeleteMutationR\x19deleteConnectionMutations\x12q\n" +
-	"\x1cdelete_transponder_mutations\x18\x04 \x03(\v2/.gateway.transponders.private.v1.DeleteMutationR\x1adeleteTransponderMutations\x12s\n" +
-	"\x1fdisconnect_connection_mutations\x18\x05 \x03(\v2+.gateway.sfus.private.v1.DisconnectMutationR\x1ddisconnectConnectionMutations\"V\n" +
+	"\x17delete_stream_mutations\x18\x02 \x03(\v2'.room.streams.private.v1.DeleteMutationR\x15deleteStreamMutations\x12b\n" +
+	"\x1akick_chat_member_mutations\x18\x03 \x03(\v2%.chat.members.private.v1.KickMutationR\x17kickChatMemberMutations\x12k\n" +
+	"\x1bdelete_connection_mutations\x18\x04 \x03(\v2+.room.connections.private.v1.DeleteMutationR\x19deleteConnectionMutations\x12q\n" +
+	"\x1cdelete_transponder_mutations\x18\x05 \x03(\v2/.gateway.transponders.private.v1.DeleteMutationR\x1adeleteTransponderMutations\x12s\n" +
+	"\x1fdisconnect_connection_mutations\x18\x06 \x03(\v2+.gateway.sfus.private.v1.DisconnectMutationR\x1ddisconnectConnectionMutations\"V\n" +
 	"\x0fKickTransaction\x12C\n" +
 	"\tmutations\x18\x01 \x03(\v2%.room.members.private.v1.KickMutationR\tmutationsBDZBgitlab.com/evemeta/zdk/pb/out/go/room/members/private/v1;memberspbb\x06proto3"
 
@@ -1869,8 +1879,9 @@ var file_room_members_private_v1_procedures_proto_goTypes = []any{
 	(*OptionalPermissions)(nil),    // 42: room.members.private.v1.OptionalPermissions
 	(*v1.DeleteMutation)(nil),      // 43: gateway.transponders.private.v1.DeleteMutation
 	(*v11.DeleteMutation)(nil),     // 44: room.streams.private.v1.DeleteMutation
-	(*v12.DeleteMutation)(nil),     // 45: room.connections.private.v1.DeleteMutation
-	(*v13.DisconnectMutation)(nil), // 46: gateway.sfus.private.v1.DisconnectMutation
+	(*v12.KickMutation)(nil),       // 45: chat.members.private.v1.KickMutation
+	(*v13.DeleteMutation)(nil),     // 46: room.connections.private.v1.DeleteMutation
+	(*v14.DisconnectMutation)(nil), // 47: gateway.sfus.private.v1.DisconnectMutation
 }
 var file_room_members_private_v1_procedures_proto_depIdxs = []int32{
 	33, // 0: room.members.private.v1.CountArgument.query:type_name -> room.members.private.v1.Query
@@ -1915,15 +1926,16 @@ var file_room_members_private_v1_procedures_proto_depIdxs = []int32{
 	30, // 39: room.members.private.v1.KickMutation.condition:type_name -> room.members.private.v1.KickCondition
 	18, // 40: room.members.private.v1.KickCondition.update_mutations:type_name -> room.members.private.v1.UpdateMutation
 	44, // 41: room.members.private.v1.KickCondition.delete_stream_mutations:type_name -> room.streams.private.v1.DeleteMutation
-	45, // 42: room.members.private.v1.KickCondition.delete_connection_mutations:type_name -> room.connections.private.v1.DeleteMutation
-	43, // 43: room.members.private.v1.KickCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
-	46, // 44: room.members.private.v1.KickCondition.disconnect_connection_mutations:type_name -> gateway.sfus.private.v1.DisconnectMutation
-	29, // 45: room.members.private.v1.KickTransaction.mutations:type_name -> room.members.private.v1.KickMutation
-	46, // [46:46] is the sub-list for method output_type
-	46, // [46:46] is the sub-list for method input_type
-	46, // [46:46] is the sub-list for extension type_name
-	46, // [46:46] is the sub-list for extension extendee
-	0,  // [0:46] is the sub-list for field type_name
+	45, // 42: room.members.private.v1.KickCondition.kick_chat_member_mutations:type_name -> chat.members.private.v1.KickMutation
+	46, // 43: room.members.private.v1.KickCondition.delete_connection_mutations:type_name -> room.connections.private.v1.DeleteMutation
+	43, // 44: room.members.private.v1.KickCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
+	47, // 45: room.members.private.v1.KickCondition.disconnect_connection_mutations:type_name -> gateway.sfus.private.v1.DisconnectMutation
+	29, // 46: room.members.private.v1.KickTransaction.mutations:type_name -> room.members.private.v1.KickMutation
+	47, // [47:47] is the sub-list for method output_type
+	47, // [47:47] is the sub-list for method input_type
+	47, // [47:47] is the sub-list for extension type_name
+	47, // [47:47] is the sub-list for extension extendee
+	0,  // [0:47] is the sub-list for field type_name
 }
 
 func init() { file_room_members_private_v1_procedures_proto_init() }
