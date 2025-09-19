@@ -184,9 +184,10 @@ message EnterMutation {
 }
 
 message EnterCondition {
-    repeated room.members.private.v1.CreateMutation         create_member_mutations      = 1;
-    repeated room.members.private.v1.UpdateMutation         update_member_mutations      = 2;
-    repeated gateway.transponders.private.v1.CreateMutation create_transponder_mutations = 3;
+    repeated chat.chats.private.v1.EnterMutation            enter_chat_mutations         = 1;
+    repeated room.members.private.v1.CreateMutation         create_member_mutations      = 2;
+    repeated room.members.private.v1.UpdateMutation         update_member_mutations      = 3;
+    repeated gateway.transponders.private.v1.CreateMutation create_transponder_mutations = 4;
 }
 
 message EnterTransaction {
@@ -213,11 +214,12 @@ message LeaveMutation {
 }
 
 message LeaveCondition {
-    repeated room.members.private.v1.UpdateMutation         update_member_mutations         = 1;
-    repeated room.streams.private.v1.DeleteMutation         delete_stream_mutations         = 2;
-    repeated room.connections.private.v1.DeleteMutation     delete_connection_mutations     = 3;
-    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations    = 4;
-    repeated gateway.sfus.private.v1.DisconnectMutation     disconnect_connection_mutations = 5;
+    repeated chat.chats.private.v1.LeaveMutation            leave_chat_mutations            = 1;
+    repeated room.members.private.v1.UpdateMutation         update_member_mutations         = 2;
+    repeated room.streams.private.v1.DeleteMutation         delete_stream_mutations         = 3;
+    repeated room.connections.private.v1.DeleteMutation     delete_connection_mutations     = 4;
+    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations    = 5;
+    repeated gateway.sfus.private.v1.DisconnectMutation     disconnect_connection_mutations = 6;
 }
 
 message LeaveTransaction {
