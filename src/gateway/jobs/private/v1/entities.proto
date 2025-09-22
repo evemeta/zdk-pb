@@ -22,8 +22,9 @@ message Query {
 }
 
 message Condition {
-    repeated string                         ids      = 1;
-    repeated gateway.jobs.private.v1.Status statuses = 2;
+    repeated string                         ids       = 1;
+    repeated gateway.jobs.private.v1.Status statuses  = 2;
+    repeated string                         templates = 3;
 }
 
 message Transient {
@@ -37,10 +38,11 @@ message Job {
     gateway.jobs.private.v1.Result    result      = 2;
     gateway.jobs.private.v1.Status    status      = 3;
     map<string, string>               metadata    = 4;
-    gateway.jobs.private.v1.Container container   = 5;
-    int64                             access_time = 6;
-    int64                             create_time = 7;
-    int64                             update_time = 8;
+    string                            template    = 5;
+    gateway.jobs.private.v1.Container container   = 6;
+    int64                             access_time = 7;
+    int64                             create_time = 8;
+    int64                             update_time = 9;
 }
 
 message Result {
@@ -49,11 +51,7 @@ message Result {
 }
 
 message Container {
-    string              image       = 1;
-    repeated string     command     = 2;
-    map<string, string> resources   = 3;
-    map<string, string> selectors   = 4;
-    map<string, string> variables   = 5;
-    map<string, string> annotations = 6;
-    map<string, string> tolerations = 7;
+    repeated string     arguments   = 1;
+    map<string, string> variables   = 2;
+    map<string, string> annotations = 3;
 }

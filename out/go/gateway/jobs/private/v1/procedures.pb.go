@@ -447,7 +447,8 @@ type CreateArgument struct {
 	Result        *Result                `protobuf:"bytes,2,opt,name=result,proto3" json:"result,omitempty"`
 	Status        Status                 `protobuf:"varint,3,opt,name=status,proto3,enum=gateway.jobs.private.v1.Status" json:"status,omitempty"`
 	Metadata      map[string]string      `protobuf:"bytes,4,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	Container     *Container             `protobuf:"bytes,5,opt,name=container,proto3" json:"container,omitempty"`
+	Template      string                 `protobuf:"bytes,5,opt,name=template,proto3" json:"template,omitempty"`
+	Container     *Container             `protobuf:"bytes,6,opt,name=container,proto3" json:"container,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -508,6 +509,13 @@ func (x *CreateArgument) GetMetadata() map[string]string {
 		return x.Metadata
 	}
 	return nil
+}
+
+func (x *CreateArgument) GetTemplate() string {
+	if x != nil {
+		return x.Template
+	}
+	return ""
 }
 
 func (x *CreateArgument) GetContainer() *Container {
@@ -722,7 +730,7 @@ type UpdateArgument struct {
 	Query         *Query                 `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
 	Result        *OptionalResult        `protobuf:"bytes,2,opt,name=result,proto3,oneof" json:"result,omitempty"`
 	Status        *OptionalStatus        `protobuf:"bytes,3,opt,name=status,proto3,oneof" json:"status,omitempty"`
-	Metadata      *OptionalMap           `protobuf:"bytes,4,opt,name=metadata,proto3,oneof" json:"metadata,omitempty"`
+	Metadata      *OptionalMetadata      `protobuf:"bytes,4,opt,name=metadata,proto3,oneof" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -778,7 +786,7 @@ func (x *UpdateArgument) GetStatus() *OptionalStatus {
 	return nil
 }
 
-func (x *UpdateArgument) GetMetadata() *OptionalMap {
+func (x *UpdateArgument) GetMetadata() *OptionalMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -1254,13 +1262,14 @@ const file_gateway_jobs_private_v1_procedures_proto_rawDesc = "" +
 	"\rSelectRequest\x12E\n" +
 	"\targuments\x18\x01 \x03(\v2'.gateway.jobs.private.v1.SelectArgumentR\targuments\"B\n" +
 	"\x0eSelectResponse\x120\n" +
-	"\x04jobs\x18\x01 \x03(\v2\x1c.gateway.jobs.private.v1.JobR\x04jobs\"\xe4\x02\n" +
+	"\x04jobs\x18\x01 \x03(\v2\x1c.gateway.jobs.private.v1.JobR\x04jobs\"\x80\x03\n" +
 	"\x0eCreateArgument\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x127\n" +
 	"\x06result\x18\x02 \x01(\v2\x1f.gateway.jobs.private.v1.ResultR\x06result\x127\n" +
 	"\x06status\x18\x03 \x01(\x0e2\x1f.gateway.jobs.private.v1.StatusR\x06status\x12Q\n" +
-	"\bmetadata\x18\x04 \x03(\v25.gateway.jobs.private.v1.CreateArgument.MetadataEntryR\bmetadata\x12@\n" +
-	"\tcontainer\x18\x05 \x01(\v2\".gateway.jobs.private.v1.ContainerR\tcontainer\x1a;\n" +
+	"\bmetadata\x18\x04 \x03(\v25.gateway.jobs.private.v1.CreateArgument.MetadataEntryR\bmetadata\x12\x1a\n" +
+	"\btemplate\x18\x05 \x01(\tR\btemplate\x12@\n" +
+	"\tcontainer\x18\x06 \x01(\v2\".gateway.jobs.private.v1.ContainerR\tcontainer\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"V\n" +
@@ -1276,12 +1285,12 @@ const file_gateway_jobs_private_v1_procedures_proto_rawDesc = "" +
 	"\x0fbegin_timestamp\x18\x03 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
 	"\x0fclose_timestamp\x18\x04 \x01(\x03R\x0ecloseTimestamp\"Z\n" +
 	"\x11CreateTransaction\x12E\n" +
-	"\tmutations\x18\x01 \x03(\v2'.gateway.jobs.private.v1.CreateMutationR\tmutations\"\xbc\x02\n" +
+	"\tmutations\x18\x01 \x03(\v2'.gateway.jobs.private.v1.CreateMutationR\tmutations\"\xc1\x02\n" +
 	"\x0eUpdateArgument\x124\n" +
 	"\x05query\x18\x01 \x01(\v2\x1e.gateway.jobs.private.v1.QueryR\x05query\x12D\n" +
 	"\x06result\x18\x02 \x01(\v2'.gateway.jobs.private.v1.OptionalResultH\x00R\x06result\x88\x01\x01\x12D\n" +
-	"\x06status\x18\x03 \x01(\v2'.gateway.jobs.private.v1.OptionalStatusH\x01R\x06status\x88\x01\x01\x12E\n" +
-	"\bmetadata\x18\x04 \x01(\v2$.gateway.jobs.private.v1.OptionalMapH\x02R\bmetadata\x88\x01\x01B\t\n" +
+	"\x06status\x18\x03 \x01(\v2'.gateway.jobs.private.v1.OptionalStatusH\x01R\x06status\x88\x01\x01\x12J\n" +
+	"\bmetadata\x18\x04 \x01(\v2).gateway.jobs.private.v1.OptionalMetadataH\x02R\bmetadata\x88\x01\x01B\t\n" +
 	"\a_resultB\t\n" +
 	"\a_statusB\v\n" +
 	"\t_metadata\"V\n" +
@@ -1362,7 +1371,7 @@ var file_gateway_jobs_private_v1_procedures_proto_goTypes = []any{
 	(*Transient)(nil),         // 31: gateway.jobs.private.v1.Transient
 	(*OptionalResult)(nil),    // 32: gateway.jobs.private.v1.OptionalResult
 	(*OptionalStatus)(nil),    // 33: gateway.jobs.private.v1.OptionalStatus
-	(*OptionalMap)(nil),       // 34: gateway.jobs.private.v1.OptionalMap
+	(*OptionalMetadata)(nil),  // 34: gateway.jobs.private.v1.OptionalMetadata
 }
 var file_gateway_jobs_private_v1_procedures_proto_depIdxs = []int32{
 	25, // 0: gateway.jobs.private.v1.CountArgument.query:type_name -> gateway.jobs.private.v1.Query
@@ -1385,7 +1394,7 @@ var file_gateway_jobs_private_v1_procedures_proto_depIdxs = []int32{
 	25, // 17: gateway.jobs.private.v1.UpdateArgument.query:type_name -> gateway.jobs.private.v1.Query
 	32, // 18: gateway.jobs.private.v1.UpdateArgument.result:type_name -> gateway.jobs.private.v1.OptionalResult
 	33, // 19: gateway.jobs.private.v1.UpdateArgument.status:type_name -> gateway.jobs.private.v1.OptionalStatus
-	34, // 20: gateway.jobs.private.v1.UpdateArgument.metadata:type_name -> gateway.jobs.private.v1.OptionalMap
+	34, // 20: gateway.jobs.private.v1.UpdateArgument.metadata:type_name -> gateway.jobs.private.v1.OptionalMetadata
 	14, // 21: gateway.jobs.private.v1.UpdateRequest.arguments:type_name -> gateway.jobs.private.v1.UpdateArgument
 	27, // 22: gateway.jobs.private.v1.UpdateResponse.jobs:type_name -> gateway.jobs.private.v1.Job
 	14, // 23: gateway.jobs.private.v1.UpdateMutation.foundation:type_name -> gateway.jobs.private.v1.UpdateArgument

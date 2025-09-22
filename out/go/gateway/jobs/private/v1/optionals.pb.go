@@ -21,52 +21,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// OptionalMap todo;
-type OptionalMap struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Value         map[string]string      `protobuf:"bytes,1,rep,name=value,proto3" json:"value,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OptionalMap) Reset() {
-	*x = OptionalMap{}
-	mi := &file_gateway_jobs_private_v1_optionals_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OptionalMap) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OptionalMap) ProtoMessage() {}
-
-func (x *OptionalMap) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_jobs_private_v1_optionals_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OptionalMap.ProtoReflect.Descriptor instead.
-func (*OptionalMap) Descriptor() ([]byte, []int) {
-	return file_gateway_jobs_private_v1_optionals_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *OptionalMap) GetValue() map[string]string {
-	if x != nil {
-		return x.Value
-	}
-	return nil
-}
-
-// OptionalResult todo;
 type OptionalResult struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Value         *Result                `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
@@ -76,7 +30,7 @@ type OptionalResult struct {
 
 func (x *OptionalResult) Reset() {
 	*x = OptionalResult{}
-	mi := &file_gateway_jobs_private_v1_optionals_proto_msgTypes[1]
+	mi := &file_gateway_jobs_private_v1_optionals_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -88,7 +42,7 @@ func (x *OptionalResult) String() string {
 func (*OptionalResult) ProtoMessage() {}
 
 func (x *OptionalResult) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_jobs_private_v1_optionals_proto_msgTypes[1]
+	mi := &file_gateway_jobs_private_v1_optionals_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -101,7 +55,7 @@ func (x *OptionalResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OptionalResult.ProtoReflect.Descriptor instead.
 func (*OptionalResult) Descriptor() ([]byte, []int) {
-	return file_gateway_jobs_private_v1_optionals_proto_rawDescGZIP(), []int{1}
+	return file_gateway_jobs_private_v1_optionals_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *OptionalResult) GetValue() *Result {
@@ -111,7 +65,6 @@ func (x *OptionalResult) GetValue() *Result {
 	return nil
 }
 
-// OptionalStatus todo;
 type OptionalStatus struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Value         Status                 `protobuf:"varint,1,opt,name=value,proto3,enum=gateway.jobs.private.v1.Status" json:"value,omitempty"`
@@ -121,7 +74,7 @@ type OptionalStatus struct {
 
 func (x *OptionalStatus) Reset() {
 	*x = OptionalStatus{}
-	mi := &file_gateway_jobs_private_v1_optionals_proto_msgTypes[2]
+	mi := &file_gateway_jobs_private_v1_optionals_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -133,7 +86,7 @@ func (x *OptionalStatus) String() string {
 func (*OptionalStatus) ProtoMessage() {}
 
 func (x *OptionalStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_jobs_private_v1_optionals_proto_msgTypes[2]
+	mi := &file_gateway_jobs_private_v1_optionals_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -146,7 +99,7 @@ func (x *OptionalStatus) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OptionalStatus.ProtoReflect.Descriptor instead.
 func (*OptionalStatus) Descriptor() ([]byte, []int) {
-	return file_gateway_jobs_private_v1_optionals_proto_rawDescGZIP(), []int{2}
+	return file_gateway_jobs_private_v1_optionals_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *OptionalStatus) GetValue() Status {
@@ -156,8 +109,6 @@ func (x *OptionalStatus) GetValue() Status {
 	return StatusUnknown
 }
 
-// OptionalString represents a string value that can be intentionally left unset or null.
-// It allows for explicit control over the presence or absence of the string, accommodating scenarios where the string might be optional or intentionally omitted.
 type OptionalString struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Value         string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
@@ -167,7 +118,7 @@ type OptionalString struct {
 
 func (x *OptionalString) Reset() {
 	*x = OptionalString{}
-	mi := &file_gateway_jobs_private_v1_optionals_proto_msgTypes[3]
+	mi := &file_gateway_jobs_private_v1_optionals_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -179,7 +130,7 @@ func (x *OptionalString) String() string {
 func (*OptionalString) ProtoMessage() {}
 
 func (x *OptionalString) ProtoReflect() protoreflect.Message {
-	mi := &file_gateway_jobs_private_v1_optionals_proto_msgTypes[3]
+	mi := &file_gateway_jobs_private_v1_optionals_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -192,7 +143,7 @@ func (x *OptionalString) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OptionalString.ProtoReflect.Descriptor instead.
 func (*OptionalString) Descriptor() ([]byte, []int) {
-	return file_gateway_jobs_private_v1_optionals_proto_rawDescGZIP(), []int{3}
+	return file_gateway_jobs_private_v1_optionals_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *OptionalString) GetValue() string {
@@ -202,23 +153,67 @@ func (x *OptionalString) GetValue() string {
 	return ""
 }
 
+type OptionalMetadata struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Value         map[string]string      `protobuf:"bytes,1,rep,name=value,proto3" json:"value,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OptionalMetadata) Reset() {
+	*x = OptionalMetadata{}
+	mi := &file_gateway_jobs_private_v1_optionals_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OptionalMetadata) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OptionalMetadata) ProtoMessage() {}
+
+func (x *OptionalMetadata) ProtoReflect() protoreflect.Message {
+	mi := &file_gateway_jobs_private_v1_optionals_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OptionalMetadata.ProtoReflect.Descriptor instead.
+func (*OptionalMetadata) Descriptor() ([]byte, []int) {
+	return file_gateway_jobs_private_v1_optionals_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *OptionalMetadata) GetValue() map[string]string {
+	if x != nil {
+		return x.Value
+	}
+	return nil
+}
+
 var File_gateway_jobs_private_v1_optionals_proto protoreflect.FileDescriptor
 
 const file_gateway_jobs_private_v1_optionals_proto_rawDesc = "" +
 	"\n" +
-	"'gateway/jobs/private/v1/optionals.proto\x12\x17gateway.jobs.private.v1\x1a#gateway/jobs/private/v1/enums.proto\x1a&gateway/jobs/private/v1/entities.proto\"\x8e\x01\n" +
-	"\vOptionalMap\x12E\n" +
-	"\x05value\x18\x01 \x03(\v2/.gateway.jobs.private.v1.OptionalMap.ValueEntryR\x05value\x1a8\n" +
-	"\n" +
-	"ValueEntry\x12\x10\n" +
-	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"G\n" +
+	"'gateway/jobs/private/v1/optionals.proto\x12\x17gateway.jobs.private.v1\x1a#gateway/jobs/private/v1/enums.proto\x1a&gateway/jobs/private/v1/entities.proto\"G\n" +
 	"\x0eOptionalResult\x125\n" +
 	"\x05value\x18\x01 \x01(\v2\x1f.gateway.jobs.private.v1.ResultR\x05value\"G\n" +
 	"\x0eOptionalStatus\x125\n" +
 	"\x05value\x18\x01 \x01(\x0e2\x1f.gateway.jobs.private.v1.StatusR\x05value\"&\n" +
 	"\x0eOptionalString\x12\x14\n" +
-	"\x05value\x18\x01 \x01(\tR\x05valueBAZ?gitlab.com/evemeta/zdk/pb/out/go/gateway/jobs/private/v1;jobspbb\x06proto3"
+	"\x05value\x18\x01 \x01(\tR\x05value\"\x98\x01\n" +
+	"\x10OptionalMetadata\x12J\n" +
+	"\x05value\x18\x01 \x03(\v24.gateway.jobs.private.v1.OptionalMetadata.ValueEntryR\x05value\x1a8\n" +
+	"\n" +
+	"ValueEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01BAZ?gitlab.com/evemeta/zdk/pb/out/go/gateway/jobs/private/v1;jobspbb\x06proto3"
 
 var (
 	file_gateway_jobs_private_v1_optionals_proto_rawDescOnce sync.Once
@@ -234,18 +229,18 @@ func file_gateway_jobs_private_v1_optionals_proto_rawDescGZIP() []byte {
 
 var file_gateway_jobs_private_v1_optionals_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_gateway_jobs_private_v1_optionals_proto_goTypes = []any{
-	(*OptionalMap)(nil),    // 0: gateway.jobs.private.v1.OptionalMap
-	(*OptionalResult)(nil), // 1: gateway.jobs.private.v1.OptionalResult
-	(*OptionalStatus)(nil), // 2: gateway.jobs.private.v1.OptionalStatus
-	(*OptionalString)(nil), // 3: gateway.jobs.private.v1.OptionalString
-	nil,                    // 4: gateway.jobs.private.v1.OptionalMap.ValueEntry
-	(*Result)(nil),         // 5: gateway.jobs.private.v1.Result
-	(Status)(0),            // 6: gateway.jobs.private.v1.Status
+	(*OptionalResult)(nil),   // 0: gateway.jobs.private.v1.OptionalResult
+	(*OptionalStatus)(nil),   // 1: gateway.jobs.private.v1.OptionalStatus
+	(*OptionalString)(nil),   // 2: gateway.jobs.private.v1.OptionalString
+	(*OptionalMetadata)(nil), // 3: gateway.jobs.private.v1.OptionalMetadata
+	nil,                      // 4: gateway.jobs.private.v1.OptionalMetadata.ValueEntry
+	(*Result)(nil),           // 5: gateway.jobs.private.v1.Result
+	(Status)(0),              // 6: gateway.jobs.private.v1.Status
 }
 var file_gateway_jobs_private_v1_optionals_proto_depIdxs = []int32{
-	4, // 0: gateway.jobs.private.v1.OptionalMap.value:type_name -> gateway.jobs.private.v1.OptionalMap.ValueEntry
-	5, // 1: gateway.jobs.private.v1.OptionalResult.value:type_name -> gateway.jobs.private.v1.Result
-	6, // 2: gateway.jobs.private.v1.OptionalStatus.value:type_name -> gateway.jobs.private.v1.Status
+	5, // 0: gateway.jobs.private.v1.OptionalResult.value:type_name -> gateway.jobs.private.v1.Result
+	6, // 1: gateway.jobs.private.v1.OptionalStatus.value:type_name -> gateway.jobs.private.v1.Status
+	4, // 2: gateway.jobs.private.v1.OptionalMetadata.value:type_name -> gateway.jobs.private.v1.OptionalMetadata.ValueEntry
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name

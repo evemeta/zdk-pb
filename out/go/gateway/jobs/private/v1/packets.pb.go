@@ -79,7 +79,7 @@ type UpdateJobPacket struct {
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Result        *OptionalResult        `protobuf:"bytes,2,opt,name=result,proto3,oneof" json:"result,omitempty"`
 	Status        *OptionalStatus        `protobuf:"bytes,3,opt,name=status,proto3,oneof" json:"status,omitempty"`
-	Metadata      *OptionalMap           `protobuf:"bytes,4,opt,name=metadata,proto3,oneof" json:"metadata,omitempty"`
+	Metadata      *OptionalMetadata      `protobuf:"bytes,4,opt,name=metadata,proto3,oneof" json:"metadata,omitempty"`
 	Timeframe     *v1.Timeframe          `protobuf:"bytes,5,opt,name=timeframe,proto3" json:"timeframe,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -136,7 +136,7 @@ func (x *UpdateJobPacket) GetStatus() *OptionalStatus {
 	return nil
 }
 
-func (x *UpdateJobPacket) GetMetadata() *OptionalMap {
+func (x *UpdateJobPacket) GetMetadata() *OptionalMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -209,12 +209,12 @@ const file_gateway_jobs_private_v1_packets_proto_rawDesc = "" +
 	"%gateway/jobs/private/v1/packets.proto\x12\x17gateway.jobs.private.v1\x1a&gateway/jobs/private/v1/entities.proto\x1a'gateway/jobs/private/v1/optionals.proto\x1a*common/timeframes/public/v1/entities.proto\"\x87\x01\n" +
 	"\x0fCreateJobPacket\x12.\n" +
 	"\x03job\x18\x01 \x01(\v2\x1c.gateway.jobs.private.v1.JobR\x03job\x12D\n" +
-	"\ttimeframe\x18\x02 \x01(\v2&.common.timeframes.public.v1.TimeframeR\ttimeframe\"\xdd\x02\n" +
+	"\ttimeframe\x18\x02 \x01(\v2&.common.timeframes.public.v1.TimeframeR\ttimeframe\"\xe2\x02\n" +
 	"\x0fUpdateJobPacket\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12D\n" +
 	"\x06result\x18\x02 \x01(\v2'.gateway.jobs.private.v1.OptionalResultH\x00R\x06result\x88\x01\x01\x12D\n" +
-	"\x06status\x18\x03 \x01(\v2'.gateway.jobs.private.v1.OptionalStatusH\x01R\x06status\x88\x01\x01\x12E\n" +
-	"\bmetadata\x18\x04 \x01(\v2$.gateway.jobs.private.v1.OptionalMapH\x02R\bmetadata\x88\x01\x01\x12D\n" +
+	"\x06status\x18\x03 \x01(\v2'.gateway.jobs.private.v1.OptionalStatusH\x01R\x06status\x88\x01\x01\x12J\n" +
+	"\bmetadata\x18\x04 \x01(\v2).gateway.jobs.private.v1.OptionalMetadataH\x02R\bmetadata\x88\x01\x01\x12D\n" +
 	"\ttimeframe\x18\x05 \x01(\v2&.common.timeframes.public.v1.TimeframeR\ttimeframeB\t\n" +
 	"\a_resultB\t\n" +
 	"\a_statusB\v\n" +
@@ -237,21 +237,21 @@ func file_gateway_jobs_private_v1_packets_proto_rawDescGZIP() []byte {
 
 var file_gateway_jobs_private_v1_packets_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_gateway_jobs_private_v1_packets_proto_goTypes = []any{
-	(*CreateJobPacket)(nil), // 0: gateway.jobs.private.v1.CreateJobPacket
-	(*UpdateJobPacket)(nil), // 1: gateway.jobs.private.v1.UpdateJobPacket
-	(*DeleteJobPacket)(nil), // 2: gateway.jobs.private.v1.DeleteJobPacket
-	(*Job)(nil),             // 3: gateway.jobs.private.v1.Job
-	(*v1.Timeframe)(nil),    // 4: common.timeframes.public.v1.Timeframe
-	(*OptionalResult)(nil),  // 5: gateway.jobs.private.v1.OptionalResult
-	(*OptionalStatus)(nil),  // 6: gateway.jobs.private.v1.OptionalStatus
-	(*OptionalMap)(nil),     // 7: gateway.jobs.private.v1.OptionalMap
+	(*CreateJobPacket)(nil),  // 0: gateway.jobs.private.v1.CreateJobPacket
+	(*UpdateJobPacket)(nil),  // 1: gateway.jobs.private.v1.UpdateJobPacket
+	(*DeleteJobPacket)(nil),  // 2: gateway.jobs.private.v1.DeleteJobPacket
+	(*Job)(nil),              // 3: gateway.jobs.private.v1.Job
+	(*v1.Timeframe)(nil),     // 4: common.timeframes.public.v1.Timeframe
+	(*OptionalResult)(nil),   // 5: gateway.jobs.private.v1.OptionalResult
+	(*OptionalStatus)(nil),   // 6: gateway.jobs.private.v1.OptionalStatus
+	(*OptionalMetadata)(nil), // 7: gateway.jobs.private.v1.OptionalMetadata
 }
 var file_gateway_jobs_private_v1_packets_proto_depIdxs = []int32{
 	3, // 0: gateway.jobs.private.v1.CreateJobPacket.job:type_name -> gateway.jobs.private.v1.Job
 	4, // 1: gateway.jobs.private.v1.CreateJobPacket.timeframe:type_name -> common.timeframes.public.v1.Timeframe
 	5, // 2: gateway.jobs.private.v1.UpdateJobPacket.result:type_name -> gateway.jobs.private.v1.OptionalResult
 	6, // 3: gateway.jobs.private.v1.UpdateJobPacket.status:type_name -> gateway.jobs.private.v1.OptionalStatus
-	7, // 4: gateway.jobs.private.v1.UpdateJobPacket.metadata:type_name -> gateway.jobs.private.v1.OptionalMap
+	7, // 4: gateway.jobs.private.v1.UpdateJobPacket.metadata:type_name -> gateway.jobs.private.v1.OptionalMetadata
 	4, // 5: gateway.jobs.private.v1.UpdateJobPacket.timeframe:type_name -> common.timeframes.public.v1.Timeframe
 	4, // 6: gateway.jobs.private.v1.DeleteJobPacket.timeframe:type_name -> common.timeframes.public.v1.Timeframe
 	7, // [7:7] is the sub-list for method output_type
