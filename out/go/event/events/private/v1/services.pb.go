@@ -24,7 +24,7 @@ var File_event_events_private_v1_services_proto protoreflect.FileDescriptor
 
 const file_event_events_private_v1_services_proto_rawDesc = "" +
 	"\n" +
-	"&event/events/private/v1/services.proto\x12\x17event.events.private.v1\x1a(event/events/private/v1/procedures.proto2\xd8)\n" +
+	"&event/events/private/v1/services.proto\x12\x17event.events.private.v1\x1a(event/events/private/v1/procedures.proto2\x8e.\n" +
 	"\aService\x12V\n" +
 	"\x05Count\x12%.event.events.private.v1.CountRequest\x1a&.event.events.private.v1.CountResponse\x12V\n" +
 	"\x05Range\x12%.event.events.private.v1.RangeRequest\x1a&.event.events.private.v1.RangeResponse\x12Y\n" +
@@ -58,7 +58,12 @@ const file_event_events_private_v1_services_proto_rawDesc = "" +
 	"\x16ValidateLeaveMutations\x12).event.events.private.v1.LeaveTransaction\x1a).event.events.private.v1.LeaveTransaction\x12n\n" +
 	"\x16FinalizeLeaveMutations\x12).event.events.private.v1.LeaveTransaction\x1a).event.events.private.v1.LeaveTransaction\x12n\n" +
 	"\x16AnnounceLeaveMutations\x12).event.events.private.v1.LeaveTransaction\x1a).event.events.private.v1.LeaveTransaction\x12n\n" +
-	"\x16RollbackLeaveMutations\x12).event.events.private.v1.LeaveTransaction\x1a).event.events.private.v1.LeaveTransaction\x12V\n" +
+	"\x16RollbackLeaveMutations\x12).event.events.private.v1.LeaveTransaction\x1a).event.events.private.v1.LeaveTransaction\x12\\\n" +
+	"\aEnqueue\x12'.event.events.private.v1.EnqueueRequest\x1a(.event.events.private.v1.EnqueueResponse\x12t\n" +
+	"\x18InitiateEnqueueMutations\x12+.event.events.private.v1.EnqueueTransaction\x1a+.event.events.private.v1.EnqueueTransaction\x12t\n" +
+	"\x18FinalizeEnqueueMutations\x12+.event.events.private.v1.EnqueueTransaction\x1a+.event.events.private.v1.EnqueueTransaction\x12t\n" +
+	"\x18AnnounceEnqueueMutations\x12+.event.events.private.v1.EnqueueTransaction\x1a+.event.events.private.v1.EnqueueTransaction\x12t\n" +
+	"\x18RollbackEnqueueMutations\x12+.event.events.private.v1.EnqueueTransaction\x1a+.event.events.private.v1.EnqueueTransaction\x12V\n" +
 	"\x05Start\x12%.event.events.private.v1.StartRequest\x1a&.event.events.private.v1.StartResponse\x12n\n" +
 	"\x16InitiateStartMutations\x12).event.events.private.v1.StartTransaction\x1a).event.events.private.v1.StartTransaction\x12n\n" +
 	"\x16FinalizeStartMutations\x12).event.events.private.v1.StartTransaction\x1a).event.events.private.v1.StartTransaction\x12n\n" +
@@ -91,26 +96,29 @@ var file_event_events_private_v1_services_proto_goTypes = []any{
 	(*EnterTransaction)(nil),                   // 11: event.events.private.v1.EnterTransaction
 	(*LeaveRequest)(nil),                       // 12: event.events.private.v1.LeaveRequest
 	(*LeaveTransaction)(nil),                   // 13: event.events.private.v1.LeaveTransaction
-	(*StartRequest)(nil),                       // 14: event.events.private.v1.StartRequest
-	(*StartTransaction)(nil),                   // 15: event.events.private.v1.StartTransaction
-	(*FinishRequest)(nil),                      // 16: event.events.private.v1.FinishRequest
-	(*FinishTransaction)(nil),                  // 17: event.events.private.v1.FinishTransaction
-	(*CancelRequest)(nil),                      // 18: event.events.private.v1.CancelRequest
-	(*CancelTransaction)(nil),                  // 19: event.events.private.v1.CancelTransaction
-	(*GenerateBroadcastAccessUrlRequest)(nil),  // 20: event.events.private.v1.GenerateBroadcastAccessUrlRequest
-	(*CountResponse)(nil),                      // 21: event.events.private.v1.CountResponse
-	(*RangeResponse)(nil),                      // 22: event.events.private.v1.RangeResponse
-	(*SelectResponse)(nil),                     // 23: event.events.private.v1.SelectResponse
-	(*InvokeResponse)(nil),                     // 24: event.events.private.v1.InvokeResponse
-	(*CreateResponse)(nil),                     // 25: event.events.private.v1.CreateResponse
-	(*UpdateResponse)(nil),                     // 26: event.events.private.v1.UpdateResponse
-	(*DeleteResponse)(nil),                     // 27: event.events.private.v1.DeleteResponse
-	(*EnterResponse)(nil),                      // 28: event.events.private.v1.EnterResponse
-	(*LeaveResponse)(nil),                      // 29: event.events.private.v1.LeaveResponse
-	(*StartResponse)(nil),                      // 30: event.events.private.v1.StartResponse
-	(*FinishResponse)(nil),                     // 31: event.events.private.v1.FinishResponse
-	(*CancelResponse)(nil),                     // 32: event.events.private.v1.CancelResponse
-	(*GenerateBroadcastAccessUrlResponse)(nil), // 33: event.events.private.v1.GenerateBroadcastAccessUrlResponse
+	(*EnqueueRequest)(nil),                     // 14: event.events.private.v1.EnqueueRequest
+	(*EnqueueTransaction)(nil),                 // 15: event.events.private.v1.EnqueueTransaction
+	(*StartRequest)(nil),                       // 16: event.events.private.v1.StartRequest
+	(*StartTransaction)(nil),                   // 17: event.events.private.v1.StartTransaction
+	(*FinishRequest)(nil),                      // 18: event.events.private.v1.FinishRequest
+	(*FinishTransaction)(nil),                  // 19: event.events.private.v1.FinishTransaction
+	(*CancelRequest)(nil),                      // 20: event.events.private.v1.CancelRequest
+	(*CancelTransaction)(nil),                  // 21: event.events.private.v1.CancelTransaction
+	(*GenerateBroadcastAccessUrlRequest)(nil),  // 22: event.events.private.v1.GenerateBroadcastAccessUrlRequest
+	(*CountResponse)(nil),                      // 23: event.events.private.v1.CountResponse
+	(*RangeResponse)(nil),                      // 24: event.events.private.v1.RangeResponse
+	(*SelectResponse)(nil),                     // 25: event.events.private.v1.SelectResponse
+	(*InvokeResponse)(nil),                     // 26: event.events.private.v1.InvokeResponse
+	(*CreateResponse)(nil),                     // 27: event.events.private.v1.CreateResponse
+	(*UpdateResponse)(nil),                     // 28: event.events.private.v1.UpdateResponse
+	(*DeleteResponse)(nil),                     // 29: event.events.private.v1.DeleteResponse
+	(*EnterResponse)(nil),                      // 30: event.events.private.v1.EnterResponse
+	(*LeaveResponse)(nil),                      // 31: event.events.private.v1.LeaveResponse
+	(*EnqueueResponse)(nil),                    // 32: event.events.private.v1.EnqueueResponse
+	(*StartResponse)(nil),                      // 33: event.events.private.v1.StartResponse
+	(*FinishResponse)(nil),                     // 34: event.events.private.v1.FinishResponse
+	(*CancelResponse)(nil),                     // 35: event.events.private.v1.CancelResponse
+	(*GenerateBroadcastAccessUrlResponse)(nil), // 36: event.events.private.v1.GenerateBroadcastAccessUrlResponse
 }
 var file_event_events_private_v1_services_proto_depIdxs = []int32{
 	0,  // 0: event.events.private.v1.Service.Count:input_type -> event.events.private.v1.CountRequest
@@ -146,73 +154,83 @@ var file_event_events_private_v1_services_proto_depIdxs = []int32{
 	13, // 30: event.events.private.v1.Service.FinalizeLeaveMutations:input_type -> event.events.private.v1.LeaveTransaction
 	13, // 31: event.events.private.v1.Service.AnnounceLeaveMutations:input_type -> event.events.private.v1.LeaveTransaction
 	13, // 32: event.events.private.v1.Service.RollbackLeaveMutations:input_type -> event.events.private.v1.LeaveTransaction
-	14, // 33: event.events.private.v1.Service.Start:input_type -> event.events.private.v1.StartRequest
-	15, // 34: event.events.private.v1.Service.InitiateStartMutations:input_type -> event.events.private.v1.StartTransaction
-	15, // 35: event.events.private.v1.Service.FinalizeStartMutations:input_type -> event.events.private.v1.StartTransaction
-	15, // 36: event.events.private.v1.Service.AnnounceStartMutations:input_type -> event.events.private.v1.StartTransaction
-	15, // 37: event.events.private.v1.Service.RollbackStartMutations:input_type -> event.events.private.v1.StartTransaction
-	16, // 38: event.events.private.v1.Service.Finish:input_type -> event.events.private.v1.FinishRequest
-	17, // 39: event.events.private.v1.Service.InitiateFinishMutations:input_type -> event.events.private.v1.FinishTransaction
-	17, // 40: event.events.private.v1.Service.FinalizeFinishMutations:input_type -> event.events.private.v1.FinishTransaction
-	17, // 41: event.events.private.v1.Service.AnnounceFinishMutations:input_type -> event.events.private.v1.FinishTransaction
-	17, // 42: event.events.private.v1.Service.RollbackFinishMutations:input_type -> event.events.private.v1.FinishTransaction
-	18, // 43: event.events.private.v1.Service.Cancel:input_type -> event.events.private.v1.CancelRequest
-	19, // 44: event.events.private.v1.Service.InitiateCancelMutations:input_type -> event.events.private.v1.CancelTransaction
-	19, // 45: event.events.private.v1.Service.FinalizeCancelMutations:input_type -> event.events.private.v1.CancelTransaction
-	19, // 46: event.events.private.v1.Service.AnnounceCancelMutations:input_type -> event.events.private.v1.CancelTransaction
-	19, // 47: event.events.private.v1.Service.RollbackCancelMutations:input_type -> event.events.private.v1.CancelTransaction
-	20, // 48: event.events.private.v1.Service.GenerateBroadcastAccessUrl:input_type -> event.events.private.v1.GenerateBroadcastAccessUrlRequest
-	21, // 49: event.events.private.v1.Service.Count:output_type -> event.events.private.v1.CountResponse
-	22, // 50: event.events.private.v1.Service.Range:output_type -> event.events.private.v1.RangeResponse
-	23, // 51: event.events.private.v1.Service.Select:output_type -> event.events.private.v1.SelectResponse
-	24, // 52: event.events.private.v1.Service.Invoke:output_type -> event.events.private.v1.InvokeResponse
-	25, // 53: event.events.private.v1.Service.Create:output_type -> event.events.private.v1.CreateResponse
-	5,  // 54: event.events.private.v1.Service.InitiateCreateMutations:output_type -> event.events.private.v1.CreateTransaction
-	5,  // 55: event.events.private.v1.Service.ValidateCreateMutations:output_type -> event.events.private.v1.CreateTransaction
-	5,  // 56: event.events.private.v1.Service.FinalizeCreateMutations:output_type -> event.events.private.v1.CreateTransaction
-	5,  // 57: event.events.private.v1.Service.AnnounceCreateMutations:output_type -> event.events.private.v1.CreateTransaction
-	5,  // 58: event.events.private.v1.Service.RollbackCreateMutations:output_type -> event.events.private.v1.CreateTransaction
-	26, // 59: event.events.private.v1.Service.Update:output_type -> event.events.private.v1.UpdateResponse
-	7,  // 60: event.events.private.v1.Service.InitiateUpdateMutations:output_type -> event.events.private.v1.UpdateTransaction
-	7,  // 61: event.events.private.v1.Service.ValidateUpdateMutations:output_type -> event.events.private.v1.UpdateTransaction
-	7,  // 62: event.events.private.v1.Service.FinalizeUpdateMutations:output_type -> event.events.private.v1.UpdateTransaction
-	7,  // 63: event.events.private.v1.Service.AnnounceUpdateMutations:output_type -> event.events.private.v1.UpdateTransaction
-	7,  // 64: event.events.private.v1.Service.RollbackUpdateMutations:output_type -> event.events.private.v1.UpdateTransaction
-	27, // 65: event.events.private.v1.Service.Delete:output_type -> event.events.private.v1.DeleteResponse
-	9,  // 66: event.events.private.v1.Service.InitiateDeleteMutations:output_type -> event.events.private.v1.DeleteTransaction
-	9,  // 67: event.events.private.v1.Service.FinalizeDeleteMutations:output_type -> event.events.private.v1.DeleteTransaction
-	9,  // 68: event.events.private.v1.Service.AnnounceDeleteMutations:output_type -> event.events.private.v1.DeleteTransaction
-	9,  // 69: event.events.private.v1.Service.RollbackDeleteMutations:output_type -> event.events.private.v1.DeleteTransaction
-	28, // 70: event.events.private.v1.Service.Enter:output_type -> event.events.private.v1.EnterResponse
-	11, // 71: event.events.private.v1.Service.InitiateEnterMutations:output_type -> event.events.private.v1.EnterTransaction
-	11, // 72: event.events.private.v1.Service.ValidateEnterMutations:output_type -> event.events.private.v1.EnterTransaction
-	11, // 73: event.events.private.v1.Service.FinalizeEnterMutations:output_type -> event.events.private.v1.EnterTransaction
-	11, // 74: event.events.private.v1.Service.AnnounceEnterMutations:output_type -> event.events.private.v1.EnterTransaction
-	11, // 75: event.events.private.v1.Service.RollbackEnterMutations:output_type -> event.events.private.v1.EnterTransaction
-	29, // 76: event.events.private.v1.Service.Leave:output_type -> event.events.private.v1.LeaveResponse
-	13, // 77: event.events.private.v1.Service.InitiateLeaveMutations:output_type -> event.events.private.v1.LeaveTransaction
-	13, // 78: event.events.private.v1.Service.ValidateLeaveMutations:output_type -> event.events.private.v1.LeaveTransaction
-	13, // 79: event.events.private.v1.Service.FinalizeLeaveMutations:output_type -> event.events.private.v1.LeaveTransaction
-	13, // 80: event.events.private.v1.Service.AnnounceLeaveMutations:output_type -> event.events.private.v1.LeaveTransaction
-	13, // 81: event.events.private.v1.Service.RollbackLeaveMutations:output_type -> event.events.private.v1.LeaveTransaction
-	30, // 82: event.events.private.v1.Service.Start:output_type -> event.events.private.v1.StartResponse
-	15, // 83: event.events.private.v1.Service.InitiateStartMutations:output_type -> event.events.private.v1.StartTransaction
-	15, // 84: event.events.private.v1.Service.FinalizeStartMutations:output_type -> event.events.private.v1.StartTransaction
-	15, // 85: event.events.private.v1.Service.AnnounceStartMutations:output_type -> event.events.private.v1.StartTransaction
-	15, // 86: event.events.private.v1.Service.RollbackStartMutations:output_type -> event.events.private.v1.StartTransaction
-	31, // 87: event.events.private.v1.Service.Finish:output_type -> event.events.private.v1.FinishResponse
-	17, // 88: event.events.private.v1.Service.InitiateFinishMutations:output_type -> event.events.private.v1.FinishTransaction
-	17, // 89: event.events.private.v1.Service.FinalizeFinishMutations:output_type -> event.events.private.v1.FinishTransaction
-	17, // 90: event.events.private.v1.Service.AnnounceFinishMutations:output_type -> event.events.private.v1.FinishTransaction
-	17, // 91: event.events.private.v1.Service.RollbackFinishMutations:output_type -> event.events.private.v1.FinishTransaction
-	32, // 92: event.events.private.v1.Service.Cancel:output_type -> event.events.private.v1.CancelResponse
-	19, // 93: event.events.private.v1.Service.InitiateCancelMutations:output_type -> event.events.private.v1.CancelTransaction
-	19, // 94: event.events.private.v1.Service.FinalizeCancelMutations:output_type -> event.events.private.v1.CancelTransaction
-	19, // 95: event.events.private.v1.Service.AnnounceCancelMutations:output_type -> event.events.private.v1.CancelTransaction
-	19, // 96: event.events.private.v1.Service.RollbackCancelMutations:output_type -> event.events.private.v1.CancelTransaction
-	33, // 97: event.events.private.v1.Service.GenerateBroadcastAccessUrl:output_type -> event.events.private.v1.GenerateBroadcastAccessUrlResponse
-	49, // [49:98] is the sub-list for method output_type
-	0,  // [0:49] is the sub-list for method input_type
+	14, // 33: event.events.private.v1.Service.Enqueue:input_type -> event.events.private.v1.EnqueueRequest
+	15, // 34: event.events.private.v1.Service.InitiateEnqueueMutations:input_type -> event.events.private.v1.EnqueueTransaction
+	15, // 35: event.events.private.v1.Service.FinalizeEnqueueMutations:input_type -> event.events.private.v1.EnqueueTransaction
+	15, // 36: event.events.private.v1.Service.AnnounceEnqueueMutations:input_type -> event.events.private.v1.EnqueueTransaction
+	15, // 37: event.events.private.v1.Service.RollbackEnqueueMutations:input_type -> event.events.private.v1.EnqueueTransaction
+	16, // 38: event.events.private.v1.Service.Start:input_type -> event.events.private.v1.StartRequest
+	17, // 39: event.events.private.v1.Service.InitiateStartMutations:input_type -> event.events.private.v1.StartTransaction
+	17, // 40: event.events.private.v1.Service.FinalizeStartMutations:input_type -> event.events.private.v1.StartTransaction
+	17, // 41: event.events.private.v1.Service.AnnounceStartMutations:input_type -> event.events.private.v1.StartTransaction
+	17, // 42: event.events.private.v1.Service.RollbackStartMutations:input_type -> event.events.private.v1.StartTransaction
+	18, // 43: event.events.private.v1.Service.Finish:input_type -> event.events.private.v1.FinishRequest
+	19, // 44: event.events.private.v1.Service.InitiateFinishMutations:input_type -> event.events.private.v1.FinishTransaction
+	19, // 45: event.events.private.v1.Service.FinalizeFinishMutations:input_type -> event.events.private.v1.FinishTransaction
+	19, // 46: event.events.private.v1.Service.AnnounceFinishMutations:input_type -> event.events.private.v1.FinishTransaction
+	19, // 47: event.events.private.v1.Service.RollbackFinishMutations:input_type -> event.events.private.v1.FinishTransaction
+	20, // 48: event.events.private.v1.Service.Cancel:input_type -> event.events.private.v1.CancelRequest
+	21, // 49: event.events.private.v1.Service.InitiateCancelMutations:input_type -> event.events.private.v1.CancelTransaction
+	21, // 50: event.events.private.v1.Service.FinalizeCancelMutations:input_type -> event.events.private.v1.CancelTransaction
+	21, // 51: event.events.private.v1.Service.AnnounceCancelMutations:input_type -> event.events.private.v1.CancelTransaction
+	21, // 52: event.events.private.v1.Service.RollbackCancelMutations:input_type -> event.events.private.v1.CancelTransaction
+	22, // 53: event.events.private.v1.Service.GenerateBroadcastAccessUrl:input_type -> event.events.private.v1.GenerateBroadcastAccessUrlRequest
+	23, // 54: event.events.private.v1.Service.Count:output_type -> event.events.private.v1.CountResponse
+	24, // 55: event.events.private.v1.Service.Range:output_type -> event.events.private.v1.RangeResponse
+	25, // 56: event.events.private.v1.Service.Select:output_type -> event.events.private.v1.SelectResponse
+	26, // 57: event.events.private.v1.Service.Invoke:output_type -> event.events.private.v1.InvokeResponse
+	27, // 58: event.events.private.v1.Service.Create:output_type -> event.events.private.v1.CreateResponse
+	5,  // 59: event.events.private.v1.Service.InitiateCreateMutations:output_type -> event.events.private.v1.CreateTransaction
+	5,  // 60: event.events.private.v1.Service.ValidateCreateMutations:output_type -> event.events.private.v1.CreateTransaction
+	5,  // 61: event.events.private.v1.Service.FinalizeCreateMutations:output_type -> event.events.private.v1.CreateTransaction
+	5,  // 62: event.events.private.v1.Service.AnnounceCreateMutations:output_type -> event.events.private.v1.CreateTransaction
+	5,  // 63: event.events.private.v1.Service.RollbackCreateMutations:output_type -> event.events.private.v1.CreateTransaction
+	28, // 64: event.events.private.v1.Service.Update:output_type -> event.events.private.v1.UpdateResponse
+	7,  // 65: event.events.private.v1.Service.InitiateUpdateMutations:output_type -> event.events.private.v1.UpdateTransaction
+	7,  // 66: event.events.private.v1.Service.ValidateUpdateMutations:output_type -> event.events.private.v1.UpdateTransaction
+	7,  // 67: event.events.private.v1.Service.FinalizeUpdateMutations:output_type -> event.events.private.v1.UpdateTransaction
+	7,  // 68: event.events.private.v1.Service.AnnounceUpdateMutations:output_type -> event.events.private.v1.UpdateTransaction
+	7,  // 69: event.events.private.v1.Service.RollbackUpdateMutations:output_type -> event.events.private.v1.UpdateTransaction
+	29, // 70: event.events.private.v1.Service.Delete:output_type -> event.events.private.v1.DeleteResponse
+	9,  // 71: event.events.private.v1.Service.InitiateDeleteMutations:output_type -> event.events.private.v1.DeleteTransaction
+	9,  // 72: event.events.private.v1.Service.FinalizeDeleteMutations:output_type -> event.events.private.v1.DeleteTransaction
+	9,  // 73: event.events.private.v1.Service.AnnounceDeleteMutations:output_type -> event.events.private.v1.DeleteTransaction
+	9,  // 74: event.events.private.v1.Service.RollbackDeleteMutations:output_type -> event.events.private.v1.DeleteTransaction
+	30, // 75: event.events.private.v1.Service.Enter:output_type -> event.events.private.v1.EnterResponse
+	11, // 76: event.events.private.v1.Service.InitiateEnterMutations:output_type -> event.events.private.v1.EnterTransaction
+	11, // 77: event.events.private.v1.Service.ValidateEnterMutations:output_type -> event.events.private.v1.EnterTransaction
+	11, // 78: event.events.private.v1.Service.FinalizeEnterMutations:output_type -> event.events.private.v1.EnterTransaction
+	11, // 79: event.events.private.v1.Service.AnnounceEnterMutations:output_type -> event.events.private.v1.EnterTransaction
+	11, // 80: event.events.private.v1.Service.RollbackEnterMutations:output_type -> event.events.private.v1.EnterTransaction
+	31, // 81: event.events.private.v1.Service.Leave:output_type -> event.events.private.v1.LeaveResponse
+	13, // 82: event.events.private.v1.Service.InitiateLeaveMutations:output_type -> event.events.private.v1.LeaveTransaction
+	13, // 83: event.events.private.v1.Service.ValidateLeaveMutations:output_type -> event.events.private.v1.LeaveTransaction
+	13, // 84: event.events.private.v1.Service.FinalizeLeaveMutations:output_type -> event.events.private.v1.LeaveTransaction
+	13, // 85: event.events.private.v1.Service.AnnounceLeaveMutations:output_type -> event.events.private.v1.LeaveTransaction
+	13, // 86: event.events.private.v1.Service.RollbackLeaveMutations:output_type -> event.events.private.v1.LeaveTransaction
+	32, // 87: event.events.private.v1.Service.Enqueue:output_type -> event.events.private.v1.EnqueueResponse
+	15, // 88: event.events.private.v1.Service.InitiateEnqueueMutations:output_type -> event.events.private.v1.EnqueueTransaction
+	15, // 89: event.events.private.v1.Service.FinalizeEnqueueMutations:output_type -> event.events.private.v1.EnqueueTransaction
+	15, // 90: event.events.private.v1.Service.AnnounceEnqueueMutations:output_type -> event.events.private.v1.EnqueueTransaction
+	15, // 91: event.events.private.v1.Service.RollbackEnqueueMutations:output_type -> event.events.private.v1.EnqueueTransaction
+	33, // 92: event.events.private.v1.Service.Start:output_type -> event.events.private.v1.StartResponse
+	17, // 93: event.events.private.v1.Service.InitiateStartMutations:output_type -> event.events.private.v1.StartTransaction
+	17, // 94: event.events.private.v1.Service.FinalizeStartMutations:output_type -> event.events.private.v1.StartTransaction
+	17, // 95: event.events.private.v1.Service.AnnounceStartMutations:output_type -> event.events.private.v1.StartTransaction
+	17, // 96: event.events.private.v1.Service.RollbackStartMutations:output_type -> event.events.private.v1.StartTransaction
+	34, // 97: event.events.private.v1.Service.Finish:output_type -> event.events.private.v1.FinishResponse
+	19, // 98: event.events.private.v1.Service.InitiateFinishMutations:output_type -> event.events.private.v1.FinishTransaction
+	19, // 99: event.events.private.v1.Service.FinalizeFinishMutations:output_type -> event.events.private.v1.FinishTransaction
+	19, // 100: event.events.private.v1.Service.AnnounceFinishMutations:output_type -> event.events.private.v1.FinishTransaction
+	19, // 101: event.events.private.v1.Service.RollbackFinishMutations:output_type -> event.events.private.v1.FinishTransaction
+	35, // 102: event.events.private.v1.Service.Cancel:output_type -> event.events.private.v1.CancelResponse
+	21, // 103: event.events.private.v1.Service.InitiateCancelMutations:output_type -> event.events.private.v1.CancelTransaction
+	21, // 104: event.events.private.v1.Service.FinalizeCancelMutations:output_type -> event.events.private.v1.CancelTransaction
+	21, // 105: event.events.private.v1.Service.AnnounceCancelMutations:output_type -> event.events.private.v1.CancelTransaction
+	21, // 106: event.events.private.v1.Service.RollbackCancelMutations:output_type -> event.events.private.v1.CancelTransaction
+	36, // 107: event.events.private.v1.Service.GenerateBroadcastAccessUrl:output_type -> event.events.private.v1.GenerateBroadcastAccessUrlResponse
+	54, // [54:108] is the sub-list for method output_type
+	0,  // [0:54] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name

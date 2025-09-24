@@ -52,6 +52,11 @@ const (
 	Service_FinalizeLeaveMutations_FullMethodName     = "/event.events.private.v1.Service/FinalizeLeaveMutations"
 	Service_AnnounceLeaveMutations_FullMethodName     = "/event.events.private.v1.Service/AnnounceLeaveMutations"
 	Service_RollbackLeaveMutations_FullMethodName     = "/event.events.private.v1.Service/RollbackLeaveMutations"
+	Service_Enqueue_FullMethodName                    = "/event.events.private.v1.Service/Enqueue"
+	Service_InitiateEnqueueMutations_FullMethodName   = "/event.events.private.v1.Service/InitiateEnqueueMutations"
+	Service_FinalizeEnqueueMutations_FullMethodName   = "/event.events.private.v1.Service/FinalizeEnqueueMutations"
+	Service_AnnounceEnqueueMutations_FullMethodName   = "/event.events.private.v1.Service/AnnounceEnqueueMutations"
+	Service_RollbackEnqueueMutations_FullMethodName   = "/event.events.private.v1.Service/RollbackEnqueueMutations"
 	Service_Start_FullMethodName                      = "/event.events.private.v1.Service/Start"
 	Service_InitiateStartMutations_FullMethodName     = "/event.events.private.v1.Service/InitiateStartMutations"
 	Service_FinalizeStartMutations_FullMethodName     = "/event.events.private.v1.Service/FinalizeStartMutations"
@@ -107,6 +112,11 @@ type ServiceClient interface {
 	FinalizeLeaveMutations(ctx context.Context, in *LeaveTransaction, opts ...grpc.CallOption) (*LeaveTransaction, error)
 	AnnounceLeaveMutations(ctx context.Context, in *LeaveTransaction, opts ...grpc.CallOption) (*LeaveTransaction, error)
 	RollbackLeaveMutations(ctx context.Context, in *LeaveTransaction, opts ...grpc.CallOption) (*LeaveTransaction, error)
+	Enqueue(ctx context.Context, in *EnqueueRequest, opts ...grpc.CallOption) (*EnqueueResponse, error)
+	InitiateEnqueueMutations(ctx context.Context, in *EnqueueTransaction, opts ...grpc.CallOption) (*EnqueueTransaction, error)
+	FinalizeEnqueueMutations(ctx context.Context, in *EnqueueTransaction, opts ...grpc.CallOption) (*EnqueueTransaction, error)
+	AnnounceEnqueueMutations(ctx context.Context, in *EnqueueTransaction, opts ...grpc.CallOption) (*EnqueueTransaction, error)
+	RollbackEnqueueMutations(ctx context.Context, in *EnqueueTransaction, opts ...grpc.CallOption) (*EnqueueTransaction, error)
 	Start(ctx context.Context, in *StartRequest, opts ...grpc.CallOption) (*StartResponse, error)
 	InitiateStartMutations(ctx context.Context, in *StartTransaction, opts ...grpc.CallOption) (*StartTransaction, error)
 	FinalizeStartMutations(ctx context.Context, in *StartTransaction, opts ...grpc.CallOption) (*StartTransaction, error)
@@ -463,6 +473,56 @@ func (c *serviceClient) RollbackLeaveMutations(ctx context.Context, in *LeaveTra
 	return out, nil
 }
 
+func (c *serviceClient) Enqueue(ctx context.Context, in *EnqueueRequest, opts ...grpc.CallOption) (*EnqueueResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EnqueueResponse)
+	err := c.cc.Invoke(ctx, Service_Enqueue_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) InitiateEnqueueMutations(ctx context.Context, in *EnqueueTransaction, opts ...grpc.CallOption) (*EnqueueTransaction, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EnqueueTransaction)
+	err := c.cc.Invoke(ctx, Service_InitiateEnqueueMutations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) FinalizeEnqueueMutations(ctx context.Context, in *EnqueueTransaction, opts ...grpc.CallOption) (*EnqueueTransaction, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EnqueueTransaction)
+	err := c.cc.Invoke(ctx, Service_FinalizeEnqueueMutations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) AnnounceEnqueueMutations(ctx context.Context, in *EnqueueTransaction, opts ...grpc.CallOption) (*EnqueueTransaction, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EnqueueTransaction)
+	err := c.cc.Invoke(ctx, Service_AnnounceEnqueueMutations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) RollbackEnqueueMutations(ctx context.Context, in *EnqueueTransaction, opts ...grpc.CallOption) (*EnqueueTransaction, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EnqueueTransaction)
+	err := c.cc.Invoke(ctx, Service_RollbackEnqueueMutations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *serviceClient) Start(ctx context.Context, in *StartRequest, opts ...grpc.CallOption) (*StartResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(StartResponse)
@@ -660,6 +720,11 @@ type ServiceServer interface {
 	FinalizeLeaveMutations(context.Context, *LeaveTransaction) (*LeaveTransaction, error)
 	AnnounceLeaveMutations(context.Context, *LeaveTransaction) (*LeaveTransaction, error)
 	RollbackLeaveMutations(context.Context, *LeaveTransaction) (*LeaveTransaction, error)
+	Enqueue(context.Context, *EnqueueRequest) (*EnqueueResponse, error)
+	InitiateEnqueueMutations(context.Context, *EnqueueTransaction) (*EnqueueTransaction, error)
+	FinalizeEnqueueMutations(context.Context, *EnqueueTransaction) (*EnqueueTransaction, error)
+	AnnounceEnqueueMutations(context.Context, *EnqueueTransaction) (*EnqueueTransaction, error)
+	RollbackEnqueueMutations(context.Context, *EnqueueTransaction) (*EnqueueTransaction, error)
 	Start(context.Context, *StartRequest) (*StartResponse, error)
 	InitiateStartMutations(context.Context, *StartTransaction) (*StartTransaction, error)
 	FinalizeStartMutations(context.Context, *StartTransaction) (*StartTransaction, error)
@@ -784,6 +849,21 @@ func (UnimplementedServiceServer) AnnounceLeaveMutations(context.Context, *Leave
 }
 func (UnimplementedServiceServer) RollbackLeaveMutations(context.Context, *LeaveTransaction) (*LeaveTransaction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RollbackLeaveMutations not implemented")
+}
+func (UnimplementedServiceServer) Enqueue(context.Context, *EnqueueRequest) (*EnqueueResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Enqueue not implemented")
+}
+func (UnimplementedServiceServer) InitiateEnqueueMutations(context.Context, *EnqueueTransaction) (*EnqueueTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InitiateEnqueueMutations not implemented")
+}
+func (UnimplementedServiceServer) FinalizeEnqueueMutations(context.Context, *EnqueueTransaction) (*EnqueueTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FinalizeEnqueueMutations not implemented")
+}
+func (UnimplementedServiceServer) AnnounceEnqueueMutations(context.Context, *EnqueueTransaction) (*EnqueueTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AnnounceEnqueueMutations not implemented")
+}
+func (UnimplementedServiceServer) RollbackEnqueueMutations(context.Context, *EnqueueTransaction) (*EnqueueTransaction, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RollbackEnqueueMutations not implemented")
 }
 func (UnimplementedServiceServer) Start(context.Context, *StartRequest) (*StartResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Start not implemented")
@@ -1448,6 +1528,96 @@ func _Service_RollbackLeaveMutations_Handler(srv interface{}, ctx context.Contex
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Service_Enqueue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EnqueueRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).Enqueue(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_Enqueue_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).Enqueue(ctx, req.(*EnqueueRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_InitiateEnqueueMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EnqueueTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).InitiateEnqueueMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_InitiateEnqueueMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).InitiateEnqueueMutations(ctx, req.(*EnqueueTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_FinalizeEnqueueMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EnqueueTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).FinalizeEnqueueMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_FinalizeEnqueueMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).FinalizeEnqueueMutations(ctx, req.(*EnqueueTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_AnnounceEnqueueMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EnqueueTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).AnnounceEnqueueMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_AnnounceEnqueueMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).AnnounceEnqueueMutations(ctx, req.(*EnqueueTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_RollbackEnqueueMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EnqueueTransaction)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).RollbackEnqueueMutations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Service_RollbackEnqueueMutations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).RollbackEnqueueMutations(ctx, req.(*EnqueueTransaction))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _Service_Start_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(StartRequest)
 	if err := dec(in); err != nil {
@@ -1874,6 +2044,26 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RollbackLeaveMutations",
 			Handler:    _Service_RollbackLeaveMutations_Handler,
+		},
+		{
+			MethodName: "Enqueue",
+			Handler:    _Service_Enqueue_Handler,
+		},
+		{
+			MethodName: "InitiateEnqueueMutations",
+			Handler:    _Service_InitiateEnqueueMutations_Handler,
+		},
+		{
+			MethodName: "FinalizeEnqueueMutations",
+			Handler:    _Service_FinalizeEnqueueMutations_Handler,
+		},
+		{
+			MethodName: "AnnounceEnqueueMutations",
+			Handler:    _Service_AnnounceEnqueueMutations_Handler,
+		},
+		{
+			MethodName: "RollbackEnqueueMutations",
+			Handler:    _Service_RollbackEnqueueMutations_Handler,
 		},
 		{
 			MethodName: "Start",

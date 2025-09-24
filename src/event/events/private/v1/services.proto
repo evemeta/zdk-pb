@@ -74,6 +74,16 @@ service Service {
 
     rpc RollbackLeaveMutations(LeaveTransaction) returns (LeaveTransaction);
 
+    rpc Enqueue(EnqueueRequest) returns (EnqueueResponse);
+
+    rpc InitiateEnqueueMutations(EnqueueTransaction) returns (EnqueueTransaction);
+
+    rpc FinalizeEnqueueMutations(EnqueueTransaction) returns (EnqueueTransaction);
+
+    rpc AnnounceEnqueueMutations(EnqueueTransaction) returns (EnqueueTransaction);
+
+    rpc RollbackEnqueueMutations(EnqueueTransaction) returns (EnqueueTransaction);
+
     rpc Start(StartRequest) returns (StartResponse);
 
     rpc InitiateStartMutations(StartTransaction) returns (StartTransaction);
