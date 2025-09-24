@@ -225,32 +225,32 @@ message LeaveTransaction {
     repeated event.events.private.v1.LeaveMutation mutations = 1;
 }
 
-message EnqueueArgument {
+message ProvisionArgument {
     event.events.private.v1.Query query = 1;
 }
 
-message EnqueueRequest {
-    repeated event.events.private.v1.EnqueueArgument arguments = 1;
+message ProvisionRequest {
+    repeated event.events.private.v1.ProvisionArgument arguments = 1;
 }
 
-message EnqueueResponse {
+message ProvisionResponse {
     repeated event.events.private.v1.Event events = 1;
 }
 
-message EnqueueMutation {
-    event.events.private.v1.EnqueueArgument    foundation      = 1;
-    event.events.private.v1.EnqueueCondition   condition       = 2;
+message ProvisionMutation {
+    event.events.private.v1.ProvisionArgument  foundation      = 1;
+    event.events.private.v1.ProvisionCondition condition       = 2;
     repeated event.events.private.v1.Transient transient       = 3;
     int64                                      begin_timestamp = 4;
     int64                                      close_timestamp = 5;
 }
 
-message EnqueueCondition {
+message ProvisionCondition {
     repeated gateway.jobs.private.v1.CreateMutation create_job_mutations = 1;
 }
 
-message EnqueueTransaction {
-    repeated event.events.private.v1.EnqueueMutation mutations = 1;
+message ProvisionTransaction {
+    repeated event.events.private.v1.ProvisionMutation mutations = 1;
 }
 
 message StartArgument {

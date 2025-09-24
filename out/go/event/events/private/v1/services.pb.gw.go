@@ -1153,8 +1153,8 @@ func local_request_Service_RollbackLeaveMutations_0(ctx context.Context, marshal
 
 }
 
-func request_Service_Enqueue_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq EnqueueRequest
+func request_Service_Provision_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq ProvisionRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -1165,13 +1165,13 @@ func request_Service_Enqueue_0(ctx context.Context, marshaler runtime.Marshaler,
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := client.Enqueue(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	msg, err := client.Provision(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
 
-func local_request_Service_Enqueue_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq EnqueueRequest
+func local_request_Service_Provision_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq ProvisionRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -1182,13 +1182,13 @@ func local_request_Service_Enqueue_0(ctx context.Context, marshaler runtime.Mars
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := server.Enqueue(ctx, &protoReq)
+	msg, err := server.Provision(ctx, &protoReq)
 	return msg, metadata, err
 
 }
 
-func request_Service_InitiateEnqueueMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq EnqueueTransaction
+func request_Service_InitiateProvisionMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq ProvisionTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -1199,13 +1199,13 @@ func request_Service_InitiateEnqueueMutations_0(ctx context.Context, marshaler r
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := client.InitiateEnqueueMutations(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	msg, err := client.InitiateProvisionMutations(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
 
-func local_request_Service_InitiateEnqueueMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq EnqueueTransaction
+func local_request_Service_InitiateProvisionMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq ProvisionTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -1216,13 +1216,13 @@ func local_request_Service_InitiateEnqueueMutations_0(ctx context.Context, marsh
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := server.InitiateEnqueueMutations(ctx, &protoReq)
+	msg, err := server.InitiateProvisionMutations(ctx, &protoReq)
 	return msg, metadata, err
 
 }
 
-func request_Service_FinalizeEnqueueMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq EnqueueTransaction
+func request_Service_FinalizeProvisionMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq ProvisionTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -1233,13 +1233,13 @@ func request_Service_FinalizeEnqueueMutations_0(ctx context.Context, marshaler r
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := client.FinalizeEnqueueMutations(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	msg, err := client.FinalizeProvisionMutations(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
 
-func local_request_Service_FinalizeEnqueueMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq EnqueueTransaction
+func local_request_Service_FinalizeProvisionMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq ProvisionTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -1250,13 +1250,13 @@ func local_request_Service_FinalizeEnqueueMutations_0(ctx context.Context, marsh
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := server.FinalizeEnqueueMutations(ctx, &protoReq)
+	msg, err := server.FinalizeProvisionMutations(ctx, &protoReq)
 	return msg, metadata, err
 
 }
 
-func request_Service_AnnounceEnqueueMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq EnqueueTransaction
+func request_Service_AnnounceProvisionMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq ProvisionTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -1267,13 +1267,13 @@ func request_Service_AnnounceEnqueueMutations_0(ctx context.Context, marshaler r
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := client.AnnounceEnqueueMutations(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	msg, err := client.AnnounceProvisionMutations(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
 
-func local_request_Service_AnnounceEnqueueMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq EnqueueTransaction
+func local_request_Service_AnnounceProvisionMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq ProvisionTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -1284,13 +1284,13 @@ func local_request_Service_AnnounceEnqueueMutations_0(ctx context.Context, marsh
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := server.AnnounceEnqueueMutations(ctx, &protoReq)
+	msg, err := server.AnnounceProvisionMutations(ctx, &protoReq)
 	return msg, metadata, err
 
 }
 
-func request_Service_RollbackEnqueueMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq EnqueueTransaction
+func request_Service_RollbackProvisionMutations_0(ctx context.Context, marshaler runtime.Marshaler, client ServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq ProvisionTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -1301,13 +1301,13 @@ func request_Service_RollbackEnqueueMutations_0(ctx context.Context, marshaler r
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := client.RollbackEnqueueMutations(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	msg, err := client.RollbackProvisionMutations(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
 
-func local_request_Service_RollbackEnqueueMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq EnqueueTransaction
+func local_request_Service_RollbackProvisionMutations_0(ctx context.Context, marshaler runtime.Marshaler, server ServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq ProvisionTransaction
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -1318,7 +1318,7 @@ func local_request_Service_RollbackEnqueueMutations_0(ctx context.Context, marsh
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := server.RollbackEnqueueMutations(ctx, &protoReq)
+	msg, err := server.RollbackProvisionMutations(ctx, &protoReq)
 	return msg, metadata, err
 
 }
@@ -2632,18 +2632,18 @@ func RegisterServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 
 	})
 
-	mux.Handle("POST", pattern_Service_Enqueue_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Service_Provision_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/event.events.private.v1.Service/Enqueue", runtime.WithHTTPPathPattern("/event.events.private.v1.Service/Enqueue"))
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/event.events.private.v1.Service/Provision", runtime.WithHTTPPathPattern("/event.events.private.v1.Service/Provision"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Service_Enqueue_0(rctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Service_Provision_0(rctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -2651,22 +2651,22 @@ func RegisterServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 			return
 		}
 
-		forward_Service_Enqueue_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Service_Provision_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Service_InitiateEnqueueMutations_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Service_InitiateProvisionMutations_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/event.events.private.v1.Service/InitiateEnqueueMutations", runtime.WithHTTPPathPattern("/event.events.private.v1.Service/InitiateEnqueueMutations"))
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/event.events.private.v1.Service/InitiateProvisionMutations", runtime.WithHTTPPathPattern("/event.events.private.v1.Service/InitiateProvisionMutations"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Service_InitiateEnqueueMutations_0(rctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Service_InitiateProvisionMutations_0(rctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -2674,22 +2674,22 @@ func RegisterServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 			return
 		}
 
-		forward_Service_InitiateEnqueueMutations_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Service_InitiateProvisionMutations_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Service_FinalizeEnqueueMutations_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Service_FinalizeProvisionMutations_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/event.events.private.v1.Service/FinalizeEnqueueMutations", runtime.WithHTTPPathPattern("/event.events.private.v1.Service/FinalizeEnqueueMutations"))
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/event.events.private.v1.Service/FinalizeProvisionMutations", runtime.WithHTTPPathPattern("/event.events.private.v1.Service/FinalizeProvisionMutations"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Service_FinalizeEnqueueMutations_0(rctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Service_FinalizeProvisionMutations_0(rctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -2697,22 +2697,22 @@ func RegisterServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 			return
 		}
 
-		forward_Service_FinalizeEnqueueMutations_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Service_FinalizeProvisionMutations_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Service_AnnounceEnqueueMutations_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Service_AnnounceProvisionMutations_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/event.events.private.v1.Service/AnnounceEnqueueMutations", runtime.WithHTTPPathPattern("/event.events.private.v1.Service/AnnounceEnqueueMutations"))
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/event.events.private.v1.Service/AnnounceProvisionMutations", runtime.WithHTTPPathPattern("/event.events.private.v1.Service/AnnounceProvisionMutations"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Service_AnnounceEnqueueMutations_0(rctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Service_AnnounceProvisionMutations_0(rctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -2720,22 +2720,22 @@ func RegisterServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 			return
 		}
 
-		forward_Service_AnnounceEnqueueMutations_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Service_AnnounceProvisionMutations_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Service_RollbackEnqueueMutations_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Service_RollbackProvisionMutations_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/event.events.private.v1.Service/RollbackEnqueueMutations", runtime.WithHTTPPathPattern("/event.events.private.v1.Service/RollbackEnqueueMutations"))
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/event.events.private.v1.Service/RollbackProvisionMutations", runtime.WithHTTPPathPattern("/event.events.private.v1.Service/RollbackProvisionMutations"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Service_RollbackEnqueueMutations_0(rctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Service_RollbackProvisionMutations_0(rctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -2743,7 +2743,7 @@ func RegisterServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 			return
 		}
 
-		forward_Service_RollbackEnqueueMutations_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Service_RollbackProvisionMutations_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -3816,103 +3816,103 @@ func RegisterServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 
 	})
 
-	mux.Handle("POST", pattern_Service_Enqueue_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Service_Provision_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/event.events.private.v1.Service/Enqueue", runtime.WithHTTPPathPattern("/event.events.private.v1.Service/Enqueue"))
+		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/event.events.private.v1.Service/Provision", runtime.WithHTTPPathPattern("/event.events.private.v1.Service/Provision"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Service_Enqueue_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Service_Provision_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Service_Enqueue_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Service_Provision_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Service_InitiateEnqueueMutations_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Service_InitiateProvisionMutations_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/event.events.private.v1.Service/InitiateEnqueueMutations", runtime.WithHTTPPathPattern("/event.events.private.v1.Service/InitiateEnqueueMutations"))
+		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/event.events.private.v1.Service/InitiateProvisionMutations", runtime.WithHTTPPathPattern("/event.events.private.v1.Service/InitiateProvisionMutations"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Service_InitiateEnqueueMutations_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Service_InitiateProvisionMutations_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Service_InitiateEnqueueMutations_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Service_InitiateProvisionMutations_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Service_FinalizeEnqueueMutations_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Service_FinalizeProvisionMutations_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/event.events.private.v1.Service/FinalizeEnqueueMutations", runtime.WithHTTPPathPattern("/event.events.private.v1.Service/FinalizeEnqueueMutations"))
+		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/event.events.private.v1.Service/FinalizeProvisionMutations", runtime.WithHTTPPathPattern("/event.events.private.v1.Service/FinalizeProvisionMutations"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Service_FinalizeEnqueueMutations_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Service_FinalizeProvisionMutations_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Service_FinalizeEnqueueMutations_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Service_FinalizeProvisionMutations_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Service_AnnounceEnqueueMutations_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Service_AnnounceProvisionMutations_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/event.events.private.v1.Service/AnnounceEnqueueMutations", runtime.WithHTTPPathPattern("/event.events.private.v1.Service/AnnounceEnqueueMutations"))
+		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/event.events.private.v1.Service/AnnounceProvisionMutations", runtime.WithHTTPPathPattern("/event.events.private.v1.Service/AnnounceProvisionMutations"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Service_AnnounceEnqueueMutations_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Service_AnnounceProvisionMutations_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Service_AnnounceEnqueueMutations_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Service_AnnounceProvisionMutations_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Service_RollbackEnqueueMutations_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Service_RollbackProvisionMutations_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/event.events.private.v1.Service/RollbackEnqueueMutations", runtime.WithHTTPPathPattern("/event.events.private.v1.Service/RollbackEnqueueMutations"))
+		rctx, err := runtime.AnnotateContext(ctx, mux, req, "/event.events.private.v1.Service/RollbackProvisionMutations", runtime.WithHTTPPathPattern("/event.events.private.v1.Service/RollbackProvisionMutations"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Service_RollbackEnqueueMutations_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Service_RollbackProvisionMutations_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Service_RollbackEnqueueMutations_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Service_RollbackProvisionMutations_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -4306,15 +4306,15 @@ var (
 
 	pattern_Service_RollbackLeaveMutations_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"event.events.private.v1.Service", "RollbackLeaveMutations"}, ""))
 
-	pattern_Service_Enqueue_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"event.events.private.v1.Service", "Enqueue"}, ""))
+	pattern_Service_Provision_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"event.events.private.v1.Service", "Provision"}, ""))
 
-	pattern_Service_InitiateEnqueueMutations_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"event.events.private.v1.Service", "InitiateEnqueueMutations"}, ""))
+	pattern_Service_InitiateProvisionMutations_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"event.events.private.v1.Service", "InitiateProvisionMutations"}, ""))
 
-	pattern_Service_FinalizeEnqueueMutations_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"event.events.private.v1.Service", "FinalizeEnqueueMutations"}, ""))
+	pattern_Service_FinalizeProvisionMutations_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"event.events.private.v1.Service", "FinalizeProvisionMutations"}, ""))
 
-	pattern_Service_AnnounceEnqueueMutations_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"event.events.private.v1.Service", "AnnounceEnqueueMutations"}, ""))
+	pattern_Service_AnnounceProvisionMutations_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"event.events.private.v1.Service", "AnnounceProvisionMutations"}, ""))
 
-	pattern_Service_RollbackEnqueueMutations_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"event.events.private.v1.Service", "RollbackEnqueueMutations"}, ""))
+	pattern_Service_RollbackProvisionMutations_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"event.events.private.v1.Service", "RollbackProvisionMutations"}, ""))
 
 	pattern_Service_Start_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"event.events.private.v1.Service", "Start"}, ""))
 
@@ -4416,15 +4416,15 @@ var (
 
 	forward_Service_RollbackLeaveMutations_0 = runtime.ForwardResponseMessage
 
-	forward_Service_Enqueue_0 = runtime.ForwardResponseMessage
+	forward_Service_Provision_0 = runtime.ForwardResponseMessage
 
-	forward_Service_InitiateEnqueueMutations_0 = runtime.ForwardResponseMessage
+	forward_Service_InitiateProvisionMutations_0 = runtime.ForwardResponseMessage
 
-	forward_Service_FinalizeEnqueueMutations_0 = runtime.ForwardResponseMessage
+	forward_Service_FinalizeProvisionMutations_0 = runtime.ForwardResponseMessage
 
-	forward_Service_AnnounceEnqueueMutations_0 = runtime.ForwardResponseMessage
+	forward_Service_AnnounceProvisionMutations_0 = runtime.ForwardResponseMessage
 
-	forward_Service_RollbackEnqueueMutations_0 = runtime.ForwardResponseMessage
+	forward_Service_RollbackProvisionMutations_0 = runtime.ForwardResponseMessage
 
 	forward_Service_Start_0 = runtime.ForwardResponseMessage
 

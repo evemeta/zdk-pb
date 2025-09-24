@@ -154,12 +154,12 @@ export interface InvokeEventActionPacket {
     };
 }
 /**
- * EnqueueEventPacket is a notification sent to clients when a event has been enqueued.
+ * ProvisionEventPacket is a notification sent to clients when a event has been provisioned.
  * It provides the identifier of the event and the relevant timeframe associated with the event.
  *
- * @generated from protobuf message event.events.public.server.v1.EnqueueEventPacket
+ * @generated from protobuf message event.events.public.server.v1.ProvisionEventPacket
  */
-export interface EnqueueEventPacket {
+export interface ProvisionEventPacket {
     /**
      * Represents the unique identifier of the event.
      *
@@ -595,21 +595,21 @@ class InvokeEventActionPacket$Type extends MessageType<InvokeEventActionPacket> 
  */
 export const InvokeEventActionPacket = new InvokeEventActionPacket$Type();
 // @generated message type with reflection information, may provide speed optimized methods
-class EnqueueEventPacket$Type extends MessageType<EnqueueEventPacket> {
+class ProvisionEventPacket$Type extends MessageType<ProvisionEventPacket> {
     constructor() {
-        super("event.events.public.server.v1.EnqueueEventPacket", [
+        super("event.events.public.server.v1.ProvisionEventPacket", [
             { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 2, name: "timeframe", kind: "message", T: () => Timeframe }
         ]);
     }
-    create(value?: PartialMessage<EnqueueEventPacket>): EnqueueEventPacket {
+    create(value?: PartialMessage<ProvisionEventPacket>): ProvisionEventPacket {
         const message = globalThis.Object.create((this.messagePrototype!));
         message.id = "";
         if (value !== undefined)
-            reflectionMergePartial<EnqueueEventPacket>(this, message, value);
+            reflectionMergePartial<ProvisionEventPacket>(this, message, value);
         return message;
     }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: EnqueueEventPacket): EnqueueEventPacket {
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ProvisionEventPacket): ProvisionEventPacket {
         let message = target ?? this.create(), end = reader.pos + length;
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
@@ -631,7 +631,7 @@ class EnqueueEventPacket$Type extends MessageType<EnqueueEventPacket> {
         }
         return message;
     }
-    internalBinaryWrite(message: EnqueueEventPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+    internalBinaryWrite(message: ProvisionEventPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
         /* string id = 1; */
         if (message.id !== "")
             writer.tag(1, WireType.LengthDelimited).string(message.id);
@@ -645,9 +645,9 @@ class EnqueueEventPacket$Type extends MessageType<EnqueueEventPacket> {
     }
 }
 /**
- * @generated MessageType for protobuf message event.events.public.server.v1.EnqueueEventPacket
+ * @generated MessageType for protobuf message event.events.public.server.v1.ProvisionEventPacket
  */
-export const EnqueueEventPacket = new EnqueueEventPacket$Type();
+export const ProvisionEventPacket = new ProvisionEventPacket$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class StartEventPacket$Type extends MessageType<StartEventPacket> {
     constructor() {

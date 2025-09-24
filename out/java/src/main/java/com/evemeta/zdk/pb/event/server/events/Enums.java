@@ -39,18 +39,18 @@ public final class Enums {
       "nd\022\017\n\013KindUnknown\020\000\022\021\n\rKindDependent\020\001\022\023" +
       "\n\017KindIndependent\020\002*B\n\005Order\022\020\n\014OrderUnk" +
       "nown\020\000\022\022\n\016OrderAscending\020\001\022\023\n\017OrderDesce" +
-      "nding\020\002*i\n\006Status\022\021\n\rStatusUnknown\020\000\022\021\n\r" +
-      "StatusPending\020\001\022\021\n\rStatusStarted\020\002\022\022\n\016St" +
-      "atusFinished\020\003\022\022\n\016StatusCanceled\020\004*K\n\010Sc" +
-      "hedule\022\023\n\017ScheduleUnknown\020\000\022\023\n\017ScheduleP" +
-      "lanned\020\001\022\025\n\021ScheduleUnplanned\020\002*}\n\024Broad" +
-      "castOrientation\022\037\n\033BroadcastOrientationU" +
-      "nknown\020\000\022 \n\034BroadcastOrientationVertical" +
-      "\020\001\022\"\n\036BroadcastOrientationHorizontal\020\002Bs" +
-      "\n&com.evemeta.zdk.pb.event.server.events" +
-      "P\001ZGgitlab.com/evemeta/zdk/pb/out/go/eve" +
-      "nt/events/public/server/v1;eventspbb\006pro" +
-      "to3"
+      "nding\020\002*\200\001\n\006Status\022\021\n\rStatusUnknown\020\000\022\021\n" +
+      "\rStatusPending\020\001\022\025\n\021StatusProvisioned\020\002\022" +
+      "\021\n\rStatusStarted\020\003\022\022\n\016StatusFinished\020\004\022\022" +
+      "\n\016StatusCanceled\020\005*K\n\010Schedule\022\023\n\017Schedu" +
+      "leUnknown\020\000\022\023\n\017SchedulePlanned\020\001\022\025\n\021Sche" +
+      "duleUnplanned\020\002*}\n\024BroadcastOrientation\022" +
+      "\037\n\033BroadcastOrientationUnknown\020\000\022 \n\034Broa" +
+      "dcastOrientationVertical\020\001\022\"\n\036BroadcastO" +
+      "rientationHorizontal\020\002Bs\n&com.evemeta.zd" +
+      "k.pb.event.server.eventsP\001ZGgitlab.com/e" +
+      "vemeta/zdk/pb/out/go/event/events/public" +
+      "/server/v1;eventspbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -54,17 +54,21 @@ export enum Status {
      */
     Pending = 1,
     /**
-     * @generated from protobuf enum value: Started = 2;
+     * @generated from protobuf enum value: Provisioned = 2;
      */
-    Started = 2,
+    Provisioned = 2,
     /**
-     * @generated from protobuf enum value: Finished = 3;
+     * @generated from protobuf enum value: Started = 3;
      */
-    Finished = 3,
+    Started = 3,
     /**
-     * @generated from protobuf enum value: Canceled = 4;
+     * @generated from protobuf enum value: Finished = 4;
      */
-    Canceled = 4
+    Finished = 4,
+    /**
+     * @generated from protobuf enum value: Canceled = 5;
+     */
+    Canceled = 5
 }
 /**
  * Schedule todo;

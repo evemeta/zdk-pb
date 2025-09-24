@@ -17,11 +17,12 @@ enum Order {
 }
 
 enum Status {
-    StatusUnknown  = 0;
-    StatusPending  = 1;
-    StatusStarted  = 2;
-    StatusFinished = 3;
-    StatusCanceled = 4;
+    StatusUnknown     = 0;
+    StatusPending     = 1;
+    StatusProvisioned = 2;
+    StatusStarted     = 3;
+    StatusFinished    = 4;
+    StatusCanceled    = 5;
 }
 
 enum Schedule {

@@ -23,17 +23,21 @@ public enum Status
    */
   StatusPending(1),
   /**
-   * <code>StatusStarted = 2;</code>
+   * <code>StatusProvisioned = 2;</code>
    */
-  StatusStarted(2),
+  StatusProvisioned(2),
   /**
-   * <code>StatusFinished = 3;</code>
+   * <code>StatusStarted = 3;</code>
    */
-  StatusFinished(3),
+  StatusStarted(3),
   /**
-   * <code>StatusCanceled = 4;</code>
+   * <code>StatusFinished = 4;</code>
    */
-  StatusCanceled(4),
+  StatusFinished(4),
+  /**
+   * <code>StatusCanceled = 5;</code>
+   */
+  StatusCanceled(5),
   UNRECOGNIZED(-1),
   ;
 
@@ -55,17 +59,21 @@ public enum Status
    */
   public static final int StatusPending_VALUE = 1;
   /**
-   * <code>StatusStarted = 2;</code>
+   * <code>StatusProvisioned = 2;</code>
    */
-  public static final int StatusStarted_VALUE = 2;
+  public static final int StatusProvisioned_VALUE = 2;
   /**
-   * <code>StatusFinished = 3;</code>
+   * <code>StatusStarted = 3;</code>
    */
-  public static final int StatusFinished_VALUE = 3;
+  public static final int StatusStarted_VALUE = 3;
   /**
-   * <code>StatusCanceled = 4;</code>
+   * <code>StatusFinished = 4;</code>
    */
-  public static final int StatusCanceled_VALUE = 4;
+  public static final int StatusFinished_VALUE = 4;
+  /**
+   * <code>StatusCanceled = 5;</code>
+   */
+  public static final int StatusCanceled_VALUE = 5;
 
 
   public final int getNumber() {
@@ -94,9 +102,10 @@ public enum Status
     switch (value) {
       case 0: return StatusUnknown;
       case 1: return StatusPending;
-      case 2: return StatusStarted;
-      case 3: return StatusFinished;
-      case 4: return StatusCanceled;
+      case 2: return StatusProvisioned;
+      case 3: return StatusStarted;
+      case 4: return StatusFinished;
+      case 5: return StatusCanceled;
       default: return null;
     }
   }

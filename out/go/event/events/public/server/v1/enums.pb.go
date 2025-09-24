@@ -125,11 +125,12 @@ func (Order) EnumDescriptor() ([]byte, []int) {
 type Status int32
 
 const (
-	StatusUnknown  Status = 0
-	StatusPending  Status = 1
-	StatusStarted  Status = 2
-	StatusFinished Status = 3
-	StatusCanceled Status = 4
+	StatusUnknown     Status = 0
+	StatusPending     Status = 1
+	StatusProvisioned Status = 2
+	StatusStarted     Status = 3
+	StatusFinished    Status = 4
+	StatusCanceled    Status = 5
 )
 
 // Enum value maps for Status.
@@ -137,16 +138,18 @@ var (
 	Status_name = map[int32]string{
 		0: "StatusUnknown",
 		1: "StatusPending",
-		2: "StatusStarted",
-		3: "StatusFinished",
-		4: "StatusCanceled",
+		2: "StatusProvisioned",
+		3: "StatusStarted",
+		4: "StatusFinished",
+		5: "StatusCanceled",
 	}
 	Status_value = map[string]int32{
-		"StatusUnknown":  0,
-		"StatusPending":  1,
-		"StatusStarted":  2,
-		"StatusFinished": 3,
-		"StatusCanceled": 4,
+		"StatusUnknown":     0,
+		"StatusPending":     1,
+		"StatusProvisioned": 2,
+		"StatusStarted":     3,
+		"StatusFinished":    4,
+		"StatusCanceled":    5,
 	}
 )
 
@@ -289,13 +292,14 @@ const file_event_events_public_server_v1_enums_proto_rawDesc = "" +
 	"\x05Order\x12\x10\n" +
 	"\fOrderUnknown\x10\x00\x12\x12\n" +
 	"\x0eOrderAscending\x10\x01\x12\x13\n" +
-	"\x0fOrderDescending\x10\x02*i\n" +
+	"\x0fOrderDescending\x10\x02*\x80\x01\n" +
 	"\x06Status\x12\x11\n" +
 	"\rStatusUnknown\x10\x00\x12\x11\n" +
-	"\rStatusPending\x10\x01\x12\x11\n" +
-	"\rStatusStarted\x10\x02\x12\x12\n" +
-	"\x0eStatusFinished\x10\x03\x12\x12\n" +
-	"\x0eStatusCanceled\x10\x04*K\n" +
+	"\rStatusPending\x10\x01\x12\x15\n" +
+	"\x11StatusProvisioned\x10\x02\x12\x11\n" +
+	"\rStatusStarted\x10\x03\x12\x12\n" +
+	"\x0eStatusFinished\x10\x04\x12\x12\n" +
+	"\x0eStatusCanceled\x10\x05*K\n" +
 	"\bSchedule\x12\x13\n" +
 	"\x0fScheduleUnknown\x10\x00\x12\x13\n" +
 	"\x0fSchedulePlanned\x10\x01\x12\x15\n" +

@@ -2216,27 +2216,27 @@ func (x *LeaveTransaction) GetMutations() []*LeaveMutation {
 	return nil
 }
 
-type EnqueueArgument struct {
+type ProvisionArgument struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Query         *Query                 `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *EnqueueArgument) Reset() {
-	*x = EnqueueArgument{}
+func (x *ProvisionArgument) Reset() {
+	*x = ProvisionArgument{}
 	mi := &file_event_events_private_v1_procedures_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *EnqueueArgument) String() string {
+func (x *ProvisionArgument) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*EnqueueArgument) ProtoMessage() {}
+func (*ProvisionArgument) ProtoMessage() {}
 
-func (x *EnqueueArgument) ProtoReflect() protoreflect.Message {
+func (x *ProvisionArgument) ProtoReflect() protoreflect.Message {
 	mi := &file_event_events_private_v1_procedures_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2248,39 +2248,39 @@ func (x *EnqueueArgument) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use EnqueueArgument.ProtoReflect.Descriptor instead.
-func (*EnqueueArgument) Descriptor() ([]byte, []int) {
+// Deprecated: Use ProvisionArgument.ProtoReflect.Descriptor instead.
+func (*ProvisionArgument) Descriptor() ([]byte, []int) {
 	return file_event_events_private_v1_procedures_proto_rawDescGZIP(), []int{41}
 }
 
-func (x *EnqueueArgument) GetQuery() *Query {
+func (x *ProvisionArgument) GetQuery() *Query {
 	if x != nil {
 		return x.Query
 	}
 	return nil
 }
 
-type EnqueueRequest struct {
+type ProvisionRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arguments     []*EnqueueArgument     `protobuf:"bytes,1,rep,name=arguments,proto3" json:"arguments,omitempty"`
+	Arguments     []*ProvisionArgument   `protobuf:"bytes,1,rep,name=arguments,proto3" json:"arguments,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *EnqueueRequest) Reset() {
-	*x = EnqueueRequest{}
+func (x *ProvisionRequest) Reset() {
+	*x = ProvisionRequest{}
 	mi := &file_event_events_private_v1_procedures_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *EnqueueRequest) String() string {
+func (x *ProvisionRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*EnqueueRequest) ProtoMessage() {}
+func (*ProvisionRequest) ProtoMessage() {}
 
-func (x *EnqueueRequest) ProtoReflect() protoreflect.Message {
+func (x *ProvisionRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_event_events_private_v1_procedures_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2292,39 +2292,39 @@ func (x *EnqueueRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use EnqueueRequest.ProtoReflect.Descriptor instead.
-func (*EnqueueRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use ProvisionRequest.ProtoReflect.Descriptor instead.
+func (*ProvisionRequest) Descriptor() ([]byte, []int) {
 	return file_event_events_private_v1_procedures_proto_rawDescGZIP(), []int{42}
 }
 
-func (x *EnqueueRequest) GetArguments() []*EnqueueArgument {
+func (x *ProvisionRequest) GetArguments() []*ProvisionArgument {
 	if x != nil {
 		return x.Arguments
 	}
 	return nil
 }
 
-type EnqueueResponse struct {
+type ProvisionResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Events        []*Event               `protobuf:"bytes,1,rep,name=events,proto3" json:"events,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *EnqueueResponse) Reset() {
-	*x = EnqueueResponse{}
+func (x *ProvisionResponse) Reset() {
+	*x = ProvisionResponse{}
 	mi := &file_event_events_private_v1_procedures_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *EnqueueResponse) String() string {
+func (x *ProvisionResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*EnqueueResponse) ProtoMessage() {}
+func (*ProvisionResponse) ProtoMessage() {}
 
-func (x *EnqueueResponse) ProtoReflect() protoreflect.Message {
+func (x *ProvisionResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_event_events_private_v1_procedures_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2336,22 +2336,22 @@ func (x *EnqueueResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use EnqueueResponse.ProtoReflect.Descriptor instead.
-func (*EnqueueResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use ProvisionResponse.ProtoReflect.Descriptor instead.
+func (*ProvisionResponse) Descriptor() ([]byte, []int) {
 	return file_event_events_private_v1_procedures_proto_rawDescGZIP(), []int{43}
 }
 
-func (x *EnqueueResponse) GetEvents() []*Event {
+func (x *ProvisionResponse) GetEvents() []*Event {
 	if x != nil {
 		return x.Events
 	}
 	return nil
 }
 
-type EnqueueMutation struct {
+type ProvisionMutation struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
-	Foundation     *EnqueueArgument       `protobuf:"bytes,1,opt,name=foundation,proto3" json:"foundation,omitempty"`
-	Condition      *EnqueueCondition      `protobuf:"bytes,2,opt,name=condition,proto3" json:"condition,omitempty"`
+	Foundation     *ProvisionArgument     `protobuf:"bytes,1,opt,name=foundation,proto3" json:"foundation,omitempty"`
+	Condition      *ProvisionCondition    `protobuf:"bytes,2,opt,name=condition,proto3" json:"condition,omitempty"`
 	Transient      []*Transient           `protobuf:"bytes,3,rep,name=transient,proto3" json:"transient,omitempty"`
 	BeginTimestamp int64                  `protobuf:"varint,4,opt,name=begin_timestamp,json=beginTimestamp,proto3" json:"begin_timestamp,omitempty"`
 	CloseTimestamp int64                  `protobuf:"varint,5,opt,name=close_timestamp,json=closeTimestamp,proto3" json:"close_timestamp,omitempty"`
@@ -2359,20 +2359,20 @@ type EnqueueMutation struct {
 	sizeCache      protoimpl.SizeCache
 }
 
-func (x *EnqueueMutation) Reset() {
-	*x = EnqueueMutation{}
+func (x *ProvisionMutation) Reset() {
+	*x = ProvisionMutation{}
 	mi := &file_event_events_private_v1_procedures_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *EnqueueMutation) String() string {
+func (x *ProvisionMutation) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*EnqueueMutation) ProtoMessage() {}
+func (*ProvisionMutation) ProtoMessage() {}
 
-func (x *EnqueueMutation) ProtoReflect() protoreflect.Message {
+func (x *ProvisionMutation) ProtoReflect() protoreflect.Message {
 	mi := &file_event_events_private_v1_procedures_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2384,67 +2384,67 @@ func (x *EnqueueMutation) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use EnqueueMutation.ProtoReflect.Descriptor instead.
-func (*EnqueueMutation) Descriptor() ([]byte, []int) {
+// Deprecated: Use ProvisionMutation.ProtoReflect.Descriptor instead.
+func (*ProvisionMutation) Descriptor() ([]byte, []int) {
 	return file_event_events_private_v1_procedures_proto_rawDescGZIP(), []int{44}
 }
 
-func (x *EnqueueMutation) GetFoundation() *EnqueueArgument {
+func (x *ProvisionMutation) GetFoundation() *ProvisionArgument {
 	if x != nil {
 		return x.Foundation
 	}
 	return nil
 }
 
-func (x *EnqueueMutation) GetCondition() *EnqueueCondition {
+func (x *ProvisionMutation) GetCondition() *ProvisionCondition {
 	if x != nil {
 		return x.Condition
 	}
 	return nil
 }
 
-func (x *EnqueueMutation) GetTransient() []*Transient {
+func (x *ProvisionMutation) GetTransient() []*Transient {
 	if x != nil {
 		return x.Transient
 	}
 	return nil
 }
 
-func (x *EnqueueMutation) GetBeginTimestamp() int64 {
+func (x *ProvisionMutation) GetBeginTimestamp() int64 {
 	if x != nil {
 		return x.BeginTimestamp
 	}
 	return 0
 }
 
-func (x *EnqueueMutation) GetCloseTimestamp() int64 {
+func (x *ProvisionMutation) GetCloseTimestamp() int64 {
 	if x != nil {
 		return x.CloseTimestamp
 	}
 	return 0
 }
 
-type EnqueueCondition struct {
+type ProvisionCondition struct {
 	state              protoimpl.MessageState `protogen:"open.v1"`
 	CreateJobMutations []*v1.CreateMutation   `protobuf:"bytes,1,rep,name=create_job_mutations,json=createJobMutations,proto3" json:"create_job_mutations,omitempty"`
 	unknownFields      protoimpl.UnknownFields
 	sizeCache          protoimpl.SizeCache
 }
 
-func (x *EnqueueCondition) Reset() {
-	*x = EnqueueCondition{}
+func (x *ProvisionCondition) Reset() {
+	*x = ProvisionCondition{}
 	mi := &file_event_events_private_v1_procedures_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *EnqueueCondition) String() string {
+func (x *ProvisionCondition) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*EnqueueCondition) ProtoMessage() {}
+func (*ProvisionCondition) ProtoMessage() {}
 
-func (x *EnqueueCondition) ProtoReflect() protoreflect.Message {
+func (x *ProvisionCondition) ProtoReflect() protoreflect.Message {
 	mi := &file_event_events_private_v1_procedures_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2456,39 +2456,39 @@ func (x *EnqueueCondition) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use EnqueueCondition.ProtoReflect.Descriptor instead.
-func (*EnqueueCondition) Descriptor() ([]byte, []int) {
+// Deprecated: Use ProvisionCondition.ProtoReflect.Descriptor instead.
+func (*ProvisionCondition) Descriptor() ([]byte, []int) {
 	return file_event_events_private_v1_procedures_proto_rawDescGZIP(), []int{45}
 }
 
-func (x *EnqueueCondition) GetCreateJobMutations() []*v1.CreateMutation {
+func (x *ProvisionCondition) GetCreateJobMutations() []*v1.CreateMutation {
 	if x != nil {
 		return x.CreateJobMutations
 	}
 	return nil
 }
 
-type EnqueueTransaction struct {
+type ProvisionTransaction struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Mutations     []*EnqueueMutation     `protobuf:"bytes,1,rep,name=mutations,proto3" json:"mutations,omitempty"`
+	Mutations     []*ProvisionMutation   `protobuf:"bytes,1,rep,name=mutations,proto3" json:"mutations,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *EnqueueTransaction) Reset() {
-	*x = EnqueueTransaction{}
+func (x *ProvisionTransaction) Reset() {
+	*x = ProvisionTransaction{}
 	mi := &file_event_events_private_v1_procedures_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *EnqueueTransaction) String() string {
+func (x *ProvisionTransaction) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*EnqueueTransaction) ProtoMessage() {}
+func (*ProvisionTransaction) ProtoMessage() {}
 
-func (x *EnqueueTransaction) ProtoReflect() protoreflect.Message {
+func (x *ProvisionTransaction) ProtoReflect() protoreflect.Message {
 	mi := &file_event_events_private_v1_procedures_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2500,12 +2500,12 @@ func (x *EnqueueTransaction) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use EnqueueTransaction.ProtoReflect.Descriptor instead.
-func (*EnqueueTransaction) Descriptor() ([]byte, []int) {
+// Deprecated: Use ProvisionTransaction.ProtoReflect.Descriptor instead.
+func (*ProvisionTransaction) Descriptor() ([]byte, []int) {
 	return file_event_events_private_v1_procedures_proto_rawDescGZIP(), []int{46}
 }
 
-func (x *EnqueueTransaction) GetMutations() []*EnqueueMutation {
+func (x *ProvisionTransaction) GetMutations() []*ProvisionMutation {
 	if x != nil {
 		return x.Mutations
 	}
@@ -3645,25 +3645,25 @@ const file_event_events_private_v1_procedures_proto_rawDesc = "" +
 	"\x17update_member_mutations\x18\x02 \x03(\v2(.event.members.private.v1.UpdateMutationR\x15updateMemberMutations\x12q\n" +
 	"\x1cdelete_transponder_mutations\x18\x03 \x03(\v2/.gateway.transponders.private.v1.DeleteMutationR\x1adeleteTransponderMutations\"X\n" +
 	"\x10LeaveTransaction\x12D\n" +
-	"\tmutations\x18\x01 \x03(\v2&.event.events.private.v1.LeaveMutationR\tmutations\"G\n" +
-	"\x0fEnqueueArgument\x124\n" +
-	"\x05query\x18\x01 \x01(\v2\x1e.event.events.private.v1.QueryR\x05query\"X\n" +
-	"\x0eEnqueueRequest\x12F\n" +
-	"\targuments\x18\x01 \x03(\v2(.event.events.private.v1.EnqueueArgumentR\targuments\"I\n" +
-	"\x0fEnqueueResponse\x126\n" +
-	"\x06events\x18\x01 \x03(\v2\x1e.event.events.private.v1.EventR\x06events\"\xb8\x02\n" +
-	"\x0fEnqueueMutation\x12H\n" +
+	"\tmutations\x18\x01 \x03(\v2&.event.events.private.v1.LeaveMutationR\tmutations\"I\n" +
+	"\x11ProvisionArgument\x124\n" +
+	"\x05query\x18\x01 \x01(\v2\x1e.event.events.private.v1.QueryR\x05query\"\\\n" +
+	"\x10ProvisionRequest\x12H\n" +
+	"\targuments\x18\x01 \x03(\v2*.event.events.private.v1.ProvisionArgumentR\targuments\"K\n" +
+	"\x11ProvisionResponse\x126\n" +
+	"\x06events\x18\x01 \x03(\v2\x1e.event.events.private.v1.EventR\x06events\"\xbe\x02\n" +
+	"\x11ProvisionMutation\x12J\n" +
 	"\n" +
-	"foundation\x18\x01 \x01(\v2(.event.events.private.v1.EnqueueArgumentR\n" +
-	"foundation\x12G\n" +
-	"\tcondition\x18\x02 \x01(\v2).event.events.private.v1.EnqueueConditionR\tcondition\x12@\n" +
+	"foundation\x18\x01 \x01(\v2*.event.events.private.v1.ProvisionArgumentR\n" +
+	"foundation\x12I\n" +
+	"\tcondition\x18\x02 \x01(\v2+.event.events.private.v1.ProvisionConditionR\tcondition\x12@\n" +
 	"\ttransient\x18\x03 \x03(\v2\".event.events.private.v1.TransientR\ttransient\x12'\n" +
 	"\x0fbegin_timestamp\x18\x04 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
-	"\x0fclose_timestamp\x18\x05 \x01(\x03R\x0ecloseTimestamp\"m\n" +
-	"\x10EnqueueCondition\x12Y\n" +
-	"\x14create_job_mutations\x18\x01 \x03(\v2'.gateway.jobs.private.v1.CreateMutationR\x12createJobMutations\"\\\n" +
-	"\x12EnqueueTransaction\x12F\n" +
-	"\tmutations\x18\x01 \x03(\v2(.event.events.private.v1.EnqueueMutationR\tmutations\"E\n" +
+	"\x0fclose_timestamp\x18\x05 \x01(\x03R\x0ecloseTimestamp\"o\n" +
+	"\x12ProvisionCondition\x12Y\n" +
+	"\x14create_job_mutations\x18\x01 \x03(\v2'.gateway.jobs.private.v1.CreateMutationR\x12createJobMutations\"`\n" +
+	"\x14ProvisionTransaction\x12H\n" +
+	"\tmutations\x18\x01 \x03(\v2*.event.events.private.v1.ProvisionMutationR\tmutations\"E\n" +
 	"\rStartArgument\x124\n" +
 	"\x05query\x18\x01 \x01(\v2\x1e.event.events.private.v1.QueryR\x05query\"T\n" +
 	"\fStartRequest\x12D\n" +
@@ -3778,12 +3778,12 @@ var file_event_events_private_v1_procedures_proto_goTypes = []any{
 	(*LeaveMutation)(nil),                      // 38: event.events.private.v1.LeaveMutation
 	(*LeaveCondition)(nil),                     // 39: event.events.private.v1.LeaveCondition
 	(*LeaveTransaction)(nil),                   // 40: event.events.private.v1.LeaveTransaction
-	(*EnqueueArgument)(nil),                    // 41: event.events.private.v1.EnqueueArgument
-	(*EnqueueRequest)(nil),                     // 42: event.events.private.v1.EnqueueRequest
-	(*EnqueueResponse)(nil),                    // 43: event.events.private.v1.EnqueueResponse
-	(*EnqueueMutation)(nil),                    // 44: event.events.private.v1.EnqueueMutation
-	(*EnqueueCondition)(nil),                   // 45: event.events.private.v1.EnqueueCondition
-	(*EnqueueTransaction)(nil),                 // 46: event.events.private.v1.EnqueueTransaction
+	(*ProvisionArgument)(nil),                  // 41: event.events.private.v1.ProvisionArgument
+	(*ProvisionRequest)(nil),                   // 42: event.events.private.v1.ProvisionRequest
+	(*ProvisionResponse)(nil),                  // 43: event.events.private.v1.ProvisionResponse
+	(*ProvisionMutation)(nil),                  // 44: event.events.private.v1.ProvisionMutation
+	(*ProvisionCondition)(nil),                 // 45: event.events.private.v1.ProvisionCondition
+	(*ProvisionTransaction)(nil),               // 46: event.events.private.v1.ProvisionTransaction
 	(*StartArgument)(nil),                      // 47: event.events.private.v1.StartArgument
 	(*StartRequest)(nil),                       // 48: event.events.private.v1.StartRequest
 	(*StartResponse)(nil),                      // 49: event.events.private.v1.StartResponse
@@ -3894,14 +3894,14 @@ var file_event_events_private_v1_procedures_proto_depIdxs = []int32{
 	91, // 58: event.events.private.v1.LeaveCondition.update_member_mutations:type_name -> event.members.private.v1.UpdateMutation
 	86, // 59: event.events.private.v1.LeaveCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
 	38, // 60: event.events.private.v1.LeaveTransaction.mutations:type_name -> event.events.private.v1.LeaveMutation
-	70, // 61: event.events.private.v1.EnqueueArgument.query:type_name -> event.events.private.v1.Query
-	41, // 62: event.events.private.v1.EnqueueRequest.arguments:type_name -> event.events.private.v1.EnqueueArgument
-	72, // 63: event.events.private.v1.EnqueueResponse.events:type_name -> event.events.private.v1.Event
-	41, // 64: event.events.private.v1.EnqueueMutation.foundation:type_name -> event.events.private.v1.EnqueueArgument
-	45, // 65: event.events.private.v1.EnqueueMutation.condition:type_name -> event.events.private.v1.EnqueueCondition
-	76, // 66: event.events.private.v1.EnqueueMutation.transient:type_name -> event.events.private.v1.Transient
-	77, // 67: event.events.private.v1.EnqueueCondition.create_job_mutations:type_name -> gateway.jobs.private.v1.CreateMutation
-	44, // 68: event.events.private.v1.EnqueueTransaction.mutations:type_name -> event.events.private.v1.EnqueueMutation
+	70, // 61: event.events.private.v1.ProvisionArgument.query:type_name -> event.events.private.v1.Query
+	41, // 62: event.events.private.v1.ProvisionRequest.arguments:type_name -> event.events.private.v1.ProvisionArgument
+	72, // 63: event.events.private.v1.ProvisionResponse.events:type_name -> event.events.private.v1.Event
+	41, // 64: event.events.private.v1.ProvisionMutation.foundation:type_name -> event.events.private.v1.ProvisionArgument
+	45, // 65: event.events.private.v1.ProvisionMutation.condition:type_name -> event.events.private.v1.ProvisionCondition
+	76, // 66: event.events.private.v1.ProvisionMutation.transient:type_name -> event.events.private.v1.Transient
+	77, // 67: event.events.private.v1.ProvisionCondition.create_job_mutations:type_name -> gateway.jobs.private.v1.CreateMutation
+	44, // 68: event.events.private.v1.ProvisionTransaction.mutations:type_name -> event.events.private.v1.ProvisionMutation
 	70, // 69: event.events.private.v1.StartArgument.query:type_name -> event.events.private.v1.Query
 	47, // 70: event.events.private.v1.StartRequest.arguments:type_name -> event.events.private.v1.StartArgument
 	72, // 71: event.events.private.v1.StartResponse.events:type_name -> event.events.private.v1.Event
