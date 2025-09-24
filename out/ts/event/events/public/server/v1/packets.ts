@@ -154,6 +154,26 @@ export interface InvokeEventActionPacket {
     };
 }
 /**
+ * EnqueueEventPacket is a notification sent to clients when a event has been enqueued.
+ * It provides the identifier of the event and the relevant timeframe associated with the event.
+ *
+ * @generated from protobuf message event.events.public.server.v1.EnqueueEventPacket
+ */
+export interface EnqueueEventPacket {
+    /**
+     * Represents the unique identifier of the event.
+     *
+     * @generated from protobuf field: string id = 1;
+     */
+    id: string;
+    /**
+     * Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+     *
+     * @generated from protobuf field: event.events.public.server.v1.Timeframe timeframe = 2;
+     */
+    timeframe?: Timeframe;
+}
+/**
  * StartEventPacket is a notification sent to clients when a event has been started.
  * It provides the identifier of the event and the relevant timeframe associated with the event.
  *
@@ -574,6 +594,60 @@ class InvokeEventActionPacket$Type extends MessageType<InvokeEventActionPacket> 
  * @generated MessageType for protobuf message event.events.public.server.v1.InvokeEventActionPacket
  */
 export const InvokeEventActionPacket = new InvokeEventActionPacket$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class EnqueueEventPacket$Type extends MessageType<EnqueueEventPacket> {
+    constructor() {
+        super("event.events.public.server.v1.EnqueueEventPacket", [
+            { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "timeframe", kind: "message", T: () => Timeframe }
+        ]);
+    }
+    create(value?: PartialMessage<EnqueueEventPacket>): EnqueueEventPacket {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.id = "";
+        if (value !== undefined)
+            reflectionMergePartial<EnqueueEventPacket>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: EnqueueEventPacket): EnqueueEventPacket {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string id */ 1:
+                    message.id = reader.string();
+                    break;
+                case /* event.events.public.server.v1.Timeframe timeframe */ 2:
+                    message.timeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.timeframe);
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: EnqueueEventPacket, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string id = 1; */
+        if (message.id !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.id);
+        /* event.events.public.server.v1.Timeframe timeframe = 2; */
+        if (message.timeframe)
+            Timeframe.internalBinaryWrite(message.timeframe, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message event.events.public.server.v1.EnqueueEventPacket
+ */
+export const EnqueueEventPacket = new EnqueueEventPacket$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class StartEventPacket$Type extends MessageType<StartEventPacket> {
     constructor() {

@@ -384,6 +384,62 @@ func (x *InvokeEventActionPacket) GetData() map[string]string {
 	return nil
 }
 
+// EnqueueEventPacket is a notification sent to clients when a event has been enqueued.
+// It provides the identifier of the event and the relevant timeframe associated with the event.
+type EnqueueEventPacket struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Represents the unique identifier of the event.
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Represents the specific span of time, containing the commence and complete timestamps associated with the event.
+	Timeframe     *Timeframe `protobuf:"bytes,2,opt,name=timeframe,proto3" json:"timeframe,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EnqueueEventPacket) Reset() {
+	*x = EnqueueEventPacket{}
+	mi := &file_event_events_public_server_v1_packets_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EnqueueEventPacket) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EnqueueEventPacket) ProtoMessage() {}
+
+func (x *EnqueueEventPacket) ProtoReflect() protoreflect.Message {
+	mi := &file_event_events_public_server_v1_packets_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EnqueueEventPacket.ProtoReflect.Descriptor instead.
+func (*EnqueueEventPacket) Descriptor() ([]byte, []int) {
+	return file_event_events_public_server_v1_packets_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *EnqueueEventPacket) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *EnqueueEventPacket) GetTimeframe() *Timeframe {
+	if x != nil {
+		return x.Timeframe
+	}
+	return nil
+}
+
 // StartEventPacket is a notification sent to clients when a event has been started.
 // It provides the identifier of the event and the relevant timeframe associated with the event.
 type StartEventPacket struct {
@@ -398,7 +454,7 @@ type StartEventPacket struct {
 
 func (x *StartEventPacket) Reset() {
 	*x = StartEventPacket{}
-	mi := &file_event_events_public_server_v1_packets_proto_msgTypes[6]
+	mi := &file_event_events_public_server_v1_packets_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -410,7 +466,7 @@ func (x *StartEventPacket) String() string {
 func (*StartEventPacket) ProtoMessage() {}
 
 func (x *StartEventPacket) ProtoReflect() protoreflect.Message {
-	mi := &file_event_events_public_server_v1_packets_proto_msgTypes[6]
+	mi := &file_event_events_public_server_v1_packets_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -423,7 +479,7 @@ func (x *StartEventPacket) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartEventPacket.ProtoReflect.Descriptor instead.
 func (*StartEventPacket) Descriptor() ([]byte, []int) {
-	return file_event_events_public_server_v1_packets_proto_rawDescGZIP(), []int{6}
+	return file_event_events_public_server_v1_packets_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *StartEventPacket) GetId() string {
@@ -454,7 +510,7 @@ type FinishEventPacket struct {
 
 func (x *FinishEventPacket) Reset() {
 	*x = FinishEventPacket{}
-	mi := &file_event_events_public_server_v1_packets_proto_msgTypes[7]
+	mi := &file_event_events_public_server_v1_packets_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -466,7 +522,7 @@ func (x *FinishEventPacket) String() string {
 func (*FinishEventPacket) ProtoMessage() {}
 
 func (x *FinishEventPacket) ProtoReflect() protoreflect.Message {
-	mi := &file_event_events_public_server_v1_packets_proto_msgTypes[7]
+	mi := &file_event_events_public_server_v1_packets_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -479,7 +535,7 @@ func (x *FinishEventPacket) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FinishEventPacket.ProtoReflect.Descriptor instead.
 func (*FinishEventPacket) Descriptor() ([]byte, []int) {
-	return file_event_events_public_server_v1_packets_proto_rawDescGZIP(), []int{7}
+	return file_event_events_public_server_v1_packets_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *FinishEventPacket) GetId() string {
@@ -510,7 +566,7 @@ type CancelEventPacket struct {
 
 func (x *CancelEventPacket) Reset() {
 	*x = CancelEventPacket{}
-	mi := &file_event_events_public_server_v1_packets_proto_msgTypes[8]
+	mi := &file_event_events_public_server_v1_packets_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -522,7 +578,7 @@ func (x *CancelEventPacket) String() string {
 func (*CancelEventPacket) ProtoMessage() {}
 
 func (x *CancelEventPacket) ProtoReflect() protoreflect.Message {
-	mi := &file_event_events_public_server_v1_packets_proto_msgTypes[8]
+	mi := &file_event_events_public_server_v1_packets_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -535,7 +591,7 @@ func (x *CancelEventPacket) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CancelEventPacket.ProtoReflect.Descriptor instead.
 func (*CancelEventPacket) Descriptor() ([]byte, []int) {
-	return file_event_events_public_server_v1_packets_proto_rawDescGZIP(), []int{8}
+	return file_event_events_public_server_v1_packets_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *CancelEventPacket) GetId() string {
@@ -581,7 +637,10 @@ const file_event_events_public_server_v1_packets_proto_rawDesc = "" +
 	"\x04data\x18\x04 \x03(\v2@.event.events.public.server.v1.InvokeEventActionPacket.DataEntryR\x04data\x1a7\n" +
 	"\tDataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"j\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"l\n" +
+	"\x12EnqueueEventPacket\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12F\n" +
+	"\ttimeframe\x18\x02 \x01(\v2(.event.events.public.server.v1.TimeframeR\ttimeframe\"j\n" +
 	"\x10StartEventPacket\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12F\n" +
 	"\ttimeframe\x18\x02 \x01(\v2(.event.events.public.server.v1.TimeframeR\ttimeframe\"k\n" +
@@ -605,7 +664,7 @@ func file_event_events_public_server_v1_packets_proto_rawDescGZIP() []byte {
 	return file_event_events_public_server_v1_packets_proto_rawDescData
 }
 
-var file_event_events_public_server_v1_packets_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_event_events_public_server_v1_packets_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_event_events_public_server_v1_packets_proto_goTypes = []any{
 	(*EnterEventPacket)(nil),        // 0: event.events.public.server.v1.EnterEventPacket
 	(*LeaveEventPacket)(nil),        // 1: event.events.public.server.v1.LeaveEventPacket
@@ -613,34 +672,36 @@ var file_event_events_public_server_v1_packets_proto_goTypes = []any{
 	(*UpdateEventPacket)(nil),       // 3: event.events.public.server.v1.UpdateEventPacket
 	(*DeleteEventPacket)(nil),       // 4: event.events.public.server.v1.DeleteEventPacket
 	(*InvokeEventActionPacket)(nil), // 5: event.events.public.server.v1.InvokeEventActionPacket
-	(*StartEventPacket)(nil),        // 6: event.events.public.server.v1.StartEventPacket
-	(*FinishEventPacket)(nil),       // 7: event.events.public.server.v1.FinishEventPacket
-	(*CancelEventPacket)(nil),       // 8: event.events.public.server.v1.CancelEventPacket
-	nil,                             // 9: event.events.public.server.v1.InvokeEventActionPacket.DataEntry
-	(*v1.Member)(nil),               // 10: event.members.public.server.v1.Member
-	(*Timeframe)(nil),               // 11: event.events.public.server.v1.Timeframe
-	(*Event)(nil),                   // 12: event.events.public.server.v1.Event
-	(*OptionalMap)(nil),             // 13: event.events.public.server.v1.OptionalMap
+	(*EnqueueEventPacket)(nil),      // 6: event.events.public.server.v1.EnqueueEventPacket
+	(*StartEventPacket)(nil),        // 7: event.events.public.server.v1.StartEventPacket
+	(*FinishEventPacket)(nil),       // 8: event.events.public.server.v1.FinishEventPacket
+	(*CancelEventPacket)(nil),       // 9: event.events.public.server.v1.CancelEventPacket
+	nil,                             // 10: event.events.public.server.v1.InvokeEventActionPacket.DataEntry
+	(*v1.Member)(nil),               // 11: event.members.public.server.v1.Member
+	(*Timeframe)(nil),               // 12: event.events.public.server.v1.Timeframe
+	(*Event)(nil),                   // 13: event.events.public.server.v1.Event
+	(*OptionalMap)(nil),             // 14: event.events.public.server.v1.OptionalMap
 }
 var file_event_events_public_server_v1_packets_proto_depIdxs = []int32{
-	10, // 0: event.events.public.server.v1.EnterEventPacket.member:type_name -> event.members.public.server.v1.Member
-	11, // 1: event.events.public.server.v1.EnterEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
-	10, // 2: event.events.public.server.v1.LeaveEventPacket.member:type_name -> event.members.public.server.v1.Member
-	11, // 3: event.events.public.server.v1.LeaveEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
-	12, // 4: event.events.public.server.v1.CreateEventPacket.event:type_name -> event.events.public.server.v1.Event
-	11, // 5: event.events.public.server.v1.CreateEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
-	13, // 6: event.events.public.server.v1.UpdateEventPacket.metadata:type_name -> event.events.public.server.v1.OptionalMap
-	11, // 7: event.events.public.server.v1.UpdateEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
-	11, // 8: event.events.public.server.v1.DeleteEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
-	9,  // 9: event.events.public.server.v1.InvokeEventActionPacket.data:type_name -> event.events.public.server.v1.InvokeEventActionPacket.DataEntry
-	11, // 10: event.events.public.server.v1.StartEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
-	11, // 11: event.events.public.server.v1.FinishEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
-	11, // 12: event.events.public.server.v1.CancelEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
-	13, // [13:13] is the sub-list for method output_type
-	13, // [13:13] is the sub-list for method input_type
-	13, // [13:13] is the sub-list for extension type_name
-	13, // [13:13] is the sub-list for extension extendee
-	0,  // [0:13] is the sub-list for field type_name
+	11, // 0: event.events.public.server.v1.EnterEventPacket.member:type_name -> event.members.public.server.v1.Member
+	12, // 1: event.events.public.server.v1.EnterEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
+	11, // 2: event.events.public.server.v1.LeaveEventPacket.member:type_name -> event.members.public.server.v1.Member
+	12, // 3: event.events.public.server.v1.LeaveEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
+	13, // 4: event.events.public.server.v1.CreateEventPacket.event:type_name -> event.events.public.server.v1.Event
+	12, // 5: event.events.public.server.v1.CreateEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
+	14, // 6: event.events.public.server.v1.UpdateEventPacket.metadata:type_name -> event.events.public.server.v1.OptionalMap
+	12, // 7: event.events.public.server.v1.UpdateEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
+	12, // 8: event.events.public.server.v1.DeleteEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
+	10, // 9: event.events.public.server.v1.InvokeEventActionPacket.data:type_name -> event.events.public.server.v1.InvokeEventActionPacket.DataEntry
+	12, // 10: event.events.public.server.v1.EnqueueEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
+	12, // 11: event.events.public.server.v1.StartEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
+	12, // 12: event.events.public.server.v1.FinishEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
+	12, // 13: event.events.public.server.v1.CancelEventPacket.timeframe:type_name -> event.events.public.server.v1.Timeframe
+	14, // [14:14] is the sub-list for method output_type
+	14, // [14:14] is the sub-list for method input_type
+	14, // [14:14] is the sub-list for extension type_name
+	14, // [14:14] is the sub-list for extension extendee
+	0,  // [0:14] is the sub-list for field type_name
 }
 
 func init() { file_event_events_public_server_v1_packets_proto_init() }
@@ -657,7 +718,7 @@ func file_event_events_public_server_v1_packets_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_event_events_public_server_v1_packets_proto_rawDesc), len(file_event_events_public_server_v1_packets_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   10,
+			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
