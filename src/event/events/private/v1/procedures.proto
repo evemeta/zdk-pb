@@ -337,10 +337,15 @@ message CancelTransaction {
     repeated event.events.private.v1.CancelMutation mutations = 1;
 }
 
+message GenerateBroadcastAccessUrlArgument {
+    string id      = 1;
+    string user_id = 2;
+}
+
 message GenerateBroadcastAccessUrlRequest {
-    event.events.private.v1.Query query = 1;
+    repeated event.events.private.v1.GenerateBroadcastAccessUrlArgument arguments = 1;
 }
 
 message GenerateBroadcastAccessUrlResponse {
-    string url = 1;
+    repeated string urls = 1;
 }

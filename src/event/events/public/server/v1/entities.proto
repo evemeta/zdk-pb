@@ -17,19 +17,19 @@ message Event {
     string id = 1;
     // Determines whatever the event is dependent or independent, it may depend on a parent object.
     event.events.public.server.v1.Kind kind = 2;
-    // Status of the event (pending, started, canceled, or finished).
+    // Represents the status of the event (pending, started, finished or canceled).
     event.events.public.server.v1.Status status = 3;
     // Represents a collection of key-value pairs providing additional context or information about this event.
     map<string, string> metadata = 4;
-    // todo;
+    // Indicates whether the event is scheduled or unscheduled.
     event.events.public.server.v1.Schedule schedule = 5;
-    // todo;
+    // The broadcast associated with this event, containing properties.
     event.events.public.server.v1.Broadcast broadcast = 6;
-    // todo;
+    // Represents the planned start time of the event.
     int64 planned_start_time = 7;
     // Represents the timestamp indicating when this event was started.
     int64 start_time  = 8;
-    // todo;
+    // Represents the planned finish time of the event.
     int64 planned_finish_time = 9;
     // Represents the timestamp indicating when this event was finished.
     int64 finish_time = 10;
@@ -41,7 +41,10 @@ message Event {
     int64 update_time = 13;
 }
 
+// Broadcast represents a broadcast associated with an event.
+// It contains properties such as orientation and other broadcast-specific details.
 message Broadcast {
+    // Represents the orientation of the broadcast
     events.public.server.v1.BroadcastOrientation orientation = 1;
 }
 
