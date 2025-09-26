@@ -10,6 +10,11 @@ package com.evemeta.zdk.pb.event.server.events;
 public inline fun broadcast(block: com.evemeta.zdk.pb.event.server.events.BroadcastKt.Dsl.() -> kotlin.Unit): com.evemeta.zdk.pb.event.server.events.Broadcast =
   com.evemeta.zdk.pb.event.server.events.BroadcastKt.Dsl._create(com.evemeta.zdk.pb.event.server.events.Broadcast.newBuilder()).apply { block() }._build()
 /**
+ * ```
+ * Broadcast represents a broadcast associated with an event.
+ * It contains properties such as orientation and other broadcast-specific details.
+ * ```
+ *
  * Protobuf type `event.events.public.server.v1.Broadcast`
  */
 public object BroadcastKt {
@@ -29,6 +34,10 @@ public object BroadcastKt {
     internal fun _build(): com.evemeta.zdk.pb.event.server.events.Broadcast = _builder.build()
 
     /**
+     * ```
+     * Represents the orientation of the broadcast
+     * ```
+     *
      * `.event.events.public.server.v1.BroadcastOrientation orientation = 1;`
      */
     public var orientation: com.evemeta.zdk.pb.event.server.events.BroadcastOrientation
@@ -46,6 +55,10 @@ public object BroadcastKt {
         _builder.orientationValue = value
       }
     /**
+     * ```
+     * Represents the orientation of the broadcast
+     * ```
+     *
      * `.event.events.public.server.v1.BroadcastOrientation orientation = 1;`
      */
     public fun clearOrientation() {

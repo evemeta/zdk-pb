@@ -180,7 +180,7 @@ func (Status) EnumDescriptor() ([]byte, []int) {
 	return file_event_events_public_server_v1_enums_proto_rawDescGZIP(), []int{2}
 }
 
-// Schedule todo;
+// Schedule represents an enumeration that specifies the scheduling state of an event, indicating whether it is planned or unplanned.
 type Schedule int32
 
 const (
@@ -230,7 +230,7 @@ func (Schedule) EnumDescriptor() ([]byte, []int) {
 	return file_event_events_public_server_v1_enums_proto_rawDescGZIP(), []int{3}
 }
 
-// BroadcastOrientation todo;
+// BroadcastOrientation represents an enumeration that specifies the orientation of a broadcast, indicating whether it is vertical or horizontal.
 type BroadcastOrientation int32
 
 const (

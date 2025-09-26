@@ -31,19 +31,19 @@ type Event struct {
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Determines whatever the event is dependent or independent, it may depend on a parent object.
 	Kind Kind `protobuf:"varint,2,opt,name=kind,proto3,enum=event.events.public.server.v1.Kind" json:"kind,omitempty"`
-	// Status of the event (pending, started, canceled, or finished).
+	// Represents the status of the event (pending, started, finished or canceled).
 	Status Status `protobuf:"varint,3,opt,name=status,proto3,enum=event.events.public.server.v1.Status" json:"status,omitempty"`
 	// Represents a collection of key-value pairs providing additional context or information about this event.
 	Metadata map[string]string `protobuf:"bytes,4,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	// todo;
+	// Indicates whether the event is scheduled or unscheduled.
 	Schedule Schedule `protobuf:"varint,5,opt,name=schedule,proto3,enum=event.events.public.server.v1.Schedule" json:"schedule,omitempty"`
-	// todo;
+	// The broadcast associated with this event, containing properties.
 	Broadcast *Broadcast `protobuf:"bytes,6,opt,name=broadcast,proto3" json:"broadcast,omitempty"`
-	// todo;
+	// Represents the planned start time of the event.
 	PlannedStartTime int64 `protobuf:"varint,7,opt,name=planned_start_time,json=plannedStartTime,proto3" json:"planned_start_time,omitempty"`
 	// Represents the timestamp indicating when this event was started.
 	StartTime int64 `protobuf:"varint,8,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
-	// todo;
+	// Represents the planned finish time of the event.
 	PlannedFinishTime int64 `protobuf:"varint,9,opt,name=planned_finish_time,json=plannedFinishTime,proto3" json:"planned_finish_time,omitempty"`
 	// Represents the timestamp indicating when this event was finished.
 	FinishTime int64 `protobuf:"varint,10,opt,name=finish_time,json=finishTime,proto3" json:"finish_time,omitempty"`
@@ -178,9 +178,12 @@ func (x *Event) GetUpdateTime() int64 {
 	return 0
 }
 
+// Broadcast represents a broadcast associated with an event.
+// It contains properties such as orientation and other broadcast-specific details.
 type Broadcast struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Orientation   BroadcastOrientation   `protobuf:"varint,1,opt,name=orientation,proto3,enum=event.events.public.server.v1.BroadcastOrientation" json:"orientation,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Represents the orientation of the broadcast
+	Orientation   BroadcastOrientation `protobuf:"varint,1,opt,name=orientation,proto3,enum=event.events.public.server.v1.BroadcastOrientation" json:"orientation,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }

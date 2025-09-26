@@ -71,7 +71,7 @@ export enum Status {
     Canceled = 5
 }
 /**
- * Schedule todo;
+ * Schedule represents an enumeration that specifies the scheduling state of an event, indicating whether it is planned or unplanned.
  *
  * @generated from protobuf enum event.events.public.server.v1.Schedule
  */
@@ -90,7 +90,7 @@ export enum Schedule {
     Unplanned = 2
 }
 /**
- * BroadcastOrientation todo;
+ * BroadcastOrientation represents an enumeration that specifies the orientation of a broadcast, indicating whether it is vertical or horizontal.
  *
  * @generated from protobuf enum event.events.public.server.v1.BroadcastOrientation
  */

@@ -37,7 +37,7 @@ export interface Event {
      */
     kind: Kind;
     /**
-     * Status of the event (pending, started, canceled, or finished).
+     * Represents the status of the event (pending, started, finished or canceled).
      *
      * @generated from protobuf field: event.events.public.server.v1.Status status = 3;
      */
@@ -51,19 +51,19 @@ export interface Event {
         [key: string]: string;
     };
     /**
-     * todo;
+     * Indicates whether the event is scheduled or unscheduled.
      *
      * @generated from protobuf field: event.events.public.server.v1.Schedule schedule = 5;
      */
     schedule: Schedule;
     /**
-     * todo;
+     * The broadcast associated with this event, containing properties.
      *
      * @generated from protobuf field: event.events.public.server.v1.Broadcast broadcast = 6;
      */
     broadcast?: Broadcast;
     /**
-     * todo;
+     * Represents the planned start time of the event.
      *
      * @generated from protobuf field: int64 planned_start_time = 7;
      */
@@ -75,7 +75,7 @@ export interface Event {
      */
     startTime: bigint;
     /**
-     * todo;
+     * Represents the planned finish time of the event.
      *
      * @generated from protobuf field: int64 planned_finish_time = 9;
      */
@@ -106,10 +106,15 @@ export interface Event {
     updateTime: bigint;
 }
 /**
+ * Broadcast represents a broadcast associated with an event.
+ * It contains properties such as orientation and other broadcast-specific details.
+ *
  * @generated from protobuf message event.events.public.server.v1.Broadcast
  */
 export interface Broadcast {
     /**
+     * Represents the orientation of the broadcast
+     *
      * @generated from protobuf field: event.events.public.server.v1.BroadcastOrientation orientation = 1;
      */
     orientation: BroadcastOrientation;

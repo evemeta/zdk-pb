@@ -7,7 +7,7 @@ package com.evemeta.zdk.pb.event.server.events;
 
 /**
  * <pre>
- * Schedule todo;
+ * Schedule represents an enumeration that specifies the scheduling state of an event, indicating whether it is planned or unplanned.
  * </pre>
  *
  * Protobuf enum {@code event.events.public.server.v1.Schedule}

@@ -141,7 +141,7 @@ private static final long serialVersionUID = 0L;
   private int status_ = 0;
   /**
    * <pre>
-   * Status of the event (pending, started, canceled, or finished).
+   * Represents the status of the event (pending, started, finished or canceled).
    * </pre>
    *
    * <code>.event.events.public.server.v1.Status status = 3;</code>
@@ -152,7 +152,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Status of the event (pending, started, canceled, or finished).
+   * Represents the status of the event (pending, started, finished or canceled).
    * </pre>
    *
    * <code>.event.events.public.server.v1.Status status = 3;</code>
@@ -262,7 +262,7 @@ java.lang.String defaultValue) {
   private int schedule_ = 0;
   /**
    * <pre>
-   * todo;
+   * Indicates whether the event is scheduled or unscheduled.
    * </pre>
    *
    * <code>.event.events.public.server.v1.Schedule schedule = 5;</code>
@@ -273,7 +273,7 @@ java.lang.String defaultValue) {
   }
   /**
    * <pre>
-   * todo;
+   * Indicates whether the event is scheduled or unscheduled.
    * </pre>
    *
    * <code>.event.events.public.server.v1.Schedule schedule = 5;</code>
@@ -288,7 +288,7 @@ java.lang.String defaultValue) {
   private com.evemeta.zdk.pb.event.server.events.Broadcast broadcast_;
   /**
    * <pre>
-   * todo;
+   * The broadcast associated with this event, containing properties.
    * </pre>
    *
    * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
@@ -300,7 +300,7 @@ java.lang.String defaultValue) {
   }
   /**
    * <pre>
-   * todo;
+   * The broadcast associated with this event, containing properties.
    * </pre>
    *
    * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
@@ -312,7 +312,7 @@ java.lang.String defaultValue) {
   }
   /**
    * <pre>
-   * todo;
+   * The broadcast associated with this event, containing properties.
    * </pre>
    *
    * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
@@ -326,7 +326,7 @@ java.lang.String defaultValue) {
   private long plannedStartTime_ = 0L;
   /**
    * <pre>
-   * todo;
+   * Represents the planned start time of the event.
    * </pre>
    *
    * <code>int64 planned_start_time = 7;</code>
@@ -356,7 +356,7 @@ java.lang.String defaultValue) {
   private long plannedFinishTime_ = 0L;
   /**
    * <pre>
-   * todo;
+   * Represents the planned finish time of the event.
    * </pre>
    *
    * <code>int64 planned_finish_time = 9;</code>
@@ -1234,7 +1234,7 @@ java.lang.String defaultValue) {
     private int status_ = 0;
     /**
      * <pre>
-     * Status of the event (pending, started, canceled, or finished).
+     * Represents the status of the event (pending, started, finished or canceled).
      * </pre>
      *
      * <code>.event.events.public.server.v1.Status status = 3;</code>
@@ -1245,7 +1245,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * Status of the event (pending, started, canceled, or finished).
+     * Represents the status of the event (pending, started, finished or canceled).
      * </pre>
      *
      * <code>.event.events.public.server.v1.Status status = 3;</code>
@@ -1260,7 +1260,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * Status of the event (pending, started, canceled, or finished).
+     * Represents the status of the event (pending, started, finished or canceled).
      * </pre>
      *
      * <code>.event.events.public.server.v1.Status status = 3;</code>
@@ -1273,7 +1273,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * Status of the event (pending, started, canceled, or finished).
+     * Represents the status of the event (pending, started, finished or canceled).
      * </pre>
      *
      * <code>.event.events.public.server.v1.Status status = 3;</code>
@@ -1291,7 +1291,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * Status of the event (pending, started, canceled, or finished).
+     * Represents the status of the event (pending, started, finished or canceled).
      * </pre>
      *
      * <code>.event.events.public.server.v1.Status status = 3;</code>
@@ -1462,7 +1462,7 @@ java.lang.String defaultValue) {
     private int schedule_ = 0;
     /**
      * <pre>
-     * todo;
+     * Indicates whether the event is scheduled or unscheduled.
      * </pre>
      *
      * <code>.event.events.public.server.v1.Schedule schedule = 5;</code>
@@ -1473,7 +1473,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Indicates whether the event is scheduled or unscheduled.
      * </pre>
      *
      * <code>.event.events.public.server.v1.Schedule schedule = 5;</code>
@@ -1488,7 +1488,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Indicates whether the event is scheduled or unscheduled.
      * </pre>
      *
      * <code>.event.events.public.server.v1.Schedule schedule = 5;</code>
@@ -1501,7 +1501,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Indicates whether the event is scheduled or unscheduled.
      * </pre>
      *
      * <code>.event.events.public.server.v1.Schedule schedule = 5;</code>
@@ -1519,7 +1519,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Indicates whether the event is scheduled or unscheduled.
      * </pre>
      *
      * <code>.event.events.public.server.v1.Schedule schedule = 5;</code>
@@ -1537,7 +1537,7 @@ java.lang.String defaultValue) {
         com.evemeta.zdk.pb.event.server.events.Broadcast, com.evemeta.zdk.pb.event.server.events.Broadcast.Builder, com.evemeta.zdk.pb.event.server.events.BroadcastOrBuilder> broadcastBuilder_;
     /**
      * <pre>
-     * todo;
+     * The broadcast associated with this event, containing properties.
      * </pre>
      *
      * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
@@ -1548,7 +1548,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * The broadcast associated with this event, containing properties.
      * </pre>
      *
      * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
@@ -1563,7 +1563,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * The broadcast associated with this event, containing properties.
      * </pre>
      *
      * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
@@ -1583,7 +1583,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * The broadcast associated with this event, containing properties.
      * </pre>
      *
      * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
@@ -1601,7 +1601,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * The broadcast associated with this event, containing properties.
      * </pre>
      *
      * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
@@ -1626,7 +1626,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * The broadcast associated with this event, containing properties.
      * </pre>
      *
      * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
@@ -1643,7 +1643,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * The broadcast associated with this event, containing properties.
      * </pre>
      *
      * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
@@ -1655,7 +1655,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * The broadcast associated with this event, containing properties.
      * </pre>
      *
      * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
@@ -1670,7 +1670,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * The broadcast associated with this event, containing properties.
      * </pre>
      *
      * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
@@ -1692,7 +1692,7 @@ java.lang.String defaultValue) {
     private long plannedStartTime_ ;
     /**
      * <pre>
-     * todo;
+     * Represents the planned start time of the event.
      * </pre>
      *
      * <code>int64 planned_start_time = 7;</code>
@@ -1704,7 +1704,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Represents the planned start time of the event.
      * </pre>
      *
      * <code>int64 planned_start_time = 7;</code>
@@ -1720,7 +1720,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Represents the planned start time of the event.
      * </pre>
      *
      * <code>int64 planned_start_time = 7;</code>
@@ -1780,7 +1780,7 @@ java.lang.String defaultValue) {
     private long plannedFinishTime_ ;
     /**
      * <pre>
-     * todo;
+     * Represents the planned finish time of the event.
      * </pre>
      *
      * <code>int64 planned_finish_time = 9;</code>
@@ -1792,7 +1792,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Represents the planned finish time of the event.
      * </pre>
      *
      * <code>int64 planned_finish_time = 9;</code>
@@ -1808,7 +1808,7 @@ java.lang.String defaultValue) {
     }
     /**
      * <pre>
-     * todo;
+     * Represents the planned finish time of the event.
      * </pre>
      *
      * <code>int64 planned_finish_time = 9;</code>

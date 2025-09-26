@@ -92,7 +92,7 @@ public object EventKt {
 
     /**
      * ```
-     * Status of the event (pending, started, canceled, or finished).
+     * Represents the status of the event (pending, started, finished or canceled).
      * ```
      *
      * `.event.events.public.server.v1.Status status = 3;`
@@ -113,7 +113,7 @@ public object EventKt {
       }
     /**
      * ```
-     * Status of the event (pending, started, canceled, or finished).
+     * Represents the status of the event (pending, started, finished or canceled).
      * ```
      *
      * `.event.events.public.server.v1.Status status = 3;`
@@ -209,7 +209,7 @@ public object EventKt {
 
     /**
      * ```
-     * todo;
+     * Indicates whether the event is scheduled or unscheduled.
      * ```
      *
      * `.event.events.public.server.v1.Schedule schedule = 5;`
@@ -230,7 +230,7 @@ public object EventKt {
       }
     /**
      * ```
-     * todo;
+     * Indicates whether the event is scheduled or unscheduled.
      * ```
      *
      * `.event.events.public.server.v1.Schedule schedule = 5;`
@@ -241,7 +241,7 @@ public object EventKt {
 
     /**
      * ```
-     * todo;
+     * The broadcast associated with this event, containing properties.
      * ```
      *
      * `.event.events.public.server.v1.Broadcast broadcast = 6;`
@@ -255,7 +255,7 @@ public object EventKt {
       }
     /**
      * ```
-     * todo;
+     * The broadcast associated with this event, containing properties.
      * ```
      *
      * `.event.events.public.server.v1.Broadcast broadcast = 6;`
@@ -265,7 +265,7 @@ public object EventKt {
     }
     /**
      * ```
-     * todo;
+     * The broadcast associated with this event, containing properties.
      * ```
      *
      * `.event.events.public.server.v1.Broadcast broadcast = 6;`
@@ -280,7 +280,7 @@ public object EventKt {
 
     /**
      * ```
-     * todo;
+     * Represents the planned start time of the event.
      * ```
      *
      * `int64 planned_start_time = 7;`
@@ -294,7 +294,7 @@ public object EventKt {
       }
     /**
      * ```
-     * todo;
+     * Represents the planned start time of the event.
      * ```
      *
      * `int64 planned_start_time = 7;`
@@ -330,7 +330,7 @@ public object EventKt {
 
     /**
      * ```
-     * todo;
+     * Represents the planned finish time of the event.
      * ```
      *
      * `int64 planned_finish_time = 9;`
@@ -344,7 +344,7 @@ public object EventKt {
       }
     /**
      * ```
-     * todo;
+     * Represents the planned finish time of the event.
      * ```
      *
      * `int64 planned_finish_time = 9;`

@@ -10,11 +10,19 @@ public interface BroadcastOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * Represents the orientation of the broadcast
+   * </pre>
+   *
    * <code>.event.events.public.server.v1.BroadcastOrientation orientation = 1;</code>
    * @return The enum numeric value on the wire for orientation.
    */
   int getOrientationValue();
   /**
+   * <pre>
+   * Represents the orientation of the broadcast
+   * </pre>
+   *
    * <code>.event.events.public.server.v1.BroadcastOrientation orientation = 1;</code>
    * @return The orientation.
    */

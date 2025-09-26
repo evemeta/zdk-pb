@@ -6,6 +6,11 @@
 package com.evemeta.zdk.pb.event.server.events;
 
 /**
+ * <pre>
+ * Broadcast represents a broadcast associated with an event.
+ * It contains properties such as orientation and other broadcast-specific details.
+ * </pre>
+ *
  * Protobuf type {@code event.events.public.server.v1.Broadcast}
  */
 public final class Broadcast extends
@@ -46,6 +51,10 @@ private static final long serialVersionUID = 0L;
   public static final int ORIENTATION_FIELD_NUMBER = 1;
   private int orientation_ = 0;
   /**
+   * <pre>
+   * Represents the orientation of the broadcast
+   * </pre>
+   *
    * <code>.event.events.public.server.v1.BroadcastOrientation orientation = 1;</code>
    * @return The enum numeric value on the wire for orientation.
    */
@@ -53,6 +62,10 @@ private static final long serialVersionUID = 0L;
     return orientation_;
   }
   /**
+   * <pre>
+   * Represents the orientation of the broadcast
+   * </pre>
+   *
    * <code>.event.events.public.server.v1.BroadcastOrientation orientation = 1;</code>
    * @return The orientation.
    */
@@ -218,6 +231,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * Broadcast represents a broadcast associated with an event.
+   * It contains properties such as orientation and other broadcast-specific details.
+   * </pre>
+   *
    * Protobuf type {@code event.events.public.server.v1.Broadcast}
    */
   public static final class Builder extends
@@ -355,6 +373,10 @@ private static final long serialVersionUID = 0L;
 
     private int orientation_ = 0;
     /**
+     * <pre>
+     * Represents the orientation of the broadcast
+     * </pre>
+     *
      * <code>.event.events.public.server.v1.BroadcastOrientation orientation = 1;</code>
      * @return The enum numeric value on the wire for orientation.
      */
@@ -362,6 +384,10 @@ private static final long serialVersionUID = 0L;
       return orientation_;
     }
     /**
+     * <pre>
+     * Represents the orientation of the broadcast
+     * </pre>
+     *
      * <code>.event.events.public.server.v1.BroadcastOrientation orientation = 1;</code>
      * @param value The enum numeric value on the wire for orientation to set.
      * @return This builder for chaining.
@@ -373,6 +399,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Represents the orientation of the broadcast
+     * </pre>
+     *
      * <code>.event.events.public.server.v1.BroadcastOrientation orientation = 1;</code>
      * @return The orientation.
      */
@@ -382,6 +412,10 @@ private static final long serialVersionUID = 0L;
       return result == null ? com.evemeta.zdk.pb.event.server.events.BroadcastOrientation.UNRECOGNIZED : result;
     }
     /**
+     * <pre>
+     * Represents the orientation of the broadcast
+     * </pre>
+     *
      * <code>.event.events.public.server.v1.BroadcastOrientation orientation = 1;</code>
      * @param value The orientation to set.
      * @return This builder for chaining.
@@ -396,6 +430,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Represents the orientation of the broadcast
+     * </pre>
+     *
      * <code>.event.events.public.server.v1.BroadcastOrientation orientation = 1;</code>
      * @return This builder for chaining.
      */

@@ -50,7 +50,7 @@ public interface EventOrBuilder extends
 
   /**
    * <pre>
-   * Status of the event (pending, started, canceled, or finished).
+   * Represents the status of the event (pending, started, finished or canceled).
    * </pre>
    *
    * <code>.event.events.public.server.v1.Status status = 3;</code>
@@ -59,7 +59,7 @@ public interface EventOrBuilder extends
   int getStatusValue();
   /**
    * <pre>
-   * Status of the event (pending, started, canceled, or finished).
+   * Represents the status of the event (pending, started, finished or canceled).
    * </pre>
    *
    * <code>.event.events.public.server.v1.Status status = 3;</code>
@@ -123,7 +123,7 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * todo;
+   * Indicates whether the event is scheduled or unscheduled.
    * </pre>
    *
    * <code>.event.events.public.server.v1.Schedule schedule = 5;</code>
@@ -132,7 +132,7 @@ java.lang.String defaultValue);
   int getScheduleValue();
   /**
    * <pre>
-   * todo;
+   * Indicates whether the event is scheduled or unscheduled.
    * </pre>
    *
    * <code>.event.events.public.server.v1.Schedule schedule = 5;</code>
@@ -142,7 +142,7 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * todo;
+   * The broadcast associated with this event, containing properties.
    * </pre>
    *
    * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
@@ -151,7 +151,7 @@ java.lang.String defaultValue);
   boolean hasBroadcast();
   /**
    * <pre>
-   * todo;
+   * The broadcast associated with this event, containing properties.
    * </pre>
    *
    * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
@@ -160,7 +160,7 @@ java.lang.String defaultValue);
   com.evemeta.zdk.pb.event.server.events.Broadcast getBroadcast();
   /**
    * <pre>
-   * todo;
+   * The broadcast associated with this event, containing properties.
    * </pre>
    *
    * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
@@ -169,7 +169,7 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * todo;
+   * Represents the planned start time of the event.
    * </pre>
    *
    * <code>int64 planned_start_time = 7;</code>
@@ -189,7 +189,7 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * todo;
+   * Represents the planned finish time of the event.
    * </pre>
    *
    * <code>int64 planned_finish_time = 9;</code>

@@ -7,7 +7,7 @@ package com.evemeta.zdk.pb.event.server.events;
 
 /**
  * <pre>
- * BroadcastOrientation todo;
+ * BroadcastOrientation represents an enumeration that specifies the orientation of a broadcast, indicating whether it is vertical or horizontal.
  * </pre>
  *
  * Protobuf enum {@code event.events.public.server.v1.BroadcastOrientation}
