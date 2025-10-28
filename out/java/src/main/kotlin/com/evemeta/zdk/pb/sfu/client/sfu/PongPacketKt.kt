@@ -32,10 +32,10 @@ public object PongPacketKt {
      * `int64 server_timestamp = 1;`
      */
     public var serverTimestamp: kotlin.Long
-      @JvmName("getServerTimestamp")
-      get() = _builder.serverTimestamp
-      @JvmName("setServerTimestamp")
-      set(value) {
+      @kotlin.jvm.JvmName("getServerTimestamp")
+        get() = _builder.serverTimestamp
+      @kotlin.jvm.JvmName("setServerTimestamp")
+        set(value) {
         _builder.serverTimestamp = value
       }
     /**

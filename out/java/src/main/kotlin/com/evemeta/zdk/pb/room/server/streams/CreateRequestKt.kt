@@ -40,10 +40,10 @@ public object CreateRequestKt {
      * `string room_id = 1;`
      */
     public var roomId: kotlin.String
-      @JvmName("getRoomId")
-      get() = _builder.roomId
-      @JvmName("setRoomId")
-      set(value) {
+      @kotlin.jvm.JvmName("getRoomId")
+        get() = _builder.roomId
+      @kotlin.jvm.JvmName("setRoomId")
+        set(value) {
         _builder.roomId = value
       }
     /**
@@ -65,17 +65,17 @@ public object CreateRequestKt {
      * `.room.streams.public.server.v1.Kind kind = 2;`
      */
     public var kind: com.evemeta.zdk.pb.room.server.streams.Kind
-      @JvmName("getKind")
-      get() = _builder.kind
-      @JvmName("setKind")
-      set(value) {
+      @kotlin.jvm.JvmName("getKind")
+        get() = _builder.kind
+      @kotlin.jvm.JvmName("setKind")
+        set(value) {
         _builder.kind = value
       }
     public var kindValue: kotlin.Int
-      @JvmName("getKindValue")
-      get() = _builder.kindValue
-      @JvmName("setKindValue")
-      set(value) {
+      @kotlin.jvm.JvmName("getKindValue")
+        get() = _builder.kindValue
+      @kotlin.jvm.JvmName("setKindValue")
+        set(value) {
         _builder.kindValue = value
       }
     /**
@@ -97,17 +97,17 @@ public object CreateRequestKt {
      * `.room.streams.public.server.v1.Status status = 3;`
      */
     public var status: com.evemeta.zdk.pb.room.server.streams.Status
-      @JvmName("getStatus")
-      get() = _builder.status
-      @JvmName("setStatus")
-      set(value) {
+      @kotlin.jvm.JvmName("getStatus")
+        get() = _builder.status
+      @kotlin.jvm.JvmName("setStatus")
+        set(value) {
         _builder.status = value
       }
     public var statusValue: kotlin.Int
-      @JvmName("getStatusValue")
-      get() = _builder.statusValue
-      @JvmName("setStatusValue")
-      set(value) {
+      @kotlin.jvm.JvmName("getStatusValue")
+        get() = _builder.statusValue
+      @kotlin.jvm.JvmName("setStatusValue")
+        set(value) {
         _builder.statusValue = value
       }
     /**

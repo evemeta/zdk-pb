@@ -32,10 +32,10 @@ public object ExtractRequestKt {
      * `string token = 1;`
      */
     public var token: kotlin.String
-      @JvmName("getToken")
-      get() = _builder.token
-      @JvmName("setToken")
-      set(value) {
+      @kotlin.jvm.JvmName("getToken")
+        get() = _builder.token
+      @kotlin.jvm.JvmName("setToken")
+        set(value) {
         _builder.token = value
       }
     /**

@@ -41,10 +41,10 @@ public object UpdateEventPacketKt {
      * `string id = 1;`
      */
     public var id: kotlin.String
-      @JvmName("getId")
-      get() = _builder.id
-      @JvmName("setId")
-      set(value) {
+      @kotlin.jvm.JvmName("getId")
+        get() = _builder.id
+      @kotlin.jvm.JvmName("setId")
+        set(value) {
         _builder.id = value
       }
     /**
@@ -66,10 +66,10 @@ public object UpdateEventPacketKt {
      * `optional .event.events.public.server.v1.OptionalMap metadata = 2;`
      */
     public var metadata: com.evemeta.zdk.pb.event.server.events.OptionalMap
-      @JvmName("getMetadata")
-      get() = _builder.metadata
-      @JvmName("setMetadata")
-      set(value) {
+      @kotlin.jvm.JvmName("getMetadata")
+        get() = _builder.metadata
+      @kotlin.jvm.JvmName("setMetadata")
+        set(value) {
         _builder.metadata = value
       }
     /**
@@ -105,10 +105,10 @@ public object UpdateEventPacketKt {
      * `.event.events.public.server.v1.Timeframe timeframe = 3;`
      */
     public var timeframe: com.evemeta.zdk.pb.event.server.events.Timeframe
-      @JvmName("getTimeframe")
-      get() = _builder.timeframe
-      @JvmName("setTimeframe")
-      set(value) {
+      @kotlin.jvm.JvmName("getTimeframe")
+        get() = _builder.timeframe
+      @kotlin.jvm.JvmName("setTimeframe")
+        set(value) {
         _builder.timeframe = value
       }
     /**

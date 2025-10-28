@@ -36,17 +36,17 @@ public object OptionalStatusKt {
      * `.room.connections.public.server.v1.Status value = 1;`
      */
     public var value: com.evemeta.zdk.pb.room.server.connections.Status
-      @JvmName("getValue")
-      get() = _builder.value
-      @JvmName("setValue")
-      set(value) {
+      @kotlin.jvm.JvmName("getValue")
+        get() = _builder.value
+      @kotlin.jvm.JvmName("setValue")
+        set(value) {
         _builder.value = value
       }
     public var valueValue: kotlin.Int
-      @JvmName("getValueValue")
-      get() = _builder.valueValue
-      @JvmName("setValueValue")
-      set(value) {
+      @kotlin.jvm.JvmName("getValueValue")
+        get() = _builder.valueValue
+      @kotlin.jvm.JvmName("setValueValue")
+        set(value) {
         _builder.valueValue = value
       }
     /**

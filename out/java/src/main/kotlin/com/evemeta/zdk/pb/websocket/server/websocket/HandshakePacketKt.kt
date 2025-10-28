@@ -32,10 +32,10 @@ public object HandshakePacketKt {
      * `.websocket.public.server.v1.Session session = 1;`
      */
     public var session: com.evemeta.zdk.pb.websocket.server.websocket.Session
-      @JvmName("getSession")
-      get() = _builder.session
-      @JvmName("setSession")
-      set(value) {
+      @kotlin.jvm.JvmName("getSession")
+        get() = _builder.session
+      @kotlin.jvm.JvmName("setSession")
+        set(value) {
         _builder.session = value
       }
     /**

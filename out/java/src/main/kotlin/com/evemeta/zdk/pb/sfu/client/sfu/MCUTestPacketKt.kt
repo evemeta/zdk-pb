@@ -32,10 +32,10 @@ public object MCUTestPacketKt {
      * `bool resetEncoder = 1;`
      */
     public var resetEncoder: kotlin.Boolean
-      @JvmName("getResetEncoder")
-      get() = _builder.resetEncoder
-      @JvmName("setResetEncoder")
-      set(value) {
+      @kotlin.jvm.JvmName("getResetEncoder")
+        get() = _builder.resetEncoder
+      @kotlin.jvm.JvmName("setResetEncoder")
+        set(value) {
         _builder.resetEncoder = value
       }
     /**

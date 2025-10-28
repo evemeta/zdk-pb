@@ -47,7 +47,7 @@ public object SelectResponseKt {
      */
      public val chats: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.chats.Chat, ChatsProxy>
       @kotlin.jvm.JvmSynthetic
-      get() = com.google.protobuf.kotlin.DslList(
+  get() = com.google.protobuf.kotlin.DslList(
         _builder.chatsList
       )
     /**
@@ -59,7 +59,7 @@ public object SelectResponseKt {
      * @param value The chats to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addChats")
+@kotlin.jvm.JvmName("addChats")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.chats.Chat, ChatsProxy>.add(value: com.evemeta.zdk.pb.chat.server.chats.Chat) {
       _builder.addChats(value)
     }
@@ -72,7 +72,7 @@ public object SelectResponseKt {
      * @param value The chats to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignChats")
+@kotlin.jvm.JvmName("plusAssignChats")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.chats.Chat, ChatsProxy>.plusAssign(value: com.evemeta.zdk.pb.chat.server.chats.Chat) {
       add(value)
@@ -86,7 +86,7 @@ public object SelectResponseKt {
      * @param values The chats to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addAllChats")
+@kotlin.jvm.JvmName("addAllChats")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.chats.Chat, ChatsProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.chat.server.chats.Chat>) {
       _builder.addAllChats(values)
     }
@@ -99,7 +99,7 @@ public object SelectResponseKt {
      * @param values The chats to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignAllChats")
+@kotlin.jvm.JvmName("plusAssignAllChats")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.chats.Chat, ChatsProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.chat.server.chats.Chat>) {
       addAll(values)
@@ -114,7 +114,7 @@ public object SelectResponseKt {
      * @param value The chats to set.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("setChats")
+@kotlin.jvm.JvmName("setChats")
     public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.chats.Chat, ChatsProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.chat.server.chats.Chat) {
       _builder.setChats(index, value)
     }
@@ -126,11 +126,10 @@ public object SelectResponseKt {
      * `repeated .chat.chats.public.server.v1.Chat chats = 1;`
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("clearChats")
+@kotlin.jvm.JvmName("clearChats")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.chats.Chat, ChatsProxy>.clear() {
       _builder.clearChats()
     }
-
   }
 }
 @kotlin.jvm.JvmSynthetic

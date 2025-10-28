@@ -32,10 +32,10 @@ public object StreamsPacketKt {
      * `bytes sdp_answer = 1;`
      */
     public var sdpAnswer: com.google.protobuf.ByteString
-      @JvmName("getSdpAnswer")
-      get() = _builder.sdpAnswer
-      @JvmName("setSdpAnswer")
-      set(value) {
+      @kotlin.jvm.JvmName("getSdpAnswer")
+        get() = _builder.sdpAnswer
+      @kotlin.jvm.JvmName("setSdpAnswer")
+        set(value) {
         _builder.sdpAnswer = value
       }
     /**
@@ -56,7 +56,7 @@ public object StreamsPacketKt {
      */
      public val addRequests: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, AddRequestsProxy>
       @kotlin.jvm.JvmSynthetic
-      get() = com.google.protobuf.kotlin.DslList(
+  get() = com.google.protobuf.kotlin.DslList(
         _builder.addRequestsList
       )
     /**
@@ -64,7 +64,7 @@ public object StreamsPacketKt {
      * @param value The addRequests to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addAddRequests")
+@kotlin.jvm.JvmName("addAddRequests")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, AddRequestsProxy>.add(value: com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo) {
       _builder.addAddRequests(value)
     }
@@ -73,7 +73,7 @@ public object StreamsPacketKt {
      * @param value The addRequests to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignAddRequests")
+@kotlin.jvm.JvmName("plusAssignAddRequests")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, AddRequestsProxy>.plusAssign(value: com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo) {
       add(value)
@@ -83,7 +83,7 @@ public object StreamsPacketKt {
      * @param values The addRequests to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addAllAddRequests")
+@kotlin.jvm.JvmName("addAllAddRequests")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, AddRequestsProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo>) {
       _builder.addAllAddRequests(values)
     }
@@ -92,7 +92,7 @@ public object StreamsPacketKt {
      * @param values The addRequests to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignAllAddRequests")
+@kotlin.jvm.JvmName("plusAssignAllAddRequests")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, AddRequestsProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo>) {
       addAll(values)
@@ -103,7 +103,7 @@ public object StreamsPacketKt {
      * @param value The addRequests to set.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("setAddRequests")
+@kotlin.jvm.JvmName("setAddRequests")
     public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, AddRequestsProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo) {
       _builder.setAddRequests(index, value)
     }
@@ -111,11 +111,10 @@ public object StreamsPacketKt {
      * `repeated .sfu.public.server.v1.StreamInfo add_requests = 2;`
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("clearAddRequests")
+@kotlin.jvm.JvmName("clearAddRequests")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, AddRequestsProxy>.clear() {
       _builder.clearAddRequests()
     }
-
 
     /**
      * An uninstantiable, behaviorless type to represent the field in
@@ -128,7 +127,7 @@ public object StreamsPacketKt {
      */
      public val removalRequests: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, RemovalRequestsProxy>
       @kotlin.jvm.JvmSynthetic
-      get() = com.google.protobuf.kotlin.DslList(
+  get() = com.google.protobuf.kotlin.DslList(
         _builder.removalRequestsList
       )
     /**
@@ -136,7 +135,7 @@ public object StreamsPacketKt {
      * @param value The removalRequests to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addRemovalRequests")
+@kotlin.jvm.JvmName("addRemovalRequests")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, RemovalRequestsProxy>.add(value: com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo) {
       _builder.addRemovalRequests(value)
     }
@@ -145,7 +144,7 @@ public object StreamsPacketKt {
      * @param value The removalRequests to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignRemovalRequests")
+@kotlin.jvm.JvmName("plusAssignRemovalRequests")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, RemovalRequestsProxy>.plusAssign(value: com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo) {
       add(value)
@@ -155,7 +154,7 @@ public object StreamsPacketKt {
      * @param values The removalRequests to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addAllRemovalRequests")
+@kotlin.jvm.JvmName("addAllRemovalRequests")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, RemovalRequestsProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo>) {
       _builder.addAllRemovalRequests(values)
     }
@@ -164,7 +163,7 @@ public object StreamsPacketKt {
      * @param values The removalRequests to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignAllRemovalRequests")
+@kotlin.jvm.JvmName("plusAssignAllRemovalRequests")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, RemovalRequestsProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo>) {
       addAll(values)
@@ -175,7 +174,7 @@ public object StreamsPacketKt {
      * @param value The removalRequests to set.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("setRemovalRequests")
+@kotlin.jvm.JvmName("setRemovalRequests")
     public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, RemovalRequestsProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo) {
       _builder.setRemovalRequests(index, value)
     }
@@ -183,27 +182,26 @@ public object StreamsPacketKt {
      * `repeated .sfu.public.server.v1.StreamInfo removal_requests = 3;`
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("clearRemovalRequests")
+@kotlin.jvm.JvmName("clearRemovalRequests")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, RemovalRequestsProxy>.clear() {
       _builder.clearRemovalRequests()
     }
-
 
     /**
      * `.sfu.public.server.v1.Channel channel = 4;`
      */
     public var channel: com.evemeta.zdk.pb.sfu.server.sfu.Channel
-      @JvmName("getChannel")
-      get() = _builder.channel
-      @JvmName("setChannel")
-      set(value) {
+      @kotlin.jvm.JvmName("getChannel")
+        get() = _builder.channel
+      @kotlin.jvm.JvmName("setChannel")
+        set(value) {
         _builder.channel = value
       }
     public var channelValue: kotlin.Int
-      @JvmName("getChannelValue")
-      get() = _builder.channelValue
-      @JvmName("setChannelValue")
-      set(value) {
+      @kotlin.jvm.JvmName("getChannelValue")
+        get() = _builder.channelValue
+      @kotlin.jvm.JvmName("setChannelValue")
+        set(value) {
         _builder.channelValue = value
       }
     /**

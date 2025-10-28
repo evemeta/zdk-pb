@@ -40,10 +40,10 @@ public object CreateRestrictionPacketKt {
      * `.room.restrictions.public.server.v1.Restriction restriction = 3;`
      */
     public var restriction: com.evemeta.zdk.pb.room.server.restrictions.Restriction
-      @JvmName("getRestriction")
-      get() = _builder.restriction
-      @JvmName("setRestriction")
-      set(value) {
+      @kotlin.jvm.JvmName("getRestriction")
+        get() = _builder.restriction
+      @kotlin.jvm.JvmName("setRestriction")
+        set(value) {
         _builder.restriction = value
       }
     /**
@@ -79,10 +79,10 @@ public object CreateRestrictionPacketKt {
      * `.room.restrictions.public.server.v1.Timeframe timeframe = 4;`
      */
     public var timeframe: com.evemeta.zdk.pb.room.server.restrictions.Timeframe
-      @JvmName("getTimeframe")
-      get() = _builder.timeframe
-      @JvmName("setTimeframe")
-      set(value) {
+      @kotlin.jvm.JvmName("getTimeframe")
+        get() = _builder.timeframe
+      @kotlin.jvm.JvmName("setTimeframe")
+        set(value) {
         _builder.timeframe = value
       }
     /**

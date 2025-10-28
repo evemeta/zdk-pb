@@ -40,10 +40,10 @@ public object CountRequestKt {
      * `.event.members.public.server.v1.Query query = 1;`
      */
     public var query: com.evemeta.zdk.pb.event.server.members.Query
-      @JvmName("getQuery")
-      get() = _builder.query
-      @JvmName("setQuery")
-      set(value) {
+      @kotlin.jvm.JvmName("getQuery")
+        get() = _builder.query
+      @kotlin.jvm.JvmName("setQuery")
+        set(value) {
         _builder.query = value
       }
     /**

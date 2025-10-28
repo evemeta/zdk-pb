@@ -40,10 +40,10 @@ public object DeleteRestrictionPacketKt {
      * `string id = 1;`
      */
     public var id: kotlin.String
-      @JvmName("getId")
-      get() = _builder.id
-      @JvmName("setId")
-      set(value) {
+      @kotlin.jvm.JvmName("getId")
+        get() = _builder.id
+      @kotlin.jvm.JvmName("setId")
+        set(value) {
         _builder.id = value
       }
     /**
@@ -65,10 +65,10 @@ public object DeleteRestrictionPacketKt {
      * `string room_id = 2;`
      */
     public var roomId: kotlin.String
-      @JvmName("getRoomId")
-      get() = _builder.roomId
-      @JvmName("setRoomId")
-      set(value) {
+      @kotlin.jvm.JvmName("getRoomId")
+        get() = _builder.roomId
+      @kotlin.jvm.JvmName("setRoomId")
+        set(value) {
         _builder.roomId = value
       }
     /**
@@ -90,10 +90,10 @@ public object DeleteRestrictionPacketKt {
      * `.room.restrictions.public.server.v1.Timeframe timeframe = 4;`
      */
     public var timeframe: com.evemeta.zdk.pb.room.server.restrictions.Timeframe
-      @JvmName("getTimeframe")
-      get() = _builder.timeframe
-      @JvmName("setTimeframe")
-      set(value) {
+      @kotlin.jvm.JvmName("getTimeframe")
+        get() = _builder.timeframe
+      @kotlin.jvm.JvmName("setTimeframe")
+        set(value) {
         _builder.timeframe = value
       }
     /**

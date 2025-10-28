@@ -41,10 +41,10 @@ public object CreateStreamPacketKt {
      * `.room.streams.public.server.v1.Stream stream = 3;`
      */
     public var stream: com.evemeta.zdk.pb.room.server.streams.Stream
-      @JvmName("getStream")
-      get() = _builder.stream
-      @JvmName("setStream")
-      set(value) {
+      @kotlin.jvm.JvmName("getStream")
+        get() = _builder.stream
+      @kotlin.jvm.JvmName("setStream")
+        set(value) {
         _builder.stream = value
       }
     /**
@@ -80,10 +80,10 @@ public object CreateStreamPacketKt {
      * `.room.streams.public.server.v1.Timeframe timeframe = 4;`
      */
     public var timeframe: com.evemeta.zdk.pb.room.server.streams.Timeframe
-      @JvmName("getTimeframe")
-      get() = _builder.timeframe
-      @JvmName("setTimeframe")
-      set(value) {
+      @kotlin.jvm.JvmName("getTimeframe")
+        get() = _builder.timeframe
+      @kotlin.jvm.JvmName("setTimeframe")
+        set(value) {
         _builder.timeframe = value
       }
     /**

@@ -40,10 +40,10 @@ public object CreateConnectionPacketKt {
      * `.room.connections.public.server.v1.Connection connection = 3;`
      */
     public var connection: com.evemeta.zdk.pb.room.server.connections.Connection
-      @JvmName("getConnection")
-      get() = _builder.connection
-      @JvmName("setConnection")
-      set(value) {
+      @kotlin.jvm.JvmName("getConnection")
+        get() = _builder.connection
+      @kotlin.jvm.JvmName("setConnection")
+        set(value) {
         _builder.connection = value
       }
     /**
@@ -79,10 +79,10 @@ public object CreateConnectionPacketKt {
      * `.room.connections.public.server.v1.Timeframe timeframe = 4;`
      */
     public var timeframe: com.evemeta.zdk.pb.room.server.connections.Timeframe
-      @JvmName("getTimeframe")
-      get() = _builder.timeframe
-      @JvmName("setTimeframe")
-      set(value) {
+      @kotlin.jvm.JvmName("getTimeframe")
+        get() = _builder.timeframe
+      @kotlin.jvm.JvmName("setTimeframe")
+        set(value) {
         _builder.timeframe = value
       }
     /**

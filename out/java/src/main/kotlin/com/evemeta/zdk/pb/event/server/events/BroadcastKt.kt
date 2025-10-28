@@ -41,17 +41,17 @@ public object BroadcastKt {
      * `.event.events.public.server.v1.BroadcastOrientation orientation = 1;`
      */
     public var orientation: com.evemeta.zdk.pb.event.server.events.BroadcastOrientation
-      @JvmName("getOrientation")
-      get() = _builder.orientation
-      @JvmName("setOrientation")
-      set(value) {
+      @kotlin.jvm.JvmName("getOrientation")
+        get() = _builder.orientation
+      @kotlin.jvm.JvmName("setOrientation")
+        set(value) {
         _builder.orientation = value
       }
     public var orientationValue: kotlin.Int
-      @JvmName("getOrientationValue")
-      get() = _builder.orientationValue
-      @JvmName("setOrientationValue")
-      set(value) {
+      @kotlin.jvm.JvmName("getOrientationValue")
+        get() = _builder.orientationValue
+      @kotlin.jvm.JvmName("setOrientationValue")
+        set(value) {
         _builder.orientationValue = value
       }
     /**

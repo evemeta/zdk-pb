@@ -36,10 +36,10 @@ public object OptionalInt64Kt {
      * `int64 value = 1;`
      */
     public var value: kotlin.Long
-      @JvmName("getValue")
-      get() = _builder.value
-      @JvmName("setValue")
-      set(value) {
+      @kotlin.jvm.JvmName("getValue")
+        get() = _builder.value
+      @kotlin.jvm.JvmName("setValue")
+        set(value) {
         _builder.value = value
       }
     /**

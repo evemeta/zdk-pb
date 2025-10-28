@@ -20,7 +20,8 @@ message Condition {
 }
 
 message BroadcastRoom {
-    mcu.rooms.private.v1.Room   room = 1;
+    mcu.rooms.private.v1.Room   room            = 1;
     bool                        is_broadcasting = 2;
-    string                      broadcast_url = 3;
+    string                      broadcast_url   = 3;
+    bool                        is_active       = 4;
 }

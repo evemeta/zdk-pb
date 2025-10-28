@@ -40,10 +40,10 @@ public object GenerateBroadcastAccessUrlResponseKt {
      * `string url = 1;`
      */
     public var url: kotlin.String
-      @JvmName("getUrl")
-      get() = _builder.url
-      @JvmName("setUrl")
-      set(value) {
+      @kotlin.jvm.JvmName("getUrl")
+        get() = _builder.url
+      @kotlin.jvm.JvmName("setUrl")
+        set(value) {
         _builder.url = value
       }
     /**

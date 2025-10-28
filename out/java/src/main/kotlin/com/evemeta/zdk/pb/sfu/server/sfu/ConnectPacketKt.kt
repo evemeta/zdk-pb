@@ -32,10 +32,10 @@ public object ConnectPacketKt {
      * `.sfu.public.server.v1.Offer offer = 1;`
      */
     public var offer: com.evemeta.zdk.pb.sfu.server.sfu.Offer
-      @JvmName("getOffer")
-      get() = _builder.offer
-      @JvmName("setOffer")
-      set(value) {
+      @kotlin.jvm.JvmName("getOffer")
+        get() = _builder.offer
+      @kotlin.jvm.JvmName("setOffer")
+        set(value) {
         _builder.offer = value
       }
     /**

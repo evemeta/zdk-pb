@@ -40,10 +40,10 @@ public object RangeResponseKt {
      * `.room.members.public.server.v1.Chunk chunk = 1;`
      */
     public var chunk: com.evemeta.zdk.pb.room.server.members.Chunk
-      @JvmName("getChunk")
-      get() = _builder.chunk
-      @JvmName("setChunk")
-      set(value) {
+      @kotlin.jvm.JvmName("getChunk")
+        get() = _builder.chunk
+      @kotlin.jvm.JvmName("setChunk")
+        set(value) {
         _builder.chunk = value
       }
     /**

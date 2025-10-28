@@ -32,10 +32,10 @@ public object DisconnectedPacketKt {
      * `string reason = 1;`
      */
     public var reason: kotlin.String
-      @JvmName("getReason")
-      get() = _builder.reason
-      @JvmName("setReason")
-      set(value) {
+      @kotlin.jvm.JvmName("getReason")
+        get() = _builder.reason
+      @kotlin.jvm.JvmName("setReason")
+        set(value) {
         _builder.reason = value
       }
     /**
