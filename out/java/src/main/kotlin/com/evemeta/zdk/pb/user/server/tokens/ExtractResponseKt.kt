@@ -32,10 +32,10 @@ public object ExtractResponseKt {
      * `.user.users.public.server.v1.User user = 1;`
      */
     public var user: com.evemeta.zdk.pb.user.server.users.User
-      @JvmName("getUser")
-      get() = _builder.user
-      @JvmName("setUser")
-      set(value) {
+      @kotlin.jvm.JvmName("getUser")
+        get() = _builder.user
+      @kotlin.jvm.JvmName("setUser")
+        set(value) {
         _builder.user = value
       }
     /**

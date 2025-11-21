@@ -36,17 +36,17 @@ public object SlowmodeKt {
      * `.chat.chats.public.server.v1.SlowmodeStatus status = 1;`
      */
     public var status: com.evemeta.zdk.pb.chat.server.chats.SlowmodeStatus
-      @JvmName("getStatus")
-      get() = _builder.status
-      @JvmName("setStatus")
-      set(value) {
+      @kotlin.jvm.JvmName("getStatus")
+        get() = _builder.status
+      @kotlin.jvm.JvmName("setStatus")
+        set(value) {
         _builder.status = value
       }
     public var statusValue: kotlin.Int
-      @JvmName("getStatusValue")
-      get() = _builder.statusValue
-      @JvmName("setStatusValue")
-      set(value) {
+      @kotlin.jvm.JvmName("getStatusValue")
+        get() = _builder.statusValue
+      @kotlin.jvm.JvmName("setStatusValue")
+        set(value) {
         _builder.statusValue = value
       }
     /**
@@ -60,10 +60,10 @@ public object SlowmodeKt {
      * `int64 limit = 2;`
      */
     public var limit: kotlin.Long
-      @JvmName("getLimit")
-      get() = _builder.limit
-      @JvmName("setLimit")
-      set(value) {
+      @kotlin.jvm.JvmName("getLimit")
+        get() = _builder.limit
+      @kotlin.jvm.JvmName("setLimit")
+        set(value) {
         _builder.limit = value
       }
     /**
@@ -77,10 +77,10 @@ public object SlowmodeKt {
      * `int64 window = 3;`
      */
     public var window: kotlin.Long
-      @JvmName("getWindow")
-      get() = _builder.window
-      @JvmName("setWindow")
-      set(value) {
+      @kotlin.jvm.JvmName("getWindow")
+        get() = _builder.window
+      @kotlin.jvm.JvmName("setWindow")
+        set(value) {
         _builder.window = value
       }
     /**

@@ -32,10 +32,10 @@ public object ExtractResponseKt {
      * `.chat.members.public.server.v1.Member member = 1;`
      */
     public var member: com.evemeta.zdk.pb.chat.server.members.Member
-      @JvmName("getMember")
-      get() = _builder.member
-      @JvmName("setMember")
-      set(value) {
+      @kotlin.jvm.JvmName("getMember")
+        get() = _builder.member
+      @kotlin.jvm.JvmName("setMember")
+        set(value) {
         _builder.member = value
       }
     /**

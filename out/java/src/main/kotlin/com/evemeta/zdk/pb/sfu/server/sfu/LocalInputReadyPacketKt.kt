@@ -32,17 +32,17 @@ public object LocalInputReadyPacketKt {
      * `.sfu.public.server.v1.StreamType streamType = 1;`
      */
     public var streamType: com.evemeta.zdk.pb.sfu.server.sfu.StreamType
-      @JvmName("getStreamType")
-      get() = _builder.streamType
-      @JvmName("setStreamType")
-      set(value) {
+      @kotlin.jvm.JvmName("getStreamType")
+        get() = _builder.streamType
+      @kotlin.jvm.JvmName("setStreamType")
+        set(value) {
         _builder.streamType = value
       }
     public var streamTypeValue: kotlin.Int
-      @JvmName("getStreamTypeValue")
-      get() = _builder.streamTypeValue
-      @JvmName("setStreamTypeValue")
-      set(value) {
+      @kotlin.jvm.JvmName("getStreamTypeValue")
+        get() = _builder.streamTypeValue
+      @kotlin.jvm.JvmName("setStreamTypeValue")
+        set(value) {
         _builder.streamTypeValue = value
       }
     /**

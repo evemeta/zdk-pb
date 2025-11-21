@@ -164,6 +164,16 @@ func (m *BroadcastRoom) MarshalToSizedBufferVT(dAtA []byte) (int, error) {
 		i -= len(m.unknownFields)
 		copy(dAtA[i:], m.unknownFields)
 	}
+	if m.IsActive {
+		i--
+		if m.IsActive {
+			dAtA[i] = 1
+		} else {
+			dAtA[i] = 0
+		}
+		i--
+		dAtA[i] = 0x20
+	}
 	if len(m.BroadcastUrl) > 0 {
 		i -= len(m.BroadcastUrl)
 		copy(dAtA[i:], m.BroadcastUrl)
@@ -269,6 +279,9 @@ func (m *BroadcastRoom) SizeVT() (n int) {
 	l = len(m.BroadcastUrl)
 	if l > 0 {
 		n += 1 + l + sov(uint64(l))
+	}
+	if m.IsActive {
+		n += 2
 	}
 	if m.unknownFields != nil {
 		n += len(m.unknownFields)
@@ -646,6 +659,26 @@ func (m *BroadcastRoom) UnmarshalVT(dAtA []byte) error {
 			}
 			m.BroadcastUrl = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
+		case 4:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field IsActive", wireType)
+			}
+			var v int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			m.IsActive = bool(v != 0)
 		default:
 			iNdEx = preIndex
 			skippy, err := skip(dAtA[iNdEx:])

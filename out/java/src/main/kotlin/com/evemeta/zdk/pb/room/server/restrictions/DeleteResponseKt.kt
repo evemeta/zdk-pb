@@ -40,10 +40,10 @@ public object DeleteResponseKt {
      * `.room.restrictions.public.server.v1.Restriction restriction = 1;`
      */
     public var restriction: com.evemeta.zdk.pb.room.server.restrictions.Restriction
-      @JvmName("getRestriction")
-      get() = _builder.restriction
-      @JvmName("setRestriction")
-      set(value) {
+      @kotlin.jvm.JvmName("getRestriction")
+        get() = _builder.restriction
+      @kotlin.jvm.JvmName("setRestriction")
+        set(value) {
         _builder.restriction = value
       }
     /**

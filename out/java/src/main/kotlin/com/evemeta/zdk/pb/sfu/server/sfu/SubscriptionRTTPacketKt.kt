@@ -32,10 +32,10 @@ public object SubscriptionRTTPacketKt {
      * `string sub_id = 1;`
      */
     public var subId: kotlin.String
-      @JvmName("getSubId")
-      get() = _builder.subId
-      @JvmName("setSubId")
-      set(value) {
+      @kotlin.jvm.JvmName("getSubId")
+        get() = _builder.subId
+      @kotlin.jvm.JvmName("setSubId")
+        set(value) {
         _builder.subId = value
       }
     /**
@@ -49,10 +49,10 @@ public object SubscriptionRTTPacketKt {
      * `int64 rtt = 2;`
      */
     public var rtt: kotlin.Long
-      @JvmName("getRtt")
-      get() = _builder.rtt
-      @JvmName("setRtt")
-      set(value) {
+      @kotlin.jvm.JvmName("getRtt")
+        get() = _builder.rtt
+      @kotlin.jvm.JvmName("setRtt")
+        set(value) {
         _builder.rtt = value
       }
     /**

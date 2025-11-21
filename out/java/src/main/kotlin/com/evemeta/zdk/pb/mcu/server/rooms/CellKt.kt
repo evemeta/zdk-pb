@@ -32,10 +32,10 @@ public object CellKt {
      * `uint32 id = 1;`
      */
     public var id: kotlin.Int
-      @JvmName("getId")
-      get() = _builder.id
-      @JvmName("setId")
-      set(value) {
+      @kotlin.jvm.JvmName("getId")
+        get() = _builder.id
+      @kotlin.jvm.JvmName("setId")
+        set(value) {
         _builder.id = value
       }
     /**
@@ -49,10 +49,10 @@ public object CellKt {
      * `string name = 2;`
      */
     public var name: kotlin.String
-      @JvmName("getName")
-      get() = _builder.name
-      @JvmName("setName")
-      set(value) {
+      @kotlin.jvm.JvmName("getName")
+        get() = _builder.name
+      @kotlin.jvm.JvmName("setName")
+        set(value) {
         _builder.name = value
       }
     /**
@@ -66,10 +66,10 @@ public object CellKt {
      * `.mcu.rooms.public.server.v1.Resolution resolution = 3;`
      */
     public var resolution: com.evemeta.zdk.pb.mcu.server.rooms.Resolution
-      @JvmName("getResolution")
-      get() = _builder.resolution
-      @JvmName("setResolution")
-      set(value) {
+      @kotlin.jvm.JvmName("getResolution")
+        get() = _builder.resolution
+      @kotlin.jvm.JvmName("setResolution")
+        set(value) {
         _builder.resolution = value
       }
     /**

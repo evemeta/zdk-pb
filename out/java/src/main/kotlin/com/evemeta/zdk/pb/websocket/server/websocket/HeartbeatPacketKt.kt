@@ -32,10 +32,10 @@ public object HeartbeatPacketKt {
      * `int64 round = 1;`
      */
     public var round: kotlin.Long
-      @JvmName("getRound")
-      get() = _builder.round
-      @JvmName("setRound")
-      set(value) {
+      @kotlin.jvm.JvmName("getRound")
+        get() = _builder.round
+      @kotlin.jvm.JvmName("setRound")
+        set(value) {
         _builder.round = value
       }
     /**

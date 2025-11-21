@@ -32,10 +32,10 @@ public object IceCandidatePacketKt {
      * `.sfu.public.server.v1.IceCandidate ice_candidate = 1;`
      */
     public var iceCandidate: com.evemeta.zdk.pb.sfu.server.sfu.IceCandidate
-      @JvmName("getIceCandidate")
-      get() = _builder.iceCandidate
-      @JvmName("setIceCandidate")
-      set(value) {
+      @kotlin.jvm.JvmName("getIceCandidate")
+        get() = _builder.iceCandidate
+      @kotlin.jvm.JvmName("setIceCandidate")
+        set(value) {
         _builder.iceCandidate = value
       }
     /**

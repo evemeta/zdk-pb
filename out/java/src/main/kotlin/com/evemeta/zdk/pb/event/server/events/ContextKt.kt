@@ -41,10 +41,10 @@ public object ContextKt {
      * `.event.events.public.server.v1.Event event = 1;`
      */
     public var event: com.evemeta.zdk.pb.event.server.events.Event
-      @JvmName("getEvent")
-      get() = _builder.event
-      @JvmName("setEvent")
-      set(value) {
+      @kotlin.jvm.JvmName("getEvent")
+        get() = _builder.event
+      @kotlin.jvm.JvmName("setEvent")
+        set(value) {
         _builder.event = value
       }
     /**
@@ -80,10 +80,10 @@ public object ContextKt {
      * `.event.events.public.server.v1.Timeframe event_timeframe = 2;`
      */
     public var eventTimeframe: com.evemeta.zdk.pb.event.server.events.Timeframe
-      @JvmName("getEventTimeframe")
-      get() = _builder.eventTimeframe
-      @JvmName("setEventTimeframe")
-      set(value) {
+      @kotlin.jvm.JvmName("getEventTimeframe")
+        get() = _builder.eventTimeframe
+      @kotlin.jvm.JvmName("setEventTimeframe")
+        set(value) {
         _builder.eventTimeframe = value
       }
     /**
@@ -119,10 +119,10 @@ public object ContextKt {
      * `.chat.chats.public.server.v1.Chat chat = 3;`
      */
     public var chat: com.evemeta.zdk.pb.chat.server.chats.Chat
-      @JvmName("getChat")
-      get() = _builder.chat
-      @JvmName("setChat")
-      set(value) {
+      @kotlin.jvm.JvmName("getChat")
+        get() = _builder.chat
+      @kotlin.jvm.JvmName("setChat")
+        set(value) {
         _builder.chat = value
       }
     /**
@@ -158,10 +158,10 @@ public object ContextKt {
      * `.event.events.public.server.v1.Timeframe chat_timeframe = 4;`
      */
     public var chatTimeframe: com.evemeta.zdk.pb.event.server.events.Timeframe
-      @JvmName("getChatTimeframe")
-      get() = _builder.chatTimeframe
-      @JvmName("setChatTimeframe")
-      set(value) {
+      @kotlin.jvm.JvmName("getChatTimeframe")
+        get() = _builder.chatTimeframe
+      @kotlin.jvm.JvmName("setChatTimeframe")
+        set(value) {
         _builder.chatTimeframe = value
       }
     /**
@@ -197,10 +197,10 @@ public object ContextKt {
      * `.event.members.public.server.v1.Member member = 5;`
      */
     public var member: com.evemeta.zdk.pb.event.server.members.Member
-      @JvmName("getMember")
-      get() = _builder.member
-      @JvmName("setMember")
-      set(value) {
+      @kotlin.jvm.JvmName("getMember")
+        get() = _builder.member
+      @kotlin.jvm.JvmName("setMember")
+        set(value) {
         _builder.member = value
       }
     /**
@@ -236,10 +236,10 @@ public object ContextKt {
      * `.event.events.public.server.v1.Timeframe member_timeframe = 6;`
      */
     public var memberTimeframe: com.evemeta.zdk.pb.event.server.events.Timeframe
-      @JvmName("getMemberTimeframe")
-      get() = _builder.memberTimeframe
-      @JvmName("setMemberTimeframe")
-      set(value) {
+      @kotlin.jvm.JvmName("getMemberTimeframe")
+        get() = _builder.memberTimeframe
+      @kotlin.jvm.JvmName("setMemberTimeframe")
+        set(value) {
         _builder.memberTimeframe = value
       }
     /**
@@ -275,10 +275,10 @@ public object ContextKt {
      * `int64 members = 7;`
      */
     public var members: kotlin.Long
-      @JvmName("getMembers")
-      get() = _builder.members
-      @JvmName("setMembers")
-      set(value) {
+      @kotlin.jvm.JvmName("getMembers")
+        get() = _builder.members
+      @kotlin.jvm.JvmName("setMembers")
+        set(value) {
         _builder.members = value
       }
     /**
@@ -300,10 +300,10 @@ public object ContextKt {
      * `.event.events.public.server.v1.Timeframe members_timeframe = 8;`
      */
     public var membersTimeframe: com.evemeta.zdk.pb.event.server.events.Timeframe
-      @JvmName("getMembersTimeframe")
-      get() = _builder.membersTimeframe
-      @JvmName("setMembersTimeframe")
-      set(value) {
+      @kotlin.jvm.JvmName("getMembersTimeframe")
+        get() = _builder.membersTimeframe
+      @kotlin.jvm.JvmName("setMembersTimeframe")
+        set(value) {
         _builder.membersTimeframe = value
       }
     /**

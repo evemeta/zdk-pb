@@ -47,7 +47,7 @@ public object SelectResponseKt {
      */
      public val rooms: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.rooms.Room, RoomsProxy>
       @kotlin.jvm.JvmSynthetic
-      get() = com.google.protobuf.kotlin.DslList(
+  get() = com.google.protobuf.kotlin.DslList(
         _builder.roomsList
       )
     /**
@@ -59,7 +59,7 @@ public object SelectResponseKt {
      * @param value The rooms to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addRooms")
+@kotlin.jvm.JvmName("addRooms")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.rooms.Room, RoomsProxy>.add(value: com.evemeta.zdk.pb.room.server.rooms.Room) {
       _builder.addRooms(value)
     }
@@ -72,7 +72,7 @@ public object SelectResponseKt {
      * @param value The rooms to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignRooms")
+@kotlin.jvm.JvmName("plusAssignRooms")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.rooms.Room, RoomsProxy>.plusAssign(value: com.evemeta.zdk.pb.room.server.rooms.Room) {
       add(value)
@@ -86,7 +86,7 @@ public object SelectResponseKt {
      * @param values The rooms to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addAllRooms")
+@kotlin.jvm.JvmName("addAllRooms")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.rooms.Room, RoomsProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.room.server.rooms.Room>) {
       _builder.addAllRooms(values)
     }
@@ -99,7 +99,7 @@ public object SelectResponseKt {
      * @param values The rooms to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignAllRooms")
+@kotlin.jvm.JvmName("plusAssignAllRooms")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.rooms.Room, RoomsProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.room.server.rooms.Room>) {
       addAll(values)
@@ -114,7 +114,7 @@ public object SelectResponseKt {
      * @param value The rooms to set.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("setRooms")
+@kotlin.jvm.JvmName("setRooms")
     public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.rooms.Room, RoomsProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.room.server.rooms.Room) {
       _builder.setRooms(index, value)
     }
@@ -126,11 +126,10 @@ public object SelectResponseKt {
      * `repeated .room.rooms.public.server.v1.Room rooms = 1;`
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("clearRooms")
+@kotlin.jvm.JvmName("clearRooms")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.rooms.Room, RoomsProxy>.clear() {
       _builder.clearRooms()
     }
-
   }
 }
 @kotlin.jvm.JvmSynthetic

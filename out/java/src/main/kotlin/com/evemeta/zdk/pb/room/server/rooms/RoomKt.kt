@@ -41,10 +41,10 @@ public object RoomKt {
      * `string id = 1;`
      */
     public var id: kotlin.String
-      @JvmName("getId")
-      get() = _builder.id
-      @JvmName("setId")
-      set(value) {
+      @kotlin.jvm.JvmName("getId")
+        get() = _builder.id
+      @kotlin.jvm.JvmName("setId")
+        set(value) {
         _builder.id = value
       }
     /**
@@ -66,17 +66,17 @@ public object RoomKt {
      * `.room.rooms.public.server.v1.Kind kind = 2;`
      */
     public var kind: com.evemeta.zdk.pb.room.server.rooms.Kind
-      @JvmName("getKind")
-      get() = _builder.kind
-      @JvmName("setKind")
-      set(value) {
+      @kotlin.jvm.JvmName("getKind")
+        get() = _builder.kind
+      @kotlin.jvm.JvmName("setKind")
+        set(value) {
         _builder.kind = value
       }
     public var kindValue: kotlin.Int
-      @JvmName("getKindValue")
-      get() = _builder.kindValue
-      @JvmName("setKindValue")
-      set(value) {
+      @kotlin.jvm.JvmName("getKindValue")
+        get() = _builder.kindValue
+      @kotlin.jvm.JvmName("setKindValue")
+        set(value) {
         _builder.kindValue = value
       }
     /**
@@ -98,10 +98,10 @@ public object RoomKt {
      * `int64 capacity = 3;`
      */
     public var capacity: kotlin.Long
-      @JvmName("getCapacity")
-      get() = _builder.capacity
-      @JvmName("setCapacity")
-      set(value) {
+      @kotlin.jvm.JvmName("getCapacity")
+        get() = _builder.capacity
+      @kotlin.jvm.JvmName("setCapacity")
+        set(value) {
         _builder.capacity = value
       }
     /**
@@ -130,7 +130,7 @@ public object RoomKt {
      */
      public val metadata: com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       @kotlin.jvm.JvmSynthetic
-      @JvmName("getMetadataMap")
+@kotlin.jvm.JvmName("getMetadataMap")
       get() = com.google.protobuf.kotlin.DslMap(
         _builder.metadataMap
       )
@@ -141,7 +141,7 @@ public object RoomKt {
      *
      * `map<string, string> metadata = 4;`
      */
-    @JvmName("putMetadata")
+    @kotlin.jvm.JvmName("putMetadata")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .put(key: kotlin.String, value: kotlin.String) {
          _builder.putMetadata(key, value)
@@ -154,7 +154,7 @@ public object RoomKt {
      * `map<string, string> metadata = 4;`
      */
     @kotlin.jvm.JvmSynthetic
-    @JvmName("setMetadata")
+@kotlin.jvm.JvmName("setMetadata")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .set(key: kotlin.String, value: kotlin.String) {
@@ -168,7 +168,7 @@ public object RoomKt {
      * `map<string, string> metadata = 4;`
      */
     @kotlin.jvm.JvmSynthetic
-    @JvmName("removeMetadata")
+@kotlin.jvm.JvmName("removeMetadata")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .remove(key: kotlin.String) {
          _builder.removeMetadata(key)
@@ -181,7 +181,7 @@ public object RoomKt {
      * `map<string, string> metadata = 4;`
      */
     @kotlin.jvm.JvmSynthetic
-    @JvmName("putAllMetadata")
+@kotlin.jvm.JvmName("putAllMetadata")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .putAll(map: kotlin.collections.Map<kotlin.String, kotlin.String>) {
          _builder.putAllMetadata(map)
@@ -194,7 +194,7 @@ public object RoomKt {
      * `map<string, string> metadata = 4;`
      */
     @kotlin.jvm.JvmSynthetic
-    @JvmName("clearMetadata")
+@kotlin.jvm.JvmName("clearMetadata")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .clear() {
          _builder.clearMetadata()
@@ -208,10 +208,10 @@ public object RoomKt {
      * `int64 create_time = 5;`
      */
     public var createTime: kotlin.Long
-      @JvmName("getCreateTime")
-      get() = _builder.createTime
-      @JvmName("setCreateTime")
-      set(value) {
+      @kotlin.jvm.JvmName("getCreateTime")
+        get() = _builder.createTime
+      @kotlin.jvm.JvmName("setCreateTime")
+        set(value) {
         _builder.createTime = value
       }
     /**
@@ -233,10 +233,10 @@ public object RoomKt {
      * `int64 update_time = 6;`
      */
     public var updateTime: kotlin.Long
-      @JvmName("getUpdateTime")
-      get() = _builder.updateTime
-      @JvmName("setUpdateTime")
-      set(value) {
+      @kotlin.jvm.JvmName("getUpdateTime")
+        get() = _builder.updateTime
+      @kotlin.jvm.JvmName("setUpdateTime")
+        set(value) {
         _builder.updateTime = value
       }
     /**

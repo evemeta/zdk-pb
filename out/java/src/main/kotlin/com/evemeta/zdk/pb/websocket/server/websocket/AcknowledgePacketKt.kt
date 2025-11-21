@@ -32,10 +32,10 @@ public object AcknowledgePacketKt {
      * `string tag = 1;`
      */
     public var tag: kotlin.String
-      @JvmName("getTag")
-      get() = _builder.tag
-      @JvmName("setTag")
-      set(value) {
+      @kotlin.jvm.JvmName("getTag")
+        get() = _builder.tag
+      @kotlin.jvm.JvmName("setTag")
+        set(value) {
         _builder.tag = value
       }
     /**
@@ -49,10 +49,10 @@ public object AcknowledgePacketKt {
      * `string error = 2;`
      */
     public var error: kotlin.String
-      @JvmName("getError")
-      get() = _builder.error
-      @JvmName("setError")
-      set(value) {
+      @kotlin.jvm.JvmName("getError")
+        get() = _builder.error
+      @kotlin.jvm.JvmName("setError")
+        set(value) {
         _builder.error = value
       }
     /**

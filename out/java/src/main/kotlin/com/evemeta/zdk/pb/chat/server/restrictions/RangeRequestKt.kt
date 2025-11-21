@@ -40,10 +40,10 @@ public object RangeRequestKt {
      * `.chat.restrictions.public.server.v1.Query query = 1;`
      */
     public var query: com.evemeta.zdk.pb.chat.server.restrictions.Query
-      @JvmName("getQuery")
-      get() = _builder.query
-      @JvmName("setQuery")
-      set(value) {
+      @kotlin.jvm.JvmName("getQuery")
+        get() = _builder.query
+      @kotlin.jvm.JvmName("setQuery")
+        set(value) {
         _builder.query = value
       }
     /**

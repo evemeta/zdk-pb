@@ -32,10 +32,10 @@ public object UnsupportedActionPacketKt {
      * `int32 typeId = 1;`
      */
     public var typeId: kotlin.Int
-      @JvmName("getTypeId")
-      get() = _builder.typeId
-      @JvmName("setTypeId")
-      set(value) {
+      @kotlin.jvm.JvmName("getTypeId")
+        get() = _builder.typeId
+      @kotlin.jvm.JvmName("setTypeId")
+        set(value) {
         _builder.typeId = value
       }
     /**

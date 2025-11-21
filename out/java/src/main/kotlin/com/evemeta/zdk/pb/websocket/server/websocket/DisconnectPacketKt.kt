@@ -32,17 +32,17 @@ public object DisconnectPacketKt {
      * `.websocket.public.server.v1.Cause cause = 1;`
      */
     public var cause: com.evemeta.zdk.pb.websocket.server.websocket.Cause
-      @JvmName("getCause")
-      get() = _builder.cause
-      @JvmName("setCause")
-      set(value) {
+      @kotlin.jvm.JvmName("getCause")
+        get() = _builder.cause
+      @kotlin.jvm.JvmName("setCause")
+        set(value) {
         _builder.cause = value
       }
     public var causeValue: kotlin.Int
-      @JvmName("getCauseValue")
-      get() = _builder.causeValue
-      @JvmName("setCauseValue")
-      set(value) {
+      @kotlin.jvm.JvmName("getCauseValue")
+        get() = _builder.causeValue
+      @kotlin.jvm.JvmName("setCauseValue")
+        set(value) {
         _builder.causeValue = value
       }
     /**

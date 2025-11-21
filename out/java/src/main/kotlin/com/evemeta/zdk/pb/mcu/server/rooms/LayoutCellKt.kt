@@ -32,10 +32,10 @@ public object LayoutCellKt {
      * `string user_id = 1;`
      */
     public var userId: kotlin.String
-      @JvmName("getUserId")
-      get() = _builder.userId
-      @JvmName("setUserId")
-      set(value) {
+      @kotlin.jvm.JvmName("getUserId")
+        get() = _builder.userId
+      @kotlin.jvm.JvmName("setUserId")
+        set(value) {
         _builder.userId = value
       }
     /**
@@ -49,10 +49,10 @@ public object LayoutCellKt {
      * `int64 position = 2;`
      */
     public var position: kotlin.Long
-      @JvmName("getPosition")
-      get() = _builder.position
-      @JvmName("setPosition")
-      set(value) {
+      @kotlin.jvm.JvmName("getPosition")
+        get() = _builder.position
+      @kotlin.jvm.JvmName("setPosition")
+        set(value) {
         _builder.position = value
       }
     /**
@@ -66,10 +66,10 @@ public object LayoutCellKt {
      * `string stream_type = 3;`
      */
     public var streamType: kotlin.String
-      @JvmName("getStreamType")
-      get() = _builder.streamType
-      @JvmName("setStreamType")
-      set(value) {
+      @kotlin.jvm.JvmName("getStreamType")
+        get() = _builder.streamType
+      @kotlin.jvm.JvmName("setStreamType")
+        set(value) {
         _builder.streamType = value
       }
     /**

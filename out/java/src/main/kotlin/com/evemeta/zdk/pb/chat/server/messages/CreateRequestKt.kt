@@ -40,10 +40,10 @@ public object CreateRequestKt {
      * `string chat_id = 1;`
      */
     public var chatId: kotlin.String
-      @JvmName("getChatId")
-      get() = _builder.chatId
-      @JvmName("setChatId")
-      set(value) {
+      @kotlin.jvm.JvmName("getChatId")
+        get() = _builder.chatId
+      @kotlin.jvm.JvmName("setChatId")
+        set(value) {
         _builder.chatId = value
       }
     /**
@@ -65,10 +65,10 @@ public object CreateRequestKt {
      * `string content = 2;`
      */
     public var content: kotlin.String
-      @JvmName("getContent")
-      get() = _builder.content
-      @JvmName("setContent")
-      set(value) {
+      @kotlin.jvm.JvmName("getContent")
+        get() = _builder.content
+      @kotlin.jvm.JvmName("setContent")
+        set(value) {
         _builder.content = value
       }
     /**

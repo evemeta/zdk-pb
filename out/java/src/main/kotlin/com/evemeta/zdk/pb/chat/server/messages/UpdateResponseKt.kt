@@ -40,10 +40,10 @@ public object UpdateResponseKt {
      * `.chat.messages.public.server.v1.Message message = 1;`
      */
     public var message: com.evemeta.zdk.pb.chat.server.messages.Message
-      @JvmName("getMessage")
-      get() = _builder.message
-      @JvmName("setMessage")
-      set(value) {
+      @kotlin.jvm.JvmName("getMessage")
+        get() = _builder.message
+      @kotlin.jvm.JvmName("setMessage")
+        set(value) {
         _builder.message = value
       }
     /**

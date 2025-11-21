@@ -40,10 +40,10 @@ public object ContextResponseKt {
      * `.room.rooms.public.server.v1.Context context = 1;`
      */
     public var context: com.evemeta.zdk.pb.room.server.rooms.Context
-      @JvmName("getContext")
-      get() = _builder.context
-      @JvmName("setContext")
-      set(value) {
+      @kotlin.jvm.JvmName("getContext")
+        get() = _builder.context
+      @kotlin.jvm.JvmName("setContext")
+        set(value) {
         _builder.context = value
       }
     /**

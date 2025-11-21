@@ -39,7 +39,7 @@ public object ActiveStreamsPacketKt {
      */
      public val streams: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, StreamsProxy>
       @kotlin.jvm.JvmSynthetic
-      get() = com.google.protobuf.kotlin.DslList(
+  get() = com.google.protobuf.kotlin.DslList(
         _builder.streamsList
       )
     /**
@@ -47,7 +47,7 @@ public object ActiveStreamsPacketKt {
      * @param value The streams to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addStreams")
+@kotlin.jvm.JvmName("addStreams")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, StreamsProxy>.add(value: com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo) {
       _builder.addStreams(value)
     }
@@ -56,7 +56,7 @@ public object ActiveStreamsPacketKt {
      * @param value The streams to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignStreams")
+@kotlin.jvm.JvmName("plusAssignStreams")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, StreamsProxy>.plusAssign(value: com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo) {
       add(value)
@@ -66,7 +66,7 @@ public object ActiveStreamsPacketKt {
      * @param values The streams to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addAllStreams")
+@kotlin.jvm.JvmName("addAllStreams")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, StreamsProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo>) {
       _builder.addAllStreams(values)
     }
@@ -75,7 +75,7 @@ public object ActiveStreamsPacketKt {
      * @param values The streams to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignAllStreams")
+@kotlin.jvm.JvmName("plusAssignAllStreams")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, StreamsProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo>) {
       addAll(values)
@@ -86,7 +86,7 @@ public object ActiveStreamsPacketKt {
      * @param value The streams to set.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("setStreams")
+@kotlin.jvm.JvmName("setStreams")
     public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, StreamsProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo) {
       _builder.setStreams(index, value)
     }
@@ -94,11 +94,10 @@ public object ActiveStreamsPacketKt {
      * `repeated .sfu.public.server.v1.StreamInfo streams = 1;`
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("clearStreams")
+@kotlin.jvm.JvmName("clearStreams")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, StreamsProxy>.clear() {
       _builder.clearStreams()
     }
-
   }
 }
 @kotlin.jvm.JvmSynthetic
