@@ -18,7 +18,7 @@ export PROTOC_GEN_JAVA_VER=1.54.1
 
 ifeq ($(OS),MACOS)
 init::
-	chmod +x init.sh && ./init.sh && rm -r bin && \
+	chmod +x init.sh && ./init.sh && rm -rf bin && \
 	mkdir -p bin && \
 	cd bin && \
 	rm -f protoc-gen-go && rm -f protoc-gen-grpc-kotlin* && rm -f protoc-gen-grpc-java* && \

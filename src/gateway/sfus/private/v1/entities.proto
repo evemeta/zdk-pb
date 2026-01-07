@@ -6,7 +6,7 @@ import "gateway/sfus/private/v1/enums.proto";
 import "gateway/connections/private/v1/entities.proto";
 import "common/orders/public/v1/entities.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/sfus/private/v1;sfuspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/sfus/private/v1;sfuspb";
 
 message Sfu {
     string                         id             = 1;

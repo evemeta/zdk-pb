@@ -6,7 +6,7 @@ import "chat/members/private/v1/procedures.proto";
 import "chat/restrictions/private/v1/enums.proto";
 import "chat/restrictions/private/v1/entities.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/restrictions/private/v1;restrictionspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/chat/restrictions/private/v1;restrictionspb";
 
 message CountArgument {
     bool                               cache = 1;

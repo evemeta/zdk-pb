@@ -4,7 +4,7 @@ package chat.restrictions.private.v1;
 
 import "chat/restrictions/private/v1/enums.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/restrictions/private/v1;restrictionspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/chat/restrictions/private/v1;restrictionspb";
 
 message Chunk {
     int64                                             size     = 1;

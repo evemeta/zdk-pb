@@ -4,7 +4,7 @@ package room.rooms.private.v1;
 
 import "room/rooms/private/v1/procedures.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/rooms/private/v1;roomspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/room/rooms/private/v1;roomspb";
 
 service Service {
 
@@ -69,7 +69,7 @@ service Service {
     rpc ValidateLeaveMutations(LeaveTransaction) returns (LeaveTransaction);
 
     rpc FinalizeLeaveMutations(LeaveTransaction) returns (LeaveTransaction);
-    
+
     rpc AnnounceLeaveMutations(LeaveTransaction) returns (LeaveTransaction);
 
     rpc RollbackLeaveMutations(LeaveTransaction) returns (LeaveTransaction);

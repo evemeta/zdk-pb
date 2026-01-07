@@ -3,7 +3,7 @@ syntax = "proto3";
 package gateway.websockets.private.v1;
 
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/websockets/private/v1;websocketspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/websockets/private/v1;websocketspb";
 
 enum Zone {
     ZoneUnknown      = 0;

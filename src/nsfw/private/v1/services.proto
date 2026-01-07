@@ -4,7 +4,7 @@ package nsfw.private.v1;
 
 import "nsfw/private/v1/procedures.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/nsfw/private/v1;nsfwpb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/nsfw/private/v1;nsfwpb";
 
 service Service {
 

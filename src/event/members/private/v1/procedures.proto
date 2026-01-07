@@ -8,7 +8,7 @@ import "event/members/private/v1/optionals.proto";
 import "chat/members/private/v1/procedures.proto";
 import "gateway/transponders/private/v1/procedures.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/members/private/v1;memberspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/event/members/private/v1;memberspb";
 
 message CountArgument {
     bool                           cache = 1;

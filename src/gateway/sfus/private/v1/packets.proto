@@ -6,7 +6,7 @@ import "gateway/sfus/private/v1/entities.proto";
 import "gateway/sfus/private/v1/optionals.proto";
 import "common/timeframes/public/v1/entities.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/sfus/private/v1;sfuspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/sfus/private/v1;sfuspb";
 
 message CreateSfuPacket {
     gateway.sfus.private.v1.Sfu           sfu       = 1;

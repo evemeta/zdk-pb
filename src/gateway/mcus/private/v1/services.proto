@@ -4,7 +4,7 @@ package gateway.mcus.private.v1;
 
 import "gateway/mcus/private/v1/procedures.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/mcus/private/v1;mcuspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/mcus/private/v1;mcuspb";
 
 service Service {
 

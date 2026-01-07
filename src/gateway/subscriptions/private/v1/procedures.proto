@@ -3,7 +3,7 @@ syntax = "proto3";
 package gateway.subscriptions.private.v1;
 
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/subscriptions/private/v1;subscriptionspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/subscriptions/private/v1;subscriptionspb";
 
 message SelectArgument {
     repeated string subjects = 1;

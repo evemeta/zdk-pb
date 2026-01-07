@@ -4,7 +4,7 @@ package gateway.sfus.private.v1;
 
 import "gateway/sfus/private/v1/enums.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/sfus/private/v1;sfuspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/sfus/private/v1;sfuspb";
 
 // OptionalZone todo;
 message OptionalZone {

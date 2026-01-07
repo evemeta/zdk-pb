@@ -4,7 +4,7 @@ package gateway.webhooks.private.v1;
 
 import "gateway/webhooks/private/v1/enums.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/webhooks/private/v1;webhookspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/webhooks/private/v1;webhookspb";
 
 message OptionalMap {
     map<string, string> value = 1;

@@ -6,7 +6,7 @@ import "room/streams/private/v1/enums.proto";
 import "room/streams/private/v1/entities.proto";
 import "room/streams/private/v1/optionals.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/streams/private/v1;streamspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/room/streams/private/v1;streamspb";
 
 message CountArgument {
     bool                          cache = 1;

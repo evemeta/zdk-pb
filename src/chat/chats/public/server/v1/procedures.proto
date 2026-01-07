@@ -6,7 +6,7 @@ import "chat/chats/public/server/v1/entities.proto";
 
 option java_multiple_files = true;
 option java_package = "com.evemeta.zdk.pb.chat.server.chats";
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/chats/public/server/v1;chatspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/chat/chats/public/server/v1;chatspb";
 
 // CountRequest represents a message designed to count chats based on a given query.
 message CountRequest {

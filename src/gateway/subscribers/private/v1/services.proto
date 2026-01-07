@@ -4,7 +4,7 @@ package gateway.subscribers.private.v1;
 
 import "gateway/subscribers/private/v1/procedures.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/subscribers/private/v1;subscriberspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/subscribers/private/v1;subscriberspb";
 
 service Service {
 

@@ -4,7 +4,7 @@ package chat.chats.private.v1;
 
 import "chat/chats/private/v1/procedures.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/chats/private/v1;chatspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/chat/chats/private/v1;chatspb";
 
 service Service {
 
@@ -67,7 +67,7 @@ service Service {
     rpc ValidateLeaveMutations(LeaveTransaction) returns (LeaveTransaction);
 
     rpc FinalizeLeaveMutations(LeaveTransaction) returns (LeaveTransaction);
-    
+
     rpc AnnounceLeaveMutations(LeaveTransaction) returns (LeaveTransaction);
 
     rpc RollbackLeaveMutations(LeaveTransaction) returns (LeaveTransaction);

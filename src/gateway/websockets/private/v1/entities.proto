@@ -6,7 +6,7 @@ import "gateway/websockets/private/v1/enums.proto";
 import "gateway/sessions/private/v1/entities.proto";
 import "common/orders/public/v1/entities.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/websockets/private/v1;websocketspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/websockets/private/v1;websocketspb";
 
 message Chunk {
     int64                                            size     = 1;

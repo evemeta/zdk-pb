@@ -4,7 +4,7 @@ package room.connections.private.v1;
 
 import "room/connections/private/v1/procedures.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/connections/private/v1;connectionspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/room/connections/private/v1;connectionspb";
 
 service Service {
 
@@ -21,7 +21,7 @@ service Service {
     rpc ValidateCreateMutations(CreateTransaction) returns (CreateTransaction);
 
     rpc FinalizeCreateMutations(CreateTransaction) returns (CreateTransaction);
-    
+
     rpc AnnounceCreateMutations(CreateTransaction) returns (CreateTransaction);
 
     rpc RollbackCreateMutations(CreateTransaction) returns (CreateTransaction);
@@ -33,7 +33,7 @@ service Service {
     rpc ValidateUpdateMutations(UpdateTransaction) returns (UpdateTransaction);
 
     rpc FinalizeUpdateMutations(UpdateTransaction) returns (UpdateTransaction);
-    
+
     rpc AnnounceUpdateMutations(UpdateTransaction) returns (UpdateTransaction);
 
     rpc RollbackUpdateMutations(UpdateTransaction) returns (UpdateTransaction);
@@ -43,7 +43,7 @@ service Service {
     rpc InitiateDeleteMutations(DeleteTransaction) returns (DeleteTransaction);
 
     rpc FinalizeDeleteMutations(DeleteTransaction) returns (DeleteTransaction);
-    
+
     rpc AnnounceDeleteMutations(DeleteTransaction) returns (DeleteTransaction);
 
     rpc RollbackDeleteMutations(DeleteTransaction) returns (DeleteTransaction);

@@ -4,7 +4,7 @@ package gateway.websockets.private.v1;
 
 import "gateway/websockets/private/v1/procedures.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/websockets/private/v1;websocketspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/websockets/private/v1;websocketspb";
 
 service Service {
 

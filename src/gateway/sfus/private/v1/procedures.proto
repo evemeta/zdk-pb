@@ -11,7 +11,7 @@ import "gateway/connections/private/v1/entities.proto";
 import "gateway/connections/private/v1/procedures.proto";
 import "common/messages/public/v1/entities.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/sfus/private/v1;sfuspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/sfus/private/v1;sfuspb";
 
 message CountArgument {
     bool                          cache = 1;

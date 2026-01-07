@@ -4,7 +4,7 @@ package room.members.public.server.v1;
 
 option java_multiple_files = true;
 option java_package = "com.evemeta.zdk.pb.room.server.members";
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/members/public/server/v1;memberspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/room/members/public/server/v1;memberspb";
 
 // Order represents an enumeration that specifies the sort order for data retrieval, particularly in the context of querying.
 enum Order {

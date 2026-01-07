@@ -4,26 +4,26 @@ package gateway.transponders.private.v1;
 
 import "gateway/transponders/private/v1/procedures.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/transponders/private/v1;transponderspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/transponders/private/v1;transponderspb";
 
 service Service {
 
     rpc Count(CountRequest) returns (CountResponse);
 
     rpc Range(RangeRequest) returns (RangeResponse);
-    
+
     rpc Select(SelectRequest) returns (SelectResponse);
-    
+
     rpc Create(CreateRequest) returns (CreateResponse);
-    
+
     rpc InitiateCreateMutations(CreateTransaction) returns (CreateTransaction);
-    
+
     rpc ValidateCreateMutations(CreateTransaction) returns (CreateTransaction);
-    
+
     rpc FinalizeCreateMutations(CreateTransaction) returns (CreateTransaction);
 
     rpc RollbackCreateMutations(CreateTransaction) returns (CreateTransaction);
-    
+
     rpc Update(UpdateRequest) returns (UpdateResponse);
 
     rpc InitiateUpdateMutations(UpdateTransaction) returns (UpdateTransaction);
@@ -33,7 +33,7 @@ service Service {
     rpc FinalizeUpdateMutations(UpdateTransaction) returns (UpdateTransaction);
 
     rpc RollbackUpdateMutations(UpdateTransaction) returns (UpdateTransaction);
-    
+
     rpc Delete(DeleteRequest) returns (DeleteResponse);
 
     rpc InitiateDeleteMutations(DeleteTransaction) returns (DeleteTransaction);

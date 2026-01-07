@@ -4,7 +4,7 @@ package sfu.private.v1;
 
 import "sfu/private/v1/procedures.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/sfu/private/v1;sfupb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/sfu/private/v1;sfupb";
 
 service Service {
 

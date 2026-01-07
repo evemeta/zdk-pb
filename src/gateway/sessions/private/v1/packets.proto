@@ -6,7 +6,7 @@ import "gateway/sessions/private/v1/entities.proto";
 import "gateway/sessions/private/v1/optionals.proto";
 import "common/timeframes/public/v1/entities.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/sessions/private/v1;sessionspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/sessions/private/v1;sessionspb";
 
 message CreateSessionPacket {
     gateway.sessions.private.v1.Session   session   = 1;

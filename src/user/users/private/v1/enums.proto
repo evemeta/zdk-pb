@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package user.users.private.v1;
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/user/users/private/v1;userspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/user/users/private/v1;userspb";
 
 enum Permission {
     PermissionUnknown            = 0;

@@ -5,7 +5,7 @@ package event.tokens.private.v1;
 import "event/members/private/v1/enums.proto";
 import "event/members/private/v1/entities.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/tokens/private/v1;tokenspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/event/tokens/private/v1;tokenspb";
 
 message CreateArgument {
     string                                       user_id     = 1;

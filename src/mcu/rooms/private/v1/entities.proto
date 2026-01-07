@@ -4,7 +4,7 @@ package mcu.rooms.private.v1;
 
 import "mcu/rooms/private/v1/enums.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/mcu/rooms/private/v1;roomspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/mcu/rooms/private/v1;roomspb";
 
 message Empty {}
 

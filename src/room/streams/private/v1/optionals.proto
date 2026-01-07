@@ -4,7 +4,7 @@ package room.streams.private.v1;
 
 import "room/streams/private/v1/enums.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/streams/private/v1;streamspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/room/streams/private/v1;streamspb";
 
 message OptionalStatus {
     room.streams.private.v1.Status value = 1;

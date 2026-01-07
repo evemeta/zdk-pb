@@ -3,7 +3,7 @@ syntax = "proto3";
 package gateway.mcus.private.v1;
 
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/mcus/private/v1;mcuspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/mcus/private/v1;mcuspb";
 
 enum Zone {
     ZoneUnknown = 0;

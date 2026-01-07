@@ -7,7 +7,7 @@ import "room/streams/public/server/v1/optionals.proto";
 
 option java_multiple_files = true;
 option java_package = "com.evemeta.zdk.pb.room.server.streams";
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/streams/public/server/v1;streamspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/room/streams/public/server/v1;streamspb";
 
 // CreateStreamPacket is a notification sent to clients when a new stream has been created.
 // It provides the details of the stream and the relevant timeframe associated with the event.
