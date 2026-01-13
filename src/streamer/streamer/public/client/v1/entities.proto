@@ -4,7 +4,7 @@ package streamer.streamer.public.client.v1;
 
 option java_multiple_files = true;
 option java_package = "com.evemeta.zdk.pb.streamer.server.streamer";
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/streamer/streamer/public/client/v1;streamerpb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/streamer/streamer/public/client/v1;streamerpb";
 
 // todo
 message AuthenticationToken {
