@@ -6,7 +6,7 @@ package streamspb
 
 import (
 	fmt "fmt"
-	v1 "gitlab.com/evemeta/zdk/pb/out/go/mcu/rooms/public/server/v1"
+	v1 "github.com/evemeta/zdk-pb/out/go/mcu/rooms/public/server/v1"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	io "io"
 	sync "sync"

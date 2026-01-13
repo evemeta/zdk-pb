@@ -4,7 +4,7 @@ package gateway.sessions.private.v1;
 
 import "gateway/sessions/private/v1/enums.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/sessions/private/v1;sessionspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/sessions/private/v1;sessionspb";
 
 // OptionalStatus todo;
 message OptionalStatus {

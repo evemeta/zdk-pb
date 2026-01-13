@@ -4,7 +4,7 @@ package chat.members.private.v1;
 
 import "chat/members/private/v1/enums.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/members/private/v1;memberspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/chat/members/private/v1;memberspb";
 
 message Chunk {
     int64                                   size     = 1;

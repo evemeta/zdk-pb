@@ -5,7 +5,7 @@ package websocket.private.v1;
 import "websocket/private/v1/enums.proto";
 import "common/messages/public/v1/entities.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/websocket/private/v1;websocketpb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/websocket/private/v1;websocketpb";
 
 message BroadcastArgument {
     common.messages.public.v1.Message message  = 1;

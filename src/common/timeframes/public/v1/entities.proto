@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package common.timeframes.public.v1;
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/common/timeframes/public/v1;timeframespb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/common/timeframes/public/v1;timeframespb";
 
 // Timeframe represents a specific span or duration marked by its commencement and completion times.
 // It provides a clear boundary to understand when a particular activity began and when it ended.

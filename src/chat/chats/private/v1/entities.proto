@@ -6,7 +6,7 @@ import "chat/chats/private/v1/enums.proto";
 import "chat/members/private/v1/entities.proto";
 import "chat/messages/private/v1/entities.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/chats/private/v1;chatspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/chat/chats/private/v1;chatspb";
 
 message Chat {
     string                         id          = 1;

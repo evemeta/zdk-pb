@@ -7,7 +7,7 @@ import "sfu/public/server/v1/entities.proto";
 
 option java_multiple_files = true;
 option java_package = "com.evemeta.zdk.pb.sfu.server.sfu";
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/sfu/public/server/v1;sfupb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/sfu/public/server/v1;sfupb";
 
 //WebSocket packets
 

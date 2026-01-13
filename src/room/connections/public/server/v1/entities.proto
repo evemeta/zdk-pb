@@ -6,7 +6,7 @@ import "room/connections/public/server/v1/enums.proto";
 
 option java_multiple_files = true;
 option java_package = "com.evemeta.zdk.pb.room.server.connections";
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/connections/public/server/v1;connectionspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/room/connections/public/server/v1;connectionspb";
 
 // Chunk represents a segmented portion of connections used for pagination or segmented data retrieval.
 // It provides insights about the desired chunk size, its position within the overall dataset, and the actual connections it contains.

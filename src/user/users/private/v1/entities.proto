@@ -4,7 +4,7 @@ package user.users.private.v1;
 
 import "user/users/private/v1/enums.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/user/users/private/v1;userspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/user/users/private/v1;userspb";
 
 message User {
     string                                    id          = 1;

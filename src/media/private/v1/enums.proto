@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package media.private.v1;
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/media/private/v1;mediapb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/media/private/v1;mediapb";
 
 enum MediaType {
     MediaTypeUnknown = 0;

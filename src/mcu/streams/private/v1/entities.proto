@@ -4,7 +4,7 @@ package mcu.streams.private.v1;
 
 import "mcu/streams/private/v1/enums.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/mcu/streams/private/v1;streamspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/mcu/streams/private/v1;streamspb";
 
 message Empty {}
 

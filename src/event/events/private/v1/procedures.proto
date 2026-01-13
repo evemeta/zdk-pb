@@ -14,7 +14,7 @@ import "gateway/transponders/private/v1/procedures.proto";
 import "gateway/mcus/private/v1/procedures.proto";
 import "event/members/private/v1/enums.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/events/private/v1;eventspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/event/events/private/v1;eventspb";
 
 message CountArgument {
     bool                          cache = 1;

@@ -42,10 +42,10 @@ generate_go() {
                 --plugin protoc-gen-go-vtproto="${GOPATH}/bin/protoc-gen-go-vtproto"
                 --go-vtproto_opt=paths=source_relative
                 --go-vtproto_opt=features=marshal+unmarshal+size+pool
-                --go-vtproto_opt=pool=gitlab.com/evemeta/zdk/pb/out/go/mcu/streams/private/v1.InputPacket
-                --go-vtproto_opt=pool=gitlab.com/evemeta/zdk/pb/out/go/mcu/streams/private/v1.OutputPacket
-                --go-vtproto_opt=pool=gitlab.com/evemeta/zdk/pb/out/go/mcu/streams/private/v1.RTPPacket
-                --go-vtproto_opt=pool=gitlab.com/evemeta/zdk/pb/out/go/mcu/streams/private/v1.Sample
+                --go-vtproto_opt=pool=github.com/evemeta/zdk-pb/out/go/mcu/streams/private/v1.InputPacket
+                --go-vtproto_opt=pool=github.com/evemeta/zdk-pb/out/go/mcu/streams/private/v1.OutputPacket
+                --go-vtproto_opt=pool=github.com/evemeta/zdk-pb/out/go/mcu/streams/private/v1.RTPPacket
+                --go-vtproto_opt=pool=github.com/evemeta/zdk-pb/out/go/mcu/streams/private/v1.Sample
               )
           else
               new_array=()

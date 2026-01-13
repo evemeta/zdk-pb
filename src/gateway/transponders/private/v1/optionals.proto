@@ -3,7 +3,7 @@ syntax = "proto3";
 package gateway.transponders.private.v1;
 
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/transponders/private/v1;transponderspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/transponders/private/v1;transponderspb";
 
 // OptionalString represents a string value that can be intentionally left unset or null.
 // It allows for explicit control over the presence or absence of the string, accommodating scenarios where the string might be optional or intentionally omitted.

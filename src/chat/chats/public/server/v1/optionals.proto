@@ -4,7 +4,7 @@ package chat.chats.public.server.v1;
 
 option java_multiple_files = true;
 option java_package = "com.evemeta.zdk.pb.chat.server.chats";
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/chats/public/server/v1;chatspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/chat/chats/public/server/v1;chatspb";
 
 // OptionalMap represents a mapping of key-value pairs that can be intentionally left unset or null.
 // It allows for explicit control over the presence or absence of the map, accommodating scenarios where the map might be optional or intentionally omitted.

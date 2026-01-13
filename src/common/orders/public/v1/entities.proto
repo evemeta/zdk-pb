@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package common.orders.public.v1;
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/common/orders/public/v1;orderspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/common/orders/public/v1;orderspb";
 
 // Order represents an enumeration that specifies the sort order for data retrieval, particularly in the context of querying.
 enum Order {

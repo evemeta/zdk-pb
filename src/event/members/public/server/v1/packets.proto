@@ -7,7 +7,7 @@ import "event/members/public/server/v1/optionals.proto";
 
 option java_multiple_files = true;
 option java_package = "com.evemeta.zdk.pb.event.server.members";
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/members/public/server/v1;memberspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/event/members/public/server/v1;memberspb";
 
 // CreateMemberPacket is a notification sent to clients when a new member has been created.
 // It provides the details of the new member and the relevant timeframe associated with the event.

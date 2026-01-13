@@ -5,7 +5,7 @@ package sfu.public.client.v1;
 
 option java_multiple_files = true;
 option java_package = "com.evemeta.zdk.pb.sfu.client.sfu";
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/sfu/public/client/v1;sfupb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/sfu/public/client/v1;sfupb";
 
 enum ProtocolVersion {
     ProtocolVersionUnknown  = 0;

@@ -6,7 +6,7 @@ import "gateway/jobs/private/v1/entities.proto";
 import "gateway/jobs/private/v1/optionals.proto";
 import "common/timeframes/public/v1/entities.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/jobs/private/v1;jobspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/jobs/private/v1;jobspb";
 
 message CreateJobPacket {
     gateway.jobs.private.v1.Job           job = 1;

@@ -4,7 +4,7 @@ package websocket.public.server.v1;
 
 option java_multiple_files = true;
 option java_package = "com.evemeta.zdk.pb.websocket.server.websocket";
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/websocket/public/server/v1;websocketpb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/websocket/public/server/v1;websocketpb";
 
 enum Cause {
     CauseUnknown     = 0;

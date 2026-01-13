@@ -4,7 +4,7 @@ package event.events.public.server.v1;
 
 option java_multiple_files = true;
 option java_package = "com.evemeta.zdk.pb.event.server.events";
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/events/public/server/v1;eventspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/event/events/public/server/v1;eventspb";
 
 // Kind represents an enumeration that specifies the type or classification of an event, indicating whether it is dependent on a parent object or independent.
 enum Kind {

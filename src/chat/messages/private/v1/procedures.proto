@@ -6,7 +6,7 @@ import "chat/messages/private/v1/entities.proto";
 import "chat/messages/private/v1/optionals.proto";
 import "gateway/transponders/private/v1/procedures.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/messages/private/v1;messagespb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/chat/messages/private/v1;messagespb";
 
 message CountArgument {
     bool                           cache = 1;

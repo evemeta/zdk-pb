@@ -4,7 +4,7 @@ package chat.chats.public.client.v1;
 
 option java_multiple_files = true;
 option java_package = "com.evemeta.zdk.pb.chat.client.chats";
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/chat/chats/public/client/v1;chatspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/chat/chats/public/client/v1;chatspb";
 
 message EnterChatPacket {
     string token    = 1;

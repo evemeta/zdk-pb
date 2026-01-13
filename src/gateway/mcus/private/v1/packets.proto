@@ -6,7 +6,7 @@ import "gateway/mcus/private/v1/entities.proto";
 import "gateway/mcus/private/v1/optionals.proto";
 import "common/timeframes/public/v1/entities.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/mcus/private/v1;mcuspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/mcus/private/v1;mcuspb";
 
 message CreateMcuPacket {
     gateway.mcus.private.v1.Mcu           mcu = 1;

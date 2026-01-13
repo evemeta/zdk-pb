@@ -5,7 +5,7 @@ package mcu.broadcasts.private.v1;
 import "mcu/broadcasts/private/v1/enums.proto";
 import "mcu/rooms/private/v1/entities.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/mcu/broadcasts/private/v1;broadcastspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/mcu/broadcasts/private/v1;broadcastspb";
 
 message Query {
     mcu.broadcasts.private.v1.Order                 order = 1;

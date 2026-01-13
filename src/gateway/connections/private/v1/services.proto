@@ -4,7 +4,7 @@ package gateway.connections.private.v1;
 
 import "gateway/connections/private/v1/procedures.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/connections/private/v1;connectionspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/connections/private/v1;connectionspb";
 
 service Service {
 

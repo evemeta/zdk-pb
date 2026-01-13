@@ -4,7 +4,7 @@ package event.events.private.v1;
 
 import "event/events/private/v1/procedures.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/events/private/v1;eventspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/event/events/private/v1;eventspb";
 
 service Service {
 
@@ -69,7 +69,7 @@ service Service {
     rpc ValidateLeaveMutations(LeaveTransaction) returns (LeaveTransaction);
 
     rpc FinalizeLeaveMutations(LeaveTransaction) returns (LeaveTransaction);
-    
+
     rpc AnnounceLeaveMutations(LeaveTransaction) returns (LeaveTransaction);
 
     rpc RollbackLeaveMutations(LeaveTransaction) returns (LeaveTransaction);

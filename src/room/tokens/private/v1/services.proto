@@ -4,7 +4,7 @@ package room.tokens.private.v1;
 
 import "room/tokens/private/v1/procedures.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/tokens/private/v1;tokenspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/room/tokens/private/v1;tokenspb";
 
 service Service {
 

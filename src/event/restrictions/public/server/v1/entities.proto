@@ -6,7 +6,7 @@ import "event/restrictions/public/server/v1/enums.proto";
 
 option java_multiple_files = true;
 option java_package = "com.evemeta.zdk.pb.event.server.restrictions";
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/restrictions/public/server/v1;restrictionspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/event/restrictions/public/server/v1;restrictionspb";
 
 // Chunk represents a segmented portion of restrictions used for pagination or segmented data retrieval.
 // It provides insights about the desired chunk size, its position within the overall dataset, and the actual restrictions it contains.

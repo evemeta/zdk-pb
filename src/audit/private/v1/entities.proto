@@ -5,7 +5,7 @@ package audit.private.v1;
 import "audit/private/v1/enums.proto";
 import "media/private/v1/enums.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/audit/private/v1;auditpb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/audit/private/v1;auditpb";
 
 message Event {
     string                      id         = 1;

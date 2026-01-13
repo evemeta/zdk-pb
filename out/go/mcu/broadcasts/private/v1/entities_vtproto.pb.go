@@ -6,7 +6,7 @@ package broadcastspb
 
 import (
 	fmt "fmt"
-	v1 "gitlab.com/evemeta/zdk/pb/out/go/mcu/rooms/private/v1"
+	v1 "github.com/evemeta/zdk-pb/out/go/mcu/rooms/private/v1"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	io "io"
 	bits "math/bits"

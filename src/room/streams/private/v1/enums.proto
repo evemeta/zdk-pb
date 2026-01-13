@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package room.streams.private.v1;
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/room/streams/private/v1;streamspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/room/streams/private/v1;streamspb";
 
 enum Kind {
     KindUnknown    = 0;

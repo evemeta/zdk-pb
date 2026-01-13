@@ -4,7 +4,7 @@ package websocket.public.client.v1;
 
 option java_multiple_files = true;
 option java_package = "com.evemeta.zdk.pb.websocket.client.websocket";
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/websocket/public/client/v1;websocketpb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/websocket/public/client/v1;websocketpb";
 
 message HeartbeatPacket {}
 

@@ -9,7 +9,7 @@ import "gateway/sessions/private/v1/entities.proto";
 import "gateway/sessions/private/v1/procedures.proto";
 import "common/messages/public/v1/entities.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/websockets/private/v1;websocketspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/websockets/private/v1;websocketspb";
 
 message CountArgument {
     bool                                cache = 1;

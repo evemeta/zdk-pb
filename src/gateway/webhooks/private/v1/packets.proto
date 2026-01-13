@@ -6,7 +6,7 @@ import "gateway/webhooks/private/v1/entities.proto";
 import "gateway/webhooks/private/v1/optionals.proto";
 import "common/timeframes/public/v1/entities.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/webhooks/private/v1;webhookspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/webhooks/private/v1;webhookspb";
 
 message CreateWebhookPacket {
     gateway.webhooks.private.v1.Webhook   webhook   = 1;

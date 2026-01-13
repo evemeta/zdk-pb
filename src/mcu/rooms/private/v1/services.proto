@@ -5,7 +5,7 @@ package mcu.rooms.private.v1;
 import "mcu/rooms/private/v1/procedures.proto";
 import "mcu/rooms/private/v1/packets.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/mcu/rooms/private/v1;roomspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/mcu/rooms/private/v1;roomspb";
 
 service Service {
     rpc Create(CreateRequest) returns (CreateResponse);

@@ -7,7 +7,7 @@ import "gateway/sfus/private/v1/procedures.proto";
 import "gateway/webhooks/private/v1/procedures.proto";
 import "gateway/websockets/private/v1/procedures.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/brokers/private/v1;brokerspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/brokers/private/v1;brokerspb";
 
 message BroadcastArgument {
     common.messages.public.v1.Message message  = 1;

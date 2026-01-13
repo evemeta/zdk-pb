@@ -3,7 +3,7 @@ syntax = "proto3";
 package nsfw.private.v1;
 
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/nsfw/private/v1;nsfwpb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/nsfw/private/v1;nsfwpb";
 
 enum ImageType {
     ImageTypeUnknown     = 0;

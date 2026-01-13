@@ -8,7 +8,7 @@ import "sfu/public/client/v1/entities.proto";
 import "sfu/private/v1/entities.proto";
 import "common/messages/public/v1/entities.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/sfu/private/v1;sfupb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/sfu/private/v1;sfupb";
 
 message ConnectArgument {
     string                                    session_id        = 1;

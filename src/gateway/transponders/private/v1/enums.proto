@@ -3,7 +3,7 @@ syntax = "proto3";
 package gateway.transponders.private.v1;
 
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/transponders/private/v1;transponderspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/transponders/private/v1;transponderspb";
 
 enum Direction {
     DirectionUnknown        = 0;

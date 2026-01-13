@@ -4,7 +4,7 @@ package event.events.public.client.v1;
 
 option java_multiple_files = true;
 option java_package = "com.evemeta.zdk.pb.event.client.events";
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/event/events/public/client/v1;eventspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/event/events/public/client/v1;eventspb";
 
 // EnterEventPacket is a directive sent from the client to the server when the client intends to enter a specific event.
 // It contains the unique identifier of the event that the client wishes to enter.

@@ -5,7 +5,7 @@ package gateway.jobs.private.v1;
 import "gateway/jobs/private/v1/enums.proto";
 import "common/orders/public/v1/entities.proto";
 
-option go_package = "gitlab.com/evemeta/zdk/pb/out/go/gateway/jobs/private/v1;jobspb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/jobs/private/v1;jobspb";
 
 message Chunk {
     int64                                size     = 1;
