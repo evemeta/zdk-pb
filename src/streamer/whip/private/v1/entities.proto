@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package streamer.whip.private.v1;
+
+
+option go_package = "github.com/evemeta/zdk-pb/out/go/streamer/whip/private/v1;whippb";
+
+
+message Connection {
+    string                             user_id = 2;
+    string                             room_id = 3;
+    string                             event_id = 4;
+    int64                              access_time = 5;
+    int64                              create_time = 6;
+    int64                              update_time = 7;
+}

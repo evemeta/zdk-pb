@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package streamer.whip.private.v1;
+
+import "streamer/whip/private/v1/entities.proto";
+import "streamer/whip/private/v1/optionals.proto";
+
+option go_package = "github.com/evemeta/zdk-pb/out/go/streamer/whip/private/v1;whippb";
+
+message ConnectArgument {
+    string                             event_id = 1;
+    string                             user_id = 2;
+    string                             room_id = 3;
+    bytes                              sdp_offer = 4;
+}
+
+message ConnectRequest {
+    repeated streamer.whip.private.v1.ConnectArgument arguments = 1;
+}
+
+message ConnectResponse {
+    repeated streamer.whip.private.v1.Connection connections = 1;
+}
+
+message DisconnectArgument {
+    string                             event_id = 1;
+    string                             user_id = 2;
+    string                             room_id = 3;
+}
+
+message DisconnectRequest {
+    repeated streamer.whip.private.v1.DisconnectArgument arguments = 1;
+}
+
+message DisconnectResponse {
+    repeated streamer.whip.private.v1.Connection connections = 1;
+}
+
