@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v5.29.3
-// source: gateway/sfus/private/v1/services.proto
+// source: gateway/pipelines/private/v1/services.proto
 
-package sfuspb
+package pipelinespb
 
 import (
 	context "context"
@@ -19,38 +19,26 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Service_Count_FullMethodName                       = "/gateway.sfus.private.v1.Service/Count"
-	Service_Range_FullMethodName                       = "/gateway.sfus.private.v1.Service/Range"
-	Service_Select_FullMethodName                      = "/gateway.sfus.private.v1.Service/Select"
-	Service_Create_FullMethodName                      = "/gateway.sfus.private.v1.Service/Create"
-	Service_InitiateCreateMutations_FullMethodName     = "/gateway.sfus.private.v1.Service/InitiateCreateMutations"
-	Service_ValidateCreateMutations_FullMethodName     = "/gateway.sfus.private.v1.Service/ValidateCreateMutations"
-	Service_FinalizeCreateMutations_FullMethodName     = "/gateway.sfus.private.v1.Service/FinalizeCreateMutations"
-	Service_AnnounceCreateMutations_FullMethodName     = "/gateway.sfus.private.v1.Service/AnnounceCreateMutations"
-	Service_RollbackCreateMutations_FullMethodName     = "/gateway.sfus.private.v1.Service/RollbackCreateMutations"
-	Service_Update_FullMethodName                      = "/gateway.sfus.private.v1.Service/Update"
-	Service_InitiateUpdateMutations_FullMethodName     = "/gateway.sfus.private.v1.Service/InitiateUpdateMutations"
-	Service_ValidateUpdateMutations_FullMethodName     = "/gateway.sfus.private.v1.Service/ValidateUpdateMutations"
-	Service_FinalizeUpdateMutations_FullMethodName     = "/gateway.sfus.private.v1.Service/FinalizeUpdateMutations"
-	Service_AnnounceUpdateMutations_FullMethodName     = "/gateway.sfus.private.v1.Service/AnnounceUpdateMutations"
-	Service_RollbackUpdateMutations_FullMethodName     = "/gateway.sfus.private.v1.Service/RollbackUpdateMutations"
-	Service_Delete_FullMethodName                      = "/gateway.sfus.private.v1.Service/Delete"
-	Service_InitiateDeleteMutations_FullMethodName     = "/gateway.sfus.private.v1.Service/InitiateDeleteMutations"
-	Service_FinalizeDeleteMutations_FullMethodName     = "/gateway.sfus.private.v1.Service/FinalizeDeleteMutations"
-	Service_AnnounceDeleteMutations_FullMethodName     = "/gateway.sfus.private.v1.Service/AnnounceDeleteMutations"
-	Service_RollbackDeleteMutations_FullMethodName     = "/gateway.sfus.private.v1.Service/RollbackDeleteMutations"
-	Service_Connect_FullMethodName                     = "/gateway.sfus.private.v1.Service/Connect"
-	Service_InitiateConnectMutations_FullMethodName    = "/gateway.sfus.private.v1.Service/InitiateConnectMutations"
-	Service_FinalizeConnectMutations_FullMethodName    = "/gateway.sfus.private.v1.Service/FinalizeConnectMutations"
-	Service_Broadcast_FullMethodName                   = "/gateway.sfus.private.v1.Service/Broadcast"
-	Service_InitiateBroadcastMutations_FullMethodName  = "/gateway.sfus.private.v1.Service/InitiateBroadcastMutations"
-	Service_FinalizeBroadcastMutations_FullMethodName  = "/gateway.sfus.private.v1.Service/FinalizeBroadcastMutations"
-	Service_Candidate_FullMethodName                   = "/gateway.sfus.private.v1.Service/Candidate"
-	Service_InitiateCandidateMutations_FullMethodName  = "/gateway.sfus.private.v1.Service/InitiateCandidateMutations"
-	Service_FinalizeCandidateMutations_FullMethodName  = "/gateway.sfus.private.v1.Service/FinalizeCandidateMutations"
-	Service_Disconnect_FullMethodName                  = "/gateway.sfus.private.v1.Service/Disconnect"
-	Service_InitiateDisconnectMutations_FullMethodName = "/gateway.sfus.private.v1.Service/InitiateDisconnectMutations"
-	Service_FinalizeDisconnectMutations_FullMethodName = "/gateway.sfus.private.v1.Service/FinalizeDisconnectMutations"
+	Service_Count_FullMethodName                   = "/gateway.pipelines.private.v1.Service/Count"
+	Service_Range_FullMethodName                   = "/gateway.pipelines.private.v1.Service/Range"
+	Service_Select_FullMethodName                  = "/gateway.pipelines.private.v1.Service/Select"
+	Service_Create_FullMethodName                  = "/gateway.pipelines.private.v1.Service/Create"
+	Service_InitiateCreateMutations_FullMethodName = "/gateway.pipelines.private.v1.Service/InitiateCreateMutations"
+	Service_ValidateCreateMutations_FullMethodName = "/gateway.pipelines.private.v1.Service/ValidateCreateMutations"
+	Service_FinalizeCreateMutations_FullMethodName = "/gateway.pipelines.private.v1.Service/FinalizeCreateMutations"
+	Service_AnnounceCreateMutations_FullMethodName = "/gateway.pipelines.private.v1.Service/AnnounceCreateMutations"
+	Service_RollbackCreateMutations_FullMethodName = "/gateway.pipelines.private.v1.Service/RollbackCreateMutations"
+	Service_Update_FullMethodName                  = "/gateway.pipelines.private.v1.Service/Update"
+	Service_InitiateUpdateMutations_FullMethodName = "/gateway.pipelines.private.v1.Service/InitiateUpdateMutations"
+	Service_ValidateUpdateMutations_FullMethodName = "/gateway.pipelines.private.v1.Service/ValidateUpdateMutations"
+	Service_FinalizeUpdateMutations_FullMethodName = "/gateway.pipelines.private.v1.Service/FinalizeUpdateMutations"
+	Service_AnnounceUpdateMutations_FullMethodName = "/gateway.pipelines.private.v1.Service/AnnounceUpdateMutations"
+	Service_RollbackUpdateMutations_FullMethodName = "/gateway.pipelines.private.v1.Service/RollbackUpdateMutations"
+	Service_Delete_FullMethodName                  = "/gateway.pipelines.private.v1.Service/Delete"
+	Service_InitiateDeleteMutations_FullMethodName = "/gateway.pipelines.private.v1.Service/InitiateDeleteMutations"
+	Service_FinalizeDeleteMutations_FullMethodName = "/gateway.pipelines.private.v1.Service/FinalizeDeleteMutations"
+	Service_AnnounceDeleteMutations_FullMethodName = "/gateway.pipelines.private.v1.Service/AnnounceDeleteMutations"
+	Service_RollbackDeleteMutations_FullMethodName = "/gateway.pipelines.private.v1.Service/RollbackDeleteMutations"
 )
 
 // ServiceClient is the client API for Service service.
@@ -77,18 +65,6 @@ type ServiceClient interface {
 	FinalizeDeleteMutations(ctx context.Context, in *DeleteTransaction, opts ...grpc.CallOption) (*DeleteTransaction, error)
 	AnnounceDeleteMutations(ctx context.Context, in *DeleteTransaction, opts ...grpc.CallOption) (*DeleteTransaction, error)
 	RollbackDeleteMutations(ctx context.Context, in *DeleteTransaction, opts ...grpc.CallOption) (*DeleteTransaction, error)
-	Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error)
-	InitiateConnectMutations(ctx context.Context, in *ConnectTransaction, opts ...grpc.CallOption) (*ConnectTransaction, error)
-	FinalizeConnectMutations(ctx context.Context, in *ConnectTransaction, opts ...grpc.CallOption) (*ConnectTransaction, error)
-	Broadcast(ctx context.Context, in *BroadcastRequest, opts ...grpc.CallOption) (*BroadcastResponse, error)
-	InitiateBroadcastMutations(ctx context.Context, in *BroadcastTransaction, opts ...grpc.CallOption) (*BroadcastTransaction, error)
-	FinalizeBroadcastMutations(ctx context.Context, in *BroadcastTransaction, opts ...grpc.CallOption) (*BroadcastTransaction, error)
-	Candidate(ctx context.Context, in *CandidateRequest, opts ...grpc.CallOption) (*CandidateResponse, error)
-	InitiateCandidateMutations(ctx context.Context, in *CandidateTransaction, opts ...grpc.CallOption) (*CandidateTransaction, error)
-	FinalizeCandidateMutations(ctx context.Context, in *CandidateTransaction, opts ...grpc.CallOption) (*CandidateTransaction, error)
-	Disconnect(ctx context.Context, in *DisconnectRequest, opts ...grpc.CallOption) (*DisconnectResponse, error)
-	InitiateDisconnectMutations(ctx context.Context, in *DisconnectTransaction, opts ...grpc.CallOption) (*DisconnectTransaction, error)
-	FinalizeDisconnectMutations(ctx context.Context, in *DisconnectTransaction, opts ...grpc.CallOption) (*DisconnectTransaction, error)
 }
 
 type serviceClient struct {
@@ -299,126 +275,6 @@ func (c *serviceClient) RollbackDeleteMutations(ctx context.Context, in *DeleteT
 	return out, nil
 }
 
-func (c *serviceClient) Connect(ctx context.Context, in *ConnectRequest, opts ...grpc.CallOption) (*ConnectResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ConnectResponse)
-	err := c.cc.Invoke(ctx, Service_Connect_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceClient) InitiateConnectMutations(ctx context.Context, in *ConnectTransaction, opts ...grpc.CallOption) (*ConnectTransaction, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ConnectTransaction)
-	err := c.cc.Invoke(ctx, Service_InitiateConnectMutations_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceClient) FinalizeConnectMutations(ctx context.Context, in *ConnectTransaction, opts ...grpc.CallOption) (*ConnectTransaction, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ConnectTransaction)
-	err := c.cc.Invoke(ctx, Service_FinalizeConnectMutations_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceClient) Broadcast(ctx context.Context, in *BroadcastRequest, opts ...grpc.CallOption) (*BroadcastResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BroadcastResponse)
-	err := c.cc.Invoke(ctx, Service_Broadcast_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceClient) InitiateBroadcastMutations(ctx context.Context, in *BroadcastTransaction, opts ...grpc.CallOption) (*BroadcastTransaction, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BroadcastTransaction)
-	err := c.cc.Invoke(ctx, Service_InitiateBroadcastMutations_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceClient) FinalizeBroadcastMutations(ctx context.Context, in *BroadcastTransaction, opts ...grpc.CallOption) (*BroadcastTransaction, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BroadcastTransaction)
-	err := c.cc.Invoke(ctx, Service_FinalizeBroadcastMutations_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceClient) Candidate(ctx context.Context, in *CandidateRequest, opts ...grpc.CallOption) (*CandidateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CandidateResponse)
-	err := c.cc.Invoke(ctx, Service_Candidate_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceClient) InitiateCandidateMutations(ctx context.Context, in *CandidateTransaction, opts ...grpc.CallOption) (*CandidateTransaction, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CandidateTransaction)
-	err := c.cc.Invoke(ctx, Service_InitiateCandidateMutations_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceClient) FinalizeCandidateMutations(ctx context.Context, in *CandidateTransaction, opts ...grpc.CallOption) (*CandidateTransaction, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CandidateTransaction)
-	err := c.cc.Invoke(ctx, Service_FinalizeCandidateMutations_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceClient) Disconnect(ctx context.Context, in *DisconnectRequest, opts ...grpc.CallOption) (*DisconnectResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DisconnectResponse)
-	err := c.cc.Invoke(ctx, Service_Disconnect_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceClient) InitiateDisconnectMutations(ctx context.Context, in *DisconnectTransaction, opts ...grpc.CallOption) (*DisconnectTransaction, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DisconnectTransaction)
-	err := c.cc.Invoke(ctx, Service_InitiateDisconnectMutations_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *serviceClient) FinalizeDisconnectMutations(ctx context.Context, in *DisconnectTransaction, opts ...grpc.CallOption) (*DisconnectTransaction, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DisconnectTransaction)
-	err := c.cc.Invoke(ctx, Service_FinalizeDisconnectMutations_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // ServiceServer is the server API for Service service.
 // All implementations must embed UnimplementedServiceServer
 // for forward compatibility.
@@ -443,18 +299,6 @@ type ServiceServer interface {
 	FinalizeDeleteMutations(context.Context, *DeleteTransaction) (*DeleteTransaction, error)
 	AnnounceDeleteMutations(context.Context, *DeleteTransaction) (*DeleteTransaction, error)
 	RollbackDeleteMutations(context.Context, *DeleteTransaction) (*DeleteTransaction, error)
-	Connect(context.Context, *ConnectRequest) (*ConnectResponse, error)
-	InitiateConnectMutations(context.Context, *ConnectTransaction) (*ConnectTransaction, error)
-	FinalizeConnectMutations(context.Context, *ConnectTransaction) (*ConnectTransaction, error)
-	Broadcast(context.Context, *BroadcastRequest) (*BroadcastResponse, error)
-	InitiateBroadcastMutations(context.Context, *BroadcastTransaction) (*BroadcastTransaction, error)
-	FinalizeBroadcastMutations(context.Context, *BroadcastTransaction) (*BroadcastTransaction, error)
-	Candidate(context.Context, *CandidateRequest) (*CandidateResponse, error)
-	InitiateCandidateMutations(context.Context, *CandidateTransaction) (*CandidateTransaction, error)
-	FinalizeCandidateMutations(context.Context, *CandidateTransaction) (*CandidateTransaction, error)
-	Disconnect(context.Context, *DisconnectRequest) (*DisconnectResponse, error)
-	InitiateDisconnectMutations(context.Context, *DisconnectTransaction) (*DisconnectTransaction, error)
-	FinalizeDisconnectMutations(context.Context, *DisconnectTransaction) (*DisconnectTransaction, error)
 	mustEmbedUnimplementedServiceServer()
 }
 
@@ -524,42 +368,6 @@ func (UnimplementedServiceServer) AnnounceDeleteMutations(context.Context, *Dele
 }
 func (UnimplementedServiceServer) RollbackDeleteMutations(context.Context, *DeleteTransaction) (*DeleteTransaction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RollbackDeleteMutations not implemented")
-}
-func (UnimplementedServiceServer) Connect(context.Context, *ConnectRequest) (*ConnectResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Connect not implemented")
-}
-func (UnimplementedServiceServer) InitiateConnectMutations(context.Context, *ConnectTransaction) (*ConnectTransaction, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method InitiateConnectMutations not implemented")
-}
-func (UnimplementedServiceServer) FinalizeConnectMutations(context.Context, *ConnectTransaction) (*ConnectTransaction, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FinalizeConnectMutations not implemented")
-}
-func (UnimplementedServiceServer) Broadcast(context.Context, *BroadcastRequest) (*BroadcastResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Broadcast not implemented")
-}
-func (UnimplementedServiceServer) InitiateBroadcastMutations(context.Context, *BroadcastTransaction) (*BroadcastTransaction, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method InitiateBroadcastMutations not implemented")
-}
-func (UnimplementedServiceServer) FinalizeBroadcastMutations(context.Context, *BroadcastTransaction) (*BroadcastTransaction, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FinalizeBroadcastMutations not implemented")
-}
-func (UnimplementedServiceServer) Candidate(context.Context, *CandidateRequest) (*CandidateResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Candidate not implemented")
-}
-func (UnimplementedServiceServer) InitiateCandidateMutations(context.Context, *CandidateTransaction) (*CandidateTransaction, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method InitiateCandidateMutations not implemented")
-}
-func (UnimplementedServiceServer) FinalizeCandidateMutations(context.Context, *CandidateTransaction) (*CandidateTransaction, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FinalizeCandidateMutations not implemented")
-}
-func (UnimplementedServiceServer) Disconnect(context.Context, *DisconnectRequest) (*DisconnectResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Disconnect not implemented")
-}
-func (UnimplementedServiceServer) InitiateDisconnectMutations(context.Context, *DisconnectTransaction) (*DisconnectTransaction, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method InitiateDisconnectMutations not implemented")
-}
-func (UnimplementedServiceServer) FinalizeDisconnectMutations(context.Context, *DisconnectTransaction) (*DisconnectTransaction, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FinalizeDisconnectMutations not implemented")
 }
 func (UnimplementedServiceServer) mustEmbedUnimplementedServiceServer() {}
 func (UnimplementedServiceServer) testEmbeddedByValue()                 {}
@@ -942,227 +750,11 @@ func _Service_RollbackDeleteMutations_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Service_Connect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ConnectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).Connect(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Service_Connect_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).Connect(ctx, req.(*ConnectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Service_InitiateConnectMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ConnectTransaction)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).InitiateConnectMutations(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Service_InitiateConnectMutations_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).InitiateConnectMutations(ctx, req.(*ConnectTransaction))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Service_FinalizeConnectMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ConnectTransaction)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).FinalizeConnectMutations(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Service_FinalizeConnectMutations_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).FinalizeConnectMutations(ctx, req.(*ConnectTransaction))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Service_Broadcast_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BroadcastRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).Broadcast(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Service_Broadcast_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).Broadcast(ctx, req.(*BroadcastRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Service_InitiateBroadcastMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BroadcastTransaction)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).InitiateBroadcastMutations(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Service_InitiateBroadcastMutations_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).InitiateBroadcastMutations(ctx, req.(*BroadcastTransaction))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Service_FinalizeBroadcastMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BroadcastTransaction)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).FinalizeBroadcastMutations(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Service_FinalizeBroadcastMutations_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).FinalizeBroadcastMutations(ctx, req.(*BroadcastTransaction))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Service_Candidate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CandidateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).Candidate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Service_Candidate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).Candidate(ctx, req.(*CandidateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Service_InitiateCandidateMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CandidateTransaction)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).InitiateCandidateMutations(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Service_InitiateCandidateMutations_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).InitiateCandidateMutations(ctx, req.(*CandidateTransaction))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Service_FinalizeCandidateMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CandidateTransaction)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).FinalizeCandidateMutations(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Service_FinalizeCandidateMutations_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).FinalizeCandidateMutations(ctx, req.(*CandidateTransaction))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Service_Disconnect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DisconnectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).Disconnect(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Service_Disconnect_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).Disconnect(ctx, req.(*DisconnectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Service_InitiateDisconnectMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DisconnectTransaction)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).InitiateDisconnectMutations(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Service_InitiateDisconnectMutations_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).InitiateDisconnectMutations(ctx, req.(*DisconnectTransaction))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Service_FinalizeDisconnectMutations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DisconnectTransaction)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ServiceServer).FinalizeDisconnectMutations(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Service_FinalizeDisconnectMutations_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).FinalizeDisconnectMutations(ctx, req.(*DisconnectTransaction))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // Service_ServiceDesc is the grpc.ServiceDesc for Service service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Service_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gateway.sfus.private.v1.Service",
+	ServiceName: "gateway.pipelines.private.v1.Service",
 	HandlerType: (*ServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -1245,55 +837,7 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 			MethodName: "RollbackDeleteMutations",
 			Handler:    _Service_RollbackDeleteMutations_Handler,
 		},
-		{
-			MethodName: "Connect",
-			Handler:    _Service_Connect_Handler,
-		},
-		{
-			MethodName: "InitiateConnectMutations",
-			Handler:    _Service_InitiateConnectMutations_Handler,
-		},
-		{
-			MethodName: "FinalizeConnectMutations",
-			Handler:    _Service_FinalizeConnectMutations_Handler,
-		},
-		{
-			MethodName: "Broadcast",
-			Handler:    _Service_Broadcast_Handler,
-		},
-		{
-			MethodName: "InitiateBroadcastMutations",
-			Handler:    _Service_InitiateBroadcastMutations_Handler,
-		},
-		{
-			MethodName: "FinalizeBroadcastMutations",
-			Handler:    _Service_FinalizeBroadcastMutations_Handler,
-		},
-		{
-			MethodName: "Candidate",
-			Handler:    _Service_Candidate_Handler,
-		},
-		{
-			MethodName: "InitiateCandidateMutations",
-			Handler:    _Service_InitiateCandidateMutations_Handler,
-		},
-		{
-			MethodName: "FinalizeCandidateMutations",
-			Handler:    _Service_FinalizeCandidateMutations_Handler,
-		},
-		{
-			MethodName: "Disconnect",
-			Handler:    _Service_Disconnect_Handler,
-		},
-		{
-			MethodName: "InitiateDisconnectMutations",
-			Handler:    _Service_InitiateDisconnectMutations_Handler,
-		},
-		{
-			MethodName: "FinalizeDisconnectMutations",
-			Handler:    _Service_FinalizeDisconnectMutations_Handler,
-		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "gateway/sfus/private/v1/services.proto",
+	Metadata: "gateway/pipelines/private/v1/services.proto",
 }
