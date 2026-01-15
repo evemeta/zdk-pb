@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package streamer.whip.private.v1;
+
+import "streamer/whip/private/v1/procedures.proto";
+
+option go_package = "github.com/evemeta/zdk-pb/out/go/streamer/whip/private/v1;whippb";
+
+service Service {
+
+    rpc Connect(ConnectRequest) returns (ConnectResponse);
+    rpc Disconnect(DisconnectRequest) returns (DisconnectResponse);
+}
