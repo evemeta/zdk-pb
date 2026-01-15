@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package gateway.pipelines.private.v1;
+
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/pipelines/private/v1;pipelinespb";
+
+enum Status {
+    StatusUnknown      = 0;
+    StatusConnecting   = 1;
+    StatusConnected    = 2;
+    StatusReconnecting = 3;
+}

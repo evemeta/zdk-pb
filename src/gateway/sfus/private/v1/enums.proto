@@ -9,6 +9,7 @@ enum Kind {
     KindUnknown = 0;
     KindGateway = 1;
     KindRouter  = 2;
+    KindStreamer = 3;
 }
 
 enum Zone {
