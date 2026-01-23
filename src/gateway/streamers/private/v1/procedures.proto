@@ -54,7 +54,6 @@ message CreateArgument {
     gateway.streamers.private.v1.Zone   zone          = 2;
     gateway.streamers.private.v1.Status status        = 3;
     string                              address       = 4;
-    string                              relay_address = 5;
 }
 
 message CreateRequest {
@@ -81,7 +80,6 @@ message UpdateArgument {
     optional gateway.streamers.private.v1.OptionalZone   zone          = 2;
     optional gateway.streamers.private.v1.OptionalStatus status        = 3;
     optional gateway.streamers.private.v1.OptionalString address       = 4;
-    optional gateway.streamers.private.v1.OptionalString relay_address = 5;
 }
 
 message UpdateRequest {
