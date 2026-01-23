@@ -23,7 +23,7 @@ const (
 
 type Connection struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        string                 `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	SourceId      string                 `protobuf:"bytes,2,opt,name=source_id,json=sourceId,proto3" json:"source_id,omitempty"`
 	RoomId        string                 `protobuf:"bytes,3,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
 	EventId       string                 `protobuf:"bytes,4,opt,name=event_id,json=eventId,proto3" json:"event_id,omitempty"`
 	AccessTime    int64                  `protobuf:"varint,5,opt,name=access_time,json=accessTime,proto3" json:"access_time,omitempty"`
@@ -63,9 +63,9 @@ func (*Connection) Descriptor() ([]byte, []int) {
 	return file_streamer_whip_private_v1_entities_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *Connection) GetUserId() string {
+func (x *Connection) GetSourceId() string {
 	if x != nil {
-		return x.UserId
+		return x.SourceId
 	}
 	return ""
 }
@@ -109,10 +109,10 @@ var File_streamer_whip_private_v1_entities_proto protoreflect.FileDescriptor
 
 const file_streamer_whip_private_v1_entities_proto_rawDesc = "" +
 	"\n" +
-	"'streamer/whip/private/v1/entities.proto\x12\x18streamer.whip.private.v1\"\xbc\x01\n" +
+	"'streamer/whip/private/v1/entities.proto\x12\x18streamer.whip.private.v1\"\xc0\x01\n" +
 	"\n" +
-	"Connection\x12\x17\n" +
-	"\auser_id\x18\x02 \x01(\tR\x06userId\x12\x17\n" +
+	"Connection\x12\x1b\n" +
+	"\tsource_id\x18\x02 \x01(\tR\bsourceId\x12\x17\n" +
 	"\aroom_id\x18\x03 \x01(\tR\x06roomId\x12\x19\n" +
 	"\bevent_id\x18\x04 \x01(\tR\aeventId\x12\x1f\n" +
 	"\vaccess_time\x18\x05 \x01(\x03R\n" +

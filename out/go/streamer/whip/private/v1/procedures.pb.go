@@ -24,7 +24,7 @@ const (
 type ConnectArgument struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	EventId       string                 `protobuf:"bytes,1,opt,name=event_id,json=eventId,proto3" json:"event_id,omitempty"`
-	UserId        string                 `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	SourceId      string                 `protobuf:"bytes,2,opt,name=source_id,json=sourceId,proto3" json:"source_id,omitempty"`
 	RoomId        string                 `protobuf:"bytes,3,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
 	SdpOffer      []byte                 `protobuf:"bytes,4,opt,name=sdp_offer,json=sdpOffer,proto3" json:"sdp_offer,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -68,9 +68,9 @@ func (x *ConnectArgument) GetEventId() string {
 	return ""
 }
 
-func (x *ConnectArgument) GetUserId() string {
+func (x *ConnectArgument) GetSourceId() string {
 	if x != nil {
-		return x.UserId
+		return x.SourceId
 	}
 	return ""
 }
@@ -180,7 +180,7 @@ func (x *ConnectResponse) GetConnections() []*Connection {
 type DisconnectArgument struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	EventId       string                 `protobuf:"bytes,1,opt,name=event_id,json=eventId,proto3" json:"event_id,omitempty"`
-	UserId        string                 `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	SourceId      string                 `protobuf:"bytes,2,opt,name=source_id,json=sourceId,proto3" json:"source_id,omitempty"`
 	RoomId        string                 `protobuf:"bytes,3,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -223,9 +223,9 @@ func (x *DisconnectArgument) GetEventId() string {
 	return ""
 }
 
-func (x *DisconnectArgument) GetUserId() string {
+func (x *DisconnectArgument) GetSourceId() string {
 	if x != nil {
-		return x.UserId
+		return x.SourceId
 	}
 	return ""
 }
@@ -329,19 +329,19 @@ var File_streamer_whip_private_v1_procedures_proto protoreflect.FileDescriptor
 
 const file_streamer_whip_private_v1_procedures_proto_rawDesc = "" +
 	"\n" +
-	")streamer/whip/private/v1/procedures.proto\x12\x18streamer.whip.private.v1\x1a'streamer/whip/private/v1/entities.proto\x1a(streamer/whip/private/v1/optionals.proto\"{\n" +
+	")streamer/whip/private/v1/procedures.proto\x12\x18streamer.whip.private.v1\x1a'streamer/whip/private/v1/entities.proto\x1a(streamer/whip/private/v1/optionals.proto\"\x7f\n" +
 	"\x0fConnectArgument\x12\x19\n" +
-	"\bevent_id\x18\x01 \x01(\tR\aeventId\x12\x17\n" +
-	"\auser_id\x18\x02 \x01(\tR\x06userId\x12\x17\n" +
+	"\bevent_id\x18\x01 \x01(\tR\aeventId\x12\x1b\n" +
+	"\tsource_id\x18\x02 \x01(\tR\bsourceId\x12\x17\n" +
 	"\aroom_id\x18\x03 \x01(\tR\x06roomId\x12\x1b\n" +
 	"\tsdp_offer\x18\x04 \x01(\fR\bsdpOffer\"Y\n" +
 	"\x0eConnectRequest\x12G\n" +
 	"\targuments\x18\x01 \x03(\v2).streamer.whip.private.v1.ConnectArgumentR\targuments\"Y\n" +
 	"\x0fConnectResponse\x12F\n" +
-	"\vconnections\x18\x01 \x03(\v2$.streamer.whip.private.v1.ConnectionR\vconnections\"a\n" +
+	"\vconnections\x18\x01 \x03(\v2$.streamer.whip.private.v1.ConnectionR\vconnections\"e\n" +
 	"\x12DisconnectArgument\x12\x19\n" +
-	"\bevent_id\x18\x01 \x01(\tR\aeventId\x12\x17\n" +
-	"\auser_id\x18\x02 \x01(\tR\x06userId\x12\x17\n" +
+	"\bevent_id\x18\x01 \x01(\tR\aeventId\x12\x1b\n" +
+	"\tsource_id\x18\x02 \x01(\tR\bsourceId\x12\x17\n" +
 	"\aroom_id\x18\x03 \x01(\tR\x06roomId\"_\n" +
 	"\x11DisconnectRequest\x12J\n" +
 	"\targuments\x18\x01 \x03(\v2,.streamer.whip.private.v1.DisconnectArgumentR\targuments\"\\\n" +

@@ -7,7 +7,7 @@ option go_package = "github.com/evemeta/zdk-pb/out/go/streamer/whip/private/v1;w
 
 
 message Connection {
-    string                             user_id = 2;
+    string                             source_id = 2;
     string                             room_id = 3;
     string                             event_id = 4;
     int64                              access_time = 5;

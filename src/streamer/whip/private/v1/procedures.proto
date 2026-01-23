@@ -9,7 +9,7 @@ option go_package = "github.com/evemeta/zdk-pb/out/go/streamer/whip/private/v1;w
 
 message ConnectArgument {
     string                             event_id = 1;
-    string                             user_id = 2;
+    string                             source_id = 2;
     string                             room_id = 3;
     bytes                              sdp_offer = 4;
 }
@@ -24,7 +24,7 @@ message ConnectResponse {
 
 message DisconnectArgument {
     string                             event_id = 1;
-    string                             user_id = 2;
+    string                             source_id = 2;
     string                             room_id = 3;
 }
 
