@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package gateway.pipelines.private.v1;
+package gateway.streams.private.v1;
 
-option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/pipelines/private/v1;pipelinespb";
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/streams/private/v1;streamspb";
 
 enum Status {
     StatusUnknown      = 0;

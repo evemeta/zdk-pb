@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package gateway.streamers.private.v1;
+
+import "gateway/streamers/private/v1/enums.proto";
+import "gateway/streams/private/v1/entities.proto";
+import "common/orders/public/v1/entities.proto";
+
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/streamers/private/v1;streamerspb";
+
+message Streamer {
+    string                              id            = 1;
+    gateway.streamers.private.v1.Zone   zone          = 2;
+    gateway.streamers.private.v1.Status status        = 3;
+    string                              address       = 4;
+    string                              relay_address = 5;
+    int64                               access_time   = 6;
+    int64                               create_time   = 7;
+    int64                               update_time   = 8;
+}
+
+message Chunk {
+    int64                                 size              = 1;
+    int64                                 index             = 2;
+    int64                                 total             = 3;
+    repeated gateway.streamers.private.v1.Streamer entities = 4;
+}
+
+message Query {
+    common.orders.public.v1.Order                   order      = 1;
+    int64                                           limit      = 2;
+    int64                                           offset     = 3;
+    repeated gateway.streamers.private.v1.Condition conditions = 4;
+}
+
+message Condition {
+    repeated string                               ids       = 1;
+    repeated gateway.streamers.private.v1.Zone    zones     = 2;
+    repeated gateway.streamers.private.v1.Status  statuses  = 3;
+    repeated string                               addresses = 4;
+    repeated gateway.streams.private.v1.Query     streams   = 5;
+}
+
+message Transient {
+    gateway.streamers.private.v1.Streamer future   = 1;
+    gateway.streamers.private.v1.Streamer current  = 2;
+    gateway.streamers.private.v1.Streamer previous = 3;
+}

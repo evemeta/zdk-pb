@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package gateway.streams.private.v1;
+
+import "gateway/streams/private/v1/entities.proto";
+import "gateway/streams/private/v1/optionals.proto";
+import "common/timeframes/public/v1/entities.proto";
+
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/streams/private/v1;streamspb";
+
+message CreateStreamPacket {
+    gateway.streams.private.v1.Stream stream = 1;
+    common.timeframes.public.v1.Timeframe     timeframe  = 2;
+}
+
+message UpdateStreamPacket {
+    string                                             id          = 1;
+    string                                             streamer_id = 2;
+    optional gateway.streams.private.v1.OptionalStatus status      = 3;
+    common.timeframes.public.v1.Timeframe              timeframe   = 4;
+}
+
+message DeleteStreamPacket {
+    string                                id          = 1;
+    string                                streamer_id = 2;
+    common.timeframes.public.v1.Timeframe timeframe   = 3;
+}

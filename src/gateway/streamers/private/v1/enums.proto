@@ -1,15 +1,8 @@
 syntax = "proto3";
 
-package gateway.sfus.private.v1;
+package gateway.streamers.private.v1;
 
-
-option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/sfus/private/v1;sfuspb";
-
-enum Kind {
-    KindUnknown = 0;
-    KindGateway = 1;
-    KindRouter  = 2;
-}
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/streamers/private/v1;streamerspb";
 
 enum Zone {
     ZoneUnknown      = 0;
