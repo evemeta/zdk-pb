@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package babysfu.public.v1;
+
+import "babysfu/public/v1/procedures.proto";
+
+option go_package = "github.com/evemeta/zdk-pb/out/go/babysfu/public/v1;babysfupb";
+
+service Service {
+
+    rpc Connect(ConnectRequest) returns (ConnectResponse);
+}

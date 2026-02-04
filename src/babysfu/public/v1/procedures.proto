@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package babysfu.public.v1;
+
+option go_package = "github.com/evemeta/zdk-pb/out/go/babysfu/public/v1;babysfupb";
+
+message ConnectArgument {
+    string token     = 1;
+    bytes  sdp_offer = 2;
+    string user_id   = 3;
+    string room_id   = 4;
+    string event_id  = 5;
+}
+
+message ConnectRequest {
+    babysfu.public.v1.ConnectArgument argument = 1;
+}
+
+message ConnectResponse {
+    bytes sdp_answer = 1;
+}
