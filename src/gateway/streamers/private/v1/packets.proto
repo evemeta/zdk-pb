@@ -18,8 +18,7 @@ message UpdateStreamerPacket {
     optional gateway.streamers.private.v1.OptionalZone   zone          = 2;
     optional gateway.streamers.private.v1.OptionalStatus status        = 3;
     optional gateway.streamers.private.v1.OptionalString address       = 4;
-    optional gateway.streamers.private.v1.OptionalString relay_address = 5;
-    common.timeframes.public.v1.Timeframe                timeframe     = 6;
+    common.timeframes.public.v1.Timeframe                timeframe     = 5;
 }
 
 message DeleteStreamerPacket {
