@@ -38,7 +38,8 @@ message KeyFrameRequest {
 }
 
 message ManagementCommand {
-    bool resetEncoder = 1;
+    bool reset_encoder = 1;
+    AudioConfig audio_config = 2;
 }
 
 

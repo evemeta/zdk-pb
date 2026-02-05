@@ -339,7 +339,8 @@ func (x *KeyFrameRequest) GetUserId() string {
 
 type ManagementCommand struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	ResetEncoder  bool                   `protobuf:"varint,1,opt,name=resetEncoder,proto3" json:"resetEncoder,omitempty"`
+	ResetEncoder  bool                   `protobuf:"varint,1,opt,name=reset_encoder,json=resetEncoder,proto3" json:"reset_encoder,omitempty"`
+	AudioConfig   *AudioConfig           `protobuf:"bytes,2,opt,name=audio_config,json=audioConfig,proto3" json:"audio_config,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -379,6 +380,13 @@ func (x *ManagementCommand) GetResetEncoder() bool {
 		return x.ResetEncoder
 	}
 	return false
+}
+
+func (x *ManagementCommand) GetAudioConfig() *AudioConfig {
+	if x != nil {
+		return x.AudioConfig
+	}
+	return nil
 }
 
 type AudioConfig struct {
@@ -541,9 +549,10 @@ const file_mcu_streams_private_v1_entities_proto_rawDesc = "" +
 	" \x01(\x05R\x0ftemporalLayerId\x12\x1b\n" +
 	"\tstream_id\x18\v \x01(\x05R\bstreamId\"*\n" +
 	"\x0fKeyFrameRequest\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\tR\x06userId\"7\n" +
-	"\x11ManagementCommand\x12\"\n" +
-	"\fresetEncoder\x18\x01 \x01(\bR\fresetEncoder\"f\n" +
+	"\auser_id\x18\x01 \x01(\tR\x06userId\"\x80\x01\n" +
+	"\x11ManagementCommand\x12#\n" +
+	"\rreset_encoder\x18\x01 \x01(\bR\fresetEncoder\x12F\n" +
+	"\faudio_config\x18\x02 \x01(\v2#.mcu.streams.private.v1.AudioConfigR\vaudioConfig\"f\n" +
 	"\vAudioConfig\x126\n" +
 	"\x04type\x18\x01 \x01(\x0e2\".mcu.streams.private.v1.SampleTypeR\x04type\x12\x1f\n" +
 	"\vsample_rate\x18\x02 \x01(\x05R\n" +
@@ -585,14 +594,15 @@ var file_mcu_streams_private_v1_entities_proto_depIdxs = []int32{
 	8, // 0: mcu.streams.private.v1.RTPPacket.type:type_name -> mcu.streams.private.v1.SampleType
 	8, // 1: mcu.streams.private.v1.Sample.type:type_name -> mcu.streams.private.v1.SampleType
 	1, // 2: mcu.streams.private.v1.Sample.resolution:type_name -> mcu.streams.private.v1.Resolution
-	8, // 3: mcu.streams.private.v1.AudioConfig.type:type_name -> mcu.streams.private.v1.SampleType
-	9, // 4: mcu.streams.private.v1.InputDescription.input_type:type_name -> mcu.streams.private.v1.InputType
-	6, // 5: mcu.streams.private.v1.InputDescription.audio_configs:type_name -> mcu.streams.private.v1.AudioConfig
-	6, // [6:6] is the sub-list for method output_type
-	6, // [6:6] is the sub-list for method input_type
-	6, // [6:6] is the sub-list for extension type_name
-	6, // [6:6] is the sub-list for extension extendee
-	0, // [0:6] is the sub-list for field type_name
+	6, // 3: mcu.streams.private.v1.ManagementCommand.audio_config:type_name -> mcu.streams.private.v1.AudioConfig
+	8, // 4: mcu.streams.private.v1.AudioConfig.type:type_name -> mcu.streams.private.v1.SampleType
+	9, // 5: mcu.streams.private.v1.InputDescription.input_type:type_name -> mcu.streams.private.v1.InputType
+	6, // 6: mcu.streams.private.v1.InputDescription.audio_configs:type_name -> mcu.streams.private.v1.AudioConfig
+	7, // [7:7] is the sub-list for method output_type
+	7, // [7:7] is the sub-list for method input_type
+	7, // [7:7] is the sub-list for extension type_name
+	7, // [7:7] is the sub-list for extension extendee
+	0, // [0:7] is the sub-list for field type_name
 }
 
 func init() { file_mcu_streams_private_v1_entities_proto_init() }
