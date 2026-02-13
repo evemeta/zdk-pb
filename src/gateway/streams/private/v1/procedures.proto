@@ -5,6 +5,7 @@ package gateway.streams.private.v1;
 import "gateway/streams/private/v1/enums.proto";
 import "gateway/streams/private/v1/entities.proto";
 import "gateway/streams/private/v1/optionals.proto";
+import "event/events/private/v1/procedures.proto";
 
 option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/streams/private/v1;streamspb";
 
@@ -65,9 +66,14 @@ message CreateResponse {
 
 message CreateMutation {
     gateway.streams.private.v1.CreateArgument     foundation      = 1;
-    repeated gateway.streams.private.v1.Transient transient       = 2;
-    int64                                         begin_timestamp = 3;
-    int64                                         close_timestamp = 4;
+    gateway.streams.private.v1.CreateCondition    condition       = 2;
+    repeated gateway.streams.private.v1.Transient transient       = 3;
+    int64                                         begin_timestamp = 4;
+    int64                                         close_timestamp = 5;
+}
+
+message CreateCondition {
+    repeated event.events.private.v1.EnterMutation enter_event_mutations = 1;
 }
 
 message CreateTransaction {
@@ -115,9 +121,14 @@ message DeleteResponse {
 
 message DeleteMutation {
     gateway.streams.private.v1.DeleteArgument     foundation      = 1;
-    repeated gateway.streams.private.v1.Transient transient       = 2;
-    int64                                         begin_timestamp = 3;
-    int64                                         close_timestamp = 4;
+    gateway.streams.private.v1.DeleteCondition    condition       = 2;
+    repeated gateway.streams.private.v1.Transient transient       = 3;
+    int64                                         begin_timestamp = 4;
+    int64                                         close_timestamp = 5;
+}
+
+message DeleteCondition {
+    repeated event.events.private.v1.LeaveMutation leave_event_mutations = 1;
 }
 
 message DeleteTransaction {
