@@ -23,10 +23,11 @@ message Query {
 
 message Condition {
     repeated string                         ids       = 1;
-    repeated string                         room_ids  = 2;
-    repeated gateway.mcus.private.v1.Zone   zones     = 3;
-    repeated gateway.mcus.private.v1.Status statuses  = 4;
-    repeated string                         addresses = 5;
+    repeated string                         job_ids   = 2;
+    repeated string                         room_ids  = 3;
+    repeated gateway.mcus.private.v1.Zone   zones     = 4;
+    repeated gateway.mcus.private.v1.Status statuses  = 5;
+    repeated string                         addresses = 6;
 }
 
 message Transient {
@@ -37,11 +38,12 @@ message Transient {
 
 message Mcu {
     string                         id          = 1;
-    string                         room_id     = 2;
-    gateway.mcus.private.v1.Zone   zone        = 3;
-    gateway.mcus.private.v1.Status status      = 4;
-    string                         address     = 5;
-    int64                          access_time = 6;
-    int64                          create_time = 7;
-    int64                          update_time = 8;
+    string                         job_id      = 2;
+    string                         room_id     = 3;
+    gateway.mcus.private.v1.Zone   zone        = 4;
+    gateway.mcus.private.v1.Status status      = 5;
+    string                         address     = 6;
+    int64                          access_time = 7;
+    int64                          create_time = 8;
+    int64                          update_time = 9;
 }

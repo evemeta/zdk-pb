@@ -5,6 +5,7 @@ package gateway.jobs.private.v1;
 import "gateway/jobs/private/v1/enums.proto";
 import "gateway/jobs/private/v1/entities.proto";
 import "gateway/jobs/private/v1/optionals.proto";
+import "gateway/mcus/private/v1/procedures.proto";
 
 option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/jobs/private/v1;jobspb";
 
@@ -115,9 +116,14 @@ message DeleteResponse {
 
 message DeleteMutation {
     gateway.jobs.private.v1.DeleteArgument     foundation      = 1;
-    repeated gateway.jobs.private.v1.Transient transient       = 2;
-    int64                                      begin_timestamp = 3;
-    int64                                      close_timestamp = 4;
+    gateway.jobs.private.v1.DeleteCondition    condition       = 2;
+    repeated gateway.jobs.private.v1.Transient transient       = 3;
+    int64                                      begin_timestamp = 4;
+    int64                                      close_timestamp = 5;
+}
+
+message DeleteCondition {
+    repeated gateway.mcus.private.v1.DeleteMutation delete_mcu_mutations = 1;
 }
 
 message DeleteTransaction {
