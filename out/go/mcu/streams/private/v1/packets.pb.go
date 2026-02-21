@@ -26,12 +26,12 @@ type OutputPacket struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
 	RoomId          string                 `protobuf:"bytes,1,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
 	Sample          *Sample                `protobuf:"bytes,2,opt,name=sample,proto3" json:"sample,omitempty"`
-	LayoutPacket    *v1.LayoutPacket       `protobuf:"bytes,3,opt,name=layout_packet,json=layoutPacket,proto3" json:"layout_packet,omitempty"`
 	KeyframeRequest *KeyFrameRequest       `protobuf:"bytes,4,opt,name=keyframe_request,json=keyframeRequest,proto3" json:"keyframe_request,omitempty"`
 	HasMediaPlayer  bool                   `protobuf:"varint,5,opt,name=has_media_player,json=hasMediaPlayer,proto3" json:"has_media_player,omitempty"`
 	End             bool                   `protobuf:"varint,6,opt,name=end,proto3" json:"end,omitempty"`
 	DataType        DataType               `protobuf:"varint,7,opt,name=data_type,json=dataType,proto3,enum=mcu.streams.private.v1.DataType" json:"data_type,omitempty"`
 	OutputName      string                 `protobuf:"bytes,8,opt,name=output_name,json=outputName,proto3" json:"output_name,omitempty"`
+	LayoutPacket    *v1.LayoutPacket       `protobuf:"bytes,3,opt,name=layout_packet,json=layoutPacket,proto3" json:"layout_packet,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -80,13 +80,6 @@ func (x *OutputPacket) GetSample() *Sample {
 	return nil
 }
 
-func (x *OutputPacket) GetLayoutPacket() *v1.LayoutPacket {
-	if x != nil {
-		return x.LayoutPacket
-	}
-	return nil
-}
-
 func (x *OutputPacket) GetKeyframeRequest() *KeyFrameRequest {
 	if x != nil {
 		return x.KeyframeRequest
@@ -120,6 +113,13 @@ func (x *OutputPacket) GetOutputName() string {
 		return x.OutputName
 	}
 	return ""
+}
+
+func (x *OutputPacket) GetLayoutPacket() *v1.LayoutPacket {
+	if x != nil {
+		return x.LayoutPacket
+	}
+	return nil
 }
 
 type InputPacket struct {
@@ -271,14 +271,14 @@ const file_mcu_streams_private_v1_packets_proto_rawDesc = "" +
 	"$mcu/streams/private/v1/packets.proto\x12\x16mcu.streams.private.v1\x1a%mcu/streams/private/v1/entities.proto\x1a\"mcu/streams/private/v1/enums.proto\x1a(mcu/rooms/public/server/v1/packets.proto\"\x9e\x03\n" +
 	"\fOutputPacket\x12\x17\n" +
 	"\aroom_id\x18\x01 \x01(\tR\x06roomId\x126\n" +
-	"\x06sample\x18\x02 \x01(\v2\x1e.mcu.streams.private.v1.SampleR\x06sample\x12M\n" +
-	"\rlayout_packet\x18\x03 \x01(\v2(.mcu.rooms.public.server.v1.LayoutPacketR\flayoutPacket\x12R\n" +
+	"\x06sample\x18\x02 \x01(\v2\x1e.mcu.streams.private.v1.SampleR\x06sample\x12R\n" +
 	"\x10keyframe_request\x18\x04 \x01(\v2'.mcu.streams.private.v1.KeyFrameRequestR\x0fkeyframeRequest\x12(\n" +
 	"\x10has_media_player\x18\x05 \x01(\bR\x0ehasMediaPlayer\x12\x10\n" +
 	"\x03end\x18\x06 \x01(\bR\x03end\x12=\n" +
 	"\tdata_type\x18\a \x01(\x0e2 .mcu.streams.private.v1.DataTypeR\bdataType\x12\x1f\n" +
 	"\voutput_name\x18\b \x01(\tR\n" +
-	"outputName\"\xf7\x02\n" +
+	"outputName\x12M\n" +
+	"\rlayout_packet\x18\x03 \x01(\v2(.mcu.rooms.public.server.v1.LayoutPacketR\flayoutPacket\"\xf7\x02\n" +
 	"\vInputPacket\x12=\n" +
 	"\tdata_type\x18\x06 \x01(\x0e2 .mcu.streams.private.v1.DataTypeR\bdataType\x12U\n" +
 	"\x11input_description\x18\a \x01(\v2(.mcu.streams.private.v1.InputDescriptionR\x10inputDescription\x126\n" +
@@ -308,19 +308,19 @@ var file_mcu_streams_private_v1_packets_proto_goTypes = []any{
 	(*InputPacket)(nil),         // 1: mcu.streams.private.v1.InputPacket
 	(*OutputControlPacket)(nil), // 2: mcu.streams.private.v1.OutputControlPacket
 	(*Sample)(nil),              // 3: mcu.streams.private.v1.Sample
-	(*v1.LayoutPacket)(nil),     // 4: mcu.rooms.public.server.v1.LayoutPacket
-	(*KeyFrameRequest)(nil),     // 5: mcu.streams.private.v1.KeyFrameRequest
-	(DataType)(0),               // 6: mcu.streams.private.v1.DataType
+	(*KeyFrameRequest)(nil),     // 4: mcu.streams.private.v1.KeyFrameRequest
+	(DataType)(0),               // 5: mcu.streams.private.v1.DataType
+	(*v1.LayoutPacket)(nil),     // 6: mcu.rooms.public.server.v1.LayoutPacket
 	(*InputDescription)(nil),    // 7: mcu.streams.private.v1.InputDescription
 	(*ManagementCommand)(nil),   // 8: mcu.streams.private.v1.ManagementCommand
 	(*RTPPacket)(nil),           // 9: mcu.streams.private.v1.RTPPacket
 }
 var file_mcu_streams_private_v1_packets_proto_depIdxs = []int32{
 	3, // 0: mcu.streams.private.v1.OutputPacket.sample:type_name -> mcu.streams.private.v1.Sample
-	4, // 1: mcu.streams.private.v1.OutputPacket.layout_packet:type_name -> mcu.rooms.public.server.v1.LayoutPacket
-	5, // 2: mcu.streams.private.v1.OutputPacket.keyframe_request:type_name -> mcu.streams.private.v1.KeyFrameRequest
-	6, // 3: mcu.streams.private.v1.OutputPacket.data_type:type_name -> mcu.streams.private.v1.DataType
-	6, // 4: mcu.streams.private.v1.InputPacket.data_type:type_name -> mcu.streams.private.v1.DataType
+	4, // 1: mcu.streams.private.v1.OutputPacket.keyframe_request:type_name -> mcu.streams.private.v1.KeyFrameRequest
+	5, // 2: mcu.streams.private.v1.OutputPacket.data_type:type_name -> mcu.streams.private.v1.DataType
+	6, // 3: mcu.streams.private.v1.OutputPacket.layout_packet:type_name -> mcu.rooms.public.server.v1.LayoutPacket
+	5, // 4: mcu.streams.private.v1.InputPacket.data_type:type_name -> mcu.streams.private.v1.DataType
 	7, // 5: mcu.streams.private.v1.InputPacket.input_description:type_name -> mcu.streams.private.v1.InputDescription
 	3, // 6: mcu.streams.private.v1.InputPacket.sample:type_name -> mcu.streams.private.v1.Sample
 	8, // 7: mcu.streams.private.v1.InputPacket.management_command:type_name -> mcu.streams.private.v1.ManagementCommand

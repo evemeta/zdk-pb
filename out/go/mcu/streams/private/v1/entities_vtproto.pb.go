@@ -125,6 +125,16 @@ func (m *RTPPacket) MarshalToSizedBufferVT(dAtA []byte) (int, error) {
 		i -= len(m.unknownFields)
 		copy(dAtA[i:], m.unknownFields)
 	}
+	if m.TemporalId != 0 {
+		i = encodeVarint(dAtA, i, uint64((uint32(m.TemporalId)<<1)^uint32((m.TemporalId>>31))))
+		i--
+		dAtA[i] = 0x28
+	}
+	if m.SpatialId != 0 {
+		i = encodeVarint(dAtA, i, uint64((uint32(m.SpatialId)<<1)^uint32((m.SpatialId>>31))))
+		i--
+		dAtA[i] = 0x20
+	}
 	if m.Type != 0 {
 		i = encodeVarint(dAtA, i, uint64(m.Type))
 		i--
@@ -320,6 +330,16 @@ func (m *ManagementCommand) MarshalToSizedBufferVT(dAtA []byte) (int, error) {
 		i -= len(m.unknownFields)
 		copy(dAtA[i:], m.unknownFields)
 	}
+	if m.VideoConfig != nil {
+		size, err := m.VideoConfig.MarshalToSizedBufferVT(dAtA[:i])
+		if err != nil {
+			return 0, err
+		}
+		i -= size
+		i = encodeVarint(dAtA, i, uint64(size))
+		i--
+		dAtA[i] = 0x1a
+	}
 	if m.AudioConfig != nil {
 		size, err := m.AudioConfig.MarshalToSizedBufferVT(dAtA[:i])
 		if err != nil {
@@ -386,6 +406,54 @@ func (m *AudioConfig) MarshalToSizedBufferVT(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
+func (m *VideoConfig) MarshalVT() (dAtA []byte, err error) {
+	if m == nil {
+		return nil, nil
+	}
+	size := m.SizeVT()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBufferVT(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *VideoConfig) MarshalToVT(dAtA []byte) (int, error) {
+	size := m.SizeVT()
+	return m.MarshalToSizedBufferVT(dAtA[:size])
+}
+
+func (m *VideoConfig) MarshalToSizedBufferVT(dAtA []byte) (int, error) {
+	if m == nil {
+		return 0, nil
+	}
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.unknownFields != nil {
+		i -= len(m.unknownFields)
+		copy(dAtA[i:], m.unknownFields)
+	}
+	if m.ExtensionAbsId != 0 {
+		i = encodeVarint(dAtA, i, uint64((uint32(m.ExtensionAbsId)<<1)^uint32((m.ExtensionAbsId>>31))))
+		i--
+		dAtA[i] = 0x10
+	}
+	if m.Svc {
+		i--
+		if m.Svc {
+			dAtA[i] = 1
+		} else {
+			dAtA[i] = 0
+		}
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
 func (m *InputDescription) MarshalVT() (dAtA []byte, err error) {
 	if m == nil {
 		return nil, nil
@@ -415,6 +483,18 @@ func (m *InputDescription) MarshalToSizedBufferVT(dAtA []byte) (int, error) {
 	if m.unknownFields != nil {
 		i -= len(m.unknownFields)
 		copy(dAtA[i:], m.unknownFields)
+	}
+	if len(m.VideoConfigs) > 0 {
+		for iNdEx := len(m.VideoConfigs) - 1; iNdEx >= 0; iNdEx-- {
+			size, err := m.VideoConfigs[iNdEx].MarshalToSizedBufferVT(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarint(dAtA, i, uint64(size))
+			i--
+			dAtA[i] = 0x32
+		}
 	}
 	if len(m.AudioConfigs) > 0 {
 		for iNdEx := len(m.AudioConfigs) - 1; iNdEx >= 0; iNdEx-- {
@@ -550,6 +630,12 @@ func (m *RTPPacket) SizeVT() (n int) {
 	if m.Type != 0 {
 		n += 1 + sov(uint64(m.Type))
 	}
+	if m.SpatialId != 0 {
+		n += 1 + soz(uint64(m.SpatialId))
+	}
+	if m.TemporalId != 0 {
+		n += 1 + soz(uint64(m.TemporalId))
+	}
 	n += len(m.unknownFields)
 	return n
 }
@@ -626,6 +712,10 @@ func (m *ManagementCommand) SizeVT() (n int) {
 		l = m.AudioConfig.SizeVT()
 		n += 1 + l + sov(uint64(l))
 	}
+	if m.VideoConfig != nil {
+		l = m.VideoConfig.SizeVT()
+		n += 1 + l + sov(uint64(l))
+	}
 	n += len(m.unknownFields)
 	return n
 }
@@ -641,6 +731,22 @@ func (m *AudioConfig) SizeVT() (n int) {
 	}
 	if m.SampleRate != 0 {
 		n += 1 + sov(uint64(m.SampleRate))
+	}
+	n += len(m.unknownFields)
+	return n
+}
+
+func (m *VideoConfig) SizeVT() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Svc {
+		n += 2
+	}
+	if m.ExtensionAbsId != 0 {
+		n += 1 + soz(uint64(m.ExtensionAbsId))
 	}
 	n += len(m.unknownFields)
 	return n
@@ -668,6 +774,12 @@ func (m *InputDescription) SizeVT() (n int) {
 	}
 	if len(m.AudioConfigs) > 0 {
 		for _, e := range m.AudioConfigs {
+			l = e.SizeVT()
+			n += 1 + l + sov(uint64(l))
+		}
+	}
+	if len(m.VideoConfigs) > 0 {
+		for _, e := range m.VideoConfigs {
 			l = e.SizeVT()
 			n += 1 + l + sov(uint64(l))
 		}
@@ -924,6 +1036,48 @@ func (m *RTPPacket) UnmarshalVT(dAtA []byte) error {
 					break
 				}
 			}
+		case 4:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field SpatialId", wireType)
+			}
+			var v int32
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			v = int32((uint32(v) >> 1) ^ uint32(((v&1)<<31)>>31))
+			m.SpatialId = v
+		case 5:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field TemporalId", wireType)
+			}
+			var v int32
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			v = int32((uint32(v) >> 1) ^ uint32(((v&1)<<31)>>31))
+			m.TemporalId = v
 		default:
 			iNdEx = preIndex
 			skippy, err := skip(dAtA[iNdEx:])
@@ -1407,6 +1561,42 @@ func (m *ManagementCommand) UnmarshalVT(dAtA []byte) error {
 				return err
 			}
 			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field VideoConfig", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLength
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLength
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.VideoConfig == nil {
+				m.VideoConfig = &VideoConfig{}
+			}
+			if err := m.VideoConfig.UnmarshalVT(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
 			skippy, err := skip(dAtA[iNdEx:])
@@ -1496,6 +1686,98 @@ func (m *AudioConfig) UnmarshalVT(dAtA []byte) error {
 					break
 				}
 			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skip(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLength
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.unknownFields = append(m.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *VideoConfig) UnmarshalVT(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflow
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: VideoConfig: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: VideoConfig: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Svc", wireType)
+			}
+			var v int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			m.Svc = bool(v != 0)
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ExtensionAbsId", wireType)
+			}
+			var v int32
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			v = int32((uint32(v) >> 1) ^ uint32(((v&1)<<31)>>31))
+			m.ExtensionAbsId = v
 		default:
 			iNdEx = preIndex
 			skippy, err := skip(dAtA[iNdEx:])
@@ -1680,6 +1962,40 @@ func (m *InputDescription) UnmarshalVT(dAtA []byte) error {
 			}
 			m.AudioConfigs = append(m.AudioConfigs, &AudioConfig{})
 			if err := m.AudioConfigs[len(m.AudioConfigs)-1].UnmarshalVT(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 6:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field VideoConfigs", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLength
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLength
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.VideoConfigs = append(m.VideoConfigs, &VideoConfig{})
+			if err := m.VideoConfigs[len(m.VideoConfigs)-1].UnmarshalVT(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex
