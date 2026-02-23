@@ -414,11 +414,12 @@ func (x *ManagementCommand) GetVideoConfig() *VideoConfig {
 }
 
 type AudioConfig struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Type          SampleType             `protobuf:"varint,1,opt,name=type,proto3,enum=mcu.streams.private.v1.SampleType" json:"type,omitempty"`
-	SampleRate    int32                  `protobuf:"varint,2,opt,name=sample_rate,json=sampleRate,proto3" json:"sample_rate,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	Type           SampleType             `protobuf:"varint,1,opt,name=type,proto3,enum=mcu.streams.private.v1.SampleType" json:"type,omitempty"`
+	SampleRate     int32                  `protobuf:"varint,2,opt,name=sample_rate,json=sampleRate,proto3" json:"sample_rate,omitempty"`
+	ExtensionAbsId int32                  `protobuf:"zigzag32,3,opt,name=extension_abs_id,json=extensionAbsId,proto3" json:"extension_abs_id,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *AudioConfig) Reset() {
@@ -461,6 +462,13 @@ func (x *AudioConfig) GetType() SampleType {
 func (x *AudioConfig) GetSampleRate() int32 {
 	if x != nil {
 		return x.SampleRate
+	}
+	return 0
+}
+
+func (x *AudioConfig) GetExtensionAbsId() int32 {
+	if x != nil {
+		return x.ExtensionAbsId
 	}
 	return 0
 }
@@ -641,11 +649,12 @@ const file_mcu_streams_private_v1_entities_proto_rawDesc = "" +
 	"\x11ManagementCommand\x12#\n" +
 	"\rreset_encoder\x18\x01 \x01(\bR\fresetEncoder\x12F\n" +
 	"\faudio_config\x18\x02 \x01(\v2#.mcu.streams.private.v1.AudioConfigR\vaudioConfig\x12F\n" +
-	"\fvideo_config\x18\x03 \x01(\v2#.mcu.streams.private.v1.VideoConfigR\vvideoConfig\"f\n" +
+	"\fvideo_config\x18\x03 \x01(\v2#.mcu.streams.private.v1.VideoConfigR\vvideoConfig\"\x90\x01\n" +
 	"\vAudioConfig\x126\n" +
 	"\x04type\x18\x01 \x01(\x0e2\".mcu.streams.private.v1.SampleTypeR\x04type\x12\x1f\n" +
 	"\vsample_rate\x18\x02 \x01(\x05R\n" +
-	"sampleRate\"I\n" +
+	"sampleRate\x12(\n" +
+	"\x10extension_abs_id\x18\x03 \x01(\x11R\x0eextensionAbsId\"I\n" +
 	"\vVideoConfig\x12\x10\n" +
 	"\x03svc\x18\x01 \x01(\bR\x03svc\x12(\n" +
 	"\x10extension_abs_id\x18\x02 \x01(\x11R\x0eextensionAbsId\"\xd0\x02\n" +

@@ -47,8 +47,9 @@ message ManagementCommand {
 
 
 message AudioConfig {
-    SampleType  type        = 1;
-    int32       sample_rate = 2;
+    SampleType  type                = 1;
+    int32       sample_rate         = 2;
+    sint32      extension_abs_id    = 3;
 }
 
 message VideoConfig {
