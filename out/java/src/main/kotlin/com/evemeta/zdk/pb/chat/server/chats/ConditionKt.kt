@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: chat/chats/public/server/v1/entities.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.chat.server.chats;
@@ -49,7 +48,7 @@ public object ConditionKt {
      * @return A list containing the ids.
      */
     public val ids: com.google.protobuf.kotlin.DslList<kotlin.String, IdsProxy>
-    @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
+      @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.idsList
       )
@@ -62,7 +61,7 @@ public object ConditionKt {
      * @param value The ids to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("addIds")
+    @kotlin.jvm.JvmName("addIds")
     public fun com.google.protobuf.kotlin.DslList<kotlin.String, IdsProxy>.add(value: kotlin.String) {
       _builder.addIds(value)
     }
@@ -75,7 +74,7 @@ public object ConditionKt {
      * @param value The ids to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("plusAssignIds")
+    @kotlin.jvm.JvmName("plusAssignIds")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, IdsProxy>.plusAssign(value: kotlin.String) {
       add(value)
@@ -89,7 +88,7 @@ public object ConditionKt {
      * @param values The ids to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("addAllIds")
+    @kotlin.jvm.JvmName("addAllIds")
     public fun com.google.protobuf.kotlin.DslList<kotlin.String, IdsProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
       _builder.addAllIds(values)
     }
@@ -102,7 +101,7 @@ public object ConditionKt {
      * @param values The ids to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("plusAssignAllIds")
+    @kotlin.jvm.JvmName("plusAssignAllIds")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, IdsProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
       addAll(values)
@@ -117,7 +116,7 @@ public object ConditionKt {
      * @param value The ids to set.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("setIds")
+    @kotlin.jvm.JvmName("setIds")
     public operator fun com.google.protobuf.kotlin.DslList<kotlin.String, IdsProxy>.set(index: kotlin.Int, value: kotlin.String) {
       _builder.setIds(index, value)
     }/**
@@ -128,7 +127,7 @@ public object ConditionKt {
      * `repeated string ids = 1;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("setIds")
+    @kotlin.jvm.JvmName("clearIds")
     public fun com.google.protobuf.kotlin.DslList<kotlin.String, IdsProxy>.clear() {
       _builder.clearIds()
     }}

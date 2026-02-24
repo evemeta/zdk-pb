@@ -11,19 +11,22 @@ message Event {
     string                            id                  = 1;
     string                            chat_id             = 2;
     string                            room_id             = 3;
-    event.events.private.v1.Kind      kind                = 4;
-    event.events.private.v1.Status    status              = 5;
-    map<string, string>               metadata            = 6;
-    event.events.private.v1.Schedule  schedule            = 7;
-    event.events.private.v1.Broadcast broadcast           = 8;
-    int64                             planned_start_time  = 9;
-    int64                             start_time          = 10;
-    int64                             planned_finish_time = 11;
-    int64                             finish_time         = 12;
-    int64                             cancel_time         = 13;
-    int64                             access_time         = 14;
-    int64                             create_time         = 15;
-    int64                             update_time         = 16;
+    string                            user_id             = 4;
+    event.events.private.v1.Kind      kind                = 5;
+    event.events.private.v1.Status    status              = 6;
+    int64                             capacity            = 7;
+    map<string, string>               metadata            = 8;
+    event.events.private.v1.Schedule  schedule            = 9;
+    event.events.private.v1.Broadcast broadcast           = 10;
+    int64                             retention           = 11;
+    int64                             planned_start_time  = 12;
+    int64                             start_time          = 13;
+    int64                             planned_finish_time = 14;
+    int64                             finish_time         = 15;
+    int64                             cancel_time         = 16;
+    int64                             access_time         = 17;
+    int64                             create_time         = 18;
+    int64                             update_time         = 19;
 }
 
 message Broadcast {
@@ -48,10 +51,11 @@ message Condition {
     repeated string                           ids       = 1;
     repeated string                           chat_ids  = 2;
     repeated string                           room_ids  = 3;
-    repeated event.events.private.v1.Kind     kinds     = 4;
-    repeated event.events.private.v1.Status   statuses  = 5;
-    repeated event.events.private.v1.Schedule schedules = 6;
-    repeated event.members.private.v1.Query   members   = 7;
+    repeated string                           user_ids  = 4;
+    repeated event.events.private.v1.Kind     kinds     = 5;
+    repeated event.events.private.v1.Status   statuses  = 6;
+    repeated event.events.private.v1.Schedule schedules = 7;
+    repeated event.members.private.v1.Query   members   = 8;
 }
 
 message Transient {

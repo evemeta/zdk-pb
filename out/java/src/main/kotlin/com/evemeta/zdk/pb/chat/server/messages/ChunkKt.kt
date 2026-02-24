@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: chat/messages/public/server/v1/entities.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.chat.server.messages;
@@ -42,10 +41,10 @@ public object ChunkKt {
      * `int64 size = 1;`
      */
     public var size: kotlin.Long
-      @kotlin.jvm.JvmName("getSize")
-        get() = _builder.size
-      @kotlin.jvm.JvmName("setSize")
-        set(value) {
+      @JvmName("getSize")
+      get() = _builder.size
+      @JvmName("setSize")
+      set(value) {
         _builder.size = value
       }
     /**
@@ -67,10 +66,10 @@ public object ChunkKt {
      * `int64 index = 2;`
      */
     public var index: kotlin.Long
-      @kotlin.jvm.JvmName("getIndex")
-        get() = _builder.index
-      @kotlin.jvm.JvmName("setIndex")
-        set(value) {
+      @JvmName("getIndex")
+      get() = _builder.index
+      @JvmName("setIndex")
+      set(value) {
         _builder.index = value
       }
     /**
@@ -92,10 +91,10 @@ public object ChunkKt {
      * `int64 total = 3;`
      */
     public var total: kotlin.Long
-      @kotlin.jvm.JvmName("getTotal")
-        get() = _builder.total
-      @kotlin.jvm.JvmName("setTotal")
-        set(value) {
+      @JvmName("getTotal")
+      get() = _builder.total
+      @JvmName("setTotal")
+      set(value) {
         _builder.total = value
       }
     /**
@@ -124,7 +123,7 @@ public object ChunkKt {
      */
      public val entities: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.messages.Message, EntitiesProxy>
       @kotlin.jvm.JvmSynthetic
-  get() = com.google.protobuf.kotlin.DslList(
+      get() = com.google.protobuf.kotlin.DslList(
         _builder.entitiesList
       )
     /**
@@ -136,7 +135,7 @@ public object ChunkKt {
      * @param value The entities to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("addEntities")
+    @kotlin.jvm.JvmName("addEntities")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.messages.Message, EntitiesProxy>.add(value: com.evemeta.zdk.pb.chat.server.messages.Message) {
       _builder.addEntities(value)
     }
@@ -149,7 +148,7 @@ public object ChunkKt {
      * @param value The entities to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("plusAssignEntities")
+    @kotlin.jvm.JvmName("plusAssignEntities")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.messages.Message, EntitiesProxy>.plusAssign(value: com.evemeta.zdk.pb.chat.server.messages.Message) {
       add(value)
@@ -163,7 +162,7 @@ public object ChunkKt {
      * @param values The entities to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("addAllEntities")
+    @kotlin.jvm.JvmName("addAllEntities")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.messages.Message, EntitiesProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.chat.server.messages.Message>) {
       _builder.addAllEntities(values)
     }
@@ -176,7 +175,7 @@ public object ChunkKt {
      * @param values The entities to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("plusAssignAllEntities")
+    @kotlin.jvm.JvmName("plusAssignAllEntities")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.messages.Message, EntitiesProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.chat.server.messages.Message>) {
       addAll(values)
@@ -191,7 +190,7 @@ public object ChunkKt {
      * @param value The entities to set.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("setEntities")
+    @kotlin.jvm.JvmName("setEntities")
     public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.messages.Message, EntitiesProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.chat.server.messages.Message) {
       _builder.setEntities(index, value)
     }
@@ -203,10 +202,11 @@ public object ChunkKt {
      * `repeated .chat.messages.public.server.v1.Message entities = 4;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("clearEntities")
+    @kotlin.jvm.JvmName("clearEntities")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.messages.Message, EntitiesProxy>.clear() {
       _builder.clearEntities()
     }
+
   }
 }
 @kotlin.jvm.JvmSynthetic

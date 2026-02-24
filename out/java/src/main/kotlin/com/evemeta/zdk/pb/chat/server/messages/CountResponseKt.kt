@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: chat/messages/public/server/v1/procedures.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.chat.server.messages;
@@ -41,10 +40,10 @@ public object CountResponseKt {
      * `int64 total = 1;`
      */
     public var total: kotlin.Long
-      @kotlin.jvm.JvmName("getTotal")
-        get() = _builder.total
-      @kotlin.jvm.JvmName("setTotal")
-        set(value) {
+      @JvmName("getTotal")
+      get() = _builder.total
+      @JvmName("setTotal")
+      set(value) {
         _builder.total = value
       }
     /**

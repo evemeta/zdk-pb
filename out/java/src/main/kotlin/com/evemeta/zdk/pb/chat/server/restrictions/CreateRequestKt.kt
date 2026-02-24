@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: chat/restrictions/public/server/v1/procedures.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.chat.server.restrictions;
@@ -41,10 +40,10 @@ public object CreateRequestKt {
      * `string user_id = 1;`
      */
     public var userId: kotlin.String
-      @kotlin.jvm.JvmName("getUserId")
-        get() = _builder.userId
-      @kotlin.jvm.JvmName("setUserId")
-        set(value) {
+      @JvmName("getUserId")
+      get() = _builder.userId
+      @JvmName("setUserId")
+      set(value) {
         _builder.userId = value
       }
     /**
@@ -66,10 +65,10 @@ public object CreateRequestKt {
      * `string chat_id = 2;`
      */
     public var chatId: kotlin.String
-      @kotlin.jvm.JvmName("getChatId")
-        get() = _builder.chatId
-      @kotlin.jvm.JvmName("setChatId")
-        set(value) {
+      @JvmName("getChatId")
+      get() = _builder.chatId
+      @JvmName("setChatId")
+      set(value) {
         _builder.chatId = value
       }
     /**
@@ -91,17 +90,17 @@ public object CreateRequestKt {
      * `.chat.restrictions.public.server.v1.Kind kind = 3;`
      */
     public var kind: com.evemeta.zdk.pb.chat.server.restrictions.Kind
-      @kotlin.jvm.JvmName("getKind")
-        get() = _builder.kind
-      @kotlin.jvm.JvmName("setKind")
-        set(value) {
+      @JvmName("getKind")
+      get() = _builder.kind
+      @JvmName("setKind")
+      set(value) {
         _builder.kind = value
       }
     public var kindValue: kotlin.Int
-      @kotlin.jvm.JvmName("getKindValue")
-        get() = _builder.kindValue
-      @kotlin.jvm.JvmName("setKindValue")
-        set(value) {
+      @JvmName("getKindValue")
+      get() = _builder.kindValue
+      @JvmName("setKindValue")
+      set(value) {
         _builder.kindValue = value
       }
     /**
@@ -123,10 +122,10 @@ public object CreateRequestKt {
      * `string reason = 4;`
      */
     public var reason: kotlin.String
-      @kotlin.jvm.JvmName("getReason")
-        get() = _builder.reason
-      @kotlin.jvm.JvmName("setReason")
-        set(value) {
+      @JvmName("getReason")
+      get() = _builder.reason
+      @JvmName("setReason")
+      set(value) {
         _builder.reason = value
       }
     /**
@@ -148,10 +147,10 @@ public object CreateRequestKt {
      * `int64 duration = 5;`
      */
     public var duration: kotlin.Long
-      @kotlin.jvm.JvmName("getDuration")
-        get() = _builder.duration
-      @kotlin.jvm.JvmName("setDuration")
-        set(value) {
+      @JvmName("getDuration")
+      get() = _builder.duration
+      @JvmName("setDuration")
+      set(value) {
         _builder.duration = value
       }
     /**

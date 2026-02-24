@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: chat/tokens/public/server/v1/procedures.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.chat.server.tokens;
@@ -33,10 +32,10 @@ public object ExtractRequestKt {
      * `string token = 1;`
      */
     public var token: kotlin.String
-      @kotlin.jvm.JvmName("getToken")
-        get() = _builder.token
-      @kotlin.jvm.JvmName("setToken")
-        set(value) {
+      @JvmName("getToken")
+      get() = _builder.token
+      @JvmName("setToken")
+      set(value) {
         _builder.token = value
       }
     /**

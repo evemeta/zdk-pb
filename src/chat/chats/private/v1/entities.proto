@@ -10,12 +10,15 @@ option go_package = "github.com/evemeta/zdk-pb/out/go/chat/chats/private/v1;chat
 
 message Chat {
     string                         id          = 1;
-    chat.chats.private.v1.Kind     kind        = 2;
-    map<string, string>            metadata    = 3;
-    chat.chats.private.v1.Slowmode slowmode    = 4;
-    int64                          access_time = 5;
-    int64                          create_time = 6;
-    int64                          update_time = 7;
+    string                         user_id     = 2;
+    chat.chats.private.v1.Kind     kind        = 3;
+    int64                          capacity    = 4;
+    map<string, string>            metadata    = 5;
+    chat.chats.private.v1.Slowmode slowmode    = 6;
+    int64                          retention   = 7;
+    int64                          access_time = 8;
+    int64                          create_time = 9;
+    int64                          update_time = 10;
 }
 
 message Slowmode {
@@ -40,8 +43,9 @@ message Query {
 
 message Condition {
     repeated string                         ids      = 1;
-    repeated chat.members.private.v1.Query  members  = 2;
-    repeated chat.messages.private.v1.Query messages = 3;
+    repeated string                         user_ids = 2;
+    repeated chat.members.private.v1.Query  members  = 3;
+    repeated chat.messages.private.v1.Query messages = 4;
 }
 
 message Transient {

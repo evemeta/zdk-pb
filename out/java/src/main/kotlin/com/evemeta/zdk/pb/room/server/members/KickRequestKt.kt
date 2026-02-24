@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: room/members/public/server/v1/procedures.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.room.server.members;
@@ -41,10 +40,10 @@ public object KickRequestKt {
      * `string user_id = 1;`
      */
     public var userId: kotlin.String
-      @kotlin.jvm.JvmName("getUserId")
-        get() = _builder.userId
-      @kotlin.jvm.JvmName("setUserId")
-        set(value) {
+      @JvmName("getUserId")
+      get() = _builder.userId
+      @JvmName("setUserId")
+      set(value) {
         _builder.userId = value
       }
     /**
@@ -66,10 +65,10 @@ public object KickRequestKt {
      * `string room_id = 2;`
      */
     public var roomId: kotlin.String
-      @kotlin.jvm.JvmName("getRoomId")
-        get() = _builder.roomId
-      @kotlin.jvm.JvmName("setRoomId")
-        set(value) {
+      @JvmName("getRoomId")
+      get() = _builder.roomId
+      @JvmName("setRoomId")
+      set(value) {
         _builder.roomId = value
       }
     /**
@@ -91,10 +90,10 @@ public object KickRequestKt {
      * `string reason = 3;`
      */
     public var reason: kotlin.String
-      @kotlin.jvm.JvmName("getReason")
-        get() = _builder.reason
-      @kotlin.jvm.JvmName("setReason")
-        set(value) {
+      @JvmName("getReason")
+      get() = _builder.reason
+      @JvmName("setReason")
+      set(value) {
         _builder.reason = value
       }
     /**

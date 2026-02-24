@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: room/connections/public/server/v1/entities.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.room.server.connections;
@@ -41,10 +40,10 @@ public object ConnectionKt {
      * `string id = 1;`
      */
     public var id: kotlin.String
-      @kotlin.jvm.JvmName("getId")
-        get() = _builder.id
-      @kotlin.jvm.JvmName("setId")
-        set(value) {
+      @JvmName("getId")
+      get() = _builder.id
+      @JvmName("setId")
+      set(value) {
         _builder.id = value
       }
     /**
@@ -62,10 +61,10 @@ public object ConnectionKt {
      * `string user_id = 2;`
      */
     public var userId: kotlin.String
-      @kotlin.jvm.JvmName("getUserId")
-        get() = _builder.userId
-      @kotlin.jvm.JvmName("setUserId")
-        set(value) {
+      @JvmName("getUserId")
+      get() = _builder.userId
+      @JvmName("setUserId")
+      set(value) {
         _builder.userId = value
       }
     /**
@@ -79,10 +78,10 @@ public object ConnectionKt {
      * `string room_id = 3;`
      */
     public var roomId: kotlin.String
-      @kotlin.jvm.JvmName("getRoomId")
-        get() = _builder.roomId
-      @kotlin.jvm.JvmName("setRoomId")
-        set(value) {
+      @JvmName("getRoomId")
+      get() = _builder.roomId
+      @JvmName("setRoomId")
+      set(value) {
         _builder.roomId = value
       }
     /**
@@ -96,17 +95,17 @@ public object ConnectionKt {
      * `.room.connections.public.server.v1.Kind kind = 4;`
      */
     public var kind: com.evemeta.zdk.pb.room.server.connections.Kind
-      @kotlin.jvm.JvmName("getKind")
-        get() = _builder.kind
-      @kotlin.jvm.JvmName("setKind")
-        set(value) {
+      @JvmName("getKind")
+      get() = _builder.kind
+      @JvmName("setKind")
+      set(value) {
         _builder.kind = value
       }
     public var kindValue: kotlin.Int
-      @kotlin.jvm.JvmName("getKindValue")
-        get() = _builder.kindValue
-      @kotlin.jvm.JvmName("setKindValue")
-        set(value) {
+      @JvmName("getKindValue")
+      get() = _builder.kindValue
+      @JvmName("setKindValue")
+      set(value) {
         _builder.kindValue = value
       }
     /**
@@ -120,17 +119,17 @@ public object ConnectionKt {
      * `.room.connections.public.server.v1.Status status = 5;`
      */
     public var status: com.evemeta.zdk.pb.room.server.connections.Status
-      @kotlin.jvm.JvmName("getStatus")
-        get() = _builder.status
-      @kotlin.jvm.JvmName("setStatus")
-        set(value) {
+      @JvmName("getStatus")
+      get() = _builder.status
+      @JvmName("setStatus")
+      set(value) {
         _builder.status = value
       }
     public var statusValue: kotlin.Int
-      @kotlin.jvm.JvmName("getStatusValue")
-        get() = _builder.statusValue
-      @kotlin.jvm.JvmName("setStatusValue")
-        set(value) {
+      @JvmName("getStatusValue")
+      get() = _builder.statusValue
+      @JvmName("setStatusValue")
+      set(value) {
         _builder.statusValue = value
       }
     /**
@@ -144,10 +143,10 @@ public object ConnectionKt {
      * `int64 create_time = 6;`
      */
     public var createTime: kotlin.Long
-      @kotlin.jvm.JvmName("getCreateTime")
-        get() = _builder.createTime
-      @kotlin.jvm.JvmName("setCreateTime")
-        set(value) {
+      @JvmName("getCreateTime")
+      get() = _builder.createTime
+      @JvmName("setCreateTime")
+      set(value) {
         _builder.createTime = value
       }
     /**
@@ -161,10 +160,10 @@ public object ConnectionKt {
      * `int64 update_time = 7;`
      */
     public var updateTime: kotlin.Long
-      @kotlin.jvm.JvmName("getUpdateTime")
-        get() = _builder.updateTime
-      @kotlin.jvm.JvmName("setUpdateTime")
-        set(value) {
+      @JvmName("getUpdateTime")
+      get() = _builder.updateTime
+      @JvmName("setUpdateTime")
+      set(value) {
         _builder.updateTime = value
       }
     /**

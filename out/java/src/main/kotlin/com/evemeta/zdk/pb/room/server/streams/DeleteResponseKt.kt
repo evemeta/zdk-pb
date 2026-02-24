@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: room/streams/public/server/v1/procedures.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.room.server.streams;
@@ -41,10 +40,10 @@ public object DeleteResponseKt {
      * `.room.streams.public.server.v1.Stream stream = 1;`
      */
     public var stream: com.evemeta.zdk.pb.room.server.streams.Stream
-      @kotlin.jvm.JvmName("getStream")
-        get() = _builder.stream
-      @kotlin.jvm.JvmName("setStream")
-        set(value) {
+      @JvmName("getStream")
+      get() = _builder.stream
+      @JvmName("setStream")
+      set(value) {
         _builder.stream = value
       }
     /**

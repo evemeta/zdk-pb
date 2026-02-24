@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: sfu/public/client/v1/packets.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.sfu.client.sfu;
@@ -40,7 +39,7 @@ public object StreamsTogglePacketKt {
      */
      public val enableStreams: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, EnableStreamsProxy>
       @kotlin.jvm.JvmSynthetic
-  get() = com.google.protobuf.kotlin.DslList(
+      get() = com.google.protobuf.kotlin.DslList(
         _builder.enableStreamsList
       )
     /**
@@ -48,7 +47,7 @@ public object StreamsTogglePacketKt {
      * @param value The enableStreams to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("addEnableStreams")
+    @kotlin.jvm.JvmName("addEnableStreams")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, EnableStreamsProxy>.add(value: com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo) {
       _builder.addEnableStreams(value)
     }
@@ -57,7 +56,7 @@ public object StreamsTogglePacketKt {
      * @param value The enableStreams to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("plusAssignEnableStreams")
+    @kotlin.jvm.JvmName("plusAssignEnableStreams")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, EnableStreamsProxy>.plusAssign(value: com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo) {
       add(value)
@@ -67,7 +66,7 @@ public object StreamsTogglePacketKt {
      * @param values The enableStreams to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("addAllEnableStreams")
+    @kotlin.jvm.JvmName("addAllEnableStreams")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, EnableStreamsProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo>) {
       _builder.addAllEnableStreams(values)
     }
@@ -76,7 +75,7 @@ public object StreamsTogglePacketKt {
      * @param values The enableStreams to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("plusAssignAllEnableStreams")
+    @kotlin.jvm.JvmName("plusAssignAllEnableStreams")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, EnableStreamsProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo>) {
       addAll(values)
@@ -87,7 +86,7 @@ public object StreamsTogglePacketKt {
      * @param value The enableStreams to set.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("setEnableStreams")
+    @kotlin.jvm.JvmName("setEnableStreams")
     public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, EnableStreamsProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo) {
       _builder.setEnableStreams(index, value)
     }
@@ -95,10 +94,11 @@ public object StreamsTogglePacketKt {
      * `repeated .sfu.public.server.v1.StreamInfo enable_streams = 1;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("clearEnableStreams")
+    @kotlin.jvm.JvmName("clearEnableStreams")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, EnableStreamsProxy>.clear() {
       _builder.clearEnableStreams()
     }
+
 
     /**
      * An uninstantiable, behaviorless type to represent the field in
@@ -111,7 +111,7 @@ public object StreamsTogglePacketKt {
      */
      public val disableStreams: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, DisableStreamsProxy>
       @kotlin.jvm.JvmSynthetic
-  get() = com.google.protobuf.kotlin.DslList(
+      get() = com.google.protobuf.kotlin.DslList(
         _builder.disableStreamsList
       )
     /**
@@ -119,7 +119,7 @@ public object StreamsTogglePacketKt {
      * @param value The disableStreams to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("addDisableStreams")
+    @kotlin.jvm.JvmName("addDisableStreams")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, DisableStreamsProxy>.add(value: com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo) {
       _builder.addDisableStreams(value)
     }
@@ -128,7 +128,7 @@ public object StreamsTogglePacketKt {
      * @param value The disableStreams to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("plusAssignDisableStreams")
+    @kotlin.jvm.JvmName("plusAssignDisableStreams")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, DisableStreamsProxy>.plusAssign(value: com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo) {
       add(value)
@@ -138,7 +138,7 @@ public object StreamsTogglePacketKt {
      * @param values The disableStreams to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("addAllDisableStreams")
+    @kotlin.jvm.JvmName("addAllDisableStreams")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, DisableStreamsProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo>) {
       _builder.addAllDisableStreams(values)
     }
@@ -147,7 +147,7 @@ public object StreamsTogglePacketKt {
      * @param values The disableStreams to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("plusAssignAllDisableStreams")
+    @kotlin.jvm.JvmName("plusAssignAllDisableStreams")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, DisableStreamsProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo>) {
       addAll(values)
@@ -158,7 +158,7 @@ public object StreamsTogglePacketKt {
      * @param value The disableStreams to set.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("setDisableStreams")
+    @kotlin.jvm.JvmName("setDisableStreams")
     public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, DisableStreamsProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo) {
       _builder.setDisableStreams(index, value)
     }
@@ -166,10 +166,11 @@ public object StreamsTogglePacketKt {
      * `repeated .sfu.public.server.v1.StreamInfo disable_streams = 2;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("clearDisableStreams")
+    @kotlin.jvm.JvmName("clearDisableStreams")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.sfu.server.sfu.StreamInfo, DisableStreamsProxy>.clear() {
       _builder.clearDisableStreams()
     }
+
   }
 }
 @kotlin.jvm.JvmSynthetic

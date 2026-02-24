@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: user/users/public/server/v1/entities.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.user.server.users;
@@ -33,10 +32,10 @@ public object UserKt {
      * `string id = 1;`
      */
     public var id: kotlin.String
-      @kotlin.jvm.JvmName("getId")
-        get() = _builder.id
-      @kotlin.jvm.JvmName("setId")
-        set(value) {
+      @JvmName("getId")
+      get() = _builder.id
+      @JvmName("setId")
+      set(value) {
         _builder.id = value
       }
     /**
@@ -50,10 +49,10 @@ public object UserKt {
      * `string avatar = 2;`
      */
     public var avatar: kotlin.String
-      @kotlin.jvm.JvmName("getAvatar")
-        get() = _builder.avatar
-      @kotlin.jvm.JvmName("setAvatar")
-        set(value) {
+      @JvmName("getAvatar")
+      get() = _builder.avatar
+      @JvmName("setAvatar")
+      set(value) {
         _builder.avatar = value
       }
     /**
@@ -67,10 +66,10 @@ public object UserKt {
      * `string fullname = 3;`
      */
     public var fullname: kotlin.String
-      @kotlin.jvm.JvmName("getFullname")
-        get() = _builder.fullname
-      @kotlin.jvm.JvmName("setFullname")
-        set(value) {
+      @JvmName("getFullname")
+      get() = _builder.fullname
+      @JvmName("setFullname")
+      set(value) {
         _builder.fullname = value
       }
     /**
@@ -91,14 +90,14 @@ public object UserKt {
      */
      public val metadata: com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("getMetadataMap")
+      @JvmName("getMetadataMap")
       get() = com.google.protobuf.kotlin.DslMap(
         _builder.metadataMap
       )
     /**
      * `map<string, string> metadata = 6;`
      */
-    @kotlin.jvm.JvmName("putMetadata")
+    @JvmName("putMetadata")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .put(key: kotlin.String, value: kotlin.String) {
          _builder.putMetadata(key, value)
@@ -107,7 +106,7 @@ public object UserKt {
      * `map<string, string> metadata = 6;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("setMetadata")
+    @JvmName("setMetadata")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .set(key: kotlin.String, value: kotlin.String) {
@@ -117,7 +116,7 @@ public object UserKt {
      * `map<string, string> metadata = 6;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("removeMetadata")
+    @JvmName("removeMetadata")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .remove(key: kotlin.String) {
          _builder.removeMetadata(key)
@@ -126,7 +125,7 @@ public object UserKt {
      * `map<string, string> metadata = 6;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("putAllMetadata")
+    @JvmName("putAllMetadata")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .putAll(map: kotlin.collections.Map<kotlin.String, kotlin.String>) {
          _builder.putAllMetadata(map)
@@ -135,7 +134,7 @@ public object UserKt {
      * `map<string, string> metadata = 6;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("clearMetadata")
+    @JvmName("clearMetadata")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .clear() {
          _builder.clearMetadata()
@@ -145,10 +144,10 @@ public object UserKt {
      * `string nickname = 4;`
      */
     public var nickname: kotlin.String
-      @kotlin.jvm.JvmName("getNickname")
-        get() = _builder.nickname
-      @kotlin.jvm.JvmName("setNickname")
-        set(value) {
+      @JvmName("getNickname")
+      get() = _builder.nickname
+      @JvmName("setNickname")
+      set(value) {
         _builder.nickname = value
       }
     /**
@@ -167,9 +166,9 @@ public object UserKt {
     /**
      * `repeated .user.users.public.server.v1.Permission permissions = 5;`
      */
-     public val permissions: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.user.server.users.Permission, PermissionsProxy>
+    public val permissions: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.user.server.users.Permission, PermissionsProxy>
       @kotlin.jvm.JvmSynthetic
-  get() = com.google.protobuf.kotlin.DslList(
+      get() = com.google.protobuf.kotlin.DslList(
         _builder.permissionsList
       )
     /**
@@ -177,7 +176,7 @@ public object UserKt {
      * @param value The permissions to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("addPermissions")
+    @kotlin.jvm.JvmName("addPermissions")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.user.server.users.Permission, PermissionsProxy>.add(value: com.evemeta.zdk.pb.user.server.users.Permission) {
       _builder.addPermissions(value)
     }/**
@@ -185,7 +184,7 @@ public object UserKt {
      * @param value The permissions to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("plusAssignPermissions")
+    @kotlin.jvm.JvmName("plusAssignPermissions")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.user.server.users.Permission, PermissionsProxy>.plusAssign(value: com.evemeta.zdk.pb.user.server.users.Permission) {
       add(value)
@@ -194,7 +193,7 @@ public object UserKt {
      * @param values The permissions to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("addAllPermissions")
+    @kotlin.jvm.JvmName("addAllPermissions")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.user.server.users.Permission, PermissionsProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.user.server.users.Permission>) {
       _builder.addAllPermissions(values)
     }/**
@@ -202,7 +201,7 @@ public object UserKt {
      * @param values The permissions to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("plusAssignAllPermissions")
+    @kotlin.jvm.JvmName("plusAssignAllPermissions")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.user.server.users.Permission, PermissionsProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.user.server.users.Permission>) {
       addAll(values)
@@ -212,14 +211,14 @@ public object UserKt {
      * @param value The permissions to set.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("setPermissions")
+    @kotlin.jvm.JvmName("setPermissions")
     public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.user.server.users.Permission, PermissionsProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.user.server.users.Permission) {
       _builder.setPermissions(index, value)
     }/**
      * `repeated .user.users.public.server.v1.Permission permissions = 5;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("clearPermissions")
+    @kotlin.jvm.JvmName("clearPermissions")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.user.server.users.Permission, PermissionsProxy>.clear() {
       _builder.clearPermissions()
     }}

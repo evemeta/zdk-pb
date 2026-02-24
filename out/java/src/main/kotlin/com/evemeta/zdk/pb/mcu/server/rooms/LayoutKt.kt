@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: mcu/rooms/public/server/v1/entities.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.mcu.server.rooms;
@@ -33,10 +32,10 @@ public object LayoutKt {
      * `string name = 1;`
      */
     public var name: kotlin.String
-      @kotlin.jvm.JvmName("getName")
-        get() = _builder.name
-      @kotlin.jvm.JvmName("setName")
-        set(value) {
+      @JvmName("getName")
+      get() = _builder.name
+      @JvmName("setName")
+      set(value) {
         _builder.name = value
       }
     /**
@@ -50,10 +49,10 @@ public object LayoutKt {
      * `.mcu.rooms.public.server.v1.Resolution resolution = 2;`
      */
     public var resolution: com.evemeta.zdk.pb.mcu.server.rooms.Resolution
-      @kotlin.jvm.JvmName("getResolution")
-        get() = _builder.resolution
-      @kotlin.jvm.JvmName("setResolution")
-        set(value) {
+      @JvmName("getResolution")
+      get() = _builder.resolution
+      @JvmName("setResolution")
+      set(value) {
         _builder.resolution = value
       }
     /**
@@ -84,7 +83,7 @@ public object LayoutKt {
      */
      public val config: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.mcu.server.rooms.LayoutCell, ConfigProxy>
       @kotlin.jvm.JvmSynthetic
-  get() = com.google.protobuf.kotlin.DslList(
+      get() = com.google.protobuf.kotlin.DslList(
         _builder.configList
       )
     /**
@@ -92,7 +91,7 @@ public object LayoutKt {
      * @param value The config to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("addConfig")
+    @kotlin.jvm.JvmName("addConfig")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.mcu.server.rooms.LayoutCell, ConfigProxy>.add(value: com.evemeta.zdk.pb.mcu.server.rooms.LayoutCell) {
       _builder.addConfig(value)
     }
@@ -101,7 +100,7 @@ public object LayoutKt {
      * @param value The config to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("plusAssignConfig")
+    @kotlin.jvm.JvmName("plusAssignConfig")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.mcu.server.rooms.LayoutCell, ConfigProxy>.plusAssign(value: com.evemeta.zdk.pb.mcu.server.rooms.LayoutCell) {
       add(value)
@@ -111,7 +110,7 @@ public object LayoutKt {
      * @param values The config to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("addAllConfig")
+    @kotlin.jvm.JvmName("addAllConfig")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.mcu.server.rooms.LayoutCell, ConfigProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.mcu.server.rooms.LayoutCell>) {
       _builder.addAllConfig(values)
     }
@@ -120,7 +119,7 @@ public object LayoutKt {
      * @param values The config to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("plusAssignAllConfig")
+    @kotlin.jvm.JvmName("plusAssignAllConfig")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.mcu.server.rooms.LayoutCell, ConfigProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.mcu.server.rooms.LayoutCell>) {
       addAll(values)
@@ -131,7 +130,7 @@ public object LayoutKt {
      * @param value The config to set.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("setConfig")
+    @kotlin.jvm.JvmName("setConfig")
     public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.mcu.server.rooms.LayoutCell, ConfigProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.mcu.server.rooms.LayoutCell) {
       _builder.setConfig(index, value)
     }
@@ -139,19 +138,20 @@ public object LayoutKt {
      * `repeated .mcu.rooms.public.server.v1.LayoutCell config = 3;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("clearConfig")
+    @kotlin.jvm.JvmName("clearConfig")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.mcu.server.rooms.LayoutCell, ConfigProxy>.clear() {
       _builder.clearConfig()
     }
+
 
     /**
      * `.mcu.rooms.public.server.v1.CellConfig cell_config = 4;`
      */
     public var cellConfig: com.evemeta.zdk.pb.mcu.server.rooms.CellConfig
-      @kotlin.jvm.JvmName("getCellConfig")
-        get() = _builder.cellConfig
-      @kotlin.jvm.JvmName("setCellConfig")
-        set(value) {
+      @JvmName("getCellConfig")
+      get() = _builder.cellConfig
+      @JvmName("setCellConfig")
+      set(value) {
         _builder.cellConfig = value
       }
     /**
@@ -175,10 +175,10 @@ public object LayoutKt {
      * `int64 version = 5;`
      */
     public var version: kotlin.Long
-      @kotlin.jvm.JvmName("getVersion")
-        get() = _builder.version
-      @kotlin.jvm.JvmName("setVersion")
-        set(value) {
+      @JvmName("getVersion")
+      get() = _builder.version
+      @JvmName("setVersion")
+      set(value) {
         _builder.version = value
       }
     /**
@@ -192,10 +192,10 @@ public object LayoutKt {
      * `int64 seed = 6;`
      */
     public var seed: kotlin.Long
-      @kotlin.jvm.JvmName("getSeed")
-        get() = _builder.seed
-      @kotlin.jvm.JvmName("setSeed")
-        set(value) {
+      @JvmName("getSeed")
+      get() = _builder.seed
+      @JvmName("setSeed")
+      set(value) {
         _builder.seed = value
       }
     /**

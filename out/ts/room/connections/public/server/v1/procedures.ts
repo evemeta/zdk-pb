@@ -234,7 +234,7 @@ export const SelectRequest = new SelectRequest$Type();
 class SelectResponse$Type extends MessageType<SelectResponse> {
     constructor() {
         super("room.connections.public.server.v1.SelectResponse", [
-            { no: 1, name: "connections", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => Connection }
+            { no: 1, name: "connections", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => Connection }
         ]);
     }
     create(value?: PartialMessage<SelectResponse>): SelectResponse {
