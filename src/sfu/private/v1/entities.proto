@@ -36,4 +36,7 @@ message RecordingHeader {
 message RecordingStream {
     sfu.public.server.v1.StreamType stream_type = 1;
     int64 start_time = 4;
+
+    uint64 ntp_time = 5;
+    uint32 rtp_time = 6;
 }

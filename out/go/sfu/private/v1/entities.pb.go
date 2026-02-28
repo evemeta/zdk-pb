@@ -290,6 +290,8 @@ type RecordingStream struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	StreamType    v1.StreamType          `protobuf:"varint,1,opt,name=stream_type,json=streamType,proto3,enum=sfu.public.server.v1.StreamType" json:"stream_type,omitempty"`
 	StartTime     int64                  `protobuf:"varint,4,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	NtpTime       uint64                 `protobuf:"varint,5,opt,name=ntp_time,json=ntpTime,proto3" json:"ntp_time,omitempty"`
+	RtpTime       uint32                 `protobuf:"varint,6,opt,name=rtp_time,json=rtpTime,proto3" json:"rtp_time,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -338,6 +340,20 @@ func (x *RecordingStream) GetStartTime() int64 {
 	return 0
 }
 
+func (x *RecordingStream) GetNtpTime() uint64 {
+	if x != nil {
+		return x.NtpTime
+	}
+	return 0
+}
+
+func (x *RecordingStream) GetRtpTime() uint32 {
+	if x != nil {
+		return x.RtpTime
+	}
+	return 0
+}
+
 var File_sfu_private_v1_entities_proto protoreflect.FileDescriptor
 
 const file_sfu_private_v1_entities_proto_rawDesc = "" +
@@ -366,12 +382,14 @@ const file_sfu_private_v1_entities_proto_rawDesc = "" +
 	"\n" +
 	"start_time\x18\x04 \x01(\x03R\tstartTime\x12\x19\n" +
 	"\bend_time\x18\x05 \x01(\x03R\aendTime\x129\n" +
-	"\astreams\x18\x06 \x03(\v2\x1f.sfu.private.v1.RecordingStreamR\astreams\"s\n" +
+	"\astreams\x18\x06 \x03(\v2\x1f.sfu.private.v1.RecordingStreamR\astreams\"\xa9\x01\n" +
 	"\x0fRecordingStream\x12A\n" +
 	"\vstream_type\x18\x01 \x01(\x0e2 .sfu.public.server.v1.StreamTypeR\n" +
 	"streamType\x12\x1d\n" +
 	"\n" +
-	"start_time\x18\x04 \x01(\x03R\tstartTimeB7Z5github.com/evemeta/zdk-pb/out/go/sfu/private/v1;sfupbb\x06proto3"
+	"start_time\x18\x04 \x01(\x03R\tstartTime\x12\x19\n" +
+	"\bntp_time\x18\x05 \x01(\x04R\antpTime\x12\x19\n" +
+	"\brtp_time\x18\x06 \x01(\rR\artpTimeB7Z5github.com/evemeta/zdk-pb/out/go/sfu/private/v1;sfupbb\x06proto3"
 
 var (
 	file_sfu_private_v1_entities_proto_rawDescOnce sync.Once
