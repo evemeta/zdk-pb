@@ -5,6 +5,7 @@ package gateway.streams.private.v1;
 import "gateway/streams/private/v1/enums.proto";
 import "gateway/streams/private/v1/entities.proto";
 import "gateway/streams/private/v1/optionals.proto";
+import "gateway/transponders/private/v1/procedures.proto";
 import "event/events/private/v1/procedures.proto";
 
 option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/streams/private/v1;streamspb";
@@ -129,6 +130,7 @@ message DeleteMutation {
 
 message DeleteCondition {
     repeated event.events.private.v1.LeaveMutation leave_event_mutations = 1;
+    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 2;
 }
 
 message DeleteTransaction {
