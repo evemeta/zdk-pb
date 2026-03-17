@@ -76,7 +76,7 @@ message CreateArgument {
     int64                             capacity            = 4;
     map<string, string>               metadata            = 5;
     event.events.private.v1.Schedule  schedule            = 6;
-    event.events.private.v1.Broadcast broadcast           = 7;
+    event.events.private.v1.Source    source              = 7;
     int64                             retention           = 8;
     int64                             planned_start_time  = 9;
     int64                             planned_finish_time = 10;
