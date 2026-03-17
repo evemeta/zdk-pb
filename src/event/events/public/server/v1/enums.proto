@@ -37,9 +37,36 @@ enum Schedule {
     ScheduleUnplanned = 2;
 }
 
-// BroadcastOrientation represents an enumeration that specifies the orientation of a broadcast, indicating whether it is vertical or horizontal.
-enum BroadcastOrientation {
-    BroadcastOrientationUnknown    = 0;
-    BroadcastOrientationVertical   = 1;
-    BroadcastOrientationHorizontal = 2;
+// McuSourceOrientation represents the orientation of a media stream produced by an MCU source.
+// It specifies whether the stream is presented in a vertical or horizontal layout.
+enum McuSourceOrientation {
+    McuSourceOrientationUnknown    = 0;
+    McuSourceOrientationVertical   = 1;
+    McuSourceOrientationHorizontal = 2;
+}
+
+// McuSourceVideoOutput represents the video output profile used by an MCU source.
+// It defines the resolution, frame rate, and codec configuration used when generating the video stream.
+enum McuSourceVideoOutput {
+    VideoOutputUnknown     = 0;
+    VideoOutput1080p60H264 = 1;
+    VideoOutput1080p30H264 = 2;
+    VideoOutput720p30H264  = 3;
+    VideoOutput540p30H264  = 4;
+    VideoOutput360p30H264  = 5;
+    VideoOutput2160p60AV1  = 6;
+    VideoOutput2160p30AV   = 7;
+    VideoOutput1080p30AV1  = 8;
+    VideoOutput1080p60AV1  = 9;
+    VideoOutput720p30AV1   = 10;
+    VideoOutput540p30AV1   = 11;
+    VideoOutput360p30AV1   = 12;
+}
+
+// McuSourceAudioOutput represents the audio output profile used by an MCU source.
+// It defines the audio bitrate and codec configuration used when generating the audio stream.
+enum McuSourceAudioOutput {
+    AudioOutputUnknown = 0;
+    AudioOutput64kOPUS = 1;
+    AudioOutput64kAAC  = 2;
 }
