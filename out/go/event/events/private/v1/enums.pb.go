@@ -226,53 +226,181 @@ func (Schedule) EnumDescriptor() ([]byte, []int) {
 	return file_event_events_private_v1_enums_proto_rawDescGZIP(), []int{3}
 }
 
-type BroadcastOrientation int32
+type McuSourceOrientation int32
 
 const (
-	BroadcastOrientationUnknown    BroadcastOrientation = 0
-	BroadcastOrientationVertical   BroadcastOrientation = 1
-	BroadcastOrientationHorizontal BroadcastOrientation = 2
+	McuSourceOrientationUnknown    McuSourceOrientation = 0
+	McuSourceOrientationVertical   McuSourceOrientation = 1
+	McuSourceOrientationHorizontal McuSourceOrientation = 2
 )
 
-// Enum value maps for BroadcastOrientation.
+// Enum value maps for McuSourceOrientation.
 var (
-	BroadcastOrientation_name = map[int32]string{
-		0: "BroadcastOrientationUnknown",
-		1: "BroadcastOrientationVertical",
-		2: "BroadcastOrientationHorizontal",
+	McuSourceOrientation_name = map[int32]string{
+		0: "McuSourceOrientationUnknown",
+		1: "McuSourceOrientationVertical",
+		2: "McuSourceOrientationHorizontal",
 	}
-	BroadcastOrientation_value = map[string]int32{
-		"BroadcastOrientationUnknown":    0,
-		"BroadcastOrientationVertical":   1,
-		"BroadcastOrientationHorizontal": 2,
+	McuSourceOrientation_value = map[string]int32{
+		"McuSourceOrientationUnknown":    0,
+		"McuSourceOrientationVertical":   1,
+		"McuSourceOrientationHorizontal": 2,
 	}
 )
 
-func (x BroadcastOrientation) Enum() *BroadcastOrientation {
-	p := new(BroadcastOrientation)
+func (x McuSourceOrientation) Enum() *McuSourceOrientation {
+	p := new(McuSourceOrientation)
 	*p = x
 	return p
 }
 
-func (x BroadcastOrientation) String() string {
+func (x McuSourceOrientation) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
-func (BroadcastOrientation) Descriptor() protoreflect.EnumDescriptor {
+func (McuSourceOrientation) Descriptor() protoreflect.EnumDescriptor {
 	return file_event_events_private_v1_enums_proto_enumTypes[4].Descriptor()
 }
 
-func (BroadcastOrientation) Type() protoreflect.EnumType {
+func (McuSourceOrientation) Type() protoreflect.EnumType {
 	return &file_event_events_private_v1_enums_proto_enumTypes[4]
 }
 
-func (x BroadcastOrientation) Number() protoreflect.EnumNumber {
+func (x McuSourceOrientation) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
-// Deprecated: Use BroadcastOrientation.Descriptor instead.
-func (BroadcastOrientation) EnumDescriptor() ([]byte, []int) {
+// Deprecated: Use McuSourceOrientation.Descriptor instead.
+func (McuSourceOrientation) EnumDescriptor() ([]byte, []int) {
 	return file_event_events_private_v1_enums_proto_rawDescGZIP(), []int{4}
+}
+
+type McuSourceVideoOutput int32
+
+const (
+	McuSourceVideoOutput_VideoOutputUnknown     McuSourceVideoOutput = 0
+	McuSourceVideoOutput_VideoOutput1080p60H264 McuSourceVideoOutput = 1
+	McuSourceVideoOutput_VideoOutput1080p30H264 McuSourceVideoOutput = 2
+	McuSourceVideoOutput_VideoOutput720p30H264  McuSourceVideoOutput = 3
+	McuSourceVideoOutput_VideoOutput540p30H264  McuSourceVideoOutput = 4
+	McuSourceVideoOutput_VideoOutput360p30H264  McuSourceVideoOutput = 5
+	McuSourceVideoOutput_VideoOutput2160p60AV1  McuSourceVideoOutput = 6
+	McuSourceVideoOutput_VideoOutput2160p30AV   McuSourceVideoOutput = 7
+	McuSourceVideoOutput_VideoOutput1080p30AV1  McuSourceVideoOutput = 8
+	McuSourceVideoOutput_VideoOutput1080p60AV1  McuSourceVideoOutput = 9
+	McuSourceVideoOutput_VideoOutput720p30AV1   McuSourceVideoOutput = 10
+	McuSourceVideoOutput_VideoOutput540p30AV1   McuSourceVideoOutput = 11
+	McuSourceVideoOutput_VideoOutput360p30AV1   McuSourceVideoOutput = 12
+)
+
+// Enum value maps for McuSourceVideoOutput.
+var (
+	McuSourceVideoOutput_name = map[int32]string{
+		0:  "VideoOutputUnknown",
+		1:  "VideoOutput1080p60H264",
+		2:  "VideoOutput1080p30H264",
+		3:  "VideoOutput720p30H264",
+		4:  "VideoOutput540p30H264",
+		5:  "VideoOutput360p30H264",
+		6:  "VideoOutput2160p60AV1",
+		7:  "VideoOutput2160p30AV",
+		8:  "VideoOutput1080p30AV1",
+		9:  "VideoOutput1080p60AV1",
+		10: "VideoOutput720p30AV1",
+		11: "VideoOutput540p30AV1",
+		12: "VideoOutput360p30AV1",
+	}
+	McuSourceVideoOutput_value = map[string]int32{
+		"VideoOutputUnknown":     0,
+		"VideoOutput1080p60H264": 1,
+		"VideoOutput1080p30H264": 2,
+		"VideoOutput720p30H264":  3,
+		"VideoOutput540p30H264":  4,
+		"VideoOutput360p30H264":  5,
+		"VideoOutput2160p60AV1":  6,
+		"VideoOutput2160p30AV":   7,
+		"VideoOutput1080p30AV1":  8,
+		"VideoOutput1080p60AV1":  9,
+		"VideoOutput720p30AV1":   10,
+		"VideoOutput540p30AV1":   11,
+		"VideoOutput360p30AV1":   12,
+	}
+)
+
+func (x McuSourceVideoOutput) Enum() *McuSourceVideoOutput {
+	p := new(McuSourceVideoOutput)
+	*p = x
+	return p
+}
+
+func (x McuSourceVideoOutput) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (McuSourceVideoOutput) Descriptor() protoreflect.EnumDescriptor {
+	return file_event_events_private_v1_enums_proto_enumTypes[5].Descriptor()
+}
+
+func (McuSourceVideoOutput) Type() protoreflect.EnumType {
+	return &file_event_events_private_v1_enums_proto_enumTypes[5]
+}
+
+func (x McuSourceVideoOutput) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use McuSourceVideoOutput.Descriptor instead.
+func (McuSourceVideoOutput) EnumDescriptor() ([]byte, []int) {
+	return file_event_events_private_v1_enums_proto_rawDescGZIP(), []int{5}
+}
+
+type McuSourceAudioOutput int32
+
+const (
+	McuSourceAudioOutput_AudioOutputUnknown McuSourceAudioOutput = 0
+	McuSourceAudioOutput_AudioOutput64kOPUS McuSourceAudioOutput = 1
+	McuSourceAudioOutput_AudioOutput64kAAC  McuSourceAudioOutput = 2
+)
+
+// Enum value maps for McuSourceAudioOutput.
+var (
+	McuSourceAudioOutput_name = map[int32]string{
+		0: "AudioOutputUnknown",
+		1: "AudioOutput64kOPUS",
+		2: "AudioOutput64kAAC",
+	}
+	McuSourceAudioOutput_value = map[string]int32{
+		"AudioOutputUnknown": 0,
+		"AudioOutput64kOPUS": 1,
+		"AudioOutput64kAAC":  2,
+	}
+)
+
+func (x McuSourceAudioOutput) Enum() *McuSourceAudioOutput {
+	p := new(McuSourceAudioOutput)
+	*p = x
+	return p
+}
+
+func (x McuSourceAudioOutput) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (McuSourceAudioOutput) Descriptor() protoreflect.EnumDescriptor {
+	return file_event_events_private_v1_enums_proto_enumTypes[6].Descriptor()
+}
+
+func (McuSourceAudioOutput) Type() protoreflect.EnumType {
+	return &file_event_events_private_v1_enums_proto_enumTypes[6]
+}
+
+func (x McuSourceAudioOutput) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use McuSourceAudioOutput.Descriptor instead.
+func (McuSourceAudioOutput) EnumDescriptor() ([]byte, []int) {
+	return file_event_events_private_v1_enums_proto_rawDescGZIP(), []int{6}
 }
 
 var File_event_events_private_v1_enums_proto protoreflect.FileDescriptor
@@ -299,10 +427,29 @@ const file_event_events_private_v1_enums_proto_rawDesc = "" +
 	"\x0fScheduleUnknown\x10\x00\x12\x13\n" +
 	"\x0fSchedulePlanned\x10\x01\x12\x15\n" +
 	"\x11ScheduleUnplanned\x10\x02*}\n" +
-	"\x14BroadcastOrientation\x12\x1f\n" +
-	"\x1bBroadcastOrientationUnknown\x10\x00\x12 \n" +
-	"\x1cBroadcastOrientationVertical\x10\x01\x12\"\n" +
-	"\x1eBroadcastOrientationHorizontal\x10\x02BCZAgithub.com/evemeta/zdk-pb/out/go/event/events/private/v1;eventspbb\x06proto3"
+	"\x14McuSourceOrientation\x12\x1f\n" +
+	"\x1bMcuSourceOrientationUnknown\x10\x00\x12 \n" +
+	"\x1cMcuSourceOrientationVertical\x10\x01\x12\"\n" +
+	"\x1eMcuSourceOrientationHorizontal\x10\x02*\xf0\x02\n" +
+	"\x14McuSourceVideoOutput\x12\x16\n" +
+	"\x12VideoOutputUnknown\x10\x00\x12\x1a\n" +
+	"\x16VideoOutput1080p60H264\x10\x01\x12\x1a\n" +
+	"\x16VideoOutput1080p30H264\x10\x02\x12\x19\n" +
+	"\x15VideoOutput720p30H264\x10\x03\x12\x19\n" +
+	"\x15VideoOutput540p30H264\x10\x04\x12\x19\n" +
+	"\x15VideoOutput360p30H264\x10\x05\x12\x19\n" +
+	"\x15VideoOutput2160p60AV1\x10\x06\x12\x18\n" +
+	"\x14VideoOutput2160p30AV\x10\a\x12\x19\n" +
+	"\x15VideoOutput1080p30AV1\x10\b\x12\x19\n" +
+	"\x15VideoOutput1080p60AV1\x10\t\x12\x18\n" +
+	"\x14VideoOutput720p30AV1\x10\n" +
+	"\x12\x18\n" +
+	"\x14VideoOutput540p30AV1\x10\v\x12\x18\n" +
+	"\x14VideoOutput360p30AV1\x10\f*]\n" +
+	"\x14McuSourceAudioOutput\x12\x16\n" +
+	"\x12AudioOutputUnknown\x10\x00\x12\x16\n" +
+	"\x12AudioOutput64kOPUS\x10\x01\x12\x15\n" +
+	"\x11AudioOutput64kAAC\x10\x02BCZAgithub.com/evemeta/zdk-pb/out/go/event/events/private/v1;eventspbb\x06proto3"
 
 var (
 	file_event_events_private_v1_enums_proto_rawDescOnce sync.Once
@@ -316,13 +463,15 @@ func file_event_events_private_v1_enums_proto_rawDescGZIP() []byte {
 	return file_event_events_private_v1_enums_proto_rawDescData
 }
 
-var file_event_events_private_v1_enums_proto_enumTypes = make([]protoimpl.EnumInfo, 5)
+var file_event_events_private_v1_enums_proto_enumTypes = make([]protoimpl.EnumInfo, 7)
 var file_event_events_private_v1_enums_proto_goTypes = []any{
 	(Kind)(0),                 // 0: event.events.private.v1.Kind
 	(Order)(0),                // 1: event.events.private.v1.Order
 	(Status)(0),               // 2: event.events.private.v1.Status
 	(Schedule)(0),             // 3: event.events.private.v1.Schedule
-	(BroadcastOrientation)(0), // 4: event.events.private.v1.BroadcastOrientation
+	(McuSourceOrientation)(0), // 4: event.events.private.v1.McuSourceOrientation
+	(McuSourceVideoOutput)(0), // 5: event.events.private.v1.McuSourceVideoOutput
+	(McuSourceAudioOutput)(0), // 6: event.events.private.v1.McuSourceAudioOutput
 }
 var file_event_events_private_v1_enums_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -342,7 +491,7 @@ func file_event_events_private_v1_enums_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_event_events_private_v1_enums_proto_rawDesc), len(file_event_events_private_v1_enums_proto_rawDesc)),
-			NumEnums:      5,
+			NumEnums:      7,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   0,

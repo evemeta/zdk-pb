@@ -7,25 +7,26 @@ package com.evemeta.zdk.pb.event.server.events;
 
 /**
  * <pre>
- * BroadcastOrientation represents an enumeration that specifies the orientation of a broadcast, indicating whether it is vertical or horizontal.
+ * McuSourceOrientation represents the orientation of a media stream produced by an MCU source.
+ * It specifies whether the stream is presented in a vertical or horizontal layout.
  * </pre>
  *
- * Protobuf enum {@code event.events.public.server.v1.BroadcastOrientation}
+ * Protobuf enum {@code event.events.public.server.v1.McuSourceOrientation}
  */
-public enum BroadcastOrientation
+public enum McuSourceOrientation
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>BroadcastOrientationUnknown = 0;</code>
+   * <code>McuSourceOrientationUnknown = 0;</code>
    */
-  BroadcastOrientationUnknown(0),
+  McuSourceOrientationUnknown(0),
   /**
-   * <code>BroadcastOrientationVertical = 1;</code>
+   * <code>McuSourceOrientationVertical = 1;</code>
    */
-  BroadcastOrientationVertical(1),
+  McuSourceOrientationVertical(1),
   /**
-   * <code>BroadcastOrientationHorizontal = 2;</code>
+   * <code>McuSourceOrientationHorizontal = 2;</code>
    */
-  BroadcastOrientationHorizontal(2),
+  McuSourceOrientationHorizontal(2),
   UNRECOGNIZED(-1),
   ;
 
@@ -36,20 +37,20 @@ public enum BroadcastOrientation
       /* minor= */ 29,
       /* patch= */ 3,
       /* suffix= */ "",
-      BroadcastOrientation.class.getName());
+      McuSourceOrientation.class.getName());
   }
   /**
-   * <code>BroadcastOrientationUnknown = 0;</code>
+   * <code>McuSourceOrientationUnknown = 0;</code>
    */
-  public static final int BroadcastOrientationUnknown_VALUE = 0;
+  public static final int McuSourceOrientationUnknown_VALUE = 0;
   /**
-   * <code>BroadcastOrientationVertical = 1;</code>
+   * <code>McuSourceOrientationVertical = 1;</code>
    */
-  public static final int BroadcastOrientationVertical_VALUE = 1;
+  public static final int McuSourceOrientationVertical_VALUE = 1;
   /**
-   * <code>BroadcastOrientationHorizontal = 2;</code>
+   * <code>McuSourceOrientationHorizontal = 2;</code>
    */
-  public static final int BroadcastOrientationHorizontal_VALUE = 2;
+  public static final int McuSourceOrientationHorizontal_VALUE = 2;
 
 
   public final int getNumber() {
@@ -66,7 +67,7 @@ public enum BroadcastOrientation
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
-  public static BroadcastOrientation valueOf(int value) {
+  public static McuSourceOrientation valueOf(int value) {
     return forNumber(value);
   }
 
@@ -74,24 +75,24 @@ public enum BroadcastOrientation
    * @param value The numeric wire value of the corresponding enum entry.
    * @return The enum associated with the given numeric wire value.
    */
-  public static BroadcastOrientation forNumber(int value) {
+  public static McuSourceOrientation forNumber(int value) {
     switch (value) {
-      case 0: return BroadcastOrientationUnknown;
-      case 1: return BroadcastOrientationVertical;
-      case 2: return BroadcastOrientationHorizontal;
+      case 0: return McuSourceOrientationUnknown;
+      case 1: return McuSourceOrientationVertical;
+      case 2: return McuSourceOrientationHorizontal;
       default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<BroadcastOrientation>
+  public static com.google.protobuf.Internal.EnumLiteMap<McuSourceOrientation>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      BroadcastOrientation> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<BroadcastOrientation>() {
-          public BroadcastOrientation findValueByNumber(int number) {
-            return BroadcastOrientation.forNumber(number);
+      McuSourceOrientation> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<McuSourceOrientation>() {
+          public McuSourceOrientation findValueByNumber(int number) {
+            return McuSourceOrientation.forNumber(number);
           }
         };
 
@@ -112,9 +113,9 @@ public enum BroadcastOrientation
     return com.evemeta.zdk.pb.event.server.events.Enums.getDescriptor().getEnumTypes().get(4);
   }
 
-  private static final BroadcastOrientation[] VALUES = values();
+  private static final McuSourceOrientation[] VALUES = values();
 
-  public static BroadcastOrientation valueOf(
+  public static McuSourceOrientation valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
       throw new java.lang.IllegalArgumentException(
@@ -128,10 +129,10 @@ public enum BroadcastOrientation
 
   private final int value;
 
-  private BroadcastOrientation(int value) {
+  private McuSourceOrientation(int value) {
     this.value = value;
   }
 
-  // @@protoc_insertion_point(enum_scope:event.events.public.server.v1.BroadcastOrientation)
+  // @@protoc_insertion_point(enum_scope:event.events.public.server.v1.McuSourceOrientation)
 }
 

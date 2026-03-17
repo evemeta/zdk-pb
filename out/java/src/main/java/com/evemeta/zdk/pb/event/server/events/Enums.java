@@ -44,13 +44,25 @@ public final class Enums {
       "\021\n\rStatusStarted\020\003\022\022\n\016StatusFinished\020\004\022\022" +
       "\n\016StatusCanceled\020\005*K\n\010Schedule\022\023\n\017Schedu" +
       "leUnknown\020\000\022\023\n\017SchedulePlanned\020\001\022\025\n\021Sche" +
-      "duleUnplanned\020\002*}\n\024BroadcastOrientation\022" +
-      "\037\n\033BroadcastOrientationUnknown\020\000\022 \n\034Broa" +
-      "dcastOrientationVertical\020\001\022\"\n\036BroadcastO" +
-      "rientationHorizontal\020\002Bs\n&com.evemeta.zd" +
-      "k.pb.event.server.eventsP\001ZGgithub.com/e" +
-      "vemeta/zdk-pb/out/go/event/events/public" +
-      "/server/v1;eventspbb\006proto3"
+      "duleUnplanned\020\002*}\n\024McuSourceOrientation\022" +
+      "\037\n\033McuSourceOrientationUnknown\020\000\022 \n\034McuS" +
+      "ourceOrientationVertical\020\001\022\"\n\036McuSourceO" +
+      "rientationHorizontal\020\002*\360\002\n\024McuSourceVide" +
+      "oOutput\022\026\n\022VideoOutputUnknown\020\000\022\032\n\026Video" +
+      "Output1080p60H264\020\001\022\032\n\026VideoOutput1080p3" +
+      "0H264\020\002\022\031\n\025VideoOutput720p30H264\020\003\022\031\n\025Vi" +
+      "deoOutput540p30H264\020\004\022\031\n\025VideoOutput360p" +
+      "30H264\020\005\022\031\n\025VideoOutput2160p60AV1\020\006\022\030\n\024V" +
+      "ideoOutput2160p30AV\020\007\022\031\n\025VideoOutput1080" +
+      "p30AV1\020\010\022\031\n\025VideoOutput1080p60AV1\020\t\022\030\n\024V" +
+      "ideoOutput720p30AV1\020\n\022\030\n\024VideoOutput540p" +
+      "30AV1\020\013\022\030\n\024VideoOutput360p30AV1\020\014*]\n\024Mcu" +
+      "SourceAudioOutput\022\026\n\022AudioOutputUnknown\020" +
+      "\000\022\026\n\022AudioOutput64kOPUS\020\001\022\025\n\021AudioOutput" +
+      "64kAAC\020\002Bs\n&com.evemeta.zdk.pb.event.ser" +
+      "ver.eventsP\001ZGgithub.com/evemeta/zdk-pb/" +
+      "out/go/event/events/public/server/v1;eve" +
+      "ntspbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

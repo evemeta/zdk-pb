@@ -30,10 +30,10 @@ type Event struct {
 	UserId            string                 `protobuf:"bytes,4,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	Kind              Kind                   `protobuf:"varint,5,opt,name=kind,proto3,enum=event.events.private.v1.Kind" json:"kind,omitempty"`
 	Status            Status                 `protobuf:"varint,6,opt,name=status,proto3,enum=event.events.private.v1.Status" json:"status,omitempty"`
-	Capacity          int64                  `protobuf:"varint,7,opt,name=capacity,proto3" json:"capacity,omitempty"`
-	Metadata          map[string]string      `protobuf:"bytes,8,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	Schedule          Schedule               `protobuf:"varint,9,opt,name=schedule,proto3,enum=event.events.private.v1.Schedule" json:"schedule,omitempty"`
-	Broadcast         *Broadcast             `protobuf:"bytes,10,opt,name=broadcast,proto3" json:"broadcast,omitempty"`
+	Source            *Source                `protobuf:"bytes,7,opt,name=source,proto3" json:"source,omitempty"`
+	Capacity          int64                  `protobuf:"varint,8,opt,name=capacity,proto3" json:"capacity,omitempty"`
+	Metadata          map[string]string      `protobuf:"bytes,9,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Schedule          Schedule               `protobuf:"varint,10,opt,name=schedule,proto3,enum=event.events.private.v1.Schedule" json:"schedule,omitempty"`
 	Retention         int64                  `protobuf:"varint,11,opt,name=retention,proto3" json:"retention,omitempty"`
 	PlannedStartTime  int64                  `protobuf:"varint,12,opt,name=planned_start_time,json=plannedStartTime,proto3" json:"planned_start_time,omitempty"`
 	StartTime         int64                  `protobuf:"varint,13,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
@@ -119,6 +119,13 @@ func (x *Event) GetStatus() Status {
 	return StatusUnknown
 }
 
+func (x *Event) GetSource() *Source {
+	if x != nil {
+		return x.Source
+	}
+	return nil
+}
+
 func (x *Event) GetCapacity() int64 {
 	if x != nil {
 		return x.Capacity
@@ -138,13 +145,6 @@ func (x *Event) GetSchedule() Schedule {
 		return x.Schedule
 	}
 	return ScheduleUnknown
-}
-
-func (x *Event) GetBroadcast() *Broadcast {
-	if x != nil {
-		return x.Broadcast
-	}
-	return nil
 }
 
 func (x *Event) GetRetention() int64 {
@@ -210,27 +210,32 @@ func (x *Event) GetUpdateTime() int64 {
 	return 0
 }
 
-type Broadcast struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Orientation   BroadcastOrientation   `protobuf:"varint,1,opt,name=orientation,proto3,enum=event.events.private.v1.BroadcastOrientation" json:"orientation,omitempty"`
+type Source struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Types that are valid to be assigned to Source:
+	//
+	//	*Source_McuStreamerSource
+	//	*Source_McuRoomSource
+	//	*Source_DashSource
+	Source        isSource_Source `protobuf_oneof:"source"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *Broadcast) Reset() {
-	*x = Broadcast{}
+func (x *Source) Reset() {
+	*x = Source{}
 	mi := &file_event_events_private_v1_entities_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *Broadcast) String() string {
+func (x *Source) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*Broadcast) ProtoMessage() {}
+func (*Source) ProtoMessage() {}
 
-func (x *Broadcast) ProtoReflect() protoreflect.Message {
+func (x *Source) ProtoReflect() protoreflect.Message {
 	mi := &file_event_events_private_v1_entities_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -242,16 +247,229 @@ func (x *Broadcast) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use Broadcast.ProtoReflect.Descriptor instead.
-func (*Broadcast) Descriptor() ([]byte, []int) {
+// Deprecated: Use Source.ProtoReflect.Descriptor instead.
+func (*Source) Descriptor() ([]byte, []int) {
 	return file_event_events_private_v1_entities_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *Broadcast) GetOrientation() BroadcastOrientation {
+func (x *Source) GetSource() isSource_Source {
+	if x != nil {
+		return x.Source
+	}
+	return nil
+}
+
+func (x *Source) GetMcuStreamerSource() *McuStreamerSource {
+	if x != nil {
+		if x, ok := x.Source.(*Source_McuStreamerSource); ok {
+			return x.McuStreamerSource
+		}
+	}
+	return nil
+}
+
+func (x *Source) GetMcuRoomSource() *McuRoomSource {
+	if x != nil {
+		if x, ok := x.Source.(*Source_McuRoomSource); ok {
+			return x.McuRoomSource
+		}
+	}
+	return nil
+}
+
+func (x *Source) GetDashSource() *DashSource {
+	if x != nil {
+		if x, ok := x.Source.(*Source_DashSource); ok {
+			return x.DashSource
+		}
+	}
+	return nil
+}
+
+type isSource_Source interface {
+	isSource_Source()
+}
+
+type Source_McuStreamerSource struct {
+	McuStreamerSource *McuStreamerSource `protobuf:"bytes,1,opt,name=mcu_streamer_source,json=mcuStreamerSource,proto3,oneof"`
+}
+
+type Source_McuRoomSource struct {
+	McuRoomSource *McuRoomSource `protobuf:"bytes,2,opt,name=mcu_room_source,json=mcuRoomSource,proto3,oneof"`
+}
+
+type Source_DashSource struct {
+	DashSource *DashSource `protobuf:"bytes,3,opt,name=dash_source,json=dashSource,proto3,oneof"`
+}
+
+func (*Source_McuStreamerSource) isSource_Source() {}
+
+func (*Source_McuRoomSource) isSource_Source() {}
+
+func (*Source_DashSource) isSource_Source() {}
+
+type McuStreamerSource struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Orientation   McuSourceOrientation   `protobuf:"varint,1,opt,name=orientation,proto3,enum=event.events.private.v1.McuSourceOrientation" json:"orientation,omitempty"`
+	VideoOutputs  []McuSourceVideoOutput `protobuf:"varint,2,rep,packed,name=video_outputs,json=videoOutputs,proto3,enum=event.events.private.v1.McuSourceVideoOutput" json:"video_outputs,omitempty"`
+	AudioOutputs  []McuSourceAudioOutput `protobuf:"varint,3,rep,packed,name=audio_outputs,json=audioOutputs,proto3,enum=event.events.private.v1.McuSourceAudioOutput" json:"audio_outputs,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *McuStreamerSource) Reset() {
+	*x = McuStreamerSource{}
+	mi := &file_event_events_private_v1_entities_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *McuStreamerSource) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*McuStreamerSource) ProtoMessage() {}
+
+func (x *McuStreamerSource) ProtoReflect() protoreflect.Message {
+	mi := &file_event_events_private_v1_entities_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use McuStreamerSource.ProtoReflect.Descriptor instead.
+func (*McuStreamerSource) Descriptor() ([]byte, []int) {
+	return file_event_events_private_v1_entities_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *McuStreamerSource) GetOrientation() McuSourceOrientation {
 	if x != nil {
 		return x.Orientation
 	}
-	return BroadcastOrientationUnknown
+	return McuSourceOrientationUnknown
+}
+
+func (x *McuStreamerSource) GetVideoOutputs() []McuSourceVideoOutput {
+	if x != nil {
+		return x.VideoOutputs
+	}
+	return nil
+}
+
+func (x *McuStreamerSource) GetAudioOutputs() []McuSourceAudioOutput {
+	if x != nil {
+		return x.AudioOutputs
+	}
+	return nil
+}
+
+type McuRoomSource struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Orientation   McuSourceOrientation   `protobuf:"varint,1,opt,name=orientation,proto3,enum=event.events.private.v1.McuSourceOrientation" json:"orientation,omitempty"`
+	VideoOutputs  []McuSourceVideoOutput `protobuf:"varint,2,rep,packed,name=video_outputs,json=videoOutputs,proto3,enum=event.events.private.v1.McuSourceVideoOutput" json:"video_outputs,omitempty"`
+	AudioOutputs  []McuSourceAudioOutput `protobuf:"varint,3,rep,packed,name=audio_outputs,json=audioOutputs,proto3,enum=event.events.private.v1.McuSourceAudioOutput" json:"audio_outputs,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *McuRoomSource) Reset() {
+	*x = McuRoomSource{}
+	mi := &file_event_events_private_v1_entities_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *McuRoomSource) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*McuRoomSource) ProtoMessage() {}
+
+func (x *McuRoomSource) ProtoReflect() protoreflect.Message {
+	mi := &file_event_events_private_v1_entities_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use McuRoomSource.ProtoReflect.Descriptor instead.
+func (*McuRoomSource) Descriptor() ([]byte, []int) {
+	return file_event_events_private_v1_entities_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *McuRoomSource) GetOrientation() McuSourceOrientation {
+	if x != nil {
+		return x.Orientation
+	}
+	return McuSourceOrientationUnknown
+}
+
+func (x *McuRoomSource) GetVideoOutputs() []McuSourceVideoOutput {
+	if x != nil {
+		return x.VideoOutputs
+	}
+	return nil
+}
+
+func (x *McuRoomSource) GetAudioOutputs() []McuSourceAudioOutput {
+	if x != nil {
+		return x.AudioOutputs
+	}
+	return nil
+}
+
+type DashSource struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Url           string                 `protobuf:"bytes,1,opt,name=url,proto3" json:"url,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DashSource) Reset() {
+	*x = DashSource{}
+	mi := &file_event_events_private_v1_entities_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DashSource) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DashSource) ProtoMessage() {}
+
+func (x *DashSource) ProtoReflect() protoreflect.Message {
+	mi := &file_event_events_private_v1_entities_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DashSource.ProtoReflect.Descriptor instead.
+func (*DashSource) Descriptor() ([]byte, []int) {
+	return file_event_events_private_v1_entities_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *DashSource) GetUrl() string {
+	if x != nil {
+		return x.Url
+	}
+	return ""
 }
 
 type Chunk struct {
@@ -266,7 +484,7 @@ type Chunk struct {
 
 func (x *Chunk) Reset() {
 	*x = Chunk{}
-	mi := &file_event_events_private_v1_entities_proto_msgTypes[2]
+	mi := &file_event_events_private_v1_entities_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -278,7 +496,7 @@ func (x *Chunk) String() string {
 func (*Chunk) ProtoMessage() {}
 
 func (x *Chunk) ProtoReflect() protoreflect.Message {
-	mi := &file_event_events_private_v1_entities_proto_msgTypes[2]
+	mi := &file_event_events_private_v1_entities_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -291,7 +509,7 @@ func (x *Chunk) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Chunk.ProtoReflect.Descriptor instead.
 func (*Chunk) Descriptor() ([]byte, []int) {
-	return file_event_events_private_v1_entities_proto_rawDescGZIP(), []int{2}
+	return file_event_events_private_v1_entities_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *Chunk) GetSize() int64 {
@@ -334,7 +552,7 @@ type Query struct {
 
 func (x *Query) Reset() {
 	*x = Query{}
-	mi := &file_event_events_private_v1_entities_proto_msgTypes[3]
+	mi := &file_event_events_private_v1_entities_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -346,7 +564,7 @@ func (x *Query) String() string {
 func (*Query) ProtoMessage() {}
 
 func (x *Query) ProtoReflect() protoreflect.Message {
-	mi := &file_event_events_private_v1_entities_proto_msgTypes[3]
+	mi := &file_event_events_private_v1_entities_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -359,7 +577,7 @@ func (x *Query) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Query.ProtoReflect.Descriptor instead.
 func (*Query) Descriptor() ([]byte, []int) {
-	return file_event_events_private_v1_entities_proto_rawDescGZIP(), []int{3}
+	return file_event_events_private_v1_entities_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *Query) GetOrder() Order {
@@ -406,7 +624,7 @@ type Condition struct {
 
 func (x *Condition) Reset() {
 	*x = Condition{}
-	mi := &file_event_events_private_v1_entities_proto_msgTypes[4]
+	mi := &file_event_events_private_v1_entities_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -418,7 +636,7 @@ func (x *Condition) String() string {
 func (*Condition) ProtoMessage() {}
 
 func (x *Condition) ProtoReflect() protoreflect.Message {
-	mi := &file_event_events_private_v1_entities_proto_msgTypes[4]
+	mi := &file_event_events_private_v1_entities_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -431,7 +649,7 @@ func (x *Condition) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Condition.ProtoReflect.Descriptor instead.
 func (*Condition) Descriptor() ([]byte, []int) {
-	return file_event_events_private_v1_entities_proto_rawDescGZIP(), []int{4}
+	return file_event_events_private_v1_entities_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *Condition) GetIds() []string {
@@ -501,7 +719,7 @@ type Transient struct {
 
 func (x *Transient) Reset() {
 	*x = Transient{}
-	mi := &file_event_events_private_v1_entities_proto_msgTypes[5]
+	mi := &file_event_events_private_v1_entities_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -513,7 +731,7 @@ func (x *Transient) String() string {
 func (*Transient) ProtoMessage() {}
 
 func (x *Transient) ProtoReflect() protoreflect.Message {
-	mi := &file_event_events_private_v1_entities_proto_msgTypes[5]
+	mi := &file_event_events_private_v1_entities_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -526,7 +744,7 @@ func (x *Transient) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Transient.ProtoReflect.Descriptor instead.
 func (*Transient) Descriptor() ([]byte, []int) {
-	return file_event_events_private_v1_entities_proto_rawDescGZIP(), []int{5}
+	return file_event_events_private_v1_entities_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *Transient) GetFuture() *Event {
@@ -554,19 +772,19 @@ var File_event_events_private_v1_entities_proto protoreflect.FileDescriptor
 
 const file_event_events_private_v1_entities_proto_rawDesc = "" +
 	"\n" +
-	"&event/events/private/v1/entities.proto\x12\x17event.events.private.v1\x1a#event/events/private/v1/enums.proto\x1a'event/members/private/v1/entities.proto\"\xb2\x06\n" +
+	"&event/events/private/v1/entities.proto\x12\x17event.events.private.v1\x1a#event/events/private/v1/enums.proto\x1a'event/members/private/v1/entities.proto\"\xa9\x06\n" +
 	"\x05Event\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
 	"\achat_id\x18\x02 \x01(\tR\x06chatId\x12\x17\n" +
 	"\aroom_id\x18\x03 \x01(\tR\x06roomId\x12\x17\n" +
 	"\auser_id\x18\x04 \x01(\tR\x06userId\x121\n" +
 	"\x04kind\x18\x05 \x01(\x0e2\x1d.event.events.private.v1.KindR\x04kind\x127\n" +
-	"\x06status\x18\x06 \x01(\x0e2\x1f.event.events.private.v1.StatusR\x06status\x12\x1a\n" +
-	"\bcapacity\x18\a \x01(\x03R\bcapacity\x12H\n" +
-	"\bmetadata\x18\b \x03(\v2,.event.events.private.v1.Event.MetadataEntryR\bmetadata\x12=\n" +
-	"\bschedule\x18\t \x01(\x0e2!.event.events.private.v1.ScheduleR\bschedule\x12@\n" +
-	"\tbroadcast\x18\n" +
-	" \x01(\v2\".event.events.private.v1.BroadcastR\tbroadcast\x12\x1c\n" +
+	"\x06status\x18\x06 \x01(\x0e2\x1f.event.events.private.v1.StatusR\x06status\x127\n" +
+	"\x06source\x18\a \x01(\v2\x1f.event.events.private.v1.SourceR\x06source\x12\x1a\n" +
+	"\bcapacity\x18\b \x01(\x03R\bcapacity\x12H\n" +
+	"\bmetadata\x18\t \x03(\v2,.event.events.private.v1.Event.MetadataEntryR\bmetadata\x12=\n" +
+	"\bschedule\x18\n" +
+	" \x01(\x0e2!.event.events.private.v1.ScheduleR\bschedule\x12\x1c\n" +
 	"\tretention\x18\v \x01(\x03R\tretention\x12,\n" +
 	"\x12planned_start_time\x18\f \x01(\x03R\x10plannedStartTime\x12\x1d\n" +
 	"\n" +
@@ -584,9 +802,24 @@ const file_event_events_private_v1_entities_proto_rawDesc = "" +
 	"updateTime\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\\\n" +
-	"\tBroadcast\x12O\n" +
-	"\vorientation\x18\x01 \x01(\x0e2-.event.events.private.v1.BroadcastOrientationR\vorientation\"\x83\x01\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\x8a\x02\n" +
+	"\x06Source\x12\\\n" +
+	"\x13mcu_streamer_source\x18\x01 \x01(\v2*.event.events.private.v1.McuStreamerSourceH\x00R\x11mcuStreamerSource\x12P\n" +
+	"\x0fmcu_room_source\x18\x02 \x01(\v2&.event.events.private.v1.McuRoomSourceH\x00R\rmcuRoomSource\x12F\n" +
+	"\vdash_source\x18\x03 \x01(\v2#.event.events.private.v1.DashSourceH\x00R\n" +
+	"dashSourceB\b\n" +
+	"\x06source\"\x8c\x02\n" +
+	"\x11McuStreamerSource\x12O\n" +
+	"\vorientation\x18\x01 \x01(\x0e2-.event.events.private.v1.McuSourceOrientationR\vorientation\x12R\n" +
+	"\rvideo_outputs\x18\x02 \x03(\x0e2-.event.events.private.v1.McuSourceVideoOutputR\fvideoOutputs\x12R\n" +
+	"\raudio_outputs\x18\x03 \x03(\x0e2-.event.events.private.v1.McuSourceAudioOutputR\faudioOutputs\"\x88\x02\n" +
+	"\rMcuRoomSource\x12O\n" +
+	"\vorientation\x18\x01 \x01(\x0e2-.event.events.private.v1.McuSourceOrientationR\vorientation\x12R\n" +
+	"\rvideo_outputs\x18\x02 \x03(\x0e2-.event.events.private.v1.McuSourceVideoOutputR\fvideoOutputs\x12R\n" +
+	"\raudio_outputs\x18\x03 \x03(\x0e2-.event.events.private.v1.McuSourceAudioOutputR\faudioOutputs\"\x1e\n" +
+	"\n" +
+	"DashSource\x12\x10\n" +
+	"\x03url\x18\x01 \x01(\tR\x03url\"\x83\x01\n" +
 	"\x05Chunk\x12\x12\n" +
 	"\x04size\x18\x01 \x01(\x03R\x04size\x12\x14\n" +
 	"\x05index\x18\x02 \x01(\x03R\x05index\x12\x14\n" +
@@ -625,44 +858,57 @@ func file_event_events_private_v1_entities_proto_rawDescGZIP() []byte {
 	return file_event_events_private_v1_entities_proto_rawDescData
 }
 
-var file_event_events_private_v1_entities_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_event_events_private_v1_entities_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_event_events_private_v1_entities_proto_goTypes = []any{
 	(*Event)(nil),             // 0: event.events.private.v1.Event
-	(*Broadcast)(nil),         // 1: event.events.private.v1.Broadcast
-	(*Chunk)(nil),             // 2: event.events.private.v1.Chunk
-	(*Query)(nil),             // 3: event.events.private.v1.Query
-	(*Condition)(nil),         // 4: event.events.private.v1.Condition
-	(*Transient)(nil),         // 5: event.events.private.v1.Transient
-	nil,                       // 6: event.events.private.v1.Event.MetadataEntry
-	(Kind)(0),                 // 7: event.events.private.v1.Kind
-	(Status)(0),               // 8: event.events.private.v1.Status
-	(Schedule)(0),             // 9: event.events.private.v1.Schedule
-	(BroadcastOrientation)(0), // 10: event.events.private.v1.BroadcastOrientation
-	(Order)(0),                // 11: event.events.private.v1.Order
-	(*v1.Query)(nil),          // 12: event.members.private.v1.Query
+	(*Source)(nil),            // 1: event.events.private.v1.Source
+	(*McuStreamerSource)(nil), // 2: event.events.private.v1.McuStreamerSource
+	(*McuRoomSource)(nil),     // 3: event.events.private.v1.McuRoomSource
+	(*DashSource)(nil),        // 4: event.events.private.v1.DashSource
+	(*Chunk)(nil),             // 5: event.events.private.v1.Chunk
+	(*Query)(nil),             // 6: event.events.private.v1.Query
+	(*Condition)(nil),         // 7: event.events.private.v1.Condition
+	(*Transient)(nil),         // 8: event.events.private.v1.Transient
+	nil,                       // 9: event.events.private.v1.Event.MetadataEntry
+	(Kind)(0),                 // 10: event.events.private.v1.Kind
+	(Status)(0),               // 11: event.events.private.v1.Status
+	(Schedule)(0),             // 12: event.events.private.v1.Schedule
+	(McuSourceOrientation)(0), // 13: event.events.private.v1.McuSourceOrientation
+	(McuSourceVideoOutput)(0), // 14: event.events.private.v1.McuSourceVideoOutput
+	(McuSourceAudioOutput)(0), // 15: event.events.private.v1.McuSourceAudioOutput
+	(Order)(0),                // 16: event.events.private.v1.Order
+	(*v1.Query)(nil),          // 17: event.members.private.v1.Query
 }
 var file_event_events_private_v1_entities_proto_depIdxs = []int32{
-	7,  // 0: event.events.private.v1.Event.kind:type_name -> event.events.private.v1.Kind
-	8,  // 1: event.events.private.v1.Event.status:type_name -> event.events.private.v1.Status
-	6,  // 2: event.events.private.v1.Event.metadata:type_name -> event.events.private.v1.Event.MetadataEntry
-	9,  // 3: event.events.private.v1.Event.schedule:type_name -> event.events.private.v1.Schedule
-	1,  // 4: event.events.private.v1.Event.broadcast:type_name -> event.events.private.v1.Broadcast
-	10, // 5: event.events.private.v1.Broadcast.orientation:type_name -> event.events.private.v1.BroadcastOrientation
-	0,  // 6: event.events.private.v1.Chunk.entities:type_name -> event.events.private.v1.Event
-	11, // 7: event.events.private.v1.Query.order:type_name -> event.events.private.v1.Order
-	4,  // 8: event.events.private.v1.Query.conditions:type_name -> event.events.private.v1.Condition
-	7,  // 9: event.events.private.v1.Condition.kinds:type_name -> event.events.private.v1.Kind
-	8,  // 10: event.events.private.v1.Condition.statuses:type_name -> event.events.private.v1.Status
-	9,  // 11: event.events.private.v1.Condition.schedules:type_name -> event.events.private.v1.Schedule
-	12, // 12: event.events.private.v1.Condition.members:type_name -> event.members.private.v1.Query
-	0,  // 13: event.events.private.v1.Transient.future:type_name -> event.events.private.v1.Event
-	0,  // 14: event.events.private.v1.Transient.current:type_name -> event.events.private.v1.Event
-	0,  // 15: event.events.private.v1.Transient.previous:type_name -> event.events.private.v1.Event
-	16, // [16:16] is the sub-list for method output_type
-	16, // [16:16] is the sub-list for method input_type
-	16, // [16:16] is the sub-list for extension type_name
-	16, // [16:16] is the sub-list for extension extendee
-	0,  // [0:16] is the sub-list for field type_name
+	10, // 0: event.events.private.v1.Event.kind:type_name -> event.events.private.v1.Kind
+	11, // 1: event.events.private.v1.Event.status:type_name -> event.events.private.v1.Status
+	1,  // 2: event.events.private.v1.Event.source:type_name -> event.events.private.v1.Source
+	9,  // 3: event.events.private.v1.Event.metadata:type_name -> event.events.private.v1.Event.MetadataEntry
+	12, // 4: event.events.private.v1.Event.schedule:type_name -> event.events.private.v1.Schedule
+	2,  // 5: event.events.private.v1.Source.mcu_streamer_source:type_name -> event.events.private.v1.McuStreamerSource
+	3,  // 6: event.events.private.v1.Source.mcu_room_source:type_name -> event.events.private.v1.McuRoomSource
+	4,  // 7: event.events.private.v1.Source.dash_source:type_name -> event.events.private.v1.DashSource
+	13, // 8: event.events.private.v1.McuStreamerSource.orientation:type_name -> event.events.private.v1.McuSourceOrientation
+	14, // 9: event.events.private.v1.McuStreamerSource.video_outputs:type_name -> event.events.private.v1.McuSourceVideoOutput
+	15, // 10: event.events.private.v1.McuStreamerSource.audio_outputs:type_name -> event.events.private.v1.McuSourceAudioOutput
+	13, // 11: event.events.private.v1.McuRoomSource.orientation:type_name -> event.events.private.v1.McuSourceOrientation
+	14, // 12: event.events.private.v1.McuRoomSource.video_outputs:type_name -> event.events.private.v1.McuSourceVideoOutput
+	15, // 13: event.events.private.v1.McuRoomSource.audio_outputs:type_name -> event.events.private.v1.McuSourceAudioOutput
+	0,  // 14: event.events.private.v1.Chunk.entities:type_name -> event.events.private.v1.Event
+	16, // 15: event.events.private.v1.Query.order:type_name -> event.events.private.v1.Order
+	7,  // 16: event.events.private.v1.Query.conditions:type_name -> event.events.private.v1.Condition
+	10, // 17: event.events.private.v1.Condition.kinds:type_name -> event.events.private.v1.Kind
+	11, // 18: event.events.private.v1.Condition.statuses:type_name -> event.events.private.v1.Status
+	12, // 19: event.events.private.v1.Condition.schedules:type_name -> event.events.private.v1.Schedule
+	17, // 20: event.events.private.v1.Condition.members:type_name -> event.members.private.v1.Query
+	0,  // 21: event.events.private.v1.Transient.future:type_name -> event.events.private.v1.Event
+	0,  // 22: event.events.private.v1.Transient.current:type_name -> event.events.private.v1.Event
+	0,  // 23: event.events.private.v1.Transient.previous:type_name -> event.events.private.v1.Event
+	24, // [24:24] is the sub-list for method output_type
+	24, // [24:24] is the sub-list for method input_type
+	24, // [24:24] is the sub-list for extension type_name
+	24, // [24:24] is the sub-list for extension extendee
+	0,  // [0:24] is the sub-list for field type_name
 }
 
 func init() { file_event_events_private_v1_entities_proto_init() }
@@ -671,13 +917,18 @@ func file_event_events_private_v1_entities_proto_init() {
 		return
 	}
 	file_event_events_private_v1_enums_proto_init()
+	file_event_events_private_v1_entities_proto_msgTypes[1].OneofWrappers = []any{
+		(*Source_McuStreamerSource)(nil),
+		(*Source_McuRoomSource)(nil),
+		(*Source_DashSource)(nil),
+	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_event_events_private_v1_entities_proto_rawDesc), len(file_event_events_private_v1_entities_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

@@ -69,10 +69,37 @@ public interface EventOrBuilder extends
 
   /**
    * <pre>
+   * The source associated with this event, containing properties.
+   * </pre>
+   *
+   * <code>.event.events.public.server.v1.Source source = 4;</code>
+   * @return Whether the source field is set.
+   */
+  boolean hasSource();
+  /**
+   * <pre>
+   * The source associated with this event, containing properties.
+   * </pre>
+   *
+   * <code>.event.events.public.server.v1.Source source = 4;</code>
+   * @return The source.
+   */
+  com.evemeta.zdk.pb.event.server.events.Source getSource();
+  /**
+   * <pre>
+   * The source associated with this event, containing properties.
+   * </pre>
+   *
+   * <code>.event.events.public.server.v1.Source source = 4;</code>
+   */
+  com.evemeta.zdk.pb.event.server.events.SourceOrBuilder getSourceOrBuilder();
+
+  /**
+   * <pre>
    * Represents a collection of key-value pairs providing additional context or information about this event.
    * </pre>
    *
-   * <code>map&lt;string, string&gt; metadata = 4;</code>
+   * <code>map&lt;string, string&gt; metadata = 5;</code>
    */
   int getMetadataCount();
   /**
@@ -80,7 +107,7 @@ public interface EventOrBuilder extends
    * Represents a collection of key-value pairs providing additional context or information about this event.
    * </pre>
    *
-   * <code>map&lt;string, string&gt; metadata = 4;</code>
+   * <code>map&lt;string, string&gt; metadata = 5;</code>
    */
   boolean containsMetadata(
       java.lang.String key);
@@ -95,7 +122,7 @@ public interface EventOrBuilder extends
    * Represents a collection of key-value pairs providing additional context or information about this event.
    * </pre>
    *
-   * <code>map&lt;string, string&gt; metadata = 4;</code>
+   * <code>map&lt;string, string&gt; metadata = 5;</code>
    */
   java.util.Map<java.lang.String, java.lang.String>
   getMetadataMap();
@@ -104,7 +131,7 @@ public interface EventOrBuilder extends
    * Represents a collection of key-value pairs providing additional context or information about this event.
    * </pre>
    *
-   * <code>map&lt;string, string&gt; metadata = 4;</code>
+   * <code>map&lt;string, string&gt; metadata = 5;</code>
    */
   /* nullable */
 java.lang.String getMetadataOrDefault(
@@ -116,7 +143,7 @@ java.lang.String defaultValue);
    * Represents a collection of key-value pairs providing additional context or information about this event.
    * </pre>
    *
-   * <code>map&lt;string, string&gt; metadata = 4;</code>
+   * <code>map&lt;string, string&gt; metadata = 5;</code>
    */
   java.lang.String getMetadataOrThrow(
       java.lang.String key);
@@ -126,7 +153,7 @@ java.lang.String defaultValue);
    * Indicates whether the event is scheduled or unscheduled.
    * </pre>
    *
-   * <code>.event.events.public.server.v1.Schedule schedule = 5;</code>
+   * <code>.event.events.public.server.v1.Schedule schedule = 6;</code>
    * @return The enum numeric value on the wire for schedule.
    */
   int getScheduleValue();
@@ -135,37 +162,10 @@ java.lang.String defaultValue);
    * Indicates whether the event is scheduled or unscheduled.
    * </pre>
    *
-   * <code>.event.events.public.server.v1.Schedule schedule = 5;</code>
+   * <code>.event.events.public.server.v1.Schedule schedule = 6;</code>
    * @return The schedule.
    */
   com.evemeta.zdk.pb.event.server.events.Schedule getSchedule();
-
-  /**
-   * <pre>
-   * The broadcast associated with this event, containing properties.
-   * </pre>
-   *
-   * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
-   * @return Whether the broadcast field is set.
-   */
-  boolean hasBroadcast();
-  /**
-   * <pre>
-   * The broadcast associated with this event, containing properties.
-   * </pre>
-   *
-   * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
-   * @return The broadcast.
-   */
-  com.evemeta.zdk.pb.event.server.events.Broadcast getBroadcast();
-  /**
-   * <pre>
-   * The broadcast associated with this event, containing properties.
-   * </pre>
-   *
-   * <code>.event.events.public.server.v1.Broadcast broadcast = 6;</code>
-   */
-  com.evemeta.zdk.pb.event.server.events.BroadcastOrBuilder getBroadcastOrBuilder();
 
   /**
    * <pre>

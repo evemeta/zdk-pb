@@ -123,6 +123,45 @@ public object EventKt {
     }
 
     /**
+     * ```
+     * The source associated with this event, containing properties.
+     * ```
+     *
+     * `.event.events.public.server.v1.Source source = 4;`
+     */
+    public var source: com.evemeta.zdk.pb.event.server.events.Source
+      @JvmName("getSource")
+      get() = _builder.source
+      @JvmName("setSource")
+      set(value) {
+        _builder.source = value
+      }
+    /**
+     * ```
+     * The source associated with this event, containing properties.
+     * ```
+     *
+     * `.event.events.public.server.v1.Source source = 4;`
+     */
+    public fun clearSource() {
+      _builder.clearSource()
+    }
+    /**
+     * ```
+     * The source associated with this event, containing properties.
+     * ```
+     *
+     * `.event.events.public.server.v1.Source source = 4;`
+     * @return Whether the source field is set.
+     */
+    public fun hasSource(): kotlin.Boolean {
+      return _builder.hasSource()
+    }
+
+    public val EventKt.Dsl.sourceOrNull: com.evemeta.zdk.pb.event.server.events.Source?
+      get() = _builder.sourceOrNull
+
+    /**
      * An uninstantiable, behaviorless type to represent the field in
      * generics.
      */
@@ -133,7 +172,7 @@ public object EventKt {
      * Represents a collection of key-value pairs providing additional context or information about this event.
      * ```
      *
-     * `map<string, string> metadata = 4;`
+     * `map<string, string> metadata = 5;`
      */
      public val metadata: com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       @kotlin.jvm.JvmSynthetic
@@ -146,7 +185,7 @@ public object EventKt {
      * Represents a collection of key-value pairs providing additional context or information about this event.
      * ```
      *
-     * `map<string, string> metadata = 4;`
+     * `map<string, string> metadata = 5;`
      */
     @JvmName("putMetadata")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
@@ -158,7 +197,7 @@ public object EventKt {
      * Represents a collection of key-value pairs providing additional context or information about this event.
      * ```
      *
-     * `map<string, string> metadata = 4;`
+     * `map<string, string> metadata = 5;`
      */
     @kotlin.jvm.JvmSynthetic
     @JvmName("setMetadata")
@@ -172,7 +211,7 @@ public object EventKt {
      * Represents a collection of key-value pairs providing additional context or information about this event.
      * ```
      *
-     * `map<string, string> metadata = 4;`
+     * `map<string, string> metadata = 5;`
      */
     @kotlin.jvm.JvmSynthetic
     @JvmName("removeMetadata")
@@ -185,7 +224,7 @@ public object EventKt {
      * Represents a collection of key-value pairs providing additional context or information about this event.
      * ```
      *
-     * `map<string, string> metadata = 4;`
+     * `map<string, string> metadata = 5;`
      */
     @kotlin.jvm.JvmSynthetic
     @JvmName("putAllMetadata")
@@ -198,7 +237,7 @@ public object EventKt {
      * Represents a collection of key-value pairs providing additional context or information about this event.
      * ```
      *
-     * `map<string, string> metadata = 4;`
+     * `map<string, string> metadata = 5;`
      */
     @kotlin.jvm.JvmSynthetic
     @JvmName("clearMetadata")
@@ -212,7 +251,7 @@ public object EventKt {
      * Indicates whether the event is scheduled or unscheduled.
      * ```
      *
-     * `.event.events.public.server.v1.Schedule schedule = 5;`
+     * `.event.events.public.server.v1.Schedule schedule = 6;`
      */
     public var schedule: com.evemeta.zdk.pb.event.server.events.Schedule
       @JvmName("getSchedule")
@@ -233,50 +272,11 @@ public object EventKt {
      * Indicates whether the event is scheduled or unscheduled.
      * ```
      *
-     * `.event.events.public.server.v1.Schedule schedule = 5;`
+     * `.event.events.public.server.v1.Schedule schedule = 6;`
      */
     public fun clearSchedule() {
       _builder.clearSchedule()
     }
-
-    /**
-     * ```
-     * The broadcast associated with this event, containing properties.
-     * ```
-     *
-     * `.event.events.public.server.v1.Broadcast broadcast = 6;`
-     */
-    public var broadcast: com.evemeta.zdk.pb.event.server.events.Broadcast
-      @JvmName("getBroadcast")
-      get() = _builder.broadcast
-      @JvmName("setBroadcast")
-      set(value) {
-        _builder.broadcast = value
-      }
-    /**
-     * ```
-     * The broadcast associated with this event, containing properties.
-     * ```
-     *
-     * `.event.events.public.server.v1.Broadcast broadcast = 6;`
-     */
-    public fun clearBroadcast() {
-      _builder.clearBroadcast()
-    }
-    /**
-     * ```
-     * The broadcast associated with this event, containing properties.
-     * ```
-     *
-     * `.event.events.public.server.v1.Broadcast broadcast = 6;`
-     * @return Whether the broadcast field is set.
-     */
-    public fun hasBroadcast(): kotlin.Boolean {
-      return _builder.hasBroadcast()
-    }
-
-    public val EventKt.Dsl.broadcastOrNull: com.evemeta.zdk.pb.event.server.events.Broadcast?
-      get() = _builder.broadcastOrNull
 
     /**
      * ```
@@ -458,6 +458,6 @@ public object EventKt {
 public inline fun com.evemeta.zdk.pb.event.server.events.Event.copy(block: `com.evemeta.zdk.pb.event.server.events`.EventKt.Dsl.() -> kotlin.Unit): com.evemeta.zdk.pb.event.server.events.Event =
   `com.evemeta.zdk.pb.event.server.events`.EventKt.Dsl._create(this.toBuilder()).apply { block() }._build()
 
-public val com.evemeta.zdk.pb.event.server.events.EventOrBuilder.broadcastOrNull: com.evemeta.zdk.pb.event.server.events.Broadcast?
-  get() = if (hasBroadcast()) getBroadcast() else null
+public val com.evemeta.zdk.pb.event.server.events.EventOrBuilder.sourceOrNull: com.evemeta.zdk.pb.event.server.events.Source?
+  get() = if (hasSource()) getSource() else null
 
