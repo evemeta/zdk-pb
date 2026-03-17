@@ -47,22 +47,25 @@ public final class Enums {
       "duleUnplanned\020\002*}\n\024McuSourceOrientation\022" +
       "\037\n\033McuSourceOrientationUnknown\020\000\022 \n\034McuS" +
       "ourceOrientationVertical\020\001\022\"\n\036McuSourceO" +
-      "rientationHorizontal\020\002*\360\002\n\024McuSourceVide" +
-      "oOutput\022\026\n\022VideoOutputUnknown\020\000\022\032\n\026Video" +
-      "Output1080p60H264\020\001\022\032\n\026VideoOutput1080p3" +
-      "0H264\020\002\022\031\n\025VideoOutput720p30H264\020\003\022\031\n\025Vi" +
-      "deoOutput540p30H264\020\004\022\031\n\025VideoOutput360p" +
-      "30H264\020\005\022\031\n\025VideoOutput2160p60AV1\020\006\022\030\n\024V" +
-      "ideoOutput2160p30AV\020\007\022\031\n\025VideoOutput1080" +
-      "p30AV1\020\010\022\031\n\025VideoOutput1080p60AV1\020\t\022\030\n\024V" +
-      "ideoOutput720p30AV1\020\n\022\030\n\024VideoOutput540p" +
-      "30AV1\020\013\022\030\n\024VideoOutput360p30AV1\020\014*]\n\024Mcu" +
-      "SourceAudioOutput\022\026\n\022AudioOutputUnknown\020" +
-      "\000\022\026\n\022AudioOutput64kOPUS\020\001\022\025\n\021AudioOutput" +
-      "64kAAC\020\002Bs\n&com.evemeta.zdk.pb.event.ser" +
-      "ver.eventsP\001ZGgithub.com/evemeta/zdk-pb/" +
-      "out/go/event/events/public/server/v1;eve" +
-      "ntspbb\006proto3"
+      "rientationHorizontal\020\002*\345\003\n\024McuSourceVide" +
+      "oOutput\022\037\n\033McuSourceVideoOutputUnknown\020\000" +
+      "\022#\n\037McuSourceVideoOutput1080p60H264\020\001\022#\n" +
+      "\037McuSourceVideoOutput1080p30H264\020\002\022\"\n\036Mc" +
+      "uSourceVideoOutput720p30H264\020\003\022\"\n\036McuSou" +
+      "rceVideoOutput540p30H264\020\004\022\"\n\036McuSourceV" +
+      "ideoOutput360p30H264\020\005\022\"\n\036McuSourceVideo" +
+      "Output2160p60AV1\020\006\022!\n\035McuSourceVideoOutp" +
+      "ut2160p30AV\020\007\022\"\n\036McuSourceVideoOutput108" +
+      "0p30AV1\020\010\022\"\n\036McuSourceVideoOutput1080p60" +
+      "AV1\020\t\022!\n\035McuSourceVideoOutput720p30AV1\020\n" +
+      "\022!\n\035McuSourceVideoOutput540p30AV1\020\013\022!\n\035M" +
+      "cuSourceVideoOutput360p30AV1\020\014*x\n\024McuSou" +
+      "rceAudioOutput\022\037\n\033McuSourceAudioOutputUn" +
+      "known\020\000\022\037\n\033McuSourceAudioOutput64kOPUS\020\001" +
+      "\022\036\n\032McuSourceAudioOutput64kAAC\020\002Bs\n&com." +
+      "evemeta.zdk.pb.event.server.eventsP\001ZGgi" +
+      "thub.com/evemeta/zdk-pb/out/go/event/eve" +
+      "nts/public/server/v1;eventspbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

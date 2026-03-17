@@ -16,57 +16,57 @@ package com.evemeta.zdk.pb.event.server.events;
 public enum McuSourceVideoOutput
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>VideoOutputUnknown = 0;</code>
+   * <code>McuSourceVideoOutputUnknown = 0;</code>
    */
-  VideoOutputUnknown(0),
+  McuSourceVideoOutputUnknown(0),
   /**
-   * <code>VideoOutput1080p60H264 = 1;</code>
+   * <code>McuSourceVideoOutput1080p60H264 = 1;</code>
    */
-  VideoOutput1080p60H264(1),
+  McuSourceVideoOutput1080p60H264(1),
   /**
-   * <code>VideoOutput1080p30H264 = 2;</code>
+   * <code>McuSourceVideoOutput1080p30H264 = 2;</code>
    */
-  VideoOutput1080p30H264(2),
+  McuSourceVideoOutput1080p30H264(2),
   /**
-   * <code>VideoOutput720p30H264 = 3;</code>
+   * <code>McuSourceVideoOutput720p30H264 = 3;</code>
    */
-  VideoOutput720p30H264(3),
+  McuSourceVideoOutput720p30H264(3),
   /**
-   * <code>VideoOutput540p30H264 = 4;</code>
+   * <code>McuSourceVideoOutput540p30H264 = 4;</code>
    */
-  VideoOutput540p30H264(4),
+  McuSourceVideoOutput540p30H264(4),
   /**
-   * <code>VideoOutput360p30H264 = 5;</code>
+   * <code>McuSourceVideoOutput360p30H264 = 5;</code>
    */
-  VideoOutput360p30H264(5),
+  McuSourceVideoOutput360p30H264(5),
   /**
-   * <code>VideoOutput2160p60AV1 = 6;</code>
+   * <code>McuSourceVideoOutput2160p60AV1 = 6;</code>
    */
-  VideoOutput2160p60AV1(6),
+  McuSourceVideoOutput2160p60AV1(6),
   /**
-   * <code>VideoOutput2160p30AV = 7;</code>
+   * <code>McuSourceVideoOutput2160p30AV = 7;</code>
    */
-  VideoOutput2160p30AV(7),
+  McuSourceVideoOutput2160p30AV(7),
   /**
-   * <code>VideoOutput1080p30AV1 = 8;</code>
+   * <code>McuSourceVideoOutput1080p30AV1 = 8;</code>
    */
-  VideoOutput1080p30AV1(8),
+  McuSourceVideoOutput1080p30AV1(8),
   /**
-   * <code>VideoOutput1080p60AV1 = 9;</code>
+   * <code>McuSourceVideoOutput1080p60AV1 = 9;</code>
    */
-  VideoOutput1080p60AV1(9),
+  McuSourceVideoOutput1080p60AV1(9),
   /**
-   * <code>VideoOutput720p30AV1 = 10;</code>
+   * <code>McuSourceVideoOutput720p30AV1 = 10;</code>
    */
-  VideoOutput720p30AV1(10),
+  McuSourceVideoOutput720p30AV1(10),
   /**
-   * <code>VideoOutput540p30AV1 = 11;</code>
+   * <code>McuSourceVideoOutput540p30AV1 = 11;</code>
    */
-  VideoOutput540p30AV1(11),
+  McuSourceVideoOutput540p30AV1(11),
   /**
-   * <code>VideoOutput360p30AV1 = 12;</code>
+   * <code>McuSourceVideoOutput360p30AV1 = 12;</code>
    */
-  VideoOutput360p30AV1(12),
+  McuSourceVideoOutput360p30AV1(12),
   UNRECOGNIZED(-1),
   ;
 
@@ -80,57 +80,57 @@ public enum McuSourceVideoOutput
       McuSourceVideoOutput.class.getName());
   }
   /**
-   * <code>VideoOutputUnknown = 0;</code>
+   * <code>McuSourceVideoOutputUnknown = 0;</code>
    */
-  public static final int VideoOutputUnknown_VALUE = 0;
+  public static final int McuSourceVideoOutputUnknown_VALUE = 0;
   /**
-   * <code>VideoOutput1080p60H264 = 1;</code>
+   * <code>McuSourceVideoOutput1080p60H264 = 1;</code>
    */
-  public static final int VideoOutput1080p60H264_VALUE = 1;
+  public static final int McuSourceVideoOutput1080p60H264_VALUE = 1;
   /**
-   * <code>VideoOutput1080p30H264 = 2;</code>
+   * <code>McuSourceVideoOutput1080p30H264 = 2;</code>
    */
-  public static final int VideoOutput1080p30H264_VALUE = 2;
+  public static final int McuSourceVideoOutput1080p30H264_VALUE = 2;
   /**
-   * <code>VideoOutput720p30H264 = 3;</code>
+   * <code>McuSourceVideoOutput720p30H264 = 3;</code>
    */
-  public static final int VideoOutput720p30H264_VALUE = 3;
+  public static final int McuSourceVideoOutput720p30H264_VALUE = 3;
   /**
-   * <code>VideoOutput540p30H264 = 4;</code>
+   * <code>McuSourceVideoOutput540p30H264 = 4;</code>
    */
-  public static final int VideoOutput540p30H264_VALUE = 4;
+  public static final int McuSourceVideoOutput540p30H264_VALUE = 4;
   /**
-   * <code>VideoOutput360p30H264 = 5;</code>
+   * <code>McuSourceVideoOutput360p30H264 = 5;</code>
    */
-  public static final int VideoOutput360p30H264_VALUE = 5;
+  public static final int McuSourceVideoOutput360p30H264_VALUE = 5;
   /**
-   * <code>VideoOutput2160p60AV1 = 6;</code>
+   * <code>McuSourceVideoOutput2160p60AV1 = 6;</code>
    */
-  public static final int VideoOutput2160p60AV1_VALUE = 6;
+  public static final int McuSourceVideoOutput2160p60AV1_VALUE = 6;
   /**
-   * <code>VideoOutput2160p30AV = 7;</code>
+   * <code>McuSourceVideoOutput2160p30AV = 7;</code>
    */
-  public static final int VideoOutput2160p30AV_VALUE = 7;
+  public static final int McuSourceVideoOutput2160p30AV_VALUE = 7;
   /**
-   * <code>VideoOutput1080p30AV1 = 8;</code>
+   * <code>McuSourceVideoOutput1080p30AV1 = 8;</code>
    */
-  public static final int VideoOutput1080p30AV1_VALUE = 8;
+  public static final int McuSourceVideoOutput1080p30AV1_VALUE = 8;
   /**
-   * <code>VideoOutput1080p60AV1 = 9;</code>
+   * <code>McuSourceVideoOutput1080p60AV1 = 9;</code>
    */
-  public static final int VideoOutput1080p60AV1_VALUE = 9;
+  public static final int McuSourceVideoOutput1080p60AV1_VALUE = 9;
   /**
-   * <code>VideoOutput720p30AV1 = 10;</code>
+   * <code>McuSourceVideoOutput720p30AV1 = 10;</code>
    */
-  public static final int VideoOutput720p30AV1_VALUE = 10;
+  public static final int McuSourceVideoOutput720p30AV1_VALUE = 10;
   /**
-   * <code>VideoOutput540p30AV1 = 11;</code>
+   * <code>McuSourceVideoOutput540p30AV1 = 11;</code>
    */
-  public static final int VideoOutput540p30AV1_VALUE = 11;
+  public static final int McuSourceVideoOutput540p30AV1_VALUE = 11;
   /**
-   * <code>VideoOutput360p30AV1 = 12;</code>
+   * <code>McuSourceVideoOutput360p30AV1 = 12;</code>
    */
-  public static final int VideoOutput360p30AV1_VALUE = 12;
+  public static final int McuSourceVideoOutput360p30AV1_VALUE = 12;
 
 
   public final int getNumber() {
@@ -157,19 +157,19 @@ public enum McuSourceVideoOutput
    */
   public static McuSourceVideoOutput forNumber(int value) {
     switch (value) {
-      case 0: return VideoOutputUnknown;
-      case 1: return VideoOutput1080p60H264;
-      case 2: return VideoOutput1080p30H264;
-      case 3: return VideoOutput720p30H264;
-      case 4: return VideoOutput540p30H264;
-      case 5: return VideoOutput360p30H264;
-      case 6: return VideoOutput2160p60AV1;
-      case 7: return VideoOutput2160p30AV;
-      case 8: return VideoOutput1080p30AV1;
-      case 9: return VideoOutput1080p60AV1;
-      case 10: return VideoOutput720p30AV1;
-      case 11: return VideoOutput540p30AV1;
-      case 12: return VideoOutput360p30AV1;
+      case 0: return McuSourceVideoOutputUnknown;
+      case 1: return McuSourceVideoOutput1080p60H264;
+      case 2: return McuSourceVideoOutput1080p30H264;
+      case 3: return McuSourceVideoOutput720p30H264;
+      case 4: return McuSourceVideoOutput540p30H264;
+      case 5: return McuSourceVideoOutput360p30H264;
+      case 6: return McuSourceVideoOutput2160p60AV1;
+      case 7: return McuSourceVideoOutput2160p30AV;
+      case 8: return McuSourceVideoOutput1080p30AV1;
+      case 9: return McuSourceVideoOutput1080p60AV1;
+      case 10: return McuSourceVideoOutput720p30AV1;
+      case 11: return McuSourceVideoOutput540p30AV1;
+      case 12: return McuSourceVideoOutput360p30AV1;
       default: return null;
     }
   }

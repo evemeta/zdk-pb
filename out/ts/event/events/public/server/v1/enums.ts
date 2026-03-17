@@ -117,57 +117,57 @@ export enum McuSourceOrientation {
  */
 export enum McuSourceVideoOutput {
     /**
-     * @generated from protobuf enum value: VideoOutputUnknown = 0;
+     * @generated from protobuf enum value: Unknown = 0;
      */
-    VideoOutputUnknown = 0,
+    Unknown = 0,
     /**
-     * @generated from protobuf enum value: VideoOutput1080p60H264 = 1;
+     * @generated from protobuf enum value: McuSourceVideoOutput1080p60H264 = 1;
      */
-    VideoOutput1080p60H264 = 1,
+    McuSourceVideoOutput1080p60H264 = 1,
     /**
-     * @generated from protobuf enum value: VideoOutput1080p30H264 = 2;
+     * @generated from protobuf enum value: McuSourceVideoOutput1080p30H264 = 2;
      */
-    VideoOutput1080p30H264 = 2,
+    McuSourceVideoOutput1080p30H264 = 2,
     /**
-     * @generated from protobuf enum value: VideoOutput720p30H264 = 3;
+     * @generated from protobuf enum value: McuSourceVideoOutput720p30H264 = 3;
      */
-    VideoOutput720p30H264 = 3,
+    McuSourceVideoOutput720p30H264 = 3,
     /**
-     * @generated from protobuf enum value: VideoOutput540p30H264 = 4;
+     * @generated from protobuf enum value: McuSourceVideoOutput540p30H264 = 4;
      */
-    VideoOutput540p30H264 = 4,
+    McuSourceVideoOutput540p30H264 = 4,
     /**
-     * @generated from protobuf enum value: VideoOutput360p30H264 = 5;
+     * @generated from protobuf enum value: McuSourceVideoOutput360p30H264 = 5;
      */
-    VideoOutput360p30H264 = 5,
+    McuSourceVideoOutput360p30H264 = 5,
     /**
-     * @generated from protobuf enum value: VideoOutput2160p60AV1 = 6;
+     * @generated from protobuf enum value: McuSourceVideoOutput2160p60AV1 = 6;
      */
-    VideoOutput2160p60AV1 = 6,
+    McuSourceVideoOutput2160p60AV1 = 6,
     /**
-     * @generated from protobuf enum value: VideoOutput2160p30AV = 7;
+     * @generated from protobuf enum value: McuSourceVideoOutput2160p30AV = 7;
      */
-    VideoOutput2160p30AV = 7,
+    McuSourceVideoOutput2160p30AV = 7,
     /**
-     * @generated from protobuf enum value: VideoOutput1080p30AV1 = 8;
+     * @generated from protobuf enum value: McuSourceVideoOutput1080p30AV1 = 8;
      */
-    VideoOutput1080p30AV1 = 8,
+    McuSourceVideoOutput1080p30AV1 = 8,
     /**
-     * @generated from protobuf enum value: VideoOutput1080p60AV1 = 9;
+     * @generated from protobuf enum value: McuSourceVideoOutput1080p60AV1 = 9;
      */
-    VideoOutput1080p60AV1 = 9,
+    McuSourceVideoOutput1080p60AV1 = 9,
     /**
-     * @generated from protobuf enum value: VideoOutput720p30AV1 = 10;
+     * @generated from protobuf enum value: McuSourceVideoOutput720p30AV1 = 10;
      */
-    VideoOutput720p30AV1 = 10,
+    McuSourceVideoOutput720p30AV1 = 10,
     /**
-     * @generated from protobuf enum value: VideoOutput540p30AV1 = 11;
+     * @generated from protobuf enum value: McuSourceVideoOutput540p30AV1 = 11;
      */
-    VideoOutput540p30AV1 = 11,
+    McuSourceVideoOutput540p30AV1 = 11,
     /**
-     * @generated from protobuf enum value: VideoOutput360p30AV1 = 12;
+     * @generated from protobuf enum value: McuSourceVideoOutput360p30AV1 = 12;
      */
-    VideoOutput360p30AV1 = 12
+    McuSourceVideoOutput360p30AV1 = 12
 }
 /**
  * McuSourceAudioOutput represents the audio output profile used by an MCU source.
@@ -177,15 +177,15 @@ export enum McuSourceVideoOutput {
  */
 export enum McuSourceAudioOutput {
     /**
-     * @generated from protobuf enum value: AudioOutputUnknown = 0;
+     * @generated from protobuf enum value: Unknown = 0;
      */
-    AudioOutputUnknown = 0,
+    Unknown = 0,
     /**
-     * @generated from protobuf enum value: AudioOutput64kOPUS = 1;
+     * @generated from protobuf enum value: McuSourceAudioOutput64kOPUS = 1;
      */
-    AudioOutput64kOPUS = 1,
+    McuSourceAudioOutput64kOPUS = 1,
     /**
-     * @generated from protobuf enum value: AudioOutput64kAAC = 2;
+     * @generated from protobuf enum value: McuSourceAudioOutput64kAAC = 2;
      */
-    AudioOutput64kAAC = 2
+    McuSourceAudioOutput64kAAC = 2
 }

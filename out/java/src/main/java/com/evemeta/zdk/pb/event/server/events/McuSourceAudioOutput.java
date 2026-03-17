@@ -16,17 +16,17 @@ package com.evemeta.zdk.pb.event.server.events;
 public enum McuSourceAudioOutput
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>AudioOutputUnknown = 0;</code>
+   * <code>McuSourceAudioOutputUnknown = 0;</code>
    */
-  AudioOutputUnknown(0),
+  McuSourceAudioOutputUnknown(0),
   /**
-   * <code>AudioOutput64kOPUS = 1;</code>
+   * <code>McuSourceAudioOutput64kOPUS = 1;</code>
    */
-  AudioOutput64kOPUS(1),
+  McuSourceAudioOutput64kOPUS(1),
   /**
-   * <code>AudioOutput64kAAC = 2;</code>
+   * <code>McuSourceAudioOutput64kAAC = 2;</code>
    */
-  AudioOutput64kAAC(2),
+  McuSourceAudioOutput64kAAC(2),
   UNRECOGNIZED(-1),
   ;
 
@@ -40,17 +40,17 @@ public enum McuSourceAudioOutput
       McuSourceAudioOutput.class.getName());
   }
   /**
-   * <code>AudioOutputUnknown = 0;</code>
+   * <code>McuSourceAudioOutputUnknown = 0;</code>
    */
-  public static final int AudioOutputUnknown_VALUE = 0;
+  public static final int McuSourceAudioOutputUnknown_VALUE = 0;
   /**
-   * <code>AudioOutput64kOPUS = 1;</code>
+   * <code>McuSourceAudioOutput64kOPUS = 1;</code>
    */
-  public static final int AudioOutput64kOPUS_VALUE = 1;
+  public static final int McuSourceAudioOutput64kOPUS_VALUE = 1;
   /**
-   * <code>AudioOutput64kAAC = 2;</code>
+   * <code>McuSourceAudioOutput64kAAC = 2;</code>
    */
-  public static final int AudioOutput64kAAC_VALUE = 2;
+  public static final int McuSourceAudioOutput64kAAC_VALUE = 2;
 
 
   public final int getNumber() {
@@ -77,9 +77,9 @@ public enum McuSourceAudioOutput
    */
   public static McuSourceAudioOutput forNumber(int value) {
     switch (value) {
-      case 0: return AudioOutputUnknown;
-      case 1: return AudioOutput64kOPUS;
-      case 2: return AudioOutput64kAAC;
+      case 0: return McuSourceAudioOutputUnknown;
+      case 1: return McuSourceAudioOutput64kOPUS;
+      case 2: return McuSourceAudioOutput64kAAC;
       default: return null;
     }
   }

@@ -278,52 +278,52 @@ func (McuSourceOrientation) EnumDescriptor() ([]byte, []int) {
 type McuSourceVideoOutput int32
 
 const (
-	McuSourceVideoOutput_VideoOutputUnknown     McuSourceVideoOutput = 0
-	McuSourceVideoOutput_VideoOutput1080p60H264 McuSourceVideoOutput = 1
-	McuSourceVideoOutput_VideoOutput1080p30H264 McuSourceVideoOutput = 2
-	McuSourceVideoOutput_VideoOutput720p30H264  McuSourceVideoOutput = 3
-	McuSourceVideoOutput_VideoOutput540p30H264  McuSourceVideoOutput = 4
-	McuSourceVideoOutput_VideoOutput360p30H264  McuSourceVideoOutput = 5
-	McuSourceVideoOutput_VideoOutput2160p60AV1  McuSourceVideoOutput = 6
-	McuSourceVideoOutput_VideoOutput2160p30AV   McuSourceVideoOutput = 7
-	McuSourceVideoOutput_VideoOutput1080p30AV1  McuSourceVideoOutput = 8
-	McuSourceVideoOutput_VideoOutput1080p60AV1  McuSourceVideoOutput = 9
-	McuSourceVideoOutput_VideoOutput720p30AV1   McuSourceVideoOutput = 10
-	McuSourceVideoOutput_VideoOutput540p30AV1   McuSourceVideoOutput = 11
-	McuSourceVideoOutput_VideoOutput360p30AV1   McuSourceVideoOutput = 12
+	McuSourceVideoOutputUnknown     McuSourceVideoOutput = 0
+	McuSourceVideoOutput1080p60H264 McuSourceVideoOutput = 1
+	McuSourceVideoOutput1080p30H264 McuSourceVideoOutput = 2
+	McuSourceVideoOutput720p30H264  McuSourceVideoOutput = 3
+	McuSourceVideoOutput540p30H264  McuSourceVideoOutput = 4
+	McuSourceVideoOutput360p30H264  McuSourceVideoOutput = 5
+	McuSourceVideoOutput2160p60AV1  McuSourceVideoOutput = 6
+	McuSourceVideoOutput2160p30AV   McuSourceVideoOutput = 7
+	McuSourceVideoOutput1080p30AV1  McuSourceVideoOutput = 8
+	McuSourceVideoOutput1080p60AV1  McuSourceVideoOutput = 9
+	McuSourceVideoOutput720p30AV1   McuSourceVideoOutput = 10
+	McuSourceVideoOutput540p30AV1   McuSourceVideoOutput = 11
+	McuSourceVideoOutput360p30AV1   McuSourceVideoOutput = 12
 )
 
 // Enum value maps for McuSourceVideoOutput.
 var (
 	McuSourceVideoOutput_name = map[int32]string{
-		0:  "VideoOutputUnknown",
-		1:  "VideoOutput1080p60H264",
-		2:  "VideoOutput1080p30H264",
-		3:  "VideoOutput720p30H264",
-		4:  "VideoOutput540p30H264",
-		5:  "VideoOutput360p30H264",
-		6:  "VideoOutput2160p60AV1",
-		7:  "VideoOutput2160p30AV",
-		8:  "VideoOutput1080p30AV1",
-		9:  "VideoOutput1080p60AV1",
-		10: "VideoOutput720p30AV1",
-		11: "VideoOutput540p30AV1",
-		12: "VideoOutput360p30AV1",
+		0:  "McuSourceVideoOutputUnknown",
+		1:  "McuSourceVideoOutput1080p60H264",
+		2:  "McuSourceVideoOutput1080p30H264",
+		3:  "McuSourceVideoOutput720p30H264",
+		4:  "McuSourceVideoOutput540p30H264",
+		5:  "McuSourceVideoOutput360p30H264",
+		6:  "McuSourceVideoOutput2160p60AV1",
+		7:  "McuSourceVideoOutput2160p30AV",
+		8:  "McuSourceVideoOutput1080p30AV1",
+		9:  "McuSourceVideoOutput1080p60AV1",
+		10: "McuSourceVideoOutput720p30AV1",
+		11: "McuSourceVideoOutput540p30AV1",
+		12: "McuSourceVideoOutput360p30AV1",
 	}
 	McuSourceVideoOutput_value = map[string]int32{
-		"VideoOutputUnknown":     0,
-		"VideoOutput1080p60H264": 1,
-		"VideoOutput1080p30H264": 2,
-		"VideoOutput720p30H264":  3,
-		"VideoOutput540p30H264":  4,
-		"VideoOutput360p30H264":  5,
-		"VideoOutput2160p60AV1":  6,
-		"VideoOutput2160p30AV":   7,
-		"VideoOutput1080p30AV1":  8,
-		"VideoOutput1080p60AV1":  9,
-		"VideoOutput720p30AV1":   10,
-		"VideoOutput540p30AV1":   11,
-		"VideoOutput360p30AV1":   12,
+		"McuSourceVideoOutputUnknown":     0,
+		"McuSourceVideoOutput1080p60H264": 1,
+		"McuSourceVideoOutput1080p30H264": 2,
+		"McuSourceVideoOutput720p30H264":  3,
+		"McuSourceVideoOutput540p30H264":  4,
+		"McuSourceVideoOutput360p30H264":  5,
+		"McuSourceVideoOutput2160p60AV1":  6,
+		"McuSourceVideoOutput2160p30AV":   7,
+		"McuSourceVideoOutput1080p30AV1":  8,
+		"McuSourceVideoOutput1080p60AV1":  9,
+		"McuSourceVideoOutput720p30AV1":   10,
+		"McuSourceVideoOutput540p30AV1":   11,
+		"McuSourceVideoOutput360p30AV1":   12,
 	}
 )
 
@@ -357,22 +357,22 @@ func (McuSourceVideoOutput) EnumDescriptor() ([]byte, []int) {
 type McuSourceAudioOutput int32
 
 const (
-	McuSourceAudioOutput_AudioOutputUnknown McuSourceAudioOutput = 0
-	McuSourceAudioOutput_AudioOutput64kOPUS McuSourceAudioOutput = 1
-	McuSourceAudioOutput_AudioOutput64kAAC  McuSourceAudioOutput = 2
+	McuSourceAudioOutputUnknown McuSourceAudioOutput = 0
+	McuSourceAudioOutput64kOPUS McuSourceAudioOutput = 1
+	McuSourceAudioOutput64kAAC  McuSourceAudioOutput = 2
 )
 
 // Enum value maps for McuSourceAudioOutput.
 var (
 	McuSourceAudioOutput_name = map[int32]string{
-		0: "AudioOutputUnknown",
-		1: "AudioOutput64kOPUS",
-		2: "AudioOutput64kAAC",
+		0: "McuSourceAudioOutputUnknown",
+		1: "McuSourceAudioOutput64kOPUS",
+		2: "McuSourceAudioOutput64kAAC",
 	}
 	McuSourceAudioOutput_value = map[string]int32{
-		"AudioOutputUnknown": 0,
-		"AudioOutput64kOPUS": 1,
-		"AudioOutput64kAAC":  2,
+		"McuSourceAudioOutputUnknown": 0,
+		"McuSourceAudioOutput64kOPUS": 1,
+		"McuSourceAudioOutput64kAAC":  2,
 	}
 )
 
@@ -430,26 +430,26 @@ const file_event_events_private_v1_enums_proto_rawDesc = "" +
 	"\x14McuSourceOrientation\x12\x1f\n" +
 	"\x1bMcuSourceOrientationUnknown\x10\x00\x12 \n" +
 	"\x1cMcuSourceOrientationVertical\x10\x01\x12\"\n" +
-	"\x1eMcuSourceOrientationHorizontal\x10\x02*\xf0\x02\n" +
-	"\x14McuSourceVideoOutput\x12\x16\n" +
-	"\x12VideoOutputUnknown\x10\x00\x12\x1a\n" +
-	"\x16VideoOutput1080p60H264\x10\x01\x12\x1a\n" +
-	"\x16VideoOutput1080p30H264\x10\x02\x12\x19\n" +
-	"\x15VideoOutput720p30H264\x10\x03\x12\x19\n" +
-	"\x15VideoOutput540p30H264\x10\x04\x12\x19\n" +
-	"\x15VideoOutput360p30H264\x10\x05\x12\x19\n" +
-	"\x15VideoOutput2160p60AV1\x10\x06\x12\x18\n" +
-	"\x14VideoOutput2160p30AV\x10\a\x12\x19\n" +
-	"\x15VideoOutput1080p30AV1\x10\b\x12\x19\n" +
-	"\x15VideoOutput1080p60AV1\x10\t\x12\x18\n" +
-	"\x14VideoOutput720p30AV1\x10\n" +
-	"\x12\x18\n" +
-	"\x14VideoOutput540p30AV1\x10\v\x12\x18\n" +
-	"\x14VideoOutput360p30AV1\x10\f*]\n" +
-	"\x14McuSourceAudioOutput\x12\x16\n" +
-	"\x12AudioOutputUnknown\x10\x00\x12\x16\n" +
-	"\x12AudioOutput64kOPUS\x10\x01\x12\x15\n" +
-	"\x11AudioOutput64kAAC\x10\x02BCZAgithub.com/evemeta/zdk-pb/out/go/event/events/private/v1;eventspbb\x06proto3"
+	"\x1eMcuSourceOrientationHorizontal\x10\x02*\xe5\x03\n" +
+	"\x14McuSourceVideoOutput\x12\x1f\n" +
+	"\x1bMcuSourceVideoOutputUnknown\x10\x00\x12#\n" +
+	"\x1fMcuSourceVideoOutput1080p60H264\x10\x01\x12#\n" +
+	"\x1fMcuSourceVideoOutput1080p30H264\x10\x02\x12\"\n" +
+	"\x1eMcuSourceVideoOutput720p30H264\x10\x03\x12\"\n" +
+	"\x1eMcuSourceVideoOutput540p30H264\x10\x04\x12\"\n" +
+	"\x1eMcuSourceVideoOutput360p30H264\x10\x05\x12\"\n" +
+	"\x1eMcuSourceVideoOutput2160p60AV1\x10\x06\x12!\n" +
+	"\x1dMcuSourceVideoOutput2160p30AV\x10\a\x12\"\n" +
+	"\x1eMcuSourceVideoOutput1080p30AV1\x10\b\x12\"\n" +
+	"\x1eMcuSourceVideoOutput1080p60AV1\x10\t\x12!\n" +
+	"\x1dMcuSourceVideoOutput720p30AV1\x10\n" +
+	"\x12!\n" +
+	"\x1dMcuSourceVideoOutput540p30AV1\x10\v\x12!\n" +
+	"\x1dMcuSourceVideoOutput360p30AV1\x10\f*x\n" +
+	"\x14McuSourceAudioOutput\x12\x1f\n" +
+	"\x1bMcuSourceAudioOutputUnknown\x10\x00\x12\x1f\n" +
+	"\x1bMcuSourceAudioOutput64kOPUS\x10\x01\x12\x1e\n" +
+	"\x1aMcuSourceAudioOutput64kAAC\x10\x02BCZAgithub.com/evemeta/zdk-pb/out/go/event/events/private/v1;eventspbb\x06proto3"
 
 var (
 	file_event_events_private_v1_enums_proto_rawDescOnce sync.Once
