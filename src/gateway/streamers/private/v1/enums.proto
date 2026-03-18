@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package gateway.streamers.private.v1;
+
+option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/streamers/private/v1;streamerspb";
+
+enum Zone {
+    ZoneUnknown      = 0;
+    ZoneAsia         = 1;
+    ZoneAfrica       = 2;
+    ZoneEurope       = 3;
+    ZoneOceania      = 4;
+    ZoneNorthAmerica = 5;
+    ZoneSouthAmerica = 6;
+}
+
+enum Status {
+    StatusUnknown     = 0;
+    StatusInitiating  = 1;
+    StatusInitiated   = 2;
+    StatusExhausted   = 3;
+    StatusTerminating = 4;
+}

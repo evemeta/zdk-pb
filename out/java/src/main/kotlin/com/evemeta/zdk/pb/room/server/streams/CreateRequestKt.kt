@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: room/streams/public/server/v1/procedures.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.room.server.streams;
@@ -41,10 +40,10 @@ public object CreateRequestKt {
      * `string room_id = 1;`
      */
     public var roomId: kotlin.String
-      @kotlin.jvm.JvmName("getRoomId")
-        get() = _builder.roomId
-      @kotlin.jvm.JvmName("setRoomId")
-        set(value) {
+      @JvmName("getRoomId")
+      get() = _builder.roomId
+      @JvmName("setRoomId")
+      set(value) {
         _builder.roomId = value
       }
     /**
@@ -66,17 +65,17 @@ public object CreateRequestKt {
      * `.room.streams.public.server.v1.Kind kind = 2;`
      */
     public var kind: com.evemeta.zdk.pb.room.server.streams.Kind
-      @kotlin.jvm.JvmName("getKind")
-        get() = _builder.kind
-      @kotlin.jvm.JvmName("setKind")
-        set(value) {
+      @JvmName("getKind")
+      get() = _builder.kind
+      @JvmName("setKind")
+      set(value) {
         _builder.kind = value
       }
     public var kindValue: kotlin.Int
-      @kotlin.jvm.JvmName("getKindValue")
-        get() = _builder.kindValue
-      @kotlin.jvm.JvmName("setKindValue")
-        set(value) {
+      @JvmName("getKindValue")
+      get() = _builder.kindValue
+      @JvmName("setKindValue")
+      set(value) {
         _builder.kindValue = value
       }
     /**
@@ -98,17 +97,17 @@ public object CreateRequestKt {
      * `.room.streams.public.server.v1.Status status = 3;`
      */
     public var status: com.evemeta.zdk.pb.room.server.streams.Status
-      @kotlin.jvm.JvmName("getStatus")
-        get() = _builder.status
-      @kotlin.jvm.JvmName("setStatus")
-        set(value) {
+      @JvmName("getStatus")
+      get() = _builder.status
+      @JvmName("setStatus")
+      set(value) {
         _builder.status = value
       }
     public var statusValue: kotlin.Int
-      @kotlin.jvm.JvmName("getStatusValue")
-        get() = _builder.statusValue
-      @kotlin.jvm.JvmName("setStatusValue")
-        set(value) {
+      @JvmName("getStatusValue")
+      get() = _builder.statusValue
+      @JvmName("setStatusValue")
+      set(value) {
         _builder.statusValue = value
       }
     /**

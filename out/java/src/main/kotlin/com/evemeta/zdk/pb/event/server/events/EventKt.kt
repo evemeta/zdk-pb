@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: event/events/public/server/v1/entities.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.event.server.events;
@@ -42,10 +41,10 @@ public object EventKt {
      * `string id = 1;`
      */
     public var id: kotlin.String
-      @kotlin.jvm.JvmName("getId")
-        get() = _builder.id
-      @kotlin.jvm.JvmName("setId")
-        set(value) {
+      @JvmName("getId")
+      get() = _builder.id
+      @JvmName("setId")
+      set(value) {
         _builder.id = value
       }
     /**
@@ -67,17 +66,17 @@ public object EventKt {
      * `.event.events.public.server.v1.Kind kind = 2;`
      */
     public var kind: com.evemeta.zdk.pb.event.server.events.Kind
-      @kotlin.jvm.JvmName("getKind")
-        get() = _builder.kind
-      @kotlin.jvm.JvmName("setKind")
-        set(value) {
+      @JvmName("getKind")
+      get() = _builder.kind
+      @JvmName("setKind")
+      set(value) {
         _builder.kind = value
       }
     public var kindValue: kotlin.Int
-      @kotlin.jvm.JvmName("getKindValue")
-        get() = _builder.kindValue
-      @kotlin.jvm.JvmName("setKindValue")
-        set(value) {
+      @JvmName("getKindValue")
+      get() = _builder.kindValue
+      @JvmName("setKindValue")
+      set(value) {
         _builder.kindValue = value
       }
     /**
@@ -99,17 +98,17 @@ public object EventKt {
      * `.event.events.public.server.v1.Status status = 3;`
      */
     public var status: com.evemeta.zdk.pb.event.server.events.Status
-      @kotlin.jvm.JvmName("getStatus")
-        get() = _builder.status
-      @kotlin.jvm.JvmName("setStatus")
-        set(value) {
+      @JvmName("getStatus")
+      get() = _builder.status
+      @JvmName("setStatus")
+      set(value) {
         _builder.status = value
       }
     public var statusValue: kotlin.Int
-      @kotlin.jvm.JvmName("getStatusValue")
-        get() = _builder.statusValue
-      @kotlin.jvm.JvmName("setStatusValue")
-        set(value) {
+      @JvmName("getStatusValue")
+      get() = _builder.statusValue
+      @JvmName("setStatusValue")
+      set(value) {
         _builder.statusValue = value
       }
     /**
@@ -124,6 +123,45 @@ public object EventKt {
     }
 
     /**
+     * ```
+     * The source associated with this event, containing properties.
+     * ```
+     *
+     * `.event.events.public.server.v1.Source source = 4;`
+     */
+    public var source: com.evemeta.zdk.pb.event.server.events.Source
+      @JvmName("getSource")
+      get() = _builder.source
+      @JvmName("setSource")
+      set(value) {
+        _builder.source = value
+      }
+    /**
+     * ```
+     * The source associated with this event, containing properties.
+     * ```
+     *
+     * `.event.events.public.server.v1.Source source = 4;`
+     */
+    public fun clearSource() {
+      _builder.clearSource()
+    }
+    /**
+     * ```
+     * The source associated with this event, containing properties.
+     * ```
+     *
+     * `.event.events.public.server.v1.Source source = 4;`
+     * @return Whether the source field is set.
+     */
+    public fun hasSource(): kotlin.Boolean {
+      return _builder.hasSource()
+    }
+
+    public val EventKt.Dsl.sourceOrNull: com.evemeta.zdk.pb.event.server.events.Source?
+      get() = _builder.sourceOrNull
+
+    /**
      * An uninstantiable, behaviorless type to represent the field in
      * generics.
      */
@@ -134,11 +172,11 @@ public object EventKt {
      * Represents a collection of key-value pairs providing additional context or information about this event.
      * ```
      *
-     * `map<string, string> metadata = 4;`
+     * `map<string, string> metadata = 5;`
      */
      public val metadata: com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("getMetadataMap")
+      @JvmName("getMetadataMap")
       get() = com.google.protobuf.kotlin.DslMap(
         _builder.metadataMap
       )
@@ -147,9 +185,9 @@ public object EventKt {
      * Represents a collection of key-value pairs providing additional context or information about this event.
      * ```
      *
-     * `map<string, string> metadata = 4;`
+     * `map<string, string> metadata = 5;`
      */
-    @kotlin.jvm.JvmName("putMetadata")
+    @JvmName("putMetadata")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .put(key: kotlin.String, value: kotlin.String) {
          _builder.putMetadata(key, value)
@@ -159,10 +197,10 @@ public object EventKt {
      * Represents a collection of key-value pairs providing additional context or information about this event.
      * ```
      *
-     * `map<string, string> metadata = 4;`
+     * `map<string, string> metadata = 5;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("setMetadata")
+    @JvmName("setMetadata")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .set(key: kotlin.String, value: kotlin.String) {
@@ -173,10 +211,10 @@ public object EventKt {
      * Represents a collection of key-value pairs providing additional context or information about this event.
      * ```
      *
-     * `map<string, string> metadata = 4;`
+     * `map<string, string> metadata = 5;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("removeMetadata")
+    @JvmName("removeMetadata")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .remove(key: kotlin.String) {
          _builder.removeMetadata(key)
@@ -186,10 +224,10 @@ public object EventKt {
      * Represents a collection of key-value pairs providing additional context or information about this event.
      * ```
      *
-     * `map<string, string> metadata = 4;`
+     * `map<string, string> metadata = 5;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("putAllMetadata")
+    @JvmName("putAllMetadata")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .putAll(map: kotlin.collections.Map<kotlin.String, kotlin.String>) {
          _builder.putAllMetadata(map)
@@ -199,10 +237,10 @@ public object EventKt {
      * Represents a collection of key-value pairs providing additional context or information about this event.
      * ```
      *
-     * `map<string, string> metadata = 4;`
+     * `map<string, string> metadata = 5;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("clearMetadata")
+    @JvmName("clearMetadata")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .clear() {
          _builder.clearMetadata()
@@ -213,20 +251,20 @@ public object EventKt {
      * Indicates whether the event is scheduled or unscheduled.
      * ```
      *
-     * `.event.events.public.server.v1.Schedule schedule = 5;`
+     * `.event.events.public.server.v1.Schedule schedule = 6;`
      */
     public var schedule: com.evemeta.zdk.pb.event.server.events.Schedule
-      @kotlin.jvm.JvmName("getSchedule")
-        get() = _builder.schedule
-      @kotlin.jvm.JvmName("setSchedule")
-        set(value) {
+      @JvmName("getSchedule")
+      get() = _builder.schedule
+      @JvmName("setSchedule")
+      set(value) {
         _builder.schedule = value
       }
     public var scheduleValue: kotlin.Int
-      @kotlin.jvm.JvmName("getScheduleValue")
-        get() = _builder.scheduleValue
-      @kotlin.jvm.JvmName("setScheduleValue")
-        set(value) {
+      @JvmName("getScheduleValue")
+      get() = _builder.scheduleValue
+      @JvmName("setScheduleValue")
+      set(value) {
         _builder.scheduleValue = value
       }
     /**
@@ -234,50 +272,11 @@ public object EventKt {
      * Indicates whether the event is scheduled or unscheduled.
      * ```
      *
-     * `.event.events.public.server.v1.Schedule schedule = 5;`
+     * `.event.events.public.server.v1.Schedule schedule = 6;`
      */
     public fun clearSchedule() {
       _builder.clearSchedule()
     }
-
-    /**
-     * ```
-     * The broadcast associated with this event, containing properties.
-     * ```
-     *
-     * `.event.events.public.server.v1.Broadcast broadcast = 6;`
-     */
-    public var broadcast: com.evemeta.zdk.pb.event.server.events.Broadcast
-      @kotlin.jvm.JvmName("getBroadcast")
-        get() = _builder.broadcast
-      @kotlin.jvm.JvmName("setBroadcast")
-        set(value) {
-        _builder.broadcast = value
-      }
-    /**
-     * ```
-     * The broadcast associated with this event, containing properties.
-     * ```
-     *
-     * `.event.events.public.server.v1.Broadcast broadcast = 6;`
-     */
-    public fun clearBroadcast() {
-      _builder.clearBroadcast()
-    }
-    /**
-     * ```
-     * The broadcast associated with this event, containing properties.
-     * ```
-     *
-     * `.event.events.public.server.v1.Broadcast broadcast = 6;`
-     * @return Whether the broadcast field is set.
-     */
-    public fun hasBroadcast(): kotlin.Boolean {
-      return _builder.hasBroadcast()
-    }
-
-    public val EventKt.Dsl.broadcastOrNull: com.evemeta.zdk.pb.event.server.events.Broadcast?
-      get() = _builder.broadcastOrNull
 
     /**
      * ```
@@ -287,10 +286,10 @@ public object EventKt {
      * `int64 planned_start_time = 7;`
      */
     public var plannedStartTime: kotlin.Long
-      @kotlin.jvm.JvmName("getPlannedStartTime")
-        get() = _builder.plannedStartTime
-      @kotlin.jvm.JvmName("setPlannedStartTime")
-        set(value) {
+      @JvmName("getPlannedStartTime")
+      get() = _builder.plannedStartTime
+      @JvmName("setPlannedStartTime")
+      set(value) {
         _builder.plannedStartTime = value
       }
     /**
@@ -312,10 +311,10 @@ public object EventKt {
      * `int64 start_time = 8;`
      */
     public var startTime: kotlin.Long
-      @kotlin.jvm.JvmName("getStartTime")
-        get() = _builder.startTime
-      @kotlin.jvm.JvmName("setStartTime")
-        set(value) {
+      @JvmName("getStartTime")
+      get() = _builder.startTime
+      @JvmName("setStartTime")
+      set(value) {
         _builder.startTime = value
       }
     /**
@@ -337,10 +336,10 @@ public object EventKt {
      * `int64 planned_finish_time = 9;`
      */
     public var plannedFinishTime: kotlin.Long
-      @kotlin.jvm.JvmName("getPlannedFinishTime")
-        get() = _builder.plannedFinishTime
-      @kotlin.jvm.JvmName("setPlannedFinishTime")
-        set(value) {
+      @JvmName("getPlannedFinishTime")
+      get() = _builder.plannedFinishTime
+      @JvmName("setPlannedFinishTime")
+      set(value) {
         _builder.plannedFinishTime = value
       }
     /**
@@ -362,10 +361,10 @@ public object EventKt {
      * `int64 finish_time = 10;`
      */
     public var finishTime: kotlin.Long
-      @kotlin.jvm.JvmName("getFinishTime")
-        get() = _builder.finishTime
-      @kotlin.jvm.JvmName("setFinishTime")
-        set(value) {
+      @JvmName("getFinishTime")
+      get() = _builder.finishTime
+      @JvmName("setFinishTime")
+      set(value) {
         _builder.finishTime = value
       }
     /**
@@ -387,10 +386,10 @@ public object EventKt {
      * `int64 cancel_time = 11;`
      */
     public var cancelTime: kotlin.Long
-      @kotlin.jvm.JvmName("getCancelTime")
-        get() = _builder.cancelTime
-      @kotlin.jvm.JvmName("setCancelTime")
-        set(value) {
+      @JvmName("getCancelTime")
+      get() = _builder.cancelTime
+      @JvmName("setCancelTime")
+      set(value) {
         _builder.cancelTime = value
       }
     /**
@@ -412,10 +411,10 @@ public object EventKt {
      * `int64 create_time = 12;`
      */
     public var createTime: kotlin.Long
-      @kotlin.jvm.JvmName("getCreateTime")
-        get() = _builder.createTime
-      @kotlin.jvm.JvmName("setCreateTime")
-        set(value) {
+      @JvmName("getCreateTime")
+      get() = _builder.createTime
+      @JvmName("setCreateTime")
+      set(value) {
         _builder.createTime = value
       }
     /**
@@ -437,10 +436,10 @@ public object EventKt {
      * `int64 update_time = 13;`
      */
     public var updateTime: kotlin.Long
-      @kotlin.jvm.JvmName("getUpdateTime")
-        get() = _builder.updateTime
-      @kotlin.jvm.JvmName("setUpdateTime")
-        set(value) {
+      @JvmName("getUpdateTime")
+      get() = _builder.updateTime
+      @JvmName("setUpdateTime")
+      set(value) {
         _builder.updateTime = value
       }
     /**
@@ -459,6 +458,6 @@ public object EventKt {
 public inline fun com.evemeta.zdk.pb.event.server.events.Event.copy(block: `com.evemeta.zdk.pb.event.server.events`.EventKt.Dsl.() -> kotlin.Unit): com.evemeta.zdk.pb.event.server.events.Event =
   `com.evemeta.zdk.pb.event.server.events`.EventKt.Dsl._create(this.toBuilder()).apply { block() }._build()
 
-public val com.evemeta.zdk.pb.event.server.events.EventOrBuilder.broadcastOrNull: com.evemeta.zdk.pb.event.server.events.Broadcast?
-  get() = if (hasBroadcast()) getBroadcast() else null
+public val com.evemeta.zdk.pb.event.server.events.EventOrBuilder.sourceOrNull: com.evemeta.zdk.pb.event.server.events.Source?
+  get() = if (hasSource()) getSource() else null
 

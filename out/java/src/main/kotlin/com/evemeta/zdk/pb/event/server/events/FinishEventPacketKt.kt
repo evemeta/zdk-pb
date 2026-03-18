@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: event/events/public/server/v1/packets.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.event.server.events;
@@ -42,10 +41,10 @@ public object FinishEventPacketKt {
      * `string id = 1;`
      */
     public var id: kotlin.String
-      @kotlin.jvm.JvmName("getId")
-        get() = _builder.id
-      @kotlin.jvm.JvmName("setId")
-        set(value) {
+      @JvmName("getId")
+      get() = _builder.id
+      @JvmName("setId")
+      set(value) {
         _builder.id = value
       }
     /**
@@ -67,10 +66,10 @@ public object FinishEventPacketKt {
      * `.event.events.public.server.v1.Timeframe timeframe = 2;`
      */
     public var timeframe: com.evemeta.zdk.pb.event.server.events.Timeframe
-      @kotlin.jvm.JvmName("getTimeframe")
-        get() = _builder.timeframe
-      @kotlin.jvm.JvmName("setTimeframe")
-        set(value) {
+      @JvmName("getTimeframe")
+      get() = _builder.timeframe
+      @JvmName("setTimeframe")
+      set(value) {
         _builder.timeframe = value
       }
     /**

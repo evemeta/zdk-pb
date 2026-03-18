@@ -52,10 +52,13 @@ message SelectResponse {
 }
 
 message CreateArgument {
-    string                         id       = 1;
-    chat.chats.private.v1.Kind     kind     = 2;
-    map<string, string>            metadata = 3;
-    chat.chats.private.v1.Slowmode slowmode = 4;
+    string                         id        = 1;
+    string                         user_id   = 2;
+    chat.chats.private.v1.Kind     kind      = 3;
+    int64                          capacity  = 4;
+    map<string, string>            metadata  = 5;
+    chat.chats.private.v1.Slowmode slowmode  = 6;
+    int64                          retention = 7;
 }
 
 message CreateRequest {

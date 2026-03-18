@@ -71,12 +71,15 @@ message InvokeResponse {}
 
 message CreateArgument {
     string                            id                  = 1;
-    event.events.private.v1.Kind      kind                = 2;
-    map<string, string>               metadata            = 3;
-    event.events.private.v1.Schedule  schedule            = 4;
-    event.events.private.v1.Broadcast broadcast           = 5;
-    int64                             planned_start_time  = 6;
-    int64                             planned_finish_time = 7;
+    string                            user_id             = 2;
+    event.events.private.v1.Kind      kind                = 3;
+    int64                             capacity            = 4;
+    map<string, string>               metadata            = 5;
+    event.events.private.v1.Schedule  schedule            = 6;
+    event.events.private.v1.Source    source              = 7;
+    int64                             retention           = 8;
+    int64                             planned_start_time  = 9;
+    int64                             planned_finish_time = 10;
 }
 
 message CreateRequest {

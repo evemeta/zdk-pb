@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: room/streams/public/server/v1/procedures.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.room.server.streams;
@@ -41,10 +40,10 @@ public object UpdateRequestKt {
      * `string id = 1;`
      */
     public var id: kotlin.String
-      @kotlin.jvm.JvmName("getId")
-        get() = _builder.id
-      @kotlin.jvm.JvmName("setId")
-        set(value) {
+      @JvmName("getId")
+      get() = _builder.id
+      @JvmName("setId")
+      set(value) {
         _builder.id = value
       }
     /**
@@ -66,10 +65,10 @@ public object UpdateRequestKt {
      * `optional .room.streams.public.server.v1.OptionalStatus status = 2;`
      */
     public var status: com.evemeta.zdk.pb.room.server.streams.OptionalStatus
-      @kotlin.jvm.JvmName("getStatus")
-        get() = _builder.status
-      @kotlin.jvm.JvmName("setStatus")
-        set(value) {
+      @JvmName("getStatus")
+      get() = _builder.status
+      @JvmName("setStatus")
+      set(value) {
         _builder.status = value
       }
     /**

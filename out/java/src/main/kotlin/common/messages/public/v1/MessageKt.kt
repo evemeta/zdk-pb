@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: common/messages/public/v1/entities.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package common.messages.public.v1;
@@ -37,10 +36,10 @@ public object MessageKt {
      * `string name = 1;`
      */
     public var name: kotlin.String
-      @kotlin.jvm.JvmName("getName")
-        get() = _builder.name
-      @kotlin.jvm.JvmName("setName")
-        set(value) {
+      @JvmName("getName")
+      get() = _builder.name
+      @JvmName("setName")
+      set(value) {
         _builder.name = value
       }
     /**
@@ -54,10 +53,10 @@ public object MessageKt {
      * `bytes data = 2;`
      */
     public var data: com.google.protobuf.ByteString
-      @kotlin.jvm.JvmName("getData")
-        get() = _builder.data
-      @kotlin.jvm.JvmName("setData")
-        set(value) {
+      @JvmName("getData")
+      get() = _builder.data
+      @JvmName("setData")
+      set(value) {
         _builder.data = value
       }
     /**

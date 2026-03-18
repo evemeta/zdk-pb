@@ -49,10 +49,11 @@ message SelectResponse {
 
 message CreateArgument {
     string                         id      = 1;
-    string                         room_id = 2;
-    gateway.mcus.private.v1.Zone   zone    = 3;
-    gateway.mcus.private.v1.Status status  = 4;
-    string                         address = 5;
+    string                         job_id  = 2;
+    string                         room_id = 3;
+    gateway.mcus.private.v1.Zone   zone    = 4;
+    gateway.mcus.private.v1.Status status  = 5;
+    string                         address = 6;
 }
 
 message CreateRequest {

@@ -8,7 +8,7 @@ option go_package = "github.com/evemeta/zdk-pb/out/go/mcu/streams/private/v1;str
 
 
 message OutputStreamRequest {
-    string room_id = 1;
-    string sfu_id = 2;
-    bool control_only = 3;
+    string  room_id         = 1;
+    string  sfu_id          = 2;
+    bool    control_only    = 3;
 }

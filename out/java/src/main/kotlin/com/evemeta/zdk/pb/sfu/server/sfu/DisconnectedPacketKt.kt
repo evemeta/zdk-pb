@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: sfu/public/server/v1/packets.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.sfu.server.sfu;
@@ -33,10 +32,10 @@ public object DisconnectedPacketKt {
      * `string reason = 1;`
      */
     public var reason: kotlin.String
-      @kotlin.jvm.JvmName("getReason")
-        get() = _builder.reason
-      @kotlin.jvm.JvmName("setReason")
-        set(value) {
+      @JvmName("getReason")
+      get() = _builder.reason
+      @JvmName("setReason")
+      set(value) {
         _builder.reason = value
       }
     /**

@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: websocket/public/server/v1/packets.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.websocket.server.websocket;
@@ -33,17 +32,17 @@ public object DisconnectPacketKt {
      * `.websocket.public.server.v1.Cause cause = 1;`
      */
     public var cause: com.evemeta.zdk.pb.websocket.server.websocket.Cause
-      @kotlin.jvm.JvmName("getCause")
-        get() = _builder.cause
-      @kotlin.jvm.JvmName("setCause")
-        set(value) {
+      @JvmName("getCause")
+      get() = _builder.cause
+      @JvmName("setCause")
+      set(value) {
         _builder.cause = value
       }
     public var causeValue: kotlin.Int
-      @kotlin.jvm.JvmName("getCauseValue")
-        get() = _builder.causeValue
-      @kotlin.jvm.JvmName("setCauseValue")
-        set(value) {
+      @JvmName("getCauseValue")
+      get() = _builder.causeValue
+      @JvmName("setCauseValue")
+      set(value) {
         _builder.causeValue = value
       }
     /**

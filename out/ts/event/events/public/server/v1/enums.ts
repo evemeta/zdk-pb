@@ -90,11 +90,12 @@ export enum Schedule {
     Unplanned = 2
 }
 /**
- * BroadcastOrientation represents an enumeration that specifies the orientation of a broadcast, indicating whether it is vertical or horizontal.
+ * McuSourceOrientation represents the orientation of a media stream produced by an MCU source.
+ * It specifies whether the stream is presented in a vertical or horizontal layout.
  *
- * @generated from protobuf enum event.events.public.server.v1.BroadcastOrientation
+ * @generated from protobuf enum event.events.public.server.v1.McuSourceOrientation
  */
-export enum BroadcastOrientation {
+export enum McuSourceOrientation {
     /**
      * @generated from protobuf enum value: Unknown = 0;
      */
@@ -107,4 +108,84 @@ export enum BroadcastOrientation {
      * @generated from protobuf enum value: Horizontal = 2;
      */
     Horizontal = 2
+}
+/**
+ * McuSourceVideoOutput represents the video output profile used by an MCU source.
+ * It defines the resolution, frame rate, and codec configuration used when generating the video stream.
+ *
+ * @generated from protobuf enum event.events.public.server.v1.McuSourceVideoOutput
+ */
+export enum McuSourceVideoOutput {
+    /**
+     * @generated from protobuf enum value: Unknown = 0;
+     */
+    Unknown = 0,
+    /**
+     * @generated from protobuf enum value: McuSourceVideoOutput1080p60H264 = 1;
+     */
+    McuSourceVideoOutput1080p60H264 = 1,
+    /**
+     * @generated from protobuf enum value: McuSourceVideoOutput1080p30H264 = 2;
+     */
+    McuSourceVideoOutput1080p30H264 = 2,
+    /**
+     * @generated from protobuf enum value: McuSourceVideoOutput720p30H264 = 3;
+     */
+    McuSourceVideoOutput720p30H264 = 3,
+    /**
+     * @generated from protobuf enum value: McuSourceVideoOutput540p30H264 = 4;
+     */
+    McuSourceVideoOutput540p30H264 = 4,
+    /**
+     * @generated from protobuf enum value: McuSourceVideoOutput360p30H264 = 5;
+     */
+    McuSourceVideoOutput360p30H264 = 5,
+    /**
+     * @generated from protobuf enum value: McuSourceVideoOutput2160p60AV1 = 6;
+     */
+    McuSourceVideoOutput2160p60AV1 = 6,
+    /**
+     * @generated from protobuf enum value: McuSourceVideoOutput2160p30AV = 7;
+     */
+    McuSourceVideoOutput2160p30AV = 7,
+    /**
+     * @generated from protobuf enum value: McuSourceVideoOutput1080p30AV1 = 8;
+     */
+    McuSourceVideoOutput1080p30AV1 = 8,
+    /**
+     * @generated from protobuf enum value: McuSourceVideoOutput1080p60AV1 = 9;
+     */
+    McuSourceVideoOutput1080p60AV1 = 9,
+    /**
+     * @generated from protobuf enum value: McuSourceVideoOutput720p30AV1 = 10;
+     */
+    McuSourceVideoOutput720p30AV1 = 10,
+    /**
+     * @generated from protobuf enum value: McuSourceVideoOutput540p30AV1 = 11;
+     */
+    McuSourceVideoOutput540p30AV1 = 11,
+    /**
+     * @generated from protobuf enum value: McuSourceVideoOutput360p30AV1 = 12;
+     */
+    McuSourceVideoOutput360p30AV1 = 12
+}
+/**
+ * McuSourceAudioOutput represents the audio output profile used by an MCU source.
+ * It defines the audio bitrate and codec configuration used when generating the audio stream.
+ *
+ * @generated from protobuf enum event.events.public.server.v1.McuSourceAudioOutput
+ */
+export enum McuSourceAudioOutput {
+    /**
+     * @generated from protobuf enum value: Unknown = 0;
+     */
+    Unknown = 0,
+    /**
+     * @generated from protobuf enum value: McuSourceAudioOutput64kOPUS = 1;
+     */
+    McuSourceAudioOutput64kOPUS = 1,
+    /**
+     * @generated from protobuf enum value: McuSourceAudioOutput64kAAC = 2;
+     */
+    McuSourceAudioOutput64kAAC = 2
 }

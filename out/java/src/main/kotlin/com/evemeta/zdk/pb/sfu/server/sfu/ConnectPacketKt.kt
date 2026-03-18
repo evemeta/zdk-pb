@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: sfu/public/server/v1/packets.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.sfu.server.sfu;
@@ -33,10 +32,10 @@ public object ConnectPacketKt {
      * `.sfu.public.server.v1.Offer offer = 1;`
      */
     public var offer: com.evemeta.zdk.pb.sfu.server.sfu.Offer
-      @kotlin.jvm.JvmName("getOffer")
-        get() = _builder.offer
-      @kotlin.jvm.JvmName("setOffer")
-        set(value) {
+      @JvmName("getOffer")
+      get() = _builder.offer
+      @JvmName("setOffer")
+      set(value) {
         _builder.offer = value
       }
     /**

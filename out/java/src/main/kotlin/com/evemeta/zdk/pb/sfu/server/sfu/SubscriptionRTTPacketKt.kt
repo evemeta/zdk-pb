@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: sfu/public/server/v1/packets.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.sfu.server.sfu;
@@ -33,10 +32,10 @@ public object SubscriptionRTTPacketKt {
      * `string sub_id = 1;`
      */
     public var subId: kotlin.String
-      @kotlin.jvm.JvmName("getSubId")
-        get() = _builder.subId
-      @kotlin.jvm.JvmName("setSubId")
-        set(value) {
+      @JvmName("getSubId")
+      get() = _builder.subId
+      @JvmName("setSubId")
+      set(value) {
         _builder.subId = value
       }
     /**
@@ -50,10 +49,10 @@ public object SubscriptionRTTPacketKt {
      * `int64 rtt = 2;`
      */
     public var rtt: kotlin.Long
-      @kotlin.jvm.JvmName("getRtt")
-        get() = _builder.rtt
-      @kotlin.jvm.JvmName("setRtt")
-        set(value) {
+      @JvmName("getRtt")
+      get() = _builder.rtt
+      @JvmName("setRtt")
+      set(value) {
         _builder.rtt = value
       }
     /**

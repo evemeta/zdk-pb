@@ -9,28 +9,30 @@ option go_package = "github.com/evemeta/zdk-pb/out/go/mcu/streams/private/v1;str
 message Empty {}
 
 message Resolution{
-    int32 width = 1;
+    int32 width  = 1;
     int32 height = 2;
 }
 
 message RTPPacket {
-    bytes data = 1;
-    bool key_frame = 2;
-    SampleType type = 3;
+    bytes       data        = 1;
+    bool        key_frame   = 2;
+    SampleType  type        = 3;
+    sint32      spatial_id  = 4;
+    sint32      temporal_id = 5;
 }
 
 message Sample {
-    bytes data = 1;
-    int64 timestamp = 2;
-    SampleType type = 3;
-    bool is_key_frame = 4;
-    Resolution resolution = 5;
-    int32 picture_id = 6;
-    int64 duration = 7;
-    int32 prev_dropped_packets = 8;
-    int32 spatial_layer_id = 9;
-    int32 temporal_layer_id = 10;
-    int32 stream_id = 11;
+    bytes       data                    = 1;
+    int64       timestamp               = 2;
+    SampleType  type                    = 3;
+    bool        is_key_frame            = 4;
+    Resolution  resolution              = 5;
+    int32       picture_id              = 6;
+    int64       duration                = 7;
+    int32       prev_dropped_packets    = 8;
+    int32       spatial_layer_id        = 9;
+    int32       temporal_layer_id       = 10;
+    int32       stream_id               = 11;
 }
 
 message KeyFrameRequest {
@@ -38,19 +40,28 @@ message KeyFrameRequest {
 }
 
 message ManagementCommand {
-    bool resetEncoder = 1;
+    bool        reset_encoder   = 1;
+    AudioConfig audio_config    = 2;
+    VideoConfig video_config    = 3;
 }
 
 
 message AudioConfig {
-    SampleType type = 1;
-    int32 sample_rate = 2;
+    SampleType  type                = 1;
+    int32       sample_rate         = 2;
+    sint32      extension_abs_id    = 3;
+}
+
+message VideoConfig {
+    bool    svc              = 1;
+    sint32  extension_abs_id = 2;
 }
 
 message InputDescription {
-    string user_id = 1;
-    string room_id = 2;
-    InputType input_type = 3;
-    int64 presentationDelayHint = 4;
-    repeated AudioConfig audio_configs = 5;
+                string      user_id                 = 1;
+                string      room_id                 = 2;
+                InputType   input_type              = 3;
+                int64       presentationDelayHint   = 4;
+    repeated    AudioConfig audio_configs           = 5;
+    repeated    VideoConfig video_configs           = 6;
 }

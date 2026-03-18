@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: room/rooms/public/client/v1/packets.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.room.client.rooms;
@@ -42,10 +41,10 @@ public object EnterRoomPacketKt {
      * `string token = 1;`
      */
     public var token: kotlin.String
-      @kotlin.jvm.JvmName("getToken")
-        get() = _builder.token
-      @kotlin.jvm.JvmName("setToken")
-        set(value) {
+      @JvmName("getToken")
+      get() = _builder.token
+      @JvmName("setToken")
+      set(value) {
         _builder.token = value
       }
     /**
@@ -67,10 +66,10 @@ public object EnterRoomPacketKt {
      * `bool override = 2;`
      */
     public var override: kotlin.Boolean
-      @kotlin.jvm.JvmName("getOverride")
-        get() = _builder.override
-      @kotlin.jvm.JvmName("setOverride")
-        set(value) {
+      @JvmName("getOverride")
+      get() = _builder.override
+      @JvmName("setOverride")
+      set(value) {
         _builder.override = value
       }
     /**

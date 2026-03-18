@@ -10,13 +10,14 @@ option go_package = "github.com/evemeta/zdk-pb/out/go/room/rooms/private/v1;room
 message Room {
     string                     id          = 1;
     string                     chat_id     = 2;
-    room.rooms.private.v1.Kind kind        = 3;
-    int64                      capacity    = 4;
-    map<string, string>        metadata    = 5;
-    int64                      retention   = 6;
-    int64                      access_time = 7;
-    int64                      create_time = 8;
-    int64                      update_time = 9;
+    string                     user_id     = 3;
+    room.rooms.private.v1.Kind kind        = 4;
+    int64                      capacity    = 5;
+    map<string, string>        metadata    = 6;
+    int64                      retention   = 7;
+    int64                      access_time = 8;
+    int64                      create_time = 9;
+    int64                      update_time = 10;
 }
 
 message Chunk {
@@ -34,8 +35,10 @@ message Query {
 }
 
 message Condition {
-    repeated string                        ids     = 1;
-    repeated room.members.private.v1.Query members = 2;
+    repeated string                        ids      = 1;
+    repeated string                        chat_ids = 2;
+    repeated string                        user_ids = 3;
+    repeated room.members.private.v1.Query members  = 4;
 }
 
 message Transient {

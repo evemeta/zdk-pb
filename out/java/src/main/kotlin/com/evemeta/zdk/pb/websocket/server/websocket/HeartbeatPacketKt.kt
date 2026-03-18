@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: websocket/public/server/v1/packets.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.websocket.server.websocket;
@@ -33,10 +32,10 @@ public object HeartbeatPacketKt {
      * `int64 round = 1;`
      */
     public var round: kotlin.Long
-      @kotlin.jvm.JvmName("getRound")
-        get() = _builder.round
-      @kotlin.jvm.JvmName("setRound")
-        set(value) {
+      @JvmName("getRound")
+      get() = _builder.round
+      @JvmName("setRound")
+      set(value) {
         _builder.round = value
       }
     /**

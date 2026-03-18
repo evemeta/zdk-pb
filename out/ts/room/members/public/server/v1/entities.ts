@@ -182,7 +182,7 @@ class Chunk$Type extends MessageType<Chunk> {
             { no: 1, name: "size", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 2, name: "index", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 3, name: "total", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 4, name: "entities", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => Member }
+            { no: 4, name: "entities", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => Member }
         ]);
     }
     create(value?: PartialMessage<Chunk>): Chunk {

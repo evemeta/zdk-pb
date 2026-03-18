@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: websocket/public/server/v1/packets.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.websocket.server.websocket;
@@ -33,10 +32,10 @@ public object HandshakePacketKt {
      * `.websocket.public.server.v1.Session session = 1;`
      */
     public var session: com.evemeta.zdk.pb.websocket.server.websocket.Session
-      @kotlin.jvm.JvmName("getSession")
-        get() = _builder.session
-      @kotlin.jvm.JvmName("setSession")
-        set(value) {
+      @JvmName("getSession")
+      get() = _builder.session
+      @JvmName("setSession")
+      set(value) {
         _builder.session = value
       }
     /**

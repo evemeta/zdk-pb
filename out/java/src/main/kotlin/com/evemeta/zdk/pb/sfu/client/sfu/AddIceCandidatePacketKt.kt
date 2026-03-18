@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: sfu/public/client/v1/packets.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.sfu.client.sfu;
@@ -33,10 +32,10 @@ public object AddIceCandidatePacketKt {
      * `.sfu.public.server.v1.IceCandidate ice_candidate = 1;`
      */
     public var iceCandidate: com.evemeta.zdk.pb.sfu.server.sfu.IceCandidate
-      @kotlin.jvm.JvmName("getIceCandidate")
-        get() = _builder.iceCandidate
-      @kotlin.jvm.JvmName("setIceCandidate")
-        set(value) {
+      @JvmName("getIceCandidate")
+      get() = _builder.iceCandidate
+      @JvmName("setIceCandidate")
+      set(value) {
         _builder.iceCandidate = value
       }
     /**

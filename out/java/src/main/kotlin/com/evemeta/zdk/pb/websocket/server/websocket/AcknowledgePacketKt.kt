@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: websocket/public/server/v1/packets.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.websocket.server.websocket;
@@ -33,10 +32,10 @@ public object AcknowledgePacketKt {
      * `string tag = 1;`
      */
     public var tag: kotlin.String
-      @kotlin.jvm.JvmName("getTag")
-        get() = _builder.tag
-      @kotlin.jvm.JvmName("setTag")
-        set(value) {
+      @JvmName("getTag")
+      get() = _builder.tag
+      @JvmName("setTag")
+      set(value) {
         _builder.tag = value
       }
     /**
@@ -50,10 +49,10 @@ public object AcknowledgePacketKt {
      * `string error = 2;`
      */
     public var error: kotlin.String
-      @kotlin.jvm.JvmName("getError")
-        get() = _builder.error
-      @kotlin.jvm.JvmName("setError")
-        set(value) {
+      @JvmName("getError")
+      get() = _builder.error
+      @JvmName("setError")
+      set(value) {
         _builder.error = value
       }
     /**
