@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: mcu/rooms/public/server/v1/entities.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.mcu.server.rooms;
@@ -32,10 +33,10 @@ public object ResolutionKt {
      * `int32 width = 1;`
      */
     public var width: kotlin.Int
-      @JvmName("getWidth")
-      get() = _builder.width
-      @JvmName("setWidth")
-      set(value) {
+      @kotlin.jvm.JvmName("getWidth")
+        get() = _builder.width
+      @kotlin.jvm.JvmName("setWidth")
+        set(value) {
         _builder.width = value
       }
     /**
@@ -49,10 +50,10 @@ public object ResolutionKt {
      * `int32 height = 2;`
      */
     public var height: kotlin.Int
-      @JvmName("getHeight")
-      get() = _builder.height
-      @JvmName("setHeight")
-      set(value) {
+      @kotlin.jvm.JvmName("getHeight")
+        get() = _builder.height
+      @kotlin.jvm.JvmName("setHeight")
+        set(value) {
         _builder.height = value
       }
     /**

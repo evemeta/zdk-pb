@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: sfu/public/server/v1/packets.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.sfu.server.sfu;
@@ -32,17 +33,17 @@ public object VideoCodecChangeRequiredPacketKt {
      * `.sfu.public.server.v1.Codec new_codec = 1;`
      */
     public var newCodec: com.evemeta.zdk.pb.sfu.server.sfu.Codec
-      @JvmName("getNewCodec")
-      get() = _builder.newCodec
-      @JvmName("setNewCodec")
-      set(value) {
+      @kotlin.jvm.JvmName("getNewCodec")
+        get() = _builder.newCodec
+      @kotlin.jvm.JvmName("setNewCodec")
+        set(value) {
         _builder.newCodec = value
       }
     public var newCodecValue: kotlin.Int
-      @JvmName("getNewCodecValue")
-      get() = _builder.newCodecValue
-      @JvmName("setNewCodecValue")
-      set(value) {
+      @kotlin.jvm.JvmName("getNewCodecValue")
+        get() = _builder.newCodecValue
+      @kotlin.jvm.JvmName("setNewCodecValue")
+        set(value) {
         _builder.newCodecValue = value
       }
     /**

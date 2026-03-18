@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: chat/messages/public/server/v1/optionals.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.chat.server.messages;
@@ -37,10 +38,10 @@ public object OptionalStringKt {
      * `string value = 1;`
      */
     public var value: kotlin.String
-      @JvmName("getValue")
-      get() = _builder.value
-      @JvmName("setValue")
-      set(value) {
+      @kotlin.jvm.JvmName("getValue")
+        get() = _builder.value
+      @kotlin.jvm.JvmName("setValue")
+        set(value) {
         _builder.value = value
       }
     /**

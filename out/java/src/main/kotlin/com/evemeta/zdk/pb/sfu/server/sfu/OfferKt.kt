@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: sfu/public/server/v1/entities.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.sfu.server.sfu;
@@ -32,10 +33,10 @@ public object OfferKt {
      * `string session_id = 1;`
      */
     public var sessionId: kotlin.String
-      @JvmName("getSessionId")
-      get() = _builder.sessionId
-      @JvmName("setSessionId")
-      set(value) {
+      @kotlin.jvm.JvmName("getSessionId")
+        get() = _builder.sessionId
+      @kotlin.jvm.JvmName("setSessionId")
+        set(value) {
         _builder.sessionId = value
       }
     /**
@@ -49,10 +50,10 @@ public object OfferKt {
      * `string user_id = 2;`
      */
     public var userId: kotlin.String
-      @JvmName("getUserId")
-      get() = _builder.userId
-      @JvmName("setUserId")
-      set(value) {
+      @kotlin.jvm.JvmName("getUserId")
+        get() = _builder.userId
+      @kotlin.jvm.JvmName("setUserId")
+        set(value) {
         _builder.userId = value
       }
     /**
@@ -66,10 +67,10 @@ public object OfferKt {
      * `string room_id = 3;`
      */
     public var roomId: kotlin.String
-      @JvmName("getRoomId")
-      get() = _builder.roomId
-      @JvmName("setRoomId")
-      set(value) {
+      @kotlin.jvm.JvmName("getRoomId")
+        get() = _builder.roomId
+      @kotlin.jvm.JvmName("setRoomId")
+        set(value) {
         _builder.roomId = value
       }
     /**
@@ -83,10 +84,10 @@ public object OfferKt {
      * `bytes sdp = 4;`
      */
     public var sdp: com.google.protobuf.ByteString
-      @JvmName("getSdp")
-      get() = _builder.sdp
-      @JvmName("setSdp")
-      set(value) {
+      @kotlin.jvm.JvmName("getSdp")
+        get() = _builder.sdp
+      @kotlin.jvm.JvmName("setSdp")
+        set(value) {
         _builder.sdp = value
       }
     /**
@@ -100,17 +101,17 @@ public object OfferKt {
      * `.sfu.public.server.v1.SfuType sfu_type = 5;`
      */
     public var sfuType: com.evemeta.zdk.pb.sfu.server.sfu.SfuType
-      @JvmName("getSfuType")
-      get() = _builder.sfuType
-      @JvmName("setSfuType")
-      set(value) {
+      @kotlin.jvm.JvmName("getSfuType")
+        get() = _builder.sfuType
+      @kotlin.jvm.JvmName("setSfuType")
+        set(value) {
         _builder.sfuType = value
       }
     public var sfuTypeValue: kotlin.Int
-      @JvmName("getSfuTypeValue")
-      get() = _builder.sfuTypeValue
-      @JvmName("setSfuTypeValue")
-      set(value) {
+      @kotlin.jvm.JvmName("getSfuTypeValue")
+        get() = _builder.sfuTypeValue
+      @kotlin.jvm.JvmName("setSfuTypeValue")
+        set(value) {
         _builder.sfuTypeValue = value
       }
     /**
@@ -131,14 +132,14 @@ public object OfferKt {
      */
      public val packetTypes: com.google.protobuf.kotlin.DslMap<kotlin.Int, kotlin.String, PacketTypesProxy>
       @kotlin.jvm.JvmSynthetic
-      @JvmName("getPacketTypesMap")
+@kotlin.jvm.JvmName("getPacketTypesMap")
       get() = com.google.protobuf.kotlin.DslMap(
         _builder.packetTypesMap
       )
     /**
      * `map<int32, string> packet_types = 6;`
      */
-    @JvmName("putPacketTypes")
+    @kotlin.jvm.JvmName("putPacketTypes")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.Int, kotlin.String, PacketTypesProxy>
       .put(key: kotlin.Int, value: kotlin.String) {
          _builder.putPacketTypes(key, value)
@@ -147,7 +148,7 @@ public object OfferKt {
      * `map<int32, string> packet_types = 6;`
      */
     @kotlin.jvm.JvmSynthetic
-    @JvmName("setPacketTypes")
+@kotlin.jvm.JvmName("setPacketTypes")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslMap<kotlin.Int, kotlin.String, PacketTypesProxy>
       .set(key: kotlin.Int, value: kotlin.String) {
@@ -157,7 +158,7 @@ public object OfferKt {
      * `map<int32, string> packet_types = 6;`
      */
     @kotlin.jvm.JvmSynthetic
-    @JvmName("removePacketTypes")
+@kotlin.jvm.JvmName("removePacketTypes")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.Int, kotlin.String, PacketTypesProxy>
       .remove(key: kotlin.Int) {
          _builder.removePacketTypes(key)
@@ -166,7 +167,7 @@ public object OfferKt {
      * `map<int32, string> packet_types = 6;`
      */
     @kotlin.jvm.JvmSynthetic
-    @JvmName("putAllPacketTypes")
+@kotlin.jvm.JvmName("putAllPacketTypes")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.Int, kotlin.String, PacketTypesProxy>
       .putAll(map: kotlin.collections.Map<kotlin.Int, kotlin.String>) {
          _builder.putAllPacketTypes(map)
@@ -175,7 +176,7 @@ public object OfferKt {
      * `map<int32, string> packet_types = 6;`
      */
     @kotlin.jvm.JvmSynthetic
-    @JvmName("clearPacketTypes")
+@kotlin.jvm.JvmName("clearPacketTypes")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.Int, kotlin.String, PacketTypesProxy>
       .clear() {
          _builder.clearPacketTypes()

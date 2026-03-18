@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: room/members/public/server/v1/packets.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.room.server.members;
@@ -41,10 +42,10 @@ public object DeleteMemberPacketKt {
      * `string user_id = 1;`
      */
     public var userId: kotlin.String
-      @JvmName("getUserId")
-      get() = _builder.userId
-      @JvmName("setUserId")
-      set(value) {
+      @kotlin.jvm.JvmName("getUserId")
+        get() = _builder.userId
+      @kotlin.jvm.JvmName("setUserId")
+        set(value) {
         _builder.userId = value
       }
     /**
@@ -66,10 +67,10 @@ public object DeleteMemberPacketKt {
      * `string room_id = 2;`
      */
     public var roomId: kotlin.String
-      @JvmName("getRoomId")
-      get() = _builder.roomId
-      @JvmName("setRoomId")
-      set(value) {
+      @kotlin.jvm.JvmName("getRoomId")
+        get() = _builder.roomId
+      @kotlin.jvm.JvmName("setRoomId")
+        set(value) {
         _builder.roomId = value
       }
     /**
@@ -91,10 +92,10 @@ public object DeleteMemberPacketKt {
      * `.room.members.public.server.v1.Timeframe timeframe = 3;`
      */
     public var timeframe: com.evemeta.zdk.pb.room.server.members.Timeframe
-      @JvmName("getTimeframe")
-      get() = _builder.timeframe
-      @JvmName("setTimeframe")
-      set(value) {
+      @kotlin.jvm.JvmName("getTimeframe")
+        get() = _builder.timeframe
+      @kotlin.jvm.JvmName("setTimeframe")
+        set(value) {
         _builder.timeframe = value
       }
     /**

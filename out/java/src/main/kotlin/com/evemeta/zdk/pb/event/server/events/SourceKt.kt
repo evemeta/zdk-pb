@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: event/events/public/server/v1/entities.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.event.server.events;
@@ -41,10 +42,10 @@ public object SourceKt {
      * `.event.events.public.server.v1.McuStreamerSource mcu_streamer_source = 1;`
      */
     public var mcuStreamerSource: com.evemeta.zdk.pb.event.server.events.McuStreamerSource
-      @JvmName("getMcuStreamerSource")
-      get() = _builder.mcuStreamerSource
-      @JvmName("setMcuStreamerSource")
-      set(value) {
+      @kotlin.jvm.JvmName("getMcuStreamerSource")
+        get() = _builder.mcuStreamerSource
+      @kotlin.jvm.JvmName("setMcuStreamerSource")
+        set(value) {
         _builder.mcuStreamerSource = value
       }
     /**
@@ -77,10 +78,10 @@ public object SourceKt {
      * `.event.events.public.server.v1.McuRoomSource mcu_room_source = 2;`
      */
     public var mcuRoomSource: com.evemeta.zdk.pb.event.server.events.McuRoomSource
-      @JvmName("getMcuRoomSource")
-      get() = _builder.mcuRoomSource
-      @JvmName("setMcuRoomSource")
-      set(value) {
+      @kotlin.jvm.JvmName("getMcuRoomSource")
+        get() = _builder.mcuRoomSource
+      @kotlin.jvm.JvmName("setMcuRoomSource")
+        set(value) {
         _builder.mcuRoomSource = value
       }
     /**
@@ -113,10 +114,10 @@ public object SourceKt {
      * `.event.events.public.server.v1.DashSource dash_source = 3;`
      */
     public var dashSource: com.evemeta.zdk.pb.event.server.events.DashSource
-      @JvmName("getDashSource")
-      get() = _builder.dashSource
-      @JvmName("setDashSource")
-      set(value) {
+      @kotlin.jvm.JvmName("getDashSource")
+        get() = _builder.dashSource
+      @kotlin.jvm.JvmName("setDashSource")
+        set(value) {
         _builder.dashSource = value
       }
     /**

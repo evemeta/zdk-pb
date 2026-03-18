@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: mcu/rooms/public/server/v1/entities.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.mcu.server.rooms;
@@ -32,10 +33,10 @@ public object CellConfigKt {
      * `int32 count = 1;`
      */
     public var count: kotlin.Int
-      @JvmName("getCount")
-      get() = _builder.count
-      @JvmName("setCount")
-      set(value) {
+      @kotlin.jvm.JvmName("getCount")
+        get() = _builder.count
+      @kotlin.jvm.JvmName("setCount")
+        set(value) {
         _builder.count = value
       }
     /**
@@ -56,7 +57,7 @@ public object CellConfigKt {
      */
      public val cells: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.mcu.server.rooms.Cell, CellsProxy>
       @kotlin.jvm.JvmSynthetic
-      get() = com.google.protobuf.kotlin.DslList(
+  get() = com.google.protobuf.kotlin.DslList(
         _builder.cellsList
       )
     /**
@@ -64,7 +65,7 @@ public object CellConfigKt {
      * @param value The cells to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addCells")
+@kotlin.jvm.JvmName("addCells")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.mcu.server.rooms.Cell, CellsProxy>.add(value: com.evemeta.zdk.pb.mcu.server.rooms.Cell) {
       _builder.addCells(value)
     }
@@ -73,7 +74,7 @@ public object CellConfigKt {
      * @param value The cells to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignCells")
+@kotlin.jvm.JvmName("plusAssignCells")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.mcu.server.rooms.Cell, CellsProxy>.plusAssign(value: com.evemeta.zdk.pb.mcu.server.rooms.Cell) {
       add(value)
@@ -83,7 +84,7 @@ public object CellConfigKt {
      * @param values The cells to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addAllCells")
+@kotlin.jvm.JvmName("addAllCells")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.mcu.server.rooms.Cell, CellsProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.mcu.server.rooms.Cell>) {
       _builder.addAllCells(values)
     }
@@ -92,7 +93,7 @@ public object CellConfigKt {
      * @param values The cells to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignAllCells")
+@kotlin.jvm.JvmName("plusAssignAllCells")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.mcu.server.rooms.Cell, CellsProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.mcu.server.rooms.Cell>) {
       addAll(values)
@@ -103,7 +104,7 @@ public object CellConfigKt {
      * @param value The cells to set.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("setCells")
+@kotlin.jvm.JvmName("setCells")
     public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.mcu.server.rooms.Cell, CellsProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.mcu.server.rooms.Cell) {
       _builder.setCells(index, value)
     }
@@ -111,11 +112,10 @@ public object CellConfigKt {
      * `repeated .mcu.rooms.public.server.v1.Cell cells = 2;`
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("clearCells")
+@kotlin.jvm.JvmName("clearCells")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.mcu.server.rooms.Cell, CellsProxy>.clear() {
       _builder.clearCells()
     }
-
   }
 }
 @kotlin.jvm.JvmSynthetic

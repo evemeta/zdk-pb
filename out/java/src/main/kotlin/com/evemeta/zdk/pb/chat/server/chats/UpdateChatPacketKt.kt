@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: chat/chats/public/server/v1/packets.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.chat.server.chats;
@@ -41,10 +42,10 @@ public object UpdateChatPacketKt {
      * `string id = 1;`
      */
     public var id: kotlin.String
-      @JvmName("getId")
-      get() = _builder.id
-      @JvmName("setId")
-      set(value) {
+      @kotlin.jvm.JvmName("getId")
+        get() = _builder.id
+      @kotlin.jvm.JvmName("setId")
+        set(value) {
         _builder.id = value
       }
     /**
@@ -66,10 +67,10 @@ public object UpdateChatPacketKt {
      * `optional .chat.chats.public.server.v1.OptionalMap metadata = 2;`
      */
     public var metadata: com.evemeta.zdk.pb.chat.server.chats.OptionalMap
-      @JvmName("getMetadata")
-      get() = _builder.metadata
-      @JvmName("setMetadata")
-      set(value) {
+      @kotlin.jvm.JvmName("getMetadata")
+        get() = _builder.metadata
+      @kotlin.jvm.JvmName("setMetadata")
+        set(value) {
         _builder.metadata = value
       }
     /**
@@ -105,10 +106,10 @@ public object UpdateChatPacketKt {
      * `.chat.chats.public.server.v1.Timeframe timeframe = 3;`
      */
     public var timeframe: com.evemeta.zdk.pb.chat.server.chats.Timeframe
-      @JvmName("getTimeframe")
-      get() = _builder.timeframe
-      @JvmName("setTimeframe")
-      set(value) {
+      @kotlin.jvm.JvmName("getTimeframe")
+        get() = _builder.timeframe
+      @kotlin.jvm.JvmName("setTimeframe")
+        set(value) {
         _builder.timeframe = value
       }
     /**

@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: mcu/rooms/public/server/v1/entities.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.mcu.server.rooms;
@@ -32,10 +33,10 @@ public object RoomKt {
      * `string id = 1;`
      */
     public var id: kotlin.String
-      @JvmName("getId")
-      get() = _builder.id
-      @JvmName("setId")
-      set(value) {
+      @kotlin.jvm.JvmName("getId")
+        get() = _builder.id
+      @kotlin.jvm.JvmName("setId")
+        set(value) {
         _builder.id = value
       }
     /**
@@ -49,10 +50,10 @@ public object RoomKt {
      * `int64 seed = 2;`
      */
     public var seed: kotlin.Long
-      @JvmName("getSeed")
-      get() = _builder.seed
-      @JvmName("setSeed")
-      set(value) {
+      @kotlin.jvm.JvmName("getSeed")
+        get() = _builder.seed
+      @kotlin.jvm.JvmName("setSeed")
+        set(value) {
         _builder.seed = value
       }
     /**
@@ -73,7 +74,7 @@ public object RoomKt {
      * @return A list containing the userIds.
      */
     public val userIds: com.google.protobuf.kotlin.DslList<kotlin.String, UserIdsProxy>
-      @kotlin.jvm.JvmSynthetic
+    @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
       get() = com.google.protobuf.kotlin.DslList(
         _builder.userIdsList
       )
@@ -82,7 +83,7 @@ public object RoomKt {
      * @param value The userIds to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addUserIds")
+@kotlin.jvm.JvmName("addUserIds")
     public fun com.google.protobuf.kotlin.DslList<kotlin.String, UserIdsProxy>.add(value: kotlin.String) {
       _builder.addUserIds(value)
     }
@@ -91,7 +92,7 @@ public object RoomKt {
      * @param value The userIds to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignUserIds")
+@kotlin.jvm.JvmName("plusAssignUserIds")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, UserIdsProxy>.plusAssign(value: kotlin.String) {
       add(value)
@@ -101,7 +102,7 @@ public object RoomKt {
      * @param values The userIds to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addAllUserIds")
+@kotlin.jvm.JvmName("addAllUserIds")
     public fun com.google.protobuf.kotlin.DslList<kotlin.String, UserIdsProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
       _builder.addAllUserIds(values)
     }
@@ -110,7 +111,7 @@ public object RoomKt {
      * @param values The userIds to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignAllUserIds")
+@kotlin.jvm.JvmName("plusAssignAllUserIds")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, UserIdsProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
       addAll(values)
@@ -121,14 +122,14 @@ public object RoomKt {
      * @param value The userIds to set.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("setUserIds")
+@kotlin.jvm.JvmName("setUserIds")
     public operator fun com.google.protobuf.kotlin.DslList<kotlin.String, UserIdsProxy>.set(index: kotlin.Int, value: kotlin.String) {
       _builder.setUserIds(index, value)
     }/**
      * `repeated string user_ids = 3;`
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("clearUserIds")
+@kotlin.jvm.JvmName("setUserIds")
     public fun com.google.protobuf.kotlin.DslList<kotlin.String, UserIdsProxy>.clear() {
       _builder.clearUserIds()
     }
@@ -136,10 +137,10 @@ public object RoomKt {
      * `.mcu.rooms.public.server.v1.Layout layout = 4;`
      */
     public var layout: com.evemeta.zdk.pb.mcu.server.rooms.Layout
-      @JvmName("getLayout")
-      get() = _builder.layout
-      @JvmName("setLayout")
-      set(value) {
+      @kotlin.jvm.JvmName("getLayout")
+        get() = _builder.layout
+      @kotlin.jvm.JvmName("setLayout")
+        set(value) {
         _builder.layout = value
       }
     /**
@@ -163,10 +164,10 @@ public object RoomKt {
      * `bool isStreaming = 5;`
      */
     public var isStreaming: kotlin.Boolean
-      @JvmName("getIsStreaming")
-      get() = _builder.isStreaming
-      @JvmName("setIsStreaming")
-      set(value) {
+      @kotlin.jvm.JvmName("getIsStreaming")
+        get() = _builder.isStreaming
+      @kotlin.jvm.JvmName("setIsStreaming")
+        set(value) {
         _builder.isStreaming = value
       }
     /**

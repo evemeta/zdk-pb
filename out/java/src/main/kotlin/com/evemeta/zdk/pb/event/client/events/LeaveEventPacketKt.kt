@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: event/events/public/client/v1/packets.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.event.client.events;
@@ -41,10 +42,10 @@ public object LeaveEventPacketKt {
      * `string id = 1;`
      */
     public var id: kotlin.String
-      @JvmName("getId")
-      get() = _builder.id
-      @JvmName("setId")
-      set(value) {
+      @kotlin.jvm.JvmName("getId")
+        get() = _builder.id
+      @kotlin.jvm.JvmName("setId")
+        set(value) {
         _builder.id = value
       }
     /**

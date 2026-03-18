@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: chat/chats/public/server/v1/procedures.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.chat.server.chats;
@@ -40,10 +41,10 @@ public object RangeResponseKt {
      * `.chat.chats.public.server.v1.Chunk chunk = 1;`
      */
     public var chunk: com.evemeta.zdk.pb.chat.server.chats.Chunk
-      @JvmName("getChunk")
-      get() = _builder.chunk
-      @JvmName("setChunk")
-      set(value) {
+      @kotlin.jvm.JvmName("getChunk")
+        get() = _builder.chunk
+      @kotlin.jvm.JvmName("setChunk")
+        set(value) {
         _builder.chunk = value
       }
     /**

@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: sfu/public/server/v1/entities.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.sfu.server.sfu;
@@ -32,10 +33,10 @@ public object IceCandidateKt {
      * `string room_id = 2;`
      */
     public var roomId: kotlin.String
-      @JvmName("getRoomId")
-      get() = _builder.roomId
-      @JvmName("setRoomId")
-      set(value) {
+      @kotlin.jvm.JvmName("getRoomId")
+        get() = _builder.roomId
+      @kotlin.jvm.JvmName("setRoomId")
+        set(value) {
         _builder.roomId = value
       }
     /**
@@ -49,10 +50,10 @@ public object IceCandidateKt {
      * `bytes candidate = 3;`
      */
     public var candidate: com.google.protobuf.ByteString
-      @JvmName("getCandidate")
-      get() = _builder.candidate
-      @JvmName("setCandidate")
-      set(value) {
+      @kotlin.jvm.JvmName("getCandidate")
+        get() = _builder.candidate
+      @kotlin.jvm.JvmName("setCandidate")
+        set(value) {
         _builder.candidate = value
       }
     /**
@@ -66,17 +67,17 @@ public object IceCandidateKt {
      * `.sfu.public.server.v1.SfuType sfu_type = 4;`
      */
     public var sfuType: com.evemeta.zdk.pb.sfu.server.sfu.SfuType
-      @JvmName("getSfuType")
-      get() = _builder.sfuType
-      @JvmName("setSfuType")
-      set(value) {
+      @kotlin.jvm.JvmName("getSfuType")
+        get() = _builder.sfuType
+      @kotlin.jvm.JvmName("setSfuType")
+        set(value) {
         _builder.sfuType = value
       }
     public var sfuTypeValue: kotlin.Int
-      @JvmName("getSfuTypeValue")
-      get() = _builder.sfuTypeValue
-      @JvmName("setSfuTypeValue")
-      set(value) {
+      @kotlin.jvm.JvmName("getSfuTypeValue")
+        get() = _builder.sfuTypeValue
+      @kotlin.jvm.JvmName("setSfuTypeValue")
+        set(value) {
         _builder.sfuTypeValue = value
       }
     /**

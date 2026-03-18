@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: sfu/public/server/v1/packets.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.sfu.server.sfu;
@@ -32,10 +33,10 @@ public object PacketKt {
      * `int32 actionId = 1;`
      */
     public var actionId: kotlin.Int
-      @JvmName("getActionId")
-      get() = _builder.actionId
-      @JvmName("setActionId")
-      set(value) {
+      @kotlin.jvm.JvmName("getActionId")
+        get() = _builder.actionId
+      @kotlin.jvm.JvmName("setActionId")
+        set(value) {
         _builder.actionId = value
       }
     /**
@@ -49,10 +50,10 @@ public object PacketKt {
      * `bytes data = 2;`
      */
     public var data: com.google.protobuf.ByteString
-      @JvmName("getData")
-      get() = _builder.data
-      @JvmName("setData")
-      set(value) {
+      @kotlin.jvm.JvmName("getData")
+        get() = _builder.data
+      @kotlin.jvm.JvmName("setData")
+        set(value) {
         _builder.data = value
       }
     /**

@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: event/restrictions/public/server/v1/procedures.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.event.server.restrictions;
@@ -40,10 +41,10 @@ public object CountResponseKt {
      * `int64 total = 1;`
      */
     public var total: kotlin.Long
-      @JvmName("getTotal")
-      get() = _builder.total
-      @JvmName("setTotal")
-      set(value) {
+      @kotlin.jvm.JvmName("getTotal")
+        get() = _builder.total
+      @kotlin.jvm.JvmName("setTotal")
+        set(value) {
         _builder.total = value
       }
     /**

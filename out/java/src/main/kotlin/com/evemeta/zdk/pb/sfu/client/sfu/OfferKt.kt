@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: sfu/public/client/v1/entities.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.sfu.client.sfu;
@@ -32,10 +33,10 @@ public object OfferKt {
      * `bytes sdp = 1;`
      */
     public var sdp: com.google.protobuf.ByteString
-      @JvmName("getSdp")
-      get() = _builder.sdp
-      @JvmName("setSdp")
-      set(value) {
+      @kotlin.jvm.JvmName("getSdp")
+        get() = _builder.sdp
+      @kotlin.jvm.JvmName("setSdp")
+        set(value) {
         _builder.sdp = value
       }
     /**
@@ -49,17 +50,17 @@ public object OfferKt {
      * `.sfu.public.client.v1.ClientType client_type = 2;`
      */
     public var clientType: com.evemeta.zdk.pb.sfu.client.sfu.ClientType
-      @JvmName("getClientType")
-      get() = _builder.clientType
-      @JvmName("setClientType")
-      set(value) {
+      @kotlin.jvm.JvmName("getClientType")
+        get() = _builder.clientType
+      @kotlin.jvm.JvmName("setClientType")
+        set(value) {
         _builder.clientType = value
       }
     public var clientTypeValue: kotlin.Int
-      @JvmName("getClientTypeValue")
-      get() = _builder.clientTypeValue
-      @JvmName("setClientTypeValue")
-      set(value) {
+      @kotlin.jvm.JvmName("getClientTypeValue")
+        get() = _builder.clientTypeValue
+      @kotlin.jvm.JvmName("setClientTypeValue")
+        set(value) {
         _builder.clientTypeValue = value
       }
     /**
@@ -73,17 +74,17 @@ public object OfferKt {
      * `.sfu.public.client.v1.ProtocolVersion protocol_version = 3;`
      */
     public var protocolVersion: com.evemeta.zdk.pb.sfu.client.sfu.ProtocolVersion
-      @JvmName("getProtocolVersion")
-      get() = _builder.protocolVersion
-      @JvmName("setProtocolVersion")
-      set(value) {
+      @kotlin.jvm.JvmName("getProtocolVersion")
+        get() = _builder.protocolVersion
+      @kotlin.jvm.JvmName("setProtocolVersion")
+        set(value) {
         _builder.protocolVersion = value
       }
     public var protocolVersionValue: kotlin.Int
-      @JvmName("getProtocolVersionValue")
-      get() = _builder.protocolVersionValue
-      @JvmName("setProtocolVersionValue")
-      set(value) {
+      @kotlin.jvm.JvmName("getProtocolVersionValue")
+        get() = _builder.protocolVersionValue
+      @kotlin.jvm.JvmName("setProtocolVersionValue")
+        set(value) {
         _builder.protocolVersionValue = value
       }
     /**
@@ -97,10 +98,10 @@ public object OfferKt {
      * `.sfu.public.client.v1.SfuConnectionOptions options = 4;`
      */
     public var options: com.evemeta.zdk.pb.sfu.client.sfu.SfuConnectionOptions
-      @JvmName("getOptions")
-      get() = _builder.options
-      @JvmName("setOptions")
-      set(value) {
+      @kotlin.jvm.JvmName("getOptions")
+        get() = _builder.options
+      @kotlin.jvm.JvmName("setOptions")
+        set(value) {
         _builder.options = value
       }
     /**
@@ -124,17 +125,17 @@ public object OfferKt {
      * `.sfu.public.server.v1.SfuType sfu_type = 5;`
      */
     public var sfuType: com.evemeta.zdk.pb.sfu.server.sfu.SfuType
-      @JvmName("getSfuType")
-      get() = _builder.sfuType
-      @JvmName("setSfuType")
-      set(value) {
+      @kotlin.jvm.JvmName("getSfuType")
+        get() = _builder.sfuType
+      @kotlin.jvm.JvmName("setSfuType")
+        set(value) {
         _builder.sfuType = value
       }
     public var sfuTypeValue: kotlin.Int
-      @JvmName("getSfuTypeValue")
-      get() = _builder.sfuTypeValue
-      @JvmName("setSfuTypeValue")
-      set(value) {
+      @kotlin.jvm.JvmName("getSfuTypeValue")
+        get() = _builder.sfuTypeValue
+      @kotlin.jvm.JvmName("setSfuTypeValue")
+        set(value) {
         _builder.sfuTypeValue = value
       }
     /**

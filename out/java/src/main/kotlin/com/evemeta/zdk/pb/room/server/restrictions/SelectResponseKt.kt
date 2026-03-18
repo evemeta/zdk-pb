@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: room/restrictions/public/server/v1/procedures.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.room.server.restrictions;
@@ -47,7 +48,7 @@ public object SelectResponseKt {
      */
      public val restrictions: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.restrictions.Restriction, RestrictionsProxy>
       @kotlin.jvm.JvmSynthetic
-      get() = com.google.protobuf.kotlin.DslList(
+  get() = com.google.protobuf.kotlin.DslList(
         _builder.restrictionsList
       )
     /**
@@ -59,7 +60,7 @@ public object SelectResponseKt {
      * @param value The restrictions to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addRestrictions")
+@kotlin.jvm.JvmName("addRestrictions")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.restrictions.Restriction, RestrictionsProxy>.add(value: com.evemeta.zdk.pb.room.server.restrictions.Restriction) {
       _builder.addRestrictions(value)
     }
@@ -72,7 +73,7 @@ public object SelectResponseKt {
      * @param value The restrictions to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignRestrictions")
+@kotlin.jvm.JvmName("plusAssignRestrictions")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.restrictions.Restriction, RestrictionsProxy>.plusAssign(value: com.evemeta.zdk.pb.room.server.restrictions.Restriction) {
       add(value)
@@ -86,7 +87,7 @@ public object SelectResponseKt {
      * @param values The restrictions to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addAllRestrictions")
+@kotlin.jvm.JvmName("addAllRestrictions")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.restrictions.Restriction, RestrictionsProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.room.server.restrictions.Restriction>) {
       _builder.addAllRestrictions(values)
     }
@@ -99,7 +100,7 @@ public object SelectResponseKt {
      * @param values The restrictions to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignAllRestrictions")
+@kotlin.jvm.JvmName("plusAssignAllRestrictions")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.restrictions.Restriction, RestrictionsProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.room.server.restrictions.Restriction>) {
       addAll(values)
@@ -114,7 +115,7 @@ public object SelectResponseKt {
      * @param value The restrictions to set.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("setRestrictions")
+@kotlin.jvm.JvmName("setRestrictions")
     public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.restrictions.Restriction, RestrictionsProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.room.server.restrictions.Restriction) {
       _builder.setRestrictions(index, value)
     }
@@ -126,11 +127,10 @@ public object SelectResponseKt {
      * `repeated .room.restrictions.public.server.v1.Restriction restrictions = 1;`
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("clearRestrictions")
+@kotlin.jvm.JvmName("clearRestrictions")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.restrictions.Restriction, RestrictionsProxy>.clear() {
       _builder.clearRestrictions()
     }
-
   }
 }
 @kotlin.jvm.JvmSynthetic

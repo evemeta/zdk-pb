@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: room/members/public/server/v1/procedures.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.room.server.members;
@@ -40,10 +41,10 @@ public object CountRequestKt {
      * `.room.members.public.server.v1.Query query = 1;`
      */
     public var query: com.evemeta.zdk.pb.room.server.members.Query
-      @JvmName("getQuery")
-      get() = _builder.query
-      @JvmName("setQuery")
-      set(value) {
+      @kotlin.jvm.JvmName("getQuery")
+        get() = _builder.query
+      @kotlin.jvm.JvmName("setQuery")
+        set(value) {
         _builder.query = value
       }
     /**

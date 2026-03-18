@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: event/events/public/server/v1/entities.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.event.server.events;
@@ -41,10 +42,10 @@ public object EventKt {
      * `string id = 1;`
      */
     public var id: kotlin.String
-      @JvmName("getId")
-      get() = _builder.id
-      @JvmName("setId")
-      set(value) {
+      @kotlin.jvm.JvmName("getId")
+        get() = _builder.id
+      @kotlin.jvm.JvmName("setId")
+        set(value) {
         _builder.id = value
       }
     /**
@@ -66,17 +67,17 @@ public object EventKt {
      * `.event.events.public.server.v1.Kind kind = 2;`
      */
     public var kind: com.evemeta.zdk.pb.event.server.events.Kind
-      @JvmName("getKind")
-      get() = _builder.kind
-      @JvmName("setKind")
-      set(value) {
+      @kotlin.jvm.JvmName("getKind")
+        get() = _builder.kind
+      @kotlin.jvm.JvmName("setKind")
+        set(value) {
         _builder.kind = value
       }
     public var kindValue: kotlin.Int
-      @JvmName("getKindValue")
-      get() = _builder.kindValue
-      @JvmName("setKindValue")
-      set(value) {
+      @kotlin.jvm.JvmName("getKindValue")
+        get() = _builder.kindValue
+      @kotlin.jvm.JvmName("setKindValue")
+        set(value) {
         _builder.kindValue = value
       }
     /**
@@ -98,17 +99,17 @@ public object EventKt {
      * `.event.events.public.server.v1.Status status = 3;`
      */
     public var status: com.evemeta.zdk.pb.event.server.events.Status
-      @JvmName("getStatus")
-      get() = _builder.status
-      @JvmName("setStatus")
-      set(value) {
+      @kotlin.jvm.JvmName("getStatus")
+        get() = _builder.status
+      @kotlin.jvm.JvmName("setStatus")
+        set(value) {
         _builder.status = value
       }
     public var statusValue: kotlin.Int
-      @JvmName("getStatusValue")
-      get() = _builder.statusValue
-      @JvmName("setStatusValue")
-      set(value) {
+      @kotlin.jvm.JvmName("getStatusValue")
+        get() = _builder.statusValue
+      @kotlin.jvm.JvmName("setStatusValue")
+        set(value) {
         _builder.statusValue = value
       }
     /**
@@ -130,10 +131,10 @@ public object EventKt {
      * `.event.events.public.server.v1.Source source = 4;`
      */
     public var source: com.evemeta.zdk.pb.event.server.events.Source
-      @JvmName("getSource")
-      get() = _builder.source
-      @JvmName("setSource")
-      set(value) {
+      @kotlin.jvm.JvmName("getSource")
+        get() = _builder.source
+      @kotlin.jvm.JvmName("setSource")
+        set(value) {
         _builder.source = value
       }
     /**
@@ -176,7 +177,7 @@ public object EventKt {
      */
      public val metadata: com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       @kotlin.jvm.JvmSynthetic
-      @JvmName("getMetadataMap")
+@kotlin.jvm.JvmName("getMetadataMap")
       get() = com.google.protobuf.kotlin.DslMap(
         _builder.metadataMap
       )
@@ -187,7 +188,7 @@ public object EventKt {
      *
      * `map<string, string> metadata = 5;`
      */
-    @JvmName("putMetadata")
+    @kotlin.jvm.JvmName("putMetadata")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .put(key: kotlin.String, value: kotlin.String) {
          _builder.putMetadata(key, value)
@@ -200,7 +201,7 @@ public object EventKt {
      * `map<string, string> metadata = 5;`
      */
     @kotlin.jvm.JvmSynthetic
-    @JvmName("setMetadata")
+@kotlin.jvm.JvmName("setMetadata")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .set(key: kotlin.String, value: kotlin.String) {
@@ -214,7 +215,7 @@ public object EventKt {
      * `map<string, string> metadata = 5;`
      */
     @kotlin.jvm.JvmSynthetic
-    @JvmName("removeMetadata")
+@kotlin.jvm.JvmName("removeMetadata")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .remove(key: kotlin.String) {
          _builder.removeMetadata(key)
@@ -227,7 +228,7 @@ public object EventKt {
      * `map<string, string> metadata = 5;`
      */
     @kotlin.jvm.JvmSynthetic
-    @JvmName("putAllMetadata")
+@kotlin.jvm.JvmName("putAllMetadata")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .putAll(map: kotlin.collections.Map<kotlin.String, kotlin.String>) {
          _builder.putAllMetadata(map)
@@ -240,7 +241,7 @@ public object EventKt {
      * `map<string, string> metadata = 5;`
      */
     @kotlin.jvm.JvmSynthetic
-    @JvmName("clearMetadata")
+@kotlin.jvm.JvmName("clearMetadata")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .clear() {
          _builder.clearMetadata()
@@ -254,17 +255,17 @@ public object EventKt {
      * `.event.events.public.server.v1.Schedule schedule = 6;`
      */
     public var schedule: com.evemeta.zdk.pb.event.server.events.Schedule
-      @JvmName("getSchedule")
-      get() = _builder.schedule
-      @JvmName("setSchedule")
-      set(value) {
+      @kotlin.jvm.JvmName("getSchedule")
+        get() = _builder.schedule
+      @kotlin.jvm.JvmName("setSchedule")
+        set(value) {
         _builder.schedule = value
       }
     public var scheduleValue: kotlin.Int
-      @JvmName("getScheduleValue")
-      get() = _builder.scheduleValue
-      @JvmName("setScheduleValue")
-      set(value) {
+      @kotlin.jvm.JvmName("getScheduleValue")
+        get() = _builder.scheduleValue
+      @kotlin.jvm.JvmName("setScheduleValue")
+        set(value) {
         _builder.scheduleValue = value
       }
     /**
@@ -286,10 +287,10 @@ public object EventKt {
      * `int64 planned_start_time = 7;`
      */
     public var plannedStartTime: kotlin.Long
-      @JvmName("getPlannedStartTime")
-      get() = _builder.plannedStartTime
-      @JvmName("setPlannedStartTime")
-      set(value) {
+      @kotlin.jvm.JvmName("getPlannedStartTime")
+        get() = _builder.plannedStartTime
+      @kotlin.jvm.JvmName("setPlannedStartTime")
+        set(value) {
         _builder.plannedStartTime = value
       }
     /**
@@ -311,10 +312,10 @@ public object EventKt {
      * `int64 start_time = 8;`
      */
     public var startTime: kotlin.Long
-      @JvmName("getStartTime")
-      get() = _builder.startTime
-      @JvmName("setStartTime")
-      set(value) {
+      @kotlin.jvm.JvmName("getStartTime")
+        get() = _builder.startTime
+      @kotlin.jvm.JvmName("setStartTime")
+        set(value) {
         _builder.startTime = value
       }
     /**
@@ -336,10 +337,10 @@ public object EventKt {
      * `int64 planned_finish_time = 9;`
      */
     public var plannedFinishTime: kotlin.Long
-      @JvmName("getPlannedFinishTime")
-      get() = _builder.plannedFinishTime
-      @JvmName("setPlannedFinishTime")
-      set(value) {
+      @kotlin.jvm.JvmName("getPlannedFinishTime")
+        get() = _builder.plannedFinishTime
+      @kotlin.jvm.JvmName("setPlannedFinishTime")
+        set(value) {
         _builder.plannedFinishTime = value
       }
     /**
@@ -361,10 +362,10 @@ public object EventKt {
      * `int64 finish_time = 10;`
      */
     public var finishTime: kotlin.Long
-      @JvmName("getFinishTime")
-      get() = _builder.finishTime
-      @JvmName("setFinishTime")
-      set(value) {
+      @kotlin.jvm.JvmName("getFinishTime")
+        get() = _builder.finishTime
+      @kotlin.jvm.JvmName("setFinishTime")
+        set(value) {
         _builder.finishTime = value
       }
     /**
@@ -386,10 +387,10 @@ public object EventKt {
      * `int64 cancel_time = 11;`
      */
     public var cancelTime: kotlin.Long
-      @JvmName("getCancelTime")
-      get() = _builder.cancelTime
-      @JvmName("setCancelTime")
-      set(value) {
+      @kotlin.jvm.JvmName("getCancelTime")
+        get() = _builder.cancelTime
+      @kotlin.jvm.JvmName("setCancelTime")
+        set(value) {
         _builder.cancelTime = value
       }
     /**
@@ -411,10 +412,10 @@ public object EventKt {
      * `int64 create_time = 12;`
      */
     public var createTime: kotlin.Long
-      @JvmName("getCreateTime")
-      get() = _builder.createTime
-      @JvmName("setCreateTime")
-      set(value) {
+      @kotlin.jvm.JvmName("getCreateTime")
+        get() = _builder.createTime
+      @kotlin.jvm.JvmName("setCreateTime")
+        set(value) {
         _builder.createTime = value
       }
     /**
@@ -436,10 +437,10 @@ public object EventKt {
      * `int64 update_time = 13;`
      */
     public var updateTime: kotlin.Long
-      @JvmName("getUpdateTime")
-      get() = _builder.updateTime
-      @JvmName("setUpdateTime")
-      set(value) {
+      @kotlin.jvm.JvmName("getUpdateTime")
+        get() = _builder.updateTime
+      @kotlin.jvm.JvmName("setUpdateTime")
+        set(value) {
         _builder.updateTime = value
       }
     /**

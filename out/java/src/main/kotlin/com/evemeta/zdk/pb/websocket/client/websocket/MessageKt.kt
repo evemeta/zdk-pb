@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: websocket/public/client/v1/entities.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.websocket.client.websocket;
@@ -32,10 +33,10 @@ public object MessageKt {
      * `string tag = 1;`
      */
     public var tag: kotlin.String
-      @JvmName("getTag")
-      get() = _builder.tag
-      @JvmName("setTag")
-      set(value) {
+      @kotlin.jvm.JvmName("getTag")
+        get() = _builder.tag
+      @kotlin.jvm.JvmName("setTag")
+        set(value) {
         _builder.tag = value
       }
     /**
@@ -49,10 +50,10 @@ public object MessageKt {
      * `string name = 2;`
      */
     public var name: kotlin.String
-      @JvmName("getName")
-      get() = _builder.name
-      @JvmName("setName")
-      set(value) {
+      @kotlin.jvm.JvmName("getName")
+        get() = _builder.name
+      @kotlin.jvm.JvmName("setName")
+        set(value) {
         _builder.name = value
       }
     /**
@@ -66,10 +67,10 @@ public object MessageKt {
      * `bytes data = 3;`
      */
     public var data: com.google.protobuf.ByteString
-      @JvmName("getData")
-      get() = _builder.data
-      @JvmName("setData")
-      set(value) {
+      @kotlin.jvm.JvmName("getData")
+        get() = _builder.data
+      @kotlin.jvm.JvmName("setData")
+        set(value) {
         _builder.data = value
       }
     /**

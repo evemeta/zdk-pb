@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: sfu/public/server/v1/packets.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.sfu.server.sfu;
@@ -32,10 +33,10 @@ public object PingPacketKt {
      * `int64 timestamp = 1;`
      */
     public var timestamp: kotlin.Long
-      @JvmName("getTimestamp")
-      get() = _builder.timestamp
-      @JvmName("setTimestamp")
-      set(value) {
+      @kotlin.jvm.JvmName("getTimestamp")
+        get() = _builder.timestamp
+      @kotlin.jvm.JvmName("setTimestamp")
+        set(value) {
         _builder.timestamp = value
       }
     /**
@@ -49,10 +50,10 @@ public object PingPacketKt {
      * `int32 rtt = 2;`
      */
     public var rtt: kotlin.Int
-      @JvmName("getRtt")
-      get() = _builder.rtt
-      @JvmName("setRtt")
-      set(value) {
+      @kotlin.jvm.JvmName("getRtt")
+        get() = _builder.rtt
+      @kotlin.jvm.JvmName("setRtt")
+        set(value) {
         _builder.rtt = value
       }
     /**

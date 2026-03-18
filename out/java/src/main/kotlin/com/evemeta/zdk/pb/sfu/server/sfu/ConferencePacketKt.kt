@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: sfu/public/server/v1/packets.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.sfu.server.sfu;
@@ -32,17 +33,17 @@ public object ConferencePacketKt {
      * `.sfu.public.server.v1.ConferenceMode mode = 1;`
      */
     public var mode: com.evemeta.zdk.pb.sfu.server.sfu.ConferenceMode
-      @JvmName("getMode")
-      get() = _builder.mode
-      @JvmName("setMode")
-      set(value) {
+      @kotlin.jvm.JvmName("getMode")
+        get() = _builder.mode
+      @kotlin.jvm.JvmName("setMode")
+        set(value) {
         _builder.mode = value
       }
     public var modeValue: kotlin.Int
-      @JvmName("getModeValue")
-      get() = _builder.modeValue
-      @JvmName("setModeValue")
-      set(value) {
+      @kotlin.jvm.JvmName("getModeValue")
+        get() = _builder.modeValue
+      @kotlin.jvm.JvmName("setModeValue")
+        set(value) {
         _builder.modeValue = value
       }
     /**

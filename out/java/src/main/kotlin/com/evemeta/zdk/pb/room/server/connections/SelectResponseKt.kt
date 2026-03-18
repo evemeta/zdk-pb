@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: room/connections/public/server/v1/procedures.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.room.server.connections;
@@ -47,7 +48,7 @@ public object SelectResponseKt {
      */
      public val connections: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.connections.Connection, ConnectionsProxy>
       @kotlin.jvm.JvmSynthetic
-      get() = com.google.protobuf.kotlin.DslList(
+  get() = com.google.protobuf.kotlin.DslList(
         _builder.connectionsList
       )
     /**
@@ -59,7 +60,7 @@ public object SelectResponseKt {
      * @param value The connections to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addConnections")
+@kotlin.jvm.JvmName("addConnections")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.connections.Connection, ConnectionsProxy>.add(value: com.evemeta.zdk.pb.room.server.connections.Connection) {
       _builder.addConnections(value)
     }
@@ -72,7 +73,7 @@ public object SelectResponseKt {
      * @param value The connections to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignConnections")
+@kotlin.jvm.JvmName("plusAssignConnections")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.connections.Connection, ConnectionsProxy>.plusAssign(value: com.evemeta.zdk.pb.room.server.connections.Connection) {
       add(value)
@@ -86,7 +87,7 @@ public object SelectResponseKt {
      * @param values The connections to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addAllConnections")
+@kotlin.jvm.JvmName("addAllConnections")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.connections.Connection, ConnectionsProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.room.server.connections.Connection>) {
       _builder.addAllConnections(values)
     }
@@ -99,7 +100,7 @@ public object SelectResponseKt {
      * @param values The connections to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignAllConnections")
+@kotlin.jvm.JvmName("plusAssignAllConnections")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.connections.Connection, ConnectionsProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.room.server.connections.Connection>) {
       addAll(values)
@@ -114,7 +115,7 @@ public object SelectResponseKt {
      * @param value The connections to set.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("setConnections")
+@kotlin.jvm.JvmName("setConnections")
     public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.connections.Connection, ConnectionsProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.room.server.connections.Connection) {
       _builder.setConnections(index, value)
     }
@@ -126,11 +127,10 @@ public object SelectResponseKt {
      * `repeated .room.connections.public.server.v1.Connection connections = 1;`
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("clearConnections")
+@kotlin.jvm.JvmName("clearConnections")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.connections.Connection, ConnectionsProxy>.clear() {
       _builder.clearConnections()
     }
-
   }
 }
 @kotlin.jvm.JvmSynthetic

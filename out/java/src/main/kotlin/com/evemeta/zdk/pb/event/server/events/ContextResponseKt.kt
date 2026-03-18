@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: event/events/public/server/v1/procedures.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.event.server.events;
@@ -40,10 +41,10 @@ public object ContextResponseKt {
      * `.event.events.public.server.v1.Context context = 1;`
      */
     public var context: com.evemeta.zdk.pb.event.server.events.Context
-      @JvmName("getContext")
-      get() = _builder.context
-      @JvmName("setContext")
-      set(value) {
+      @kotlin.jvm.JvmName("getContext")
+        get() = _builder.context
+      @kotlin.jvm.JvmName("setContext")
+        set(value) {
         _builder.context = value
       }
     /**

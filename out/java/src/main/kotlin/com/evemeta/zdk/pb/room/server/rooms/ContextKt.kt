@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: room/rooms/public/server/v1/entities.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.room.server.rooms;
@@ -41,10 +42,10 @@ public object ContextKt {
      * `.room.rooms.public.server.v1.Room room = 1;`
      */
     public var room: com.evemeta.zdk.pb.room.server.rooms.Room
-      @JvmName("getRoom")
-      get() = _builder.room
-      @JvmName("setRoom")
-      set(value) {
+      @kotlin.jvm.JvmName("getRoom")
+        get() = _builder.room
+      @kotlin.jvm.JvmName("setRoom")
+        set(value) {
         _builder.room = value
       }
     /**
@@ -80,10 +81,10 @@ public object ContextKt {
      * `.room.rooms.public.server.v1.Timeframe room_timeframe = 2;`
      */
     public var roomTimeframe: com.evemeta.zdk.pb.room.server.rooms.Timeframe
-      @JvmName("getRoomTimeframe")
-      get() = _builder.roomTimeframe
-      @JvmName("setRoomTimeframe")
-      set(value) {
+      @kotlin.jvm.JvmName("getRoomTimeframe")
+        get() = _builder.roomTimeframe
+      @kotlin.jvm.JvmName("setRoomTimeframe")
+        set(value) {
         _builder.roomTimeframe = value
       }
     /**
@@ -119,10 +120,10 @@ public object ContextKt {
      * `.chat.chats.public.server.v1.Chat chat = 3;`
      */
     public var chat: com.evemeta.zdk.pb.chat.server.chats.Chat
-      @JvmName("getChat")
-      get() = _builder.chat
-      @JvmName("setChat")
-      set(value) {
+      @kotlin.jvm.JvmName("getChat")
+        get() = _builder.chat
+      @kotlin.jvm.JvmName("setChat")
+        set(value) {
         _builder.chat = value
       }
     /**
@@ -158,10 +159,10 @@ public object ContextKt {
      * `.room.rooms.public.server.v1.Timeframe chat_timeframe = 4;`
      */
     public var chatTimeframe: com.evemeta.zdk.pb.room.server.rooms.Timeframe
-      @JvmName("getChatTimeframe")
-      get() = _builder.chatTimeframe
-      @JvmName("setChatTimeframe")
-      set(value) {
+      @kotlin.jvm.JvmName("getChatTimeframe")
+        get() = _builder.chatTimeframe
+      @kotlin.jvm.JvmName("setChatTimeframe")
+        set(value) {
         _builder.chatTimeframe = value
       }
     /**
@@ -197,10 +198,10 @@ public object ContextKt {
      * `.room.members.public.server.v1.Member member = 5;`
      */
     public var member: com.evemeta.zdk.pb.room.server.members.Member
-      @JvmName("getMember")
-      get() = _builder.member
-      @JvmName("setMember")
-      set(value) {
+      @kotlin.jvm.JvmName("getMember")
+        get() = _builder.member
+      @kotlin.jvm.JvmName("setMember")
+        set(value) {
         _builder.member = value
       }
     /**
@@ -236,10 +237,10 @@ public object ContextKt {
      * `.room.rooms.public.server.v1.Timeframe member_timeframe = 6;`
      */
     public var memberTimeframe: com.evemeta.zdk.pb.room.server.rooms.Timeframe
-      @JvmName("getMemberTimeframe")
-      get() = _builder.memberTimeframe
-      @JvmName("setMemberTimeframe")
-      set(value) {
+      @kotlin.jvm.JvmName("getMemberTimeframe")
+        get() = _builder.memberTimeframe
+      @kotlin.jvm.JvmName("setMemberTimeframe")
+        set(value) {
         _builder.memberTimeframe = value
       }
     /**
@@ -282,7 +283,7 @@ public object ContextKt {
      */
      public val members: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.members.Member, MembersProxy>
       @kotlin.jvm.JvmSynthetic
-      get() = com.google.protobuf.kotlin.DslList(
+  get() = com.google.protobuf.kotlin.DslList(
         _builder.membersList
       )
     /**
@@ -294,7 +295,7 @@ public object ContextKt {
      * @param value The members to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addMembers")
+@kotlin.jvm.JvmName("addMembers")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.members.Member, MembersProxy>.add(value: com.evemeta.zdk.pb.room.server.members.Member) {
       _builder.addMembers(value)
     }
@@ -307,7 +308,7 @@ public object ContextKt {
      * @param value The members to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignMembers")
+@kotlin.jvm.JvmName("plusAssignMembers")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.members.Member, MembersProxy>.plusAssign(value: com.evemeta.zdk.pb.room.server.members.Member) {
       add(value)
@@ -321,7 +322,7 @@ public object ContextKt {
      * @param values The members to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addAllMembers")
+@kotlin.jvm.JvmName("addAllMembers")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.members.Member, MembersProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.room.server.members.Member>) {
       _builder.addAllMembers(values)
     }
@@ -334,7 +335,7 @@ public object ContextKt {
      * @param values The members to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignAllMembers")
+@kotlin.jvm.JvmName("plusAssignAllMembers")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.members.Member, MembersProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.room.server.members.Member>) {
       addAll(values)
@@ -349,7 +350,7 @@ public object ContextKt {
      * @param value The members to set.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("setMembers")
+@kotlin.jvm.JvmName("setMembers")
     public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.members.Member, MembersProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.room.server.members.Member) {
       _builder.setMembers(index, value)
     }
@@ -361,11 +362,10 @@ public object ContextKt {
      * `repeated .room.members.public.server.v1.Member members = 7;`
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("clearMembers")
+@kotlin.jvm.JvmName("clearMembers")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.members.Member, MembersProxy>.clear() {
       _builder.clearMembers()
     }
-
 
     /**
      * ```
@@ -375,10 +375,10 @@ public object ContextKt {
      * `.room.rooms.public.server.v1.Timeframe members_timeframe = 8;`
      */
     public var membersTimeframe: com.evemeta.zdk.pb.room.server.rooms.Timeframe
-      @JvmName("getMembersTimeframe")
-      get() = _builder.membersTimeframe
-      @JvmName("setMembersTimeframe")
-      set(value) {
+      @kotlin.jvm.JvmName("getMembersTimeframe")
+        get() = _builder.membersTimeframe
+      @kotlin.jvm.JvmName("setMembersTimeframe")
+        set(value) {
         _builder.membersTimeframe = value
       }
     /**
@@ -421,7 +421,7 @@ public object ContextKt {
      */
      public val streams: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.streams.Stream, StreamsProxy>
       @kotlin.jvm.JvmSynthetic
-      get() = com.google.protobuf.kotlin.DslList(
+  get() = com.google.protobuf.kotlin.DslList(
         _builder.streamsList
       )
     /**
@@ -433,7 +433,7 @@ public object ContextKt {
      * @param value The streams to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addStreams")
+@kotlin.jvm.JvmName("addStreams")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.streams.Stream, StreamsProxy>.add(value: com.evemeta.zdk.pb.room.server.streams.Stream) {
       _builder.addStreams(value)
     }
@@ -446,7 +446,7 @@ public object ContextKt {
      * @param value The streams to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignStreams")
+@kotlin.jvm.JvmName("plusAssignStreams")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.streams.Stream, StreamsProxy>.plusAssign(value: com.evemeta.zdk.pb.room.server.streams.Stream) {
       add(value)
@@ -460,7 +460,7 @@ public object ContextKt {
      * @param values The streams to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addAllStreams")
+@kotlin.jvm.JvmName("addAllStreams")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.streams.Stream, StreamsProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.room.server.streams.Stream>) {
       _builder.addAllStreams(values)
     }
@@ -473,7 +473,7 @@ public object ContextKt {
      * @param values The streams to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignAllStreams")
+@kotlin.jvm.JvmName("plusAssignAllStreams")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.streams.Stream, StreamsProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.room.server.streams.Stream>) {
       addAll(values)
@@ -488,7 +488,7 @@ public object ContextKt {
      * @param value The streams to set.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("setStreams")
+@kotlin.jvm.JvmName("setStreams")
     public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.streams.Stream, StreamsProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.room.server.streams.Stream) {
       _builder.setStreams(index, value)
     }
@@ -500,11 +500,10 @@ public object ContextKt {
      * `repeated .room.streams.public.server.v1.Stream streams = 9;`
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("clearStreams")
+@kotlin.jvm.JvmName("clearStreams")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.streams.Stream, StreamsProxy>.clear() {
       _builder.clearStreams()
     }
-
 
     /**
      * ```
@@ -514,10 +513,10 @@ public object ContextKt {
      * `.room.rooms.public.server.v1.Timeframe streams_timeframe = 10;`
      */
     public var streamsTimeframe: com.evemeta.zdk.pb.room.server.rooms.Timeframe
-      @JvmName("getStreamsTimeframe")
-      get() = _builder.streamsTimeframe
-      @JvmName("setStreamsTimeframe")
-      set(value) {
+      @kotlin.jvm.JvmName("getStreamsTimeframe")
+        get() = _builder.streamsTimeframe
+      @kotlin.jvm.JvmName("setStreamsTimeframe")
+        set(value) {
         _builder.streamsTimeframe = value
       }
     /**
@@ -560,7 +559,7 @@ public object ContextKt {
      */
      public val connections: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.connections.Connection, ConnectionsProxy>
       @kotlin.jvm.JvmSynthetic
-      get() = com.google.protobuf.kotlin.DslList(
+  get() = com.google.protobuf.kotlin.DslList(
         _builder.connectionsList
       )
     /**
@@ -572,7 +571,7 @@ public object ContextKt {
      * @param value The connections to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addConnections")
+@kotlin.jvm.JvmName("addConnections")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.connections.Connection, ConnectionsProxy>.add(value: com.evemeta.zdk.pb.room.server.connections.Connection) {
       _builder.addConnections(value)
     }
@@ -585,7 +584,7 @@ public object ContextKt {
      * @param value The connections to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignConnections")
+@kotlin.jvm.JvmName("plusAssignConnections")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.connections.Connection, ConnectionsProxy>.plusAssign(value: com.evemeta.zdk.pb.room.server.connections.Connection) {
       add(value)
@@ -599,7 +598,7 @@ public object ContextKt {
      * @param values The connections to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addAllConnections")
+@kotlin.jvm.JvmName("addAllConnections")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.connections.Connection, ConnectionsProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.room.server.connections.Connection>) {
       _builder.addAllConnections(values)
     }
@@ -612,7 +611,7 @@ public object ContextKt {
      * @param values The connections to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignAllConnections")
+@kotlin.jvm.JvmName("plusAssignAllConnections")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.connections.Connection, ConnectionsProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.room.server.connections.Connection>) {
       addAll(values)
@@ -627,7 +626,7 @@ public object ContextKt {
      * @param value The connections to set.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("setConnections")
+@kotlin.jvm.JvmName("setConnections")
     public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.connections.Connection, ConnectionsProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.room.server.connections.Connection) {
       _builder.setConnections(index, value)
     }
@@ -639,11 +638,10 @@ public object ContextKt {
      * `repeated .room.connections.public.server.v1.Connection connections = 11;`
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("clearConnections")
+@kotlin.jvm.JvmName("clearConnections")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.connections.Connection, ConnectionsProxy>.clear() {
       _builder.clearConnections()
     }
-
 
     /**
      * ```
@@ -653,10 +651,10 @@ public object ContextKt {
      * `.room.rooms.public.server.v1.Timeframe connections_timeframe = 12;`
      */
     public var connectionsTimeframe: com.evemeta.zdk.pb.room.server.rooms.Timeframe
-      @JvmName("getConnectionsTimeframe")
-      get() = _builder.connectionsTimeframe
-      @JvmName("setConnectionsTimeframe")
-      set(value) {
+      @kotlin.jvm.JvmName("getConnectionsTimeframe")
+        get() = _builder.connectionsTimeframe
+      @kotlin.jvm.JvmName("setConnectionsTimeframe")
+        set(value) {
         _builder.connectionsTimeframe = value
       }
     /**
@@ -699,7 +697,7 @@ public object ContextKt {
      */
      public val restrictions: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.restrictions.Restriction, RestrictionsProxy>
       @kotlin.jvm.JvmSynthetic
-      get() = com.google.protobuf.kotlin.DslList(
+  get() = com.google.protobuf.kotlin.DslList(
         _builder.restrictionsList
       )
     /**
@@ -711,7 +709,7 @@ public object ContextKt {
      * @param value The restrictions to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addRestrictions")
+@kotlin.jvm.JvmName("addRestrictions")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.restrictions.Restriction, RestrictionsProxy>.add(value: com.evemeta.zdk.pb.room.server.restrictions.Restriction) {
       _builder.addRestrictions(value)
     }
@@ -724,7 +722,7 @@ public object ContextKt {
      * @param value The restrictions to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignRestrictions")
+@kotlin.jvm.JvmName("plusAssignRestrictions")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.restrictions.Restriction, RestrictionsProxy>.plusAssign(value: com.evemeta.zdk.pb.room.server.restrictions.Restriction) {
       add(value)
@@ -738,7 +736,7 @@ public object ContextKt {
      * @param values The restrictions to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addAllRestrictions")
+@kotlin.jvm.JvmName("addAllRestrictions")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.restrictions.Restriction, RestrictionsProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.room.server.restrictions.Restriction>) {
       _builder.addAllRestrictions(values)
     }
@@ -751,7 +749,7 @@ public object ContextKt {
      * @param values The restrictions to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignAllRestrictions")
+@kotlin.jvm.JvmName("plusAssignAllRestrictions")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.restrictions.Restriction, RestrictionsProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.room.server.restrictions.Restriction>) {
       addAll(values)
@@ -766,7 +764,7 @@ public object ContextKt {
      * @param value The restrictions to set.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("setRestrictions")
+@kotlin.jvm.JvmName("setRestrictions")
     public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.restrictions.Restriction, RestrictionsProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.room.server.restrictions.Restriction) {
       _builder.setRestrictions(index, value)
     }
@@ -778,11 +776,10 @@ public object ContextKt {
      * `repeated .room.restrictions.public.server.v1.Restriction restrictions = 13;`
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("clearRestrictions")
+@kotlin.jvm.JvmName("clearRestrictions")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.restrictions.Restriction, RestrictionsProxy>.clear() {
       _builder.clearRestrictions()
     }
-
 
     /**
      * ```
@@ -792,10 +789,10 @@ public object ContextKt {
      * `.room.rooms.public.server.v1.Timeframe restrictions_timeframe = 14;`
      */
     public var restrictionsTimeframe: com.evemeta.zdk.pb.room.server.rooms.Timeframe
-      @JvmName("getRestrictionsTimeframe")
-      get() = _builder.restrictionsTimeframe
-      @JvmName("setRestrictionsTimeframe")
-      set(value) {
+      @kotlin.jvm.JvmName("getRestrictionsTimeframe")
+        get() = _builder.restrictionsTimeframe
+      @kotlin.jvm.JvmName("setRestrictionsTimeframe")
+        set(value) {
         _builder.restrictionsTimeframe = value
       }
     /**

@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: room/streams/public/server/v1/procedures.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.room.server.streams;
@@ -47,7 +48,7 @@ public object SelectResponseKt {
      */
      public val streams: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.streams.Stream, StreamsProxy>
       @kotlin.jvm.JvmSynthetic
-      get() = com.google.protobuf.kotlin.DslList(
+  get() = com.google.protobuf.kotlin.DslList(
         _builder.streamsList
       )
     /**
@@ -59,7 +60,7 @@ public object SelectResponseKt {
      * @param value The streams to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addStreams")
+@kotlin.jvm.JvmName("addStreams")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.streams.Stream, StreamsProxy>.add(value: com.evemeta.zdk.pb.room.server.streams.Stream) {
       _builder.addStreams(value)
     }
@@ -72,7 +73,7 @@ public object SelectResponseKt {
      * @param value The streams to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignStreams")
+@kotlin.jvm.JvmName("plusAssignStreams")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.streams.Stream, StreamsProxy>.plusAssign(value: com.evemeta.zdk.pb.room.server.streams.Stream) {
       add(value)
@@ -86,7 +87,7 @@ public object SelectResponseKt {
      * @param values The streams to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addAllStreams")
+@kotlin.jvm.JvmName("addAllStreams")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.streams.Stream, StreamsProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.room.server.streams.Stream>) {
       _builder.addAllStreams(values)
     }
@@ -99,7 +100,7 @@ public object SelectResponseKt {
      * @param values The streams to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignAllStreams")
+@kotlin.jvm.JvmName("plusAssignAllStreams")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.streams.Stream, StreamsProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.room.server.streams.Stream>) {
       addAll(values)
@@ -114,7 +115,7 @@ public object SelectResponseKt {
      * @param value The streams to set.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("setStreams")
+@kotlin.jvm.JvmName("setStreams")
     public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.streams.Stream, StreamsProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.room.server.streams.Stream) {
       _builder.setStreams(index, value)
     }
@@ -126,11 +127,10 @@ public object SelectResponseKt {
      * `repeated .room.streams.public.server.v1.Stream streams = 1;`
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("clearStreams")
+@kotlin.jvm.JvmName("clearStreams")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.room.server.streams.Stream, StreamsProxy>.clear() {
       _builder.clearStreams()
     }
-
   }
 }
 @kotlin.jvm.JvmSynthetic

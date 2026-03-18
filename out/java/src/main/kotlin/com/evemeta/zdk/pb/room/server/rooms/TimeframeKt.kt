@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: room/rooms/public/server/v1/entities.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.room.server.rooms;
@@ -41,10 +42,10 @@ public object TimeframeKt {
      * `int64 commence = 1;`
      */
     public var commence: kotlin.Long
-      @JvmName("getCommence")
-      get() = _builder.commence
-      @JvmName("setCommence")
-      set(value) {
+      @kotlin.jvm.JvmName("getCommence")
+        get() = _builder.commence
+      @kotlin.jvm.JvmName("setCommence")
+        set(value) {
         _builder.commence = value
       }
     /**
@@ -66,10 +67,10 @@ public object TimeframeKt {
      * `int64 complete = 2;`
      */
     public var complete: kotlin.Long
-      @JvmName("getComplete")
-      get() = _builder.complete
-      @JvmName("setComplete")
-      set(value) {
+      @kotlin.jvm.JvmName("getComplete")
+        get() = _builder.complete
+      @kotlin.jvm.JvmName("setComplete")
+        set(value) {
         _builder.complete = value
       }
     /**

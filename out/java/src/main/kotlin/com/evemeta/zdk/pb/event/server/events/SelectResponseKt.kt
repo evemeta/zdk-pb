@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: event/events/public/server/v1/procedures.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.event.server.events;
@@ -47,7 +48,7 @@ public object SelectResponseKt {
      */
      public val events: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.events.Event, EventsProxy>
       @kotlin.jvm.JvmSynthetic
-      get() = com.google.protobuf.kotlin.DslList(
+  get() = com.google.protobuf.kotlin.DslList(
         _builder.eventsList
       )
     /**
@@ -59,7 +60,7 @@ public object SelectResponseKt {
      * @param value The events to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addEvents")
+@kotlin.jvm.JvmName("addEvents")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.events.Event, EventsProxy>.add(value: com.evemeta.zdk.pb.event.server.events.Event) {
       _builder.addEvents(value)
     }
@@ -72,7 +73,7 @@ public object SelectResponseKt {
      * @param value The events to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignEvents")
+@kotlin.jvm.JvmName("plusAssignEvents")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.events.Event, EventsProxy>.plusAssign(value: com.evemeta.zdk.pb.event.server.events.Event) {
       add(value)
@@ -86,7 +87,7 @@ public object SelectResponseKt {
      * @param values The events to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addAllEvents")
+@kotlin.jvm.JvmName("addAllEvents")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.events.Event, EventsProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.event.server.events.Event>) {
       _builder.addAllEvents(values)
     }
@@ -99,7 +100,7 @@ public object SelectResponseKt {
      * @param values The events to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignAllEvents")
+@kotlin.jvm.JvmName("plusAssignAllEvents")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.events.Event, EventsProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.event.server.events.Event>) {
       addAll(values)
@@ -114,7 +115,7 @@ public object SelectResponseKt {
      * @param value The events to set.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("setEvents")
+@kotlin.jvm.JvmName("setEvents")
     public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.events.Event, EventsProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.event.server.events.Event) {
       _builder.setEvents(index, value)
     }
@@ -126,11 +127,10 @@ public object SelectResponseKt {
      * `repeated .event.events.public.server.v1.Event events = 1;`
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("clearEvents")
+@kotlin.jvm.JvmName("clearEvents")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.events.Event, EventsProxy>.clear() {
       _builder.clearEvents()
     }
-
   }
 }
 @kotlin.jvm.JvmSynthetic

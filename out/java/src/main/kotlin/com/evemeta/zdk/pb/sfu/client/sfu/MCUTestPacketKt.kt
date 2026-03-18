@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: sfu/public/client/v1/packets.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.sfu.client.sfu;
@@ -32,10 +33,10 @@ public object MCUTestPacketKt {
      * `bool resetEncoder = 1;`
      */
     public var resetEncoder: kotlin.Boolean
-      @JvmName("getResetEncoder")
-      get() = _builder.resetEncoder
-      @JvmName("setResetEncoder")
-      set(value) {
+      @kotlin.jvm.JvmName("getResetEncoder")
+        get() = _builder.resetEncoder
+      @kotlin.jvm.JvmName("setResetEncoder")
+        set(value) {
         _builder.resetEncoder = value
       }
     /**

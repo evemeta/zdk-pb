@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: event/restrictions/public/server/v1/entities.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.event.server.restrictions;
@@ -48,7 +49,7 @@ public object ConditionKt {
      * @return A list containing the ids.
      */
     public val ids: com.google.protobuf.kotlin.DslList<kotlin.String, IdsProxy>
-      @kotlin.jvm.JvmSynthetic
+    @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
       get() = com.google.protobuf.kotlin.DslList(
         _builder.idsList
       )
@@ -61,7 +62,7 @@ public object ConditionKt {
      * @param value The ids to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addIds")
+@kotlin.jvm.JvmName("addIds")
     public fun com.google.protobuf.kotlin.DslList<kotlin.String, IdsProxy>.add(value: kotlin.String) {
       _builder.addIds(value)
     }
@@ -74,7 +75,7 @@ public object ConditionKt {
      * @param value The ids to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignIds")
+@kotlin.jvm.JvmName("plusAssignIds")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, IdsProxy>.plusAssign(value: kotlin.String) {
       add(value)
@@ -88,7 +89,7 @@ public object ConditionKt {
      * @param values The ids to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addAllIds")
+@kotlin.jvm.JvmName("addAllIds")
     public fun com.google.protobuf.kotlin.DslList<kotlin.String, IdsProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
       _builder.addAllIds(values)
     }
@@ -101,7 +102,7 @@ public object ConditionKt {
      * @param values The ids to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignAllIds")
+@kotlin.jvm.JvmName("plusAssignAllIds")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, IdsProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
       addAll(values)
@@ -116,7 +117,7 @@ public object ConditionKt {
      * @param value The ids to set.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("setIds")
+@kotlin.jvm.JvmName("setIds")
     public operator fun com.google.protobuf.kotlin.DslList<kotlin.String, IdsProxy>.set(index: kotlin.Int, value: kotlin.String) {
       _builder.setIds(index, value)
     }/**
@@ -127,7 +128,7 @@ public object ConditionKt {
      * `repeated string ids = 1;`
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("clearIds")
+@kotlin.jvm.JvmName("setIds")
     public fun com.google.protobuf.kotlin.DslList<kotlin.String, IdsProxy>.clear() {
       _builder.clearIds()
     }
@@ -146,7 +147,7 @@ public object ConditionKt {
      * @return A list containing the userIds.
      */
     public val userIds: com.google.protobuf.kotlin.DslList<kotlin.String, UserIdsProxy>
-      @kotlin.jvm.JvmSynthetic
+    @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
       get() = com.google.protobuf.kotlin.DslList(
         _builder.userIdsList
       )
@@ -159,7 +160,7 @@ public object ConditionKt {
      * @param value The userIds to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addUserIds")
+@kotlin.jvm.JvmName("addUserIds")
     public fun com.google.protobuf.kotlin.DslList<kotlin.String, UserIdsProxy>.add(value: kotlin.String) {
       _builder.addUserIds(value)
     }
@@ -172,7 +173,7 @@ public object ConditionKt {
      * @param value The userIds to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignUserIds")
+@kotlin.jvm.JvmName("plusAssignUserIds")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, UserIdsProxy>.plusAssign(value: kotlin.String) {
       add(value)
@@ -186,7 +187,7 @@ public object ConditionKt {
      * @param values The userIds to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addAllUserIds")
+@kotlin.jvm.JvmName("addAllUserIds")
     public fun com.google.protobuf.kotlin.DslList<kotlin.String, UserIdsProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
       _builder.addAllUserIds(values)
     }
@@ -199,7 +200,7 @@ public object ConditionKt {
      * @param values The userIds to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignAllUserIds")
+@kotlin.jvm.JvmName("plusAssignAllUserIds")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, UserIdsProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
       addAll(values)
@@ -214,7 +215,7 @@ public object ConditionKt {
      * @param value The userIds to set.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("setUserIds")
+@kotlin.jvm.JvmName("setUserIds")
     public operator fun com.google.protobuf.kotlin.DslList<kotlin.String, UserIdsProxy>.set(index: kotlin.Int, value: kotlin.String) {
       _builder.setUserIds(index, value)
     }/**
@@ -225,7 +226,7 @@ public object ConditionKt {
      * `repeated string user_ids = 2;`
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("clearUserIds")
+@kotlin.jvm.JvmName("setUserIds")
     public fun com.google.protobuf.kotlin.DslList<kotlin.String, UserIdsProxy>.clear() {
       _builder.clearUserIds()
     }
@@ -244,7 +245,7 @@ public object ConditionKt {
      * @return A list containing the eventIds.
      */
     public val eventIds: com.google.protobuf.kotlin.DslList<kotlin.String, EventIdsProxy>
-      @kotlin.jvm.JvmSynthetic
+    @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
       get() = com.google.protobuf.kotlin.DslList(
         _builder.eventIdsList
       )
@@ -257,7 +258,7 @@ public object ConditionKt {
      * @param value The eventIds to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addEventIds")
+@kotlin.jvm.JvmName("addEventIds")
     public fun com.google.protobuf.kotlin.DslList<kotlin.String, EventIdsProxy>.add(value: kotlin.String) {
       _builder.addEventIds(value)
     }
@@ -270,7 +271,7 @@ public object ConditionKt {
      * @param value The eventIds to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignEventIds")
+@kotlin.jvm.JvmName("plusAssignEventIds")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, EventIdsProxy>.plusAssign(value: kotlin.String) {
       add(value)
@@ -284,7 +285,7 @@ public object ConditionKt {
      * @param values The eventIds to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addAllEventIds")
+@kotlin.jvm.JvmName("addAllEventIds")
     public fun com.google.protobuf.kotlin.DslList<kotlin.String, EventIdsProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
       _builder.addAllEventIds(values)
     }
@@ -297,7 +298,7 @@ public object ConditionKt {
      * @param values The eventIds to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignAllEventIds")
+@kotlin.jvm.JvmName("plusAssignAllEventIds")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, EventIdsProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
       addAll(values)
@@ -312,7 +313,7 @@ public object ConditionKt {
      * @param value The eventIds to set.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("setEventIds")
+@kotlin.jvm.JvmName("setEventIds")
     public operator fun com.google.protobuf.kotlin.DslList<kotlin.String, EventIdsProxy>.set(index: kotlin.Int, value: kotlin.String) {
       _builder.setEventIds(index, value)
     }/**
@@ -323,7 +324,7 @@ public object ConditionKt {
      * `repeated string event_ids = 3;`
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("clearEventIds")
+@kotlin.jvm.JvmName("setEventIds")
     public fun com.google.protobuf.kotlin.DslList<kotlin.String, EventIdsProxy>.clear() {
       _builder.clearEventIds()
     }}

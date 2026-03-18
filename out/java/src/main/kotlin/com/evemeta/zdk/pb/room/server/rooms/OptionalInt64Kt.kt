@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: room/rooms/public/server/v1/optionals.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.room.server.rooms;
@@ -36,10 +37,10 @@ public object OptionalInt64Kt {
      * `int64 value = 1;`
      */
     public var value: kotlin.Long
-      @JvmName("getValue")
-      get() = _builder.value
-      @JvmName("setValue")
-      set(value) {
+      @kotlin.jvm.JvmName("getValue")
+        get() = _builder.value
+      @kotlin.jvm.JvmName("setValue")
+        set(value) {
         _builder.value = value
       }
     /**

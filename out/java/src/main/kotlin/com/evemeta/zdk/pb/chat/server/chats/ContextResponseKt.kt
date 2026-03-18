@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: chat/chats/public/server/v1/procedures.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.chat.server.chats;
@@ -40,10 +41,10 @@ public object ContextResponseKt {
      * `.chat.chats.public.server.v1.Context context = 1;`
      */
     public var context: com.evemeta.zdk.pb.chat.server.chats.Context
-      @JvmName("getContext")
-      get() = _builder.context
-      @JvmName("setContext")
-      set(value) {
+      @kotlin.jvm.JvmName("getContext")
+        get() = _builder.context
+      @kotlin.jvm.JvmName("setContext")
+        set(value) {
         _builder.context = value
       }
     /**

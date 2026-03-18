@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: websocket/public/server/v1/entities.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.websocket.server.websocket;
@@ -32,10 +33,10 @@ public object SessionKt {
      * `string id = 1;`
      */
     public var id: kotlin.String
-      @JvmName("getId")
-      get() = _builder.id
-      @JvmName("setId")
-      set(value) {
+      @kotlin.jvm.JvmName("getId")
+        get() = _builder.id
+      @kotlin.jvm.JvmName("setId")
+        set(value) {
         _builder.id = value
       }
     /**
@@ -49,10 +50,10 @@ public object SessionKt {
      * `string token = 2;`
      */
     public var token: kotlin.String
-      @JvmName("getToken")
-      get() = _builder.token
-      @JvmName("setToken")
-      set(value) {
+      @kotlin.jvm.JvmName("getToken")
+        get() = _builder.token
+      @kotlin.jvm.JvmName("setToken")
+        set(value) {
         _builder.token = value
       }
     /**
@@ -66,10 +67,10 @@ public object SessionKt {
      * `string user_id = 3;`
      */
     public var userId: kotlin.String
-      @JvmName("getUserId")
-      get() = _builder.userId
-      @JvmName("setUserId")
-      set(value) {
+      @kotlin.jvm.JvmName("getUserId")
+        get() = _builder.userId
+      @kotlin.jvm.JvmName("setUserId")
+        set(value) {
         _builder.userId = value
       }
     /**
@@ -90,7 +91,7 @@ public object SessionKt {
      * @return A list containing the subjects.
      */
     public val subjects: com.google.protobuf.kotlin.DslList<kotlin.String, SubjectsProxy>
-      @kotlin.jvm.JvmSynthetic
+    @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
       get() = com.google.protobuf.kotlin.DslList(
         _builder.subjectsList
       )
@@ -99,7 +100,7 @@ public object SessionKt {
      * @param value The subjects to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addSubjects")
+@kotlin.jvm.JvmName("addSubjects")
     public fun com.google.protobuf.kotlin.DslList<kotlin.String, SubjectsProxy>.add(value: kotlin.String) {
       _builder.addSubjects(value)
     }
@@ -108,7 +109,7 @@ public object SessionKt {
      * @param value The subjects to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignSubjects")
+@kotlin.jvm.JvmName("plusAssignSubjects")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, SubjectsProxy>.plusAssign(value: kotlin.String) {
       add(value)
@@ -118,7 +119,7 @@ public object SessionKt {
      * @param values The subjects to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addAllSubjects")
+@kotlin.jvm.JvmName("addAllSubjects")
     public fun com.google.protobuf.kotlin.DslList<kotlin.String, SubjectsProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
       _builder.addAllSubjects(values)
     }
@@ -127,7 +128,7 @@ public object SessionKt {
      * @param values The subjects to add.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignAllSubjects")
+@kotlin.jvm.JvmName("plusAssignAllSubjects")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, SubjectsProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
       addAll(values)
@@ -138,14 +139,14 @@ public object SessionKt {
      * @param value The subjects to set.
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("setSubjects")
+@kotlin.jvm.JvmName("setSubjects")
     public operator fun com.google.protobuf.kotlin.DslList<kotlin.String, SubjectsProxy>.set(index: kotlin.Int, value: kotlin.String) {
       _builder.setSubjects(index, value)
     }/**
      * `repeated string subjects = 4;`
      */
     @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("clearSubjects")
+@kotlin.jvm.JvmName("setSubjects")
     public fun com.google.protobuf.kotlin.DslList<kotlin.String, SubjectsProxy>.clear() {
       _builder.clearSubjects()
     }
@@ -153,10 +154,10 @@ public object SessionKt {
      * `string websocket_id = 5;`
      */
     public var websocketId: kotlin.String
-      @JvmName("getWebsocketId")
-      get() = _builder.websocketId
-      @JvmName("setWebsocketId")
-      set(value) {
+      @kotlin.jvm.JvmName("getWebsocketId")
+        get() = _builder.websocketId
+      @kotlin.jvm.JvmName("setWebsocketId")
+        set(value) {
         _builder.websocketId = value
       }
     /**

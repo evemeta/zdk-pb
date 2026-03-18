@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: room/tokens/public/server/v1/procedures.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.room.server.tokens;
@@ -32,10 +33,10 @@ public object ExtractResponseKt {
      * `.room.members.public.server.v1.Member member = 1;`
      */
     public var member: com.evemeta.zdk.pb.room.server.members.Member
-      @JvmName("getMember")
-      get() = _builder.member
-      @JvmName("setMember")
-      set(value) {
+      @kotlin.jvm.JvmName("getMember")
+        get() = _builder.member
+      @kotlin.jvm.JvmName("setMember")
+        set(value) {
         _builder.member = value
       }
     /**

@@ -2,6 +2,7 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: sfu/public/client/v1/entities.proto
 
+@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.sfu.client.sfu;
@@ -32,10 +33,10 @@ public object SfuConnectionOptionsKt {
      * `bool use_proto = 1;`
      */
     public var useProto: kotlin.Boolean
-      @JvmName("getUseProto")
-      get() = _builder.useProto
-      @JvmName("setUseProto")
-      set(value) {
+      @kotlin.jvm.JvmName("getUseProto")
+        get() = _builder.useProto
+      @kotlin.jvm.JvmName("setUseProto")
+        set(value) {
         _builder.useProto = value
       }
     /**
@@ -49,10 +50,10 @@ public object SfuConnectionOptionsKt {
      * `bool use_compression = 2;`
      */
     public var useCompression: kotlin.Boolean
-      @JvmName("getUseCompression")
-      get() = _builder.useCompression
-      @JvmName("setUseCompression")
-      set(value) {
+      @kotlin.jvm.JvmName("getUseCompression")
+        get() = _builder.useCompression
+      @kotlin.jvm.JvmName("setUseCompression")
+        set(value) {
         _builder.useCompression = value
       }
     /**
@@ -66,10 +67,10 @@ public object SfuConnectionOptionsKt {
      * `bool use_tcp = 3;`
      */
     public var useTcp: kotlin.Boolean
-      @JvmName("getUseTcp")
-      get() = _builder.useTcp
-      @JvmName("setUseTcp")
-      set(value) {
+      @kotlin.jvm.JvmName("getUseTcp")
+        get() = _builder.useTcp
+      @kotlin.jvm.JvmName("setUseTcp")
+        set(value) {
         _builder.useTcp = value
       }
     /**
@@ -83,10 +84,10 @@ public object SfuConnectionOptionsKt {
      * `bool ice_restart = 4;`
      */
     public var iceRestart: kotlin.Boolean
-      @JvmName("getIceRestart")
-      get() = _builder.iceRestart
-      @JvmName("setIceRestart")
-      set(value) {
+      @kotlin.jvm.JvmName("getIceRestart")
+        get() = _builder.iceRestart
+      @kotlin.jvm.JvmName("setIceRestart")
+        set(value) {
         _builder.iceRestart = value
       }
     /**
@@ -100,10 +101,10 @@ public object SfuConnectionOptionsKt {
      * `bool mcu_embed_layout_in_frames = 5;`
      */
     public var mcuEmbedLayoutInFrames: kotlin.Boolean
-      @JvmName("getMcuEmbedLayoutInFrames")
-      get() = _builder.mcuEmbedLayoutInFrames
-      @JvmName("setMcuEmbedLayoutInFrames")
-      set(value) {
+      @kotlin.jvm.JvmName("getMcuEmbedLayoutInFrames")
+        get() = _builder.mcuEmbedLayoutInFrames
+      @kotlin.jvm.JvmName("setMcuEmbedLayoutInFrames")
+        set(value) {
         _builder.mcuEmbedLayoutInFrames = value
       }
     /**
@@ -117,10 +118,10 @@ public object SfuConnectionOptionsKt {
      * `bool exchange_candidates_async = 6;`
      */
     public var exchangeCandidatesAsync: kotlin.Boolean
-      @JvmName("getExchangeCandidatesAsync")
-      get() = _builder.exchangeCandidatesAsync
-      @JvmName("setExchangeCandidatesAsync")
-      set(value) {
+      @kotlin.jvm.JvmName("getExchangeCandidatesAsync")
+        get() = _builder.exchangeCandidatesAsync
+      @kotlin.jvm.JvmName("setExchangeCandidatesAsync")
+        set(value) {
         _builder.exchangeCandidatesAsync = value
       }
     /**
