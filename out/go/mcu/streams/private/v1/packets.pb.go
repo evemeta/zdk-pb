@@ -129,6 +129,7 @@ type InputPacket struct {
 	Sample            *Sample                `protobuf:"bytes,3,opt,name=sample,proto3" json:"sample,omitempty"`
 	ManagementCommand *ManagementCommand     `protobuf:"bytes,4,opt,name=management_command,json=managementCommand,proto3" json:"management_command,omitempty"`
 	RtpPacket         *RTPPacket             `protobuf:"bytes,5,opt,name=rtp_packet,json=rtpPacket,proto3" json:"rtp_packet,omitempty"`
+	RtcpPackets       [][]byte               `protobuf:"bytes,8,rep,name=rtcp_packets,json=rtcpPackets,proto3" json:"rtcp_packets,omitempty"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
@@ -194,6 +195,13 @@ func (x *InputPacket) GetManagementCommand() *ManagementCommand {
 func (x *InputPacket) GetRtpPacket() *RTPPacket {
 	if x != nil {
 		return x.RtpPacket
+	}
+	return nil
+}
+
+func (x *InputPacket) GetRtcpPackets() [][]byte {
+	if x != nil {
+		return x.RtcpPackets
 	}
 	return nil
 }
@@ -278,14 +286,15 @@ const file_mcu_streams_private_v1_packets_proto_rawDesc = "" +
 	"\tdata_type\x18\a \x01(\x0e2 .mcu.streams.private.v1.DataTypeR\bdataType\x12\x1f\n" +
 	"\voutput_name\x18\b \x01(\tR\n" +
 	"outputName\x12M\n" +
-	"\rlayout_packet\x18\x03 \x01(\v2(.mcu.rooms.public.server.v1.LayoutPacketR\flayoutPacket\"\xf7\x02\n" +
+	"\rlayout_packet\x18\x03 \x01(\v2(.mcu.rooms.public.server.v1.LayoutPacketR\flayoutPacket\"\x9a\x03\n" +
 	"\vInputPacket\x12=\n" +
 	"\tdata_type\x18\x06 \x01(\x0e2 .mcu.streams.private.v1.DataTypeR\bdataType\x12U\n" +
 	"\x11input_description\x18\a \x01(\v2(.mcu.streams.private.v1.InputDescriptionR\x10inputDescription\x126\n" +
 	"\x06sample\x18\x03 \x01(\v2\x1e.mcu.streams.private.v1.SampleR\x06sample\x12X\n" +
 	"\x12management_command\x18\x04 \x01(\v2).mcu.streams.private.v1.ManagementCommandR\x11managementCommand\x12@\n" +
 	"\n" +
-	"rtp_packet\x18\x05 \x01(\v2!.mcu.streams.private.v1.RTPPacketR\trtpPacket\"?\n" +
+	"rtp_packet\x18\x05 \x01(\v2!.mcu.streams.private.v1.RTPPacketR\trtpPacket\x12!\n" +
+	"\frtcp_packets\x18\b \x03(\fR\vrtcpPackets\"?\n" +
 	"\x13OutputControlPacket\x12\x1d\n" +
 	"\tkey_frame\x18\x01 \x01(\bH\x00R\bkeyFrameB\t\n" +
 	"\arequestBCZAgithub.com/evemeta/zdk-pb/out/go/mcu/streams/private/v1;streamspbb\x06proto3"

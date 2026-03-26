@@ -10,23 +10,24 @@ option go_package = "github.com/evemeta/zdk-pb/out/go/mcu/streams/private/v1;str
 
 
 message OutputPacket{
-    string          room_id = 1;
-    Sample          sample = 2;
-    KeyFrameRequest keyframe_request = 4;
-    bool            has_media_player = 5;
-    bool            end = 6;
-    DataType        data_type = 7;
-    string          output_name = 8;
+    string          room_id             = 1;
+    Sample          sample              = 2;
+    KeyFrameRequest keyframe_request    = 4;
+    bool            has_media_player    = 5;
+    bool            end                 = 6;
+    DataType        data_type           = 7;
+    string          output_name         = 8;
 
     mcu.rooms.public.server.v1.LayoutPacket layout_packet = 3;
 }
 
 message InputPacket{
-    DataType            data_type = 6;
-    InputDescription    input_description = 7;
-    Sample              sample = 3;
-    ManagementCommand   management_command = 4;
-    RTPPacket           rtp_packet = 5;
+    DataType            data_type           = 6;
+    InputDescription    input_description   = 7;
+    Sample              sample              = 3;
+    ManagementCommand   management_command  = 4;
+    RTPPacket           rtp_packet          = 5;
+    repeated bytes      rtcp_packets        = 8;
 }
 
 message OutputControlPacket{
