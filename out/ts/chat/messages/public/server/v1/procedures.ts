@@ -325,7 +325,7 @@ export const SelectRequest = new SelectRequest$Type();
 class SelectResponse$Type extends MessageType<SelectResponse> {
     constructor() {
         super("chat.messages.public.server.v1.SelectResponse", [
-            { no: 1, name: "messages", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => Message }
+            { no: 1, name: "messages", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => Message }
         ]);
     }
     create(value?: PartialMessage<SelectResponse>): SelectResponse {
