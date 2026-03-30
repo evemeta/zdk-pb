@@ -8,6 +8,7 @@ import "gateway/websockets/private/v1/optionals.proto";
 import "gateway/sessions/private/v1/entities.proto";
 import "gateway/sessions/private/v1/procedures.proto";
 import "common/messages/public/v1/entities.proto";
+import "gateway/transponders/private/v1/procedures.proto";
 
 option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/websockets/private/v1;websocketspb";
 
@@ -124,6 +125,7 @@ message DeleteMutation {
 
 message DeleteCondition {
     repeated gateway.sessions.private.v1.DeleteMutation delete_session_mutations = 1;
+    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 2;
 }
 
 message DeleteTransaction {

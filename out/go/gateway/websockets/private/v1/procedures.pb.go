@@ -7,8 +7,9 @@
 package websocketspb
 
 import (
-	v11 "github.com/evemeta/zdk-pb/out/go/common/messages/public/v1"
+	v12 "github.com/evemeta/zdk-pb/out/go/common/messages/public/v1"
 	v1 "github.com/evemeta/zdk-pb/out/go/gateway/sessions/private/v1"
+	v11 "github.com/evemeta/zdk-pb/out/go/gateway/transponders/private/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -1188,10 +1189,11 @@ func (x *DeleteMutation) GetCloseTimestamp() int64 {
 }
 
 type DeleteCondition struct {
-	state                  protoimpl.MessageState `protogen:"open.v1"`
-	DeleteSessionMutations []*v1.DeleteMutation   `protobuf:"bytes,1,rep,name=delete_session_mutations,json=deleteSessionMutations,proto3" json:"delete_session_mutations,omitempty"`
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state                      protoimpl.MessageState `protogen:"open.v1"`
+	DeleteSessionMutations     []*v1.DeleteMutation   `protobuf:"bytes,1,rep,name=delete_session_mutations,json=deleteSessionMutations,proto3" json:"delete_session_mutations,omitempty"`
+	DeleteTransponderMutations []*v11.DeleteMutation  `protobuf:"bytes,2,rep,name=delete_transponder_mutations,json=deleteTransponderMutations,proto3" json:"delete_transponder_mutations,omitempty"`
+	unknownFields              protoimpl.UnknownFields
+	sizeCache                  protoimpl.SizeCache
 }
 
 func (x *DeleteCondition) Reset() {
@@ -1227,6 +1229,13 @@ func (*DeleteCondition) Descriptor() ([]byte, []int) {
 func (x *DeleteCondition) GetDeleteSessionMutations() []*v1.DeleteMutation {
 	if x != nil {
 		return x.DeleteSessionMutations
+	}
+	return nil
+}
+
+func (x *DeleteCondition) GetDeleteTransponderMutations() []*v11.DeleteMutation {
+	if x != nil {
+		return x.DeleteTransponderMutations
 	}
 	return nil
 }
@@ -1277,7 +1286,7 @@ func (x *DeleteTransaction) GetMutations() []*DeleteMutation {
 
 type BroadcastArgument struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Message       *v11.Message           `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	Message       *v12.Message           `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
 	Subjects      []string               `protobuf:"bytes,2,rep,name=subjects,proto3" json:"subjects,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -1313,7 +1322,7 @@ func (*BroadcastArgument) Descriptor() ([]byte, []int) {
 	return file_gateway_websockets_private_v1_procedures_proto_rawDescGZIP(), []int{25}
 }
 
-func (x *BroadcastArgument) GetMessage() *v11.Message {
+func (x *BroadcastArgument) GetMessage() *v12.Message {
 	if x != nil {
 		return x.Message
 	}
@@ -1907,7 +1916,7 @@ var File_gateway_websockets_private_v1_procedures_proto protoreflect.FileDescrip
 
 const file_gateway_websockets_private_v1_procedures_proto_rawDesc = "" +
 	"\n" +
-	".gateway/websockets/private/v1/procedures.proto\x12\x1dgateway.websockets.private.v1\x1a)gateway/websockets/private/v1/enums.proto\x1a,gateway/websockets/private/v1/entities.proto\x1a-gateway/websockets/private/v1/optionals.proto\x1a*gateway/sessions/private/v1/entities.proto\x1a,gateway/sessions/private/v1/procedures.proto\x1a(common/messages/public/v1/entities.proto\"a\n" +
+	".gateway/websockets/private/v1/procedures.proto\x12\x1dgateway.websockets.private.v1\x1a)gateway/websockets/private/v1/enums.proto\x1a,gateway/websockets/private/v1/entities.proto\x1a-gateway/websockets/private/v1/optionals.proto\x1a*gateway/sessions/private/v1/entities.proto\x1a,gateway/sessions/private/v1/procedures.proto\x1a(common/messages/public/v1/entities.proto\x1a0gateway/transponders/private/v1/procedures.proto\"a\n" +
 	"\rCountArgument\x12\x14\n" +
 	"\x05cache\x18\x01 \x01(\bR\x05cache\x12:\n" +
 	"\x05query\x18\x02 \x01(\v2$.gateway.websockets.private.v1.QueryR\x05query\"Z\n" +
@@ -1990,9 +1999,10 @@ const file_gateway_websockets_private_v1_procedures_proto_rawDesc = "" +
 	"\tcondition\x18\x02 \x01(\v2..gateway.websockets.private.v1.DeleteConditionR\tcondition\x12F\n" +
 	"\ttransient\x18\x03 \x03(\v2(.gateway.websockets.private.v1.TransientR\ttransient\x12'\n" +
 	"\x0fbegin_timestamp\x18\x04 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
-	"\x0fclose_timestamp\x18\x05 \x01(\x03R\x0ecloseTimestamp\"x\n" +
+	"\x0fclose_timestamp\x18\x05 \x01(\x03R\x0ecloseTimestamp\"\xeb\x01\n" +
 	"\x0fDeleteCondition\x12e\n" +
-	"\x18delete_session_mutations\x18\x01 \x03(\v2+.gateway.sessions.private.v1.DeleteMutationR\x16deleteSessionMutations\"`\n" +
+	"\x18delete_session_mutations\x18\x01 \x03(\v2+.gateway.sessions.private.v1.DeleteMutationR\x16deleteSessionMutations\x12q\n" +
+	"\x1cdelete_transponder_mutations\x18\x02 \x03(\v2/.gateway.transponders.private.v1.DeleteMutationR\x1adeleteTransponderMutations\"`\n" +
 	"\x11DeleteTransaction\x12K\n" +
 	"\tmutations\x18\x01 \x03(\v2-.gateway.websockets.private.v1.DeleteMutationR\tmutations\"m\n" +
 	"\x11BroadcastArgument\x12<\n" +
@@ -2097,9 +2107,10 @@ var file_gateway_websockets_private_v1_procedures_proto_goTypes = []any{
 	(*OptionalStatus)(nil),        // 45: gateway.websockets.private.v1.OptionalStatus
 	(*OptionalString)(nil),        // 46: gateway.websockets.private.v1.OptionalString
 	(*v1.DeleteMutation)(nil),     // 47: gateway.sessions.private.v1.DeleteMutation
-	(*v11.Message)(nil),           // 48: common.messages.public.v1.Message
-	(*v1.Query)(nil),              // 49: gateway.sessions.private.v1.Query
-	(*v1.Session)(nil),            // 50: gateway.sessions.private.v1.Session
+	(*v11.DeleteMutation)(nil),    // 48: gateway.transponders.private.v1.DeleteMutation
+	(*v12.Message)(nil),           // 49: common.messages.public.v1.Message
+	(*v1.Query)(nil),              // 50: gateway.sessions.private.v1.Query
+	(*v1.Session)(nil),            // 51: gateway.sessions.private.v1.Session
 }
 var file_gateway_websockets_private_v1_procedures_proto_depIdxs = []int32{
 	38, // 0: gateway.websockets.private.v1.CountArgument.query:type_name -> gateway.websockets.private.v1.Query
@@ -2133,26 +2144,27 @@ var file_gateway_websockets_private_v1_procedures_proto_depIdxs = []int32{
 	23, // 28: gateway.websockets.private.v1.DeleteMutation.condition:type_name -> gateway.websockets.private.v1.DeleteCondition
 	43, // 29: gateway.websockets.private.v1.DeleteMutation.transient:type_name -> gateway.websockets.private.v1.Transient
 	47, // 30: gateway.websockets.private.v1.DeleteCondition.delete_session_mutations:type_name -> gateway.sessions.private.v1.DeleteMutation
-	22, // 31: gateway.websockets.private.v1.DeleteTransaction.mutations:type_name -> gateway.websockets.private.v1.DeleteMutation
-	48, // 32: gateway.websockets.private.v1.BroadcastArgument.message:type_name -> common.messages.public.v1.Message
-	25, // 33: gateway.websockets.private.v1.BroadcastRequest.arguments:type_name -> gateway.websockets.private.v1.BroadcastArgument
-	25, // 34: gateway.websockets.private.v1.BroadcastMutation.foundation:type_name -> gateway.websockets.private.v1.BroadcastArgument
-	29, // 35: gateway.websockets.private.v1.BroadcastMutation.condition:type_name -> gateway.websockets.private.v1.BroadcastCondition
-	30, // 36: gateway.websockets.private.v1.BroadcastCondition.destinations:type_name -> gateway.websockets.private.v1.BroadcastDestination
-	40, // 37: gateway.websockets.private.v1.BroadcastDestination.websocket:type_name -> gateway.websockets.private.v1.Websocket
-	28, // 38: gateway.websockets.private.v1.BroadcastTransaction.mutations:type_name -> gateway.websockets.private.v1.BroadcastMutation
-	49, // 39: gateway.websockets.private.v1.DisconnectArgument.query:type_name -> gateway.sessions.private.v1.Query
-	32, // 40: gateway.websockets.private.v1.DisconnectRequest.arguments:type_name -> gateway.websockets.private.v1.DisconnectArgument
-	32, // 41: gateway.websockets.private.v1.DisconnectMutation.foundation:type_name -> gateway.websockets.private.v1.DisconnectArgument
-	36, // 42: gateway.websockets.private.v1.DisconnectMutation.condition:type_name -> gateway.websockets.private.v1.DisconnectCondition
-	50, // 43: gateway.websockets.private.v1.DisconnectCondition.sessions:type_name -> gateway.sessions.private.v1.Session
-	40, // 44: gateway.websockets.private.v1.DisconnectCondition.websockets:type_name -> gateway.websockets.private.v1.Websocket
-	35, // 45: gateway.websockets.private.v1.DisconnectTransaction.mutations:type_name -> gateway.websockets.private.v1.DisconnectMutation
-	46, // [46:46] is the sub-list for method output_type
-	46, // [46:46] is the sub-list for method input_type
-	46, // [46:46] is the sub-list for extension type_name
-	46, // [46:46] is the sub-list for extension extendee
-	0,  // [0:46] is the sub-list for field type_name
+	48, // 31: gateway.websockets.private.v1.DeleteCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
+	22, // 32: gateway.websockets.private.v1.DeleteTransaction.mutations:type_name -> gateway.websockets.private.v1.DeleteMutation
+	49, // 33: gateway.websockets.private.v1.BroadcastArgument.message:type_name -> common.messages.public.v1.Message
+	25, // 34: gateway.websockets.private.v1.BroadcastRequest.arguments:type_name -> gateway.websockets.private.v1.BroadcastArgument
+	25, // 35: gateway.websockets.private.v1.BroadcastMutation.foundation:type_name -> gateway.websockets.private.v1.BroadcastArgument
+	29, // 36: gateway.websockets.private.v1.BroadcastMutation.condition:type_name -> gateway.websockets.private.v1.BroadcastCondition
+	30, // 37: gateway.websockets.private.v1.BroadcastCondition.destinations:type_name -> gateway.websockets.private.v1.BroadcastDestination
+	40, // 38: gateway.websockets.private.v1.BroadcastDestination.websocket:type_name -> gateway.websockets.private.v1.Websocket
+	28, // 39: gateway.websockets.private.v1.BroadcastTransaction.mutations:type_name -> gateway.websockets.private.v1.BroadcastMutation
+	50, // 40: gateway.websockets.private.v1.DisconnectArgument.query:type_name -> gateway.sessions.private.v1.Query
+	32, // 41: gateway.websockets.private.v1.DisconnectRequest.arguments:type_name -> gateway.websockets.private.v1.DisconnectArgument
+	32, // 42: gateway.websockets.private.v1.DisconnectMutation.foundation:type_name -> gateway.websockets.private.v1.DisconnectArgument
+	36, // 43: gateway.websockets.private.v1.DisconnectMutation.condition:type_name -> gateway.websockets.private.v1.DisconnectCondition
+	51, // 44: gateway.websockets.private.v1.DisconnectCondition.sessions:type_name -> gateway.sessions.private.v1.Session
+	40, // 45: gateway.websockets.private.v1.DisconnectCondition.websockets:type_name -> gateway.websockets.private.v1.Websocket
+	35, // 46: gateway.websockets.private.v1.DisconnectTransaction.mutations:type_name -> gateway.websockets.private.v1.DisconnectMutation
+	47, // [47:47] is the sub-list for method output_type
+	47, // [47:47] is the sub-list for method input_type
+	47, // [47:47] is the sub-list for extension type_name
+	47, // [47:47] is the sub-list for extension extendee
+	0,  // [0:47] is the sub-list for field type_name
 }
 
 func init() { file_gateway_websockets_private_v1_procedures_proto_init() }

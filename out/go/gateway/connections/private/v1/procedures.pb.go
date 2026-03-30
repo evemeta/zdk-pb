@@ -7,6 +7,7 @@
 package connectionspb
 
 import (
+	v11 "github.com/evemeta/zdk-pb/out/go/gateway/transponders/private/v1"
 	v1 "github.com/evemeta/zdk-pb/out/go/room/connections/private/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -1331,10 +1332,11 @@ func (x *DeleteMutation) GetCloseTimestamp() int64 {
 }
 
 type DeleteCondition struct {
-	state                     protoimpl.MessageState `protogen:"open.v1"`
-	DeleteConnectionMutations []*v1.DeleteMutation   `protobuf:"bytes,1,rep,name=delete_connection_mutations,json=deleteConnectionMutations,proto3" json:"delete_connection_mutations,omitempty"`
-	unknownFields             protoimpl.UnknownFields
-	sizeCache                 protoimpl.SizeCache
+	state                      protoimpl.MessageState `protogen:"open.v1"`
+	DeleteConnectionMutations  []*v1.DeleteMutation   `protobuf:"bytes,1,rep,name=delete_connection_mutations,json=deleteConnectionMutations,proto3" json:"delete_connection_mutations,omitempty"`
+	DeleteTransponderMutations []*v11.DeleteMutation  `protobuf:"bytes,2,rep,name=delete_transponder_mutations,json=deleteTransponderMutations,proto3" json:"delete_transponder_mutations,omitempty"`
+	unknownFields              protoimpl.UnknownFields
+	sizeCache                  protoimpl.SizeCache
 }
 
 func (x *DeleteCondition) Reset() {
@@ -1370,6 +1372,13 @@ func (*DeleteCondition) Descriptor() ([]byte, []int) {
 func (x *DeleteCondition) GetDeleteConnectionMutations() []*v1.DeleteMutation {
 	if x != nil {
 		return x.DeleteConnectionMutations
+	}
+	return nil
+}
+
+func (x *DeleteCondition) GetDeleteTransponderMutations() []*v11.DeleteMutation {
+	if x != nil {
+		return x.DeleteTransponderMutations
 	}
 	return nil
 }
@@ -1422,7 +1431,7 @@ var File_gateway_connections_private_v1_procedures_proto protoreflect.FileDescri
 
 const file_gateway_connections_private_v1_procedures_proto_rawDesc = "" +
 	"\n" +
-	"/gateway/connections/private/v1/procedures.proto\x12\x1egateway.connections.private.v1\x1a*gateway/connections/private/v1/enums.proto\x1a-gateway/connections/private/v1/entities.proto\x1a.gateway/connections/private/v1/optionals.proto\x1a,room/connections/private/v1/procedures.proto\"b\n" +
+	"/gateway/connections/private/v1/procedures.proto\x12\x1egateway.connections.private.v1\x1a*gateway/connections/private/v1/enums.proto\x1a-gateway/connections/private/v1/entities.proto\x1a.gateway/connections/private/v1/optionals.proto\x1a,room/connections/private/v1/procedures.proto\x1a0gateway/transponders/private/v1/procedures.proto\"b\n" +
 	"\rCountArgument\x12\x14\n" +
 	"\x05cache\x18\x01 \x01(\bR\x05cache\x12;\n" +
 	"\x05query\x18\x02 \x01(\v2%.gateway.connections.private.v1.QueryR\x05query\"[\n" +
@@ -1513,9 +1522,10 @@ const file_gateway_connections_private_v1_procedures_proto_rawDesc = "" +
 	"\tcondition\x18\x02 \x01(\v2/.gateway.connections.private.v1.DeleteConditionR\tcondition\x12G\n" +
 	"\ttransient\x18\x03 \x03(\v2).gateway.connections.private.v1.TransientR\ttransient\x12'\n" +
 	"\x0fbegin_timestamp\x18\x04 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
-	"\x0fclose_timestamp\x18\x05 \x01(\x03R\x0ecloseTimestamp\"~\n" +
+	"\x0fclose_timestamp\x18\x05 \x01(\x03R\x0ecloseTimestamp\"\xf1\x01\n" +
 	"\x0fDeleteCondition\x12k\n" +
-	"\x1bdelete_connection_mutations\x18\x01 \x03(\v2+.room.connections.private.v1.DeleteMutationR\x19deleteConnectionMutations\"a\n" +
+	"\x1bdelete_connection_mutations\x18\x01 \x03(\v2+.room.connections.private.v1.DeleteMutationR\x19deleteConnectionMutations\x12q\n" +
+	"\x1cdelete_transponder_mutations\x18\x02 \x03(\v2/.gateway.transponders.private.v1.DeleteMutationR\x1adeleteTransponderMutations\"a\n" +
 	"\x11DeleteTransaction\x12L\n" +
 	"\tmutations\x18\x01 \x03(\v2..gateway.connections.private.v1.DeleteMutationR\tmutationsBOZMgithub.com/evemeta/zdk-pb/out/go/gateway/connections/private/v1;connectionspbb\x06proto3"
 
@@ -1533,44 +1543,45 @@ func file_gateway_connections_private_v1_procedures_proto_rawDescGZIP() []byte {
 
 var file_gateway_connections_private_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 27)
 var file_gateway_connections_private_v1_procedures_proto_goTypes = []any{
-	(*CountArgument)(nil),     // 0: gateway.connections.private.v1.CountArgument
-	(*CountRequest)(nil),      // 1: gateway.connections.private.v1.CountRequest
-	(*CountResponse)(nil),     // 2: gateway.connections.private.v1.CountResponse
-	(*RangeArgument)(nil),     // 3: gateway.connections.private.v1.RangeArgument
-	(*RangeRequest)(nil),      // 4: gateway.connections.private.v1.RangeRequest
-	(*RangeResponse)(nil),     // 5: gateway.connections.private.v1.RangeResponse
-	(*SelectArgument)(nil),    // 6: gateway.connections.private.v1.SelectArgument
-	(*SelectRequest)(nil),     // 7: gateway.connections.private.v1.SelectRequest
-	(*SelectResponse)(nil),    // 8: gateway.connections.private.v1.SelectResponse
-	(*CreateArgument)(nil),    // 9: gateway.connections.private.v1.CreateArgument
-	(*CreateRequest)(nil),     // 10: gateway.connections.private.v1.CreateRequest
-	(*CreateResponse)(nil),    // 11: gateway.connections.private.v1.CreateResponse
-	(*CreateMutation)(nil),    // 12: gateway.connections.private.v1.CreateMutation
-	(*CreateCondition)(nil),   // 13: gateway.connections.private.v1.CreateCondition
-	(*CreateTransaction)(nil), // 14: gateway.connections.private.v1.CreateTransaction
-	(*UpdateArgument)(nil),    // 15: gateway.connections.private.v1.UpdateArgument
-	(*UpdateRequest)(nil),     // 16: gateway.connections.private.v1.UpdateRequest
-	(*UpdateResponse)(nil),    // 17: gateway.connections.private.v1.UpdateResponse
-	(*UpdateMutation)(nil),    // 18: gateway.connections.private.v1.UpdateMutation
-	(*UpdateCondition)(nil),   // 19: gateway.connections.private.v1.UpdateCondition
-	(*UpdateTransaction)(nil), // 20: gateway.connections.private.v1.UpdateTransaction
-	(*DeleteArgument)(nil),    // 21: gateway.connections.private.v1.DeleteArgument
-	(*DeleteRequest)(nil),     // 22: gateway.connections.private.v1.DeleteRequest
-	(*DeleteResponse)(nil),    // 23: gateway.connections.private.v1.DeleteResponse
-	(*DeleteMutation)(nil),    // 24: gateway.connections.private.v1.DeleteMutation
-	(*DeleteCondition)(nil),   // 25: gateway.connections.private.v1.DeleteCondition
-	(*DeleteTransaction)(nil), // 26: gateway.connections.private.v1.DeleteTransaction
-	(*Query)(nil),             // 27: gateway.connections.private.v1.Query
-	(*Chunk)(nil),             // 28: gateway.connections.private.v1.Chunk
-	(*Connection)(nil),        // 29: gateway.connections.private.v1.Connection
-	(Kind)(0),                 // 30: gateway.connections.private.v1.Kind
-	(Status)(0),               // 31: gateway.connections.private.v1.Status
-	(*Transient)(nil),         // 32: gateway.connections.private.v1.Transient
-	(*v1.CreateMutation)(nil), // 33: room.connections.private.v1.CreateMutation
-	(*OptionalString)(nil),    // 34: gateway.connections.private.v1.OptionalString
-	(*OptionalStatus)(nil),    // 35: gateway.connections.private.v1.OptionalStatus
-	(*v1.UpdateMutation)(nil), // 36: room.connections.private.v1.UpdateMutation
-	(*v1.DeleteMutation)(nil), // 37: room.connections.private.v1.DeleteMutation
+	(*CountArgument)(nil),      // 0: gateway.connections.private.v1.CountArgument
+	(*CountRequest)(nil),       // 1: gateway.connections.private.v1.CountRequest
+	(*CountResponse)(nil),      // 2: gateway.connections.private.v1.CountResponse
+	(*RangeArgument)(nil),      // 3: gateway.connections.private.v1.RangeArgument
+	(*RangeRequest)(nil),       // 4: gateway.connections.private.v1.RangeRequest
+	(*RangeResponse)(nil),      // 5: gateway.connections.private.v1.RangeResponse
+	(*SelectArgument)(nil),     // 6: gateway.connections.private.v1.SelectArgument
+	(*SelectRequest)(nil),      // 7: gateway.connections.private.v1.SelectRequest
+	(*SelectResponse)(nil),     // 8: gateway.connections.private.v1.SelectResponse
+	(*CreateArgument)(nil),     // 9: gateway.connections.private.v1.CreateArgument
+	(*CreateRequest)(nil),      // 10: gateway.connections.private.v1.CreateRequest
+	(*CreateResponse)(nil),     // 11: gateway.connections.private.v1.CreateResponse
+	(*CreateMutation)(nil),     // 12: gateway.connections.private.v1.CreateMutation
+	(*CreateCondition)(nil),    // 13: gateway.connections.private.v1.CreateCondition
+	(*CreateTransaction)(nil),  // 14: gateway.connections.private.v1.CreateTransaction
+	(*UpdateArgument)(nil),     // 15: gateway.connections.private.v1.UpdateArgument
+	(*UpdateRequest)(nil),      // 16: gateway.connections.private.v1.UpdateRequest
+	(*UpdateResponse)(nil),     // 17: gateway.connections.private.v1.UpdateResponse
+	(*UpdateMutation)(nil),     // 18: gateway.connections.private.v1.UpdateMutation
+	(*UpdateCondition)(nil),    // 19: gateway.connections.private.v1.UpdateCondition
+	(*UpdateTransaction)(nil),  // 20: gateway.connections.private.v1.UpdateTransaction
+	(*DeleteArgument)(nil),     // 21: gateway.connections.private.v1.DeleteArgument
+	(*DeleteRequest)(nil),      // 22: gateway.connections.private.v1.DeleteRequest
+	(*DeleteResponse)(nil),     // 23: gateway.connections.private.v1.DeleteResponse
+	(*DeleteMutation)(nil),     // 24: gateway.connections.private.v1.DeleteMutation
+	(*DeleteCondition)(nil),    // 25: gateway.connections.private.v1.DeleteCondition
+	(*DeleteTransaction)(nil),  // 26: gateway.connections.private.v1.DeleteTransaction
+	(*Query)(nil),              // 27: gateway.connections.private.v1.Query
+	(*Chunk)(nil),              // 28: gateway.connections.private.v1.Chunk
+	(*Connection)(nil),         // 29: gateway.connections.private.v1.Connection
+	(Kind)(0),                  // 30: gateway.connections.private.v1.Kind
+	(Status)(0),                // 31: gateway.connections.private.v1.Status
+	(*Transient)(nil),          // 32: gateway.connections.private.v1.Transient
+	(*v1.CreateMutation)(nil),  // 33: room.connections.private.v1.CreateMutation
+	(*OptionalString)(nil),     // 34: gateway.connections.private.v1.OptionalString
+	(*OptionalStatus)(nil),     // 35: gateway.connections.private.v1.OptionalStatus
+	(*v1.UpdateMutation)(nil),  // 36: room.connections.private.v1.UpdateMutation
+	(*v1.DeleteMutation)(nil),  // 37: room.connections.private.v1.DeleteMutation
+	(*v11.DeleteMutation)(nil), // 38: gateway.transponders.private.v1.DeleteMutation
 }
 var file_gateway_connections_private_v1_procedures_proto_depIdxs = []int32{
 	27, // 0: gateway.connections.private.v1.CountArgument.query:type_name -> gateway.connections.private.v1.Query
@@ -1610,12 +1621,13 @@ var file_gateway_connections_private_v1_procedures_proto_depIdxs = []int32{
 	25, // 34: gateway.connections.private.v1.DeleteMutation.condition:type_name -> gateway.connections.private.v1.DeleteCondition
 	32, // 35: gateway.connections.private.v1.DeleteMutation.transient:type_name -> gateway.connections.private.v1.Transient
 	37, // 36: gateway.connections.private.v1.DeleteCondition.delete_connection_mutations:type_name -> room.connections.private.v1.DeleteMutation
-	24, // 37: gateway.connections.private.v1.DeleteTransaction.mutations:type_name -> gateway.connections.private.v1.DeleteMutation
-	38, // [38:38] is the sub-list for method output_type
-	38, // [38:38] is the sub-list for method input_type
-	38, // [38:38] is the sub-list for extension type_name
-	38, // [38:38] is the sub-list for extension extendee
-	0,  // [0:38] is the sub-list for field type_name
+	38, // 37: gateway.connections.private.v1.DeleteCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
+	24, // 38: gateway.connections.private.v1.DeleteTransaction.mutations:type_name -> gateway.connections.private.v1.DeleteMutation
+	39, // [39:39] is the sub-list for method output_type
+	39, // [39:39] is the sub-list for method input_type
+	39, // [39:39] is the sub-list for extension type_name
+	39, // [39:39] is the sub-list for extension extendee
+	0,  // [0:39] is the sub-list for field type_name
 }
 
 func init() { file_gateway_connections_private_v1_procedures_proto_init() }

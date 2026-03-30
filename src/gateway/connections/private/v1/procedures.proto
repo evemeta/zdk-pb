@@ -6,6 +6,7 @@ import "gateway/connections/private/v1/enums.proto";
 import "gateway/connections/private/v1/entities.proto";
 import "gateway/connections/private/v1/optionals.proto";
 import "room/connections/private/v1/procedures.proto";
+import "gateway/transponders/private/v1/procedures.proto";
 
 option go_package = "github.com/evemeta/zdk-pb/out/go/gateway/connections/private/v1;connectionspb";
 
@@ -137,6 +138,7 @@ message DeleteMutation {
 
 message DeleteCondition {
     repeated room.connections.private.v1.DeleteMutation delete_connection_mutations = 1;
+    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 2;
 }
 
 message DeleteTransaction {

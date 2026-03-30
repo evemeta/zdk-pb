@@ -8,6 +8,7 @@ package streamspb
 
 import (
 	v1 "github.com/evemeta/zdk-pb/out/go/event/events/private/v1"
+	v11 "github.com/evemeta/zdk-pb/out/go/gateway/transponders/private/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -1255,10 +1256,11 @@ func (x *DeleteMutation) GetCloseTimestamp() int64 {
 }
 
 type DeleteCondition struct {
-	state               protoimpl.MessageState `protogen:"open.v1"`
-	LeaveEventMutations []*v1.LeaveMutation    `protobuf:"bytes,1,rep,name=leave_event_mutations,json=leaveEventMutations,proto3" json:"leave_event_mutations,omitempty"`
-	unknownFields       protoimpl.UnknownFields
-	sizeCache           protoimpl.SizeCache
+	state                      protoimpl.MessageState `protogen:"open.v1"`
+	LeaveEventMutations        []*v1.LeaveMutation    `protobuf:"bytes,1,rep,name=leave_event_mutations,json=leaveEventMutations,proto3" json:"leave_event_mutations,omitempty"`
+	DeleteTransponderMutations []*v11.DeleteMutation  `protobuf:"bytes,2,rep,name=delete_transponder_mutations,json=deleteTransponderMutations,proto3" json:"delete_transponder_mutations,omitempty"`
+	unknownFields              protoimpl.UnknownFields
+	sizeCache                  protoimpl.SizeCache
 }
 
 func (x *DeleteCondition) Reset() {
@@ -1294,6 +1296,13 @@ func (*DeleteCondition) Descriptor() ([]byte, []int) {
 func (x *DeleteCondition) GetLeaveEventMutations() []*v1.LeaveMutation {
 	if x != nil {
 		return x.LeaveEventMutations
+	}
+	return nil
+}
+
+func (x *DeleteCondition) GetDeleteTransponderMutations() []*v11.DeleteMutation {
+	if x != nil {
+		return x.DeleteTransponderMutations
 	}
 	return nil
 }
@@ -1346,7 +1355,7 @@ var File_gateway_streams_private_v1_procedures_proto protoreflect.FileDescriptor
 
 const file_gateway_streams_private_v1_procedures_proto_rawDesc = "" +
 	"\n" +
-	"+gateway/streams/private/v1/procedures.proto\x12\x1agateway.streams.private.v1\x1a&gateway/streams/private/v1/enums.proto\x1a)gateway/streams/private/v1/entities.proto\x1a*gateway/streams/private/v1/optionals.proto\x1a(event/events/private/v1/procedures.proto\"^\n" +
+	"+gateway/streams/private/v1/procedures.proto\x12\x1agateway.streams.private.v1\x1a&gateway/streams/private/v1/enums.proto\x1a)gateway/streams/private/v1/entities.proto\x1a*gateway/streams/private/v1/optionals.proto\x1a0gateway/transponders/private/v1/procedures.proto\x1a(event/events/private/v1/procedures.proto\"^\n" +
 	"\rCountArgument\x12\x14\n" +
 	"\x05cache\x18\x01 \x01(\bR\x05cache\x127\n" +
 	"\x05query\x18\x02 \x01(\v2!.gateway.streams.private.v1.QueryR\x05query\"W\n" +
@@ -1430,9 +1439,10 @@ const file_gateway_streams_private_v1_procedures_proto_rawDesc = "" +
 	"\tcondition\x18\x02 \x01(\v2+.gateway.streams.private.v1.DeleteConditionR\tcondition\x12C\n" +
 	"\ttransient\x18\x03 \x03(\v2%.gateway.streams.private.v1.TransientR\ttransient\x12'\n" +
 	"\x0fbegin_timestamp\x18\x04 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
-	"\x0fclose_timestamp\x18\x05 \x01(\x03R\x0ecloseTimestamp\"m\n" +
+	"\x0fclose_timestamp\x18\x05 \x01(\x03R\x0ecloseTimestamp\"\xe0\x01\n" +
 	"\x0fDeleteCondition\x12Z\n" +
-	"\x15leave_event_mutations\x18\x01 \x03(\v2&.event.events.private.v1.LeaveMutationR\x13leaveEventMutations\"]\n" +
+	"\x15leave_event_mutations\x18\x01 \x03(\v2&.event.events.private.v1.LeaveMutationR\x13leaveEventMutations\x12q\n" +
+	"\x1cdelete_transponder_mutations\x18\x02 \x03(\v2/.gateway.transponders.private.v1.DeleteMutationR\x1adeleteTransponderMutations\"]\n" +
 	"\x11DeleteTransaction\x12H\n" +
 	"\tmutations\x18\x01 \x03(\v2*.gateway.streams.private.v1.DeleteMutationR\tmutationsBGZEgithub.com/evemeta/zdk-pb/out/go/gateway/streams/private/v1;streamspbb\x06proto3"
 
@@ -1450,41 +1460,42 @@ func file_gateway_streams_private_v1_procedures_proto_rawDescGZIP() []byte {
 
 var file_gateway_streams_private_v1_procedures_proto_msgTypes = make([]protoimpl.MessageInfo, 26)
 var file_gateway_streams_private_v1_procedures_proto_goTypes = []any{
-	(*CountArgument)(nil),     // 0: gateway.streams.private.v1.CountArgument
-	(*CountRequest)(nil),      // 1: gateway.streams.private.v1.CountRequest
-	(*CountResponse)(nil),     // 2: gateway.streams.private.v1.CountResponse
-	(*RangeArgument)(nil),     // 3: gateway.streams.private.v1.RangeArgument
-	(*RangeRequest)(nil),      // 4: gateway.streams.private.v1.RangeRequest
-	(*RangeResponse)(nil),     // 5: gateway.streams.private.v1.RangeResponse
-	(*SelectArgument)(nil),    // 6: gateway.streams.private.v1.SelectArgument
-	(*SelectRequest)(nil),     // 7: gateway.streams.private.v1.SelectRequest
-	(*SelectResponse)(nil),    // 8: gateway.streams.private.v1.SelectResponse
-	(*CreateArgument)(nil),    // 9: gateway.streams.private.v1.CreateArgument
-	(*CreateRequest)(nil),     // 10: gateway.streams.private.v1.CreateRequest
-	(*CreateResponse)(nil),    // 11: gateway.streams.private.v1.CreateResponse
-	(*CreateMutation)(nil),    // 12: gateway.streams.private.v1.CreateMutation
-	(*CreateCondition)(nil),   // 13: gateway.streams.private.v1.CreateCondition
-	(*CreateTransaction)(nil), // 14: gateway.streams.private.v1.CreateTransaction
-	(*UpdateArgument)(nil),    // 15: gateway.streams.private.v1.UpdateArgument
-	(*UpdateRequest)(nil),     // 16: gateway.streams.private.v1.UpdateRequest
-	(*UpdateResponse)(nil),    // 17: gateway.streams.private.v1.UpdateResponse
-	(*UpdateMutation)(nil),    // 18: gateway.streams.private.v1.UpdateMutation
-	(*UpdateTransaction)(nil), // 19: gateway.streams.private.v1.UpdateTransaction
-	(*DeleteArgument)(nil),    // 20: gateway.streams.private.v1.DeleteArgument
-	(*DeleteRequest)(nil),     // 21: gateway.streams.private.v1.DeleteRequest
-	(*DeleteResponse)(nil),    // 22: gateway.streams.private.v1.DeleteResponse
-	(*DeleteMutation)(nil),    // 23: gateway.streams.private.v1.DeleteMutation
-	(*DeleteCondition)(nil),   // 24: gateway.streams.private.v1.DeleteCondition
-	(*DeleteTransaction)(nil), // 25: gateway.streams.private.v1.DeleteTransaction
-	(*Query)(nil),             // 26: gateway.streams.private.v1.Query
-	(*Chunk)(nil),             // 27: gateway.streams.private.v1.Chunk
-	(*Stream)(nil),            // 28: gateway.streams.private.v1.Stream
-	(Status)(0),               // 29: gateway.streams.private.v1.Status
-	(*Transient)(nil),         // 30: gateway.streams.private.v1.Transient
-	(*v1.EnterMutation)(nil),  // 31: event.events.private.v1.EnterMutation
-	(*OptionalString)(nil),    // 32: gateway.streams.private.v1.OptionalString
-	(*OptionalStatus)(nil),    // 33: gateway.streams.private.v1.OptionalStatus
-	(*v1.LeaveMutation)(nil),  // 34: event.events.private.v1.LeaveMutation
+	(*CountArgument)(nil),      // 0: gateway.streams.private.v1.CountArgument
+	(*CountRequest)(nil),       // 1: gateway.streams.private.v1.CountRequest
+	(*CountResponse)(nil),      // 2: gateway.streams.private.v1.CountResponse
+	(*RangeArgument)(nil),      // 3: gateway.streams.private.v1.RangeArgument
+	(*RangeRequest)(nil),       // 4: gateway.streams.private.v1.RangeRequest
+	(*RangeResponse)(nil),      // 5: gateway.streams.private.v1.RangeResponse
+	(*SelectArgument)(nil),     // 6: gateway.streams.private.v1.SelectArgument
+	(*SelectRequest)(nil),      // 7: gateway.streams.private.v1.SelectRequest
+	(*SelectResponse)(nil),     // 8: gateway.streams.private.v1.SelectResponse
+	(*CreateArgument)(nil),     // 9: gateway.streams.private.v1.CreateArgument
+	(*CreateRequest)(nil),      // 10: gateway.streams.private.v1.CreateRequest
+	(*CreateResponse)(nil),     // 11: gateway.streams.private.v1.CreateResponse
+	(*CreateMutation)(nil),     // 12: gateway.streams.private.v1.CreateMutation
+	(*CreateCondition)(nil),    // 13: gateway.streams.private.v1.CreateCondition
+	(*CreateTransaction)(nil),  // 14: gateway.streams.private.v1.CreateTransaction
+	(*UpdateArgument)(nil),     // 15: gateway.streams.private.v1.UpdateArgument
+	(*UpdateRequest)(nil),      // 16: gateway.streams.private.v1.UpdateRequest
+	(*UpdateResponse)(nil),     // 17: gateway.streams.private.v1.UpdateResponse
+	(*UpdateMutation)(nil),     // 18: gateway.streams.private.v1.UpdateMutation
+	(*UpdateTransaction)(nil),  // 19: gateway.streams.private.v1.UpdateTransaction
+	(*DeleteArgument)(nil),     // 20: gateway.streams.private.v1.DeleteArgument
+	(*DeleteRequest)(nil),      // 21: gateway.streams.private.v1.DeleteRequest
+	(*DeleteResponse)(nil),     // 22: gateway.streams.private.v1.DeleteResponse
+	(*DeleteMutation)(nil),     // 23: gateway.streams.private.v1.DeleteMutation
+	(*DeleteCondition)(nil),    // 24: gateway.streams.private.v1.DeleteCondition
+	(*DeleteTransaction)(nil),  // 25: gateway.streams.private.v1.DeleteTransaction
+	(*Query)(nil),              // 26: gateway.streams.private.v1.Query
+	(*Chunk)(nil),              // 27: gateway.streams.private.v1.Chunk
+	(*Stream)(nil),             // 28: gateway.streams.private.v1.Stream
+	(Status)(0),                // 29: gateway.streams.private.v1.Status
+	(*Transient)(nil),          // 30: gateway.streams.private.v1.Transient
+	(*v1.EnterMutation)(nil),   // 31: event.events.private.v1.EnterMutation
+	(*OptionalString)(nil),     // 32: gateway.streams.private.v1.OptionalString
+	(*OptionalStatus)(nil),     // 33: gateway.streams.private.v1.OptionalStatus
+	(*v1.LeaveMutation)(nil),   // 34: event.events.private.v1.LeaveMutation
+	(*v11.DeleteMutation)(nil), // 35: gateway.transponders.private.v1.DeleteMutation
 }
 var file_gateway_streams_private_v1_procedures_proto_depIdxs = []int32{
 	26, // 0: gateway.streams.private.v1.CountArgument.query:type_name -> gateway.streams.private.v1.Query
@@ -1520,12 +1531,13 @@ var file_gateway_streams_private_v1_procedures_proto_depIdxs = []int32{
 	24, // 30: gateway.streams.private.v1.DeleteMutation.condition:type_name -> gateway.streams.private.v1.DeleteCondition
 	30, // 31: gateway.streams.private.v1.DeleteMutation.transient:type_name -> gateway.streams.private.v1.Transient
 	34, // 32: gateway.streams.private.v1.DeleteCondition.leave_event_mutations:type_name -> event.events.private.v1.LeaveMutation
-	23, // 33: gateway.streams.private.v1.DeleteTransaction.mutations:type_name -> gateway.streams.private.v1.DeleteMutation
-	34, // [34:34] is the sub-list for method output_type
-	34, // [34:34] is the sub-list for method input_type
-	34, // [34:34] is the sub-list for extension type_name
-	34, // [34:34] is the sub-list for extension extendee
-	0,  // [0:34] is the sub-list for field type_name
+	35, // 33: gateway.streams.private.v1.DeleteCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
+	23, // 34: gateway.streams.private.v1.DeleteTransaction.mutations:type_name -> gateway.streams.private.v1.DeleteMutation
+	35, // [35:35] is the sub-list for method output_type
+	35, // [35:35] is the sub-list for method input_type
+	35, // [35:35] is the sub-list for extension type_name
+	35, // [35:35] is the sub-list for extension extendee
+	0,  // [0:35] is the sub-list for field type_name
 }
 
 func init() { file_gateway_streams_private_v1_procedures_proto_init() }
