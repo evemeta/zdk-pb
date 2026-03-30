@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package event.keys.private.v1;
+
+import "event/keys/private/v1/enums.proto";
+
+option go_package = "github.com/evemeta/zdk-pb/out/go/event/keys/private/v1;keyspb";
+
+message Chunk {
+    int64                              size     = 1;
+    int64                              index    = 2;
+    int64                              total    = 3;
+    repeated event.keys.private.v1.Key entities = 4;
+}
+
+message Query {
+    event.keys.private.v1.Order              order      = 1;
+    int64                                    limit      = 2;
+    int64                                    offset     = 3;
+    repeated event.keys.private.v1.Condition conditions = 4;
+}
+
+message Key {
+    string              id          = 1;
+    string              user_id     = 2;
+    string              value       = 3;
+    map<string, string> metadata    = 4;
+    int64               create_time = 5;
+    int64               update_time = 6;
+}
+
+message Condition {
+    repeated string                       ids       = 1;
+    repeated string                       user_ids  = 2;
+    repeated string                       values    = 3;
+}
+
+message Transient {
+    event.keys.private.v1.Key future   = 1;
+    event.keys.private.v1.Key current  = 2;
+    event.keys.private.v1.Key previous = 3;
+}
