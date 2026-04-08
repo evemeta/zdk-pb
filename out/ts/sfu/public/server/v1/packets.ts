@@ -324,8 +324,8 @@ class StreamsPacket$Type extends MessageType<StreamsPacket> {
     constructor() {
         super("sfu.public.server.v1.StreamsPacket", [
             { no: 1, name: "sdp_answer", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
-            { no: 2, name: "add_requests", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => StreamInfo },
-            { no: 3, name: "removal_requests", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => StreamInfo },
+            { no: 2, name: "add_requests", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => StreamInfo },
+            { no: 3, name: "removal_requests", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => StreamInfo },
             { no: 4, name: "channel", kind: "enum", T: () => ["sfu.public.server.v1.Channel", Channel] }
         ]);
     }
@@ -777,7 +777,7 @@ export const NoDataPacket = new NoDataPacket$Type();
 class ActiveStreamsPacket$Type extends MessageType<ActiveStreamsPacket> {
     constructor() {
         super("sfu.public.server.v1.ActiveStreamsPacket", [
-            { no: 1, name: "streams", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => StreamInfo }
+            { no: 1, name: "streams", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => StreamInfo }
         ]);
     }
     create(value?: PartialMessage<ActiveStreamsPacket>): ActiveStreamsPacket {
