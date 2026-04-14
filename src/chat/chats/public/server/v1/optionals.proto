@@ -11,3 +11,7 @@ option go_package = "github.com/evemeta/zdk-pb/out/go/chat/chats/public/server/v
 message OptionalMap {
     map<string, string> value = 1;
 }
+
+message OptionalInt64 {
+    int64 value = 1;
+}
