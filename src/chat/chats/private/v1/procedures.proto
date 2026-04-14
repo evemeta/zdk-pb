@@ -81,9 +81,10 @@ message CreateTransaction {
 }
 
 message UpdateArgument {
-    chat.chats.private.v1.Query                     query    = 1;
-    optional chat.chats.private.v1.OptionalMap      metadata = 2;
-    optional chat.chats.private.v1.OptionalSlowmode slowmode = 3;
+    chat.chats.private.v1.Query                  query           = 1;
+    optional chat.chats.private.v1.OptionalMap   metadata        = 2;
+    optional chat.chats.private.v1.OptionalInt64 slowmode_limit  = 3;
+    optional chat.chats.private.v1.OptionalInt64 slowmode_window = 4;
 }
 
 message UpdateRequest {
