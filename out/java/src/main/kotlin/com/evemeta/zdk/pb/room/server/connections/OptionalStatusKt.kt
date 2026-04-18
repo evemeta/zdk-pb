@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: room/connections/public/server/v1/optionals.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.room.server.connections;
@@ -37,17 +36,17 @@ public object OptionalStatusKt {
      * `.room.connections.public.server.v1.Status value = 1;`
      */
     public var value: com.evemeta.zdk.pb.room.server.connections.Status
-      @kotlin.jvm.JvmName("getValue")
-        get() = _builder.value
-      @kotlin.jvm.JvmName("setValue")
-        set(value) {
+      @JvmName("getValue")
+      get() = _builder.value
+      @JvmName("setValue")
+      set(value) {
         _builder.value = value
       }
     public var valueValue: kotlin.Int
-      @kotlin.jvm.JvmName("getValueValue")
-        get() = _builder.valueValue
-      @kotlin.jvm.JvmName("setValueValue")
-        set(value) {
+      @JvmName("getValueValue")
+      get() = _builder.valueValue
+      @JvmName("setValueValue")
+      set(value) {
         _builder.valueValue = value
       }
     /**

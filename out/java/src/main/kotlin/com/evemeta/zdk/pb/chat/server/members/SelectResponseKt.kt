@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: chat/members/public/server/v1/procedures.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.chat.server.members;
@@ -48,7 +47,7 @@ public object SelectResponseKt {
      */
      public val members: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.members.Member, MembersProxy>
       @kotlin.jvm.JvmSynthetic
-  get() = com.google.protobuf.kotlin.DslList(
+      get() = com.google.protobuf.kotlin.DslList(
         _builder.membersList
       )
     /**
@@ -60,7 +59,7 @@ public object SelectResponseKt {
      * @param value The members to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("addMembers")
+    @kotlin.jvm.JvmName("addMembers")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.members.Member, MembersProxy>.add(value: com.evemeta.zdk.pb.chat.server.members.Member) {
       _builder.addMembers(value)
     }
@@ -73,7 +72,7 @@ public object SelectResponseKt {
      * @param value The members to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("plusAssignMembers")
+    @kotlin.jvm.JvmName("plusAssignMembers")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.members.Member, MembersProxy>.plusAssign(value: com.evemeta.zdk.pb.chat.server.members.Member) {
       add(value)
@@ -87,7 +86,7 @@ public object SelectResponseKt {
      * @param values The members to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("addAllMembers")
+    @kotlin.jvm.JvmName("addAllMembers")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.members.Member, MembersProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.chat.server.members.Member>) {
       _builder.addAllMembers(values)
     }
@@ -100,7 +99,7 @@ public object SelectResponseKt {
      * @param values The members to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("plusAssignAllMembers")
+    @kotlin.jvm.JvmName("plusAssignAllMembers")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.members.Member, MembersProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.chat.server.members.Member>) {
       addAll(values)
@@ -115,7 +114,7 @@ public object SelectResponseKt {
      * @param value The members to set.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("setMembers")
+    @kotlin.jvm.JvmName("setMembers")
     public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.members.Member, MembersProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.chat.server.members.Member) {
       _builder.setMembers(index, value)
     }
@@ -127,10 +126,11 @@ public object SelectResponseKt {
      * `repeated .chat.members.public.server.v1.Member members = 1;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("clearMembers")
+    @kotlin.jvm.JvmName("clearMembers")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.chat.server.members.Member, MembersProxy>.clear() {
       _builder.clearMembers()
     }
+
   }
 }
 @kotlin.jvm.JvmSynthetic

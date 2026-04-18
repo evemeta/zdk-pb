@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: chat/messages/public/server/v1/entities.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.chat.server.messages;
@@ -42,10 +41,10 @@ public object MessageKt {
      * `string id = 1;`
      */
     public var id: kotlin.String
-      @kotlin.jvm.JvmName("getId")
-        get() = _builder.id
-      @kotlin.jvm.JvmName("setId")
-        set(value) {
+      @JvmName("getId")
+      get() = _builder.id
+      @JvmName("setId")
+      set(value) {
         _builder.id = value
       }
     /**
@@ -67,10 +66,10 @@ public object MessageKt {
      * `string user_id = 2;`
      */
     public var userId: kotlin.String
-      @kotlin.jvm.JvmName("getUserId")
-        get() = _builder.userId
-      @kotlin.jvm.JvmName("setUserId")
-        set(value) {
+      @JvmName("getUserId")
+      get() = _builder.userId
+      @JvmName("setUserId")
+      set(value) {
         _builder.userId = value
       }
     /**
@@ -92,10 +91,10 @@ public object MessageKt {
      * `string chat_id = 3;`
      */
     public var chatId: kotlin.String
-      @kotlin.jvm.JvmName("getChatId")
-        get() = _builder.chatId
-      @kotlin.jvm.JvmName("setChatId")
-        set(value) {
+      @JvmName("getChatId")
+      get() = _builder.chatId
+      @JvmName("setChatId")
+      set(value) {
         _builder.chatId = value
       }
     /**
@@ -117,10 +116,10 @@ public object MessageKt {
      * `string content = 4;`
      */
     public var content: kotlin.String
-      @kotlin.jvm.JvmName("getContent")
-        get() = _builder.content
-      @kotlin.jvm.JvmName("setContent")
-        set(value) {
+      @JvmName("getContent")
+      get() = _builder.content
+      @JvmName("setContent")
+      set(value) {
         _builder.content = value
       }
     /**
@@ -149,7 +148,7 @@ public object MessageKt {
      */
      public val metadata: com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("getMetadataMap")
+      @JvmName("getMetadataMap")
       get() = com.google.protobuf.kotlin.DslMap(
         _builder.metadataMap
       )
@@ -160,7 +159,7 @@ public object MessageKt {
      *
      * `map<string, string> metadata = 5;`
      */
-    @kotlin.jvm.JvmName("putMetadata")
+    @JvmName("putMetadata")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .put(key: kotlin.String, value: kotlin.String) {
          _builder.putMetadata(key, value)
@@ -173,7 +172,7 @@ public object MessageKt {
      * `map<string, string> metadata = 5;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("setMetadata")
+    @JvmName("setMetadata")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .set(key: kotlin.String, value: kotlin.String) {
@@ -187,7 +186,7 @@ public object MessageKt {
      * `map<string, string> metadata = 5;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("removeMetadata")
+    @JvmName("removeMetadata")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .remove(key: kotlin.String) {
          _builder.removeMetadata(key)
@@ -200,7 +199,7 @@ public object MessageKt {
      * `map<string, string> metadata = 5;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("putAllMetadata")
+    @JvmName("putAllMetadata")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .putAll(map: kotlin.collections.Map<kotlin.String, kotlin.String>) {
          _builder.putAllMetadata(map)
@@ -213,7 +212,7 @@ public object MessageKt {
      * `map<string, string> metadata = 5;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("clearMetadata")
+    @JvmName("clearMetadata")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .clear() {
          _builder.clearMetadata()
@@ -227,10 +226,10 @@ public object MessageKt {
      * `int64 create_time = 6;`
      */
     public var createTime: kotlin.Long
-      @kotlin.jvm.JvmName("getCreateTime")
-        get() = _builder.createTime
-      @kotlin.jvm.JvmName("setCreateTime")
-        set(value) {
+      @JvmName("getCreateTime")
+      get() = _builder.createTime
+      @JvmName("setCreateTime")
+      set(value) {
         _builder.createTime = value
       }
     /**
@@ -252,10 +251,10 @@ public object MessageKt {
      * `int64 update_time = 7;`
      */
     public var updateTime: kotlin.Long
-      @kotlin.jvm.JvmName("getUpdateTime")
-        get() = _builder.updateTime
-      @kotlin.jvm.JvmName("setUpdateTime")
-        set(value) {
+      @JvmName("getUpdateTime")
+      get() = _builder.updateTime
+      @JvmName("setUpdateTime")
+      set(value) {
         _builder.updateTime = value
       }
     /**

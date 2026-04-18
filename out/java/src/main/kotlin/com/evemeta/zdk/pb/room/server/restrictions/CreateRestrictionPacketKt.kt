@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: room/restrictions/public/server/v1/packets.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.room.server.restrictions;
@@ -41,10 +40,10 @@ public object CreateRestrictionPacketKt {
      * `.room.restrictions.public.server.v1.Restriction restriction = 3;`
      */
     public var restriction: com.evemeta.zdk.pb.room.server.restrictions.Restriction
-      @kotlin.jvm.JvmName("getRestriction")
-        get() = _builder.restriction
-      @kotlin.jvm.JvmName("setRestriction")
-        set(value) {
+      @JvmName("getRestriction")
+      get() = _builder.restriction
+      @JvmName("setRestriction")
+      set(value) {
         _builder.restriction = value
       }
     /**
@@ -80,10 +79,10 @@ public object CreateRestrictionPacketKt {
      * `.room.restrictions.public.server.v1.Timeframe timeframe = 4;`
      */
     public var timeframe: com.evemeta.zdk.pb.room.server.restrictions.Timeframe
-      @kotlin.jvm.JvmName("getTimeframe")
-        get() = _builder.timeframe
-      @kotlin.jvm.JvmName("setTimeframe")
-        set(value) {
+      @JvmName("getTimeframe")
+      get() = _builder.timeframe
+      @JvmName("setTimeframe")
+      set(value) {
         _builder.timeframe = value
       }
     /**

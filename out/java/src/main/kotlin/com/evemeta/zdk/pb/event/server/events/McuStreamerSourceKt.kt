@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: event/events/public/server/v1/entities.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.event.server.events;
@@ -42,17 +41,17 @@ public object McuStreamerSourceKt {
      * `.event.events.public.server.v1.McuSourceOrientation orientation = 1;`
      */
     public var orientation: com.evemeta.zdk.pb.event.server.events.McuSourceOrientation
-      @kotlin.jvm.JvmName("getOrientation")
-        get() = _builder.orientation
-      @kotlin.jvm.JvmName("setOrientation")
-        set(value) {
+      @JvmName("getOrientation")
+      get() = _builder.orientation
+      @JvmName("setOrientation")
+      set(value) {
         _builder.orientation = value
       }
     public var orientationValue: kotlin.Int
-      @kotlin.jvm.JvmName("getOrientationValue")
-        get() = _builder.orientationValue
-      @kotlin.jvm.JvmName("setOrientationValue")
-        set(value) {
+      @JvmName("getOrientationValue")
+      get() = _builder.orientationValue
+      @JvmName("setOrientationValue")
+      set(value) {
         _builder.orientationValue = value
       }
     /**
@@ -79,9 +78,9 @@ public object McuStreamerSourceKt {
      *
      * `repeated .event.events.public.server.v1.McuSourceVideoOutput video_outputs = 2;`
      */
-     public val videoOutputs: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.events.McuSourceVideoOutput, VideoOutputsProxy>
+    public val videoOutputs: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.events.McuSourceVideoOutput, VideoOutputsProxy>
       @kotlin.jvm.JvmSynthetic
-  get() = com.google.protobuf.kotlin.DslList(
+      get() = com.google.protobuf.kotlin.DslList(
         _builder.videoOutputsList
       )
     /**
@@ -93,7 +92,7 @@ public object McuStreamerSourceKt {
      * @param value The videoOutputs to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("addVideoOutputs")
+    @kotlin.jvm.JvmName("addVideoOutputs")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.events.McuSourceVideoOutput, VideoOutputsProxy>.add(value: com.evemeta.zdk.pb.event.server.events.McuSourceVideoOutput) {
       _builder.addVideoOutputs(value)
     }/**
@@ -105,7 +104,7 @@ public object McuStreamerSourceKt {
      * @param value The videoOutputs to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("plusAssignVideoOutputs")
+    @kotlin.jvm.JvmName("plusAssignVideoOutputs")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.events.McuSourceVideoOutput, VideoOutputsProxy>.plusAssign(value: com.evemeta.zdk.pb.event.server.events.McuSourceVideoOutput) {
       add(value)
@@ -118,7 +117,7 @@ public object McuStreamerSourceKt {
      * @param values The videoOutputs to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("addAllVideoOutputs")
+    @kotlin.jvm.JvmName("addAllVideoOutputs")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.events.McuSourceVideoOutput, VideoOutputsProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.event.server.events.McuSourceVideoOutput>) {
       _builder.addAllVideoOutputs(values)
     }/**
@@ -130,7 +129,7 @@ public object McuStreamerSourceKt {
      * @param values The videoOutputs to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("plusAssignAllVideoOutputs")
+    @kotlin.jvm.JvmName("plusAssignAllVideoOutputs")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.events.McuSourceVideoOutput, VideoOutputsProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.event.server.events.McuSourceVideoOutput>) {
       addAll(values)
@@ -144,7 +143,7 @@ public object McuStreamerSourceKt {
      * @param value The videoOutputs to set.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("setVideoOutputs")
+    @kotlin.jvm.JvmName("setVideoOutputs")
     public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.events.McuSourceVideoOutput, VideoOutputsProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.event.server.events.McuSourceVideoOutput) {
       _builder.setVideoOutputs(index, value)
     }/**
@@ -155,7 +154,7 @@ public object McuStreamerSourceKt {
      * `repeated .event.events.public.server.v1.McuSourceVideoOutput video_outputs = 2;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("clearVideoOutputs")
+    @kotlin.jvm.JvmName("clearVideoOutputs")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.events.McuSourceVideoOutput, VideoOutputsProxy>.clear() {
       _builder.clearVideoOutputs()
     }
@@ -172,9 +171,9 @@ public object McuStreamerSourceKt {
      *
      * `repeated .event.events.public.server.v1.McuSourceAudioOutput audio_outputs = 3;`
      */
-     public val audioOutputs: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.events.McuSourceAudioOutput, AudioOutputsProxy>
+    public val audioOutputs: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.events.McuSourceAudioOutput, AudioOutputsProxy>
       @kotlin.jvm.JvmSynthetic
-  get() = com.google.protobuf.kotlin.DslList(
+      get() = com.google.protobuf.kotlin.DslList(
         _builder.audioOutputsList
       )
     /**
@@ -186,7 +185,7 @@ public object McuStreamerSourceKt {
      * @param value The audioOutputs to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("addAudioOutputs")
+    @kotlin.jvm.JvmName("addAudioOutputs")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.events.McuSourceAudioOutput, AudioOutputsProxy>.add(value: com.evemeta.zdk.pb.event.server.events.McuSourceAudioOutput) {
       _builder.addAudioOutputs(value)
     }/**
@@ -198,7 +197,7 @@ public object McuStreamerSourceKt {
      * @param value The audioOutputs to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("plusAssignAudioOutputs")
+    @kotlin.jvm.JvmName("plusAssignAudioOutputs")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.events.McuSourceAudioOutput, AudioOutputsProxy>.plusAssign(value: com.evemeta.zdk.pb.event.server.events.McuSourceAudioOutput) {
       add(value)
@@ -211,7 +210,7 @@ public object McuStreamerSourceKt {
      * @param values The audioOutputs to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("addAllAudioOutputs")
+    @kotlin.jvm.JvmName("addAllAudioOutputs")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.events.McuSourceAudioOutput, AudioOutputsProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.event.server.events.McuSourceAudioOutput>) {
       _builder.addAllAudioOutputs(values)
     }/**
@@ -223,7 +222,7 @@ public object McuStreamerSourceKt {
      * @param values The audioOutputs to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("plusAssignAllAudioOutputs")
+    @kotlin.jvm.JvmName("plusAssignAllAudioOutputs")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.events.McuSourceAudioOutput, AudioOutputsProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.event.server.events.McuSourceAudioOutput>) {
       addAll(values)
@@ -237,7 +236,7 @@ public object McuStreamerSourceKt {
      * @param value The audioOutputs to set.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("setAudioOutputs")
+    @kotlin.jvm.JvmName("setAudioOutputs")
     public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.events.McuSourceAudioOutput, AudioOutputsProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.event.server.events.McuSourceAudioOutput) {
       _builder.setAudioOutputs(index, value)
     }/**
@@ -248,7 +247,7 @@ public object McuStreamerSourceKt {
      * `repeated .event.events.public.server.v1.McuSourceAudioOutput audio_outputs = 3;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("clearAudioOutputs")
+    @kotlin.jvm.JvmName("clearAudioOutputs")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.events.McuSourceAudioOutput, AudioOutputsProxy>.clear() {
       _builder.clearAudioOutputs()
     }}

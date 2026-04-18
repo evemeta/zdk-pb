@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: room/streams/public/server/v1/packets.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.room.server.streams;
@@ -42,10 +41,10 @@ public object UpdateStreamPacketKt {
      * `string id = 1;`
      */
     public var id: kotlin.String
-      @kotlin.jvm.JvmName("getId")
-        get() = _builder.id
-      @kotlin.jvm.JvmName("setId")
-        set(value) {
+      @JvmName("getId")
+      get() = _builder.id
+      @JvmName("setId")
+      set(value) {
         _builder.id = value
       }
     /**
@@ -67,10 +66,10 @@ public object UpdateStreamPacketKt {
      * `string room_id = 2;`
      */
     public var roomId: kotlin.String
-      @kotlin.jvm.JvmName("getRoomId")
-        get() = _builder.roomId
-      @kotlin.jvm.JvmName("setRoomId")
-        set(value) {
+      @JvmName("getRoomId")
+      get() = _builder.roomId
+      @JvmName("setRoomId")
+      set(value) {
         _builder.roomId = value
       }
     /**
@@ -92,10 +91,10 @@ public object UpdateStreamPacketKt {
      * `optional .room.streams.public.server.v1.OptionalStatus status = 3;`
      */
     public var status: com.evemeta.zdk.pb.room.server.streams.OptionalStatus
-      @kotlin.jvm.JvmName("getStatus")
-        get() = _builder.status
-      @kotlin.jvm.JvmName("setStatus")
-        set(value) {
+      @JvmName("getStatus")
+      get() = _builder.status
+      @JvmName("setStatus")
+      set(value) {
         _builder.status = value
       }
     /**
@@ -131,10 +130,10 @@ public object UpdateStreamPacketKt {
      * `.room.streams.public.server.v1.Timeframe timeframe = 4;`
      */
     public var timeframe: com.evemeta.zdk.pb.room.server.streams.Timeframe
-      @kotlin.jvm.JvmName("getTimeframe")
-        get() = _builder.timeframe
-      @kotlin.jvm.JvmName("setTimeframe")
-        set(value) {
+      @JvmName("getTimeframe")
+      get() = _builder.timeframe
+      @JvmName("setTimeframe")
+      set(value) {
         _builder.timeframe = value
       }
     /**

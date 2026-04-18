@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: event/events/public/server/v1/procedures.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.event.server.events;
@@ -41,10 +40,10 @@ public object GenerateBroadcastAccessUrlResponseKt {
      * `string url = 1;`
      */
     public var url: kotlin.String
-      @kotlin.jvm.JvmName("getUrl")
-        get() = _builder.url
-      @kotlin.jvm.JvmName("setUrl")
-        set(value) {
+      @JvmName("getUrl")
+      get() = _builder.url
+      @JvmName("setUrl")
+      set(value) {
         _builder.url = value
       }
     /**

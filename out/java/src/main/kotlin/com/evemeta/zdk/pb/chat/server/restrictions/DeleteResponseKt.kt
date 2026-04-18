@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: chat/restrictions/public/server/v1/procedures.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.chat.server.restrictions;
@@ -41,10 +40,10 @@ public object DeleteResponseKt {
      * `.chat.restrictions.public.server.v1.Restriction restriction = 1;`
      */
     public var restriction: com.evemeta.zdk.pb.chat.server.restrictions.Restriction
-      @kotlin.jvm.JvmName("getRestriction")
-        get() = _builder.restriction
-      @kotlin.jvm.JvmName("setRestriction")
-        set(value) {
+      @JvmName("getRestriction")
+      get() = _builder.restriction
+      @JvmName("setRestriction")
+      set(value) {
         _builder.restriction = value
       }
     /**

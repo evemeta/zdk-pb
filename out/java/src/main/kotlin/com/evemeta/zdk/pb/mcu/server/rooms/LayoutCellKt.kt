@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: mcu/rooms/public/server/v1/entities.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.mcu.server.rooms;
@@ -33,10 +32,10 @@ public object LayoutCellKt {
      * `string user_id = 1;`
      */
     public var userId: kotlin.String
-      @kotlin.jvm.JvmName("getUserId")
-        get() = _builder.userId
-      @kotlin.jvm.JvmName("setUserId")
-        set(value) {
+      @JvmName("getUserId")
+      get() = _builder.userId
+      @JvmName("setUserId")
+      set(value) {
         _builder.userId = value
       }
     /**
@@ -50,10 +49,10 @@ public object LayoutCellKt {
      * `int64 position = 2;`
      */
     public var position: kotlin.Long
-      @kotlin.jvm.JvmName("getPosition")
-        get() = _builder.position
-      @kotlin.jvm.JvmName("setPosition")
-        set(value) {
+      @JvmName("getPosition")
+      get() = _builder.position
+      @JvmName("setPosition")
+      set(value) {
         _builder.position = value
       }
     /**
@@ -67,10 +66,10 @@ public object LayoutCellKt {
      * `string stream_type = 3;`
      */
     public var streamType: kotlin.String
-      @kotlin.jvm.JvmName("getStreamType")
-        get() = _builder.streamType
-      @kotlin.jvm.JvmName("setStreamType")
-        set(value) {
+      @JvmName("getStreamType")
+      get() = _builder.streamType
+      @JvmName("setStreamType")
+      set(value) {
         _builder.streamType = value
       }
     /**
