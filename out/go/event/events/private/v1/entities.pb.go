@@ -25,24 +25,25 @@ const (
 type Event struct {
 	state             protoimpl.MessageState `protogen:"open.v1"`
 	Id                string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	ChatId            string                 `protobuf:"bytes,2,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
-	RoomId            string                 `protobuf:"bytes,3,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
-	UserId            string                 `protobuf:"bytes,4,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	Kind              Kind                   `protobuf:"varint,5,opt,name=kind,proto3,enum=event.events.private.v1.Kind" json:"kind,omitempty"`
-	Status            Status                 `protobuf:"varint,6,opt,name=status,proto3,enum=event.events.private.v1.Status" json:"status,omitempty"`
-	Source            *Source                `protobuf:"bytes,7,opt,name=source,proto3" json:"source,omitempty"`
-	Capacity          int64                  `protobuf:"varint,8,opt,name=capacity,proto3" json:"capacity,omitempty"`
-	Metadata          map[string]string      `protobuf:"bytes,9,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	Schedule          Schedule               `protobuf:"varint,10,opt,name=schedule,proto3,enum=event.events.private.v1.Schedule" json:"schedule,omitempty"`
-	Retention         int64                  `protobuf:"varint,11,opt,name=retention,proto3" json:"retention,omitempty"`
-	PlannedStartTime  int64                  `protobuf:"varint,12,opt,name=planned_start_time,json=plannedStartTime,proto3" json:"planned_start_time,omitempty"`
-	StartTime         int64                  `protobuf:"varint,13,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
-	PlannedFinishTime int64                  `protobuf:"varint,14,opt,name=planned_finish_time,json=plannedFinishTime,proto3" json:"planned_finish_time,omitempty"`
-	FinishTime        int64                  `protobuf:"varint,15,opt,name=finish_time,json=finishTime,proto3" json:"finish_time,omitempty"`
-	CancelTime        int64                  `protobuf:"varint,16,opt,name=cancel_time,json=cancelTime,proto3" json:"cancel_time,omitempty"`
-	AccessTime        int64                  `protobuf:"varint,17,opt,name=access_time,json=accessTime,proto3" json:"access_time,omitempty"`
-	CreateTime        int64                  `protobuf:"varint,18,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
-	UpdateTime        int64                  `protobuf:"varint,19,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	KeyId             string                 `protobuf:"bytes,2,opt,name=key_id,json=keyId,proto3" json:"key_id,omitempty"`
+	ChatId            string                 `protobuf:"bytes,3,opt,name=chat_id,json=chatId,proto3" json:"chat_id,omitempty"`
+	RoomId            string                 `protobuf:"bytes,4,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
+	UserId            string                 `protobuf:"bytes,5,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	Kind              Kind                   `protobuf:"varint,6,opt,name=kind,proto3,enum=event.events.private.v1.Kind" json:"kind,omitempty"`
+	Status            Status                 `protobuf:"varint,7,opt,name=status,proto3,enum=event.events.private.v1.Status" json:"status,omitempty"`
+	Source            *Source                `protobuf:"bytes,8,opt,name=source,proto3" json:"source,omitempty"`
+	Capacity          int64                  `protobuf:"varint,9,opt,name=capacity,proto3" json:"capacity,omitempty"`
+	Metadata          map[string]string      `protobuf:"bytes,10,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Schedule          Schedule               `protobuf:"varint,11,opt,name=schedule,proto3,enum=event.events.private.v1.Schedule" json:"schedule,omitempty"`
+	Retention         int64                  `protobuf:"varint,12,opt,name=retention,proto3" json:"retention,omitempty"`
+	PlannedStartTime  int64                  `protobuf:"varint,13,opt,name=planned_start_time,json=plannedStartTime,proto3" json:"planned_start_time,omitempty"`
+	StartTime         int64                  `protobuf:"varint,14,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	PlannedFinishTime int64                  `protobuf:"varint,15,opt,name=planned_finish_time,json=plannedFinishTime,proto3" json:"planned_finish_time,omitempty"`
+	FinishTime        int64                  `protobuf:"varint,16,opt,name=finish_time,json=finishTime,proto3" json:"finish_time,omitempty"`
+	CancelTime        int64                  `protobuf:"varint,17,opt,name=cancel_time,json=cancelTime,proto3" json:"cancel_time,omitempty"`
+	AccessTime        int64                  `protobuf:"varint,18,opt,name=access_time,json=accessTime,proto3" json:"access_time,omitempty"`
+	CreateTime        int64                  `protobuf:"varint,19,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	UpdateTime        int64                  `protobuf:"varint,20,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
@@ -80,6 +81,13 @@ func (*Event) Descriptor() ([]byte, []int) {
 func (x *Event) GetId() string {
 	if x != nil {
 		return x.Id
+	}
+	return ""
+}
+
+func (x *Event) GetKeyId() string {
+	if x != nil {
+		return x.KeyId
 	}
 	return ""
 }
@@ -611,13 +619,14 @@ func (x *Query) GetConditions() []*Condition {
 type Condition struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Ids           []string               `protobuf:"bytes,1,rep,name=ids,proto3" json:"ids,omitempty"`
-	ChatIds       []string               `protobuf:"bytes,2,rep,name=chat_ids,json=chatIds,proto3" json:"chat_ids,omitempty"`
-	RoomIds       []string               `protobuf:"bytes,3,rep,name=room_ids,json=roomIds,proto3" json:"room_ids,omitempty"`
-	UserIds       []string               `protobuf:"bytes,4,rep,name=user_ids,json=userIds,proto3" json:"user_ids,omitempty"`
-	Kinds         []Kind                 `protobuf:"varint,5,rep,packed,name=kinds,proto3,enum=event.events.private.v1.Kind" json:"kinds,omitempty"`
-	Statuses      []Status               `protobuf:"varint,6,rep,packed,name=statuses,proto3,enum=event.events.private.v1.Status" json:"statuses,omitempty"`
-	Schedules     []Schedule             `protobuf:"varint,7,rep,packed,name=schedules,proto3,enum=event.events.private.v1.Schedule" json:"schedules,omitempty"`
-	Members       []*v1.Query            `protobuf:"bytes,8,rep,name=members,proto3" json:"members,omitempty"`
+	KeyIds        []string               `protobuf:"bytes,2,rep,name=key_ids,json=keyIds,proto3" json:"key_ids,omitempty"`
+	ChatIds       []string               `protobuf:"bytes,3,rep,name=chat_ids,json=chatIds,proto3" json:"chat_ids,omitempty"`
+	RoomIds       []string               `protobuf:"bytes,4,rep,name=room_ids,json=roomIds,proto3" json:"room_ids,omitempty"`
+	UserIds       []string               `protobuf:"bytes,5,rep,name=user_ids,json=userIds,proto3" json:"user_ids,omitempty"`
+	Kinds         []Kind                 `protobuf:"varint,6,rep,packed,name=kinds,proto3,enum=event.events.private.v1.Kind" json:"kinds,omitempty"`
+	Statuses      []Status               `protobuf:"varint,7,rep,packed,name=statuses,proto3,enum=event.events.private.v1.Status" json:"statuses,omitempty"`
+	Schedules     []Schedule             `protobuf:"varint,8,rep,packed,name=schedules,proto3,enum=event.events.private.v1.Schedule" json:"schedules,omitempty"`
+	Members       []*v1.Query            `protobuf:"bytes,9,rep,name=members,proto3" json:"members,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -655,6 +664,13 @@ func (*Condition) Descriptor() ([]byte, []int) {
 func (x *Condition) GetIds() []string {
 	if x != nil {
 		return x.Ids
+	}
+	return nil
+}
+
+func (x *Condition) GetKeyIds() []string {
+	if x != nil {
+		return x.KeyIds
 	}
 	return nil
 }
@@ -772,33 +788,34 @@ var File_event_events_private_v1_entities_proto protoreflect.FileDescriptor
 
 const file_event_events_private_v1_entities_proto_rawDesc = "" +
 	"\n" +
-	"&event/events/private/v1/entities.proto\x12\x17event.events.private.v1\x1a#event/events/private/v1/enums.proto\x1a'event/members/private/v1/entities.proto\"\xa9\x06\n" +
+	"&event/events/private/v1/entities.proto\x12\x17event.events.private.v1\x1a#event/events/private/v1/enums.proto\x1a'event/members/private/v1/entities.proto\"\xc0\x06\n" +
 	"\x05Event\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
-	"\achat_id\x18\x02 \x01(\tR\x06chatId\x12\x17\n" +
-	"\aroom_id\x18\x03 \x01(\tR\x06roomId\x12\x17\n" +
-	"\auser_id\x18\x04 \x01(\tR\x06userId\x121\n" +
-	"\x04kind\x18\x05 \x01(\x0e2\x1d.event.events.private.v1.KindR\x04kind\x127\n" +
-	"\x06status\x18\x06 \x01(\x0e2\x1f.event.events.private.v1.StatusR\x06status\x127\n" +
-	"\x06source\x18\a \x01(\v2\x1f.event.events.private.v1.SourceR\x06source\x12\x1a\n" +
-	"\bcapacity\x18\b \x01(\x03R\bcapacity\x12H\n" +
-	"\bmetadata\x18\t \x03(\v2,.event.events.private.v1.Event.MetadataEntryR\bmetadata\x12=\n" +
-	"\bschedule\x18\n" +
-	" \x01(\x0e2!.event.events.private.v1.ScheduleR\bschedule\x12\x1c\n" +
-	"\tretention\x18\v \x01(\x03R\tretention\x12,\n" +
-	"\x12planned_start_time\x18\f \x01(\x03R\x10plannedStartTime\x12\x1d\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x15\n" +
+	"\x06key_id\x18\x02 \x01(\tR\x05keyId\x12\x17\n" +
+	"\achat_id\x18\x03 \x01(\tR\x06chatId\x12\x17\n" +
+	"\aroom_id\x18\x04 \x01(\tR\x06roomId\x12\x17\n" +
+	"\auser_id\x18\x05 \x01(\tR\x06userId\x121\n" +
+	"\x04kind\x18\x06 \x01(\x0e2\x1d.event.events.private.v1.KindR\x04kind\x127\n" +
+	"\x06status\x18\a \x01(\x0e2\x1f.event.events.private.v1.StatusR\x06status\x127\n" +
+	"\x06source\x18\b \x01(\v2\x1f.event.events.private.v1.SourceR\x06source\x12\x1a\n" +
+	"\bcapacity\x18\t \x01(\x03R\bcapacity\x12H\n" +
+	"\bmetadata\x18\n" +
+	" \x03(\v2,.event.events.private.v1.Event.MetadataEntryR\bmetadata\x12=\n" +
+	"\bschedule\x18\v \x01(\x0e2!.event.events.private.v1.ScheduleR\bschedule\x12\x1c\n" +
+	"\tretention\x18\f \x01(\x03R\tretention\x12,\n" +
+	"\x12planned_start_time\x18\r \x01(\x03R\x10plannedStartTime\x12\x1d\n" +
 	"\n" +
-	"start_time\x18\r \x01(\x03R\tstartTime\x12.\n" +
-	"\x13planned_finish_time\x18\x0e \x01(\x03R\x11plannedFinishTime\x12\x1f\n" +
-	"\vfinish_time\x18\x0f \x01(\x03R\n" +
+	"start_time\x18\x0e \x01(\x03R\tstartTime\x12.\n" +
+	"\x13planned_finish_time\x18\x0f \x01(\x03R\x11plannedFinishTime\x12\x1f\n" +
+	"\vfinish_time\x18\x10 \x01(\x03R\n" +
 	"finishTime\x12\x1f\n" +
-	"\vcancel_time\x18\x10 \x01(\x03R\n" +
+	"\vcancel_time\x18\x11 \x01(\x03R\n" +
 	"cancelTime\x12\x1f\n" +
-	"\vaccess_time\x18\x11 \x01(\x03R\n" +
+	"\vaccess_time\x18\x12 \x01(\x03R\n" +
 	"accessTime\x12\x1f\n" +
-	"\vcreate_time\x18\x12 \x01(\x03R\n" +
+	"\vcreate_time\x18\x13 \x01(\x03R\n" +
 	"createTime\x12\x1f\n" +
-	"\vupdate_time\x18\x13 \x01(\x03R\n" +
+	"\vupdate_time\x18\x14 \x01(\x03R\n" +
 	"updateTime\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
@@ -831,16 +848,17 @@ const file_event_events_private_v1_entities_proto_rawDesc = "" +
 	"\x06offset\x18\x03 \x01(\x03R\x06offset\x12B\n" +
 	"\n" +
 	"conditions\x18\x04 \x03(\v2\".event.events.private.v1.ConditionR\n" +
-	"conditions\"\xdc\x02\n" +
+	"conditions\"\xf5\x02\n" +
 	"\tCondition\x12\x10\n" +
-	"\x03ids\x18\x01 \x03(\tR\x03ids\x12\x19\n" +
-	"\bchat_ids\x18\x02 \x03(\tR\achatIds\x12\x19\n" +
-	"\broom_ids\x18\x03 \x03(\tR\aroomIds\x12\x19\n" +
-	"\buser_ids\x18\x04 \x03(\tR\auserIds\x123\n" +
-	"\x05kinds\x18\x05 \x03(\x0e2\x1d.event.events.private.v1.KindR\x05kinds\x12;\n" +
-	"\bstatuses\x18\x06 \x03(\x0e2\x1f.event.events.private.v1.StatusR\bstatuses\x12?\n" +
-	"\tschedules\x18\a \x03(\x0e2!.event.events.private.v1.ScheduleR\tschedules\x129\n" +
-	"\amembers\x18\b \x03(\v2\x1f.event.members.private.v1.QueryR\amembers\"\xb9\x01\n" +
+	"\x03ids\x18\x01 \x03(\tR\x03ids\x12\x17\n" +
+	"\akey_ids\x18\x02 \x03(\tR\x06keyIds\x12\x19\n" +
+	"\bchat_ids\x18\x03 \x03(\tR\achatIds\x12\x19\n" +
+	"\broom_ids\x18\x04 \x03(\tR\aroomIds\x12\x19\n" +
+	"\buser_ids\x18\x05 \x03(\tR\auserIds\x123\n" +
+	"\x05kinds\x18\x06 \x03(\x0e2\x1d.event.events.private.v1.KindR\x05kinds\x12;\n" +
+	"\bstatuses\x18\a \x03(\x0e2\x1f.event.events.private.v1.StatusR\bstatuses\x12?\n" +
+	"\tschedules\x18\b \x03(\x0e2!.event.events.private.v1.ScheduleR\tschedules\x129\n" +
+	"\amembers\x18\t \x03(\v2\x1f.event.members.private.v1.QueryR\amembers\"\xb9\x01\n" +
 	"\tTransient\x126\n" +
 	"\x06future\x18\x01 \x01(\v2\x1e.event.events.private.v1.EventR\x06future\x128\n" +
 	"\acurrent\x18\x02 \x01(\v2\x1e.event.events.private.v1.EventR\acurrent\x12:\n" +

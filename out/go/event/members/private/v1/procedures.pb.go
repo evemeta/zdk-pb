@@ -1281,7 +1281,8 @@ func (x *DeleteMutation) GetCloseTimestamp() int64 {
 
 type DeleteCondition struct {
 	state                      protoimpl.MessageState `protogen:"open.v1"`
-	DeleteTransponderMutations []*v1.DeleteMutation   `protobuf:"bytes,1,rep,name=delete_transponder_mutations,json=deleteTransponderMutations,proto3" json:"delete_transponder_mutations,omitempty"`
+	KickMutations              []*KickMutation        `protobuf:"bytes,1,rep,name=kick_mutations,json=kickMutations,proto3" json:"kick_mutations,omitempty"`
+	DeleteTransponderMutations []*v1.DeleteMutation   `protobuf:"bytes,2,rep,name=delete_transponder_mutations,json=deleteTransponderMutations,proto3" json:"delete_transponder_mutations,omitempty"`
 	unknownFields              protoimpl.UnknownFields
 	sizeCache                  protoimpl.SizeCache
 }
@@ -1314,6 +1315,13 @@ func (x *DeleteCondition) ProtoReflect() protoreflect.Message {
 // Deprecated: Use DeleteCondition.ProtoReflect.Descriptor instead.
 func (*DeleteCondition) Descriptor() ([]byte, []int) {
 	return file_event_members_private_v1_procedures_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *DeleteCondition) GetKickMutations() []*KickMutation {
+	if x != nil {
+		return x.KickMutations
+	}
+	return nil
 }
 
 func (x *DeleteCondition) GetDeleteTransponderMutations() []*v1.DeleteMutation {
@@ -1764,9 +1772,10 @@ const file_event_members_private_v1_procedures_proto_rawDesc = "" +
 	"\tcondition\x18\x02 \x01(\v2).event.members.private.v1.DeleteConditionR\tcondition\x12A\n" +
 	"\ttransient\x18\x03 \x03(\v2#.event.members.private.v1.TransientR\ttransient\x12'\n" +
 	"\x0fbegin_timestamp\x18\x04 \x01(\x03R\x0ebeginTimestamp\x12'\n" +
-	"\x0fclose_timestamp\x18\x05 \x01(\x03R\x0ecloseTimestamp\"\x84\x01\n" +
-	"\x0fDeleteCondition\x12q\n" +
-	"\x1cdelete_transponder_mutations\x18\x01 \x03(\v2/.gateway.transponders.private.v1.DeleteMutationR\x1adeleteTransponderMutations\"[\n" +
+	"\x0fclose_timestamp\x18\x05 \x01(\x03R\x0ecloseTimestamp\"\xd3\x01\n" +
+	"\x0fDeleteCondition\x12M\n" +
+	"\x0ekick_mutations\x18\x01 \x03(\v2&.event.members.private.v1.KickMutationR\rkickMutations\x12q\n" +
+	"\x1cdelete_transponder_mutations\x18\x02 \x03(\v2/.gateway.transponders.private.v1.DeleteMutationR\x1adeleteTransponderMutations\"[\n" +
 	"\x11DeleteTransaction\x12F\n" +
 	"\tmutations\x18\x01 \x03(\v2(.event.members.private.v1.DeleteMutationR\tmutations\"]\n" +
 	"\fKickArgument\x125\n" +
@@ -1884,21 +1893,22 @@ var file_event_members_private_v1_procedures_proto_depIdxs = []int32{
 	20, // 31: event.members.private.v1.DeleteMutation.foundation:type_name -> event.members.private.v1.DeleteArgument
 	24, // 32: event.members.private.v1.DeleteMutation.condition:type_name -> event.members.private.v1.DeleteCondition
 	38, // 33: event.members.private.v1.DeleteMutation.transient:type_name -> event.members.private.v1.Transient
-	43, // 34: event.members.private.v1.DeleteCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
-	23, // 35: event.members.private.v1.DeleteTransaction.mutations:type_name -> event.members.private.v1.DeleteMutation
-	33, // 36: event.members.private.v1.KickArgument.query:type_name -> event.members.private.v1.Query
-	26, // 37: event.members.private.v1.KickRequest.arguments:type_name -> event.members.private.v1.KickArgument
-	26, // 38: event.members.private.v1.KickMutation.foundation:type_name -> event.members.private.v1.KickArgument
-	30, // 39: event.members.private.v1.KickMutation.condition:type_name -> event.members.private.v1.KickCondition
-	18, // 40: event.members.private.v1.KickCondition.update_mutations:type_name -> event.members.private.v1.UpdateMutation
-	44, // 41: event.members.private.v1.KickCondition.kick_chat_member_mutations:type_name -> chat.members.private.v1.KickMutation
-	43, // 42: event.members.private.v1.KickCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
-	29, // 43: event.members.private.v1.KickTransaction.mutations:type_name -> event.members.private.v1.KickMutation
-	44, // [44:44] is the sub-list for method output_type
-	44, // [44:44] is the sub-list for method input_type
-	44, // [44:44] is the sub-list for extension type_name
-	44, // [44:44] is the sub-list for extension extendee
-	0,  // [0:44] is the sub-list for field type_name
+	29, // 34: event.members.private.v1.DeleteCondition.kick_mutations:type_name -> event.members.private.v1.KickMutation
+	43, // 35: event.members.private.v1.DeleteCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
+	23, // 36: event.members.private.v1.DeleteTransaction.mutations:type_name -> event.members.private.v1.DeleteMutation
+	33, // 37: event.members.private.v1.KickArgument.query:type_name -> event.members.private.v1.Query
+	26, // 38: event.members.private.v1.KickRequest.arguments:type_name -> event.members.private.v1.KickArgument
+	26, // 39: event.members.private.v1.KickMutation.foundation:type_name -> event.members.private.v1.KickArgument
+	30, // 40: event.members.private.v1.KickMutation.condition:type_name -> event.members.private.v1.KickCondition
+	18, // 41: event.members.private.v1.KickCondition.update_mutations:type_name -> event.members.private.v1.UpdateMutation
+	44, // 42: event.members.private.v1.KickCondition.kick_chat_member_mutations:type_name -> chat.members.private.v1.KickMutation
+	43, // 43: event.members.private.v1.KickCondition.delete_transponder_mutations:type_name -> gateway.transponders.private.v1.DeleteMutation
+	29, // 44: event.members.private.v1.KickTransaction.mutations:type_name -> event.members.private.v1.KickMutation
+	45, // [45:45] is the sub-list for method output_type
+	45, // [45:45] is the sub-list for method input_type
+	45, // [45:45] is the sub-list for extension type_name
+	45, // [45:45] is the sub-list for extension extendee
+	0,  // [0:45] is the sub-list for field type_name
 }
 
 func init() { file_event_members_private_v1_procedures_proto_init() }

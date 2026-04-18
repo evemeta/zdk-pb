@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package event.keys.public.server.v1;
+
+import "event/keys/public/server/v1/entities.proto";
+import "event/keys/public/server/v1/optionals.proto";
+
+option java_multiple_files = true;
+option java_package = "com.evemeta.zdk.pb.event.server.keys";
+option go_package = "github.com/evemeta/zdk-pb/out/go/event/keys/public/server/v1;keyspb";
+
+// CreateKeyPacket is a notification sent to clients when a new key has been created.
+// It provides the details of the new key.
+message CreateKeyPacket {
+    // Represents the comprehensive details of the newly created key.
+    event.keys.public.server.v1.Key key = 1;
+}
+
+// UpdateKeyPacket is a notification sent to clients when a key has been updated.
+// It provides the identifiers of associated user and event and updated details associated with the key.
+message UpdateKeyPacket {
+    // Represents the unique identifier of the user associated with the updated key.
+    string user_id = 1;
+    // Represents the unique value associated with the key.
+    string value = 2;
+    // Represents a new or updated metadata associated with the key. It may be absent if no metadata changes occurred.
+    optional event.keys.public.server.v1.OptionalMap metadata = 3;
+}
+
+// DeleteKeyPacket is a notification sent to clients when a key has been deleted.
+// It provides the identifiers of associated user.
+message DeleteKeyPacket {
+    // Represents the unique identifier of the user associated with the deleted key.
+    string user_id = 1;
+}

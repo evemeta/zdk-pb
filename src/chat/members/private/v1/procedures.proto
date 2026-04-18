@@ -131,7 +131,8 @@ message DeleteMutation {
 }
 
 message DeleteCondition {
-    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 1;
+    repeated chat.members.private.v1.KickMutation           kick_mutations               = 1;
+    repeated gateway.transponders.private.v1.DeleteMutation delete_transponder_mutations = 2;
 }
 
 message DeleteTransaction {
