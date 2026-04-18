@@ -15,7 +15,7 @@ message CreateMcuPacket {
 
 message UpdateMcuPacket {
     string                                          id        = 1;
-    optional gateway.mcus.private.v1.OptionalZone   zone      = 2;
+    optional gateway.mcus.private.v1.OptionalString node      = 2;
     optional gateway.mcus.private.v1.OptionalStatus status    = 3;
     optional gateway.mcus.private.v1.OptionalString address   = 4;
     common.timeframes.public.v1.Timeframe           timeframe = 5;

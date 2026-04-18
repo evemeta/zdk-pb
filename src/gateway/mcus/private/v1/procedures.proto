@@ -51,7 +51,7 @@ message CreateArgument {
     string                         id      = 1;
     string                         job_id  = 2;
     string                         room_id = 3;
-    gateway.mcus.private.v1.Zone   zone    = 4;
+    string                         node    = 4;
     gateway.mcus.private.v1.Status status  = 5;
     string                         address = 6;
 }
@@ -77,7 +77,7 @@ message CreateTransaction {
 
 message UpdateArgument {
     gateway.mcus.private.v1.Query                   query   = 1;
-    optional gateway.mcus.private.v1.OptionalZone   zone    = 2;
+    optional gateway.mcus.private.v1.OptionalString node    = 2;
     optional gateway.mcus.private.v1.OptionalStatus status  = 3;
     optional gateway.mcus.private.v1.OptionalString address = 4;
 }
