@@ -30,7 +30,6 @@ if [ "$(which "protoc-gen-grpc-java")" != "" ]; then
   rm -r out/java/src/main/java out/java/src/main/kotlin 2>/dev/null ; true && mkdir -p out/java/src/main/java out/java/src/main/kotlin
   protoc \
     --proto_path="./src" \
-    --plugin=protoc-gen-grpc-kotlin=$(pwd)/bin/protoc-gen-grpc-kotlin.sh \
     --grpc-java_out="./out/java/src/main/java" \
     --grpc-kotlin_out="./out/java/src/main/kotlin" \
     --java_out="./out/java/src/main/java" \

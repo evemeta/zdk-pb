@@ -39,7 +39,7 @@ generate_go() {
               arguments=("${new_array[@]}")
               arguments+=(
                 --go-vtproto_out="./out/go"
-                --plugin protoc-gen-go-vtproto="${GOPATH}/bin/protoc-gen-go-vtproto"
+#                --plugin protoc-gen-go-vtproto="protoc-gen-go-vtproto"
                 --go-vtproto_opt=paths=source_relative
                 --go-vtproto_opt=features=marshal+unmarshal+size+pool
                 --go-vtproto_opt=pool=github.com/evemeta/zdk-pb/out/go/mcu/streams/private/v1.InputPacket
@@ -154,7 +154,7 @@ generate_swift() {
 
 generate_kotlin() {
 
-    commands=("protoc" "protoc-gen-grpc-kotlin.sh")
+    commands=("protoc" "protoc-gen-grpc-kotlin")
     for command in "${commands[@]}"; do
         if ! command -v "$command" &> /dev/null; then
             echo "$command is not available." >&2
@@ -166,7 +166,6 @@ generate_kotlin() {
 
     arguments=(
         --proto_path="./src"
-        --plugin=protoc-gen-grpc-kotlin=$(pwd)/bin/protoc-gen-grpc-kotlin.sh
         --kotlin_out="./out/java/src/main/kotlin"
         --grpc-kotlin_out="./out/java/src/main/kotlin"
         --experimental_allow_proto3_optional

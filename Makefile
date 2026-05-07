@@ -16,55 +16,19 @@ export PROTOC_GEN_GO_VER=1.36.6
 export PROTOC_GEN_KOTLIN_VER=1.4.1
 export PROTOC_GEN_JAVA_VER=1.54.1
 
-ifeq ($(OS),MACOS)
 init::
-	chmod +x init.sh && ./init.sh && rm -rf bin && \
-	mkdir -p bin && \
-	cd bin && \
-	rm -f protoc-gen-go && rm -f protoc-gen-grpc-kotlin* && rm -f protoc-gen-grpc-java* && \
-	wget https://github.com/protocolbuffers/protobuf-go/releases/download/v${PROTOC_GEN_GO_VER}/protoc-gen-go.v${PROTOC_GEN_GO_VER}.darwin.amd64.tar.gz && \
-	tar -xf protoc-gen-go.v${PROTOC_GEN_GO_VER}.darwin.amd64.tar.gz && \
-	rm protoc-gen-go.v${PROTOC_GEN_GO_VER}.darwin.amd64.tar.gz && \
-	chmod +x protoc-gen-go && \
-	wget https://repo1.maven.org/maven2/io/grpc/protoc-gen-grpc-kotlin/${PROTOC_GEN_KOTLIN_VER}/protoc-gen-grpc-kotlin-${PROTOC_GEN_KOTLIN_VER}-jdk8.jar && \
-	mv protoc-gen-grpc-kotlin-${PROTOC_GEN_KOTLIN_VER}-jdk8.jar protoc-gen-grpc-kotlin-jdk8.jar && \
-	echo '#!/usr/bin/env sh\n\nDIR="$$( cd "$$( dirname "$${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"\njava -jar $$DIR/protoc-gen-grpc-kotlin-jdk8.jar $$@' > ../bin/protoc-gen-grpc-kotlin.sh && chmod +x protoc-gen-grpc-kotlin.sh && \
-	wget https://repo1.maven.org/maven2/io/grpc/protoc-gen-grpc-java/${PROTOC_GEN_JAVA_VER}/protoc-gen-grpc-java-${PROTOC_GEN_JAVA_VER}-osx-x86_64.exe && \
-	mv protoc-gen-grpc-java-${PROTOC_GEN_JAVA_VER}-osx-x86_64.exe protoc-gen-grpc-java && \
-	chmod +x protoc-gen-grpc-java && \
-	npm i && \
-	go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.5.1
-else
-init::
-	mkdir -p bin && \
-	cd bin && \
-	rm -f protoc-gen-go && rm -f protoc-gen-grpc-kotlin* && rm -f protoc-gen-grpc-java* && \
-	wget https://github.com/protocolbuffers/protobuf-go/releases/download/v${PROTOC_GEN_GO_VER}/protoc-gen-go.v${PROTOC_GEN_GO_VER}.linux.amd64.tar.gz && \
-	tar -xf protoc-gen-go.v${PROTOC_GEN_GO_VER}.linux.amd64.tar.gz && \
-	rm protoc-gen-go.v${PROTOC_GEN_GO_VER}.linux.amd64.tar.gz && \
-	chmod +x protoc-gen-go && \
-	wget https://repo1.maven.org/maven2/io/grpc/protoc-gen-grpc-kotlin/${PROTOC_GEN_KOTLIN_VER}/protoc-gen-grpc-kotlin-${PROTOC_GEN_KOTLIN_VER}-jdk8.jar && \
-	mv protoc-gen-grpc-kotlin-${PROTOC_GEN_KOTLIN_VER}-jdk8.jar protoc-gen-grpc-kotlin-jdk8.jar && \
-	echo '#!/bin/bash\n\nDIR="$$( cd "$$( dirname "$${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"\njava -jar $$DIR/protoc-gen-grpc-kotlin-jdk8.jar $$@' > ../bin/protoc-gen-grpc-kotlin.sh && chmod +x protoc-gen-grpc-kotlin.sh && \
-	wget https://repo1.maven.org/maven2/io/grpc/protoc-gen-grpc-java/${PROTOC_GEN_JAVA_VER}/protoc-gen-grpc-java-${PROTOC_GEN_JAVA_VER}-linux-x86_64.exe && \
-	mv protoc-gen-grpc-java-${PROTOC_GEN_JAVA_VER}-linux-x86_64.exe protoc-gen-grpc-java && \
-	chmod +x protoc-gen-grpc-java && \
-    npm i && \
-	sudo apt-get install -y parallel && \
-	go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.5.1 && \
-	go get github.com/grpc-ecosystem/grpc-gateway/v2/internal/descriptor@v2.22.0 && \
-	go get google.golang.org/grpc/cmd/protoc-gen-go-grpc && \
-	go install \
-    	github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway \
-    	github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2 \
-    	google.golang.org/protobuf/cmd/protoc-gen-go \
-    	google.golang.org/grpc/cmd/protoc-gen-go-grpc
-	go install github.com/planetscale/vtprotobuf/cmd/protoc-gen-go-vtproto@latest
-endif
+	@printf "\033[32m[+]\033[0m %s\n" "Initiating.."
+	@npm install
+	@go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.36.11
+	@go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.6.1
+	@go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@v2.29.0
+	@go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@v2.29.0
+	@go install github.com/planetscale/vtprotobuf/cmd/protoc-gen-go-vtproto@v0.6.0
+	@printf "\033[32m[+]\033[0m %s\n" "Done"
+
 
 ifeq ($(OS),WINDOWS)
 gen::
-	@dos2unix --quiet generate.sh transform.sh
 	@printf $(TITLE) "+" "Generating.."
 	@./generate.sh
 	@printf $(TITLE) "+" "Transforming.."
@@ -87,7 +51,6 @@ gen::
 endif
 
 gen2:
-	@dos2unix --quiet adapter.sh generate2.sh transform2.sh assemble2.sh || true
 	@printf $(TITLE) "+" "Generating.."
 	@chmod +x generate2.sh && ./generate2.sh
 	@printf $(TITLE) "+" "Transforming.."
@@ -95,3 +58,9 @@ gen2:
 	@printf $(TITLE) "+" "Assembling.."
 	@chmod +x assemble2.sh && ./assemble2.sh
 	@printf $(TITLE) "+" "Done"
+
+
+x:
+	@printf "\033[32m[+]\033[0m %s\n" "Building protobuf contracts (zdk-pb)"
+	@$(if $(filter $(OS),WINDOWS),cmd.exe /c,sh -c) "docker buildx build --target=export --output=type=local,dest=. -t zdk-pb:latest -f Dockerfile ."
+	@printf "\033[32m[+]\033[0m %s\n" "Done"
