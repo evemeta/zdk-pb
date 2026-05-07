@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: room/rooms/public/server/v1/packets.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.room.server.rooms;
@@ -42,10 +41,10 @@ public object CreateRoomPacketKt {
      * `.room.rooms.public.server.v1.Room room = 1;`
      */
     public var room: com.evemeta.zdk.pb.room.server.rooms.Room
-      @kotlin.jvm.JvmName("getRoom")
-        get() = _builder.room
-      @kotlin.jvm.JvmName("setRoom")
-        set(value) {
+      @JvmName("getRoom")
+      get() = _builder.room
+      @JvmName("setRoom")
+      set(value) {
         _builder.room = value
       }
     /**
@@ -81,10 +80,10 @@ public object CreateRoomPacketKt {
      * `.room.rooms.public.server.v1.Timeframe timeframe = 2;`
      */
     public var timeframe: com.evemeta.zdk.pb.room.server.rooms.Timeframe
-      @kotlin.jvm.JvmName("getTimeframe")
-        get() = _builder.timeframe
-      @kotlin.jvm.JvmName("setTimeframe")
-        set(value) {
+      @JvmName("getTimeframe")
+      get() = _builder.timeframe
+      @JvmName("setTimeframe")
+      set(value) {
         _builder.timeframe = value
       }
     /**

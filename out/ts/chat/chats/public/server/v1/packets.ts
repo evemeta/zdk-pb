@@ -10,6 +10,7 @@ import { UnknownFieldHandler } from "@protobuf-ts/runtime";
 import type { PartialMessage } from "@protobuf-ts/runtime";
 import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
+import { OptionalInt64 } from "./optionals";
 import { OptionalMap } from "./optionals";
 import { Chat } from "./entities";
 import { Timeframe } from "./entities";
@@ -94,9 +95,21 @@ export interface UpdateChatPacket {
      */
     metadata?: OptionalMap;
     /**
+     * Represents a new or updated slowmode limit associated with the chat. It may be absent if no slowmode limit changes occurred.
+     *
+     * @generated from protobuf field: optional chat.chats.public.server.v1.OptionalInt64 slowmode_limit = 3;
+     */
+    slowmodeLimit?: OptionalInt64;
+    /**
+     * Represents a new or updated slowmode window associated with the chat. It may be absent if no slowmode window changes occurred.
+     *
+     * @generated from protobuf field: optional chat.chats.public.server.v1.OptionalInt64 slowmode_window = 4;
+     */
+    slowmodeWindow?: OptionalInt64;
+    /**
      * Represents the specific span of time, containing the commence and complete timestamps associated with the event.
      *
-     * @generated from protobuf field: chat.chats.public.server.v1.Timeframe timeframe = 3;
+     * @generated from protobuf field: chat.chats.public.server.v1.Timeframe timeframe = 5;
      */
     timeframe?: Timeframe;
 }
@@ -325,7 +338,9 @@ class UpdateChatPacket$Type extends MessageType<UpdateChatPacket> {
         super("chat.chats.public.server.v1.UpdateChatPacket", [
             { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 2, name: "metadata", kind: "message", T: () => OptionalMap },
-            { no: 3, name: "timeframe", kind: "message", T: () => Timeframe }
+            { no: 3, name: "slowmode_limit", kind: "message", T: () => OptionalInt64 },
+            { no: 4, name: "slowmode_window", kind: "message", T: () => OptionalInt64 },
+            { no: 5, name: "timeframe", kind: "message", T: () => Timeframe }
         ]);
     }
     create(value?: PartialMessage<UpdateChatPacket>): UpdateChatPacket {
@@ -346,7 +361,13 @@ class UpdateChatPacket$Type extends MessageType<UpdateChatPacket> {
                 case /* optional chat.chats.public.server.v1.OptionalMap metadata */ 2:
                     message.metadata = OptionalMap.internalBinaryRead(reader, reader.uint32(), options, message.metadata);
                     break;
-                case /* chat.chats.public.server.v1.Timeframe timeframe */ 3:
+                case /* optional chat.chats.public.server.v1.OptionalInt64 slowmode_limit */ 3:
+                    message.slowmodeLimit = OptionalInt64.internalBinaryRead(reader, reader.uint32(), options, message.slowmodeLimit);
+                    break;
+                case /* optional chat.chats.public.server.v1.OptionalInt64 slowmode_window */ 4:
+                    message.slowmodeWindow = OptionalInt64.internalBinaryRead(reader, reader.uint32(), options, message.slowmodeWindow);
+                    break;
+                case /* chat.chats.public.server.v1.Timeframe timeframe */ 5:
                     message.timeframe = Timeframe.internalBinaryRead(reader, reader.uint32(), options, message.timeframe);
                     break;
                 default:
@@ -367,9 +388,15 @@ class UpdateChatPacket$Type extends MessageType<UpdateChatPacket> {
         /* optional chat.chats.public.server.v1.OptionalMap metadata = 2; */
         if (message.metadata)
             OptionalMap.internalBinaryWrite(message.metadata, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        /* chat.chats.public.server.v1.Timeframe timeframe = 3; */
+        /* optional chat.chats.public.server.v1.OptionalInt64 slowmode_limit = 3; */
+        if (message.slowmodeLimit)
+            OptionalInt64.internalBinaryWrite(message.slowmodeLimit, writer.tag(3, WireType.LengthDelimited).fork(), options).join();
+        /* optional chat.chats.public.server.v1.OptionalInt64 slowmode_window = 4; */
+        if (message.slowmodeWindow)
+            OptionalInt64.internalBinaryWrite(message.slowmodeWindow, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
+        /* chat.chats.public.server.v1.Timeframe timeframe = 5; */
         if (message.timeframe)
-            Timeframe.internalBinaryWrite(message.timeframe, writer.tag(3, WireType.LengthDelimited).fork(), options).join();
+            Timeframe.internalBinaryWrite(message.timeframe, writer.tag(5, WireType.LengthDelimited).fork(), options).join();
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

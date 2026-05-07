@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: event/restrictions/public/server/v1/entities.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.event.server.restrictions;
@@ -42,17 +41,17 @@ public object QueryKt {
      * `.event.restrictions.public.server.v1.Order order = 1;`
      */
     public var order: com.evemeta.zdk.pb.event.server.restrictions.Order
-      @kotlin.jvm.JvmName("getOrder")
-        get() = _builder.order
-      @kotlin.jvm.JvmName("setOrder")
-        set(value) {
+      @JvmName("getOrder")
+      get() = _builder.order
+      @JvmName("setOrder")
+      set(value) {
         _builder.order = value
       }
     public var orderValue: kotlin.Int
-      @kotlin.jvm.JvmName("getOrderValue")
-        get() = _builder.orderValue
-      @kotlin.jvm.JvmName("setOrderValue")
-        set(value) {
+      @JvmName("getOrderValue")
+      get() = _builder.orderValue
+      @JvmName("setOrderValue")
+      set(value) {
         _builder.orderValue = value
       }
     /**
@@ -74,10 +73,10 @@ public object QueryKt {
      * `int64 limit = 2;`
      */
     public var limit: kotlin.Long
-      @kotlin.jvm.JvmName("getLimit")
-        get() = _builder.limit
-      @kotlin.jvm.JvmName("setLimit")
-        set(value) {
+      @JvmName("getLimit")
+      get() = _builder.limit
+      @JvmName("setLimit")
+      set(value) {
         _builder.limit = value
       }
     /**
@@ -99,10 +98,10 @@ public object QueryKt {
      * `int64 offset = 3;`
      */
     public var offset: kotlin.Long
-      @kotlin.jvm.JvmName("getOffset")
-        get() = _builder.offset
-      @kotlin.jvm.JvmName("setOffset")
-        set(value) {
+      @JvmName("getOffset")
+      get() = _builder.offset
+      @JvmName("setOffset")
+      set(value) {
         _builder.offset = value
       }
     /**
@@ -124,10 +123,10 @@ public object QueryKt {
      * `.event.restrictions.public.server.v1.Condition condition = 4;`
      */
     public var condition: com.evemeta.zdk.pb.event.server.restrictions.Condition
-      @kotlin.jvm.JvmName("getCondition")
-        get() = _builder.condition
-      @kotlin.jvm.JvmName("setCondition")
-        set(value) {
+      @JvmName("getCondition")
+      get() = _builder.condition
+      @JvmName("setCondition")
+      set(value) {
         _builder.condition = value
       }
     /**

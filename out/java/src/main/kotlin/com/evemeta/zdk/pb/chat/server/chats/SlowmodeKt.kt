@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: chat/chats/public/server/v1/entities.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.chat.server.chats;
@@ -37,17 +36,17 @@ public object SlowmodeKt {
      * `.chat.chats.public.server.v1.SlowmodeStatus status = 1;`
      */
     public var status: com.evemeta.zdk.pb.chat.server.chats.SlowmodeStatus
-      @kotlin.jvm.JvmName("getStatus")
-        get() = _builder.status
-      @kotlin.jvm.JvmName("setStatus")
-        set(value) {
+      @JvmName("getStatus")
+      get() = _builder.status
+      @JvmName("setStatus")
+      set(value) {
         _builder.status = value
       }
     public var statusValue: kotlin.Int
-      @kotlin.jvm.JvmName("getStatusValue")
-        get() = _builder.statusValue
-      @kotlin.jvm.JvmName("setStatusValue")
-        set(value) {
+      @JvmName("getStatusValue")
+      get() = _builder.statusValue
+      @JvmName("setStatusValue")
+      set(value) {
         _builder.statusValue = value
       }
     /**
@@ -61,10 +60,10 @@ public object SlowmodeKt {
      * `int64 limit = 2;`
      */
     public var limit: kotlin.Long
-      @kotlin.jvm.JvmName("getLimit")
-        get() = _builder.limit
-      @kotlin.jvm.JvmName("setLimit")
-        set(value) {
+      @JvmName("getLimit")
+      get() = _builder.limit
+      @JvmName("setLimit")
+      set(value) {
         _builder.limit = value
       }
     /**
@@ -78,10 +77,10 @@ public object SlowmodeKt {
      * `int64 window = 3;`
      */
     public var window: kotlin.Long
-      @kotlin.jvm.JvmName("getWindow")
-        get() = _builder.window
-      @kotlin.jvm.JvmName("setWindow")
-        set(value) {
+      @JvmName("getWindow")
+      get() = _builder.window
+      @JvmName("setWindow")
+      set(value) {
         _builder.window = value
       }
     /**

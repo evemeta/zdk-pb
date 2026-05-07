@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: chat/restrictions/public/server/v1/procedures.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.chat.server.restrictions;
@@ -41,10 +40,10 @@ public object RangeRequestKt {
      * `.chat.restrictions.public.server.v1.Query query = 1;`
      */
     public var query: com.evemeta.zdk.pb.chat.server.restrictions.Query
-      @kotlin.jvm.JvmName("getQuery")
-        get() = _builder.query
-      @kotlin.jvm.JvmName("setQuery")
-        set(value) {
+      @JvmName("getQuery")
+      get() = _builder.query
+      @JvmName("setQuery")
+      set(value) {
         _builder.query = value
       }
     /**

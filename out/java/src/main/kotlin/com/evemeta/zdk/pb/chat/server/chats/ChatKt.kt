@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: chat/chats/public/server/v1/entities.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.chat.server.chats;
@@ -42,10 +41,10 @@ public object ChatKt {
      * `string id = 1;`
      */
     public var id: kotlin.String
-      @kotlin.jvm.JvmName("getId")
-        get() = _builder.id
-      @kotlin.jvm.JvmName("setId")
-        set(value) {
+      @JvmName("getId")
+      get() = _builder.id
+      @JvmName("setId")
+      set(value) {
         _builder.id = value
       }
     /**
@@ -67,17 +66,17 @@ public object ChatKt {
      * `.chat.chats.public.server.v1.Kind kind = 2;`
      */
     public var kind: com.evemeta.zdk.pb.chat.server.chats.Kind
-      @kotlin.jvm.JvmName("getKind")
-        get() = _builder.kind
-      @kotlin.jvm.JvmName("setKind")
-        set(value) {
+      @JvmName("getKind")
+      get() = _builder.kind
+      @JvmName("setKind")
+      set(value) {
         _builder.kind = value
       }
     public var kindValue: kotlin.Int
-      @kotlin.jvm.JvmName("getKindValue")
-        get() = _builder.kindValue
-      @kotlin.jvm.JvmName("setKindValue")
-        set(value) {
+      @JvmName("getKindValue")
+      get() = _builder.kindValue
+      @JvmName("setKindValue")
+      set(value) {
         _builder.kindValue = value
       }
     /**
@@ -106,7 +105,7 @@ public object ChatKt {
      */
      public val metadata: com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("getMetadataMap")
+      @JvmName("getMetadataMap")
       get() = com.google.protobuf.kotlin.DslMap(
         _builder.metadataMap
       )
@@ -117,7 +116,7 @@ public object ChatKt {
      *
      * `map<string, string> metadata = 3;`
      */
-    @kotlin.jvm.JvmName("putMetadata")
+    @JvmName("putMetadata")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .put(key: kotlin.String, value: kotlin.String) {
          _builder.putMetadata(key, value)
@@ -130,7 +129,7 @@ public object ChatKt {
      * `map<string, string> metadata = 3;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("setMetadata")
+    @JvmName("setMetadata")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .set(key: kotlin.String, value: kotlin.String) {
@@ -144,7 +143,7 @@ public object ChatKt {
      * `map<string, string> metadata = 3;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("removeMetadata")
+    @JvmName("removeMetadata")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .remove(key: kotlin.String) {
          _builder.removeMetadata(key)
@@ -157,7 +156,7 @@ public object ChatKt {
      * `map<string, string> metadata = 3;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("putAllMetadata")
+    @JvmName("putAllMetadata")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .putAll(map: kotlin.collections.Map<kotlin.String, kotlin.String>) {
          _builder.putAllMetadata(map)
@@ -170,7 +169,7 @@ public object ChatKt {
      * `map<string, string> metadata = 3;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("clearMetadata")
+    @JvmName("clearMetadata")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, MetadataProxy>
       .clear() {
          _builder.clearMetadata()
@@ -184,10 +183,10 @@ public object ChatKt {
      * `.chat.chats.public.server.v1.Slowmode slowmode = 4;`
      */
     public var slowmode: com.evemeta.zdk.pb.chat.server.chats.Slowmode
-      @kotlin.jvm.JvmName("getSlowmode")
-        get() = _builder.slowmode
-      @kotlin.jvm.JvmName("setSlowmode")
-        set(value) {
+      @JvmName("getSlowmode")
+      get() = _builder.slowmode
+      @JvmName("setSlowmode")
+      set(value) {
         _builder.slowmode = value
       }
     /**
@@ -223,10 +222,10 @@ public object ChatKt {
      * `int64 create_time = 5;`
      */
     public var createTime: kotlin.Long
-      @kotlin.jvm.JvmName("getCreateTime")
-        get() = _builder.createTime
-      @kotlin.jvm.JvmName("setCreateTime")
-        set(value) {
+      @JvmName("getCreateTime")
+      get() = _builder.createTime
+      @JvmName("setCreateTime")
+      set(value) {
         _builder.createTime = value
       }
     /**
@@ -248,10 +247,10 @@ public object ChatKt {
      * `int64 update_time = 6;`
      */
     public var updateTime: kotlin.Long
-      @kotlin.jvm.JvmName("getUpdateTime")
-        get() = _builder.updateTime
-      @kotlin.jvm.JvmName("setUpdateTime")
-        set(value) {
+      @JvmName("getUpdateTime")
+      get() = _builder.updateTime
+      @JvmName("setUpdateTime")
+      set(value) {
         _builder.updateTime = value
       }
     /**

@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: chat/restrictions/public/server/v1/entities.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.chat.server.restrictions;
@@ -41,10 +40,10 @@ public object RestrictionKt {
      * `string id = 1;`
      */
     public var id: kotlin.String
-      @kotlin.jvm.JvmName("getId")
-        get() = _builder.id
-      @kotlin.jvm.JvmName("setId")
-        set(value) {
+      @JvmName("getId")
+      get() = _builder.id
+      @JvmName("setId")
+      set(value) {
         _builder.id = value
       }
     /**
@@ -62,10 +61,10 @@ public object RestrictionKt {
      * `string user_id = 2;`
      */
     public var userId: kotlin.String
-      @kotlin.jvm.JvmName("getUserId")
-        get() = _builder.userId
-      @kotlin.jvm.JvmName("setUserId")
-        set(value) {
+      @JvmName("getUserId")
+      get() = _builder.userId
+      @JvmName("setUserId")
+      set(value) {
         _builder.userId = value
       }
     /**
@@ -79,10 +78,10 @@ public object RestrictionKt {
      * `string chat_id = 3;`
      */
     public var chatId: kotlin.String
-      @kotlin.jvm.JvmName("getChatId")
-        get() = _builder.chatId
-      @kotlin.jvm.JvmName("setChatId")
-        set(value) {
+      @JvmName("getChatId")
+      get() = _builder.chatId
+      @JvmName("setChatId")
+      set(value) {
         _builder.chatId = value
       }
     /**
@@ -96,17 +95,17 @@ public object RestrictionKt {
      * `.chat.restrictions.public.server.v1.Kind kind = 4;`
      */
     public var kind: com.evemeta.zdk.pb.chat.server.restrictions.Kind
-      @kotlin.jvm.JvmName("getKind")
-        get() = _builder.kind
-      @kotlin.jvm.JvmName("setKind")
-        set(value) {
+      @JvmName("getKind")
+      get() = _builder.kind
+      @JvmName("setKind")
+      set(value) {
         _builder.kind = value
       }
     public var kindValue: kotlin.Int
-      @kotlin.jvm.JvmName("getKindValue")
-        get() = _builder.kindValue
-      @kotlin.jvm.JvmName("setKindValue")
-        set(value) {
+      @JvmName("getKindValue")
+      get() = _builder.kindValue
+      @JvmName("setKindValue")
+      set(value) {
         _builder.kindValue = value
       }
     /**
@@ -120,10 +119,10 @@ public object RestrictionKt {
      * `string reason = 5;`
      */
     public var reason: kotlin.String
-      @kotlin.jvm.JvmName("getReason")
-        get() = _builder.reason
-      @kotlin.jvm.JvmName("setReason")
-        set(value) {
+      @JvmName("getReason")
+      get() = _builder.reason
+      @JvmName("setReason")
+      set(value) {
         _builder.reason = value
       }
     /**
@@ -137,10 +136,10 @@ public object RestrictionKt {
      * `int64 create_time = 6;`
      */
     public var createTime: kotlin.Long
-      @kotlin.jvm.JvmName("getCreateTime")
-        get() = _builder.createTime
-      @kotlin.jvm.JvmName("setCreateTime")
-        set(value) {
+      @JvmName("getCreateTime")
+      get() = _builder.createTime
+      @JvmName("setCreateTime")
+      set(value) {
         _builder.createTime = value
       }
     /**
@@ -154,10 +153,10 @@ public object RestrictionKt {
      * `int64 expire_time = 7;`
      */
     public var expireTime: kotlin.Long
-      @kotlin.jvm.JvmName("getExpireTime")
-        get() = _builder.expireTime
-      @kotlin.jvm.JvmName("setExpireTime")
-        set(value) {
+      @JvmName("getExpireTime")
+      get() = _builder.expireTime
+      @JvmName("setExpireTime")
+      set(value) {
         _builder.expireTime = value
       }
     /**

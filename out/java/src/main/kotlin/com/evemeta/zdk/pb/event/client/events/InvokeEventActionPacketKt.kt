@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: event/events/public/client/v1/packets.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.event.client.events;
@@ -42,10 +41,10 @@ public object InvokeEventActionPacketKt {
      * `string name = 1;`
      */
     public var name: kotlin.String
-      @kotlin.jvm.JvmName("getName")
-        get() = _builder.name
-      @kotlin.jvm.JvmName("setName")
-        set(value) {
+      @JvmName("getName")
+      get() = _builder.name
+      @JvmName("setName")
+      set(value) {
         _builder.name = value
       }
     /**
@@ -74,7 +73,7 @@ public object InvokeEventActionPacketKt {
      */
      public val data: com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, DataProxy>
       @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("getDataMap")
+      @JvmName("getDataMap")
       get() = com.google.protobuf.kotlin.DslMap(
         _builder.dataMap
       )
@@ -85,7 +84,7 @@ public object InvokeEventActionPacketKt {
      *
      * `map<string, string> data = 2;`
      */
-    @kotlin.jvm.JvmName("putData")
+    @JvmName("putData")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, DataProxy>
       .put(key: kotlin.String, value: kotlin.String) {
          _builder.putData(key, value)
@@ -98,7 +97,7 @@ public object InvokeEventActionPacketKt {
      * `map<string, string> data = 2;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("setData")
+    @JvmName("setData")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, DataProxy>
       .set(key: kotlin.String, value: kotlin.String) {
@@ -112,7 +111,7 @@ public object InvokeEventActionPacketKt {
      * `map<string, string> data = 2;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("removeData")
+    @JvmName("removeData")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, DataProxy>
       .remove(key: kotlin.String) {
          _builder.removeData(key)
@@ -125,7 +124,7 @@ public object InvokeEventActionPacketKt {
      * `map<string, string> data = 2;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("putAllData")
+    @JvmName("putAllData")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, DataProxy>
       .putAll(map: kotlin.collections.Map<kotlin.String, kotlin.String>) {
          _builder.putAllData(map)
@@ -138,7 +137,7 @@ public object InvokeEventActionPacketKt {
      * `map<string, string> data = 2;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("clearData")
+    @JvmName("clearData")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, DataProxy>
       .clear() {
          _builder.clearData()

@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package event.keys.private.v1;
+
+import "event/keys/private/v1/procedures.proto";
+
+option go_package = "github.com/evemeta/zdk-pb/out/go/event/keys/private/v1;keyspb";
+
+service Service {
+
+    rpc Count(CountRequest) returns (CountResponse);
+
+    rpc Range(RangeRequest) returns (RangeResponse);
+
+    rpc Select(SelectRequest) returns (SelectResponse);
+
+    rpc Create(CreateRequest) returns (CreateResponse);
+
+    rpc InitiateCreateMutations(CreateTransaction) returns (CreateTransaction);
+
+    rpc ValidateCreateMutations(CreateTransaction) returns (CreateTransaction);
+
+    rpc FinalizeCreateMutations(CreateTransaction) returns (CreateTransaction);
+
+    rpc AnnounceCreateMutations(CreateTransaction) returns (CreateTransaction);
+
+    rpc RollbackCreateMutations(CreateTransaction) returns (CreateTransaction);
+
+    rpc Update(UpdateRequest) returns (UpdateResponse);
+
+    rpc InitiateUpdateMutations(UpdateTransaction) returns (UpdateTransaction);
+
+    rpc ValidateUpdateMutations(UpdateTransaction) returns (UpdateTransaction);
+
+    rpc FinalizeUpdateMutations(UpdateTransaction) returns (UpdateTransaction);
+
+    rpc AnnounceUpdateMutations(UpdateTransaction) returns (UpdateTransaction);
+
+    rpc RollbackUpdateMutations(UpdateTransaction) returns (UpdateTransaction);
+
+    rpc Delete(DeleteRequest) returns (DeleteResponse);
+
+    rpc InitiateDeleteMutations(DeleteTransaction) returns (DeleteTransaction);
+
+    rpc FinalizeDeleteMutations(DeleteTransaction) returns (DeleteTransaction);
+
+    rpc AnnounceDeleteMutations(DeleteTransaction) returns (DeleteTransaction);
+
+    rpc RollbackDeleteMutations(DeleteTransaction) returns (DeleteTransaction);
+}

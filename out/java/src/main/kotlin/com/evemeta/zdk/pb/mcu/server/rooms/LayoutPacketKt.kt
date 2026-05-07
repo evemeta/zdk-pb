@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: mcu/rooms/public/server/v1/packets.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.mcu.server.rooms;
@@ -33,10 +32,10 @@ public object LayoutPacketKt {
      * `.mcu.rooms.public.server.v1.Layout layout = 1;`
      */
     public var layout: com.evemeta.zdk.pb.mcu.server.rooms.Layout
-      @kotlin.jvm.JvmName("getLayout")
-        get() = _builder.layout
-      @kotlin.jvm.JvmName("setLayout")
-        set(value) {
+      @JvmName("getLayout")
+      get() = _builder.layout
+      @JvmName("setLayout")
+      set(value) {
         _builder.layout = value
       }
     /**

@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: chat/messages/public/server/v1/procedures.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.chat.server.messages;
@@ -41,10 +40,10 @@ public object UpdateResponseKt {
      * `.chat.messages.public.server.v1.Message message = 1;`
      */
     public var message: com.evemeta.zdk.pb.chat.server.messages.Message
-      @kotlin.jvm.JvmName("getMessage")
-        get() = _builder.message
-      @kotlin.jvm.JvmName("setMessage")
-        set(value) {
+      @JvmName("getMessage")
+      get() = _builder.message
+      @JvmName("setMessage")
+      set(value) {
         _builder.message = value
       }
     /**

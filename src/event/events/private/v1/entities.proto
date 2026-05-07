@@ -9,24 +9,25 @@ option go_package = "github.com/evemeta/zdk-pb/out/go/event/events/private/v1;ev
 
 message Event {
     string                            id                  = 1;
-    string                            chat_id             = 2;
-    string                            room_id             = 3;
-    string                            user_id             = 4;
-    event.events.private.v1.Kind      kind                = 5;
-    event.events.private.v1.Status    status              = 6;
-    event.events.private.v1.Source    source              = 7;
-    int64                             capacity            = 8;
-    map<string, string>               metadata            = 9;
-    event.events.private.v1.Schedule  schedule            = 10;
-    int64                             retention           = 11;
-    int64                             planned_start_time  = 12;
-    int64                             start_time          = 13;
-    int64                             planned_finish_time = 14;
-    int64                             finish_time         = 15;
-    int64                             cancel_time         = 16;
-    int64                             access_time         = 17;
-    int64                             create_time         = 18;
-    int64                             update_time         = 19;
+    string                            key_id              = 2;
+    string                            chat_id             = 3;
+    string                            room_id             = 4;
+    string                            user_id             = 5;
+    event.events.private.v1.Kind      kind                = 6;
+    event.events.private.v1.Status    status              = 7;
+    event.events.private.v1.Source    source              = 8;
+    int64                             capacity            = 9;
+    map<string, string>               metadata            = 10;
+    event.events.private.v1.Schedule  schedule            = 11;
+    int64                             retention           = 12;
+    int64                             planned_start_time  = 13;
+    int64                             start_time          = 14;
+    int64                             planned_finish_time = 15;
+    int64                             finish_time         = 16;
+    int64                             cancel_time         = 17;
+    int64                             access_time         = 18;
+    int64                             create_time         = 19;
+    int64                             update_time         = 20;
 }
 
 message Source {
@@ -69,13 +70,14 @@ message Query {
 
 message Condition {
     repeated string                           ids       = 1;
-    repeated string                           chat_ids  = 2;
-    repeated string                           room_ids  = 3;
-    repeated string                           user_ids  = 4;
-    repeated event.events.private.v1.Kind     kinds     = 5;
-    repeated event.events.private.v1.Status   statuses  = 6;
-    repeated event.events.private.v1.Schedule schedules = 7;
-    repeated event.members.private.v1.Query   members   = 8;
+    repeated string                           key_ids   = 2;
+    repeated string                           chat_ids  = 3;
+    repeated string                           room_ids  = 4;
+    repeated string                           user_ids  = 5;
+    repeated event.events.private.v1.Kind     kinds     = 6;
+    repeated event.events.private.v1.Status   statuses  = 7;
+    repeated event.events.private.v1.Schedule schedules = 8;
+    repeated event.members.private.v1.Query   members   = 9;
 }
 
 message Transient {

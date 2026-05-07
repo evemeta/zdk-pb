@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: sfu/public/server/v1/entities.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.sfu.server.sfu;
@@ -33,17 +32,17 @@ public object StreamInfoKt {
      * `.sfu.public.server.v1.StreamType type = 1;`
      */
     public var type: com.evemeta.zdk.pb.sfu.server.sfu.StreamType
-      @kotlin.jvm.JvmName("getType")
-        get() = _builder.type
-      @kotlin.jvm.JvmName("setType")
-        set(value) {
+      @JvmName("getType")
+      get() = _builder.type
+      @JvmName("setType")
+      set(value) {
         _builder.type = value
       }
     public var typeValue: kotlin.Int
-      @kotlin.jvm.JvmName("getTypeValue")
-        get() = _builder.typeValue
-      @kotlin.jvm.JvmName("setTypeValue")
-        set(value) {
+      @JvmName("getTypeValue")
+      get() = _builder.typeValue
+      @JvmName("setTypeValue")
+      set(value) {
         _builder.typeValue = value
       }
     /**
@@ -57,10 +56,10 @@ public object StreamInfoKt {
      * `string user_id = 2;`
      */
     public var userId: kotlin.String
-      @kotlin.jvm.JvmName("getUserId")
-        get() = _builder.userId
-      @kotlin.jvm.JvmName("setUserId")
-        set(value) {
+      @JvmName("getUserId")
+      get() = _builder.userId
+      @JvmName("setUserId")
+      set(value) {
         _builder.userId = value
       }
     /**
@@ -74,10 +73,10 @@ public object StreamInfoKt {
      * `string mid = 3;`
      */
     public var mid: kotlin.String
-      @kotlin.jvm.JvmName("getMid")
-        get() = _builder.mid
-      @kotlin.jvm.JvmName("setMid")
-        set(value) {
+      @JvmName("getMid")
+      get() = _builder.mid
+      @JvmName("setMid")
+      set(value) {
         _builder.mid = value
       }
     /**

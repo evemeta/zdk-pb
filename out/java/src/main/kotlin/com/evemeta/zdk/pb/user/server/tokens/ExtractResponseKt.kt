@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: user/tokens/public/server/v1/procedures.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.user.server.tokens;
@@ -33,10 +32,10 @@ public object ExtractResponseKt {
      * `.user.users.public.server.v1.User user = 1;`
      */
     public var user: com.evemeta.zdk.pb.user.server.users.User
-      @kotlin.jvm.JvmName("getUser")
-        get() = _builder.user
-      @kotlin.jvm.JvmName("setUser")
-        set(value) {
+      @JvmName("getUser")
+      get() = _builder.user
+      @JvmName("setUser")
+      set(value) {
         _builder.user = value
       }
     /**

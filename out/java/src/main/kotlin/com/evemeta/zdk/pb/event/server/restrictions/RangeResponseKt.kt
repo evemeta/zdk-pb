@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: event/restrictions/public/server/v1/procedures.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.event.server.restrictions;
@@ -41,10 +40,10 @@ public object RangeResponseKt {
      * `.event.restrictions.public.server.v1.Chunk chunk = 1;`
      */
     public var chunk: com.evemeta.zdk.pb.event.server.restrictions.Chunk
-      @kotlin.jvm.JvmName("getChunk")
-        get() = _builder.chunk
-      @kotlin.jvm.JvmName("setChunk")
-        set(value) {
+      @JvmName("getChunk")
+      get() = _builder.chunk
+      @JvmName("setChunk")
+      set(value) {
         _builder.chunk = value
       }
     /**

@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: chat/chats/public/server/v1/packets.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.chat.server.chats;
@@ -42,10 +41,10 @@ public object EnterChatPacketKt {
      * `.chat.members.public.server.v1.Member member = 1;`
      */
     public var member: com.evemeta.zdk.pb.chat.server.members.Member
-      @kotlin.jvm.JvmName("getMember")
-        get() = _builder.member
-      @kotlin.jvm.JvmName("setMember")
-        set(value) {
+      @JvmName("getMember")
+      get() = _builder.member
+      @JvmName("setMember")
+      set(value) {
         _builder.member = value
       }
     /**
@@ -81,10 +80,10 @@ public object EnterChatPacketKt {
      * `.chat.chats.public.server.v1.Timeframe timeframe = 2;`
      */
     public var timeframe: com.evemeta.zdk.pb.chat.server.chats.Timeframe
-      @kotlin.jvm.JvmName("getTimeframe")
-        get() = _builder.timeframe
-      @kotlin.jvm.JvmName("setTimeframe")
-        set(value) {
+      @JvmName("getTimeframe")
+      get() = _builder.timeframe
+      @JvmName("setTimeframe")
+      set(value) {
         _builder.timeframe = value
       }
     /**

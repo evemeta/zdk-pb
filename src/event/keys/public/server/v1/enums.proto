@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package event.keys.public.server.v1;
+
+option java_multiple_files = true;
+option java_package = "com.evemeta.zdk.pb.event.server.keys";
+option go_package = "github.com/evemeta/zdk-pb/out/go/event/keys/public/server/v1;keyspb";
+
+// Order represents an enumeration that specifies the sort order for data retrieval, particularly in the context of querying.
+enum Order {
+    OrderUnknown    = 0;
+    OrderAscending  = 1;
+    OrderDescending = 2;
+}

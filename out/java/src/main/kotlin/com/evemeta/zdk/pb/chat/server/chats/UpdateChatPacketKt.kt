@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: chat/chats/public/server/v1/packets.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.chat.server.chats;
@@ -42,10 +41,10 @@ public object UpdateChatPacketKt {
      * `string id = 1;`
      */
     public var id: kotlin.String
-      @kotlin.jvm.JvmName("getId")
-        get() = _builder.id
-      @kotlin.jvm.JvmName("setId")
-        set(value) {
+      @JvmName("getId")
+      get() = _builder.id
+      @JvmName("setId")
+      set(value) {
         _builder.id = value
       }
     /**
@@ -67,10 +66,10 @@ public object UpdateChatPacketKt {
      * `optional .chat.chats.public.server.v1.OptionalMap metadata = 2;`
      */
     public var metadata: com.evemeta.zdk.pb.chat.server.chats.OptionalMap
-      @kotlin.jvm.JvmName("getMetadata")
-        get() = _builder.metadata
-      @kotlin.jvm.JvmName("setMetadata")
-        set(value) {
+      @JvmName("getMetadata")
+      get() = _builder.metadata
+      @JvmName("setMetadata")
+      set(value) {
         _builder.metadata = value
       }
     /**
@@ -100,16 +99,94 @@ public object UpdateChatPacketKt {
 
     /**
      * ```
+     * Represents a new or updated slowmode limit associated with the chat. It may be absent if no slowmode limit changes occurred.
+     * ```
+     *
+     * `optional .chat.chats.public.server.v1.OptionalInt64 slowmode_limit = 3;`
+     */
+    public var slowmodeLimit: com.evemeta.zdk.pb.chat.server.chats.OptionalInt64
+      @JvmName("getSlowmodeLimit")
+      get() = _builder.slowmodeLimit
+      @JvmName("setSlowmodeLimit")
+      set(value) {
+        _builder.slowmodeLimit = value
+      }
+    /**
+     * ```
+     * Represents a new or updated slowmode limit associated with the chat. It may be absent if no slowmode limit changes occurred.
+     * ```
+     *
+     * `optional .chat.chats.public.server.v1.OptionalInt64 slowmode_limit = 3;`
+     */
+    public fun clearSlowmodeLimit() {
+      _builder.clearSlowmodeLimit()
+    }
+    /**
+     * ```
+     * Represents a new or updated slowmode limit associated with the chat. It may be absent if no slowmode limit changes occurred.
+     * ```
+     *
+     * `optional .chat.chats.public.server.v1.OptionalInt64 slowmode_limit = 3;`
+     * @return Whether the slowmodeLimit field is set.
+     */
+    public fun hasSlowmodeLimit(): kotlin.Boolean {
+      return _builder.hasSlowmodeLimit()
+    }
+
+    public val UpdateChatPacketKt.Dsl.slowmodeLimitOrNull: com.evemeta.zdk.pb.chat.server.chats.OptionalInt64?
+      get() = _builder.slowmodeLimitOrNull
+
+    /**
+     * ```
+     * Represents a new or updated slowmode window associated with the chat. It may be absent if no slowmode window changes occurred.
+     * ```
+     *
+     * `optional .chat.chats.public.server.v1.OptionalInt64 slowmode_window = 4;`
+     */
+    public var slowmodeWindow: com.evemeta.zdk.pb.chat.server.chats.OptionalInt64
+      @JvmName("getSlowmodeWindow")
+      get() = _builder.slowmodeWindow
+      @JvmName("setSlowmodeWindow")
+      set(value) {
+        _builder.slowmodeWindow = value
+      }
+    /**
+     * ```
+     * Represents a new or updated slowmode window associated with the chat. It may be absent if no slowmode window changes occurred.
+     * ```
+     *
+     * `optional .chat.chats.public.server.v1.OptionalInt64 slowmode_window = 4;`
+     */
+    public fun clearSlowmodeWindow() {
+      _builder.clearSlowmodeWindow()
+    }
+    /**
+     * ```
+     * Represents a new or updated slowmode window associated with the chat. It may be absent if no slowmode window changes occurred.
+     * ```
+     *
+     * `optional .chat.chats.public.server.v1.OptionalInt64 slowmode_window = 4;`
+     * @return Whether the slowmodeWindow field is set.
+     */
+    public fun hasSlowmodeWindow(): kotlin.Boolean {
+      return _builder.hasSlowmodeWindow()
+    }
+
+    public val UpdateChatPacketKt.Dsl.slowmodeWindowOrNull: com.evemeta.zdk.pb.chat.server.chats.OptionalInt64?
+      get() = _builder.slowmodeWindowOrNull
+
+    /**
+     * ```
      * Represents the specific span of time, containing the commence and complete timestamps associated with the event.
      * ```
      *
-     * `.chat.chats.public.server.v1.Timeframe timeframe = 3;`
+     * `.chat.chats.public.server.v1.Timeframe timeframe = 5;`
      */
     public var timeframe: com.evemeta.zdk.pb.chat.server.chats.Timeframe
-      @kotlin.jvm.JvmName("getTimeframe")
-        get() = _builder.timeframe
-      @kotlin.jvm.JvmName("setTimeframe")
-        set(value) {
+      @JvmName("getTimeframe")
+      get() = _builder.timeframe
+      @JvmName("setTimeframe")
+      set(value) {
         _builder.timeframe = value
       }
     /**
@@ -117,7 +194,7 @@ public object UpdateChatPacketKt {
      * Represents the specific span of time, containing the commence and complete timestamps associated with the event.
      * ```
      *
-     * `.chat.chats.public.server.v1.Timeframe timeframe = 3;`
+     * `.chat.chats.public.server.v1.Timeframe timeframe = 5;`
      */
     public fun clearTimeframe() {
       _builder.clearTimeframe()
@@ -127,7 +204,7 @@ public object UpdateChatPacketKt {
      * Represents the specific span of time, containing the commence and complete timestamps associated with the event.
      * ```
      *
-     * `.chat.chats.public.server.v1.Timeframe timeframe = 3;`
+     * `.chat.chats.public.server.v1.Timeframe timeframe = 5;`
      * @return Whether the timeframe field is set.
      */
     public fun hasTimeframe(): kotlin.Boolean {
@@ -144,6 +221,12 @@ public inline fun com.evemeta.zdk.pb.chat.server.chats.UpdateChatPacket.copy(blo
 
 public val com.evemeta.zdk.pb.chat.server.chats.UpdateChatPacketOrBuilder.metadataOrNull: com.evemeta.zdk.pb.chat.server.chats.OptionalMap?
   get() = if (hasMetadata()) getMetadata() else null
+
+public val com.evemeta.zdk.pb.chat.server.chats.UpdateChatPacketOrBuilder.slowmodeLimitOrNull: com.evemeta.zdk.pb.chat.server.chats.OptionalInt64?
+  get() = if (hasSlowmodeLimit()) getSlowmodeLimit() else null
+
+public val com.evemeta.zdk.pb.chat.server.chats.UpdateChatPacketOrBuilder.slowmodeWindowOrNull: com.evemeta.zdk.pb.chat.server.chats.OptionalInt64?
+  get() = if (hasSlowmodeWindow()) getSlowmodeWindow() else null
 
 public val com.evemeta.zdk.pb.chat.server.chats.UpdateChatPacketOrBuilder.timeframeOrNull: com.evemeta.zdk.pb.chat.server.chats.Timeframe?
   get() = if (hasTimeframe()) getTimeframe() else null

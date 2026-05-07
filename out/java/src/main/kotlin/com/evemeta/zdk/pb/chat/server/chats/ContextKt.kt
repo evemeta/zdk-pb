@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: chat/chats/public/server/v1/entities.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.chat.server.chats;
@@ -42,10 +41,10 @@ public object ContextKt {
      * `.chat.chats.public.server.v1.Chat chat = 1;`
      */
     public var chat: com.evemeta.zdk.pb.chat.server.chats.Chat
-      @kotlin.jvm.JvmName("getChat")
-        get() = _builder.chat
-      @kotlin.jvm.JvmName("setChat")
-        set(value) {
+      @JvmName("getChat")
+      get() = _builder.chat
+      @JvmName("setChat")
+      set(value) {
         _builder.chat = value
       }
     /**
@@ -81,10 +80,10 @@ public object ContextKt {
      * `.chat.chats.public.server.v1.Timeframe chat_timeframe = 2;`
      */
     public var chatTimeframe: com.evemeta.zdk.pb.chat.server.chats.Timeframe
-      @kotlin.jvm.JvmName("getChatTimeframe")
-        get() = _builder.chatTimeframe
-      @kotlin.jvm.JvmName("setChatTimeframe")
-        set(value) {
+      @JvmName("getChatTimeframe")
+      get() = _builder.chatTimeframe
+      @JvmName("setChatTimeframe")
+      set(value) {
         _builder.chatTimeframe = value
       }
     /**
@@ -120,10 +119,10 @@ public object ContextKt {
      * `.chat.members.public.server.v1.Member member = 3;`
      */
     public var member: com.evemeta.zdk.pb.chat.server.members.Member
-      @kotlin.jvm.JvmName("getMember")
-        get() = _builder.member
-      @kotlin.jvm.JvmName("setMember")
-        set(value) {
+      @JvmName("getMember")
+      get() = _builder.member
+      @JvmName("setMember")
+      set(value) {
         _builder.member = value
       }
     /**
@@ -159,10 +158,10 @@ public object ContextKt {
      * `.chat.chats.public.server.v1.Timeframe member_timeframe = 4;`
      */
     public var memberTimeframe: com.evemeta.zdk.pb.chat.server.chats.Timeframe
-      @kotlin.jvm.JvmName("getMemberTimeframe")
-        get() = _builder.memberTimeframe
-      @kotlin.jvm.JvmName("setMemberTimeframe")
-        set(value) {
+      @JvmName("getMemberTimeframe")
+      get() = _builder.memberTimeframe
+      @JvmName("setMemberTimeframe")
+      set(value) {
         _builder.memberTimeframe = value
       }
     /**
@@ -198,10 +197,10 @@ public object ContextKt {
      * `int64 members = 5;`
      */
     public var members: kotlin.Long
-      @kotlin.jvm.JvmName("getMembers")
-        get() = _builder.members
-      @kotlin.jvm.JvmName("setMembers")
-        set(value) {
+      @JvmName("getMembers")
+      get() = _builder.members
+      @JvmName("setMembers")
+      set(value) {
         _builder.members = value
       }
     /**
@@ -223,10 +222,10 @@ public object ContextKt {
      * `.chat.chats.public.server.v1.Timeframe members_timeframe = 6;`
      */
     public var membersTimeframe: com.evemeta.zdk.pb.chat.server.chats.Timeframe
-      @kotlin.jvm.JvmName("getMembersTimeframe")
-        get() = _builder.membersTimeframe
-      @kotlin.jvm.JvmName("setMembersTimeframe")
-        set(value) {
+      @JvmName("getMembersTimeframe")
+      get() = _builder.membersTimeframe
+      @JvmName("setMembersTimeframe")
+      set(value) {
         _builder.membersTimeframe = value
       }
     /**
@@ -262,10 +261,10 @@ public object ContextKt {
      * `.chat.messages.public.server.v1.Chunk messages = 7;`
      */
     public var messages: com.evemeta.zdk.pb.chat.server.messages.Chunk
-      @kotlin.jvm.JvmName("getMessages")
-        get() = _builder.messages
-      @kotlin.jvm.JvmName("setMessages")
-        set(value) {
+      @JvmName("getMessages")
+      get() = _builder.messages
+      @JvmName("setMessages")
+      set(value) {
         _builder.messages = value
       }
     /**
@@ -301,10 +300,10 @@ public object ContextKt {
      * `.chat.chats.public.server.v1.Timeframe messages_timeframe = 8;`
      */
     public var messagesTimeframe: com.evemeta.zdk.pb.chat.server.chats.Timeframe
-      @kotlin.jvm.JvmName("getMessagesTimeframe")
-        get() = _builder.messagesTimeframe
-      @kotlin.jvm.JvmName("setMessagesTimeframe")
-        set(value) {
+      @JvmName("getMessagesTimeframe")
+      get() = _builder.messagesTimeframe
+      @JvmName("setMessagesTimeframe")
+      set(value) {
         _builder.messagesTimeframe = value
       }
     /**

@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+import "event/keys/private/v1/enums.proto";
+
+package event.keys.private.v1;
+
+option go_package = "github.com/evemeta/zdk-pb/out/go/event/keys/private/v1;keyspb";
+
+message OptionalMap {
+    map<string, string> value = 1;
+}
+
+message OptionalString {
+    string value = 1;
+}

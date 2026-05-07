@@ -44,8 +44,12 @@ message UpdateChatPacket {
     string id = 1;
     // Represents a new or updated metadata associated with the chat. It may be absent if no metadata changes occurred.
     optional chat.chats.public.server.v1.OptionalMap metadata = 2;
+    // Represents a new or updated slowmode limit associated with the chat. It may be absent if no slowmode limit changes occurred.
+    optional chat.chats.public.server.v1.OptionalInt64 slowmode_limit = 3;
+    // Represents a new or updated slowmode window associated with the chat. It may be absent if no slowmode window changes occurred.
+    optional chat.chats.public.server.v1.OptionalInt64 slowmode_window = 4;
     // Represents the specific span of time, containing the commence and complete timestamps associated with the event.
-    chat.chats.public.server.v1.Timeframe timeframe = 3;
+    chat.chats.public.server.v1.Timeframe timeframe = 5;
 }
 
 // EnableSlowmodePacket is a notification sent to clients when slowmode has been enabled.

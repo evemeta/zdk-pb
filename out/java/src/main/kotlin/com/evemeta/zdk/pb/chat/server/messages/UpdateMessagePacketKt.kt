@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: chat/messages/public/server/v1/packets.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.chat.server.messages;
@@ -42,10 +41,10 @@ public object UpdateMessagePacketKt {
      * `string id = 1;`
      */
     public var id: kotlin.String
-      @kotlin.jvm.JvmName("getId")
-        get() = _builder.id
-      @kotlin.jvm.JvmName("setId")
-        set(value) {
+      @JvmName("getId")
+      get() = _builder.id
+      @JvmName("setId")
+      set(value) {
         _builder.id = value
       }
     /**
@@ -67,10 +66,10 @@ public object UpdateMessagePacketKt {
      * `string chat_id = 2;`
      */
     public var chatId: kotlin.String
-      @kotlin.jvm.JvmName("getChatId")
-        get() = _builder.chatId
-      @kotlin.jvm.JvmName("setChatId")
-        set(value) {
+      @JvmName("getChatId")
+      get() = _builder.chatId
+      @JvmName("setChatId")
+      set(value) {
         _builder.chatId = value
       }
     /**
@@ -92,10 +91,10 @@ public object UpdateMessagePacketKt {
      * `optional .chat.messages.public.server.v1.OptionalString content = 3;`
      */
     public var content: com.evemeta.zdk.pb.chat.server.messages.OptionalString
-      @kotlin.jvm.JvmName("getContent")
-        get() = _builder.content
-      @kotlin.jvm.JvmName("setContent")
-        set(value) {
+      @JvmName("getContent")
+      get() = _builder.content
+      @JvmName("setContent")
+      set(value) {
         _builder.content = value
       }
     /**
@@ -131,10 +130,10 @@ public object UpdateMessagePacketKt {
      * `optional .chat.messages.public.server.v1.OptionalMap metadata = 4;`
      */
     public var metadata: com.evemeta.zdk.pb.chat.server.messages.OptionalMap
-      @kotlin.jvm.JvmName("getMetadata")
-        get() = _builder.metadata
-      @kotlin.jvm.JvmName("setMetadata")
-        set(value) {
+      @JvmName("getMetadata")
+      get() = _builder.metadata
+      @JvmName("setMetadata")
+      set(value) {
         _builder.metadata = value
       }
     /**
@@ -170,10 +169,10 @@ public object UpdateMessagePacketKt {
      * `.chat.messages.public.server.v1.Timeframe timeframe = 5;`
      */
     public var timeframe: com.evemeta.zdk.pb.chat.server.messages.Timeframe
-      @kotlin.jvm.JvmName("getTimeframe")
-        get() = _builder.timeframe
-      @kotlin.jvm.JvmName("setTimeframe")
-        set(value) {
+      @JvmName("getTimeframe")
+      get() = _builder.timeframe
+      @JvmName("setTimeframe")
+      set(value) {
         _builder.timeframe = value
       }
     /**

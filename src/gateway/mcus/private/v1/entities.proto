@@ -25,7 +25,7 @@ message Condition {
     repeated string                         ids       = 1;
     repeated string                         job_ids   = 2;
     repeated string                         room_ids  = 3;
-    repeated gateway.mcus.private.v1.Zone   zones     = 4;
+    repeated string                         nodes     = 4;
     repeated gateway.mcus.private.v1.Status statuses  = 5;
     repeated string                         addresses = 6;
 }
@@ -40,7 +40,7 @@ message Mcu {
     string                         id          = 1;
     string                         job_id      = 2;
     string                         room_id     = 3;
-    gateway.mcus.private.v1.Zone   zone        = 4;
+    string                         node        = 4;
     gateway.mcus.private.v1.Status status      = 5;
     string                         address     = 6;
     int64                          access_time = 7;

@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: event/members/public/server/v1/entities.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.event.server.members;
@@ -49,7 +48,7 @@ public object ConditionKt {
      * @return A list containing the ids.
      */
     public val ids: com.google.protobuf.kotlin.DslList<kotlin.String, IdsProxy>
-    @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
+      @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.idsList
       )
@@ -62,7 +61,7 @@ public object ConditionKt {
      * @param value The ids to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("addIds")
+    @kotlin.jvm.JvmName("addIds")
     public fun com.google.protobuf.kotlin.DslList<kotlin.String, IdsProxy>.add(value: kotlin.String) {
       _builder.addIds(value)
     }
@@ -75,7 +74,7 @@ public object ConditionKt {
      * @param value The ids to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("plusAssignIds")
+    @kotlin.jvm.JvmName("plusAssignIds")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, IdsProxy>.plusAssign(value: kotlin.String) {
       add(value)
@@ -89,7 +88,7 @@ public object ConditionKt {
      * @param values The ids to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("addAllIds")
+    @kotlin.jvm.JvmName("addAllIds")
     public fun com.google.protobuf.kotlin.DslList<kotlin.String, IdsProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
       _builder.addAllIds(values)
     }
@@ -102,7 +101,7 @@ public object ConditionKt {
      * @param values The ids to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("plusAssignAllIds")
+    @kotlin.jvm.JvmName("plusAssignAllIds")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, IdsProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
       addAll(values)
@@ -117,7 +116,7 @@ public object ConditionKt {
      * @param value The ids to set.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("setIds")
+    @kotlin.jvm.JvmName("setIds")
     public operator fun com.google.protobuf.kotlin.DslList<kotlin.String, IdsProxy>.set(index: kotlin.Int, value: kotlin.String) {
       _builder.setIds(index, value)
     }/**
@@ -128,7 +127,7 @@ public object ConditionKt {
      * `repeated string ids = 1;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("setIds")
+    @kotlin.jvm.JvmName("clearIds")
     public fun com.google.protobuf.kotlin.DslList<kotlin.String, IdsProxy>.clear() {
       _builder.clearIds()
     }
@@ -147,7 +146,7 @@ public object ConditionKt {
      * @return A list containing the eventIds.
      */
     public val eventIds: com.google.protobuf.kotlin.DslList<kotlin.String, EventIdsProxy>
-    @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
+      @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.eventIdsList
       )
@@ -160,7 +159,7 @@ public object ConditionKt {
      * @param value The eventIds to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("addEventIds")
+    @kotlin.jvm.JvmName("addEventIds")
     public fun com.google.protobuf.kotlin.DslList<kotlin.String, EventIdsProxy>.add(value: kotlin.String) {
       _builder.addEventIds(value)
     }
@@ -173,7 +172,7 @@ public object ConditionKt {
      * @param value The eventIds to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("plusAssignEventIds")
+    @kotlin.jvm.JvmName("plusAssignEventIds")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, EventIdsProxy>.plusAssign(value: kotlin.String) {
       add(value)
@@ -187,7 +186,7 @@ public object ConditionKt {
      * @param values The eventIds to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("addAllEventIds")
+    @kotlin.jvm.JvmName("addAllEventIds")
     public fun com.google.protobuf.kotlin.DslList<kotlin.String, EventIdsProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
       _builder.addAllEventIds(values)
     }
@@ -200,7 +199,7 @@ public object ConditionKt {
      * @param values The eventIds to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("plusAssignAllEventIds")
+    @kotlin.jvm.JvmName("plusAssignAllEventIds")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, EventIdsProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
       addAll(values)
@@ -215,7 +214,7 @@ public object ConditionKt {
      * @param value The eventIds to set.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("setEventIds")
+    @kotlin.jvm.JvmName("setEventIds")
     public operator fun com.google.protobuf.kotlin.DslList<kotlin.String, EventIdsProxy>.set(index: kotlin.Int, value: kotlin.String) {
       _builder.setEventIds(index, value)
     }/**
@@ -226,7 +225,7 @@ public object ConditionKt {
      * `repeated string event_ids = 2;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("setEventIds")
+    @kotlin.jvm.JvmName("clearEventIds")
     public fun com.google.protobuf.kotlin.DslList<kotlin.String, EventIdsProxy>.clear() {
       _builder.clearEventIds()
     }
@@ -243,9 +242,9 @@ public object ConditionKt {
      *
      * `repeated .event.members.public.server.v1.Status statuses = 3;`
      */
-     public val statuses: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.members.Status, StatusesProxy>
+    public val statuses: com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.members.Status, StatusesProxy>
       @kotlin.jvm.JvmSynthetic
-  get() = com.google.protobuf.kotlin.DslList(
+      get() = com.google.protobuf.kotlin.DslList(
         _builder.statusesList
       )
     /**
@@ -257,7 +256,7 @@ public object ConditionKt {
      * @param value The statuses to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("addStatuses")
+    @kotlin.jvm.JvmName("addStatuses")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.members.Status, StatusesProxy>.add(value: com.evemeta.zdk.pb.event.server.members.Status) {
       _builder.addStatuses(value)
     }/**
@@ -269,7 +268,7 @@ public object ConditionKt {
      * @param value The statuses to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("plusAssignStatuses")
+    @kotlin.jvm.JvmName("plusAssignStatuses")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.members.Status, StatusesProxy>.plusAssign(value: com.evemeta.zdk.pb.event.server.members.Status) {
       add(value)
@@ -282,7 +281,7 @@ public object ConditionKt {
      * @param values The statuses to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("addAllStatuses")
+    @kotlin.jvm.JvmName("addAllStatuses")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.members.Status, StatusesProxy>.addAll(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.event.server.members.Status>) {
       _builder.addAllStatuses(values)
     }/**
@@ -294,7 +293,7 @@ public object ConditionKt {
      * @param values The statuses to add.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("plusAssignAllStatuses")
+    @kotlin.jvm.JvmName("plusAssignAllStatuses")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.members.Status, StatusesProxy>.plusAssign(values: kotlin.collections.Iterable<com.evemeta.zdk.pb.event.server.members.Status>) {
       addAll(values)
@@ -308,7 +307,7 @@ public object ConditionKt {
      * @param value The statuses to set.
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("setStatuses")
+    @kotlin.jvm.JvmName("setStatuses")
     public operator fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.members.Status, StatusesProxy>.set(index: kotlin.Int, value: com.evemeta.zdk.pb.event.server.members.Status) {
       _builder.setStatuses(index, value)
     }/**
@@ -319,7 +318,7 @@ public object ConditionKt {
      * `repeated .event.members.public.server.v1.Status statuses = 3;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("clearStatuses")
+    @kotlin.jvm.JvmName("clearStatuses")
     public fun com.google.protobuf.kotlin.DslList<com.evemeta.zdk.pb.event.server.members.Status, StatusesProxy>.clear() {
       _builder.clearStatuses()
     }}

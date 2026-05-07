@@ -11,8 +11,3 @@ message OptionalMap {
 message OptionalInt64 {
     int64 value = 1;
 }
-
-message OptionalSlowmode {
-    optional chat.chats.private.v1.OptionalInt64 limit = 1;
-    optional chat.chats.private.v1.OptionalInt64 window = 2;
-}

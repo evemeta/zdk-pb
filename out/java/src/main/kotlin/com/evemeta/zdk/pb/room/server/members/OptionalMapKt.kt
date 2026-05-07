@@ -2,7 +2,6 @@
 // NO CHECKED-IN PROTOBUF GENCODE
 // source: room/members/public/server/v1/optionals.proto
 
-@file:com.google.protobuf.Generated
 // Generated files should ignore deprecation warnings
 @file:Suppress("DEPRECATION")
 package com.evemeta.zdk.pb.room.server.members;
@@ -45,14 +44,14 @@ public object OptionalMapKt {
      */
      public val value: com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, ValueProxy>
       @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("getValueMap")
+      @JvmName("getValueMap")
       get() = com.google.protobuf.kotlin.DslMap(
         _builder.valueMap
       )
     /**
      * `map<string, string> value = 1;`
      */
-    @kotlin.jvm.JvmName("putValue")
+    @JvmName("putValue")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, ValueProxy>
       .put(key: kotlin.String, value: kotlin.String) {
          _builder.putValue(key, value)
@@ -61,7 +60,7 @@ public object OptionalMapKt {
      * `map<string, string> value = 1;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("setValue")
+    @JvmName("setValue")
     @Suppress("NOTHING_TO_INLINE")
     public inline operator fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, ValueProxy>
       .set(key: kotlin.String, value: kotlin.String) {
@@ -71,7 +70,7 @@ public object OptionalMapKt {
      * `map<string, string> value = 1;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("removeValue")
+    @JvmName("removeValue")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, ValueProxy>
       .remove(key: kotlin.String) {
          _builder.removeValue(key)
@@ -80,7 +79,7 @@ public object OptionalMapKt {
      * `map<string, string> value = 1;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("putAllValue")
+    @JvmName("putAllValue")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, ValueProxy>
       .putAll(map: kotlin.collections.Map<kotlin.String, kotlin.String>) {
          _builder.putAllValue(map)
@@ -89,7 +88,7 @@ public object OptionalMapKt {
      * `map<string, string> value = 1;`
      */
     @kotlin.jvm.JvmSynthetic
-@kotlin.jvm.JvmName("clearValue")
+    @JvmName("clearValue")
     public fun com.google.protobuf.kotlin.DslMap<kotlin.String, kotlin.String, ValueProxy>
       .clear() {
          _builder.clearValue()
